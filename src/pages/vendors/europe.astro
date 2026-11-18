@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VendorCard from '../../components/VendorCard.astro';
+import { VENDORS } from '../../data/vendors';
+
+const euVendors = VENDORS.filter((v) => v.region === 'EU');
+---
+
+<BaseLayout
+  title="Best EU Domestic Peptide Vendors 2026: Janoshik & Liquilabs Verified"
+  description="Independent 2026 ranking of European research peptide suppliers shipping intra-EU (Romania, Slovakia, Poland, Netherlands) with zero customs risk and Janoshik COAs."
+>
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+    <div class="max-w-3xl space-y-3">
+      <nav class="text-xs font-mono text-slate-400">
+        <a href="/" class="hover:text-cyan-400">Home</a> / <a href="/vendors/" class="hover:text-cyan-400">Vendors</a> / <span class="text-slate-200">Europe Domestic</span>
+      </nav>
+      <h1 class="text-3xl sm:text-5xl font-black text-white">
+        🇪🇺 Best European Peptide Vendors (2026 Intra-EU Audit)
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        Shipping within the European Union customs territory (Romania, Slovakia, Poland, Netherlands) prevents border seizures in Germany, France, Austria, and Benelux. Compare suppliers with verified Janoshik Analytical and Liquilabs batch reports.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
+      {euVendors.map((vendor) => (
+        <VendorCard vendor={vendor} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

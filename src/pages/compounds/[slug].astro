@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { COMPOUNDS, type CompoundSpec } from '../../data/compounds';
+import { getVendorBySlug } from '../../data/vendors';
+import { resolveVendorLink } from '../../data/affiliates';
+import { getComputedBatches } from '../../data/batches';
+
+export function getStaticPaths() {
+  return COMPOUNDS.map((compound) => ({
+    params: { slug: compound.slug },
+    props: { compound },
+  }));
+}
+
+interface Props {
+  compound: CompoundSpec;
+}
+
+const { compound } = Astro.props;
+const euVendor = getVendorBySlug(compound.topEuVendorSlug);
+const usVendor = getVendorBySlug(compound.topUsVendorSlug);
+const euLink = resolveVendorLink(compound.topEuVendorSlug);
+const usLink = resolveVendorLink(compound.topUsVendorSlug);
+const matchingBatches = getComputedBatches().filter((b) => b.compoundSlug === compound.slug);
+---
+
+<BaseLayout
+  title={`${compound.name}: LC-MS Weight (${compound.molecularWeightDa}), COA Specs & Verified Labs`}
+  description={`${compound.name} (CAS ${compound.casNumber}) analytical monograph: ${compound.molecularWeightDa}, code names (${compound.codeNameAliases.slice(0, 3).join(', ')}), reconstitution math & top US/EU labs.`}
+>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
+    <nav class="text-xs font-mono text-slate-400">
+      <a href="/" class="hover:text-cyan-400">Home</a> / <a href="/compounds/" class="hover:text-cyan-400">Compounds</a> / <span class="text-slate-200">{compound.name}</span>
+    </nav>
+
+    <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-5">
+      <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+        <span class="px-2.5 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">{compound.category}</span>
+        <span class="px-2.5 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-800">CAS: {compound.casNumber}</span>
+        <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Mass: {compound.molecularWeightDa}</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-black text-white">{compound.name}</h1>
+      <p class="text-base text-slate-200 leading-relaxed">{compound.summary}</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs font-mono">
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+          <span class="text-slate-400 block uppercase text-[10px]">Chemical Class / Sequence</span>
+          <span class="text-slate-100 font-semibold">{compound.formulaOrClass}</span>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+          <span class="text-slate-400 block uppercase text-[10px]">Known Storefront Code Aliases</span>
+          <span class="text-amber-300 font-semibold">{compound.codeNameAliases.join(' · ')}</span>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/30 text-sm text-slate-200">
+        <strong class="text-cyan-300 font-mono">🔬 COA Analytical Verification Note:</strong> {compound.analyticalNotes}
+      </div>
+
+      <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div>
+          <strong class="text-white">Standard Volumetric Reference:</strong> {compound.standardReconstitution}
+        </div>
+        <a href="/calculator/" class="text-cyan-400 hover:underline font-bold">Open U-100 Calculator &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Top Audited Domestic Suppliers (EU + US) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {euVendor && (
+        <div class="glass-card rounded-2xl p-6 border border-cyan-500/30 space-y-4">
+          <div class="text-xs font-mono text-cyan-400 font-bold uppercase">🇪🇺 Top Verified EU Domestic Lab</div>
+          <div class="flex justify-between items-center">
+            <h2 class="text-2xl font-extrabold text-white">{euVendor.name}</h2>
+            <span class="font-mono text-emerald-400 font-bold">★ {euVendor.overallScore.toFixed(1)}/5.0</span>
+          </div>
+          <p class="text-xs text-slate-300">{euVendor.puritySummary} · {euVendor.dispatchSummary}</p>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-800 font-mono text-xs">
+            {euLink.promoCode && (
+              <button type="button" data-copy-code={euLink.promoCode} class="px-2.5 py-1 rounded bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 cursor-pointer">
+                Code: {euLink.promoCode} (-{euLink.discountPercent}%)
+              </button>
+            )}
+            <a href={euLink.href} rel={euLink.rel} target="_blank" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold">
+              Visit {euVendor.name} &rarr;
+            </a>
+          </div>
+        </div>
+      )}
+
+      {usVendor && (
+        <div class="glass-card rounded-2xl p-6 border border-emerald-500/30 space-y-4">
+          <div class="text-xs font-mono text-emerald-400 font-bold uppercase">🇺🇸 Top Verified US Domestic Lab</div>
+          <div class="flex justify-between items-center">
+            <h2 class="text-2xl font-extrabold text-white">{usVendor.name}</h2>
+            <span class="font-mono text-emerald-400 font-bold">★ {usVendor.overallScore.toFixed(1)}/5.0</span>
+          </div>
+          <p class="text-xs text-slate-300">{usVendor.puritySummary} · {usVendor.dispatchSummary}</p>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-800 font-mono text-xs">
+            {usLink.promoCode && (
+              <button type="button" data-copy-code={usLink.promoCode} class="px-2.5 py-1 rounded bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 cursor-pointer">
+                Code: {usLink.promoCode} (-{usLink.discountPercent}%)
+              </button>
+            )}
+            <a href={usLink.href} rel={usLink.rel} target="_blank" class="px-4 py-2 rounded-lg bg-emerald-400 text-slate-950 font-bold">
+              Visit {usVendor.name} &rarr;
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+
+    {matchingBatches.length > 0 && (
+      <div class="glass-card rounded-2xl p-6 space-y-4">
+        <h2 class="text-xl font-extrabold text-white">True $/mg &amp; €/mg Audited Batches for {compound.name}</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead>
+              <tr class="border-b border-slate-800 text-slate-400">
+                <th class="py-2">Supplier</th>
+                <th class="py-2">Label &rarr; COA mg</th>
+                <th class="py-2">Lab &amp; Purity</th>
+                <th class="py-2">True Price/mg</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/70">
+              {matchingBatches.map((b) => (
+                <tr>
+                  <td class="py-2.5 font-bold text-white"><a href={`/vendors/${b.vendorSlug}/`} class="hover:text-cyan-400">{b.vendorName}</a></td>
+                  <td class="py-2.5 text-slate-300">{b.labelMg} mg &rarr; {b.measuredMg} mg ({b.variancePercent >= 0 ? '+' : ''}{b.variancePercent}%)</td>
+                  <td class="py-2.5 text-cyan-300">{b.purityPercent}% · {b.labName}</td>
+                  <td class="py-2.5 text-emerald-400 font-bold">{b.currency === 'USD' ? '$' : '€'}{b.trueMeasuredCostPerMg.toFixed(2)}/mg</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    )}
+  </article>
+</BaseLayout>

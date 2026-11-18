@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReconstitutionCalculator from '../components/ReconstitutionCalculator.astro';
+import PriceIndexWidget from '../components/PriceIndexWidget.astro';
+import VendorCard from '../components/VendorCard.astro';
+import { VENDORS, getVendorBySlug } from '../data/vendors';
+import { COMPOUNDS } from '../data/compounds';
+import { RESEARCH_ARTICLES } from '../data/labs';
+import { SITE_BRAND } from '../data/affiliates';
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_BRAND.name,
+  url: SITE_BRAND.url,
+  description:
+    'Independent research peptide vendor COA audit scorecard, true $/mg price index, batch fill-variance tracker, and dual-peptide reconstitution calculator.',
+};
+---
+
+<BaseLayout
+  title="PeptideLabIndex: Independent Peptide Vendor COA Audits & True $/mg Index (2026)"
+  description="Verify third-party HPLC/LC-MS COAs, batch fill weights (mg), and true $/mg pricing across 22 US & EU research peptide suppliers. Includes U-100 blend calculator."
+  jsonLd={websiteSchema}
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden border-b border-slate-800/80 pt-14 pb-16 sm:pt-20 sm:pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono">
+          <span>🛡️ Independent COA &amp; Net-Mass Audit</span>
+          <span class="text-slate-600">•</span>
+          <span>Updated {SITE_BRAND.updatedLabel}</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.08]">
+          Audit the Chromatogram.<br />
+          <span class="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+            Verify True Milligrams.
+          </span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+          A 99.5% HPLC purity badge means nothing if a 10 mg vial holds 6.08 mg of peptide. We verify whether every supplier’s COA resolves on an independent lab portal (Janoshik, Liquilabs, Kovera, ILS), track real batch fill weights, and benchmark true <strong>$/mg</strong> &amp; <strong>€/mg</strong> cost.
+        </p>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a
+            href="#scorecard"
+            class="px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-mono font-bold text-sm hover:opacity-95 transition-opacity"
+          >
+            Explore Audited Suppliers &rarr;
+          </a>
+          <a
+            href="#calculator"
+            class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-100 font-mono font-semibold text-sm hover:border-cyan-400 transition-colors"
+          >
+            Use Blend &amp; U-100 Calculator 🧮
+          </a>
+          <a
+            href="/batch-tracker/"
+            class="px-5 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 font-mono text-sm hover:border-emerald-500/50 transition-colors"
+          >
+            Check Underfill Alerts 📊
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 Key Audit Metrics -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+        {[
+          { kpi: '22', label: 'US & EU Vendors Audited', sub: 'Portal-checked against 7 labs' },
+          { kpi: '22/22', label: 'Reviews Listing Weaknesses', sub: 'Underfills & missing panels exposed' },
+          { kpi: '-39% to +34%', label: 'Measured Vial Fill Spread', sub: 'Tracked in our COA Batch Index' },
+          { kpi: '0', label: 'Paid Score Overrides', sub: '6-axis formula is strictly algorithmic' },
+        ].map((item) => (
+          <div class="glass-card rounded-2xl p-5">
+            <div class="text-2xl sm:text-3xl font-black font-mono text-cyan-400">{item.kpi}</div>
+            <div class="text-sm font-bold text-white mt-1">{item.label}</div>
+            <div class="text-xs text-slate-400 mt-0.5">{item.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Reconstitution & Blend Calculator -->
+  <div id="calculator" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14">
+    <ReconstitutionCalculator />
+  </div>
+
+  <!-- True $/mg & €/mg Price Index -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14">
+    <PriceIndexWidget limit={12} />
+    <div class="mt-4 text-right">
+      <a href="/price-index/" class="text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300">
+        Open Full 20-Batch True $/mg &amp; €/mg Index &rarr;
+      </a>
+    </div>
+  </div>
+
+  <!-- Region-Smart Vendor Scorecard -->
+  <section id="scorecard" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+    <div class="flex flex-wrap items-end justify-between gap-4 pb-6 border-b border-slate-800">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-widest text-cyan-400 font-bold">
+          🌍 Region-Smart Customs Avoidance
+        </span>
+        <h2 class="text-3xl font-black text-white mt-1">
+          2026 Lab-Verified Peptide Suppliers
+        </h2>
+        <p class="text-sm text-slate-400 mt-1 max-w-2xl">
+          Filter by domestic warehouse region to avoid border seizures and import VAT. Ranked algorithmically across Lab Verification (30%), Fill Accuracy (20%), Panel Depth (20%), Entity Transparency (15%), Dispatch (10%), and True $/mg (5%).
+        </p>
+      </div>
+
+      <!-- Region Filter Pills -->
+      <div class="inline-flex rounded-xl bg-slate-950 p-1 border border-slate-800 font-mono text-xs">
+        <button
+          type="button"
+          data-home-region="ALL"
+          class="px-3.5 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold cursor-pointer"
+        >
+          All (22)
+        </button>
+        <button
+          type="button"
+          data-home-region="US"
+          class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white cursor-pointer"
+        >
+          🇺🇸 US Domestic
+        </button>
+        <button
+          type="button"
+          data-home-region="EU"
+          class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white cursor-pointer"
+        >
+          🇪🇺 EU Domestic (No Customs)
+        </button>
+      </div>
+    </div>
+
+    <div id="home-vendor-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+      {VENDORS.slice(0, 14).map((vendor) => (
+        <VendorCard vendor={vendor} />
+      ))}
+    </div>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a
+        href="/vendors/"
+        class="px-6 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-sm font-mono font-bold text-white transition-colors"
+      >
+        View All 22 Audited Suppliers (Including Failing Red-Flag Shops) &rarr;
+      </a>
+      <a
+        href="/vendors/peptide-sciences/"
+        class="px-6 py-3 rounded-xl bg-slate-950 border border-amber-500/30 hover:border-amber-400 text-sm font-mono text-amber-300 transition-colors"
+      >
+        ⚠️ Looking for Peptide Sciences? Read 2026 Shutdown Report &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Molecular Compound Database Preview -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+    <div class="flex flex-wrap items-end justify-between gap-4 pb-6 border-b border-slate-800">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-widest text-emerald-400 font-bold">
+          🧬 Analytical Reference Monographs
+        </span>
+        <h2 class="text-3xl font-black text-white mt-1">
+          Molecular Research &amp; Code-Name Index
+        </h2>
+        <p class="text-sm text-slate-400 mt-1">
+          CAS numbers, LC-MS molecular weights (Da), vendor shorthand mappings (RT-3, GLP-3, SR-3RT), and top verified domestic labs.
+        </p>
+      </div>
+      <a href="/compounds/" class="text-xs font-mono font-bold text-cyan-400 hover:text-cyan-300">
+        Browse All {COMPOUNDS.length} Compound Monographs &rarr;
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+      {COMPOUNDS.slice(0, 12).map((c) => {
+        const euVendor = getVendorBySlug(c.topEuVendorSlug);
+        const usVendor = getVendorBySlug(c.topUsVendorSlug);
+        return (
+          <div class="glass-card rounded-2xl p-5 flex flex-col justify-between gap-4 hover:border-cyan-500/40 transition-colors">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between gap-2 text-[11px] font-mono">
+                <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                  {c.category}
+                </span>
+                <span class="text-emerald-400">{c.molecularWeightDa}</span>
+              </div>
+              <h3 class="text-lg font-extrabold text-white">
+                <a href={`/compounds/${c.slug}/`} class="hover:text-cyan-400">{c.name}</a>
+              </h3>
+              <p class="text-xs text-slate-400 leading-relaxed">{c.summary}</p>
+              {c.codeNameAliases.length > 0 && (
+                <div class="text-[11px] font-mono text-amber-300/90">
+                  Aliases: {c.codeNameAliases.slice(0, 4).join(' · ')}
+                </div>
+              )}
+            </div>
+            <div class="pt-3 border-t border-slate-800/80 text-xs font-mono space-y-1">
+              <div class="text-slate-400 truncate">
+                <strong class="text-slate-200">Reconstitution:</strong> {c.standardReconstitution}
+              </div>
+              <div class="flex justify-between pt-1">
+                <span>
+                  🇪🇺 <a href={`/vendors/${c.topEuVendorSlug}/`} class="text-cyan-400 hover:underline">{euVendor?.name}</a>
+                </span>
+                <span>
+                  🇺🇸 <a href={`/vendors/${c.topUsVendorSlug}/`} class="text-emerald-400 hover:underline">{usVendor?.name}</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Latest Research & Verification Guides -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+    <div class="pb-6 border-b border-slate-800 flex items-end justify-between">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-widest text-cyan-400 font-bold">📑 Lab Intelligence</span>
+        <h2 class="text-3xl font-black text-white mt-1">Latest COA Audits &amp; Verification Guides</h2>
+      </div>
+      <a href="/research/" class="text-xs font-mono font-bold text-cyan-400 hover:text-cyan-300">All Guides &rarr;</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+      {RESEARCH_ARTICLES.map((art) => (
+        <a
+          href={`/research/${art.slug}/`}
+          class="glass-card rounded-2xl p-6 hover:border-cyan-400/50 transition-all block space-y-3"
+        >
+          <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+            <span class="text-cyan-400 font-semibold">{art.category}</span>
+            <span>{art.publishedDate} · {art.readTime}</span>
+          </div>
+          <h3 class="text-lg font-bold text-white">{art.title}</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">{art.excerpt}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('[data-home-region]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const reg = btn.getAttribute('data-home-region') || 'ALL';
+        document.querySelectorAll('[data-home-region]').forEach((b) => {
+          b.className = 'px-3.5 py-2 rounded-lg text-slate-300 hover:text-white cursor-pointer';
+        });
+        btn.className = 'px-3.5 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold cursor-pointer';
+
+        document.querySelectorAll('#home-vendor-grid [data-vendor-region]').forEach((card) => {
+          const cReg = card.getAttribute('data-vendor-region');
+          (card as HTMLElement).style.display = reg === 'ALL' || cReg === reg ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</BaseLayout>

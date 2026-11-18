@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="6-Axis COA Audit Methodology | PeptideLabIndex"
+  description="How PeptideLabIndex calculates algorithmic vendor scores: Lab Portal Verification (30%), Net Fill Accuracy (20%), Panel Depth (20%), Entity Transparency (15%), Dispatch (10%), Value (5%)."
+>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
+    <h1 class="text-3xl sm:text-5xl font-black text-white">6-Axis COA Audit Methodology</h1>
+    <p class="text-base text-slate-300 leading-relaxed">
+      Every supplier on PeptideLabIndex is graded using a transparent, non-negotiable weighted formula. Affiliate relationships and discount codes never alter a vendor’s score.
+    </p>
+
+    <div class="space-y-4">
+      {[
+        { w: '30%', title: '1. Independent Lab Portal Verification', body: 'Certificates only receive full credit when hosted on or cryptographically verifiable at an independent third-party laboratory (Janoshik, Liquilabs, Kovera, ILS, Freedom Diagnostics).' },
+        { w: '20%', title: '2. Quantitative Net Fill Accuracy (mg)', body: 'HPLC area-% purity ignores mannitol excipient ratios. We score whether COAs report actual milligram peptide content and penalize batch underfills or extreme variance.' },
+        { w: '20%', title: '3. Safety Panel Depth', body: 'Full marks require LC-MS molecular mass confirmation plus USP <85> / Ph. Eur. bacterial endotoxins, sterility / TAMC-TYMC microbiology, elemental heavy metals, or contaminant screens.' },
+        { w: '15%', title: '4. Corporate Entity Transparency', body: 'We cross-check stated company names against state and national commercial registries (US Secretary of State, Dutch KvK, Polish KRS, Slovak ORSR, UK Companies House).' },
+        { w: '10%', title: '5. Domestic Dispatch & Customs Reliability', body: 'Evaluates domestic fulfillment speed and customs-free regional routing for US and EU laboratories.' },
+        { w: '5%', title: '6. True $/mg Measured Value', body: 'Compares net post-code cost divided by COA-measured milligrams.' },
+      ].map((m) => (
+        <div class="glass-card rounded-2xl p-6 flex gap-4 items-start">
+          <span class="px-3 py-1.5 rounded-xl bg-cyan-500/15 border border-cyan-500/30 font-mono text-cyan-300 font-black text-sm shrink-0">{m.w}</span>
+          <div>
+            <h2 class="text-lg font-extrabold text-white">{m.title}</h2>
+            <p class="text-sm text-slate-300 mt-1 leading-relaxed">{m.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getComputedBatches } from '../data/batches';
+
+const batches = getComputedBatches().sort((a, b) => a.variancePercent - b.variancePercent);
+---
+
+<BaseLayout
+  title="COA Batch Fill-Variance & Underfill Tracker (2026 Peptide Lab Audit)"
+  description="Track real lyophilized fill variance (-39.2% underfill to +21.4% overfill), endotoxin, sterility, and heavy-metal panel completeness across 20 audited batches."
+>
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
+    <div class="max-w-3xl space-y-3">
+      <nav class="text-xs font-mono text-slate-400">
+        <a href="/" class="hover:text-cyan-400">Home</a> / <span class="text-slate-200">COA Batch &amp; Fill Tracker</span>
+      </nav>
+      <h1 class="text-3xl sm:text-5xl font-black text-white">
+        COA Fill-Variance &amp; Red-Flag Tracker
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        Sorted from worst underfill to highest overfill so researchers can immediately spot quantitative mass deviations and inspect full 6-panel testing depth (HPLC, LC-MS, Endotoxin, Sterility, Heavy Metals, Contaminant Screen).
+      </p>
+    </div>
+
+    <!-- Interactive Red-Flag Pre-Purchase Checklist -->
+    <div class="glass-card rounded-2xl p-6 border border-rose-500/30 space-y-4">
+      <h2 class="text-lg font-extrabold text-white">🚨 5-Point COA Red-Flag Scanner (Check Before Ordering)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs font-mono">
+        {[
+          { title: '1. Missing Lab Portal Key', desc: 'PDF has no Janoshik task key, Liquilabs URL, or ILS QR token.' },
+          { title: '2. Purity % Without mg', desc: 'Shows "99.5% pure" but omits net peptide mass in milligrams.' },
+          { title: '3. Upstream Raw Batch', desc: 'Tests raw bulk powder in China rather than finished bottled vials.' },
+          { title: '4. Pre-Dissolved Pens', desc: 'Liquid cartridges shipped warm without stability degradation assays.' },
+          { title: '5. Shared / Stale Lots', desc: 'Identical lot code reused across multiple products or >9 months old.' },
+        ].map((item) => (
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+            <div class="text-rose-400 font-bold">{item.title}</div>
+            <div class="text-slate-400 leading-relaxed font-sans">{item.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Batch Matrix Table -->
+    <div class="glass-card rounded-2xl p-6 overflow-x-auto">
+      <table class="w-full text-left text-xs font-mono">
+        <thead>
+          <tr class="border-b border-slate-800 text-slate-400 uppercase text-[11px]">
+            <th class="py-3 pr-4">Batch &amp; Vendor</th>
+            <th class="py-3 px-3">Label &rarr; Measured</th>
+            <th class="py-3 px-3">Fill Variance</th>
+            <th class="py-3 px-3">HPLC</th>
+            <th class="py-3 px-3">6-Panel Matrix (HPLC / MS / Endo / Ster / Met / Fent)</th>
+            <th class="py-3 pl-3 text-right">Audit</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800/70">
+          {batches.map((b) => {
+            const badgeCls =
+              b.variancePercent <= -10
+                ? 'bg-rose-500/20 text-rose-300 border-rose-500/40'
+                : b.variancePercent < 0
+                  ? 'bg-amber-500/15 text-amber-300 border-amber-500/40'
+                  : 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40';
+            return (
+              <tr class="hover:bg-slate-900/50">
+                <td class="py-3.5 pr-4">
+                  <span class="font-sans font-bold text-white block">{b.compoundName}</span>
+                  <span class="text-slate-400">{b.vendorName} · {b.batchRef}</span>
+                </td>
+                <td class="py-3.5 px-3 text-slate-200">
+                  {b.labelMg} mg &rarr; <strong>{b.measuredMg} mg</strong>
+                </td>
+                <td class="py-3.5 px-3">
+                  <span class={`px-2 py-0.5 rounded border font-bold ${badgeCls}`}>
+                    {b.variancePercent >= 0 ? '+' : ''}{b.variancePercent}%
+                  </span>
+                </td>
+                <td class="py-3.5 px-3 text-cyan-300 font-bold">{b.purityPercent}%</td>
+                <td class="py-3.5 px-3 space-x-1">
+                  {[
+                    ['HPLC', b.panels.hplc],
+                    ['MS', b.panels.lcms],
+                    ['ENDO', b.panels.endotoxin],
+                    ['STER', b.panels.sterility],
+                    ['MET', b.panels.heavyMetals],
+                    ['FENT', b.panels.contaminantScreen],
+                  ].map(([lbl, ok]) => (
+                    <span
+                      class={`inline-block px-1.5 py-0.5 rounded text-[10px] border ${
+                        ok
+                          ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30'
+                          : 'bg-slate-950 text-slate-600 border-slate-800'
+                      }`}
+                    >
+                      {lbl}
+                    </span>
+                  ))}
+                </td>
+                <td class="py-3.5 pl-3 text-right">
+                  <a href={`/vendors/${b.vendorSlug}/`} class="text-cyan-400 hover:underline">
+                    Vendor Audit &rarr;
+                  </a>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { COMPOUNDS } from '../../data/compounds';
+import { getVendorBySlug } from '../../data/vendors';
+---
+
+<BaseLayout
+  title="Molecular Peptide Compound Database: CAS, LC-MS Weights & Code Names"
+  description="Analytical monographs for 20 research peptides: CAS numbers, molecular weights (Da), vendor code names (RT-3, GLP-3, SR-3RT), reconstitution ratios & verified labs."
+>
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
+    <div class="max-w-3xl space-y-3">
+      <nav class="text-xs font-mono text-slate-400">
+        <a href="/" class="hover:text-cyan-400">Home</a> / <span class="text-slate-200">Compounds</span>
+      </nav>
+      <h1 class="text-3xl sm:text-5xl font-black text-white">
+        Molecular Peptide Reference Index
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        Reference molecular weights for LC-MS verification, CAS registry identifiers, shorthand vendor aliases, standard volumetric reconstitution math, and top-scored domestic US &amp; EU suppliers.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {COMPOUNDS.map((c) => {
+        const eu = getVendorBySlug(c.topEuVendorSlug);
+        const us = getVendorBySlug(c.topUsVendorSlug);
+        return (
+          <article class="glass-card rounded-2xl p-6 flex flex-col justify-between gap-4 hover:border-cyan-400/50 transition-colors">
+            <div class="space-y-3">
+              <div class="flex justify-between items-center text-[11px] font-mono">
+                <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">{c.category}</span>
+                <span class="text-emerald-400 font-bold">{c.molecularWeightDa}</span>
+              </div>
+              <h2 class="text-xl font-extrabold text-white">
+                <a href={`/compounds/${c.slug}/`} class="hover:text-cyan-400">{c.name}</a>
+              </h2>
+              <div class="text-xs font-mono text-slate-400">CAS: {c.casNumber} · Target {c.purityBenchmark}</div>
+              <p class="text-xs text-slate-300 leading-relaxed">{c.summary}</p>
+              <div class="text-[11px] font-mono text-amber-300">
+                Aliases: {c.codeNameAliases.join(' · ')}
+              </div>
+            </div>
+            <div class="pt-3 border-t border-slate-800 text-xs font-mono flex justify-between">
+              <span>🇪🇺 <a href={`/vendors/${c.topEuVendorSlug}/`} class="text-cyan-400 hover:underline">{eu?.name}</a></span>
+              <span>🇺🇸 <a href={`/vendors/${c.topUsVendorSlug}/`} class="text-emerald-400 hover:underline">{us?.name}</a></span>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VendorCard from '../../components/VendorCard.astro';
+import { VENDORS } from '../../data/vendors';
+---
+
+<BaseLayout
+  title="2026 Research Peptide Vendor Scorecard: 22 US & EU Suppliers Audited"
+  description="Complete 2026 COA verification scorecard ranking 22 US and European research peptide vendors on third-party lab testing, fill accuracy, and entity transparency."
+>
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+    <div class="max-w-3xl space-y-3">
+      <nav class="text-xs font-mono text-slate-400">
+        <a href="/" class="hover:text-cyan-400">Home</a> / <span class="text-slate-200">Vendor Scorecard</span>
+      </nav>
+      <h1 class="text-3xl sm:text-5xl font-black text-white">
+        2026 Peptide Supplier COA Scorecard
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        All 22 US and European suppliers audited under identical criteria: portal-verifiable third-party HPLC/LC-MS certificates, quantitative net fill weight (mg), safety panels (endotoxin/sterility/heavy metals), and corporate register verification.
+      </p>
+      <div class="flex flex-wrap gap-2.5 pt-2 font-mono text-xs">
+        <a href="/vendors/usa/" class="px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-200">
+          🇺🇸 US Domestic Suppliers Only &rarr;
+        </a>
+        <a href="/vendors/europe/" class="px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-emerald-400 text-slate-200">
+          🇪🇺 EU Domestic Suppliers Only &rarr;
+        </a>
+        <a href="/discount-codes/" class="px-3.5 py-2 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300">
+          🏷️ All Verified LABINDEX Codes &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
+      {VENDORS.map((vendor) => (
+        <VendorCard vendor={vendor} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

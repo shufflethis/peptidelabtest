@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { RESEARCH_ARTICLES, type ResearchArticle } from '../../data/labs';
+
+export function getStaticPaths() {
+  return RESEARCH_ARTICLES.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: ResearchArticle;
+}
+
+const { article } = Astro.props;
+---
+
+<BaseLayout title={article.title} description={article.excerpt}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
+    <nav class="text-xs font-mono text-slate-400">
+      <a href="/" class="hover:text-cyan-400">Home</a> / <a href="/research/" class="hover:text-cyan-400">Research</a> / <span class="text-slate-200">{article.category}</span>
+    </nav>
+
+    <div class="space-y-4">
+      <div class="text-xs font-mono text-cyan-400">{article.category} · Published {article.publishedDate} · {article.readTime}</div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">{article.title}</h1>
+      <p class="text-lg text-slate-300 leading-relaxed">{article.excerpt}</p>
+    </div>
+
+    <div class="glass-card rounded-2xl p-6 border border-emerald-500/30 space-y-3">
+      <h2 class="text-sm font-mono uppercase tracking-wider text-emerald-400 font-bold">Key Analytical Findings</h2>
+      <ul class="space-y-2 text-sm text-slate-200">
+        {article.keyFindings.map((f) => (
+          <li class="flex gap-2"><span class="text-emerald-400 font-bold">✓</span><span>{f}</span></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="space-y-6">
+      {article.sections.map((sec) => (
+        <section class="glass-card rounded-2xl p-6 sm:p-8 space-y-3">
+          <h2 class="text-2xl font-extrabold text-white">{sec.heading}</h2>
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">{sec.body}</p>
+        </section>
+      ))}
+    </div>
+
+    <div class="glass-card rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <div class="font-bold text-white">Compare Lab-Verified Suppliers &amp; True $/mg</div>
+        <div class="text-xs text-slate-400">Check live portal-verified US and EU rankings with measured milligram weights.</div>
+      </div>
+      <div class="flex gap-3 font-mono text-xs">
+        <a href="/price-index/" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 hover:border-cyan-400">True $/mg Index</a>
+        <a href="/vendors/" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold">Vendor Scorecard &rarr;</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

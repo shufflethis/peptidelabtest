@@ -1,0 +1,127 @@
+---
+import type { VendorProfile } from '../data/vendors';
+import { resolveVendorLink } from '../data/affiliates';
+
+interface Props {
+  vendor: VendorProfile;
+}
+
+const { vendor } = Astro.props;
+const linkInfo = resolveVendorLink(vendor.slug);
+
+const scoreColor =
+  vendor.overallScore >= 3.8
+    ? 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10'
+    : vendor.overallScore >= 3.0
+      ? 'text-cyan-300 border-cyan-500/40 bg-cyan-500/10'
+      : vendor.overallScore >= 2.2
+        ? 'text-amber-300 border-amber-500/40 bg-amber-500/10'
+        : 'text-rose-400 border-rose-500/40 bg-rose-500/10';
+---
+
+<article
+  data-vendor-region={vendor.region}
+  class="glass-card rounded-2xl p-6 sm:p-7 transition-all hover:border-cyan-500/40 flex flex-col justify-between gap-5"
+>
+  <div class="space-y-4">
+    <!-- Top Row -->
+    <div class="flex flex-wrap items-start justify-between gap-3">
+      <div class="space-y-1">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="font-mono text-xs font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+            #{vendor.rank}
+          </span>
+          {vendor.editorBadge && (
+            <span class="font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              ★ {vendor.editorBadge}
+            </span>
+          )}
+          <span class="font-mono text-xs px-2.5 py-0.5 rounded-full bg-slate-900 border border-slate-700 text-slate-300">
+            {vendor.countryFlag} {vendor.originCountry}
+          </span>
+        </div>
+        <h3 class="text-xl font-extrabold text-white tracking-tight pt-1">
+          <a href={`/vendors/${vendor.slug}/`} class="hover:text-cyan-400 transition-colors">
+            {vendor.name}
+          </a>
+        </h3>
+      </div>
+
+      <div class={`px-3 py-1.5 rounded-xl border font-mono text-right ${scoreColor}`}>
+        <div class="text-base font-black leading-none">★ {vendor.overallScore.toFixed(1)} <span class="text-xs font-normal opacity-75">/ 5.0</span></div>
+        <div class="text-[10px] uppercase tracking-wider opacity-80 mt-0.5">Audit Score</div>
+      </div>
+    </div>
+
+    <!-- Purity & Fill Variance Strip -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs font-mono">
+      <div class="px-3 py-2 rounded-lg bg-slate-950/80 border border-slate-800/90">
+        <span class="text-slate-400 block text-[10px] uppercase">HPLC Purity Audit</span>
+        <span class="text-slate-100 font-semibold">{vendor.puritySummary}</span>
+      </div>
+      <div class="px-3 py-2 rounded-lg bg-slate-950/80 border border-slate-800/90">
+        <span class="text-slate-400 block text-[10px] uppercase">Net Fill Variance (mg)</span>
+        <span class={vendor.fillVarianceNote.includes('ALERT') ? 'text-rose-400 font-bold' : 'text-cyan-300 font-semibold'}>
+          {vendor.fillVarianceNote}
+        </span>
+      </div>
+    </div>
+
+    <p class="text-sm text-slate-300 leading-relaxed">{vendor.verdictSummary}</p>
+
+    <!-- Panel Badges -->
+    <div class="flex flex-wrap gap-1.5">
+      {vendor.panelBadges.map((badge) => (
+        <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-900/90 text-slate-300 border border-slate-800">
+          ✓ {badge}
+        </span>
+      ))}
+    </div>
+
+    <!-- Lab + Dispatch Meta -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-slate-800/70 text-xs text-slate-400">
+      <div>
+        <strong class="text-slate-200 font-mono">Audited Lab:</strong> {vendor.testingLabs.join(' · ')}
+      </div>
+      <div>
+        <strong class="text-slate-200 font-mono">Dispatch:</strong> {vendor.dispatchSummary}
+      </div>
+    </div>
+  </div>
+
+  <!-- Action & Promo Bar -->
+  <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex flex-wrap items-center gap-2">
+      {linkInfo.promoCode ? (
+        <button
+          type="button"
+          data-copy-code={linkInfo.promoCode}
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-mono text-xs transition-colors cursor-pointer"
+          title="Click to copy discount code"
+        >
+          <span>🏷️ Code: <strong>{linkInfo.promoCode}</strong> ({linkInfo.discountPercent}% OFF)</span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-200">COPY</span>
+        </button>
+      ) : (
+        <span class="text-[11px] font-mono text-slate-500">No partner code · Unaffiliated audit</span>
+      )}
+    </div>
+
+    <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+      <a
+        href={`/vendors/${vendor.slug}/`}
+        class="text-xs font-mono font-semibold px-3 py-2 rounded-lg border border-slate-700 text-slate-300 hover:text-white hover:border-slate-500 transition-colors"
+      >
+        Full Audit
+      </a>
+      <a
+        href={linkInfo.href}
+        rel={linkInfo.rel}
+        target="_blank"
+        class="inline-flex items-center gap-1.5 text-xs font-mono font-bold px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 transition-colors"
+      >
+        <span>Visit Supplier &rarr;</span>
+      </a>
+    </div>
+  </div>
+</article>

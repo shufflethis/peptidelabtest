@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import VendorCard from '../../components/VendorCard.astro';
+import { VENDORS } from '../../data/vendors';
+
+const usVendors = VENDORS.filter((v) => v.region === 'US');
+---
+
+<BaseLayout
+  title="Best US Domestic Peptide Vendors 2026: COA & Net-Mass Verified"
+  description="Top US-domestic research peptide suppliers in 2026 ranked by Kovera Labs, ILS Laboratories, and Freedom Diagnostics third-party COAs. Fast USPS/UPS shipping."
+>
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+    <div class="max-w-3xl space-y-3">
+      <nav class="text-xs font-mono text-slate-400">
+        <a href="/" class="hover:text-cyan-400">Home</a> / <a href="/vendors/" class="hover:text-cyan-400">Vendors</a> / <span class="text-slate-200">USA Domestic</span>
+      </nav>
+      <h1 class="text-3xl sm:text-5xl font-black text-white">
+        🇺🇸 Best US Domestic Research Peptide Suppliers (2026)
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        Ordering from US-domestic laboratories (Florida, California, Alaska, Colorado) eliminates CBP international customs delays. Every ranked supplier below is scored on portal-verifiable US third-party COAs (Kovera Labs, ILS, Freedom Diagnostics, MZ Biolabs).
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
+      {usVendors.map((vendor) => (
+        <VendorCard vendor={vendor} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

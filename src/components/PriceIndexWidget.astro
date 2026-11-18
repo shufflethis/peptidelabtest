@@ -1,0 +1,161 @@
+---
+import { getComputedBatches } from '../data/batches';
+
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+const allRows = getComputedBatches().sort((a, b) => a.trueMeasuredCostPerMg - b.trueMeasuredCostPerMg);
+const rows = limit ? allRows.slice(0, limit) : allRows;
+---
+
+<section class="glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/30">
+  <div class="flex flex-wrap items-end justify-between gap-4 pb-5 border-b border-slate-800/80">
+    <div>
+      <span class="font-mono text-[11px] uppercase tracking-widest text-emerald-400 font-bold">
+        💰 Exclusive True-Mass Value Benchmark
+      </span>
+      <h2 class="text-2xl font-extrabold text-white mt-0.5">
+        True $/mg &amp; €/mg Price-per-Measured-mg Index
+      </h2>
+      <p class="text-xs text-slate-400 mt-1 max-w-2xl">
+        Label price is misleading when vials vary from <strong>-39.2% underfill</strong> to <strong>+21.4% overfill</strong>. We divide post-code checkout price by actual third-party COA milligram weight.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-2 font-mono text-xs">
+      <select
+        id="price-region-filter"
+        aria-label="Filter by region"
+        class="px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-slate-200 focus:border-emerald-400 focus:outline-none"
+      >
+        <option value="ALL">🌍 All Regions ($ + €)</option>
+        <option value="US">🇺🇸 US Domestic ($ USD)</option>
+        <option value="EU">🇪🇺 EU Domestic (€ EUR)</option>
+      </select>
+
+      <select
+        id="price-compound-filter"
+        aria-label="Filter by compound"
+        class="px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-slate-200 focus:border-emerald-400 focus:outline-none"
+      >
+        <option value="ALL">All Benchmarked Compounds</option>
+        <option value="retatrutide">Retatrutide (RT-3 / GLP-3)</option>
+        <option value="tirzepatide">Tirzepatide</option>
+        <option value="bpc-157">BPC-157</option>
+        <option value="tb-500">TB-500</option>
+        <option value="ghk-cu">GHK-Cu</option>
+        <option value="cjc-1295">CJC-1295</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto mt-5">
+    <table class="w-full text-left border-collapse text-xs font-mono">
+      <thead>
+        <tr class="border-b border-slate-800 text-[11px] uppercase text-slate-400">
+          <th class="py-3 pr-4">Compound &amp; Supplier</th>
+          <th class="py-3 px-3">Region</th>
+          <th class="py-3 px-3">Label vs. COA mg</th>
+          <th class="py-3 px-3">Purity &amp; Lab</th>
+          <th class="py-3 px-3">Label Price/mg</th>
+          <th class="py-3 px-3 text-emerald-300">True COA Price/mg</th>
+          <th class="py-3 pl-3 text-right">Partner Code &amp; Link</th>
+        </tr>
+      </thead>
+      <tbody id="price-index-tbody" class="divide-y divide-slate-800/70">
+        {rows.map((r) => {
+          const sym = r.currency === 'USD' ? '$' : '€';
+          const varColor =
+            r.variancePercent <= -10
+              ? 'text-rose-400 font-bold'
+              : r.variancePercent < 0
+                ? 'text-amber-300'
+                : 'text-emerald-400';
+          return (
+            <tr
+              data-price-region={r.region}
+              data-price-compound={r.compoundSlug}
+              class="hover:bg-slate-900/50 transition-colors"
+            >
+              <td class="py-3.5 pr-4">
+                <a href={`/compounds/${r.compoundSlug}/`} class="font-sans font-bold text-sm text-white hover:text-cyan-400 block">
+                  {r.compoundName}
+                </a>
+                <a href={`/vendors/${r.vendorSlug}/`} class="text-slate-400 hover:text-slate-200">
+                  by {r.vendorName}
+                </a>
+              </td>
+              <td class="py-3.5 px-3">
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-300">
+                  {r.region === 'US' ? '🇺🇸 US' : '🇪🇺 EU'}
+                </span>
+              </td>
+              <td class="py-3.5 px-3">
+                <span class="text-slate-200">{r.labelMg} mg &rarr; <strong>{r.measuredMg} mg</strong></span>
+                <span class={`block text-[11px] ${varColor}`}>
+                  ({r.variancePercent >= 0 ? '+' : ''}{r.variancePercent}% fill)
+                </span>
+              </td>
+              <td class="py-3.5 px-3">
+                <span class="text-cyan-300 font-semibold">{r.purityPercent}%</span>
+                <span class="block text-[10px] text-slate-400">{r.labName}</span>
+              </td>
+              <td class="py-3.5 px-3 text-slate-400 line-through">
+                {sym}{r.labelCostPerMg.toFixed(2)}/mg
+              </td>
+              <td class="py-3.5 px-3">
+                <span class={`text-sm font-black ${r.statusFlag === 'UNDERFILL_ALERT' ? 'text-rose-400' : 'text-emerald-400'}`}>
+                  {sym}{r.trueMeasuredCostPerMg.toFixed(2)}/mg
+                </span>
+                <span class="block text-[10px] text-slate-400">
+                  Net {sym}{r.netPriceAfterCode.toFixed(0)} vial
+                </span>
+              </td>
+              <td class="py-3.5 pl-3 text-right space-x-1.5 whitespace-nowrap">
+                {r.promoCode && (
+                  <button
+                    type="button"
+                    data-copy-code={r.promoCode}
+                    class="px-2 py-1 rounded bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/25 cursor-pointer"
+                  >
+                    {r.promoCode} (-{r.discountPercent}%)
+                  </button>
+                )}
+                <a
+                  href={r.vendorHref}
+                  rel={r.vendorRel}
+                  target="_blank"
+                  class="inline-block px-2.5 py-1 rounded bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400"
+                >
+                  View &rarr;
+                </a>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<script>
+  const regSelect = document.getElementById('price-region-filter') as HTMLSelectElement | null;
+  const compSelect = document.getElementById('price-compound-filter') as HTMLSelectElement | null;
+
+  function filterPriceRows() {
+    const reg = regSelect?.value || 'ALL';
+    const comp = compSelect?.value || 'ALL';
+    document.querySelectorAll('#price-index-tbody tr').forEach((row) => {
+      const rReg = row.getAttribute('data-price-region');
+      const rComp = row.getAttribute('data-price-compound');
+      const okReg = reg === 'ALL' || rReg === reg;
+      const okComp = comp === 'ALL' || rComp === comp;
+      (row as HTMLElement).style.display = okReg && okComp ? '' : 'none';
+    });
+  }
+
+  regSelect?.addEventListener('change', filterPriceRows);
+  compSelect?.addEventListener('change', filterPriceRows);
+</script>
