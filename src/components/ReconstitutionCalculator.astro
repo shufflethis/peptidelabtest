@@ -1,46 +1,37 @@
 ---
+// Lab concentration calculator (research use only).
+// Deliberately NO dose, aliquot, syringe or IU outputs – see CONTENT_RULES.md rule 2.
 ---
 
 <section class="glass-card rounded-2xl p-6 sm:p-8 border border-cyan-500/30 shadow-2xl shadow-cyan-950/20">
   <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
     <div>
       <span class="font-mono text-[11px] uppercase tracking-widest text-cyan-400 font-bold">
-        🧮 Precision Volumetric Lab Tool
+        🧮 Lab Stock Concentration Tool
       </span>
       <h2 class="text-2xl font-extrabold text-white mt-0.5">
-        Peptide &amp; Blend Reconstitution Calculator
+        Vial Stock Concentration Calculator
       </h2>
       <p class="text-xs text-slate-400 mt-1">
-        Converts labeled or COA-measured vial mass and bacteriostatic water volume into exact U-100 scale units. Arithmetic concentration utility only — no clinical dosing advice.
+        Converts labeled or COA-measured vial mass and diluent volume into stock concentration (mg/mL). For in-vitro laboratory research only. Not for human or animal use; this tool gives no dosing or usage information.
       </p>
     </div>
 
-    <!-- Mode Switch: Single vs Blend -->
     <div class="inline-flex rounded-xl bg-slate-950 p-1 border border-slate-800 font-mono text-xs">
-      <button
-        type="button"
-        id="mode-single-btn"
-        class="px-3.5 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition-all cursor-pointer"
-      >
-        Single Vial
+      <button type="button" id="mode-single-btn" class="px-3.5 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition-all cursor-pointer">
+        Single Compound
       </button>
-      <button
-        type="button"
-        id="mode-blend-btn"
-        class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer"
-      >
-        Dual Blend (e.g. BPC + TB)
+      <button type="button" id="mode-blend-btn" class="px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer">
+        Two-Compound Vial
       </button>
     </div>
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6">
-    <!-- Left Inputs (7 cols) -->
     <div class="lg:col-span-7 space-y-5">
-      <!-- 1. Vial Quantity -->
       <div class="space-y-2">
         <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold" for="calc-vial-mg">
-          1. Primary Peptide Vial Label (mg)
+          1. Compound A – Vial Label Mass (mg)
         </label>
         <div class="flex flex-wrap gap-2">
           {[2, 5, 10, 15, 30, 50].map((val) => (
@@ -60,53 +51,31 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
           <div>
             <span class="text-[11px] text-slate-400 block mb-1">Labeled Vial Mass (mg)</span>
-            <input
-              id="calc-vial-mg"
-              type="number"
-              step="0.01"
-              min="0.1"
-              value="10"
-              class="w-full px-3.5 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white font-mono text-sm focus:border-cyan-400 focus:outline-none"
-            />
+            <input id="calc-vial-mg" type="number" step="0.01" min="0.1" value="10"
+              class="w-full px-3.5 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white font-mono text-sm focus:border-cyan-400 focus:outline-none" />
           </div>
           <div>
-            <span class="text-[11px] text-emerald-400 font-mono block mb-1">
-              COA Measured mg (Optional Override)
-            </span>
-            <input
-              id="calc-coa-mg"
-              type="number"
-              step="0.01"
-              min="0"
-              placeholder="e.g. 10.62 from Janoshik COA"
-              class="w-full px-3.5 py-2 rounded-lg bg-slate-950 border border-emerald-500/40 text-emerald-200 placeholder-slate-600 font-mono text-sm focus:border-emerald-400 focus:outline-none"
-            />
+            <span class="text-[11px] text-emerald-400 font-mono block mb-1">COA Measured mg (Optional Override)</span>
+            <input id="calc-coa-mg" type="number" step="0.01" min="0" placeholder="e.g. 10.62 from COA"
+              class="w-full px-3.5 py-2 rounded-lg bg-slate-950 border border-emerald-500/40 text-emerald-200 placeholder-slate-600 font-mono text-sm focus:border-emerald-400 focus:outline-none" />
           </div>
         </div>
       </div>
 
-      <!-- Optional Secondary Blend Peptide -->
       <div id="blend-second-row" class="hidden p-4 rounded-xl bg-slate-950/90 border border-cyan-500/30 space-y-2">
         <label class="block text-xs font-mono uppercase tracking-wider text-cyan-300 font-semibold" for="calc-blend-mg">
-          1B. Secondary Peptide in Same Blend Vial (mg)
+          1B. Compound B in the Same Vial (mg)
         </label>
         <p class="text-[11px] text-slate-400">
-          For co-lyophilized vials (e.g., 5 mg BPC-157 + 5 mg TB-500 in one vial), enter the second compound’s mg mass to see how much of Compound B is drawn simultaneously.
+          For co-lyophilized vials, enter the second compound's labeled mass to get its stock concentration as well.
         </p>
-        <input
-          id="calc-blend-mg"
-          type="number"
-          step="0.01"
-          min="0.1"
-          value="5"
-          class="w-full sm:w-48 px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white font-mono text-sm focus:border-cyan-400 focus:outline-none"
-        />
+        <input id="calc-blend-mg" type="number" step="0.01" min="0.1" value="5"
+          class="w-full sm:w-48 px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white font-mono text-sm focus:border-cyan-400 focus:outline-none" />
       </div>
 
-      <!-- 2. Bacteriostatic Water -->
       <div class="space-y-2">
         <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold" for="calc-water-ml">
-          2. Diluent / Bacteriostatic Water Added (ml)
+          2. Diluent Volume Added (mL)
         </label>
         <div class="flex flex-wrap gap-2">
           {[1, 1.5, 2, 2.5, 3].map((val) => (
@@ -119,165 +88,42 @@
                   : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600'
               }`}
             >
-              {val} ml
+              {val} mL
             </button>
           ))}
         </div>
-        <input
-          id="calc-water-ml"
-          type="number"
-          step="0.1"
-          min="0.1"
-          value="2"
-          class="w-full sm:w-48 px-3.5 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white font-mono text-sm focus:border-cyan-400 focus:outline-none"
-        />
-      </div>
-
-      <!-- 3. Desired Aliquot / Withdrawal (mcg) -->
-      <div class="space-y-2">
-        <label class="block text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold" for="calc-dose-mcg">
-          3. Target Primary Peptide Aliquot (mcg)
-        </label>
-        <div class="flex flex-wrap gap-2">
-          {[
-            { label: '250 mcg', val: 250 },
-            { label: '500 mcg', val: 500 },
-            { label: '1,000 mcg (1 mg)', val: 1000 },
-            { label: '2,000 mcg (2 mg)', val: 2000 },
-            { label: '2,500 mcg (2.5 mg)', val: 2500 },
-          ].map((item) => (
-            <button
-              type="button"
-              data-preset-mcg={item.val}
-              class={`px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer ${
-                item.val === 500
-                  ? 'bg-cyan-500/20 border-cyan-400 text-cyan-200 font-bold'
-                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-        <input
-          id="calc-dose-mcg"
-          type="number"
-          step="10"
-          min="1"
-          value="500"
-          class="w-full sm:w-48 px-3.5 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white font-mono text-sm focus:border-cyan-400 focus:outline-none"
-        />
-      </div>
-
-      <!-- 4. Syringe Capacity -->
-      <div class="space-y-2">
-        <span class="block text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold">
-          4. U-100 Syringe Barrel Capacity
-        </span>
-        <div class="grid grid-cols-3 gap-2.5">
-          {[
-            { iu: 30, label: '30 IU · 0.3 ml' },
-            { iu: 50, label: '50 IU · 0.5 ml' },
-            { iu: 100, label: '100 IU · 1.0 ml' },
-          ].map((s) => (
-            <button
-              type="button"
-              data-syringe-iu={s.iu}
-              class={`py-2 px-2.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer ${
-                s.iu === 100
-                  ? 'bg-cyan-500/20 border-cyan-400 text-cyan-200 font-bold'
-                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600'
-              }`}
-            >
-              {s.label}
-            </button>
-          ))}
-        </div>
+        <input id="calc-water-ml" type="number" step="0.1" min="0.1" value="2"
+          class="w-full sm:w-48 px-3.5 py-2 rounded-lg bg-slate-950 border border-slate-700 text-white font-mono text-sm focus:border-cyan-400 focus:outline-none" />
       </div>
     </div>
 
-    <!-- Right Live Results + Visual SVG Syringe (5 cols) -->
     <div class="lg:col-span-5 flex flex-col justify-between rounded-2xl bg-slate-950 border border-slate-800 p-6 space-y-5">
       <div>
-        <span class="text-[11px] font-mono uppercase tracking-widest text-slate-400">
-          Required U-100 Scale Draw
-        </span>
+        <span class="text-[11px] font-mono uppercase tracking-widest text-slate-400">Stock Concentration (Compound A)</span>
         <div class="flex items-baseline gap-2.5 mt-1">
-          <span id="out-iu" class="text-5xl font-black font-mono text-cyan-400 tabular-nums">10.0</span>
-          <span class="text-lg font-mono font-bold text-slate-300">IU (Units)</span>
+          <span id="out-conc-mg" class="text-5xl font-black font-mono text-cyan-400 tabular-nums">5.00</span>
+          <span class="text-lg font-mono font-bold text-slate-300">mg/mL</span>
         </div>
-        <p id="out-ml-note" class="text-xs font-mono text-slate-400 mt-1">
-          Equivalent volume: 0.100 ml on a standard U-100 syringe
-        </p>
-
-        <!-- Over-capacity Warning -->
-        <div
-          id="out-warning"
-          class="hidden mt-3 p-2.5 rounded-lg bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs font-mono"
-        >
-          ⚠️ Exceeds selected syringe barrel! Choose a larger U-100 capacity or reduce diluent volume.
-        </div>
-
-        <!-- Dynamic SVG U-100 Syringe Barrel -->
-        <div class="mt-5 p-4 rounded-xl bg-[#050b18] border border-slate-800/90">
-          <div class="flex justify-between text-[10px] font-mono text-slate-400 mb-1.5">
-            <span>0 IU (Needle Hub)</span>
-            <span id="svg-max-label">Max: 100 IU</span>
-          </div>
-          <svg viewBox="0 0 320 54" class="w-full h-14 overflow-visible" aria-label="Visual U-100 syringe scale">
-            <!-- Needle tip -->
-            <line x1="4" y1="27" x2="22" y2="27" stroke="#64748b" stroke-width="2" />
-            <rect x="22" y="19" width="8" height="16" rx="2" fill="#334155" />
-            <!-- Barrel -->
-            <rect x="30" y="10" width="260" height="34" rx="5" fill="#0f172a" stroke="#475569" stroke-width="1.5" />
-            <!-- Liquid Fill -->
-            <rect id="svg-fill-bar" x="31" y="11.5" width="26" height="31" rx="3" fill="url(#cyanGrad)" />
-            <!-- Plunger Head -->
-            <rect id="svg-plunger" x="57" y="11" width="5" height="32" fill="#e2e8f0" />
-            <!-- Scale Ticks -->
-            {[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1].map((pct, idx) => (
-              <line
-                x1={31 + pct * 258}
-                y1="10"
-                x2={31 + pct * 258}
-                y2={idx % 5 === 0 ? '22' : '17'}
-                stroke="#94a3b8"
-                stroke-width={idx % 5 === 0 ? '1.5' : '1'}
-              />
-            ))}
-            <defs>
-              <linearGradient id="cyanGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.85" />
-                <stop offset="100%" stop-color="#10b981" stop-opacity="0.9" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <p id="out-conc-mcg" class="text-xs font-mono text-slate-400 mt-1">= 5,000 µg/mL</p>
       </div>
 
-      <!-- Analytical Readout Grid -->
       <div class="space-y-2.5 pt-3 border-t border-slate-800 text-xs font-mono">
         <div class="flex justify-between">
-          <span class="text-slate-400">Active Mass Basis:</span>
+          <span class="text-slate-400">Mass Basis:</span>
           <span id="out-basis" class="text-slate-200 font-semibold">10.00 mg (Label)</span>
         </div>
         <div class="flex justify-between">
-          <span class="text-slate-400">Stock Concentration:</span>
-          <span id="out-conc" class="text-slate-100 font-semibold">5,000 mcg/ml (5.00 mg/ml)</span>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-slate-400">Yield per 1 IU Tick:</span>
-          <span id="out-per-iu" class="text-emerald-300 font-semibold">50.0 mcg / IU</span>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-slate-400">Total Aliquots / Vial:</span>
-          <span id="out-aliquots" class="text-slate-100 font-semibold">20.0 withdrawals</span>
+          <span class="text-slate-400">Label vs. COA Deviation:</span>
+          <span id="out-dev" class="text-slate-200 font-semibold">–</span>
         </div>
         <div id="out-blend-row" class="hidden pt-2 border-t border-cyan-500/20 flex justify-between text-cyan-300">
-          <span>Co-Drawn Peptide B:</span>
-          <span id="out-blend-dose" class="font-bold">250 mcg</span>
+          <span>Compound B Concentration:</span>
+          <span id="out-blend-conc" class="font-bold">2.50 mg/mL</span>
         </div>
       </div>
+      <p class="text-[11px] text-slate-500 leading-relaxed">
+        Research use only. Arithmetic concentration utility for laboratory stock solutions; provides no dosing, administration or usage guidance.
+      </p>
     </div>
   </div>
 </section>
@@ -285,151 +131,77 @@
 <script>
   function initCalculator() {
     let isBlend = false;
-    let maxIu = 100;
-
     const vialInput = document.getElementById('calc-vial-mg') as HTMLInputElement | null;
     const coaInput = document.getElementById('calc-coa-mg') as HTMLInputElement | null;
     const blendInput = document.getElementById('calc-blend-mg') as HTMLInputElement | null;
     const waterInput = document.getElementById('calc-water-ml') as HTMLInputElement | null;
-    const doseInput = document.getElementById('calc-dose-mcg') as HTMLInputElement | null;
-
     const modeSingleBtn = document.getElementById('mode-single-btn');
     const modeBlendBtn = document.getElementById('mode-blend-btn');
     const blendRowInput = document.getElementById('blend-second-row');
     const blendRowOut = document.getElementById('out-blend-row');
+    const ON = 'px-3.5 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition-all cursor-pointer';
+    const OFF = 'px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer';
+    const P_ON = 'px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-cyan-500/20 border-cyan-400 text-cyan-200 font-bold';
+    const P_OFF = 'px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600';
 
     function recalc() {
-      if (!vialInput || !waterInput || !doseInput) return;
+      if (!vialInput || !waterInput) return;
       const labelMg = Math.max(0.01, parseFloat(vialInput.value) || 0);
       const coaMgRaw = coaInput && coaInput.value.trim() !== '' ? parseFloat(coaInput.value) : NaN;
-      const effectiveMg = !isNaN(coaMgRaw) && coaMgRaw > 0 ? coaMgRaw : labelMg;
+      const hasCoa = !isNaN(coaMgRaw) && coaMgRaw > 0;
+      const effectiveMg = hasCoa ? coaMgRaw : labelMg;
       const waterMl = Math.max(0.05, parseFloat(waterInput.value) || 1);
-      const targetMcg = Math.max(1, parseFloat(doseInput.value) || 100);
+      const concMg = effectiveMg / waterMl;
 
-      const totalMcg = effectiveMg * 1000;
-      const concMcgPerMl = totalMcg / waterMl;
-      const mcgPerIu = concMcgPerMl / 100;
-      const requiredMl = targetMcg / concMcgPerMl;
-      const requiredIu = requiredMl * 100;
-      const aliquots = totalMcg / targetMcg;
-
-      const outIu = document.getElementById('out-iu');
-      const outMlNote = document.getElementById('out-ml-note');
-      const outBasis = document.getElementById('out-basis');
-      const outConc = document.getElementById('out-conc');
-      const outPerIu = document.getElementById('out-per-iu');
-      const outAliquots = document.getElementById('out-aliquots');
-      const outWarn = document.getElementById('out-warning');
-      const fillBar = document.getElementById('svg-fill-bar');
-      const plunger = document.getElementById('svg-plunger');
-      const maxLabel = document.getElementById('svg-max-label');
-
-      if (outIu) outIu.textContent = requiredIu.toFixed(1);
-      if (outMlNote) outMlNote.textContent = `Equivalent volume: ${requiredMl.toFixed(3)} ml on a U-100 scale`;
-      if (outBasis) {
-        if (!isNaN(coaMgRaw) && coaMgRaw > 0) {
-          const diffPct = (((coaMgRaw - labelMg) / labelMg) * 100).toFixed(1);
-          outBasis.textContent = `${coaMgRaw.toFixed(2)} mg (COA, ${Number(diffPct) >= 0 ? '+' : ''}${diffPct}%)`;
-        } else {
-          outBasis.textContent = `${labelMg.toFixed(2)} mg (Label)`;
-        }
+      const set = (id: string, v: string) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+      set('out-conc-mg', concMg.toFixed(2));
+      set('out-conc-mcg', `= ${Math.round(concMg * 1000).toLocaleString('en-US')} µg/mL`);
+      set('out-basis', hasCoa ? `${coaMgRaw.toFixed(2)} mg (COA)` : `${labelMg.toFixed(2)} mg (Label)`);
+      if (hasCoa) {
+        const d = ((coaMgRaw - labelMg) / labelMg) * 100;
+        set('out-dev', `${d >= 0 ? '+' : ''}${d.toFixed(1)}%`);
+      } else {
+        set('out-dev', '–');
       }
-      if (outConc) {
-        outConc.textContent = `${Math.round(concMcgPerMl).toLocaleString('en-US')} mcg/ml (${(effectiveMg / waterMl).toFixed(2)} mg/ml)`;
-      }
-      if (outPerIu) outPerIu.textContent = `${mcgPerIu.toFixed(1)} mcg / IU`;
-      if (outAliquots) outAliquots.textContent = `${aliquots.toFixed(1)} withdrawals`;
-      if (maxLabel) maxLabel.textContent = `Barrel Max: ${maxIu} IU (${(maxIu / 100).toFixed(1)} ml)`;
-
-      const clampedRatio = Math.min(1, Math.max(0, requiredIu / maxIu));
-      const fillPx = Math.max(2, clampedRatio * 258);
-      fillBar?.setAttribute('width', String(fillPx));
-      plunger?.setAttribute('x', String(31 + fillPx));
-
-      if (outWarn) {
-        if (requiredIu > maxIu) outWarn.classList.remove('hidden');
-        else outWarn.classList.add('hidden');
-      }
-
       if (isBlend && blendInput) {
         const blendMg = Math.max(0.01, parseFloat(blendInput.value) || 0);
-        const coDrawnMcg = ((blendMg * 1000) / waterMl) * requiredMl;
-        const outBlendDose = document.getElementById('out-blend-dose');
-        if (outBlendDose) outBlendDose.textContent = `${coDrawnMcg.toFixed(0)} mcg`;
+        set('out-blend-conc', `${(blendMg / waterMl).toFixed(2)} mg/mL`);
       }
     }
 
     modeSingleBtn?.addEventListener('click', () => {
       isBlend = false;
-      modeSingleBtn.className = 'px-3.5 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition-all cursor-pointer';
-      if (modeBlendBtn) modeBlendBtn.className = 'px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer';
+      modeSingleBtn.className = ON;
+      if (modeBlendBtn) modeBlendBtn.className = OFF;
       blendRowInput?.classList.add('hidden');
       blendRowOut?.classList.add('hidden');
       recalc();
     });
-
     modeBlendBtn?.addEventListener('click', () => {
       isBlend = true;
-      modeBlendBtn.className = 'px-3.5 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold transition-all cursor-pointer';
-      if (modeSingleBtn) modeSingleBtn.className = 'px-3.5 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all cursor-pointer';
+      modeBlendBtn.className = ON;
+      if (modeSingleBtn) modeSingleBtn.className = OFF;
       blendRowInput?.classList.remove('hidden');
       blendRowOut?.classList.remove('hidden');
       recalc();
     });
 
-    document.querySelectorAll('[data-preset-mg]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const val = btn.getAttribute('data-preset-mg');
-        if (vialInput && val) vialInput.value = val;
-        document.querySelectorAll('[data-preset-mg]').forEach((b) => {
-          b.className = 'px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600';
+    const presets = (attr: string, input: HTMLInputElement | null) => {
+      document.querySelectorAll(`[${attr}]`).forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const val = btn.getAttribute(attr);
+          if (input && val) input.value = val;
+          document.querySelectorAll(`[${attr}]`).forEach((b) => { b.className = P_OFF; });
+          btn.className = P_ON;
+          recalc();
         });
-        btn.className = 'px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-cyan-500/20 border-cyan-400 text-cyan-200 font-bold';
-        recalc();
       });
-    });
+    };
+    presets('data-preset-mg', vialInput);
+    presets('data-preset-ml', waterInput);
 
-    document.querySelectorAll('[data-preset-ml]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const val = btn.getAttribute('data-preset-ml');
-        if (waterInput && val) waterInput.value = val;
-        document.querySelectorAll('[data-preset-ml]').forEach((b) => {
-          b.className = 'px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600';
-        });
-        btn.className = 'px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-cyan-500/20 border-cyan-400 text-cyan-200 font-bold';
-        recalc();
-      });
-    });
-
-    document.querySelectorAll('[data-preset-mcg]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const val = btn.getAttribute('data-preset-mcg');
-        if (doseInput && val) doseInput.value = val;
-        document.querySelectorAll('[data-preset-mcg]').forEach((b) => {
-          b.className = 'px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600';
-        });
-        btn.className = 'px-3 py-1.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-cyan-500/20 border-cyan-400 text-cyan-200 font-bold';
-        recalc();
-      });
-    });
-
-    document.querySelectorAll('[data-syringe-iu]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        maxIu = parseInt(btn.getAttribute('data-syringe-iu') || '100', 10);
-        document.querySelectorAll('[data-syringe-iu]').forEach((b) => {
-          b.className = 'py-2 px-2.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-600';
-        });
-        btn.className = 'py-2 px-2.5 rounded-lg font-mono text-xs border transition-colors cursor-pointer bg-cyan-500/20 border-cyan-400 text-cyan-200 font-bold';
-        recalc();
-      });
-    });
-
-    [vialInput, coaInput, blendInput, waterInput, doseInput].forEach((el) => {
-      el?.addEventListener('input', recalc);
-    });
-
+    [vialInput, coaInput, blendInput, waterInput].forEach((el) => el?.addEventListener('input', recalc));
     recalc();
   }
-
   initCalculator();
 </script>

@@ -1,9 +1,9 @@
 export type CompoundCategory =
   | 'Metabolic & Incretin'
-  | 'Tissue Repair & Recovery'
+  | 'Tissue & Cell-Signaling Research'
   | 'GH Secretagogues'
-  | 'Cognitive & Nootropic'
-  | 'Longevity & Mitochondrial'
+  | 'Neuropeptide Research'
+  | 'Mitochondrial & Cellular Research'
   | 'Melanocortin & Immune';
 
 export interface CompoundSpec {
@@ -34,7 +34,7 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: '39-amino-acid acylated triple GIP/GLP-1/GCGR agonist',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['RT-3', 'GLP-3', 'Triple G', 'RP-3', 'SR-3RT', 'GL-3 RT', 'NS-3RT', 'RTA GLP-1'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml (50 mcg per 1 IU tick)',
+    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
@@ -53,7 +53,7 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: '39-residue C20 fatty-diacid acylated GIP/GLP-1 co-agonist',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['TZ-2', 'GLP-2', 'GL-2 TZ', 'SR-2TZ', 'TRZ GLP-1'],
-    standardReconstitution: '2.0 ml BAC water into 15 mg vial → 7,500 mcg/ml (75 mcg per 1 IU tick)',
+    standardReconstitution: '2.0 ml BAC water into 15 mg vial → 7,500 mcg/ml',
     defaultVialMg: 15,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
@@ -72,7 +72,7 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: '31-residue acylated GLP-1(7-37) analogue',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['GLP-1 S', 'SG-1', 'Sema'],
-    standardReconstitution: '2.0 ml BAC water into 5 mg vial → 2,500 mcg/ml (25 mcg per 1 IU tick)',
+    standardReconstitution: '2.0 ml BAC water into 5 mg vial → 2,500 mcg/ml',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'onyx-peptides',
@@ -85,13 +85,13 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'bpc-157',
     name: 'BPC-157 (Pentadecapeptide)',
-    category: 'Tissue Repair & Recovery',
+    category: 'Tissue & Cell-Signaling Research',
     casNumber: '137525-51-0',
     molecularWeightDa: '1419.53 Da',
     formulaOrClass: '15-residue synthetic gastric peptide (Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val)',
     purityBenchmark: '≥ 99.2% (RP-HPLC)',
     codeNameAliases: ['PL 14736', 'Body Protection Compound-157', 'BPC157 Acetate / Arginate'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml (50 mcg per 1 IU tick)',
+    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
@@ -104,7 +104,7 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'tb-500',
     name: 'TB-500 (Thymosin Beta-4 / Ac-SDKP / 17-23)',
-    category: 'Tissue Repair & Recovery',
+    category: 'Tissue & Cell-Signaling Research',
     casNumber: '77591-33-4',
     molecularWeightDa: '4963.50 Da (full Tβ4) / 889.01 Da (17-23 fragment)',
     formulaOrClass: '43-amino-acid actin-sequestering polypeptide (or Ac-LKKTETQ fragment)',
@@ -123,13 +123,13 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'ghk-cu',
     name: 'GHK-Cu (Copper Tripeptide-1)',
-    category: 'Longevity & Mitochondrial',
+    category: 'Mitochondrial & Cellular Research',
     casNumber: '89030-95-5',
     molecularWeightDa: '403.92 Da (2:1 / 1:1 Cu2+ complex)',
     formulaOrClass: 'Gly-His-Lys·Cu(II) coordination complex',
     purityBenchmark: '≥ 99.0% peptide moiety + stoichiometric Cu content',
     codeNameAliases: ['Copper Peptide', 'Prezatide Copper'],
-    standardReconstitution: '3.0 ml BAC water into 50 mg vial → 16.67 mg/ml (166.7 mcg per 1 IU tick)',
+    standardReconstitution: '3.0 ml BAC water into 50 mg vial → 16.67 mg/ml',
     defaultVialMg: 50,
     defaultBacMl: 3,
     topEuVendorSlug: 'certa-peptides',
@@ -199,7 +199,7 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'epithalon',
     name: 'Epithalon (Epitalon / AEDG)',
-    category: 'Longevity & Mitochondrial',
+    category: 'Mitochondrial & Cellular Research',
     casNumber: '307297-39-8',
     molecularWeightDa: '390.35 Da',
     formulaOrClass: 'Synthetic tetrapeptide (Ala-Glu-Asp-Gly)',
@@ -218,7 +218,7 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'mots-c',
     name: 'MOTS-c',
-    category: 'Longevity & Mitochondrial',
+    category: 'Mitochondrial & Cellular Research',
     casNumber: '1627580-64-6',
     molecularWeightDa: '2174.60 Da',
     formulaOrClass: '16-residue mitochondrial-derived peptide (MRWQEMGYIFYPRKLR)',
@@ -237,7 +237,7 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'ss-31',
     name: 'SS-31 (Elamipretide)',
-    category: 'Longevity & Mitochondrial',
+    category: 'Mitochondrial & Cellular Research',
     casNumber: '736992-21-5',
     molecularWeightDa: '639.79 Da',
     formulaOrClass: 'Aromatic-cationic mitochondria-penetrating tetrapeptide (D-Arg-Dmt-Lys-Phe-NH2)',
@@ -256,7 +256,7 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'nad-plus',
     name: 'NAD+ (Nicotinamide Adenine Dinucleotide)',
-    category: 'Longevity & Mitochondrial',
+    category: 'Mitochondrial & Cellular Research',
     casNumber: '53-84-9',
     molecularWeightDa: '663.43 Da',
     formulaOrClass: 'Pyridine nucleotide redox coenzyme / PARP & Sirtuin substrate',
@@ -275,7 +275,7 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'semax',
     name: 'Semax (ACTH 4-10 Pro-Gly-Pro)',
-    category: 'Cognitive & Nootropic',
+    category: 'Neuropeptide Research',
     casNumber: '80714-61-0',
     molecularWeightDa: '813.92 Da',
     formulaOrClass: 'Synthetic heptapeptide (Met-Glu-His-Phe-Pro-Gly-Pro)',
@@ -294,7 +294,7 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'selank',
     name: 'Selank',
-    category: 'Cognitive & Nootropic',
+    category: 'Neuropeptide Research',
     casNumber: '129954-34-3',
     molecularWeightDa: '751.87 Da',
     formulaOrClass: 'Tuftsin-derived heptapeptide (Thr-Lys-Pro-Arg-Pro-Gly-Pro)',
@@ -332,7 +332,7 @@ export const COMPOUNDS: CompoundSpec[] = [
   {
     slug: 'kpv',
     name: 'KPV (Alpha-MSH 11-13)',
-    category: 'Tissue Repair & Recovery',
+    category: 'Tissue & Cell-Signaling Research',
     casNumber: '67727-97-3',
     molecularWeightDa: '342.43 Da',
     formulaOrClass: 'C-terminal α-MSH tripeptide (Lys-Pro-Val)',

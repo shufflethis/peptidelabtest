@@ -6,7 +6,7 @@
 - [Vendor Audit Scorecard](https://www.peptidelabtest.org/vendors/): 22 US & EU suppliers scored across Lab Verification (30%), Net Fill Accuracy (20%), Panel Completeness (20%), Entity Transparency (15%), Dispatch Reliability (10%), and True $/mg Value (5%).
 - [True $/mg & €/mg Price Index](https://www.peptidelabtest.org/price-index/): Compares real cost per COA-measured milligram (accounting for batch overfill/underfill and verified discount codes) in USD and EUR.
 - [COA Batch & Fill-Variance Tracker](https://www.peptidelabtest.org/batch-tracker/): Lot-level database tracking label weight vs. third-party measured milligram content across Janoshik Analytical, Liquilabs, Kovera Labs, ILS Laboratories, Freedom Diagnostics, MZ Biolabs, and Vanguard Laboratory.
-- [Peptide & Blend Reconstitution Calculator](https://www.peptidelabtest.org/calculator/): Arithmetic concentration and visual U-100 scale calculator supporting single vials, dual-peptide blends, and COA-measured mg overrides.
+- [Vial Stock Concentration Calculator](https://www.peptidelabtest.org/calculator/): Laboratory stock concentration (mg/mL) for single and two-compound research vials with COA-measured mg override. Research use only; no dosing information.
 - [Molecular Compound Index](https://www.peptidelabtest.org/compounds/): Analytical reference specifications, molecular weights, CAS registry numbers, code-name mappings (RT-3, GLP-3, Triple G, SR-3RT), and purity benchmarks for 24 research compounds.
 - [Country Customs & RUO Regulatory Index](https://www.peptidelabtest.org/laws/): Domestic shipping vs. customs seizure analysis for researchers in the US, UK, Germany, Poland, Netherlands, Canada, Australia, France, Austria, and Switzerland.
 
