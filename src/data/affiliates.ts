@@ -80,8 +80,10 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
   'avellon-peptides': {
     slug: 'avellon-peptides',
     baseUrl: 'https://avellon-peptides.com/',
+    // Approved 2026-11-19 by email: code LABINDEX (10% off), 20% net commission, 30-day cookie.
+    // Rules: RUO only, no human-use/dosing/health claims, no own discount promos without approval.
     affiliateUrl: 'https://avellon-peptides.com/?aff=LABINDEX',
-    isApproved: false,
+    isApproved: true,
     hasProgram: true,
     network: 'In-House',
     signupUrl: 'https://avellon-peptides.com/affiliate-bereich/',
