@@ -14,10 +14,10 @@
 
 export const SITE_BRAND = {
   name: 'PeptideLabIndex',
-  domain: 'peptidelabindex.com',
-  url: 'https://peptidelabindex.com',
+  domain: 'peptidelabtest.org',
+  url: 'https://www.peptidelabtest.org',
   masterCode: 'LABINDEX',
-  contactEmail: 'partners@peptidelabindex.com',
+  contactEmail: 'partners@peptidelabtest.org',
   telegramUrl: 'https://t.me/peptidelabindex',
   updatedLabel: 'November 2026',
 };
