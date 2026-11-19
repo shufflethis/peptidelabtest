@@ -44,14 +44,15 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
   'certa-peptides': {
     slug: 'certa-peptides',
     baseUrl: 'https://certapeptides.com/',
-    affiliateUrl: 'https://certapeptides.com/?ref=LABINDEX',
-    isApproved: false,
+    // Approved 2026-11-19 (welcome mail): code AFF-LABINDEX, 15% commission, 90-day cookie
+    affiliateUrl: 'https://certapeptides.com/?ref=AFF-LABINDEX',
+    isApproved: true,
     hasProgram: true,
     network: 'In-House',
     signupUrl: 'https://certapeptides.com/affiliate',
-    promoCode: 'LABINDEX',
-    discountPercent: 15,
-    discountNote: '15% OFF sitewide',
+    promoCode: 'AFF-LABINDEX',
+    discountPercent: 10,
+    discountNote: '10% OFF at checkout',
   },
   'particle-peptides': {
     slug: 'particle-peptides',
@@ -67,16 +68,14 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
   },
   'real-peptides': {
     slug: 'real-peptides',
-    baseUrl: 'https://realpeptides.com/',
-    // Replace YOUR_AWIN_PUB_ID once approved on Awin Merchant ID 125918
-    affiliateUrl: 'https://realpeptides.com/',
+    // Real shop domain is realpeptides.co (realpeptides.com is parked)
+    baseUrl: 'https://www.realpeptides.co/',
+    // Direct program (25%) - application under review since 2026-11-19 (affiliate #877)
+    affiliateUrl: 'https://www.realpeptides.co/ref/peptidelabtest/',
     isApproved: false,
     hasProgram: true,
-    network: 'Awin',
-    signupUrl: 'https://ui.awin.com/merchant-profile/125918',
-    promoCode: 'LABINDEX',
-    discountPercent: 10,
-    discountNote: '10% OFF research catalog',
+    network: 'In-House',
+    signupUrl: 'https://www.realpeptides.co/affiliate-registration/',
   },
   'avellon-peptides': {
     slug: 'avellon-peptides',
@@ -93,14 +92,15 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
   'arctic-lab-supply': {
     slug: 'arctic-lab-supply',
     baseUrl: 'https://arcticlabsupply.com/',
-    affiliateUrl: 'https://arcticlabsupply.com/?ref=LABINDEX',
-    isApproved: false,
+    // Approved 2026-11-19: code VENDORS (auto-assigned), 30% lifetime commission
+    affiliateUrl: 'https://arcticlabsupply.com/?ref=VENDORS',
+    isApproved: true,
     hasProgram: true,
     network: 'In-House',
-    signupUrl: 'https://arcticlabsupply.com/contact',
-    promoCode: 'LABINDEX',
+    signupUrl: 'https://arcticlabsupply.com/partners/join/',
+    promoCode: 'VENDORS',
     discountPercent: 20,
-    discountNote: '20% OFF lot-verified vials',
+    discountNote: '20% OFF at checkout',
   },
   'limitless-life-nootropics': {
     slug: 'limitless-life-nootropics',
@@ -151,14 +151,15 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
   'genesis-peptides': {
     slug: 'genesis-peptides',
     baseUrl: 'https://genesispeptides.com/',
-    affiliateUrl: 'https://genesispeptides.com/partners/',
-    isApproved: false,
+    // Approved 2026-11-19: affiliate #55, codes labindex15 (15%) + labindexwelcome30 (30% first order)
+    affiliateUrl: 'https://genesispeptides.com/ref/55/',
+    isApproved: true,
     hasProgram: true,
     network: 'In-House',
     signupUrl: 'https://genesispeptides.com/partners',
-    promoCode: 'LABINDEX',
+    promoCode: 'LABINDEX15',
     discountPercent: 15,
-    discountNote: '15% OFF US orders',
+    discountNote: '15% OFF (excl. sale items) · new customers: LABINDEXWELCOME30 = 30% OFF first order',
   },
   'ghostlabz-research': {
     slug: 'ghostlabz-research',
@@ -231,10 +232,12 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
   'ascension-peptides': {
     slug: 'ascension-peptides',
     baseUrl: 'https://ascensionpeptides.com/',
+    // Dub Partners application submitted 2026-11-19
     affiliateUrl: 'https://ascensionpeptides.com/',
     isApproved: false,
-    hasProgram: false,
-    network: 'None',
+    hasProgram: true,
+    network: 'In-House',
+    signupUrl: 'https://partners.dub.co/ascension-peptides',
   },
   'core-peptides': {
     slug: 'core-peptides',

@@ -7,11 +7,12 @@ const codeVendors = VENDORS.map((v) => ({
   vendor: v,
   link: resolveVendorLink(v.slug),
 })).filter((x) => Boolean(x.link.promoCode));
+const maxDiscount = Math.max(0, ...codeVendors.map((x) => x.link.discountPercent ?? 0));
 ---
 
 <BaseLayout
-  title={`Verified Peptide Vendor Discount Codes (${SITE_BRAND.updatedLabel}) — Up to 25% OFF`}
-  description={`Active 2026 research peptide discount codes (${SITE_BRAND.masterCode}) across lab-verified US & EU suppliers including CertaPeptides, Particle Peptides, Arctic Lab Supply & Avellon.`}
+  title={`Verified Peptide Vendor Discount Codes (${SITE_BRAND.updatedLabel}) ${maxDiscount ? `— Up to ${maxDiscount}% OFF` : ''}`}
+  description={`Active 2026 research peptide discount codes across lab-verified US & EU suppliers including CertaPeptides, Genesis Peptides and Arctic Lab Supply.`}
 >
   <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
     <div class="space-y-3">
