@@ -35,10 +35,10 @@ Check this file before writing or publishing anything. When in doubt: leave it o
 | Modern Aminos (not joined) | Terms contain non-compete + non-disparagement (sec. 10/11) – do NOT publish their code until written carve-out. |
 | Ameano/AMP, SwissChems, Glacier | Ban coupon/“verified code” pages and brand-keyword SEO – never list them on /discount-codes/. |
 
-## 3. Existing content flagged for review (2026-11-19)
+## 3. Fixed content (2026-11-19)
 
-These conflict with rule 2 (dosing) and with Avellon's "no dosing" clause:
-- src/components/ReconstitutionCalculator.astro (dose in mcg, U-100 syringe units) – used on / and /calculator/
-- src/data/compounds.ts `standardReconstitution` ("… mcg per 1 IU tick")
-- Nav labels "Syringe Tool", "Blend & U-100 Syringe Calculator" (src/layouts/BaseLayout.astro)
-Decision pending with Gorden: remove, or reduce to a pure concentration tool (mg + mL → mg/mL) without dose/syringe units.
+- Calculator rebuilt as pure lab stock-concentration tool (mg + mL -> mg/mL, COA override, two-compound vial).
+  Removed: dose/aliquot input, U-100 syringe/IU outputs, syringe graphic, "withdrawals". Do NOT re-add.
+- compounds.ts: removed "mcg per 1 IU tick"; categories renamed to neutral research classes
+  (no "Repair & Recovery", "Longevity", "Nootropic").
+- Nav, calculator page meta/FAQ, index CTA, legal text and public/llms.txt updated accordingly.
