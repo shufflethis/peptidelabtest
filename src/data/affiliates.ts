@@ -72,9 +72,9 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
     slug: 'real-peptides',
     // Real shop domain is realpeptides.co (realpeptides.com is parked)
     baseUrl: 'https://www.realpeptides.co/',
-    // Direct program (25%) - application under review since 2026-11-19 (affiliate #877)
-    affiliateUrl: 'https://www.realpeptides.co/ref/peptidelabtest/',
-    isApproved: false,
+    // Approved 2026-11-19 (affiliate #877): 25% of product value, 30-day attribution, link only (no code).
+    affiliateUrl: 'https://www.realpeptides.co/ref/peptidelabtest',
+    isApproved: true,
     hasProgram: true,
     network: 'In-House',
     signupUrl: 'https://www.realpeptides.co/affiliate-registration/',

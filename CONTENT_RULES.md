@@ -37,6 +37,7 @@ Check this file before writing or publishing anything. When in doubt: leave it o
 | Peptides EU (AFF-45MPJVHZ, 20%, BTC payout) | No coupon/deal sites, no brand bidding, no self-referrals, RUO-only messaging -> code only on /vendors/peptides-eu/ (codeOnlyOnVendorPage). |
 | GhostLabz Research (toplist, 30%) | GoAffPro operating agreement bans coupon websites and "reveal code" mechanics -> code only on /vendors/ghostlabz-research/ (codeOnlyOnVendorPage). |
 | Particle Peptides (applied) | Link only on a properly completed website with RUO disclaimers; no brand bidding, no cookie stuffing, no self-referrals. |
+| Real Peptides (ref link, 25%) | Link only, no code; RUO wording (vendor is RUO chemical supplier, no human/animal use). |
 | Modern Aminos (not joined) | Terms contain non-compete + non-disparagement (sec. 10/11) – do NOT publish their code until written carve-out. |
 | Ameano/AMP, SwissChems, Glacier | Ban coupon/“verified code” pages and brand-keyword SEO – never list them on /discount-codes/. |
 
