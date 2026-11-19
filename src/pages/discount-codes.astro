@@ -6,7 +6,7 @@ import { resolveVendorLink, SITE_BRAND } from '../data/affiliates';
 const codeVendors = VENDORS.map((v) => ({
   vendor: v,
   link: resolveVendorLink(v.slug),
-})).filter((x) => Boolean(x.link.promoCode));
+})).filter((x) => Boolean(x.link.promoCode) && !x.link.codeOnlyOnVendorPage);
 const maxDiscount = Math.max(0, ...codeVendors.map((x) => x.link.discountPercent ?? 0));
 ---
 

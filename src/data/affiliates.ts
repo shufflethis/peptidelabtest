@@ -38,6 +38,8 @@ export interface VendorAffiliateConfig {
   promoCode?: string;
   discountPercent?: number;
   discountNote?: string;
+  /** Vendor terms ban codes on coupon/code-collection pages: show code only on the vendor's own page, not on /discount-codes/ (see CONTENT_RULES.md) */
+  codeOnlyOnVendorPage?: boolean;
 }
 
 export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
@@ -166,26 +168,32 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
   'ghostlabz-research': {
     slug: 'ghostlabz-research',
     baseUrl: 'https://ghostlabzresearch.com/',
-    affiliateUrl: 'https://ghostlabzresearch.com/?ref=peptidelabindex',
-    isApproved: false,
+    // Approved 2026-11-19 (GoAffPro): ref/code 'toplist' (assigned by vendor), 15% off, 30% commission.
+    // GoAffPro operating agreement bans coupon websites -> code only on vendor page.
+    affiliateUrl: 'https://ghostlabzresearch.com/?ref=toplist',
+    isApproved: true,
     hasProgram: true,
     network: 'In-House',
-    signupUrl: 'https://ghostlabzresearch.com/contact-us/',
-    promoCode: 'LABINDEX',
-    discountPercent: 25,
-    discountNote: '25% OFF sitewide',
+    signupUrl: 'https://ghostlabzresearch.goaffpro.com/',
+    promoCode: 'toplist',
+    discountPercent: 15,
+    discountNote: '15% OFF at checkout',
+    codeOnlyOnVendorPage: true,
   },
   'peptides-eu': {
     slug: 'peptides-eu',
     baseUrl: 'https://www.peptides-eu.net/',
-    affiliateUrl: 'https://www.peptides-eu.net/?aff=LABINDEX',
-    isApproved: false,
+    // Approved 2026-11-19 (self-serve): AFF-45MPJVHZ, new customers 10% off via link, 20% commission, BTC payout from EUR 250.
+    // Terms: no coupon/deal sites, no brand bidding, RUO-only -> code only on vendor page.
+    affiliateUrl: 'https://www.peptides-eu.net/?aff=AFF-45MPJVHZ',
+    isApproved: true,
     hasProgram: true,
     network: 'In-House',
     signupUrl: 'https://www.peptides-eu.net/affiliate-program',
-    promoCode: 'LABINDEX',
+    promoCode: 'AFF-45MPJVHZ',
     discountPercent: 10,
-    discountNote: '10% OFF first order',
+    discountNote: '10% OFF first order (new customers)',
+    codeOnlyOnVendorPage: true,
   },
   'source-research': {
     slug: 'source-research',
@@ -290,6 +298,7 @@ export function resolveVendorLink(slug: string): {
   discountPercent?: number;
   discountNote?: string;
   isSponsored: boolean;
+  codeOnlyOnVendorPage?: boolean;
 } {
   const cfg = AFFILIATE_CONFIG[slug];
   if (!cfg) {
@@ -304,5 +313,6 @@ export function resolveVendorLink(slug: string): {
     discountPercent: showCode ? cfg.discountPercent : undefined,
     discountNote: showCode ? cfg.discountNote : undefined,
     isSponsored: Boolean(useAffiliate),
+    codeOnlyOnVendorPage: Boolean(cfg.codeOnlyOnVendorPage),
   };
 }

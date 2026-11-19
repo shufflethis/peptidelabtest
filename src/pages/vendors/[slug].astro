@@ -244,7 +244,7 @@ const desc = `${vendor.name} 2026 COA audit (${vendor.overallScore.toFixed(1)}/5
                   <p class="text-xs text-slate-400 mt-1">{alt.puritySummary}</p>
                 </div>
                 <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-800 font-mono text-xs">
-                  {altLink.promoCode ? (
+                  {altLink.promoCode && !altLink.codeOnlyOnVendorPage ? (
                     <button type="button" data-copy-code={altLink.promoCode} class="text-emerald-300 hover:underline cursor-pointer">
                       Code: {altLink.promoCode} (-{altLink.discountPercent}%)
                     </button>

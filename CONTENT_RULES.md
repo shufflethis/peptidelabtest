@@ -16,6 +16,8 @@ Check this file before writing or publishing anything. When in doubt: leave it o
 5. Facts only about vendors: lab results, COA verification, fill weight, price per mg, shipping,
    legal entity. Weaknesses may be stated, but strictly factual and sourced (lab report, portal link, date).
 6. Affiliate disclosure on every page with partner links; all partner links rel="sponsored nofollow".
+7a. Vendors whose terms ban coupon/code pages get `codeOnlyOnVendorPage: true` in src/data/affiliates.ts
+   (code shown only on /vendors/<slug>/, hidden on /discount-codes/, cards, compound pages).
 7. Only codes the vendor actually issued to us (see src/data/affiliates.ts / code-register.csv).
    No invented discounts, no "up to X%" beyond what is issued, no fake urgency/limited-time claims.
 8. No own discount promotions or deal campaigns with a vendor's code without the vendor's written OK.
@@ -32,6 +34,9 @@ Check this file before writing or publishing anything. When in doubt: leave it o
 | CertaPeptides (AFF-LABINDEX) | RUO wording; follow program terms in dashboard. |
 | Genesis (labindex15 / labindexwelcome30) | RUO wording; follow program terms in dashboard. |
 | Arctic Lab Supply (VENDORS) | RUO wording; follow program terms in dashboard. |
+| Peptides EU (AFF-45MPJVHZ, 20%, BTC payout) | No coupon/deal sites, no brand bidding, no self-referrals, RUO-only messaging -> code only on /vendors/peptides-eu/ (codeOnlyOnVendorPage). |
+| GhostLabz Research (toplist, 30%) | GoAffPro operating agreement bans coupon websites and "reveal code" mechanics -> code only on /vendors/ghostlabz-research/ (codeOnlyOnVendorPage). |
+| Particle Peptides (applied) | Link only on a properly completed website with RUO disclaimers; no brand bidding, no cookie stuffing, no self-referrals. |
 | Modern Aminos (not joined) | Terms contain non-compete + non-disparagement (sec. 10/11) – do NOT publish their code until written carve-out. |
 | Ameano/AMP, SwissChems, Glacier | Ban coupon/“verified code” pages and brand-keyword SEO – never list them on /discount-codes/. |
 

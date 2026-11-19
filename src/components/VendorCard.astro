@@ -92,7 +92,7 @@ const scoreColor =
   <!-- Action & Promo Bar -->
   <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
     <div class="flex flex-wrap items-center gap-2">
-      {linkInfo.promoCode ? (
+      {linkInfo.promoCode && !linkInfo.codeOnlyOnVendorPage ? (
         <button
           type="button"
           data-copy-code={linkInfo.promoCode}
