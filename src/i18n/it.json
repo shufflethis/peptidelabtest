@@ -1,1 +1,1360 @@
-{}
+{
+  "common": {
+    "and": "e",
+    "or": "o",
+    "home": "Home",
+    "lastChecked": "Ultimo controllo: {date}",
+    "na": "n. d.",
+    "notPublished": "non pubblicato",
+    "noneNamed": "nessuno indicato",
+    "researchCompound": "composto di ricerca",
+    "shops": {
+      "one": "{n} negozio",
+      "other": "{n} negozi"
+    },
+    "reportsOpened": {
+      "one": "{n} referto aperto",
+      "other": "{n} referti aperti"
+    },
+    "reports": {
+      "one": "{n} referto",
+      "other": "{n} referti"
+    },
+    "from": "da {p}",
+    "region": "Area",
+    "compounds": {
+      "one": "{n} composto",
+      "other": "{n} composti"
+    },
+    "listings": {
+      "one": "{n} offerta",
+      "other": "{n} offerte"
+    },
+    "no": "No",
+    "yes": "Sì"
+  },
+  "footer": {
+    "brandDesc": "Confronto indipendente dei negozi di peptidi da ricerca: prezzi al mg e referti di laboratorio verificati, quando possibile, sul portale del laboratorio che li ha emessi. Solo per uso di ricerca.",
+    "updated": "Dati aggiornati il {date}",
+    "followUs": "Seguici",
+    "telegram": "Telegram",
+    "colPrices": "Confronta i prezzi",
+    "pricesOf": "Prezzi di {name}",
+    "allPrices": "Tutti i confronti di prezzo",
+    "priceIndex": "Indice dei prezzi per classe",
+    "colShops": "Negozi",
+    "bestShops": "Migliori negozi (classifica)",
+    "bestEu": "Migliori in Europa",
+    "bestUs": "Migliori negli Stati Uniti",
+    "codes": "Codici per i lettori",
+    "shopVsShop": "Negozio contro negozio",
+    "reportsOpened": "Referti di laboratorio che abbiamo aperto",
+    "colLab": "Dati di laboratorio",
+    "labs": "Laboratori di analisi",
+    "labGuide": "Guida a {name}",
+    "howWeTest": "Come valutiamo",
+    "openData": "Dati aperti (CSV)",
+    "llms": "llms.txt",
+    "colGuides": "Guide",
+    "compounds": "Composti",
+    "compareCompounds": "Confronti tra composti",
+    "byCountry": "Regole per paese",
+    "research": "Guide ai referti di laboratorio",
+    "calculator": "Calcolatore di concentrazione",
+    "colAbout": "Chi siamo",
+    "about": "Chi siamo e standard editoriali",
+    "contact": "Contatti",
+    "affiliate": "Informativa sull'affiliazione",
+    "privacy": "Informativa sulla privacy",
+    "terms": "Condizioni d'uso",
+    "forShops": "Per i negozi",
+    "legal": "Note legali",
+    "ruo": "Solo per uso di ricerca: tutti i prodotti elencati sono venduti come reagenti di laboratorio, non per uso umano o veterinario. Non è un consiglio medico.",
+    "affLine": "I link ai negozi partner sono link di affiliazione (rel=\"sponsored\"). Le classifiche dipendono solo dal punteggio dell'audit, mai dalla commissione.",
+    "copyright": "© {year} {site}. Dati controllati il {date}.",
+    "languages": "Lingue"
+  },
+  "about": {
+    "title": "Chi siamo: gli standard editoriali di PeptideLabIndex",
+    "description": "Chi gestisce PeptideLabIndex, come raccogliamo i dati, perché le commissioni non cambiano i punteggi, come correggiamo e quali link sono di affiliazione.",
+    "crumb": "Chi siamo",
+    "h1": "Chi siamo: PeptideLabIndex e i nostri standard editoriali",
+    "intro": "PeptideLabIndex confronta i negozi di peptidi da ricerca su fatti verificabili: referti di laboratorio, contenuto misurato, verifica sul portale del laboratorio e prezzi al mg. Le recensioni sono scritte dalla redazione di PeptideLabIndex. Il {date} abbiamo esaminato {shops} negozi e aperto {reports} referti di laboratorio.",
+    "whoH": "Chi scrive le recensioni",
+    "whoP1": "Tutte le recensioni, classifiche e guide sono scritte e riviste dalla redazione di PeptideLabIndex. Pubblichiamo con il nome della redazione e non dichiariamo qualifiche mediche, legali o di laboratorio.",
+    "whoP2": "Non analizziamo campioni in proprio. Il nostro lavoro è leggere ciò che negozi e laboratori pubblicano e presentarlo affiancato, nello stesso formato.",
+    "indepH": "Indipendenza: i punteggi non dipendono mai dalle commissioni",
+    "indepP1": "Alcuni negozi sono partner di affiliazione. Ci pagano una commissione se qualcuno acquista tramite il nostro link. La formula di punteggio è la stessa per ogni negozio, partner o no.",
+    "indepP2": "I negozi partner ottengono tra {min} e {max} su 5. Per esempio, {low} ottiene {lowScore} e {high} ottiene {highScore}. Negozi non partner come {np} ({npScore}) possono avere un punteggio più alto di alcuni partner.",
+    "indepP3": "Le classifiche ordinano i negozi partner solo per punteggio dell'audit. I negozi non partner mantengono il loro punteggio e sono elencati con un link alla nostra recensione.",
+    "dataH": "Come raccogliamo i dati",
+    "dataL1": "Audit documentale del {date} sulle pagine pubbliche di ogni negozio: prodotti, prezzi, spedizioni, condizioni e note legali.",
+    "dataL2": "{reports} referti di laboratorio aperti; annotiamo laboratorio, data dell'analisi, purezza, mg dichiarati in etichetta e mg misurati.",
+    "dataL3": "Referti cercati sul portale del laboratorio, se esiste: {portal} trovati lì.",
+    "dataL4": "Nessun ordine di prova e nessuna analisi in proprio. Un audit documentale non può confermare il contenuto di una singola spedizione.",
+    "corrH": "Correzioni",
+    "corrP": "Negozi e lettori possono inviarci nuovi referti di laboratorio o segnalare errori tramite la pagina dei contatti. Verifichiamo ogni referto sul sito del laboratorio prima di usarlo, e ogni pagina mostra la data dell'ultimo controllo.",
+    "coiH": "Conflitti di interesse",
+    "coiP": "Questi negozi sono partner di affiliazione e ricevono un link al negozio (contrassegnato con rel=\"sponsored\"): {list}. Gli altri negozi esaminati non ricevono link in uscita.",
+    "links": "Per approfondire"
+  },
+  "contact": {
+    "title": "Contatti: correzioni e aggiornamenti dei negozi",
+    "description": "Scrivi alla redazione di PeptideLabIndex: correzioni, nuovi referti di laboratorio per il prossimo audit o domande sull'affiliazione.",
+    "crumb": "Contatti",
+    "h1": "Contatti",
+    "intro": "Il modo più rapido per contattare la redazione di PeptideLabIndex è l'e-mail.",
+    "emailLabel": "E-mail",
+    "whatH": "Cosa puoi inviarci",
+    "l1": "Correzioni: l'indirizzo della pagina e cosa è sbagliato, con una fonte se possibile.",
+    "l2": "Nuovi referti di laboratorio di un negozio: il link al referto e, se c'è, la chiave del portale del laboratorio.",
+    "l3": "Domande di negozi e partner: vedi anche la nostra pagina per i negozi.",
+    "note": "Non rispondiamo a domande sull'uso umano o veterinario e non diamo consigli medici."
+  },
+  "privacy": {
+    "title": "Informativa sulla privacy | PeptideLabIndex",
+    "description": "Privacy su PeptideLabIndex: statistiche Plausible senza cookie né dati personali, link di affiliazione con cookie dei negozi e contatto via e-mail.",
+    "crumb": "Privacy",
+    "h1": "Informativa sulla privacy",
+    "intro": "In breve: su questo sito non usiamo cookie e non raccogliamo dati personali.",
+    "anaH": "Statistiche",
+    "anaP": "Contiamo le visite con un'istanza self-hosted di Plausible Analytics. Non usa cookie, non conserva indirizzi IP e non crea profili utente. Vediamo solo totali, come pagine viste e siti di provenienza.",
+    "affH": "Link di affiliazione",
+    "affP": "I link contrassegnati \"Visita\" portano ai negozi partner. Dopo il clic, il sito del negozio può impostare un cookie per registrare che arrivi da noi. Quel cookie è impostato dal negozio secondo la sua informativa sulla privacy, non da questo sito.",
+    "toolH": "Calcolatore",
+    "toolP": "Il calcolatore di concentrazione funziona nel tuo browser. Ciò che inserisci non ci viene inviato.",
+    "mailH": "E-mail",
+    "mailP": "Se ci scrivi, usiamo il tuo indirizzo e il tuo messaggio solo per rispondere. Non ti aggiungiamo a nessuna mailing list.",
+    "contactH": "Domande",
+    "contactP": "Domande sulla privacy: {email}"
+  },
+  "terms": {
+    "title": "Condizioni d'uso | PeptideLabIndex",
+    "description": "Condizioni d'uso di PeptideLabIndex: solo per ricerca, nessun consiglio medico, nessuna garanzia sui dati dei negozi e data dell'ultimo controllo dei dati.",
+    "crumb": "Condizioni d'uso",
+    "h1": "Condizioni d'uso",
+    "intro": "Usando questo sito accetti queste condizioni.",
+    "ruoH": "Solo per uso di ricerca",
+    "ruoP": "I negozi vendono i prodotti confrontati qui come reagenti di laboratorio solo per la ricerca. Non sono approvati per uso umano o veterinario. Non forniamo informazioni su tale uso.",
+    "medH": "Nessun consiglio medico",
+    "medP": "Nulla su questo sito è un consiglio medico, legale o professionale.",
+    "dataH": "Nessuna garanzia sui dati dei negozi",
+    "dataP": "Prezzi, disponibilità, referti di laboratorio e dati dei negozi provengono da fonti pubbliche e sono stati letti il {date}. I negozi li cambiano spesso. Controlla il negozio e il portale del laboratorio prima di fidarti di un numero. Non rispondiamo dei prodotti, dei prezzi o dei servizi di alcun negozio.",
+    "linkH": "Link",
+    "linkP": "I link ai negozi partner sono link di affiliazione. Gli indirizzi dei referti di laboratorio sono mostrati come testo semplice; digitali tu stesso nel browser.",
+    "reuseH": "Riutilizzo dei nostri dati",
+    "reuseP": "Il dataset aperto può essere riutilizzato con licenza CC BY 4.0 citando PeptideLabIndex."
+  },
+  "affiliate": {
+    "title": "Affiliazione: come si finanzia PeptideLabIndex",
+    "description": "Come si finanzia PeptideLabIndex: link di affiliazione (rel=sponsored), codici emessi per i lettori e perché le commissioni non cambiano i voti.",
+    "crumb": "Affiliazione",
+    "h1": "Informativa sull'affiliazione",
+    "intro": "PeptideLabIndex è gratuito. Guadagniamo con link di affiliazione verso alcuni negozi. Questa pagina spiega come funziona e cosa non cambia.",
+    "howH": "Come guadagniamo",
+    "howP": "I link contrassegnati \"Visita\" portano ai negozi partner e hanno rel=\"sponsored\". Se acquisti tramite uno di essi o usi un codice per i lettori che un negozio partner ci ha emesso, potremmo ricevere una commissione. Per te non c'è alcun costo aggiuntivo.",
+    "partnersH": "Negozi partner attuali",
+    "partnersP": "Al momento {n} negozi esaminati sono partner, qui ordinati per punteggio dell'audit:",
+    "notH": "Cosa la commissione non cambia",
+    "notL1": "La formula di punteggio è la stessa per ogni negozio.",
+    "notL2": "Le classifiche ordinano i negozi partner solo per punteggio dell'audit, mai per commissione.",
+    "notL3": "I punti deboli restano sulla pagina, che il negozio sia partner o no.",
+    "notL4": "I negozi non partner mantengono il loro punteggio e sono elencati con un link alla nostra recensione, senza link in uscita."
+  },
+  "seo": {
+    "pad1": " Dati controllati il {date}.",
+    "pad2": " Solo per ricerca.",
+    "pad3": " Audit indipendente."
+  },
+  "layout": {
+    "orgDesc": "Audit documentale indipendente dei negozi di peptidi da ricerca in UE e Stati Uniti: referti di laboratorio aperti, contenuto misurato rispetto all'etichetta, verifica sul portale del laboratorio e prezzi al mg.",
+    "copied": "Copiato",
+    "skip": "Vai al contenuto",
+    "topPre": "Audit documentale di pagine pubbliche dei negozi e portali di laboratorio, ultimo controllo il",
+    "topPost": "Prodotti solo per ricerca; nessuna informazione d'uso o sulla salute.",
+    "howWeScore": "Come assegniamo i punteggi",
+    "homeAria": "Home di {site}",
+    "tagline": "Prezzi e referti di laboratorio a confronto",
+    "mainNav": "Menu principale",
+    "language": "Lingua",
+    "cta": "Migliori negozi esaminati",
+    "openMenu": "Apri il menu"
+  },
+  "nav": {
+    "prices": "Confronta i prezzi",
+    "shops": "Negozi",
+    "reports": "Referti di laboratorio",
+    "compounds": "Composti",
+    "method": "Metodologia"
+  },
+  "ships": {
+    "worldwide": "in tutto il mondo",
+    "euWide": "in tutta l'UE",
+    "usOnly": "solo Stati Uniti",
+    "countries": "{n} paesi ({list} …)"
+  },
+  "panels": {
+    "Endotoxin": "Endotossine",
+    "HPLC purity": "Purezza HPLC",
+    "Heavy metals": "Metalli pesanti",
+    "Identity": "Identità",
+    "LC-MS identity": "Identità LC-MS",
+    "Measured mg": "mg misurati",
+    "Sterility": "Sterilità"
+  },
+  "coaAccess": {
+    "None found": "Nessuno trovato",
+    "On request": "Su richiesta",
+    "Public lab portal keys": "Chiavi pubbliche del portale del laboratorio",
+    "Reports on product pages": "Referti nelle pagine prodotto"
+  },
+  "payments": {
+    "Bank transfer": "Bonifico bancario",
+    "Bank Transfer": "Bonifico bancario",
+    "Bank transfer (prepayment)": "Bonifico bancario (pagamento anticipato)",
+    "SEPA bank transfer": "Bonifico SEPA",
+    "SEPA bank transfer (-2%)": "Bonifico SEPA (-2%)",
+    "Credit cards": "Carte di credito",
+    "Debit cards": "Carte di debito",
+    "Credit/debit card online": "Carta di credito/debito online",
+    "Crypto": "Criptovalute",
+    "Cryptocurrencies": "Criptovalute",
+    "Cryptocurrency (Bitcoin)": "Criptovaluta (Bitcoin)",
+    "Cryptocurrency (-5%)": "Criptovaluta (-5%)",
+    "Cash on delivery": "Contrassegno",
+    "Online banking (banner)": "Online banking (banner)",
+    "Paysera (instant SEPA)": "Paysera (SEPA istantaneo)",
+    "PayPal (new customers only)": "PayPal (solo nuovi clienti)",
+    "Zelle (5% off)": "Zelle (5% di sconto)"
+  },
+  "sub": {
+    "labVerification": "Verifica di laboratorio",
+    "fillAccuracy": "Accuratezza del contenuto",
+    "panelDepth": "Ampiezza delle analisi",
+    "entityTransparency": "Trasparenza sulla società",
+    "dispatchReliability": "Informazioni di spedizione",
+    "valuePerMg": "Prezzo al mg"
+  },
+  "calc": {
+    "h": "Concentrazione della soluzione madre (mg/mL)",
+    "intro": "Concentrazione = massa nella fiala (mg) divisa per il volume di solvente aggiunto (mL). Solo per lavoro di laboratorio in vitro.",
+    "mode": "Modalità",
+    "one": "Un composto",
+    "two": "Due composti",
+    "l1": "1. Massa indicata sull'etichetta (mg)",
+    "labelMass": "Massa in etichetta (mg)",
+    "coa": "mg misurati dal referto (facoltativo)",
+    "eg": "es. 9,8",
+    "l1b": "1b. Secondo composto nella stessa fiala (mg)",
+    "l2": "2. Volume di solvente aggiunto (mL)",
+    "result": "Concentrazione della soluzione madre",
+    "massUsed": "Massa usata",
+    "second": "Secondo composto",
+    "note": "Solo calcolo. Questo strumento non fornisce indicazioni d'uso o di somministrazione.",
+    "basisReport": "referto di laboratorio",
+    "basisLabel": "etichetta",
+    "ofLabel": "della quantità dichiarata",
+    "notEntered": "non inserito"
+  },
+  "c": {
+    "breadcrumb": "Percorso di navigazione",
+    "code": "Codice",
+    "copy": "Copia",
+    "copyCode": "Copia il codice {code}",
+    "forPct": "per il {n}%",
+    "codeNote": "{n}% di sconto, come emesso dal negozio",
+    "codeOnReview": "Codice per i lettori nella recensione",
+    "codeOnReviewShort": "Codice nella recensione",
+    "noCode": "Nessun codice",
+    "linkNoCode": "Link al negozio, senza codice",
+    "noReaderCode": "Nessun codice per i lettori",
+    "compareBoxTitle": "Confronta i negozi esaminati con link",
+    "compareBoxNote": "Link partner (affiliazione). Ordine = punteggio dell'audit.",
+    "portalOf": "{p} referti su {o} verificati sul portale",
+    "xOfY": "{x} su {y}",
+    "measuredVsLabel": "Misurato vs etichetta",
+    "visit": "Visita {shop}",
+    "seeReports": "Vedi i referti di laboratorio",
+    "readReview": "Leggi la recensione",
+    "disclosureLabel": "Informativa:",
+    "disclosure": "I link contrassegnati \"Visita\" portano ai negozi partner e sono link di affiliazione. Potremmo ricevere una commissione, senza costi aggiuntivi per te. Le classifiche dipendono solo dal punteggio dell'audit pubblicato, mai dalla commissione. Tutti i prodotti sono venduti come reagenti di laboratorio solo per ricerca (RUO). Nulla su questo sito è un consiglio sull'uso umano o veterinario.",
+    "faq": "Domande frequenti",
+    "related": "Pagine correlate",
+    "fillAria": "Contenuto misurato in percentuale dell'etichetta, {n} referti",
+    "fillRowAria": "{m} su {l} mg, {p}",
+    "portalVerified": "verificato sul portale",
+    "shopHosted": "pubblicato dal negozio",
+    "fillCaption": "Ogni riga è un referto di laboratorio aperto: mg misurati divisi per i mg dell'etichetta. Linea tratteggiata = 100% dell'etichetta. Area ombreggiata = dal 90 al 110%.",
+    "fillLegend": "I valori in arancione sono fuori da questo intervallo. Indicatore pieno = verificato sul portale del laboratorio; indicatore vuoto = referto pubblicato solo dal negozio.",
+    "barsAria": "Prezzo al mg in {cur}, dal più economico",
+    "legendPartner": "Negozio partner (con link)",
+    "legendOther": "Altro negozio esaminato",
+    "barsNote": "Prezzo al mg = prezzo di listino (prezzo scontato se indicato) diviso per i mg dell'etichetta. Solo {cur}, senza conversione.",
+    "sectionEUR": {
+      "one": "Negozi UE, prezzi in EUR: {label} in {n} negozio",
+      "other": "Negozi UE, prezzi in EUR: {label} in {n} negozi"
+    },
+    "sectionUSD": {
+      "one": "Prezzi in USD (soprattutto negozi USA): {label} in {n} negozio",
+      "other": "Prezzi in USD (soprattutto negozi USA): {label} in {n} negozi"
+    },
+    "sectionOther": {
+      "one": "Prezzi in {cur}: {label} in {n} negozio",
+      "other": "Prezzi in {cur}: {label} in {n} negozi"
+    },
+    "sectionIntro": "I negozi partner compaiono per primi, poi gli altri negozi esaminati (in grigio, senza link). Tocca l'intestazione di una colonna per ordinare. Su smartphone la prima colonna mostra il prezzo al mg; scorri per vedere le altre.",
+    "barsTitle": "Prezzo al mg più basso per negozio ({cur})",
+    "tableCaption": "{label}: prezzi in {cur}",
+    "pt": {
+      "shop": "Negozio",
+      "product": "Prodotto",
+      "productVial": "Prodotto (fiala in mg)",
+      "price": "Prezzo ({sym})",
+      "perMg": "Prezzo al mg ({sym})",
+      "report": "Referto di laboratorio per questo composto",
+      "score": "Punteggio (0-5)",
+      "codeStore": "Codice e negozio",
+      "partner": "Partner",
+      "noLink": "senza link",
+      "outOfStock": "esaurito",
+      "was": "prima",
+      "yesPortal": "Sì, verificato sul portale",
+      "yesShop": "Sì, pubblicato dal negozio",
+      "mOfL": "{m} su {l} mg ({p})",
+      "mgNotStated": "mg non indicati",
+      "purity": "Purezza {p}",
+      "noReport": "Nessun referto aperto"
+    },
+    "rank": "N. {n}",
+    "labs": "Laboratori",
+    "hplcPurity": "Purezza HPLC",
+    "purity": "Purezza",
+    "priceExample": "Esempio di prezzo",
+    "pricesNotPublished": "Prezzi non pubblicati",
+    "partnerNote": "Link partner (affiliazione). Non cambia il punteggio.",
+    "weight": "peso {n}%",
+    "notAssessable": "non valutabile",
+    "scoreAria": "{label} {score} su 5",
+    "auditScore": "Punteggio dell'audit",
+    "outOf5": "{score} su 5",
+    "scoreShort": "Punteggio {s}",
+    "nonePublished": "nessuno pubblicato",
+    "ts": {
+      "shops": "negozi esaminati",
+      "reports": "referti aperti",
+      "portal": "verificati sul portale",
+      "prices": "prezzi registrati",
+      "checked": "ultimo controllo"
+    },
+    "vb": {
+      "portal": "Verificato sul portale",
+      "vendor": "Pubblicato dal negozio",
+      "none": "Nessun referto pubblico"
+    },
+    "rk": {
+      "partnerTitle": "Classifica: negozi esaminati con link",
+      "otherTitle": "Altri negozi esaminati",
+      "partnerIntro": "Solo negozi partner, ordinati per punteggio dell'audit. La commissione non influisce sull'ordine.",
+      "visitNote": "I pulsanti \"Visita\" sono link partner (affiliazione).",
+      "otherIntro": "Stesso audit, stessa formula. Questi negozi non sono partner, quindi rimandiamo solo alla nostra recensione.",
+      "portalCol": "Referti verificati sul portale",
+      "verdict": "Giudizio"
+    },
+    "euShops": "Negozi UE (prezzi in EUR)",
+    "usShops": "Negozi USA (prezzi in USD)",
+    "wtb": {
+      "intro": "I negozi partner hanno un link e sono ordinati per punteggio dell'audit, mai per commissione. Gli altri negozi esaminati che vendono {what} rimandano solo alla nostra recensione.",
+      "none": "Nessun negozio partner di quest'area vende {what}.",
+      "repPortal": "Referto di {c} verificato sul portale",
+      "repShop": "Referto di {c} pubblicato dal negozio",
+      "repNone": "Nessun referto di {c} aperto",
+      "othersEU": "Altri negozi UE esaminati con {c}:",
+      "othersUS": "Altri negozi USA esaminati con {c}:",
+      "note": "I link ai negozi sono link partner (affiliazione). Prezzi di listino al {date}, prima di qualsiasi codice."
+    }
+  },
+  "home": {
+    "title": [
+      "Peptidi da ricerca: prezzi e referti di laboratorio {year}",
+      "Peptidi da ricerca: prezzi e referti {year}"
+    ],
+    "h1": "Confronto dei peptidi da ricerca: prezzi al mg e referti di laboratorio ({year})",
+    "description": [
+      "{shops} negozi di peptidi da ricerca esaminati: {reports} referti aperti, {portal} verificati sul portale del laboratorio. Confronta i prezzi al mg."
+    ],
+    "intro": "Il {date} abbiamo esaminato {shops} negozi di peptidi da ricerca in UE e negli Stati Uniti. Abbiamo aperto {reports} referti di laboratorio di {withReports} negozi, ne abbiamo trovati {portal} sul portale del laboratorio e registrato {products} prezzi di listino come prezzo al mg. L'ordine dipende dal punteggio dell'audit, mai dalla commissione.",
+    "eyebrow": "Audit documentale indipendente, {date}",
+    "pickerH": "Confronta i prezzi di un composto",
+    "pickerP": "Scegli un composto per vedere ogni negozio, il prezzo al mg e se abbiamo aperto un referto di laboratorio.",
+    "allPrices": "Tutti i confronti di prezzo",
+    "fullRanking": "Vedi la classifica completa dei negozi",
+    "bestH": "Migliori negozi esaminati con link",
+    "bestP": "Questi sono i nostri negozi partner, ordinati per punteggio dell'audit in ogni area. Tutti sono valutati con la stessa formula. La commissione non conta per l'ordine.",
+    "howH": "Come facciamo l'audit",
+    "howP": "È un audit documentale di pagine pubbliche dei negozi e portali di laboratorio. Nessun ordine di prova. Ogni numero di questo sito proviene da un referto o da una pagina di prezzi aperti il {date}.",
+    "step": "Passo {n}",
+    "s1t": "Apriamo i referti di laboratorio",
+    "s1p": "Per ogni negozio apriamo i referti pubblicati e annotiamo laboratorio, data dell'analisi, purezza e mg misurati.",
+    "s2t": "Controlliamo il portale del laboratorio",
+    "s2p": "Se il laboratorio offre una ricerca, verifichiamo che il referto esista sul suo sito. Questo significa \"verificato sul portale\".",
+    "s3t": "Confrontiamo misurato ed etichetta",
+    "s3p": "mg misurati divisi per i mg dell'etichetta. 100% significa che la fiala contiene ciò che dice l'etichetta.",
+    "s4t": "Registriamo il prezzo al mg",
+    "s4p": "Prezzo al mg = prezzo della fiala diviso per i mg dell'etichetta. EUR e USD restano separati.",
+    "readMethod": "Leggi la metodologia completa",
+    "otherP": "Questi negozi sono valutati con lo stesso metodo. Non sono partner, quindi rimandiamo solo alla nostra recensione, non al negozio.",
+    "sizesH": "Formati di fiala più cercati",
+    "allSizes": "Tutti i formati di fiala",
+    "pairSub": "Mercato, prezzi e referti a confronto",
+    "allPairs": "Tutti i confronti",
+    "allLabs": "Tutti i laboratori",
+    "itemList": "Migliori negozi di peptidi da ricerca esaminati (partner per punteggio dell'audit)",
+    "faqs": [
+      {
+        "q": "Come valutate i negozi di peptidi da ricerca?",
+        "a": "Ogni negozio riceve un punteggio da 0 a 5 basato su sei parti: verifica di laboratorio (30%), accuratezza del contenuto (20%), ampiezza delle analisi (20%), trasparenza sulla società (15%), informazioni di spedizione (10%) e prezzo al mg (5%). Le classifiche di questo sito usano solo questo punteggio, mai la commissione."
+      },
+      {
+        "q": "Cosa significa \"verificato sul portale\"?",
+        "a": "Il referto di laboratorio è stato trovato sul sito del laboratorio di analisi, non solo come file nella pagina del negozio. {portal} dei {reports} referti che abbiamo aperto erano verificati sul portale."
+      },
+      {
+        "q": "Perché alcuni negozi non hanno il pulsante \"Visita\"?",
+        "a": "Solo i negozi partner ricevono un link in uscita (un link di affiliazione). Gli altri negozi esaminati vengono comunque valutati ed elencati, con un link alla nostra recensione."
+      },
+      {
+        "q": "Fornite informazioni d'uso o sulla salute?",
+        "a": "No. Tutti i prodotti elencati sono venduti come reagenti di laboratorio solo per ricerca. Confrontiamo solo referti di laboratorio, prezzi di listino e trasparenza dei negozi."
+      }
+    ]
+  },
+  "pi": {
+    "title": [
+      "Peptidi da ricerca: confronto prezzi al mg {year}",
+      "Peptidi da ricerca: prezzi al mg {year}"
+    ],
+    "h1": "Confronto dei prezzi dei peptidi da ricerca {year}",
+    "description": [
+      "Prezzo al mg di {n} composti di ricerca in {shops} negozi esaminati, EUR e USD separati, con referti di laboratorio. Confronta i prezzi per composto."
+    ],
+    "intro": "Il {date} abbiamo registrato {products} prezzi di listino per {n} composti di ricerca in {shops} negozi esaminati in UE e negli Stati Uniti. Ogni pagina di composto separa i prezzi in EUR e USD, mostra il prezzo al mg per formato di fiala e indica quali negozi hanno pubblicato un referto di laboratorio che abbiamo aperto ({reports} referti in totale).",
+    "crumb": "Prezzi",
+    "eyebrow": "{n} composti · {sizes} pagine per formato di fiala",
+    "pick": "Scegli un composto",
+    "lowestH": "Prezzo al mg più basso per composto",
+    "colCompound": "Composto",
+    "colShops": "Negozi",
+    "colListings": "Offerte",
+    "colSizes": "Formati di fiala",
+    "colLowest": "Prezzo al mg più basso ({sym})",
+    "colReports": "Referti aperti",
+    "tableNote": "Prezzo al mg di listino più basso tra tutti i formati di fiala. Prezzo al mg = prezzo della fiala diviso per i mg dell'etichetta. Le fiale più grandi costano spesso meno al mg. Apri un composto per vedere le tabelle complete in EUR e USD.",
+    "sizesH": "Prezzi per formato di fiala",
+    "sizesP": "Combinazioni di composto e formato di fiala vendute da almeno tre negozi esaminati. Il numero indica i negozi.",
+    "linkIndex": "Indice dei prezzi per classe di composto",
+    "itemList": "Confronti di prezzo dei composti di ricerca",
+    "itemName": "Confronto prezzi di {c}",
+    "faqs": [
+      {
+        "q": "Come si calcola il prezzo al mg?",
+        "a": "Prezzo di listino (quello scontato se il negozio lo mostra) diviso per i mg dell'etichetta di quella fiala. Non sottraiamo codici sconto e non convertiamo valute."
+      },
+      {
+        "q": "Perché i prezzi in EUR e USD non sono confrontati direttamente?",
+        "a": "I negozi indicano i prezzi nella propria valuta. Mostriamo EUR e USD in tabelle e grafici separati invece di convertire, così ogni numero corrisponde al prezzo del negozio."
+      },
+      {
+        "q": "Quanto sono aggiornati i prezzi?",
+        "a": "Tutti i prezzi sono stati letti il {date} da pagine pubbliche o interfacce dei negozi. I negozi cambiano spesso i prezzi; verifica sul negozio prima di ordinare."
+      }
+    ]
+  },
+  "pc": {
+    "title": [
+      "Comprare {c}: prezzi al mg in {n} negozi",
+      "{c}: confronto prezzi in {n} negozi",
+      "{c}: prezzi ({n} negozi)"
+    ],
+    "h1": "Confronto prezzi di {c} {year}: {n} negozi, prezzo al mg e referti di laboratorio",
+    "description": [
+      "Comprare {c} da {from} in {n} negozi esaminati. Confronta {nl} offerte, formati di fiala e referti di laboratorio aperti prima di ordinare.",
+      "{c}: {nl} offerte in {n} negozi esaminati, prezzo al mg in EUR e USD e referti di laboratorio aperti. Confronta i prezzi prima di comprare.",
+      "{c}: {nl} offerte in {n} negozi con referti di laboratorio. Confronta i prezzi."
+    ],
+    "vialSizes": {
+      "one": "{n} formato di fiala",
+      "other": "{n} formati di fiala"
+    },
+    "labReports": {
+      "one": "{n} referto di laboratorio",
+      "other": "{n} referti di laboratorio"
+    },
+    "cheapIn": "{p} ({shop}, {mg}) in {cur}",
+    "intro1": "{c} è venduto da {n} dei {total} negozi che abbiamo esaminato ({listings}, {sizes}).",
+    "intro2": "Prezzo al mg di listino più basso al {date}: {prices}.",
+    "intro3": "Abbiamo aperto {reports} su {c} di {repShops}.",
+    "intro3fill": "Abbiamo aperto {reports} su {c} di {repShops}; il contenuto misurato era {range} dell'etichetta.",
+    "euShops": {
+      "one": "{n} negozio UE",
+      "other": "{n} negozi UE"
+    },
+    "usShops": {
+      "one": "{n} negozio USA",
+      "other": "{n} negozi USA"
+    },
+    "fq1": "Dove comprare {c} per la ricerca?",
+    "fa1": "{n} negozi esaminati vendono {c}: {euShops} e {usShops}.",
+    "fa1p": "Negozi con link su questo sito, per punteggio dell'audit: {list}.",
+    "fa1none": "Nessuno è un negozio partner con link.",
+    "fa1end": "Le tabelle mostrano ogni offerta con prezzo al mg e stato del referto di laboratorio.",
+    "fq2": "Dove costa meno {c} al mg?",
+    "fa2": "Prezzo al mg di listino più basso al {date}: {prices}. Il calcolo usa il prezzo di listino del negozio (scontato se indicato) diviso per i mg dell'etichetta, senza codici sconto.",
+    "fq3": "Quali negozi hanno pubblicato un referto di laboratorio su {c}?",
+    "fa3": "Abbiamo aperto {nrep} referti su {c} di {list}. {portal} erano verificati sul portale del laboratorio",
+    "fa3fill": "; il contenuto misurato era {range} dell'etichetta",
+    "fa3none": "Non abbiamo aperto alcun referto di laboratorio su {c} nei negozi esaminati.",
+    "fq4": "In quali formati di fiala è venduto {c}?",
+    "fa4": "I negozi esaminati vendono {c} in fiale da {list}.",
+    "fa4p": "I formati venduti da almeno tre negozi hanno una pagina di confronto dedicata: {list}.",
+    "fq5": "I prezzi vengono convertiti tra euro e dollari?",
+    "fa5": "No. I prezzi in EUR e USD sono in tabelle separate, esattamente come indicati dal negozio, senza conversione e senza codici sconto.",
+    "fq6": "{c} è venduto per uso umano?",
+    "fa6": "No. I negozi elencati vendono {c} come reagente di laboratorio solo per ricerca (RUO). Questa pagina confronta solo offerte e referti di laboratorio e non contiene informazioni sull'uso umano o veterinario.",
+    "itemList": "Negozi che vendono {c}",
+    "relFacts": "{c}: scheda del composto",
+    "relSize": "Prezzi di {c} {mg}",
+    "relPair": "Confronto di mercato e referti",
+    "relReview": "{shop}: recensione e opinioni",
+    "statShops": "Negozi (UE / USA)",
+    "statLowest": "Prezzo al mg più basso ({cur})",
+    "statReports": "Referti aperti",
+    "nPortal": "{n} verificati sul portale",
+    "bySize": "Prezzi per formato di fiala:",
+    "wtbH": "Dove comprare {c} per la ricerca: {n} negozi esaminati",
+    "repH": "Referti di laboratorio su {c}: misurato vs etichetta",
+    "repP": "{reports} aperti di {repShops}; {portal} verificati sul portale del laboratorio. Indirizzi e ID dei referti sono in",
+    "chartTitle": "{c}: contenuto misurato in % dell'etichetta",
+    "about": "Informazioni su {name}",
+    "factsPage": "Vedi la scheda del composto"
+  },
+  "ps": {
+    "title": [
+      "Comprare {c} {size}mg: prezzi e referti {year}",
+      "{c} {size}mg: prezzi e referti di laboratorio",
+      "{c} {size}mg: confronto prezzi"
+    ],
+    "h1": "{c} {mg}: prezzi in {n} negozi e referti di laboratorio ({year})",
+    "description": [
+      "{c} {mg} in {n} negozi esaminati da {from}. Confronta prezzi, prezzo al mg e referti di laboratorio aperti prima di comprare.",
+      "{c} {mg}: prezzo della fiala in {n} negozi esaminati, EUR e USD separati, con prezzo al mg e referti di laboratorio. Confronta i prezzi.",
+      "{c} {mg}: prezzi in {n} negozi con referti di laboratorio. Confronta i prezzi."
+    ],
+    "vialAt": "{p} a fiala da {shop} ({cur})",
+    "intro1": "{n} negozi esaminati vendono {c} in fiala da {mg} ({eu} UE, {us} USA).",
+    "intro2": "Prezzo di listino più basso al {date}: {lows}.",
+    "intro3": "Per questo formato abbiamo aperto {reports}; il contenuto misurato era {range} dell'etichetta.",
+    "intro3none": "Non abbiamo aperto alcun referto su {c} {mg}; i referti degli altri formati sono nella pagina principale di {c}.",
+    "median": "mediana di {p} su {n} offerte in {cur}",
+    "fq1": "Quanto costa una fiala di {c} {mg}?",
+    "fa1": "Prezzi di listino al {date}: {medians}. Il più economico: {lows}. Prezzi senza codici sconto e senza conversione.",
+    "fq2": "Dove comprare {c} {mg} per la ricerca?",
+    "fa2": "Lo vendono {n} negozi esaminati.",
+    "fa2p": "Negozi con link, per punteggio dell'audit: {list}.",
+    "fq3": "Esiste un referto di laboratorio su {c} {mg}?",
+    "fa3": "Sì. Per questo formato abbiamo aperto {reports} ({portal} verificati sul portale del laboratorio), di {list}.",
+    "fa3none": "Non abbiamo aperto alcun referto su {c} {mg}. Nella pagina prezzi di {c} ci sono {nall} referti su {c} in altri formati di fiala.",
+    "itemList": "Negozi che vendono {c} {mg}",
+    "relAll": "Tutti i formati di {c}",
+    "relAllSub": "Confronto prezzi completo",
+    "eyebrow": "{c} · fiala da {mg}",
+    "statReports": "Referti da {mg} aperti",
+    "wtbH": "Dove comprare {c} {mg}: negozi a confronto",
+    "repH": "{c} {mg}: referti di laboratorio",
+    "chartTitle": "{c} {mg}: contenuto misurato in % dell'etichetta"
+  },
+  "rank": {
+    "label_all": "UE e USA",
+    "label_eu": "UE",
+    "label_us": "USA",
+    "title_all": [
+      "Negozi di peptidi da ricerca {year}: {n} recensiti",
+      "Negozi di peptidi {year}: {n} recensiti"
+    ],
+    "title_eu": [
+      "Migliori negozi di peptidi UE {year}: {n} recensiti",
+      "Migliori negozi di peptidi UE {year}"
+    ],
+    "title_us": [
+      "Migliori negozi di peptidi USA {year}: {n} recensiti",
+      "Migliori negozi di peptidi USA {year}"
+    ],
+    "h1_all": "Classifica dei negozi di peptidi da ricerca ({year})",
+    "h1_eu": "Migliori negozi di peptidi da ricerca UE ({year})",
+    "h1_us": "Migliori negozi di peptidi da ricerca USA ({year})",
+    "description": [
+      "{n} negozi {label} di peptidi da ricerca valutati da 0 a 5: {opened} referti aperti, {portal} verificati sul portale. Confronta la classifica.",
+      "{n} negozi {label} di peptidi da ricerca recensiti con {opened} referti di laboratorio aperti. Confronta la classifica."
+    ],
+    "intro1": "Il {date} abbiamo valutato {n} negozi {label} di peptidi da ricerca. In totale abbiamo aperto {opened} referti di laboratorio e ne abbiamo trovati {portal} sul portale del laboratorio.",
+    "noReports": {
+      "one": "{n} negozio non pubblica alcun referto.",
+      "other": "{n} negozi non pubblicano alcun referto."
+    },
+    "intro2": "Il negozio partner con il punteggio più alto è {best} ({bestScore}/5).",
+    "intro3": "Le classifiche usano solo il punteggio dell'audit.",
+    "crumbRegion": "Negozi {label}",
+    "fq1": "Qual è il miglior negozio {label} di peptidi da ricerca nel {year}?",
+    "fa1": "Tra i negozi partner con link, {best} ha il punteggio dell'audit più alto ({bestScore}/5). Il punteggio combina verifica di laboratorio, accuratezza del contenuto misurato, ampiezza delle analisi, trasparenza sulla società, informazioni di spedizione e prezzo al mg.",
+    "fa1none": "In quest'area non c'è alcun negozio partner.",
+    "faqs": [
+      {
+        "q": "Perché alcuni negozi con punteggio più alto sono in \"Altri negozi esaminati\"?",
+        "a": "La classifica elenca solo i negozi partner, perché solo loro ricevono un link. Gli altri sono valutati con lo stesso metodo e mostrati con il loro punteggio e un link alla nostra recensione."
+      },
+      {
+        "q": "Avete acquistato e analizzato i prodotti?",
+        "a": "No. È un audit documentale di pagine pubbliche dei negozi, referti e portali di laboratorio. Nessun ordine di prova."
+      }
+    ],
+    "partnerTitle": "Classifica: negozi {label} con link",
+    "otherTitle": "Altri negozi {label} esaminati",
+    "relPairs": "Negozi a confronto diretto",
+    "pairs": {
+      "one": "{n} coppia di partner",
+      "other": "{n} coppie di partner"
+    },
+    "relCodesSub": "Solo negozi partner",
+    "relMethodSub": "Pesi e fonti",
+    "relPs": "Situazione di Peptide Sciences",
+    "relPsSub": "Chiuso da marzo 2026"
+  },
+  "v": {
+    "title": [
+      "{nm}: recensione e opinioni, referti e prezzi",
+      "{nm}: opinioni, referti e prezzi",
+      "{nm}: recensione e opinioni"
+    ],
+    "h1": "{shop}: recensione e opinioni {year}. Referti di laboratorio, prezzi e affidabilità",
+    "description": [
+      "{nm} ottiene {score}/5 nella nostra recensione: {opened} referti aperti, {portal} verificati sul portale, società e prezzo al mg. Guarda i referti.",
+      "{nm}: punteggio {score}/5, {opened} referti ({portal} verificati sul portale), società e prezzo al mg. Guarda i referti.",
+      "{nm}: punteggio {score}/5, {opened} referti, prezzo al mg. Guarda i referti."
+    ],
+    "descriptionNoRep": [
+      "{nm} ottiene {score}/5 nella nostra recensione. Nessun referto di laboratorio pubblico; società, spedizioni e prezzo al mg verificati. Leggi la recensione.",
+      "{nm}: punteggio {score}/5, nessun referto pubblico; società e prezzo al mg verificati. Leggi la recensione."
+    ],
+    "intro1": "{shop} ottiene {score} su 5 nel nostro audit documentale del {date} (posizione {rank} su {total} negozi).",
+    "reportTxt": {
+      "one": "Abbiamo aperto {opened} dei suoi referti di laboratorio; {n} era verificato sul portale del laboratorio",
+      "other": "Abbiamo aperto {opened} dei suoi referti di laboratorio; {n} erano verificati sul portale del laboratorio"
+    },
+    "reportTxtFill": ", e il contenuto misurato era {fill} dell'etichetta",
+    "noReports": "Non abbiamo trovato referti di laboratorio pubblici.",
+    "introEntity": "Società: {e}.",
+    "introPrices": {
+      "one": "Abbiamo registrato {n} prezzo di listino.",
+      "other": "Abbiamo registrato {n} prezzi di listino."
+    },
+    "introNoPrices": "I prezzi non sono mostrati pubblicamente.",
+    "legitEntity": "{shop} indica come società {e}.",
+    "legitNoEntity": "{shop} non indica alcuna società sul proprio sito.",
+    "legitReports": "{portal} referti aperti su {opened} sono stati verificati sul portale del laboratorio di analisi",
+    "legitShopOnly": {
+      "one": "; {n} è pubblicato solo dal negozio",
+      "other": "; {n} sono pubblicati solo dal negozio"
+    },
+    "legitNoReports": "Non abbiamo trovato alcun referto di laboratorio pubblico.",
+    "legitWeak": "Cosa non abbiamo potuto verificare o manca: {list}.",
+    "codeYes": "Sì. {shop} ha emesso per {site} il codice per i lettori {code}{pct}. Le nostre tabelle mostrano i prezzi di listino senza codice.",
+    "codeLinkOnly": "{shop} non ci ha emesso un codice per i lettori. Rimandiamo al negozio solo con un link partner.",
+    "codeNo": "No. {shop} non è partner e non ci ha emesso un codice per i lettori. I negozi partner con codice sono confrontati nella nostra pagina dei codici per i lettori.",
+    "fqLegit": "{shop} è affidabile?",
+    "overall": "Punteggio complessivo dell'audit: {score} su 5.",
+    "fqCode": "Esiste un codice sconto {shop}?",
+    "fqLabs": "Quali laboratori analizzano i prodotti di {shop}?",
+    "faLabs": "I referti aperti citano {list}. Purezza HPLC su questi referti: {purity}.",
+    "faLabsNone": "{shop} cita {list}; non abbiamo potuto aprire alcun referto pubblico.",
+    "fqShip": "Dove spedisce {shop}?",
+    "faShip": "Spedisce in: {ships}. Spedizione: {dispatch}.",
+    "fqPrice": "{shop} è caro?",
+    "faPrice": "Il {date} abbiamo registrato {n} prezzi di listino. Il prezzo al mg più basso era {p} per {product} ({mg}). Sono prezzi di listino, senza codice.",
+    "reviewName": "{shop}: recensione e opinioni {year}",
+    "relPair": "Dati dell'audit a confronto diretto",
+    "relPriceA": "Confronto prezzi di {c}",
+    "relPriceB": "{c}: prezzi di tutti i negozi",
+    "relPriceSub": "{nm} da {p}",
+    "relPriceAll": "Tutti i negozi esaminati a confronto",
+    "relBoth": "{nm} vende entrambi",
+    "relLab": "Guida a {lab}",
+    "relLabSub": "Come verificare un referto",
+    "relEu": "Classifica dei negozi UE",
+    "relUs": "Classifica dei negozi USA",
+    "partnerChip": "Negozio partner",
+    "notPartnerChip": "Non partner",
+    "reviewedBy": "Controllato il {date} dalla redazione di PeptideLabIndex",
+    "auditScore": "Punteggio dell'audit",
+    "rankOf": "Posizione {rank} su {total}",
+    "partnerNote": "Link partner (affiliazione). Non cambia il punteggio.",
+    "noLinkNote": "Non rimandiamo a questo negozio. Qui sotto trovi negozi partner con link da confrontare.",
+    "seeAlternatives": "Vedi le alternative esaminate",
+    "verdictH": "Il nostro giudizio",
+    "strengths": "Punti di forza",
+    "weaknesses": "Punti deboli",
+    "noneRecorded": "nessuno registrato",
+    "breakdownH": "Dettaglio del punteggio",
+    "breakdownP": "Ogni parte è valutata da 0 a 5. Il peso indica quanto conta.",
+    "legitIntro": "Possiamo riferire solo ciò che è pubblico. Ecco cosa abbiamo verificato il {date}:",
+    "kEntity": "Società",
+    "kReports": "Referti di laboratorio",
+    "kPurity": "Purezza secondo i referti aperti",
+    "kWeak": "Cosa non abbiamo potuto verificare o manca",
+    "legitReportsLine": "{opened} aperti, {portal} trovati sul portale del laboratorio, {shopOnly} pubblicati solo dal negozio.",
+    "noPublicReports": "nessun referto pubblico trovato.",
+    "fillLine": "{fill} della quantità in etichetta (100% = esatto).",
+    "noTestOrder": "Non abbiamo fatto ordini di prova. Un audit documentale non può confermare il contenuto di una singola spedizione.",
+    "factsH": "Dati principali",
+    "kBased": "Sede",
+    "kShips": "Spedisce in",
+    "kDispatch": "Spedizione",
+    "kFree": "Spedizione gratuita da",
+    "kPayment": "Pagamento",
+    "kLabs": "Laboratori indicati",
+    "kTests": "Analisi nei referti",
+    "kShared": "Come sono condivisi i referti",
+    "reportsP": {
+      "one": "{n} referto aperto il {date}. I link ai referti sono mostrati come testo semplice, così puoi copiarli e verificarli tu stesso sul sito del laboratorio.",
+      "other": "{n} referti aperti il {date}. I link ai referti sono mostrati come testo semplice, così puoi copiarli e verificarli tu stesso sul sito del laboratorio."
+    },
+    "chartTitle": "{shop}: contenuto misurato in % dell'etichetta",
+    "colMeasured": "Misurato / etichetta (mg)",
+    "colPurity": "Purezza (%)",
+    "colLab": "Laboratorio e data",
+    "colVerif": "Verifica",
+    "colId": "ID del referto e link (da copiare)",
+    "notStated": "non indicato",
+    "ofLabel": "{p} dell'etichetta",
+    "dateNotPublished": "data non pubblicata",
+    "shopHosted": "Pubblicato dal negozio",
+    "noReportFound": "Il {date} non abbiamo trovato alcun referto di laboratorio pubblico di {shop}.",
+    "pricesH": "Prezzi di {shop}",
+    "pricesP": {
+      "one": "{n} prezzo di listino registrato il {date} in {curs}. Prezzo al mg = prezzo diviso per i mg dell'etichetta. I prezzi scontati sono mostrati con il prezzo precedente barrato. Nessun codice applicato.",
+      "other": "{n} prezzi di listino registrati il {date} in {curs}. Prezzo al mg = prezzo diviso per i mg dell'etichetta. I prezzi scontati sono mostrati con il prezzo precedente barrato. Nessun codice applicato."
+    },
+    "colVial": "Fiala (mg)",
+    "colPrice": "Prezzo",
+    "colPerMg": "Prezzo al mg",
+    "colRep": "Referto aperto",
+    "colStore": "Negozio",
+    "viewProduct": "Vedi il prodotto",
+    "noPricesP": "{shop} non mostra prezzi pubblici, quindi il prezzo al mg non è stato valutato.",
+    "codeH": "Codice sconto {shop}",
+    "codeP": "{shop} ha emesso questo codice per i lettori di {site}. Inseriscilo al checkout. Le nostre tabelle mostrano i prezzi prima del codice.",
+    "codeLinkOnlyP": "{shop} non ci ha emesso un codice per i lettori. Rimandiamo al negozio solo con un link partner.",
+    "codeShopsWith": "Negozi che hanno emesso un codice",
+    "codeNoneP": "Nessun codice per i lettori. {shop} non è partner e non ci ha emesso alcun codice.",
+    "codeCompare": "Confronta i negozi con codice",
+    "altNote": "Negozi partner dell'area {region} con il punteggio più alto. Stesso metodo usato per {shop}.",
+    "sourcesH": "Fonti consultate",
+    "sourcesP": "Pagine pubbliche lette il {date}. Come testo, non come link.",
+    "stickyAria": "Link al negozio {nm}",
+    "visitShop": "Visita il negozio"
+  },
+  "vcp": {
+    "title": [
+      "{nA} vs {nB}: referti, prezzi e punteggi",
+      "{nA} vs {nB}: referti e prezzi",
+      "{nA} vs {nB}: confronto"
+    ],
+    "description": [
+      "{nA} ({sA}/5) contro {nB} ({sB}/5): referti di laboratorio, verifica sul portale e prezzo al mg di {n} prodotti in comune. Confronta i due negozi.",
+      "{nA} contro {nB}: punteggi, referti di laboratorio e prezzo al mg di {n} prodotti in comune. Confronta i due negozi."
+    ],
+    "verdict": "{lead} ottiene un punteggio più alto nel nostro audit ({sL} contro {sO} su 5). È avanti per {wins}; {other} è avanti per {owins}.",
+    "noPart": "nessuna parte in particolare",
+    "noneParts": "nessuna delle parti",
+    "tie": "Entrambi i negozi ottengono {sA} su 5 nel nostro audit.",
+    "priceTxt": "Sui {same} prodotti che entrambi vendono nella stessa valuta e nello stesso formato di fiala, {a} costa meno al mg per {aC} e {b} per {bC}.",
+    "priceNone": "Non vendono alcun prodotto identico nella stessa valuta e nello stesso formato di fiala.",
+    "checked": "Dati controllati il {date}.",
+    "rScore": "Punteggio dell'audit (0-5)",
+    "rRank": "Posizione (tutti i negozi esaminati)",
+    "rankOf": "{r} su {n}",
+    "rPurity": "Purezza secondo i referti",
+    "rPrices": "Prezzi registrati",
+    "rCode": "Codice per i lettori",
+    "fq1": "Chi è migliore, {a} o {b}?",
+    "fa1": "Il punteggio pesa verifica di laboratorio, accuratezza del contenuto, ampiezza delle analisi, trasparenza sulla società, informazioni di spedizione e prezzo al mg.",
+    "fq2": "Chi costa meno, {a} o {b}?",
+    "fa2": "Sono prezzi di listino del {date}, senza codici.",
+    "fq3": "{a} e {b} pubblicano referti di laboratorio?",
+    "fa3": "Abbiamo aperto {oA} referti di {a} ({pA} verificati sul portale) e {oB} referti di {b} ({pB} verificati sul portale).",
+    "eyebrow": "Negozi partner ({region}) a confronto diretto",
+    "higher": "Punteggio più alto",
+    "factsH": "Dati principali a confronto",
+    "sameH": "Stessi prodotti, prezzo al mg",
+    "sameP": "{n} prodotti che entrambi i negozi vendono nello stesso formato di fiala. Prezzo al mg di listino più basso per negozio; il valore più basso è in grassetto. Nessun codice applicato.",
+    "sameNone": "I due negozi non vendono alcun prodotto identico nello stesso formato di fiala."
+  },
+  "vci": {
+    "title": [
+      "Negozi di peptidi a confronto diretto ({n} coppie)"
+    ],
+    "description": [
+      "Negozi partner della stessa area a confronto diretto: punteggi, referti di laboratorio, misurato vs etichetta e prezzo al mg degli stessi prodotti. Confronta due negozi."
+    ],
+    "itemList": "Confronti tra negozi",
+    "h1": "Negozio contro negozio",
+    "intro": "I dati dell'audit di negozi partner della stessa area a confronto diretto, letti il {date}: punteggio, referti di laboratorio, misurato vs etichetta e prezzo al mg dei prodotti venduti da entrambi.",
+    "eu": "Negozi UE",
+    "us": "Negozi USA",
+    "scores": "Punteggi {a} contro {b}"
+  },
+  "psc": {
+    "title": [
+      "Peptide Sciences chiuso (2026): situazione e alternative"
+    ],
+    "description": [
+      "Peptide Sciences ha smesso di vendere prodotti di ricerca a marzo 2026. Cosa dice il suo avviso e quali negozi esaminati puoi confrontare al suo posto."
+    ],
+    "h1": "Peptide Sciences chiuso: la situazione nel 2026",
+    "intro": "Peptide Sciences (peptidesciences.com) ha smesso di vendere prodotti di ricerca a marzo 2026. Secondo il suo sito, l'azienda ha \"voluntarily discontinued all research-use-only product sales in March 2026\" e non ha autorizzato terzi a vendere a suo nome o ad agire come successori. Non abbiamo esaminato Peptide Sciences perché non vende più.",
+    "faqs": [
+      {
+        "q": "Peptide Sciences è ancora aperto?",
+        "a": "No. Secondo peptidesciences.com, l'azienda ha interrotto volontariamente la vendita di tutti i prodotti per uso di ricerca a marzo 2026."
+      },
+      {
+        "q": "Un nuovo sito Peptide Sciences è la stessa azienda?",
+        "a": "Secondo l'avviso su peptidesciences.com, l'azienda non ha autorizzato terzi a gestire un sito sostitutivo, ad agire come successori o a vendere a suo nome. Non possiamo confermare alcun legame tra altri siti che usano il nome e l'azienda originale."
+      },
+      {
+        "q": "Quali negozi esaminati posso confrontare al suo posto?",
+        "a": "La nostra classifica elenca i negozi partner per punteggio dell'audit. I negozi partner USA con il punteggio più alto sono {us}."
+      }
+    ],
+    "saysH": "Cosa dice l'avviso",
+    "says": [
+      "La vendita dei prodotti per uso di ricerca è cessata a marzo 2026 (volontariamente, secondo l'azienda).",
+      "Nessun terzo è autorizzato a vendere a suo nome, gestire un sito sostitutivo o presentarsi come successore.",
+      "L'azienda mette in guardia da siti o venditori che si spacciano per Peptide Sciences."
+    ],
+    "source": "Fonte (come testo):",
+    "read": "letto il {date}.",
+    "meansH": "Cosa significa per il confronto dei negozi",
+    "meansP": "Poiché Peptide Sciences non vende più, qui non ha un punteggio. Se confronti negozi di peptidi da ricerca, i riquadri qui sotto mostrano i negozi partner esaminati con il punteggio più alto per area. Ogni negozio di questo sito è valutato con lo",
+    "sameMethod": "stesso metodo",
+    "usBox": "Negozi USA esaminati con link",
+    "euBox": "Negozi UE esaminati con link",
+    "boxNote": "Negozi partner ordinati per punteggio dell'audit."
+  },
+  "cp": {
+    "title": [
+      "{a} vs {b}: confronto prezzi e dati di laboratorio",
+      "{a} vs {b}: prezzi e dati di laboratorio"
+    ],
+    "description": [
+      "{a} vs {b}: {both} negozi esaminati vendono entrambi. Confronta identità, formati di fiala, prezzo al mg in EUR e USD e referti di laboratorio aperti.",
+      "{a} vs {b}: {both} negozi vendono entrambi. Confronta formati di fiala, prezzo al mg e referti di laboratorio."
+    ],
+    "h1": "{a} vs {b}: confronto tra composti di ricerca",
+    "eyebrow": "Dati di mercato e di laboratorio, non effetti",
+    "intro": "Il {date}, {nA} negozi esaminati vendevano {a} e {nB} vendevano {b}; {both} vendono entrambi. Abbiamo aperto {rA} referti di laboratorio su {a} e {rB} su {b}.",
+    "median": "Prezzo mediano al mg in {cur}: {a} {x}, {b} {y}",
+    "fq1": "Qual è la differenza tra {a} e {b}?",
+    "fa1": "Sono molecole diverse.",
+    "fq2": "Cosa costa meno al mg, {a} o {b}?",
+    "fa2": "Su tutte le offerte del {date}: {list}. Le fiale più grandi costano spesso meno al mg, quindi confronta lo stesso formato.",
+    "notEnough": "dati insufficienti",
+    "fq3": "Quali negozi vendono {a} e {b}?",
+    "fa3": "{both} negozi esaminati vendono entrambi: {list}.",
+    "fa3none": "Nessun negozio esaminato vende entrambi.",
+    "fq4": "Esistono dati di laboratorio su {a} e {b}?",
+    "fa4": "Abbiamo aperto {rA} referti su {a} ({pA} verificati sul portale) e {rB} referti su {b} ({pB} verificati sul portale). Misurato vs etichetta: {a} {fA}, {b} {fB}.",
+    "fq5": "{a} o {b} possono essere usati sull'uomo?",
+    "fa5": "Questo sito non tratta l'uso umano o veterinario. I negozi elencati vendono entrambi come reagenti di laboratorio solo per ricerca, e noi confrontiamo solo offerte e referti di laboratorio.",
+    "rShops": "Negozi che lo vendono (UE / USA)",
+    "rMedian": "Prezzo mediano al mg ({cur})",
+    "sideH": "A confronto diretto",
+    "fact": "Voce",
+    "tableNote": "Prezzo al mg = prezzo di listino diviso per i mg dell'etichetta. EUR e USD non sono convertiti. Mediana = valore centrale di tutte le offerte.",
+    "onReport": "In un referto di laboratorio:",
+    "bothH": "Negozi che vendono entrambi",
+    "bothP": "Prezzo al mg di listino più basso per negozio, ordinato per punteggio dell'audit. I negozi partner hanno un link.",
+    "lowestOf": "{c}: prezzo al mg più basso",
+    "vial": "fiala da {mg}",
+    "labH": "Referti di laboratorio: misurato vs etichetta"
+  },
+  "ci": {
+    "title": [
+      "Confronti tra composti: prezzi e dati di laboratorio"
+    ],
+    "description": [
+      "Coppie di composti di ricerca a confronto diretto: identità, formati di fiala, prezzo al mg in EUR e USD e referti di laboratorio. Confronta le coppie."
+    ],
+    "itemList": "Confronti tra composti di ricerca",
+    "h1": "Confronti tra composti di ricerca",
+    "intro": "Dati su composti spesso cercati insieme, a confronto diretto: cosa sono, formati di fiala in vendita, prezzo al mg e referti di laboratorio nei negozi esaminati il {date}. Queste pagine confrontano solo offerte e dati di laboratorio, non effetti.",
+    "row": "{na} negozi vendono {a}, {nb} vendono {b} e {both} vendono entrambi."
+  },
+  "lab": {
+    "auditedShops": {
+      "one": "{n} negozio esaminato",
+      "other": "{n} negozi esaminati"
+    },
+    "intro1": "{lab} compare su {n} dei referti di laboratorio che abbiamo aperto il {date}, provenienti da {shops}.",
+    "intro2": "{portal} di questi referti sono stati verificati sul portale del laboratorio, e il contenuto misurato era {range} dell'etichetta.",
+    "intro2none": "{portal} di questi referti sono stati verificati sul portale del laboratorio; non indicavano mg misurati.",
+    "titleJ": [
+      "Verificare un referto Janoshik: guida passo per passo",
+      "Janoshik Analytical: verificare un referto"
+    ],
+    "title": [
+      "{lab}: come verificare un referto ({year})",
+      "{lab}: come verificare un referto",
+      "{short}: verificare un referto"
+    ],
+    "h1J": "Janoshik: come verificare un referto e se il laboratorio è affidabile",
+    "h1": "{lab}: come verificare un referto di laboratorio",
+    "description": [
+      "Come verificare un referto di {lab} in {steps} passi. Abbiamo aperto {n} referti di {ns} negozi, {portal} verificati sul portale.",
+      "Verifica un referto di {short}: {n} referti di {ns} negozi aperti, {portal} verificati sul portale. Vedi referti e negozi.",
+      "Verifica un referto di {short}. {n} referti aperti, {portal} verificati sul portale."
+    ],
+    "genericSteps": [
+      "Trova sul referto mostrato dal negozio il numero del referto, la chiave o il codice QR.",
+      "Apri il sito del laboratorio digitando tu stesso l'indirizzo, non da un link nel PDF.",
+      "Cerca il referto e confronta composto, quantità dichiarata, mg misurati, purezza, data dell'analisi e lotto con la copia del negozio.",
+      "Se il laboratorio non offre una ricerca, il referto è considerato pubblicato solo dal negozio: può essere autentico, ma non può essere confermato dal laboratorio."
+    ],
+    "lAddr": "Pubblica un indirizzo: {a}.",
+    "lNoAddr": "Non abbiamo trovato un indirizzo pubblicato.",
+    "lVerify": "I referti si possono verificare su {w}.",
+    "lNoVerify": "Non abbiamo trovato un portale pubblico di verifica.",
+    "lAccr": "Sull'accreditamento dichiara: {a}",
+    "lNoAccr": "Nelle pagine lette non abbiamo trovato alcuna dichiarazione di accreditamento.",
+    "lPortal": "{portal} dei {n} referti che abbiamo aperto sono stati trovati sul portale del laboratorio.",
+    "fq1J": "Come verifico un referto Janoshik?",
+    "fq1": "Come verifico un referto di {lab}?",
+    "fq2": "{short} è affidabile?",
+    "fa2": "Non valutiamo i laboratori, ma possiamo dire cosa è pubblico.",
+    "fq3": "Quanto costa un'analisi da {short}?",
+    "fa3none": "Non pubblicato nelle pagine che abbiamo letto.",
+    "fq4": "Quali negozi usano {lab}?",
+    "fa4": "Tra i negozi che abbiamo esaminato: {list}.",
+    "relShop": "{shop}: referti di laboratorio e punteggio",
+    "relShopSub": {
+      "one": "{n} referto di {lab} aperto",
+      "other": "{n} referti di {lab} aperti"
+    },
+    "relLabSub": "Guida al laboratorio",
+    "relAll": "Tutti i referti di laboratorio che abbiamo aperto",
+    "eyebrow": "Guida al laboratorio di analisi",
+    "testsH": "Analisi offerte",
+    "kAddress": "Indirizzo",
+    "kOperator": "Gestore",
+    "kVerify": "Verifica",
+    "kAccr": "Accreditamento",
+    "kPrice": "Prezzo",
+    "kTurn": "Tempi",
+    "noPortal": "nessun portale trovato",
+    "noStatement": "nessuna dichiarazione trovata",
+    "howH": "Come verificare un referto di {short}",
+    "plain": "Gli indirizzi sono volutamente in testo semplice. Digitali tu stesso per arrivare al vero sito del laboratorio.",
+    "noSamples": "Non abbiamo analizzato campioni in proprio. Sono fatti tratti dalle pagine pubbliche del laboratorio e dai referti che abbiamo aperto.",
+    "shopsH": "Negozi con referti di {short}",
+    "colShopFill": "Negozio: misurato vs etichetta",
+    "colScore": "Punteggio del negozio (0-5)",
+    "chartTitle": "Referti di {lab}: contenuto misurato in % dell'etichetta",
+    "sourcesH": "Fonti",
+    "sourcesP": "Pagine pubbliche del laboratorio lette il {date}. Come testo, non come link."
+  },
+  "li": {
+    "title": [
+      "Laboratori di analisi dei peptidi: verificare i referti"
+    ],
+    "description": [
+      "{n} laboratori nei {reports} referti di peptidi da ricerca che abbiamo aperto: come verificare i loro referti, quali negozi li usano e cosa hanno misurato."
+    ],
+    "itemList": "Laboratori di analisi dei peptidi",
+    "h1": "Laboratori di analisi dei peptidi e come verificarne i referti",
+    "intro": "I {reports} referti di laboratorio che abbiamo aperto il {date} citano {n} laboratori di analisi. Ogni guida spiega come verificare un referto sul sito del laboratorio, quali negozi esaminati pubblicano referti di quel laboratorio e cosa hanno misurato.",
+    "colLab": "Laboratorio",
+    "colHow": "Come verificare",
+    "noAddress": "indirizzo non pubblicato",
+    "faqs": [
+      {
+        "q": "Cos'è un referto verificato sul portale?",
+        "a": "Un referto che abbiamo potuto cercare sul sito del laboratorio di analisi con il codice o la chiave stampati. Un PDF sulla pagina del negozio, da solo, è solo un'affermazione."
+      },
+      {
+        "q": "Qual è il laboratorio migliore?",
+        "a": "Non valutiamo i laboratori. Ogni guida mostra cosa il laboratorio pubblica su di sé, come verificarne i referti e cosa hanno mostrato i referti aperti."
+      }
+    ]
+  },
+  "bt": {
+    "title": [
+      "Referti di laboratorio sui peptidi: {n} analisi controllate",
+      "Referti sui peptidi: {n} analisi controllate"
+    ],
+    "description": [
+      "{n} referti di laboratorio sui peptidi da ricerca di {shops} negozi, con mg misurati e purezza; {portal} verificati sul portale. Filtra per negozio o laboratorio."
+    ],
+    "intro": "Questa tabella elenca {n} referti di laboratorio di {shops} negozi che indicano sia i mg misurati sia la purezza. {within10} hanno misurato tra il 90 e il 110% dell'etichetta, {below90} meno del 90% e {above110} più del 110%. {portal} erano verificati sul portale del laboratorio. La purezza andava da {pmin} a {pmax}.",
+    "faqs": [
+      {
+        "q": "Cosa significa \"misurato vs etichetta\"?",
+        "a": "Il laboratorio ha misurato quanti mg ci sono nella fiala. Dividiamo questo valore per i mg dell'etichetta. 100% significa che la fiala contiene esattamente la quantità in etichetta."
+      },
+      {
+        "q": "Perché i link ai referti non sono cliccabili?",
+        "a": "Mostriamo gli indirizzi dei referti come testo semplice, così li copi e apri tu stesso il sito del laboratorio. Non inseriamo link ai portali dei laboratori."
+      },
+      {
+        "q": "Qui ci sono tutti i referti aperti?",
+        "a": "Questa tabella mostra i {n} referti che indicano sia i mg misurati sia la purezza. In totale abbiamo aperto {total} referti; gli altri sono nella pagina di recensione di ogni negozio."
+      }
+    ],
+    "statTable": "Referti in tabella",
+    "statWithin": "Tra 90 e 110%",
+    "statMedian": "Mediana misurato vs etichetta",
+    "allH": "Tutti i referti con mg misurati e purezza",
+    "allP": "Scrivi un negozio, un composto o un laboratorio per filtrare. Tocca l'intestazione di una colonna per ordinare.",
+    "filterLabel": "Filtra i referti",
+    "filterPh": "Filtra, es. BPC-157 o Janoshik",
+    "colFill": "Misurato vs etichetta (%)",
+    "mgLabel": "etichetta {mg}",
+    "mOfL": "{m} su {l} mg",
+    "note": "I valori in arancione sono fuori dal 90-110% dell'etichetta. Gli indirizzi dei referti sono in testo semplice: copiali nel browser e verifica il referto sul sito del laboratorio o del negozio.",
+    "relData": "Scarica i dati (CSV / JSON)"
+  },
+  "dc": {
+    "title": [
+      "Codici sconto dei negozi di peptidi {year}: solo partner",
+      "Codici per i lettori dei negozi di peptidi {year}"
+    ],
+    "description": [
+      "Codici per i lettori che {n} negozi partner esaminati hanno emesso per PeptideLabIndex, ordinati per punteggio, senza sconti inventati. Confronta i negozi."
+    ],
+    "h1": "Codici per i lettori dei negozi partner esaminati ({year})",
+    "intro": "{n} negozi partner esaminati ci hanno emesso un codice per i lettori che possiamo mostrare. I codici seguono l'ordine del punteggio dell'audit, non l'entità dello sconto. Le nostre tabelle di prezzo mostrano sempre i prezzi prima di qualsiasi codice, così puoi confrontare i negozi alla pari.",
+    "faqs": [
+      {
+        "q": "Questi codici sono verificati?",
+        "a": "Ogni codice ci è stato emesso dal negozio tramite il suo programma di affiliazione. Non elenchiamo codici trovati altrove."
+      },
+      {
+        "q": "Perché alcuni negozi partner riportano \"Codice per i lettori nella recensione\"?",
+        "a": "Le condizioni di affiliazione di alcuni negozi non consentono codici nelle pagine di coupon. Per questi negozi il codice compare solo nella loro pagina di recensione."
+      },
+      {
+        "q": "I codici cambiano le vostre classifiche?",
+        "a": "No. Le classifiche usano solo il punteggio dell'audit. Né un codice né una commissione cambiano mai il punteggio."
+      }
+    ],
+    "byScore": "Negozi partner per punteggio dell'audit",
+    "scoreOf": "Punteggio dell'audit: {s} su 5",
+    "linkOnly": "Nessun codice. Solo link al negozio.",
+    "othersP": "Altri {others} negozi esaminati non ci hanno emesso un codice per i lettori. Punteggi e referti sono nelle loro recensioni:",
+    "psNote": "Cerchi Peptide Sciences? Ha smesso di vendere nel 2026:",
+    "psLink": "situazione di Peptide Sciences e alternative"
+  },
+  "pix": {
+    "title": [
+      "Indice dei prezzi dei peptidi da ricerca {year}"
+    ],
+    "description": [
+      "Prezzo al mg di listino più basso per {n} composti di ricerca, raggruppati per classe, con EUR e USD separati. Controlla i prezzi e apri i confronti."
+    ],
+    "crumb": "Indice dei prezzi",
+    "h1": "Indice dei prezzi dei peptidi da ricerca",
+    "otherCat": "Altri composti di ricerca",
+    "bySize": "Per formato:",
+    "intro": "Prezzo al mg di listino più basso per {n} composti di ricerca, raggruppati per classe di composto. Basato su {products} prezzi di {shops} negozi esaminati, letti il {date}. EUR e USD non vengono mai convertiti. Apri un composto per la tabella completa di tutti i negozi."
+  },
+  "cx": {
+    "title": [
+      "Indice dei composti: schede, fiale e referti"
+    ],
+    "description": [
+      "Fatti neutrali su {n} composti di ricerca: classe, CAS, formati di fiala in vendita e referti di laboratorio in {shops} negozi esaminati. Sfoglia l'indice."
+    ],
+    "itemList": "Composti di ricerca",
+    "h1": "Indice dei composti di ricerca",
+    "intro": "Fatti di riferimento neutrali su {n} composti di ricerca venduti dai negozi esaminati: cos'è ogni composto, classe e identificativi, formati di fiala in vendita e quanti referti di laboratorio abbiamo aperto. Dati controllati il {date}. Nessuna informazione d'uso o sulla salute.",
+    "reportsOpened": {
+      "one": "{n} referto di laboratorio aperto",
+      "other": "{n} referti di laboratorio aperti"
+    }
+  },
+  "cmp": {
+    "title": [
+      "{c}: scheda, formati di fiala e referti ({year})",
+      "{c}: scheda, formati di fiala e referti",
+      "{c}: scheda e referti di laboratorio"
+    ],
+    "description": [
+      "{c}: classe, CAS {cas}, massa molecolare, formati di fiala in {n} negozi esaminati e {nrep} referti di laboratorio aperti. Confronta i prezzi.",
+      "{c}: classe, CAS, formati di fiala in {n} negozi esaminati e {nrep} referti di laboratorio aperti. Confronta i prezzi."
+    ],
+    "h1": "{name}: scheda del composto di ricerca",
+    "intro1": "{name}: {cls}.",
+    "intro2": "{n} dei negozi che abbiamo esaminato lo vendono in {sizes} ({list}).",
+    "intro2none": "Nessuno dei negozi esaminati lo vende.",
+    "intro3": "Abbiamo aperto {reports} su questo composto.",
+    "intro3fill": "Abbiamo aperto {reports} su questo composto; il contenuto misurato era {range} dell'etichetta.",
+    "fq1": "Cos'è {c}?",
+    "fa2": "I negozi esaminati vendono {c} in fiale da {list} ({n} negozi: {eu} UE, {us} USA).",
+    "fa2none": "Nessun negozio esaminato vende {c}.",
+    "fq3": "Esistono referti di laboratorio su {c}?",
+    "fa3": "Abbiamo aperto {nrep} referti su {c} di {nshops} negozi; {portal} erano verificati sul portale del laboratorio. Laboratori indicati: {labs}.",
+    "fq4": "Cosa deve mostrare un referto di laboratorio su {c}?",
+    "relPair": "Confronto tra composti di ricerca",
+    "cta": "Confronta i prezzi di {c}",
+    "whatIs": "Cos'è {c}",
+    "checkH": "Cosa controllare nel referto di laboratorio",
+    "name": "Nome",
+    "class": "Classe",
+    "group": "Gruppo su questo sito",
+    "cas": "Numero CAS",
+    "mw": "Massa molecolare",
+    "marketH": "{c} sul mercato",
+    "statShops": "Negozi che lo vendono",
+    "names": "Nomi del prodotto nei negozi esaminati:",
+    "barsTitle": "{c}: prezzo al mg per offerta ({cur})",
+    "coverageH": "Referti di laboratorio",
+    "coverageP": "{reports} aperti, {portal} verificati sul portale. Laboratori: {labs}.",
+    "ruo": "Solo per uso di ricerca. Questa pagina descrive un reagente di laboratorio così come lo elencano i negozi. Non contiene informazioni sull'uso umano o veterinario."
+  },
+  "m": {
+    "title": [
+      "Come valutiamo i negozi di peptidi: la metodologia"
+    ],
+    "description": [
+      "Come valutiamo: sei parti pesate, un punteggio da 0 a 5 e {reports} referti di laboratorio aperti il {date}. Nessun posizionamento a pagamento. Leggi il metodo."
+    ],
+    "h1": "Come valutiamo i negozi di peptidi da ricerca",
+    "intro": "Ogni negozio riceve un punteggio da 0 a 5. È una media pesata di sei parti, guidata da verifica di laboratorio (30%) e accuratezza del contenuto (20%). Il {date} abbiamo letto pagine pubbliche dei negozi, referti e portali di laboratorio. Nessun ordine di prova, e la commissione non cambia mai un punteggio o una classifica.",
+    "faqs": [
+      {
+        "q": "Acquistate prodotti e li inviate a un laboratorio?",
+        "a": "No. Questo audit legge ciò che negozi e laboratori pubblicano. Nessun ordine di prova, quindi non possiamo confermare il contenuto di una singola spedizione."
+      },
+      {
+        "q": "Un negozio può pagare per un punteggio migliore?",
+        "a": "No. I negozi partner pagano una commissione sulle vendite tramite i nostri link, ma la formula è la stessa per tutti. Le classifiche ordinano i negozi partner solo per punteggio."
+      },
+      {
+        "q": "Come si calcola il prezzo al mg?",
+        "a": "Prezzo di listino diviso per i mg dell'etichetta. Se è mostrato un prezzo scontato, usiamo quello. Non sottraiamo codici sconto e non convertiamo tra EUR e USD."
+      },
+      {
+        "q": "Ogni quanto vengono aggiornati i dati?",
+        "a": "Il dataset attuale è stato letto il {date}. Ogni pagina mostra la data dell'ultimo controllo."
+      }
+    ],
+    "partsH": "Le sei parti del punteggio",
+    "partsP": "Il revisore valuta ogni parte da 0 a 10, con una motivazione scritta nella pagina di ogni negozio. La media pesata viene divisa per due per ottenere il punteggio da 0 a 5.",
+    "part": {
+      "labVerification": "Il negozio pubblica referti di laboratorio, e li troviamo sul sito del laboratorio di analisi? I referti che esistono solo come file presso il negozio contano meno di quelli che abbiamo potuto cercare sul portale del laboratorio.",
+      "fillAccuracy": "Quanto è vicina all'etichetta la quantità misurata? Per ogni referto aperto dividiamo i mg misurati per i mg dell'etichetta. 100% significa che la fiala contiene esattamente la quantità in etichetta.",
+      "panelDepth": "Quali analisi coprono i referti? La sola purezza vale meno della purezza più mg misurati, identità (spettrometria di massa), endotossine, sterilità o metalli pesanti.",
+      "entityTransparency": "Il negozio indica nelle proprie pagine la società che lo gestisce, con indirizzo o numero di registrazione?",
+      "dispatchReliability": "Il negozio pubblica dove spedisce, in quanto tempo e con quali corrieri?",
+      "valuePerMg": "Come si colloca il prezzo al mg di listino rispetto agli altri negozi esaminati? Se un negozio non pubblica prezzi, questa parte viene saltata e gli altri pesi vengono ricalcolati."
+    },
+    "didH": "Cosa abbiamo fatto il {date}",
+    "did": [
+      "Letto le pagine pubbliche di {shops} negozi: negozio, prodotti, spedizioni, condizioni, note legali e pagine dei referti.",
+      "Aperto {reports} referti di laboratorio e annotato laboratorio, data dell'analisi, purezza, quantità dichiarata e mg misurati.",
+      "Cercato i referti sul portale del laboratorio, quando presente. {portal} referti sono stati trovati lì (\"verificati sul portale\").",
+      "Registrato {products} prezzi di listino con formato di fiala, valuta e prezzo scontato."
+    ],
+    "notH": "Cosa non abbiamo fatto",
+    "not": [
+      "Nessun acquisto di prova e nessuna analisi in proprio.",
+      "Nessuna ricerca nei registri delle imprese. La trasparenza sulla società valuta solo ciò che il negozio pubblica su di sé.",
+      "Nessuna informazione sull'uso umano o veterinario. Tutti i prodotti sono venduti come reagenti solo per ricerca."
+    ],
+    "termsH": "Termini usati su questo sito",
+    "term": {
+      "portal": "Verificato sul portale",
+      "shop": "Pubblicato dal negozio",
+      "fill": "Misurato vs etichetta",
+      "purity": "Purezza",
+      "perMg": "Prezzo al mg"
+    },
+    "termDef": {
+      "portal": "abbiamo trovato il referto sul sito del laboratorio di analisi, non solo nella pagina del negozio.",
+      "shop": "il referto esiste solo come file o immagine nella pagina del negozio.",
+      "fill": "mg misurati divisi per i mg dell'etichetta, in percentuale.",
+      "purity": "la purezza HPLC indicata nel referto.",
+      "perMg": "prezzo della fiala diviso per i mg dell'etichetta."
+    },
+    "partnersH": "Partner e link",
+    "partnersP": "Alcuni negozi sono partner di affiliazione. Solo i negozi partner ricevono un link \"Visita\", contrassegnato come sponsorizzato. Le classifiche elencano i negozi partner per punteggio dell'audit. Gli altri mantengono il loro punteggio e compaiono in \"Altri negozi esaminati\" con un link alla nostra recensione. Gli indirizzi dei referti sono in testo semplice, non come link.",
+    "dataP": "Il dataset completo è disponibile in CSV e JSON:"
+  },
+  "legal": {
+    "title": [
+      "Note legali e informativa sull'affiliazione | {site}"
+    ],
+    "description": [
+      "Solo uso di ricerca, informativa sull'affiliazione, accuratezza dei dati e privacy su PeptideLabIndex (peptidelabtest.org). Come funzionano i link partner."
+    ],
+    "crumb": "Note legali",
+    "h1": "Note legali, trasparenza e privacy",
+    "h_ruo": "1. Solo per uso di ricerca",
+    "p_ruo": "{domain} confronta referti di laboratorio pubblici, prezzi di listino e dati dei negozi su prodotti che i negozi vendono come reagenti di laboratorio solo per ricerca (RUO). Nulla su questo sito è un consiglio medico. Nessuno dei prodotti è approvato per uso umano o veterinario, e non forniamo informazioni su tale uso.",
+    "h_aff": "2. Informativa sull'affiliazione",
+    "p_aff1": "Alcuni negozi sono partner di affiliazione. I link contrassegnati \"Visita\" portano a questi partner e hanno rel=\"sponsored\". Se acquisti tramite uno di essi o usi il codice per i lettori di un partner, potremmo ricevere una commissione, senza costi aggiuntivi per te.",
+    "p_aff2": "La commissione non cambia i punteggi dell'audit. Le classifiche ordinano i negozi partner solo per punteggio. Anche i negozi non partner sono valutati ed elencati, senza link in uscita.",
+    "h_war": "3. Nessuna garanzia",
+    "p_war": "Tutti i dati sono stati letti da fonti pubbliche alla data indicata su ogni pagina. I negozi cambiano spesso prezzi, disponibilità e referti. Controlla il negozio e il portale del laboratorio prima di fidarti di un numero.",
+    "h_priv": "4. Privacy",
+    "p_priv": "Contiamo le visite con un'istanza self-hosted di Plausible Analytics, che non usa cookie e non raccoglie dati personali. Il calcolatore di concentrazione funziona interamente nel tuo browser; ciò che inserisci non ci viene inviato.",
+    "h_contact": "5. Contatti",
+    "p_contact": "Contatti per redazione e partner:"
+  },
+  "adv": {
+    "title": [
+      "Per i negozi: audit e programma partner | {site}"
+    ],
+    "description": [
+      "Come i negozi di peptidi da ricerca possono inviare nuovi referti per il prossimo audit e come funziona il nostro programma partner. I punteggi non si comprano."
+    ],
+    "h1": "Per i negozi: aggiornamenti dell'audit e programma partner",
+    "intro": "Esaminiamo {shops} negozi con un metodo pubblico. I negozi possono inviare nuovi referti di laboratorio per il prossimo controllo e candidarsi al nostro programma partner. Nessuna delle due cose cambia il calcolo del punteggio.",
+    "sendH": "Inviare nuovi referti di laboratorio",
+    "sendP": "Se il tuo negozio ha pubblicato nuovi referti, inviaci i link e, se ci sono, le chiavi del portale del laboratorio. Li includeremo nel prossimo ciclo di audit dopo averli verificati sul sito del laboratorio.",
+    "progH": "Programma partner",
+    "prog": [
+      "I negozi partner ricevono un link \"Visita\" con il tuo tracciamento di affiliazione.",
+      "Mostriamo codici per i lettori solo se ce li emetti, e solo dove le tue condizioni lo consentono.",
+      "Le classifiche ordinano i negozi partner per punteggio dell'audit. Essere partner non alza mai un punteggio e non elimina alcun punto debole.",
+      "Le tue offerte e i tuoi testi devono rispettare le regole dell'uso di ricerca. Non pubblichiamo affermazioni d'uso o sulla salute."
+    ]
+  },
+  "calcp": {
+    "title": [
+      "Calcolatore di concentrazione per fiale (mg/mL)"
+    ],
+    "description": [
+      "Calcolatore di laboratorio della concentrazione madre (mg/mL) per fiale con uno o due composti, con mg misurati facoltativi. Solo per uso di ricerca."
+    ],
+    "crumb": "Calcolatore di concentrazione",
+    "h1": "Calcolatore della concentrazione della soluzione madre",
+    "intro": "Calcola la concentrazione della soluzione madre in mg/mL dalla massa nella fiala e dal volume di solvente aggiunto. Puoi usare i mg misurati di un referto di laboratorio al posto della quantità dichiarata. Solo per lavoro di laboratorio in vitro; nessuna indicazione d'uso.",
+    "faqs": [
+      {
+        "q": "Come si calcola la concentrazione della soluzione madre?",
+        "a": "Concentrazione madre (mg/mL) = massa nella fiala (mg) divisa per il volume di solvente aggiunto (mL). Esempio: 10 mg in 2 mL = 5 mg/mL."
+      },
+      {
+        "q": "Perché inserire i mg misurati di un referto di laboratorio?",
+        "a": "La quantità misurata in un referto può differire da quella dichiarata. Nel nostro audit il contenuto misurato era talvolta sopra e talvolta sotto l'etichetta; con il valore misurato la concentrazione è più precisa."
+      }
+    ]
+  },
+  "lw": {
+    "title": [
+      "Peptidi da ricerca per paese: autorità e negozi"
+    ],
+    "description": [
+      "Informazioni generali per {n} paesi: quale autorità regola i medicinali e quali negozi di peptidi da ricerca esaminati spediscono lì. Non è una consulenza legale."
+    ],
+    "crumb": "Regole per paese",
+    "h1": "Informazioni per paese",
+    "intro": "Informazioni generali per {n} paesi: le autorità competenti per i medicinali e quali negozi esaminati dichiarano di spedire lì (al {date}). Non è una consulenza legale. Verifica le regole vigenti presso l'autorità prima di ordinare.",
+    "shipHere": {
+      "one": "{n} negozio esaminato dichiara di spedire qui",
+      "other": "{n} negozi esaminati dichiarano di spedire qui"
+    }
+  },
+  "law": {
+    "title": [
+      "Peptidi da ricerca {inC}: regole e negozi {year}",
+      "Peptidi da ricerca {inC}: regole e negozi",
+      "Peptidi {inC}: regole e negozi"
+    ],
+    "description": [
+      "{country}: quale autorità regola i medicinali e quali dei negozi di peptidi da ricerca esaminati dichiarano di spedire lì. Vedi negozi e regole."
+    ],
+    "h1": "Peptidi da ricerca {inC}",
+    "intro": {
+      "one": "{n} dei negozi esaminati dichiara di spedire {toC}. Questa pagina è un'informazione generale, non una consulenza legale.",
+      "other": "{n} dei negozi esaminati dichiarano di spedire {toC}. Questa pagina è un'informazione generale, non una consulenza legale."
+    },
+    "authH": "Autorità",
+    "rules": "Le regole cambiano. Prima di ordinare, verifica la situazione attuale presso l'autorità e segui le regole di acquisto del tuo istituto.",
+    "shopsH": "Negozi esaminati che spediscono {toC}",
+    "shopsP": "In base alle informazioni di spedizione pubblicate dai negozi il {date}, ordinati per punteggio dell'audit. {unknown} negozi non indicano dove spediscono.",
+    "colShips": "Spedisce in (secondo il negozio)",
+    "relAll": "Tutte le regole per paese"
+  },
+  "ri": {
+    "title": [
+      "Guide: leggere e verificare i referti sui peptidi"
+    ],
+    "description": [
+      "Guide chiare sui referti di laboratorio dei peptidi da ricerca: come verificare un referto, purezza rispetto ai mg misurati e nomi in codice usati dai negozi."
+    ],
+    "crumb": "Guide",
+    "h1": "Guide",
+    "intro": "Guide brevi e chiare per leggere e verificare i referti di laboratorio dei peptidi da ricerca. Nessuna informazione d'uso o sulla salute."
+  },
+  "r": {
+    "keyPoints": "In sintesi",
+    "whereH": "Dove ogni laboratorio consente la verifica",
+    "noLookup": "nessuna ricerca pubblica trovata",
+    "verifyP": "Nel nostro audit del {date}, {portal} dei {reports} referti aperti sono stati trovati sul portale del laboratorio.",
+    "foundH": "Cosa ha rilevato il nostro audit",
+    "foundP": "Dei {n} referti che indicano sia la purezza sia i mg misurati, {hp} mostrano una purezza del 99% o più. {off} di questi erano comunque fuori dal 90-110% dell'etichetta.",
+    "allListed": "Tutti i referti sono elencati in",
+    "namesH": "Nomi del prodotto per {c} ({n} offerte)",
+    "psLink": "Vedi la pagina su Peptide Sciences",
+    "published": "Pubblicato il {pub} dalla redazione di PeptideLabIndex. Dati controllati il {date}."
+  },
+  "data": {
+    "title": [
+      "Dati aperti: audit dei negozi di peptidi 2026 (CSV, JSON)"
+    ],
+    "description": [
+      "Scarica {n} prezzi di listino di {shops} negozi esaminati con prezzo al mg, referti di laboratorio e punteggi. CSV e JSON con licenza CC BY 4.0."
+    ],
+    "crumb": "Dati aperti",
+    "h1": "Dati aperti: audit 2026 dei negozi di peptidi da ricerca",
+    "intro": "I dati completi sui prezzi di questo sito: {n} prezzi di listino di {shops} negozi esaminati, una riga per prodotto, con prezzo al mg, se abbiamo aperto un referto di laboratorio per quel composto in quel negozio e il punteggio del negozio. Controllati il {date}. Uso libero con attribuzione (CC BY 4.0).",
+    "csv": "Scarica il CSV",
+    "json": "Scarica il JSON",
+    "englishNote": "I file di dati usano nomi di colonna e valori in inglese.",
+    "colsH": "Colonne",
+    "colCol": "Colonna",
+    "colMeaning": "Significato",
+    "col": {
+      "shop": "Nome del negozio",
+      "shopSlug": "ID del negozio (corrisponde a /vendors/<id>/)",
+      "region": "EU o US",
+      "compound": "ID del composto (corrisponde a /compounds/<id>/)",
+      "product": "Nome del prodotto secondo il negozio",
+      "vialMg": "mg dell'etichetta",
+      "price": "Prezzo di listino",
+      "salePrice": "Prezzo scontato, se indicato",
+      "currency": "EUR o USD (mai convertiti)",
+      "pricePerMg": "Prezzo (scontato se indicato) / mg dell'etichetta",
+      "labReportOpenedForCompound": "Abbiamo aperto un referto di laboratorio di questo negozio per questo composto",
+      "portalVerified": "Almeno uno di questi referti è stato trovato sul portale del laboratorio",
+      "shopScore": "Punteggio dell'audit 0-5",
+      "reviewedAt": "Data del controllo del negozio"
+    },
+    "notesH": "Note",
+    "notes": [
+      "I prezzi sono di listino, senza codici sconto. EUR e USD non vengono mai convertiti.",
+      "Le celle vuote indicano che il negozio non ha pubblicato il valore.",
+      "Cita come: {site}, research peptide shop audit, {date}, {url}."
+    ],
+    "notesReports": "Indirizzi e ID dei referti sono nella pagina di recensione di ogni negozio e in"
+  }
+}
