@@ -6,9 +6,9 @@ interface Props {
 }
 const { compact = false } = Astro.props;
 ---
-<aside class={`rounded-2xl border border-slate-200 bg-slate-50 ${compact ? 'p-3 text-xs' : 'p-4 text-sm'} text-slate-600 leading-relaxed flex gap-3`}>
-  <Icon name="info" class="w-4 h-4 mt-0.5 text-slate-400" />
-  <p>
-    <strong class="text-slate-800">Disclosure:</strong> store links marked as partner links are affiliate links; we may earn a commission if you buy through them, at no extra cost to you. Rankings use the published audit score only, never commission. All products are sold as research-use-only (RUO) laboratory reagents; nothing on this site is advice on human or animal use.
+<aside class={`rounded-2xl border border-slate-200 bg-slate-50 ${compact ? 'p-4 text-sm' : 'p-5 text-[0.94rem]'} text-slate-700 leading-relaxed flex gap-3`}>
+  <Icon name="info" class="w-5 h-5 mt-0.5 text-slate-500" />
+  <p class="max-w-[75ch]">
+    <strong class="text-slate-900">Disclosure:</strong> links marked "Visit shop" go to partner shops and are affiliate links. We may earn a commission at no extra cost to you. Rankings use the published audit score only, never commission. All products are sold as research-use-only (RUO) laboratory reagents. Nothing on this site is advice on human or animal use.
   </p>
 </aside>

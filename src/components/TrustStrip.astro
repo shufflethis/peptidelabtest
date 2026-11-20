@@ -14,14 +14,14 @@ const items = [
   { icon: 'calendar', value: CHECKED_LABEL, label: 'last checked' },
 ];
 ---
-<div class={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 ${cls}`}>
+<ul class={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 ${cls}`}>
   {items.map((it) => (
-    <div class="card px-4 py-3 flex items-center gap-3">
-      <span class="w-9 h-9 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center"><Icon name={it.icon} class="w-5 h-5" /></span>
+    <li class="card px-4 py-3 flex items-center gap-3">
+      <span class="w-10 h-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center"><Icon name={it.icon} class="w-5 h-5" /></span>
       <div class="leading-tight">
         <div class="text-lg font-extrabold text-slate-900 tabular-nums">{it.value}</div>
-        <div class="text-xs text-slate-500">{it.label}</div>
+        <div class="text-sm text-slate-600">{it.label}</div>
       </div>
-    </div>
+    </li>
   ))}
-</div>
+</ul>

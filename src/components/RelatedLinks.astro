@@ -9,14 +9,14 @@ const { title = 'Related pages', links } = Astro.props;
 ---
 {links.length > 0 && (
   <section>
-    <h2 class="text-lg font-extrabold text-slate-900">{title}</h2>
-    <ul class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+    <h2 class="h3">{title}</h2>
+    <ul class="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
       {links.map((l) => (
         <li>
-          <a href={l.href} class="card card-hover flex items-center justify-between gap-3 px-4 py-3 text-sm">
+          <a href={l.href} class="card card-hover flex items-center justify-between gap-3 px-4 py-3 min-h-[56px]">
             <span>
               <span class="font-semibold text-slate-900">{l.label}</span>
-              {l.sub && <span class="block text-xs text-slate-500">{l.sub}</span>}
+              {l.sub && <span class="block text-sm text-slate-600">{l.sub}</span>}
             </span>
             <Icon name="arrow-right" class="w-4 h-4 text-teal-700" />
           </a>

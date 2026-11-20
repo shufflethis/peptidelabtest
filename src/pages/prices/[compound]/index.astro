@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import PriceSection from '../../../components/PriceSection.astro';
+import FillChart from '../../../components/FillChart.astro';
+import FAQ from '../../../components/FAQ.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import WhereToBuy from '../../../components/WhereToBuy.astro';
+import Icon from '../../../components/Icon.astro';
+import {
+  PRICE_COMPOUNDS, offersFor, compoundShort, compoundName, shopsCarrying, sizesFor, sizePagesFor, reportsFor, cheapestBy,
+  perMg, TOTALS, CHECKED_LABEL, fillPct, faqSchema, itemListSchema, PARTNERS, listJoin, compoundPairsFor, pairSlug, YEAR, getCompound,
+} from '../../../lib/site';
+
+export function getStaticPaths() {
+  return PRICE_COMPOUNDS.map((compound) => ({ params: { compound } }));
+}
+
+const { compound } = Astro.params as { compound: string };
+const spec = getCompound(compound);
+const short = compoundShort(compound);
+const offers = offersFor(compound);
+const shops = shopsCarrying(compound);
+const eu = shops.filter((s) => s.region === 'EU');
+const us = shops.filter((s) => s.region === 'US');
+const sizes = sizesFor(compound);
+const sizePages = sizePagesFor(compound);
+const reps = reportsFor(compound);
+const repShops = new Set(reps.map((r) => r.vendor.slug));
+const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+const fillLo = fills.length ? Math.min(...fills) : null;
+const fillHi = fills.length ? Math.max(...fills) : null;
+const portal = reps.filter((r) => r.report.verifiable).length;
+const cEur = cheapestBy(offers, 'EUR');
+const cUsd = cheapestBy(offers, 'USD');
+const partnersHere = PARTNERS.filter((p) => shops.some((s) => s.slug === p.slug));
+
+const cheapTxt = (o: ReturnType<typeof cheapestBy>) => (o ? `${perMg(o.perMg, o.currency)} (${o.vendor.name}, ${o.product.vialMg} mg)` : 'n/a');
+const priceSentence = [cEur && `${cheapTxt(cEur)} in EUR`, cUsd && `${cheapTxt(cUsd)} in USD`].filter(Boolean).join(' and ');
+const intro = `${short} is listed by ${shops.length} of the ${TOTALS.shops} shops we audited (${offers.length} listings, ${sizes.length} vial ${sizes.length === 1 ? 'size' : 'sizes'}). Lowest listed price per mg on ${CHECKED_LABEL}: ${priceSentence || 'n/a'}. We opened ${reps.length} lab ${reps.length === 1 ? 'report' : 'reports'} for ${short} from ${repShops.size} ${repShops.size === 1 ? 'shop' : 'shops'}${fillLo != null ? `; measured content was ${fillLo.toFixed(1)}–${fillHi!.toFixed(1)}% of label` : ''}.`;
+
+const title = `${short} Price Comparison ${YEAR}: ${shops.length} Shops, Price per mg & Lab Tests`;
+const description = `${short}: ${offers.length} listings at ${shops.length} audited shops. Price per mg in EUR and USD, vial sizes and opened lab reports. Checked ${CHECKED_LABEL}.`;
+
+const faqs = [
+  {
+    q: `Where to buy ${short} for research?`,
+    a: `${shops.length} audited shops list ${short}: ${eu.length} EU ${eu.length === 1 ? 'shop' : 'shops'} and ${us.length} US ${us.length === 1 ? 'shop' : 'shops'}. ${partnersHere.length ? `Shops with a store link on this site, ranked by audit score: ${listJoin(partnersHere.map((p) => `${p.name} (${p.overallScore.toFixed(1)}/5, ${p.region})`))}.` : 'None of them is a partner shop with a store link.'} The tables list every listing with price per mg and lab report status.`,
+  },
+  {
+    q: `What is the cheapest ${short} per mg?`,
+    a: `Lowest listed price per mg on ${CHECKED_LABEL}: ${priceSentence || 'not available'}. Prices are the shop's listed price (sale price where shown) divided by label mg, without discount codes.`,
+  },
+  {
+    q: `Which shops published a lab report for ${short}?`,
+    a: reps.length
+      ? `We opened ${reps.length} ${short} reports from ${listJoin(Array.from(repShops).map((s) => shops.find((x) => x.slug === s)?.name || s))}. ${portal} of them were verified on the lab's own portal${fillLo != null ? `; measured content ranged from ${fillLo.toFixed(1)}% to ${fillHi!.toFixed(1)}% of the label amount` : ''}.`
+      : `We did not open a ${short} lab report at any audited shop.`,
+  },
+  {
+    q: `Which vial sizes of ${short} are on the market?`,
+    a: `Audited shops list ${short} in ${listJoin(sizes.map((s) => `${s} mg`))} vials. ${sizePages.length ? `Sizes sold by at least three shops have their own comparison page: ${listJoin(sizePages.map((s) => `${s.size} mg (${s.shops} shops)`))}.` : ''}`.trim(),
+  },
+  {
+    q: 'Are prices converted between euro and dollar?',
+    a: 'No. EUR and USD prices are shown in separate tables exactly as listed by each shop, with no currency conversion and no discount code applied.',
+  },
+  {
+    q: `Is ${short} sold for human use?`,
+    a: `No. The shops listed sell ${short} as a research-use-only (RUO) laboratory reagent. This page compares listings and lab reports only and gives no information on use in humans or animals.`,
+  },
+];
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Prices', url: '/prices/' },
+  { name: short, url: `/prices/${compound}/` },
+];
+const jsonLd = [faqSchema(faqs), itemListSchema(`Shops listing ${short}`, shops.map((s) => ({ name: s.name, url: `/vendors/${s.slug}/` })))];
+
+const fillRows = reps.map((r) => ({
+  label: `${r.vendor.name} ${r.report.labelMg ?? ''}${r.report.labelMg ? ' mg' : ''}`,
+  sub: r.report.lab,
+  labelMg: r.report.labelMg,
+  measuredMg: r.report.measuredMg,
+  verified: r.report.verifiable,
+}));
+
+const related = [
+  ...(spec ? [{ href: `/compounds/${compound}/`, label: `${short} compound facts`, sub: spec.category }] : []),
+  ...sizePages.map((s) => ({ href: `/prices/${compound}/${s.size}mg/`, label: `${short} ${s.size} mg prices`, sub: `${s.shops} shops` })),
+  ...compoundPairsFor(compound).map(([a, b]) => ({ href: `/compare/${pairSlug(a, b)}/`, label: `${compoundShort(a)} vs ${compoundShort(b)}`, sub: 'Market and lab-report comparison' })),
+  { href: '/prices/', label: 'All price comparisons', sub: `${PRICE_COMPOUNDS.length} compounds` },
+  { href: '/batch-tracker/', label: 'Lab reports we opened', sub: `${TOTALS.reportsOpened} reports` },
+];
+---
+
+<BaseLayout title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero crumbs={crumbs} title={title} eyebrow={spec ? spec.category : 'Research compound'} intro={intro}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>Shops (EU / US)</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu.length} / {us.length})</span></dd></div>
+      <div class="stat"><dt>Lowest price per mg (EUR)</dt><dd>{cEur ? perMg(cEur.perMg, 'EUR') : 'n/a'}</dd></div>
+      <div class="stat"><dt>Lowest price per mg (USD)</dt><dd>{cUsd ? perMg(cUsd.perMg, 'USD') : 'n/a'}</dd></div>
+      <div class="stat"><dt>Lab reports opened</dt><dd>{reps.length} <span class="text-sm font-medium text-slate-600">({portal} portal-verified)</span></dd></div>
+    </dl>
+    {sizePages.length > 0 && (
+      <div class="mt-5 flex flex-wrap items-center gap-2">
+        <span class="text-slate-700 font-medium">Prices by vial size:</span>
+        {sizePages.map((s) => <a href={`/prices/${compound}/${s.size}mg/`} class="inline-flex items-center min-h-[44px] rounded-xl bg-white border border-slate-300 px-3.5 font-semibold text-slate-800 hover:border-teal-600 hover:text-teal-900">{s.size} mg</a>)}
+      </div>
+    )}
+  </PageHero>
+
+  <div class="wrap mt-10 space-y-14">
+    <WhereToBuy compound={compound} title={`Where to buy ${short} for research: ${shops.length} audited shops compared`} />
+
+    <PriceSection offers={offers} label={short} />
+
+    {fillRows.length > 0 && (
+      <section class="space-y-4">
+        <h2 class="h2">{short} lab reports: measured vs label</h2>
+        <p class="text-slate-700 max-w-[70ch]">{reps.length} opened {reps.length === 1 ? 'report' : 'reports'} from {repShops.size} {repShops.size === 1 ? 'shop' : 'shops'}; {portal} verified on the lab portal. Report URLs and IDs are listed on <a href="/batch-tracker/" class="text-link">Lab reports we opened</a>.</p>
+        <FillChart rows={fillRows} title={`${short}: measured content as % of label`} />
+      </section>
+    )}
+
+    {spec && (
+      <section class="card p-5 sm:p-6">
+        <h2 class="h3 flex items-center gap-2"><Icon name="beaker" class="w-5 h-5 text-teal-800" />About {compoundName(compound)}</h2>
+        <dl class="facts mt-3 max-w-3xl">
+          <div><dt>Class</dt><dd>{spec.formulaOrClass}</dd></div>
+          <div><dt>CAS number</dt><dd>{spec.casNumber}</dd></div>
+          <div><dt>Molecular weight</dt><dd>{spec.molecularWeightDa}</dd></div>
+        </dl>
+        <a href={`/compounds/${compound}/`} class="mt-4 inline-flex items-center gap-1 text-link">Compound facts page <Icon name="arrow-right" class="w-4 h-4" /></a>
+      </section>
+    )}
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
+</BaseLayout>

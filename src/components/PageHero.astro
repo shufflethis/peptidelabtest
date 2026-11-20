@@ -11,13 +11,13 @@ interface Props {
 }
 const { crumbs, title, eyebrow, intro } = Astro.props;
 ---
-<section class="hero-bg border-b border-slate-200/70">
-  <div class="wrap pt-8 pb-10 sm:pt-10 sm:pb-12">
+<section class="hero-bg border-b border-slate-200">
+  <div class="wrap pt-7 pb-9 sm:pt-9 sm:pb-11">
     {crumbs && crumbs.length > 1 && <Breadcrumbs items={crumbs} />}
     {eyebrow && <div class="mt-5"><span class="eyebrow">{eyebrow}</span></div>}
-    <h1 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.1] max-w-4xl">{title}</h1>
-    {intro && <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl" data-answer>{intro}</p>}
+    <h1 class="h1 mt-4 max-w-4xl">{title}</h1>
+    {intro && <p class="lead mt-4" data-answer>{intro}</p>}
     <slot />
-    <p class="mt-5 inline-flex items-center gap-1.5 text-xs text-slate-500"><Icon name="calendar" class="w-3.5 h-3.5" />Last checked {CHECKED_LABEL}</p>
+    <p class="mt-5 inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="calendar" class="w-4 h-4" />Last checked {CHECKED_LABEL}</p>
   </div>
 </section>

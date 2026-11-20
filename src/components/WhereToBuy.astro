@@ -1,0 +1,66 @@
+---
+/** Where-to-buy block: partner shops carrying the compound (by audit score), EU/US split; other shops as internal links. */
+import Icon from './Icon.astro';
+import ScoreRing from './ScoreRing.astro';
+import CodeBadge from './CodeBadge.astro';
+import VerifyBadge from './VerifyBadge.astro';
+import { PARTNERS, NON_PARTNERS, offersFor, perMg, money, REL_SPONSORED, compoundShort, reportVerify, CHECKED_LABEL } from '../lib/site';
+interface Props {
+  compound: string;
+  size?: number;
+  title: string;
+}
+const { compound, size, title } = Astro.props;
+const offers = offersFor(compound, size);
+const short = compoundShort(compound);
+const what = `${short}${size ? ` ${size} mg` : ''}`;
+const best = (slug: string) => offers.filter((o) => o.vendor.slug === slug && o.perMg != null).sort((a, b) => a.perMg! - b.perMg!)[0] || offers.find((o) => o.vendor.slug === slug);
+const regions = ['EU', 'US'].map((r) => ({
+  region: r,
+  partners: PARTNERS.filter((p) => p.region === r && offers.some((o) => o.vendor.slug === p.slug)),
+  others: NON_PARTNERS.filter((p) => p.region === r && offers.some((o) => o.vendor.slug === p.slug)),
+}));
+---
+<section class="space-y-5" id="where-to-buy">
+  <h2 class="h2">{title}</h2>
+  <p class="text-slate-700 max-w-[70ch]">Partner shops have a store link and are ordered by audit score, never by commission. Other audited shops that list {what} link to our review only.</p>
+  <div class="grid gap-6 lg:grid-cols-2">
+    {regions.map((g) => (
+      <div class="card p-5 sm:p-6">
+        <h3 class="h3 flex items-center gap-2"><Icon name="map-pin" class="w-5 h-5 text-teal-800" />{g.region === 'EU' ? 'EU shops (prices in EUR)' : 'US shops (prices in USD)'}</h3>
+        {g.partners.length === 0 && <p class="mt-3 text-slate-700">No partner shop in this region lists {what}.</p>}
+        <ul class="mt-4 space-y-3">
+          {g.partners.map((p) => {
+            const o = best(p.slug)!;
+            return (
+              <li class="rounded-xl border border-slate-200 p-4 flex flex-col gap-3">
+                <div class="flex items-start gap-3">
+                  <ScoreRing score={p.overallScore} size={50} />
+                  <div class="min-w-0 flex-1">
+                    <a href={`/vendors/${p.slug}/`} class="font-bold text-lg text-slate-900 hover:text-teal-800 hover:underline">{p.name}</a>
+                    <div class="text-sm text-slate-600">{o.product.shopProductName}</div>
+                  </div>
+                  <div class="text-right shrink-0">
+                    <div class="font-extrabold text-teal-900 tabular-nums">{perMg(o.perMg, o.currency)}</div>
+                    <div class="text-sm text-slate-700 tabular-nums">{money(o.price, o.currency)}{o.onSale && <s class="ml-1 text-slate-600">{money(o.listPrice, o.currency)}</s>}</div>
+                  </div>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                  {o.report ? <VerifyBadge level={reportVerify(o.report)} text={o.report.verifiable ? `${short} report portal-verified` : `${short} report shop-hosted`} /> : <VerifyBadge level="none" text={`No ${short} report opened`} />}
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                  <CodeBadge slug={p.slug} />
+                  {o.href && <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+        {g.others.length > 0 && (
+          <p class="mt-4 text-[0.94rem] text-slate-700 leading-relaxed">Other audited {g.region} shops listing {short}: {g.others.map((s, i) => <>{i > 0 && ', '}<a href={`/vendors/${s.slug}/`} class="text-link font-medium">{s.name}</a> (score {s.overallScore.toFixed(1)})</>)}</p>
+        )}
+      </div>
+    ))}
+  </div>
+  <p class="text-sm text-slate-600">Store links are partner (affiliate) links. Prices as listed on {CHECKED_LABEL}, before any code.</p>
+</section>

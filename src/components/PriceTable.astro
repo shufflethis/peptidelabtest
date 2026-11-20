@@ -1,34 +1,36 @@
 ---
 /**
- * Price table for one currency. Partners first-class with sponsored deep link; non-partners greyed, internal link only.
- * No "price after code" is computed; code is a separate column.
+ * Price table for one currency (7 columns). Partners first with sponsored deep link; non-partners greyed, internal link only.
+ * No "price after code" is computed; the code sits in the last column next to the button.
  */
 import Icon from './Icon.astro';
 import CodeBadge from './CodeBadge.astro';
 import type { Offer } from '../lib/site';
-import { money, perMg, REL_SPONSORED, fillPct, mg } from '../lib/site';
+import { money, perMg, REL_SPONSORED, fillPct, mg, compoundShort, curSymbol } from '../lib/site';
 interface Props {
   offers: Offer[];
   showCompound?: boolean;
   id?: string;
+  caption?: string;
 }
-const { offers, showCompound = false, id } = Astro.props;
+const { offers, showCompound = false, id, caption } = Astro.props;
+const cur = offers[0]?.currency || 'EUR';
+const sym = curSymbol(cur).trim();
 const nOr = (n: number | null | undefined) => (n == null || !Number.isFinite(n) ? '' : String(n));
+const labShort = (l: string) => l.replace(/\s*\(.*\)\s*$/, '');
 ---
 <div class="table-wrap" id={id}>
   <table class="data-table" data-sortable>
+    {caption && <caption class="sr-only">{caption}</caption>}
     <thead>
       <tr>
-        <th><button type="button" class="sort-btn" data-sort-type="text">Shop <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
-        {showCompound && <th>Compound</th>}
-        <th>Product</th>
-        <th class="num"><button type="button" class="sort-btn" data-sort-type="num">Vial <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
-        <th class="num"><button type="button" class="sort-btn" data-sort-type="num">Price <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
-        <th class="num"><button type="button" class="sort-btn" data-sort-type="num">Price / mg <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
-        <th>Lab report (this compound)</th>
-        <th class="num"><button type="button" class="sort-btn" data-sort-type="num">Shop score <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
-        <th>Reader code</th>
-        <th></th>
+        <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">Shop <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col"><button type="button" class="sort-btn" data-sort-type="num">{showCompound ? 'Product' : 'Product (vial mg)'} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Price ({sym}) <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Price per mg ({sym}) <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col">Lab report for this compound</th>
+        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Shop score (0-5) <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col">Code and store</th>
       </tr>
     </thead>
     <tbody>
@@ -37,39 +39,43 @@ const nOr = (n: number | null | undefined) => (n == null || !Number.isFinite(n) 
         const fp = r ? fillPct(r) : null;
         return (
           <tr class={o.partner ? '' : 'row-muted'}>
-            <td data-v={o.vendor.name}>
-              <a href={`/vendors/${o.vendor.slug}/`} class={`font-semibold ${o.partner ? 'text-slate-900' : 'text-slate-600'} hover:text-teal-700`}>{o.vendor.name}</a>
-              <div class="text-[11px] text-slate-400">{o.vendor.region}{o.partner ? ' · partner' : ''}</div>
+            <td data-v={o.vendor.name} class="min-w-[9.5rem]">
+              <a href={`/vendors/${o.vendor.slug}/`} class={`font-semibold ${o.partner ? 'text-slate-900' : 'text-slate-700'} hover:text-teal-800 hover:underline`}>{o.vendor.name}</a>
+              <span class="sub">{o.vendor.region}{o.partner ? ' · partner' : ' · no store link'}</span>
             </td>
-            {showCompound && <td>{o.product.compound}</td>}
-            <td class="max-w-[220px]"><span class="line-clamp-2">{o.product.shopProductName}</span>{o.product.inStock === false && <span class="chip bg-slate-100 text-slate-500 mt-1">out of stock</span>}</td>
-            <td class="num" data-v={nOr(o.product.vialMg)}>{mg(o.product.vialMg)}</td>
+            <td data-v={nOr(o.product.vialMg)} class="min-w-[12rem] max-w-[18rem]">
+              {showCompound && <span class="font-semibold">{compoundShort(o.product.compound)} </span>}
+              <span class="font-medium">{mg(o.product.vialMg)}</span>
+              <span class="sub">{o.product.shopProductName}{o.product.inStock === false ? ' (out of stock)' : ''}</span>
+            </td>
             <td class="num" data-v={nOr(o.price)}>
               <span class="font-semibold text-slate-900">{money(o.price, o.currency)}</span>
-              {o.onSale && <div class="text-[11px] text-slate-400 line-through">{money(o.listPrice, o.currency)}</div>}
+              {o.onSale && <span class="sub"><span class="sr-only">was </span><s>{money(o.listPrice, o.currency)}</s></span>}
             </td>
-            <td class="num" data-v={nOr(o.perMg)}><span class={`font-bold ${o.partner ? 'text-teal-800' : 'text-slate-600'}`}>{perMg(o.perMg, o.currency)}</span></td>
-            <td class="text-xs min-w-[180px]">
+            <td class="num" data-v={nOr(o.perMg)}><span class={`font-bold ${o.partner ? 'text-teal-900' : 'text-slate-800'}`}>{perMg(o.perMg, o.currency)}</span></td>
+            <td class="min-w-[12rem]">
               {r ? (
                 <div>
-                  <span class={`chip ${r.verifiable ? 'bg-teal-50 text-teal-800 ring-1 ring-teal-200' : 'bg-amber-50 text-amber-800 ring-1 ring-amber-200'}`}>{r.verifiable ? 'Yes, portal-verified' : 'Yes, shop-hosted'}</span>
-                  <div class="mt-1 text-slate-600">
-                    {r.measuredMg != null && r.labelMg != null ? `${r.measuredMg} / ${r.labelMg} mg (${fp!.toFixed(1)}%)` : 'mg not stated'}
-                    {r.purityPercent != null ? ` · ${r.purityPercent}%` : ''}
-                  </div>
-                  <div class="text-slate-400">{r.lab.replace(/\s*\(.*\)\s*$/, '')}</div>
+                  <span class="font-semibold text-slate-900">{r.verifiable ? 'Yes, portal-verified' : 'Yes, shop-hosted'}</span>
+                  <span class="sub">
+                    {r.measuredMg != null && r.labelMg != null ? `${r.measuredMg} of ${r.labelMg} mg (${fp!.toFixed(1)}%)` : 'mg not stated'}
+                    {r.purityPercent != null ? `, purity ${r.purityPercent}%` : ''}
+                  </span>
+                  <span class="sub">{labShort(r.lab)}</span>
                 </div>
               ) : (
-                <span class="chip bg-slate-100 text-slate-500">No report opened</span>
+                <span class="text-slate-700">No report opened</span>
               )}
             </td>
-            <td class="num" data-v={String(o.vendor.overallScore)}><span class="font-semibold">{o.vendor.overallScore.toFixed(1)}</span><span class="text-slate-400">/5</span></td>
-            <td>{o.partner ? <CodeBadge slug={o.vendor.slug} /> : <span class="text-xs text-slate-400">–</span>}</td>
-            <td>
+            <td class="num" data-v={String(o.vendor.overallScore)}><span class="font-semibold">{o.vendor.overallScore.toFixed(1)}</span></td>
+            <td class="min-w-[11rem]">
               {o.href ? (
-                <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary !py-1.5 !px-3 !text-xs">View <Icon name="external-link" class="w-3.5 h-3.5" /></a>
+                <div class="flex flex-col items-start gap-2">
+                  <CodeBadge slug={o.vendor.slug} />
+                  <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>
+                </div>
               ) : (
-                <a href={`/vendors/${o.vendor.slug}/`} class="text-xs text-slate-500 hover:text-teal-700 whitespace-nowrap">Review</a>
+                <a href={`/vendors/${o.vendor.slug}/`} class="text-link whitespace-nowrap">Read review</a>
               )}
             </td>
           </tr>

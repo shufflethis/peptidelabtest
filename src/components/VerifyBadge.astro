@@ -7,9 +7,9 @@ interface Props {
 }
 const { level, text } = Astro.props;
 const cfg = {
-  portal: { cls: 'bg-teal-50 text-teal-800 ring-1 ring-teal-200', icon: 'shield-check', label: 'Portal-verified' },
-  vendor: { cls: 'bg-amber-50 text-amber-800 ring-1 ring-amber-200', icon: 'file-text', label: 'Shop-hosted report' },
-  none: { cls: 'bg-slate-100 text-slate-600 ring-1 ring-slate-200', icon: 'shield-off', label: 'No public report' },
+  portal: { cls: 'bg-teal-50 text-teal-900 ring-1 ring-teal-300', icon: 'shield-check', label: 'Portal-verified' },
+  vendor: { cls: 'bg-amber-50 text-amber-900 ring-1 ring-amber-300', icon: 'file-text', label: 'Shop-hosted report' },
+  none: { cls: 'bg-slate-100 text-slate-700 ring-1 ring-slate-300', icon: 'shield-off', label: 'No public report' },
 }[level];
 ---
-<span class={`chip ${cfg.cls}`}><Icon name={cfg.icon} class="w-3.5 h-3.5" />{text || cfg.label}</span>
+<span class={`chip ${cfg.cls}`}><Icon name={cfg.icon} class="w-4 h-4" />{text || cfg.label}</span>

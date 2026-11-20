@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import PriceSection from '../../../components/PriceSection.astro';
+import FillChart from '../../../components/FillChart.astro';
+import FAQ from '../../../components/FAQ.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import WhereToBuy from '../../../components/WhereToBuy.astro';
+import {
+  SIZE_PAGES, offersFor, compoundShort, shopsCarrying, reportsFor, cheapestBy, perMg, CHECKED_LABEL, fillPct, faqSchema,
+  itemListSchema, listJoin, sizePagesFor, PARTNERS, YEAR, median, curSymbol,
+} from '../../../lib/site';
+
+export function getStaticPaths() {
+  return SIZE_PAGES.map((s) => ({ params: { compound: s.compound, size: `${s.size}mg` }, props: { size: s.size } }));
+}
+
+const { compound } = Astro.params as { compound: string };
+const { size } = Astro.props as { size: number };
+const short = compoundShort(compound);
+const offers = offersFor(compound, size);
+const shops = shopsCarrying(compound, size);
+const eu = shops.filter((s) => s.region === 'EU');
+const us = shops.filter((s) => s.region === 'US');
+const repsAll = reportsFor(compound);
+const reps = repsAll.filter((r) => r.report.labelMg === size);
+const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+const portal = reps.filter((r) => r.report.verifiable).length;
+const cEur = cheapestBy(offers, 'EUR');
+const cUsd = cheapestBy(offers, 'USD');
+const medianOf = (cur: string) => median(offers.filter((o) => o.currency === cur && o.price != null).map((o) => o.price as number));
+const mEur = medianOf('EUR');
+const mUsd = medianOf('USD');
+const partnersHere = PARTNERS.filter((p) => shops.some((s) => s.slug === p.slug));
+const vialTxt = (o: ReturnType<typeof cheapestBy>) => (o ? `${curSymbol(o.currency)}${(o.price as number).toFixed(2)} per vial at ${o.vendor.name}` : '');
+const lows = [cEur && `${vialTxt(cEur)} (EUR)`, cUsd && `${vialTxt(cUsd)} (USD)`].filter(Boolean).join(' and ');
+
+const intro = `${shops.length} audited shops list ${short} as a ${size} mg vial (${eu.length} EU, ${us.length} US). Lowest listed price on ${CHECKED_LABEL}: ${lows || 'n/a'}. ${reps.length ? `We opened ${reps.length} ${size} mg lab ${reps.length === 1 ? 'report' : 'reports'}; measured content was ${Math.min(...fills).toFixed(1)}–${Math.max(...fills).toFixed(1)}% of label.` : `We did not open a ${size} mg lab report for ${short}; reports for other sizes are on the main ${short} page.`}`;
+
+const title = `${short} ${size}mg: Prices at ${shops.length} Shops & Lab Tests (${YEAR})`;
+const description = `${short} ${size} mg vial prices at ${shops.length} audited shops, EUR and USD separate, price per mg and opened lab reports. Checked ${CHECKED_LABEL}.`;
+
+const faqs = [
+  {
+    q: `How much does a ${short} ${size} mg vial cost?`,
+    a: `Listed prices on ${CHECKED_LABEL}: ${[mEur != null && `median €${mEur.toFixed(2)} across ${offers.filter((o) => o.currency === 'EUR').length} EUR listings`, mUsd != null && `median $${mUsd.toFixed(2)} across ${offers.filter((o) => o.currency === 'USD').length} USD listings`].filter(Boolean).join('; ') || 'n/a'}. Lowest: ${lows || 'n/a'}. Prices exclude discount codes and are not converted.`,
+  },
+  {
+    q: `Where to buy ${short} ${size} mg for research?`,
+    a: `${shops.length} audited shops list it. ${partnersHere.length ? `Shops with a store link, ranked by audit score: ${listJoin(partnersHere.map((p) => `${p.name} (${p.overallScore.toFixed(1)}/5)`))}.` : 'None of them is a partner shop with a store link.'}`,
+  },
+  {
+    q: `Is there a lab report for ${short} ${size} mg?`,
+    a: reps.length
+      ? `Yes. We opened ${reps.length} ${size} mg ${reps.length === 1 ? 'report' : 'reports'} (${portal} verified on the lab portal) from ${listJoin(Array.from(new Set(reps.map((r) => r.vendor.name))))}.`
+      : `We did not open a ${size} mg ${short} report. ${repsAll.length} ${short} reports for other vial sizes are listed on the ${short} price page.`,
+  },
+];
+
+const crumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Prices', url: '/prices/' },
+  { name: short, url: `/prices/${compound}/` },
+  { name: `${size} mg`, url: `/prices/${compound}/${size}mg/` },
+];
+const jsonLd = [faqSchema(faqs), itemListSchema(`Shops listing ${short} ${size} mg`, shops.map((s) => ({ name: s.name, url: `/vendors/${s.slug}/` })))];
+const fillRows = reps.map((r) => ({ label: r.vendor.name, sub: r.report.lab, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }));
+const related = [
+  { href: `/prices/${compound}/`, label: `All ${short} sizes`, sub: 'Full price comparison' },
+  ...sizePagesFor(compound).filter((s) => s.size !== size).map((s) => ({ href: `/prices/${compound}/${s.size}mg/`, label: `${short} ${s.size} mg`, sub: `${s.shops} shops` })),
+  { href: `/compounds/${compound}/`, label: `${short} compound facts` },
+];
+---
+
+<BaseLayout title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero crumbs={crumbs} title={title} eyebrow={`${short} · ${size} mg vial`} intro={intro}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>Shops (EU / US)</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu.length} / {us.length})</span></dd></div>
+      <div class="stat"><dt>Lowest price per mg (EUR)</dt><dd>{cEur ? perMg(cEur.perMg, 'EUR') : 'n/a'}</dd></div>
+      <div class="stat"><dt>Lowest price per mg (USD)</dt><dd>{cUsd ? perMg(cUsd.perMg, 'USD') : 'n/a'}</dd></div>
+      <div class="stat"><dt>{size} mg lab reports opened</dt><dd>{reps.length}</dd></div>
+    </dl>
+  </PageHero>
+
+  <div class="wrap mt-10 space-y-14">
+    <WhereToBuy compound={compound} size={size} title={`Where to buy ${short} ${size} mg: shops compared`} />
+    <PriceSection offers={offers} label={`${short} ${size} mg`} />
+    {fillRows.length > 0 && (
+      <section class="space-y-4">
+        <h2 class="h2">{short} {size} mg lab reports</h2>
+        <FillChart rows={fillRows} title={`${short} ${size} mg: measured content as % of label`} />
+      </section>
+    )}
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
+</BaseLayout>

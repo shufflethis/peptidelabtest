@@ -108,9 +108,9 @@ const current = Astro.url.pathname;
   <body class="min-h-screen flex flex-col bg-white font-sans text-slate-700 antialiased">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-3 focus:py-2 focus:rounded-lg">Skip to content</a>
 
-    <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 text-center">
+    <div class="bg-slate-900 text-slate-100 text-sm py-2 px-4 text-center leading-snug">
       Desk audit of public shop pages and lab portals, last checked <strong class="text-white font-semibold">{CHECKED_LABEL}</strong>. Research-use-only products; no dosing or health information.
-      <a href="/methodology/" class="ml-1 underline underline-offset-2 text-teal-300 hover:text-white">How we score</a>
+      <a href="/methodology/" class="ml-1 underline underline-offset-2 text-teal-200 hover:text-white">How we score</a>
     </div>
 
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80">
@@ -121,27 +121,27 @@ const current = Astro.url.pathname;
           </span>
           <span class="leading-tight">
             <span class="block font-extrabold text-[15px] sm:text-lg tracking-tight text-slate-900">Peptide<span class="text-teal-700">Lab</span>Index</span>
-            <span class="block text-[11px] text-slate-500">Prices &amp; lab reports compared</span>
+            <span class="hidden sm:block text-xs text-slate-600">Prices &amp; lab reports compared</span>
           </span>
         </a>
-        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-slate-600" aria-label="Main">
+        <nav class="hidden lg:flex items-center gap-1 text-[0.94rem] font-medium text-slate-700" aria-label="Main">
           {nav.map((n) => (
             <a href={n.href} class={`px-3 py-2 rounded-lg transition-colors hover:bg-teal-50 hover:text-teal-800 ${current.startsWith(n.href) ? 'text-teal-800 bg-teal-50' : ''}`}>{n.label}</a>
           ))}
         </nav>
         <div class="flex items-center gap-2">
           <a href="/vendors/" class="hidden sm:inline-flex btn-primary">Best audited shops</a>
-          <button id="nav-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200 text-slate-700" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+          <button id="nav-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 text-slate-700" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
             <Icon name="menu" class="w-5 h-5" />
           </button>
         </div>
       </div>
       <div id="nav-panel" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 py-3 shadow-lg">
         {nav.map((n) => (
-          <a href={n.href} class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50"><Icon name={n.icon} class="w-4 h-4 text-teal-700" />{n.label}</a>
+          <a href={n.href} class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name={n.icon} class="w-4 h-4 text-teal-700" />{n.label}</a>
         ))}
-        <a href="/labs/" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50"><Icon name="flask" class="w-4 h-4 text-teal-700" />Testing labs</a>
-        <a href="/compare/" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50"><Icon name="git-compare" class="w-4 h-4 text-teal-700" />Compound comparisons</a>
+        <a href="/labs/" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name="flask" class="w-4 h-4 text-teal-700" />Testing labs</a>
+        <a href="/compare/" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name="git-compare" class="w-4 h-4 text-teal-700" />Compound comparisons</a>
       </div>
     </header>
 
@@ -153,14 +153,14 @@ const current = Astro.url.pathname;
 
     <footer class="mt-20 bg-slate-50 border-t border-slate-200">
       <div class="wrap py-14">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-[0.94rem]">
           <div>
             <div class="font-extrabold text-slate-900 text-base">Peptide<span class="text-teal-700">Lab</span>Index</div>
             <p class="mt-2 text-slate-600 leading-relaxed">We read shop pages, lab portals and price lists so research buyers can compare shops on facts: opened lab reports, measured content and price per mg.</p>
           </div>
           <div>
-            <h2 class="text-sm font-bold text-slate-900 mb-3">Compare</h2>
-            <ul class="space-y-2 text-slate-600">
+            <h2 class="text-base font-bold text-slate-900 mb-3">Compare</h2>
+            <ul class="space-y-2 text-slate-700">
               <li><a href="/prices/" class="hover:text-teal-700">Price comparison by compound</a></li>
               <li><a href="/vendors/" class="hover:text-teal-700">Shop ranking</a></li>
               <li><a href="/vendors/europe/" class="hover:text-teal-700">EU shops</a></li>
@@ -171,8 +171,8 @@ const current = Astro.url.pathname;
             </ul>
           </div>
           <div>
-            <h2 class="text-sm font-bold text-slate-900 mb-3">Lab data &amp; tools</h2>
-            <ul class="space-y-2 text-slate-600">
+            <h2 class="text-base font-bold text-slate-900 mb-3">Lab data &amp; tools</h2>
+            <ul class="space-y-2 text-slate-700">
               <li><a href="/batch-tracker/" class="hover:text-teal-700">Lab reports we opened</a></li>
               <li><a href="/labs/" class="hover:text-teal-700">Testing labs</a></li>
               <li><a href="/compounds/" class="hover:text-teal-700">Compound index</a></li>
@@ -183,8 +183,8 @@ const current = Astro.url.pathname;
             </ul>
           </div>
           <div>
-            <h2 class="text-sm font-bold text-slate-900 mb-3">About &amp; legal</h2>
-            <ul class="space-y-2 text-slate-600">
+            <h2 class="text-base font-bold text-slate-900 mb-3">About &amp; legal</h2>
+            <ul class="space-y-2 text-slate-700">
               <li><a href="/methodology/" class="hover:text-teal-700">Methodology</a></li>
               <li><a href="/laws/" class="hover:text-teal-700">Country notes</a></li>
               <li><a href="/legal/" class="hover:text-teal-700">Legal, disclosure &amp; privacy</a></li>
@@ -192,7 +192,7 @@ const current = Astro.url.pathname;
             </ul>
           </div>
         </div>
-        <div class="mt-10 pt-6 border-t border-slate-200 space-y-3 text-xs text-slate-500 leading-relaxed">
+        <div class="mt-10 pt-6 border-t border-slate-200 space-y-3 text-sm text-slate-600 leading-relaxed max-w-[90ch]">
           <p><strong class="text-slate-700">Research use only.</strong> All products listed are sold by the shops as research-use-only (RUO) laboratory reagents. They are not drugs, supplements or cosmetics. Nothing on {SITE_BRAND.domain} is medical advice or information about human or animal use.</p>
           <p><strong class="text-slate-700">Affiliate disclosure.</strong> Store links to partner shops are affiliate links (rel="sponsored"); we may earn a commission at no extra cost to you. Shops without a partnership get no outbound link. Rankings use the published audit score only, never commission.</p>
           <p>&copy; 2026 {SITE_NAME} ({SITE_BRAND.domain}). Data last checked {CHECKED_LABEL}.</p>

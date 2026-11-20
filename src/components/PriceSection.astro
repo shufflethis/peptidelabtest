@@ -1,0 +1,37 @@
+---
+/** Per-currency block: PriceBars chart (cheapest offer per shop) + full PriceTable. EUR, USD and others never mixed. */
+import PriceBars from './PriceBars.astro';
+import PriceTable from './PriceTable.astro';
+import type { Offer } from '../lib/site';
+import { currenciesOf, currencyHeading } from '../lib/site';
+interface Props {
+  offers: Offer[];
+  label: string;
+  headingLevel?: 'h2' | 'h3';
+}
+const { offers, label, headingLevel = 'h2' } = Astro.props;
+const curs = currenciesOf(offers);
+function cheapestPerShop(xs: Offer[]) {
+  const m = new Map<string, Offer>();
+  for (const o of xs) {
+    if (o.perMg == null) continue;
+    const cur = m.get(o.vendor.slug);
+    if (!cur || o.perMg < (cur.perMg as number)) m.set(o.vendor.slug, o);
+  }
+  return Array.from(m.values());
+}
+const H = headingLevel;
+---
+{curs.map((cur) => {
+  const xs = offers.filter((o) => o.currency === cur);
+  const shops = new Set(xs.map((o) => o.vendor.slug)).size;
+  const bars = cheapestPerShop(xs).map((o) => ({ label: o.vendor.name, sub: o.product.vialMg != null ? `${o.product.vialMg} mg` : undefined, value: o.perMg as number, partner: o.partner }));
+  return (
+    <section class="space-y-4" id={`prices-${cur.toLowerCase()}`}>
+      <H class={H === 'h2' ? 'h2' : 'h3'}>{currencyHeading(cur)}: {label} at {shops} {shops === 1 ? 'shop' : 'shops'}</H>
+      <p class="text-slate-700 max-w-[70ch]">Partner shops come first, then other audited shops (grey, no store link). Tap a column header to sort. On a phone, swipe the table sideways.</p>
+      {bars.length > 1 && <PriceBars bars={bars} currency={cur} title={`Lowest price per mg at each shop (${cur})`} />}
+      <PriceTable offers={xs} caption={`${label} prices in ${cur}`} />
+    </section>
+  );
+})}
