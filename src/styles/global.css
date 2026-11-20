@@ -140,3 +140,21 @@
 
   .mono-url { font-family: var(--font-mono); font-size: 0.72rem; color: #475569; word-break: break-all; user-select: all; }
 }
+
+/* Readability bridge: legacy dark-theme utility classes on pages not yet rebuilt (M2).
+   Remove once every page uses the light design components. */
+@layer utilities {
+  main :is(.bg-slate-950, .bg-slate-900, .bg-slate-800, [class*="bg-slate-950/"], [class*="bg-slate-900/"]) { background-color: #f8fafc !important; }
+  main :is(.border-slate-800, .border-slate-700, .border-slate-600, [class*="border-slate-800/"]) { border-color: #e2e8f0 !important; }
+  main :is(.text-slate-100, .text-slate-200, .text-slate-300) { color: #1e293b !important; }
+  main .text-slate-400 { color: #475569 !important; }
+  main .text-slate-500 { color: #64748b !important; }
+  main :is(.text-cyan-200, .text-cyan-300, .text-cyan-400) { color: #0f766e !important; }
+  main :is(.text-emerald-200, .text-emerald-300, .text-emerald-400) { color: #047857 !important; }
+  main .text-amber-300 { color: #b45309 !important; }
+  main .text-rose-400 { color: #be123c !important; }
+  main .text-white:not([class*="bg-"]):not([class*="bg-"] *) { color: #0f172a !important; }
+  main :is(p, li, td).font-mono, main p .font-mono { font-family: var(--font-sans); }
+  main input.bg-slate-950, main input[class*="bg-slate-9"] { color: #0f172a !important; }
+  main :is([class*="bg-cyan-500/"], [class*="bg-emerald-500/"]) { background-color: #f0fdfa !important; }
+}
