@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { t, lp, fmtDate, num, listJoin, type Lang } from '../i18n';
+import { TOTALS, CHECKED_ISO, PARTNERS, NON_PARTNERS, SITE_URL, SITE_NAME, SOCIAL_SAME_AS, shopShort } from '../lib/site';
+import { SITE_BRAND } from '../data/affiliates';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const date = fmtDate(lang, CHECKED_ISO);
+const L = (p: string) => lp(lang, p);
+const scores = PARTNERS.map((p) => p.overallScore);
+const lo = PARTNERS.reduce((a, b) => (b.overallScore < a.overallScore ? b : a));
+const hi = PARTNERS.reduce((a, b) => (b.overallScore > a.overallScore ? b : a));
+const np = NON_PARTNERS[0];
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'about.crumb'), url: L('/about/') }];
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'AboutPage', name: t(lang, 'about.title'), url: `${SITE_URL}${L('/about/')}`, inLanguage: lang,
+    about: { '@id': `${SITE_URL}/#organization` }, dateModified: CHECKED_ISO,
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'Organization', '@id': `${SITE_URL}/#organization`, name: SITE_NAME, url: `${SITE_URL}/`,
+    publishingPrinciples: `${SITE_URL}/methodology/`, correctionsPolicy: `${SITE_URL}/about/#corrections`, ethicsPolicy: `${SITE_URL}/about/#independence`,
+    contactPoint: { '@type': 'ContactPoint', email: SITE_BRAND.contactEmail, contactType: 'editorial' },
+    ...(SOCIAL_SAME_AS.length ? { sameAs: SOCIAL_SAME_AS } : {}),
+  },
+];
+---
+<BaseLayout lang={lang} title={t(lang, 'about.title')} description={t(lang, 'about.description')} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'about.h1')} intro={t(lang, 'about.intro', { date, shops: TOTALS.shops, reports: TOTALS.reportsOpened })} />
+  <div class="wrap mt-12 space-y-14">
+    <div class="prose-read">
+      <h2 id="who">{t(lang, 'about.whoH')}</h2>
+      <p>{t(lang, 'about.whoP1')}</p>
+      <p>{t(lang, 'about.whoP2')}</p>
+      <h2 id="independence">{t(lang, 'about.indepH')}</h2>
+      <p>{t(lang, 'about.indepP1')}</p>
+      <p>{t(lang, 'about.indepP2', { min: num(lang, Math.min(...scores)), max: num(lang, Math.max(...scores)), low: shopShort(lo.name), lowScore: num(lang, lo.overallScore), high: shopShort(hi.name), highScore: num(lang, hi.overallScore), np: shopShort(np.name), npScore: num(lang, np.overallScore) })}</p>
+      <p>{t(lang, 'about.indepP3')}</p>
+      <h2 id="data">{t(lang, 'about.dataH')}</h2>
+      <ul>
+        <li>{t(lang, 'about.dataL1', { date })}</li>
+        <li>{t(lang, 'about.dataL2', { reports: TOTALS.reportsOpened })}</li>
+        <li>{t(lang, 'about.dataL3', { portal: TOTALS.portalVerified })}</li>
+        <li>{t(lang, 'about.dataL4')}</li>
+      </ul>
+      <h2 id="corrections">{t(lang, 'about.corrH')}</h2>
+      <p>{t(lang, 'about.corrP')} <a href={L('/contact/')}>{t(lang, 'footer.contact')}</a></p>
+      <h2 id="conflicts">{t(lang, 'about.coiH')}</h2>
+      <p>{t(lang, 'about.coiP', { list: listJoin(lang, PARTNERS.map((p) => shopShort(p.name))) })}</p>
+    </div>
+    <RelatedLinks title={t(lang, 'about.links')} links={[
+      { href: L('/methodology/'), label: t(lang, 'footer.howWeTest') },
+      { href: L('/affiliate-disclosure/'), label: t(lang, 'footer.affiliate') },
+      { href: L('/vendors/'), label: t(lang, 'footer.bestShops') },
+      { href: L('/batch-tracker/'), label: t(lang, 'footer.reportsOpened') },
+      { href: L('/contact/'), label: t(lang, 'footer.contact') },
+      { href: L('/data/'), label: t(lang, 'footer.openData') },
+    ]} />
+  </div>
+</BaseLayout>

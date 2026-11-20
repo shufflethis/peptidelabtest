@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { t, lp, fmtDate, type Lang } from '../i18n';
+import { CHECKED_ISO } from '../lib/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'terms.crumb'), url: L('/terms/') }];
+---
+<BaseLayout lang={lang} title={t(lang, 'terms.title')} description={t(lang, 'terms.description')} crumbs={crumbs}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'terms.h1')} intro={t(lang, 'terms.intro')} />
+  <div class="wrap mt-12">
+    <div class="prose-read">
+      <h2>{t(lang, 'terms.ruoH')}</h2><p>{t(lang, 'terms.ruoP')}</p>
+      <h2>{t(lang, 'terms.medH')}</h2><p>{t(lang, 'terms.medP')}</p>
+      <h2>{t(lang, 'terms.dataH')}</h2><p>{t(lang, 'terms.dataP', { date: fmtDate(lang, CHECKED_ISO) })}</p>
+      <h2>{t(lang, 'terms.linkH')}</h2><p>{t(lang, 'terms.linkP')} <a href={L('/affiliate-disclosure/')}>{t(lang, 'footer.affiliate')}</a></p>
+      <h2>{t(lang, 'terms.reuseH')}</h2><p>{t(lang, 'terms.reuseP')} <a href={L('/data/')}>{t(lang, 'footer.openData')}</a></p>
+    </div>
+  </div>
+</BaseLayout>

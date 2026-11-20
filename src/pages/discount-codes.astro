@@ -56,6 +56,7 @@ const faqs = [
       <p>{NON_PARTNERS.length} other audited shops have not issued a reader code to us. See each review for scores and lab reports:</p>
       <p>{NON_PARTNERS.map((v, i) => <>{i > 0 && ', '}<a href={`/vendors/${v.slug}/`}>{v.name}</a></>)}.</p>
     </section>
+    <p class="text-slate-700 max-w-[70ch]">Looking for Peptide Sciences? It stopped selling in 2026: <a href="/vendors/peptide-sciences/" class="text-link">Peptide Sciences status and alternatives</a>.</p>
     <FAQ items={faqs} />
     <Disclosure />
   </div>

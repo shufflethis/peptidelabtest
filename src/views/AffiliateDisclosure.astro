@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { t, lp, num, type Lang } from '../i18n';
+import { PARTNERS, shopShort } from '../lib/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'affiliate.crumb'), url: L('/affiliate-disclosure/') }];
+---
+<BaseLayout lang={lang} title={t(lang, 'affiliate.title')} description={t(lang, 'affiliate.description')} crumbs={crumbs}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'affiliate.h1')} intro={t(lang, 'affiliate.intro')} />
+  <div class="wrap mt-12">
+    <div class="prose-read">
+      <h2>{t(lang, 'affiliate.howH')}</h2><p>{t(lang, 'affiliate.howP')}</p>
+      <h2>{t(lang, 'affiliate.partnersH')}</h2>
+      <p>{t(lang, 'affiliate.partnersP', { n: PARTNERS.length })}</p>
+      <ul>{PARTNERS.map((p) => <li><a href={L(`/vendors/${p.slug}/`)}>{shopShort(p.name)}</a> ({p.region}, {num(lang, p.overallScore)} / 5)</li>)}</ul>
+      <h2>{t(lang, 'affiliate.notH')}</h2>
+      <ul>
+        <li>{t(lang, 'affiliate.notL1')}</li>
+        <li>{t(lang, 'affiliate.notL2')}</li>
+        <li>{t(lang, 'affiliate.notL3')}</li>
+        <li>{t(lang, 'affiliate.notL4')}</li>
+      </ul>
+      <p><a href={L('/methodology/')}>{t(lang, 'footer.howWeTest')}</a> · <a href={L('/about/')}>{t(lang, 'footer.about')}</a></p>
+    </div>
+  </div>
+</BaseLayout>

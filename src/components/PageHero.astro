@@ -2,14 +2,16 @@
 /** Page hero: breadcrumbs, H1, answer-first intro, last-checked line. */
 import Breadcrumbs from './Breadcrumbs.astro';
 import Icon from './Icon.astro';
-import { CHECKED_LABEL } from '../lib/site';
+import { CHECKED_ISO } from '../lib/site';
+import { t, fmtDate, splitLang, type Lang } from '../i18n';
 interface Props {
   crumbs?: { name: string; url: string }[];
   title: string;
   eyebrow?: string;
   intro?: string;
+  lang?: Lang;
 }
-const { crumbs, title, eyebrow, intro } = Astro.props;
+const { crumbs, title, eyebrow, intro, lang = splitLang(Astro.url.pathname).lang } = Astro.props;
 ---
 <section class="hero-bg border-b border-slate-200">
   <div class="wrap pt-7 pb-9 sm:pt-9 sm:pb-11">
@@ -18,6 +20,6 @@ const { crumbs, title, eyebrow, intro } = Astro.props;
     <h1 class="h1 mt-4 max-w-4xl">{title}</h1>
     {intro && <p class="lead mt-4" data-answer>{intro}</p>}
     <slot />
-    <p class="mt-5 inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="calendar" class="w-4 h-4" />Last checked {CHECKED_LABEL}</p>
+    <p class="mt-5 inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="calendar" class="w-4 h-4" />{t(lang, 'common.lastChecked', { date: fmtDate(lang, CHECKED_ISO) })}</p>
   </div>
 </section>

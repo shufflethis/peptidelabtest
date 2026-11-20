@@ -12,6 +12,35 @@ export const SITE_NAME = 'PeptideLabIndex';
 export const CHECKED_ISO = '2026-11-20';
 export const CHECKED_LABEL = '20 Nov 2026';
 export const YEAR = 2026;
+/**
+ * Social profiles. Empty string = not shown anywhere (footer icons, Organization sameAs).
+ * Telegram per language; empty language channels fall back to telegramEn.
+ */
+export const SOCIAL = {
+  telegramEn: '',
+  telegramDe: '',
+  telegramEs: '',
+  telegramFr: '',
+  telegramIt: '',
+  youtube: '',
+  x: '',
+};
+const SOCIAL_ICONS = {
+  telegram: 'M21.94 4.3 18.7 19.6c-.24 1.07-.88 1.34-1.78.83l-4.93-3.63-2.38 2.29c-.26.26-.48.48-.99.48l.35-5.02 9.14-8.26c.4-.35-.09-.55-.62-.2L6.2 13.2l-4.87-1.52c-1.06-.33-1.08-1.06.22-1.57L20.6 2.77c.88-.32 1.65.21 1.34 1.53Z',
+  youtube: 'M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z',
+  x: 'M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z',
+};
+export function socialLinks(lang: string): { href: string; label: string; icon: string }[] {
+  const key = `telegram${lang.charAt(0).toUpperCase()}${lang.slice(1)}` as keyof typeof SOCIAL;
+  const tg = (SOCIAL[key] as string) || SOCIAL.telegramEn;
+  return [
+    tg ? { href: tg, label: 'Telegram', icon: SOCIAL_ICONS.telegram } : null,
+    SOCIAL.youtube ? { href: SOCIAL.youtube, label: 'YouTube', icon: SOCIAL_ICONS.youtube } : null,
+    SOCIAL.x ? { href: SOCIAL.x, label: 'X', icon: SOCIAL_ICONS.x } : null,
+  ].filter(Boolean) as { href: string; label: string; icon: string }[];
+}
+export const SOCIAL_SAME_AS: string[] = Array.from(new Set(Object.values(SOCIAL).filter(Boolean)));
+
 /** Partner links: CONTENT_RULES (sponsored nofollow) + brief (noopener noreferrer). */
 export const REL_SPONSORED = 'sponsored nofollow noopener noreferrer';
 

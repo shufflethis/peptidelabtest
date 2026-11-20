@@ -57,6 +57,7 @@ const faqs = [
 ];
 const fillRows = reps.map((r) => ({ label: `${r.vendor.name} · ${compoundShort(r.report.compound)}`, sub: r.report.lab, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }));
 const related = [
+  ...shops.slice(0, 4).map((s) => ({ href: `/vendors/${s.v.slug}/`, label: `${s.v.name}: lab reports and score`, sub: `${s.n} ${short} ${s.n === 1 ? 'report' : 'reports'} opened` })),
   ...LAB_KEYS.filter((k) => k.slug !== l.slug && LABS_IN_DATA.includes(k)).slice(0, 4).map((k) => ({ href: `/labs/${k.slug}/`, label: k.name, sub: 'Lab guide' })),
   { href: '/batch-tracker/', label: 'All lab reports we opened' },
 ];

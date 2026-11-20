@@ -96,6 +96,7 @@ const related = [
   ...(spec ? [{ href: `/compounds/${compound}/`, label: `${short} compound facts`, sub: spec.category }] : []),
   ...sizePages.map((s) => ({ href: `/prices/${compound}/${s.size}mg/`, label: `${short} ${s.size} mg prices`, sub: `${s.shops} shops` })),
   ...compoundPairsFor(compound).map(([a, b]) => ({ href: `/compare/${pairSlug(a, b)}/`, label: `${compoundShort(a)} vs ${compoundShort(b)}`, sub: 'Market and lab-report comparison' })),
+  ...partnersHere.slice(0, 3).map((p) => ({ href: `/vendors/${p.slug}/`, label: `${p.name} review`, sub: `Score ${p.overallScore.toFixed(1)}/5 · ${short} from ${perMg(offers.filter((o) => o.vendor.slug === p.slug && o.perMg != null).sort((x, y) => x.perMg! - y.perMg!)[0]?.perMg, p.region === 'EU' ? 'EUR' : 'USD')}` })),
   { href: '/prices/', label: 'All price comparisons', sub: `${PRICE_COMPOUNDS.length} compounds` },
   { href: '/batch-tracker/', label: 'Lab reports we opened', sub: `${TOTALS.reportsOpened} reports` },
 ];

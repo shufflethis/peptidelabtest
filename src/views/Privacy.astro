@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { t, lp, type Lang } from '../i18n';
+import { SITE_BRAND } from '../data/affiliates';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'privacy.crumb'), url: L('/privacy/') }];
+const [pre, post] = t(lang, 'privacy.contactP').split('{email}');
+---
+<BaseLayout lang={lang} title={t(lang, 'privacy.title')} description={t(lang, 'privacy.description')} crumbs={crumbs}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'privacy.h1')} intro={t(lang, 'privacy.intro')} />
+  <div class="wrap mt-12">
+    <div class="prose-read">
+      <h2>{t(lang, 'privacy.anaH')}</h2><p>{t(lang, 'privacy.anaP')}</p>
+      <h2>{t(lang, 'privacy.affH')}</h2><p>{t(lang, 'privacy.affP')} <a href={L('/affiliate-disclosure/')}>{t(lang, 'footer.affiliate')}</a></p>
+      <h2>{t(lang, 'privacy.toolH')}</h2><p>{t(lang, 'privacy.toolP')}</p>
+      <h2>{t(lang, 'privacy.mailH')}</h2><p>{t(lang, 'privacy.mailP')}</p>
+      <h2>{t(lang, 'privacy.contactH')}</h2><p>{pre}<a href={`mailto:${SITE_BRAND.contactEmail}`}>{SITE_BRAND.contactEmail}</a>{post}</p>
+    </div>
+  </div>
+</BaseLayout>

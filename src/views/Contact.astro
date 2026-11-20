@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import { t, lp, type Lang } from '../i18n';
+import { SITE_BRAND } from '../data/affiliates';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'contact.crumb'), url: L('/contact/') }];
+const jsonLd = { '@context': 'https://schema.org', '@type': 'ContactPage', name: t(lang, 'contact.title'), inLanguage: lang };
+---
+<BaseLayout lang={lang} title={t(lang, 'contact.title')} description={t(lang, 'contact.description')} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'contact.h1')} intro={t(lang, 'contact.intro')}>
+    <p class="mt-6"><a href={`mailto:${SITE_BRAND.contactEmail}`} class="btn-primary"><Icon name="link" class="w-4 h-4" />{SITE_BRAND.contactEmail}</a></p>
+  </PageHero>
+  <div class="wrap mt-12">
+    <div class="prose-read">
+      <h2>{t(lang, 'contact.whatH')}</h2>
+      <ul>
+        <li>{t(lang, 'contact.l1')}</li>
+        <li>{t(lang, 'contact.l2')}</li>
+        <li>{t(lang, 'contact.l3')} <a href={L('/advertise/')}>{t(lang, 'footer.forShops')}</a></li>
+      </ul>
+      <p>{t(lang, 'contact.note')}</p>
+      <p><a href={L('/about/')}>{t(lang, 'footer.about')}</a> · <a href={L('/privacy/')}>{t(lang, 'footer.privacy')}</a></p>
+    </div>
+  </div>
+</BaseLayout>
