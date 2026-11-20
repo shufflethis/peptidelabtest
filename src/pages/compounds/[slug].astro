@@ -134,7 +134,7 @@ const matchingBatches = getComputedBatches().filter((b) => b.compoundSlug === co
                   <td class="py-2.5 font-bold text-white"><a href={`/vendors/${b.vendorSlug}/`} class="hover:text-cyan-400">{b.vendorName}</a></td>
                   <td class="py-2.5 text-slate-300">{b.labelMg} mg &rarr; {b.measuredMg} mg ({b.variancePercent >= 0 ? '+' : ''}{b.variancePercent}%)</td>
                   <td class="py-2.5 text-cyan-300">{b.purityPercent}% · {b.labName}</td>
-                  <td class="py-2.5 text-emerald-400 font-bold">{b.currency === 'USD' ? '$' : '€'}{b.trueMeasuredCostPerMg.toFixed(2)}/mg</td>
+                  <td class="py-2.5 text-emerald-400 font-bold">{b.currency === 'USD' ? '$' : '€'}{b.trueMeasuredCostPerMg == null ? "n/a" : b.trueMeasuredCostPerMg.toFixed(2)}/mg</td>
                 </tr>
               ))}
             </tbody>

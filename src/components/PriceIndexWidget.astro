@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { limit } = Astro.props;
-const allRows = getComputedBatches().sort((a, b) => a.trueMeasuredCostPerMg - b.trueMeasuredCostPerMg);
+const allRows = getComputedBatches().sort((a, b) => (a.trueMeasuredCostPerMg ?? 1e9) - (b.trueMeasuredCostPerMg ?? 1e9));
 const rows = limit ? allRows.slice(0, limit) : allRows;
 ---
 
@@ -103,14 +103,14 @@ const rows = limit ? allRows.slice(0, limit) : allRows;
                 <span class="block text-[10px] text-slate-400">{r.labName}</span>
               </td>
               <td class="py-3.5 px-3 text-slate-400 line-through">
-                {sym}{r.labelCostPerMg.toFixed(2)}/mg
+                {sym}{r.labelCostPerMg == null ? "n/a" : r.labelCostPerMg.toFixed(2)}/mg
               </td>
               <td class="py-3.5 px-3">
                 <span class={`text-sm font-black ${r.statusFlag === 'UNDERFILL_ALERT' ? 'text-rose-400' : 'text-emerald-400'}`}>
-                  {sym}{r.trueMeasuredCostPerMg.toFixed(2)}/mg
+                  {sym}{r.trueMeasuredCostPerMg == null ? "n/a" : r.trueMeasuredCostPerMg.toFixed(2)}/mg
                 </span>
                 <span class="block text-[10px] text-slate-400">
-                  Net {sym}{r.netPriceAfterCode.toFixed(0)} vial
+                  Net {sym}{r.netPriceAfterCode == null ? "n/a" : r.netPriceAfterCode.toFixed(0)} vial
                 </span>
               </td>
               <td class="py-3.5 pl-3 text-right space-x-1.5 whitespace-nowrap">
