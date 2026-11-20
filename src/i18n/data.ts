@@ -37,7 +37,10 @@ function walk<T>(lang: Lang, prefix: string, v: T): T {
   return v;
 }
 
-export const locCompound = (lang: Lang, c: CompoundSpec): CompoundSpec => walk(lang, `compounds.COMPOUNDS.${c.slug}`, c);
+export const locCompound = (lang: Lang, c: CompoundSpec): CompoundSpec => {
+  const out = walk(lang, `compounds.COMPOUNDS.${c.slug}`, c);
+  return out.category === c.category ? { ...out, category: categoryName(lang, c.category) as CompoundSpec['category'] } : out;
+};
 export const locLabGuide = (lang: Lang, g: LabGuide | undefined): LabGuide | undefined => (g ? walk(lang, `labGuides.LAB_GUIDES.${g.slug}`, g) : g);
 export const locArticle = (lang: Lang, a: ResearchArticle): ResearchArticle => walk(lang, `labs.RESEARCH_ARTICLES.${a.slug}`, a);
 export const locLaw = (lang: Lang, l: CountryLawGuide): CountryLawGuide => walk(lang, `laws.COUNTRY_LAWS.${l.slug}`, l);
@@ -46,6 +49,16 @@ const NP = 'not published';
 const raw = (slug: string) => (AUDIT_RAW as any[]).find((a) => a.slug === slug) || {};
 
 /** Category label of a compound (UI key first, then data translation). */
+/** Category names that are not in the per-compound data texts. */
+const CATEGORY: Record<string, Partial<Record<Lang, string>>> = {
+  'GH Secretagogues': { de: 'GH-Sekretagoga', es: 'Secretagogos de GH', fr: 'Sécrétagogues de GH', it: 'Secretagoghi del GH' },
+  'Melanocortin & Immune': { de: 'Melanocortin- und Immunforschung', es: 'Melanocortinas e inmunidad', fr: 'Mélanocortines et immunité', it: 'Melanocortine e sistema immunitario' },
+  'Metabolic & Incretin': { de: 'Stoffwechsel und Inkretine', es: 'Metabolismo e incretinas', fr: 'Métabolisme et incrétines', it: 'Metabolismo e incretine' },
+};
+export function categoryName(lang: Lang, en: string): string {
+  return CATEGORY[en]?.[lang] ?? en;
+}
+
 export function categoryLabel(lang: Lang, c: CompoundSpec | undefined): string {
   if (!c) return t(lang, 'common.researchCompound');
   return locCompound(lang, c).category;
@@ -80,6 +93,26 @@ export function countryName(lang: Lang, code: string | null | undefined): string
   } catch {
     return code;
   }
+}
+
+/** Country with the right preposition/article: where ("in the Netherlands") and direction ("to the Netherlands"). */
+const COUNTRY_IN: Record<Lang, Record<string, string>> = {
+  en: { US: 'in the United States', GB: 'in the United Kingdom', NL: 'in the Netherlands' },
+  de: { AU: 'in Australien', AT: 'in Österreich', CA: 'in Kanada', FR: 'in Frankreich', DE: 'in Deutschland', NL: 'in den Niederlanden', PL: 'in Polen', CH: 'in der Schweiz', GB: 'im Vereinigten Königreich', US: 'in den USA' },
+  es: { AU: 'en Australia', AT: 'en Austria', CA: 'en Canadá', FR: 'en Francia', DE: 'en Alemania', NL: 'en los Países Bajos', PL: 'en Polonia', CH: 'en Suiza', GB: 'en el Reino Unido', US: 'en Estados Unidos' },
+  fr: { AU: 'en Australie', AT: 'en Autriche', CA: 'au Canada', FR: 'en France', DE: 'en Allemagne', NL: 'aux Pays-Bas', PL: 'en Pologne', CH: 'en Suisse', GB: 'au Royaume-Uni', US: 'aux États-Unis' },
+  it: { AU: 'in Australia', AT: 'in Austria', CA: 'in Canada', FR: 'in Francia', DE: 'in Germania', NL: 'nei Paesi Bassi', PL: 'in Polonia', CH: 'in Svizzera', GB: 'nel Regno Unito', US: 'negli Stati Uniti' },
+};
+const COUNTRY_TO: Partial<Record<Lang, Record<string, string>>> = {
+  en: { US: 'to the United States', GB: 'to the United Kingdom', NL: 'to the Netherlands' },
+  de: { AU: 'nach Australien', AT: 'nach Österreich', CA: 'nach Kanada', FR: 'nach Frankreich', DE: 'nach Deutschland', NL: 'in die Niederlande', PL: 'nach Polen', CH: 'in die Schweiz', GB: 'ins Vereinigte Königreich', US: 'in die USA' },
+  es: { AU: 'a Australia', AT: 'a Austria', CA: 'a Canadá', FR: 'a Francia', DE: 'a Alemania', NL: 'a los Países Bajos', PL: 'a Polonia', CH: 'a Suiza', GB: 'al Reino Unido', US: 'a Estados Unidos' },
+};
+export function countryIn(lang: Lang, code: string): string {
+  return COUNTRY_IN[lang][code] ?? `${lang === 'en' ? 'in' : (lang === 'es' ? 'en' : 'in')} ${countryName(lang, code)}`;
+}
+export function countryTo(lang: Lang, code: string): string {
+  return COUNTRY_TO[lang]?.[code] ?? (lang === 'en' ? `to ${countryName(lang, code)}` : countryIn(lang, code));
 }
 
 /** Vendor with translated audit texts and localized defaults. */

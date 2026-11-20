@@ -6,7 +6,7 @@ import { COUNTRY_LAWS } from '../data/laws';
 import { VENDORS_BY_SCORE, shipsToCountry, isPartner, CHECKED_ISO, YEAR } from '../lib/site';
 import { t, tn, tt, td, lp, fmtDate, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
-import { locLaw, countryName, shipsToText } from '../i18n/data';
+import { locLaw, countryName, countryIn, countryTo, shipsToText } from '../i18n/data';
 interface Props { lang: Lang; slug: string }
 const { lang, slug } = Astro.props;
 const F = fmt(lang);
@@ -16,7 +16,7 @@ const l = locLaw(lang, raw);
 const country = countryName(lang, raw.code);
 const ships = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, raw.code) === 'yes');
 const unknown = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, raw.code) === null);
-const V = { country, n: ships.length, unknown: unknown.length, date: fmtDate(lang, CHECKED_ISO), year: YEAR };
+const V = { country, inC: countryIn(lang, raw.code), toC: countryTo(lang, raw.code), n: ships.length, unknown: unknown.length, date: fmtDate(lang, CHECKED_ISO), year: YEAR };
 const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'lw.crumb'), url: L('/laws/') }, { name: country, url: L(`/laws/${l.slug}/`) }];
 ---
 <BaseLayout lang={lang} title={tt(lang, 'law.title', V)} description={td(lang, 'law.description', V)} crumbs={crumbs}>

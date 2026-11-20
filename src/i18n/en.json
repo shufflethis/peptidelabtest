@@ -972,20 +972,21 @@
   },
   "law": {
     "title": [
-      "Research Peptides in {country}: Rules & Shops ({year})",
-      "Research Peptides in {country}: Rules & Shops"
+      "Research Peptides {inC}: Rules & Shops ({year})",
+      "Research Peptides {inC}: Rules & Shops",
+      "Research Peptides {inC}"
     ],
     "description": [
       "{country}: which authority regulates medicines and which of our audited research peptide shops state they ship there. See the shops and the rules."
     ],
-    "h1": "Research peptides in {country}",
+    "h1": "Research peptides {inC}",
     "intro": {
-      "one": "{n} of the shops we audited states that it ships to {country}. This page is general information, not legal advice.",
-      "other": "{n} of the shops we audited state that they ship to {country}. This page is general information, not legal advice."
+      "one": "{n} of the shops we audited states that it ships {toC}. This page is general information, not legal advice.",
+      "other": "{n} of the shops we audited state that they ship {toC}. This page is general information, not legal advice."
     },
     "authH": "Authorities",
     "rules": "Rules change. Check the current position with the authority before you order, and follow your institution's procurement rules.",
-    "shopsH": "Audited shops that state they ship to {country}",
+    "shopsH": "Audited shops that state they ship {toC}",
     "shopsP": "Based on each shop's published shipping information on {date}, sorted by audit score. {unknown} shops do not publish where they ship.",
     "colShips": "Ships to (as published)",
     "relAll": "All country notes"

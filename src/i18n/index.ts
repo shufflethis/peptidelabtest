@@ -12,7 +12,7 @@ export const LANGS = ['en', 'de', 'es', 'fr', 'it'] as const;
 export type Lang = (typeof LANGS)[number];
 export const OTHER_LANGS = LANGS.filter((l) => l !== 'en') as Exclude<Lang, 'en'>[];
 /** Languages that are built and linked (hreflang, switcher, sitemap). Enabled one by one once green. */
-export const LIVE_LANGS: Lang[] = ['en', 'de', 'es'];
+export const LIVE_LANGS: Lang[] = ['en', 'de', 'es', 'fr'];
 export const LIVE_OTHER = LIVE_LANGS.filter((l) => l !== 'en') as Exclude<Lang, 'en'>[];
 export const LOCALE: Record<Lang, string> = { en: 'en-US', de: 'de-DE', es: 'es-ES', fr: 'fr-FR', it: 'it-IT' };
 export const OG_LOCALE: Record<Lang, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES', fr: 'fr_FR', it: 'it_IT' };
@@ -37,12 +37,18 @@ function fill(s: string, vars?: Vars): string {
   return s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] == null ? m : String(vars[k])));
 }
 
+/** French elision after filling placeholders: "de Ipamorelin" -> "d'Ipamorelin", "que il" -> "qu'il". */
+function elide(lang: Lang, s: string): string {
+  if (lang !== 'fr') return s;
+  return s.replace(/\b(de|que) (?=[AEIOUYÂÉÈÊÎÔaeiouyâéèêîô])/g, (_m, w) => (w === 'de' ? "d'" : "qu'"));
+}
+
 /** Translate a UI key; falls back to English, then to the key itself. */
 export function t(lang: Lang, key: string, vars?: Vars): string {
   let v = get(DICTS[lang], key);
   if (typeof v !== 'string') v = get(en, key);
   if (typeof v !== 'string') return key;
-  return fill(v, vars);
+  return elide(lang, fill(v, vars));
 }
 
 /** Plural-aware translation: entry is {one, other} (optionally zero/few/many). {n} is filled automatically. */
@@ -52,7 +58,7 @@ export function tn(lang: Lang, key: string, n: number, vars?: Vars): string {
   if (!v || typeof v !== 'object') return key;
   const cat = n === 0 && v.zero ? 'zero' : new Intl.PluralRules(LOCALE[lang]).select(n);
   const s = v[cat] ?? v.other;
-  return fill(s, { ...vars, n });
+  return elide(lang, fill(s, { ...vars, n }));
 }
 
 /** Array/object lookup (lists of FAQ, steps …), falling back to English. */

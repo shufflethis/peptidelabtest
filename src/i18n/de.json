@@ -1273,21 +1273,21 @@
   },
   "law": {
     "title": [
-      "Forschungspeptide in {country}: Regeln & Shops {year}",
-      "Forschungspeptide in {country}: Regeln & Shops",
-      "Peptide in {country}: Regeln & Shops"
+      "Forschungspeptide {inC}: Regeln & Shops {year}",
+      "Forschungspeptide {inC}: Regeln & Shops",
+      "Peptide {inC}: Regeln & Shops"
     ],
     "description": [
       "{country}: welche Behörde Arzneimittel regelt und welche unserer geprüften Shops für Forschungspeptide angeben, dorthin zu liefern. Shops und Regeln ansehen."
     ],
-    "h1": "Forschungspeptide in {country}",
+    "h1": "Forschungspeptide {inC}",
     "intro": {
-      "one": "{n} der geprüften Shops gibt an, nach {country} zu liefern. Diese Seite ist eine allgemeine Information, keine Rechtsberatung.",
-      "other": "{n} der geprüften Shops geben an, nach {country} zu liefern. Diese Seite ist eine allgemeine Information, keine Rechtsberatung."
+      "one": "{n} der geprüften Shops gibt an, {toC} zu liefern. Diese Seite ist eine allgemeine Information, keine Rechtsberatung.",
+      "other": "{n} der geprüften Shops geben an, {toC} zu liefern. Diese Seite ist eine allgemeine Information, keine Rechtsberatung."
     },
     "authH": "Behörden",
     "rules": "Regeln ändern sich. Prüfen Sie vor einer Bestellung den aktuellen Stand bei der Behörde und beachten Sie die Beschaffungsregeln Ihrer Einrichtung.",
-    "shopsH": "Geprüfte Shops mit Lieferung nach {country}",
+    "shopsH": "Geprüfte Shops mit Lieferung {toC}",
     "shopsP": "Grundlage sind die veröffentlichten Versandangaben der Shops am {date}, sortiert nach Audit-Score. {unknown} Shops geben nicht an, wohin sie liefern.",
     "colShips": "Lieferung nach (laut Shop)",
     "relAll": "Alle Länderhinweise"

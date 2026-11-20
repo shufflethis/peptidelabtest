@@ -1274,21 +1274,21 @@
   },
   "law": {
     "title": [
-      "Péptidos de investigación en {country}: normas y tiendas",
-      "Péptidos en {country}: normas y tiendas",
-      "Péptidos en {country}"
+      "Péptidos de investigación {inC}: normas y tiendas",
+      "Péptidos {inC}: normas y tiendas",
+      "Péptidos {inC}"
     ],
     "description": [
       "{country}: qué autoridad regula los medicamentos y qué tiendas de péptidos de investigación auditadas declaran enviar allí. Consulte tiendas y normas."
     ],
-    "h1": "Péptidos de investigación en {country}",
+    "h1": "Péptidos de investigación {inC}",
     "intro": {
-      "one": "{n} de las tiendas auditadas declara enviar a {country}. Esta página es información general, no asesoría legal.",
-      "other": "{n} de las tiendas auditadas declaran enviar a {country}. Esta página es información general, no asesoría legal."
+      "one": "{n} de las tiendas auditadas declara enviar {toC}. Esta página es información general, no asesoría legal.",
+      "other": "{n} de las tiendas auditadas declaran enviar {toC}. Esta página es información general, no asesoría legal."
     },
     "authH": "Autoridades",
     "rules": "Las normas cambian. Antes de pedir, compruebe la situación actual con la autoridad y siga las normas de compras de su institución.",
-    "shopsH": "Tiendas auditadas que envían a {country}",
+    "shopsH": "Tiendas auditadas que envían {toC}",
     "shopsP": "Según la información de envío publicada por las tiendas el {date}, ordenadas por puntuación de la auditoría. {unknown} tiendas no indican a dónde envían.",
     "colShips": "Envía a (según la tienda)",
     "relAll": "Todas las normas por país"
