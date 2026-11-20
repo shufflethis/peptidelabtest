@@ -114,7 +114,8 @@ const scoreColor =
       >
         Full Audit
       </a>
-      <a
+      {linkInfo.isSponsored && (
+        <a
         href={linkInfo.href}
         rel={linkInfo.rel}
         target="_blank"
@@ -122,6 +123,7 @@ const scoreColor =
       >
         <span>Visit Supplier &rarr;</span>
       </a>
+      )}
     </div>
   </div>
 </article>

@@ -82,9 +82,11 @@ const matchingBatches = getComputedBatches().filter((b) => b.compoundSlug === co
                 Code: {euLink.promoCode} (-{euLink.discountPercent}%)
               </button>
             )}
-            <a href={euLink.href} rel={euLink.rel} target="_blank" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold">
+            {euLink.isSponsored && (
+              <a href={euLink.href} rel={euLink.rel} target="_blank" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold">
               Visit {euVendor.name} &rarr;
             </a>
+            )}
           </div>
         </div>
       )}
@@ -103,9 +105,11 @@ const matchingBatches = getComputedBatches().filter((b) => b.compoundSlug === co
                 Code: {usLink.promoCode} (-{usLink.discountPercent}%)
               </button>
             )}
-            <a href={usLink.href} rel={usLink.rel} target="_blank" class="px-4 py-2 rounded-lg bg-emerald-400 text-slate-950 font-bold">
+            {usLink.isSponsored && (
+              <a href={usLink.href} rel={usLink.rel} target="_blank" class="px-4 py-2 rounded-lg bg-emerald-400 text-slate-950 font-bold">
               Visit {usVendor.name} &rarr;
             </a>
+            )}
           </div>
         </div>
       )}

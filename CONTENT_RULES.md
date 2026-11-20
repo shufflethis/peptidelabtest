@@ -25,6 +25,8 @@ Check this file before writing or publishing anything. When in doubt: leave it o
    like "<brand>-coupon".
 10. Never invent lab values. Every measured number needs a verifiable source (lab portal key/PDF + date).
 11. Use vendor COAs/certificates only for factual presentation of that vendor's products.
+12. No external link without our affiliate tracking (owner decision 2026-11-20). Non-partner vendors get no
+    outbound button (cards link to our own review page instead); lab portals/sources are shown as plain text.
 
 ## 2. Vendor-specific rules
 

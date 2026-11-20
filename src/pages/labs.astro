@@ -28,9 +28,7 @@ import { TESTING_LABS } from '../data/labs';
               <h2 class="text-xl font-extrabold text-white">{lab.name}</h2>
               <span class="text-xs font-mono text-cyan-400">{lab.location}</span>
             </div>
-            <a href={lab.portalUrl} rel="nofollow noopener noreferrer" target="_blank" class="text-xs font-mono px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 hover:border-cyan-400">
-              Lab Portal &nearr;
-            </a>
+            <span class="text-[11px] font-mono text-slate-400 break-all">{lab.portalUrl.replace(/^https?:\/\//, '')}</span>
           </div>
           <p class="text-xs text-slate-300 leading-relaxed">{lab.accreditationNote}</p>
           <div class="text-xs font-mono text-slate-400">

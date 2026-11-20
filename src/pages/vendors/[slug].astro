@@ -112,7 +112,9 @@ const desc = `${vendor.name} 2026 COA audit (${vendor.overallScore.toFixed(1)}/5
           </span>
         )}
 
-        <a
+        {linkInfo.isSponsored && (
+
+          <a
           href={linkInfo.href}
           rel={linkInfo.rel}
           target="_blank"
@@ -120,6 +122,8 @@ const desc = `${vendor.name} 2026 COA audit (${vendor.overallScore.toFixed(1)}/5
         >
           Visit {vendor.name} &rarr;
         </a>
+
+        )}
       </div>
     </div>
 
@@ -249,9 +253,11 @@ const desc = `${vendor.name} 2026 COA audit (${vendor.overallScore.toFixed(1)}/5
                       Code: {altLink.promoCode} (-{altLink.discountPercent}%)
                     </button>
                   ) : <span />}
-                  <a href={altLink.href} rel={altLink.rel} target="_blank" class="px-3 py-1.5 rounded bg-cyan-500 text-slate-950 font-bold">
+                  {altLink.isSponsored && (
+                    <a href={altLink.href} rel={altLink.rel} target="_blank" class="px-3 py-1.5 rounded bg-cyan-500 text-slate-950 font-bold">
                     Visit Lab &rarr;
                   </a>
+                  )}
                 </div>
               </div>
             );
