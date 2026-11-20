@@ -3,6 +3,7 @@
  * through vendors.ts / batches.ts. Nothing here invents values; it only groups, sorts and formats.
  */
 import { VENDORS, type VendorProfile, type VendorProduct, type CoaExample } from '../data/vendors';
+import AUDIT_RAW from '../data/audit.json';
 import { AFFILIATE_CONFIG, resolveVendorLink } from '../data/affiliates';
 import { COMPOUNDS, getCompoundBySlug, type CompoundSpec } from '../data/compounds';
 
@@ -405,4 +406,23 @@ export function itemListSchema(name: string, items: { name: string; url: string 
     numberOfItems: items.length,
     itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, url: abs(it.url) })),
   };
+}
+
+// ---------------------------------------------------------------- shipping (from audit.json shipsTo)
+
+const EU_CODES = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'];
+
+/** 'yes' when the shop's published shipsTo covers the country; null when the shop does not publish it. */
+export function shipsToCountry(slug: string, code: string): 'yes' | 'no' | null {
+  const raw = (AUDIT_RAW as any[]).find((a) => a.slug === slug)?.shipsTo;
+  if (raw == null || raw === 'None') return null;
+  const list: string[] = Array.isArray(raw) ? raw : [String(raw)];
+  for (const x of list) {
+    const t = x.toLowerCase();
+    if (t === 'worldwide') return 'yes';
+    if (t === 'us-only' || t === 'us') { if (code === 'US') return 'yes'; continue; }
+    if (t === 'eu-wide' && EU_CODES.includes(code)) return 'yes';
+    if (x.toUpperCase() === code) return 'yes';
+  }
+  return 'no';
 }

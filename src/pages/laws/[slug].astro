@@ -1,66 +1,44 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import VendorCard from '../../components/VendorCard.astro';
+import PageHero from '../../components/PageHero.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
 import { COUNTRY_LAWS, type CountryLawGuide } from '../../data/laws';
-import { getVendorBySlug } from '../../data/vendors';
-
+import { VENDORS_BY_SCORE, shipsToCountry, isPartner, CHECKED_LABEL } from '../../lib/site';
 export function getStaticPaths() {
-  return COUNTRY_LAWS.map((law) => ({
-    params: { slug: law.slug },
-    props: { law },
-  }));
+  return COUNTRY_LAWS.map((l) => ({ params: { slug: l.slug }, props: { l } }));
 }
-
-interface Props {
-  law: CountryLawGuide;
-}
-
-const { law } = Astro.props;
-const recVendors = law.recommendedVendorSlugs
-  .map((s) => getVendorBySlug(s))
-  .filter((v): v is NonNullable<typeof v> => Boolean(v));
+const { l } = Astro.props as { l: CountryLawGuide };
+const ships = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, l.code) === 'yes');
+const unknown = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, l.code) === null);
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Country notes', url: '/laws/' }, { name: l.country, url: `/laws/${l.slug}/` }];
 ---
-
-<BaseLayout
-  title={`Are Research Peptides Legal in ${law.country}? (2026 RUO & Customs Guide)`}
-  description={`2026 research peptide customs & RUO regulatory guide for ${law.country} (${law.regulatoryBodies.join(', ')}): border risk & domestic shipping options.`}
->
-  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
-    <nav class="text-xs font-mono text-slate-400">
-      <a href="/" class="hover:text-cyan-400">Home</a> / <a href="/laws/" class="hover:text-cyan-400">Laws &amp; Customs</a> / <span class="text-slate-200">{law.country}</span>
-    </nav>
-
-    <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-5">
-      <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
-        <span class="px-2.5 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">{law.customsRisk}</span>
-        <span class="px-2.5 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-800">Authorities: {law.regulatoryBodies.join(' · ')}</span>
+<BaseLayout title={`Research Peptides in ${l.country}: Regulators & Shops (2026)`} description={`${l.country}: which authority regulates medicines and which of the audited research peptide shops state they ship there. General information, not legal advice.`} crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title={`Research peptides in ${l.country}`} intro={`${l.note} ${ships.length} of the shops we audited state that they ship to ${l.country}. This page is general information, not legal advice.`} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="prose-read">
+      <h2>Authorities</h2>
+      <ul>{l.authorities.map((a) => <li>{a}</li>)}</ul>
+      <p>Rules change. Check the current position with the authority before you order, and follow your institution's procurement rules.</p>
+    </section>
+    <section class="space-y-4">
+      <h2 class="h2">Audited shops that state they ship to {l.country}</h2>
+      <p class="text-slate-700 max-w-[70ch]">Based on each shop's published shipping information on {CHECKED_LABEL}, sorted by audit score. {unknown.length} shops do not publish where they ship.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">Shop</th><th scope="col">Region</th><th scope="col" class="num">Score (0-5)</th><th scope="col">Ships to (as published)</th></tr></thead>
+          <tbody>
+            {ships.map((v) => (
+              <tr>
+                <td class="min-w-[10rem]"><a href={`/vendors/${v.slug}/`} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a><span class="sub">{isPartner(v.slug) ? 'Partner shop' : 'Read review'}</span></td>
+                <td>{v.region}</td>
+                <td class="num font-semibold">{v.overallScore.toFixed(1)}</td>
+                <td class="min-w-[14rem]">{v.shipsTo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-black text-white">
-        {law.flag} Research Peptide Status &amp; Customs Routing: {law.country}
-      </h1>
-      <p class="text-base text-slate-200 leading-relaxed">{law.ruoStatusSummary}</p>
-
-      <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-sm text-slate-200">
-        <strong class="text-emerald-300 font-mono">📦 Optimal Fulfillment Routing:</strong> {law.shippingRecommendation}
-      </div>
-
-      <div class="space-y-2 pt-2">
-        <h2 class="text-lg font-extrabold text-white">Key Compliance &amp; Border Takeaways</h2>
-        <ul class="space-y-2 text-sm text-slate-300">
-          {law.keyTakeaways.map((item) => (
-            <li class="flex gap-2"><span class="text-cyan-400 font-bold">•</span><span>{item}</span></li>
-          ))}
-        </ul>
-      </div>
-    </div>
-
-    <div class="space-y-4">
-      <h2 class="text-2xl font-black text-white">Lowest-Friction Lab-Verified Suppliers for {law.country}</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {recVendors.map((v) => (
-          <VendorCard vendor={v} />
-        ))}
-      </div>
-    </div>
-  </article>
+    </section>
+    <RelatedLinks links={[{ href: '/laws/', label: 'All country notes' }, { href: '/vendors/', label: 'Shop ranking' }, { href: '/methodology/', label: 'How we score' }]} />
+  </div>
 </BaseLayout>

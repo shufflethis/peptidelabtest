@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import FAQ from '../../components/FAQ.astro';
+import { LABS_IN_DATA, reportsByLab, CHECKED_LABEL, TOTALS, faqSchema, itemListSchema, fillPct } from '../../lib/site';
+import { getLabGuide } from '../../data/labGuides';
+const rows = LABS_IN_DATA.map((l) => {
+  const reps = reportsByLab(l.slug);
+  const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+  return { l, g: getLabGuide(l.slug), reps: reps.length, portal: reps.filter((r) => r.report.verifiable).length, shops: new Set(reps.map((r) => r.vendor.slug)).size, lo: fills.length ? Math.min(...fills) : null, hi: fills.length ? Math.max(...fills) : null };
+}).sort((a, b) => b.reps - a.reps);
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Testing labs', url: '/labs/' }];
+const faqs = [
+  { q: 'What is a portal-verified report?', a: 'A report we could look up on the testing lab’s own website, using the code or key printed on it. A PDF on a shop’s site alone is only a claim.' },
+  { q: 'Which lab is best?', a: 'We do not rate labs. Each guide lists what the lab publishes about itself, how to check its reports and what the reports we opened showed.' },
+];
+---
+<BaseLayout title="Peptide Testing Labs: How to Verify a Lab Report (2026)" description={`${rows.length} labs on the ${TOTALS.reportsOpened} research peptide reports we opened: how to verify each lab's reports, which shops use them and measured results.`} crumbs={crumbs} jsonLd={[faqSchema(faqs), itemListSchema('Peptide testing labs', rows.map((r) => ({ name: r.l.name, url: `/labs/${r.l.slug}/` })))]}>
+  <PageHero crumbs={crumbs} title="Peptide testing labs and how to verify their reports" intro={`The ${TOTALS.reportsOpened} lab reports we opened on ${CHECKED_LABEL} name ${rows.length} testing labs. Each guide explains how to check a report on the lab's own site, which audited shops publish reports from that lab, and what those reports measured.`} />
+  <div class="wrap mt-12 space-y-14">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th scope="col">Lab</th>
+            <th scope="col" class="num">Reports opened</th>
+            <th scope="col" class="num">Portal-verified</th>
+            <th scope="col" class="num">Shops</th>
+            <th scope="col">Measured vs label</th>
+            <th scope="col">How to verify</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td class="min-w-[10rem]"><a href={`/labs/${r.l.slug}/`} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{r.l.name}</a><span class="sub">{r.g?.address ? r.g.address.split(',').slice(-2).join(',').trim() : 'address not published'}</span></td>
+              <td class="num">{r.reps}</td>
+              <td class="num">{r.portal}</td>
+              <td class="num">{r.shops}</td>
+              <td class="whitespace-nowrap">{r.lo != null ? `${r.lo.toFixed(1)}–${r.hi!.toFixed(1)}%` : 'not stated'}</td>
+              <td class="min-w-[14rem]">{r.g?.verifyWhere || 'no portal found'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <FAQ items={faqs} />
+  </div>
+</BaseLayout>

@@ -1,40 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
 import { COUNTRY_LAWS } from '../../data/laws';
+import { VENDORS } from '../../data/vendors';
+import { shipsToCountry, CHECKED_LABEL } from '../../lib/site';
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Country notes', url: '/laws/' }];
+const rows = COUNTRY_LAWS.map((l) => ({ l, n: VENDORS.filter((v) => shipsToCountry(v.slug, l.code) === 'yes').length }));
 ---
-
-<BaseLayout
-  title="Research Peptide Laws & Customs Seizure Guide by Country (2026)"
-  description="Country-by-country RUO regulatory status and customs inspection guide for the USA, UK, Germany, Poland, Netherlands, Canada, Australia, France, Austria & Switzerland."
->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
-    <div class="max-w-3xl space-y-3">
-      <nav class="text-xs font-mono text-slate-400">
-        <a href="/" class="hover:text-cyan-400">Home</a> / <span class="text-slate-200">Customs &amp; Country Laws</span>
-      </nav>
-      <h1 class="text-3xl sm:text-5xl font-black text-white">
-        Peptide Customs &amp; RUO Regulatory Index (2026)
-      </h1>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Cross-border postal seizures occur primarily when researchers order across customs unions (e.g., US-to-Germany or UK-to-EU). Review domestic vs. intra-EU routing rules across 10 major jurisdictions.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {COUNTRY_LAWS.map((law) => (
-        <a href={`/laws/${law.slug}/`} class="glass-card rounded-2xl p-6 hover:border-cyan-400/50 transition-all space-y-3 block">
-          <div class="flex items-center justify-between gap-2">
-            <h2 class="text-xl font-extrabold text-white">{law.flag} {law.country}</h2>
-            <span class="text-[11px] font-mono px-2.5 py-0.5 rounded bg-slate-900 border border-slate-700 text-cyan-300">
-              {law.customsRisk}
-            </span>
-          </div>
-          <p class="text-xs text-slate-300 leading-relaxed">{law.ruoStatusSummary}</p>
-          <div class="text-[11px] font-mono text-emerald-400 pt-1">
-            View Domestic Shipping Routing &amp; Regulatory Summary &rarr;
-          </div>
-        </a>
+<BaseLayout title="Research Peptides by Country: Regulators and Shops Shipping There" description="General notes for 10 countries: which authority regulates medicines and which audited research peptide shops state they ship there. Not legal advice." crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title="Country notes" intro={`General information for ${COUNTRY_LAWS.length} countries: the authorities that regulate medicines, and which of the shops we audited state that they ship there (as published on ${CHECKED_LABEL}). This is not legal advice. Check the current rules with the authority before you order.`} />
+  <div class="wrap mt-12">
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {rows.map(({ l, n }) => (
+        <li class="card card-hover p-5">
+          <a href={`/laws/${l.slug}/`} class="text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{l.country}</a>
+          <p class="mt-1.5 text-[0.95rem] text-slate-700">{l.authorities[0]}</p>
+          <p class="mt-2 text-sm text-slate-600">{n} audited shops state they ship here</p>
+        </li>
       ))}
-    </div>
-  </section>
+    </ul>
+  </div>
 </BaseLayout>

@@ -1,60 +1,73 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Icon from '../../components/Icon.astro';
 import { RESEARCH_ARTICLES, type ResearchArticle } from '../../data/labs';
+import { BATCH_RECORDS } from '../../data/batches';
+import { VENDORS } from '../../data/vendors';
+import { LABS_IN_DATA, reportsByLab, TOTALS, CHECKED_LABEL, SITE_URL, abs } from '../../lib/site';
+import { getLabGuide } from '../../data/labGuides';
 
 export function getStaticPaths() {
-  return RESEARCH_ARTICLES.map((article) => ({
-    params: { slug: article.slug },
-    props: { article },
-  }));
+  return RESEARCH_ARTICLES.map((a) => ({ params: { slug: a.slug }, props: { a } }));
 }
+const { a } = Astro.props as { a: ResearchArticle };
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Guides', url: '/research/' }, { name: a.h1, url: `/research/${a.slug}/` }];
 
-interface Props {
-  article: ResearchArticle;
-}
-
-const { article } = Astro.props;
+// data blocks (computed from audit.json)
+const fills = BATCH_RECORDS.map((r) => ({ r, f: (100 * r.measuredMg) / r.labelMg }));
+const highPurityOff = fills.filter((x) => x.r.purityPercent >= 99 && (x.f < 90 || x.f > 110));
+const highPurity = fills.filter((x) => x.r.purityPercent >= 99);
+const codeNames = ['retatrutide', 'tirzepatide'].map((c) => ({
+  c,
+  rows: VENDORS.flatMap((v) => v.products.filter((p) => p.compound === c).map((p) => ({ v, name: p.shopProductName }))),
+}));
+const article = {
+  '@context': 'https://schema.org', '@type': 'Article', headline: a.h1, description: a.excerpt, datePublished: a.publishedDate, dateModified: a.publishedDate,
+  author: { '@type': 'Organization', name: 'PeptideLabIndex Editorial' }, publisher: { '@id': `${SITE_URL}/#organization` }, mainEntityOfPage: abs(`/research/${a.slug}/`),
+};
 ---
-
-<BaseLayout title={article.title} description={article.excerpt}>
-  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
-    <nav class="text-xs font-mono text-slate-400">
-      <a href="/" class="hover:text-cyan-400">Home</a> / <a href="/research/" class="hover:text-cyan-400">Research</a> / <span class="text-slate-200">{article.category}</span>
-    </nav>
-
-    <div class="space-y-4">
-      <div class="text-xs font-mono text-cyan-400">{article.category} · Published {article.publishedDate} · {article.readTime}</div>
-      <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">{article.title}</h1>
-      <p class="text-lg text-slate-300 leading-relaxed">{article.excerpt}</p>
-    </div>
-
-    <div class="glass-card rounded-2xl p-6 border border-emerald-500/30 space-y-3">
-      <h2 class="text-sm font-mono uppercase tracking-wider text-emerald-400 font-bold">Key Analytical Findings</h2>
-      <ul class="space-y-2 text-sm text-slate-200">
-        {article.keyFindings.map((f) => (
-          <li class="flex gap-2"><span class="text-emerald-400 font-bold">✓</span><span>{f}</span></li>
-        ))}
+<BaseLayout title={a.title} description={a.excerpt} crumbs={crumbs} jsonLd={article} ogType="article">
+  <PageHero crumbs={crumbs} title={a.h1} eyebrow={a.category} intro={a.excerpt} />
+  <div class="wrap mt-12 space-y-12">
+    <aside class="rounded-2xl border border-teal-200 bg-teal-50/60 p-5 sm:p-6 max-w-3xl">
+      <h2 class="h3">Key points</h2>
+      <ul class="mt-3 space-y-2">
+        {a.keyPoints.map((k) => <li class="flex gap-2 text-slate-800"><Icon name="check" class="w-5 h-5 mt-0.5 text-teal-800" />{k}</li>)}
       </ul>
-    </div>
+    </aside>
+    <article class="prose-read">
+      {a.sections.map((s) => (<><h2>{s.heading}</h2>{s.body.map((p) => <p>{p}</p>)}</>))}
 
-    <div class="space-y-6">
-      {article.sections.map((sec) => (
-        <section class="glass-card rounded-2xl p-6 sm:p-8 space-y-3">
-          <h2 class="text-2xl font-extrabold text-white">{sec.heading}</h2>
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">{sec.body}</p>
-        </section>
+      {a.data === 'verify' && (
+        <>
+          <h2>Where each lab lets you check a report</h2>
+          <ul>
+            {LABS_IN_DATA.map((l) => <li><a href={`/labs/${l.slug}/`}>{l.name}</a>: {getLabGuide(l.slug)?.verifyWhere || 'no public lookup found'} ({reportsByLab(l.slug).length} reports opened)</li>)}
+          </ul>
+          <p>In our audit of {CHECKED_LABEL}, {TOTALS.portalVerified} of {TOTALS.reportsOpened} opened reports could be found on the lab's own portal.</p>
+        </>
+      )}
+      {a.data === 'purity-vs-fill' && (
+        <>
+          <h2>What our audit found</h2>
+          <p>Of the {BATCH_RECORDS.length} reports that state both purity and measured mg, {highPurity.length} show purity of 99% or more. {highPurityOff.length} of those still measured outside 90-110% of the label amount.</p>
+          <p>Every report is listed on <a href="/batch-tracker/">Lab reports we opened</a>.</p>
+        </>
+      )}
+      {a.data === 'code-names' && codeNames.map((g) => (
+        <>
+          <h2>Product names for {g.c} ({g.rows.length} listings)</h2>
+          <ul>{g.rows.map((r) => <li><a href={`/vendors/${r.v.slug}/`}>{r.v.name}</a>: {r.name}</li>)}</ul>
+        </>
       ))}
-    </div>
-
-    <div class="glass-card rounded-2xl p-6 flex flex-wrap items-center justify-between gap-4">
-      <div>
-        <div class="font-bold text-white">Compare Lab-Verified Suppliers &amp; True $/mg</div>
-        <div class="text-xs text-slate-400">Check live portal-verified US and EU rankings with measured milligram weights.</div>
-      </div>
-      <div class="flex gap-3 font-mono text-xs">
-        <a href="/price-index/" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 hover:border-cyan-400">True $/mg Index</a>
-        <a href="/vendors/" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold">Vendor Scorecard &rarr;</a>
-      </div>
-    </div>
-  </article>
+      {a.data === 'peptide-sciences' && <p><a href="/vendors/peptide-sciences/">Read the Peptide Sciences status page</a>.</p>}
+    </article>
+    <p class="text-sm text-slate-600">Published {a.publishedDate} by PeptideLabIndex Editorial. Data checked {CHECKED_LABEL}.</p>
+    <RelatedLinks links={[
+      ...RESEARCH_ARTICLES.filter((x) => x.slug !== a.slug).map((x) => ({ href: `/research/${x.slug}/`, label: x.h1, sub: x.category })),
+      { href: '/batch-tracker/', label: 'Lab reports we opened' },
+    ]} />
+  </div>
 </BaseLayout>

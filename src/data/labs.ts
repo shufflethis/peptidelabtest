@@ -1,186 +1,116 @@
-export interface TestingLabProfile {
-  slug: string;
-  name: string;
-  location: string;
-  verificationMethod: string;
-  portalUrl: string;
-  methodsOffered: string[];
-  accreditationNote: string;
-  vendorsUsing: string[];
-}
-
-export const TESTING_LABS: TestingLabProfile[] = [
-  {
-    slug: 'janoshik-analytical',
-    name: 'Janoshik Analytical',
-    location: 'Prague, Czech Republic',
-    verificationMethod: 'Public task number + unique cryptographic verification key on janoshik.com/tests/',
-    portalUrl: 'https://janoshik.com',
-    methodsOffered: ['RP-HPLC Purity', 'LC-MS Identity', 'Net Peptide Content (mg)', 'Blind GLP-1 Screen', 'Endotoxin & Heavy Metals'],
-    accreditationNote:
-      'Gold-standard specialist laboratory for grey-market and RUO peptide verification globally; hosts immutable sample photos and verification keys directly on its server.',
-    vendorsUsing: ['CertaPeptides', 'Particle Peptides', 'Avellon Peptides', 'PeptidProfi', 'Onyx Peptides'],
-  },
-  {
-    slug: 'liquilabs',
-    name: 'Liquilabs s.r.o.',
-    location: 'Czech Republic',
-    verificationMethod: 'Direct lab-hosted certificate URLs indexed by batch code',
-    portalUrl: 'https://liquilabs.cz',
-    methodsOffered: ['Ph. Eur. HPLC Purity', 'Net Content (mg)', 'Endotoxin (LAL)', 'Microbial TAMC/TYMC', 'ICP-MS Heavy Metals'],
-    accreditationNote:
-      'Performs comprehensive European Pharmacopoeia multi-point safety panels rarely seen on standard purity-only certificates.',
-    vendorsUsing: ['Particle Peptides', '24Peptides'],
-  },
-  {
-    slug: 'kovera-labs',
-    name: 'Kovera Labs',
-    location: 'Buffalo Grove, Illinois, USA',
-    verificationMethod: 'Certificate ID lookup and direct lab verification',
-    portalUrl: 'https://koveralabs.com',
-    methodsOffered: ['HPLC Purity', 'LC-MS Identity', 'Net Mass', 'USP <85> Endotoxin', 'USP <71> Sterility', 'Heavy Metals'],
-    accreditationNote:
-      'US analytical lab delivering full 6-tier safety and assay panels including sterility and bacterial endotoxins.',
-    vendorsUsing: ['Real Peptides'],
-  },
-  {
-    slug: 'ils-laboratories',
-    name: 'ILS Laboratories',
-    location: 'San Diego, California, USA',
-    verificationMethod: 'Cryptographic QR / URL token on portal.ils-lab.com/verify/',
-    portalUrl: 'https://portal.ils-lab.com',
-    methodsOffered: ['RP-HPLC Purity', 'LC-MS Mass Confirmation', 'Net Content (mg)', 'Endotoxin', 'Fentanyl Contaminant Screen'],
-    accreditationNote:
-      'Widely adopted by transparent 2025–2026 US peptide suppliers; includes dedicated fentanyl cross-contamination screening.',
-    vendorsUsing: ['Arctic Lab Supply', 'GhostLabz Research', 'Source Research', 'NextSelf Labs'],
-  },
-  {
-    slug: 'freedom-diagnostics',
-    name: 'Freedom Diagnostics Testing',
-    location: 'Franklin, Tennessee, USA',
-    verificationMethod: 'Direct PDF archive hosted on coas.freedomdiagnosticstesting.com + lookup tool',
-    portalUrl: 'https://freedomdiagnosticstesting.com',
-    methodsOffered: ['HPLC Purity', 'Net Vial Content (mg)', 'Endotoxin', 'Microbial PCR'],
-    accreditationNote:
-      'Hosts original PDFs on its own subdomain so researchers can verify byte-identical authenticity against vendor uploads.',
-    vendorsUsing: ['Arctic Lab Supply', 'Purified Peptide', 'Genesis Peptides', 'GhostLabz Research', 'NextSelf Labs'],
-  },
-  {
-    slug: 'mz-biolabs',
-    name: 'MZ Biolabs',
-    location: 'Tucson, Arizona, USA',
-    verificationMethod: 'Direct lab confirmation & signed analytical chromatograms',
-    portalUrl: 'https://www.mzbiolabs.com',
-    methodsOffered: ['RP-HPLC Purity', 'ESI-MS Molecular Weight Identification', 'Peptide Net Mass'],
-    accreditationNote:
-      'Long-established Arizona mass-spectrometry and peptide analytical facility.',
-    vendorsUsing: ['Ascension Peptides', 'Limitless Life Nootropics'],
-  },
-];
-
+/**
+ * Guides (/research/). Plain-language explainers without dosing or health content.
+ * Any figures shown on guide pages are computed from audit.json at build time (see `data` blocks), never typed here.
+ */
 export interface ResearchArticle {
   slug: string;
   title: string;
+  h1: string;
   category: string;
   publishedDate: string;
-  readTime: string;
   excerpt: string;
-  keyFindings: string[];
-  sections: { heading: string; body: string }[];
+  keyPoints: string[];
+  sections: { heading: string; body: string[] }[];
+  /** Data block rendered from audit.json */
+  data?: 'code-names' | 'purity-vs-fill' | 'verify' | 'peptide-sciences';
 }
 
 export const RESEARCH_ARTICLES: ResearchArticle[] = [
   {
-    slug: 'rt-3-glp-3-retatrutide-code-names',
-    title: 'RT-3, GLP-3, Triple G & SR-3RT: Decoding Every Retatrutide Vendor Code Name via LC-MS',
-    category: 'Code-Name Verification',
-    publishedDate: '2026-11-12',
-    readTime: '6 min read',
-    excerpt:
-      'Why US and EU peptide shops rename Retatrutide and Tirzepatide—and how to confirm whether "RT-3", "GLP-3", "RP-3", or "NS-3RT" actually contains the 4731.3 Da triple agonist.',
-    keyFindings: [
-      'Payment processors and pharmaceutical trademark bots trigger automated takedowns on the word "Retatrutide", prompting shorthand SKUs like RT-3, GLP-3, Triple G, and SR-3RT.',
-      'Code names carry zero legal standardization: only an LC-MS deconvoluted molecular weight around 4731.33 Da (or a Janoshik blind GLP-1 screen) proves compound identity.',
-      'Tirzepatide follows a parallel naming pattern: GL-2 TZ, SR-2TZ, GLP-2, and TRZ (~4813.45 Da).',
+    slug: 'how-to-verify-janoshik-liquilabs-coa',
+    title: 'How to Verify a Peptide Lab Report (COA) in 4 Steps',
+    h1: 'How to verify a peptide lab report',
+    category: 'Lab reports',
+    publishedDate: '2026-11-20',
+    excerpt: 'A lab report on a shop page is a claim. Checking it on the lab’s own website turns it into evidence. Here is how, in four steps.',
+    keyPoints: [
+      'A PDF or screenshot on a shop page can be edited. The lab’s own record cannot be edited by the shop.',
+      'Most labs print a report number, key or QR code that opens the lab’s copy.',
+      'Compare compound, label amount, measured mg, purity, date and batch with the shop’s copy.',
     ],
     sections: [
       {
-        heading: 'Complete 2026 Code-Name Cross-Reference Table',
-        body: 'Across our 22-vendor audit, Retatrutide (CAS 2381089-83-2) appeared under seven distinct storefront labels: RT-3 (Avellon Peptides), GLP-3 RT (Arctic Lab Supply), GL-3 RT (GhostLabz Research), SR-3RT (Source Research), NS-3RT (NextSelf Labs), RP-3 (Primal), and Triple G (Glowing). In every verified instance, the linked Janoshik or ILS certificate confirmed Retatrutide by mass spectrometry.',
+        heading: 'The four steps',
+        body: [
+          '1. Find the report number, key or QR code on the report.',
+          '2. Type the lab’s address into your browser yourself. Do not rely on a link inside the PDF.',
+          '3. Look up the report on the lab’s site.',
+          '4. Compare every field with the shop’s copy: compound, label amount, measured mg, purity, test date and batch.',
+        ],
       },
       {
-        heading: 'How to Verify Shorthand Vials Before Reconstitution',
-        body: 'Never rely on vial cap color or shorthand letters alone. Open the linked laboratory portal, confirm the task date is within the last 6 months, match the printed lot code on your vial against the certificate, and verify both HPLC purity (≥99.0%) and measured milligram mass.',
+        heading: 'If the lab has no lookup',
+        body: ['Some labs do not offer a public lookup. Then the report is “shop-hosted”: it may be genuine, but you cannot confirm it with the lab. Our scores give these reports less weight than portal-verified ones.'],
       },
     ],
-  },
-  {
-    slug: 'peptide-sciences-alternatives-2026',
-    title: 'Peptide Sciences 2026 Shutdown: What Happened & Top Lab-Verified US/EU Alternatives',
-    category: 'Market Intelligence',
-    publishedDate: '2026-11-08',
-    readTime: '5 min read',
-    excerpt:
-      'Following Peptide Sciences’ voluntary operational closure in March 2026, legacy buyers face dozens of copycat domains. Here is how current third-party-tested suppliers compare on COA depth and $/mg.',
-    keyFindings: [
-      'Peptide Sciences ceased operations in March 2026 amid heightened US regulatory scrutiny and legacy reliance on unverified in-house COAs.',
-      'Any new domain claiming to be "Peptide Sciences Official Relaunch" should be treated as a phishing or clone risk unless corporate continuity is proven.',
-      'Modern top-ranked US suppliers (Real Peptides via Kovera Labs; Arctic Lab Supply & Source Research via ILS) provide dramatically stronger independent lab verification at 40%–60% lower $/mg cost.',
-    ],
-    sections: [
-      {
-        heading: 'Why In-House COAs Are No Longer Acceptable in 2026',
-        body: 'Historically, legacy vendors published self-generated PDFs bearing their own logo with no independent laboratory name. In 2026, leading suppliers publish cryptographic portal links to Janoshik Analytical, Liquilabs, Kovera Labs, or ILS Laboratories covering net peptide mass, endotoxins, and heavy metals.',
-      },
-      {
-        heading: 'Direct Replacement Routing (US vs. EU)',
-        body: 'US domestic researchers migrating from Peptide Sciences achieve full 6-panel sterility + endotoxin coverage at Real Peptides or 20%-discounted lot-matched ILS verification at Arctic Lab Supply. European researchers eliminate customs holds completely via CertaPeptides (Romania) or Particle Peptides (Slovakia).',
-      },
-    ],
+    data: 'verify',
   },
   {
     slug: 'purity-vs-net-content-underfill-audit',
-    title: '99.5% Pure—and 39% Empty: Why Net Milligram Content Beats HPLC Purity Alone',
-    category: 'COA Methodology',
-    publishedDate: '2026-11-02',
-    readTime: '7 min read',
-    excerpt:
-      'An HPLC chromatogram only measures peptide purity relative to other UV-absorbing peaks—it ignores mannitol filler and underfilled vials. Our batch tracker exposes swings from -39.2% to +34%.',
-    keyFindings: [
-      'A 10 mg labeled vial containing 6.08 mg of peptide and 40 mg of mannitol excipient can still score 99.4% HPLC purity.',
-      'Without quantitative net peptide content (mg) assay on the COA, concentration math in any reconstitution calculator can be off by 15% to 40%.',
-      'Calculating True $/mg (post-discount vial price divided by COA-measured mg) changes vendor value rankings dramatically.',
+    title: 'Purity vs Measured mg: Why a Lab Report Needs Both',
+    h1: 'Purity vs measured mg: why a lab report needs both',
+    category: 'Lab reports',
+    publishedDate: '2026-11-20',
+    excerpt: 'HPLC purity tells you how clean the peptide is. Measured mg tells you how much is in the vial. One does not replace the other.',
+    keyPoints: [
+      'Purity (HPLC) is the share of the main compound among the substances the method detects.',
+      'Measured mg (net content) is the amount of compound actually found in the vial.',
+      'A vial can show high purity and still hold more or less than the label says.',
     ],
     sections: [
       {
-        heading: 'How Lyophilization Fill Variance Happens',
-        body: 'Research peptides are filled as liquid aliquots into glass vials prior to freeze-drying. Poor pump calibration, upstream raw powder salt/moisture weight (TFA or acetate counter-ions typically account for 8%–18% of gross powder weight), or deliberate under-dosing cause finished vials to deviate sharply from label claims.',
+        heading: 'Two different questions',
+        body: [
+          'Purity answers “how clean is it?”. Measured mg answers “how much is there?”.',
+          'We divide measured mg by label mg to get “measured vs label”. 100% means the vial holds exactly what the label says.',
+        ],
       },
       {
-        heading: 'Using Measured mg in Your Reconstitution Math',
-        body: 'In our Reconstitution Calculator, always populate the optional "COA Measured Content (mg)" field. For example, adding 2.0 ml of bacteriostatic water to a 10 mg vial that actually tested at 10.76 mg yields 5,380 mcg/ml rather than 5,000 mcg/ml.',
+        heading: 'What to look for on a report',
+        body: ['Check that the report states both a purity figure and a measured amount in mg for the vial size you are looking at. A report with purity only cannot tell you the amount in the vial.'],
       },
     ],
+    data: 'purity-vs-fill',
   },
   {
-    slug: 'how-to-verify-janoshik-liquilabs-coa',
-    title: '5-Step COA Verification Protocol: Spotting Altered PDFs & Upstream Manufacturer Reports',
-    category: 'Lab Verification',
-    publishedDate: '2026-10-24',
-    readTime: '6 min read',
-    excerpt:
-      'Step-by-step checklist for validating Janoshik keys, Liquilabs URLs, ILS QR codes, and Freedom Diagnostics byte-hashes before placing a research order.',
-    keyFindings: [
-      'Screenshot COAs with cropped headers, blurred client names, or missing verification URLs fail audit verification automatically.',
-      'Distinguish vendor-commissioned post-bottling tests from upstream Chinese raw-batch certificates shared by 10 different shops.',
-      'Check laboratory accreditation scopes: an ISO/IEC 17025 badge for cannabis potency does not automatically cover peptide RP-HPLC.',
+    slug: 'rt-3-glp-3-retatrutide-code-names',
+    title: 'Retatrutide Code Names Used by Shops (RT-3, GLP-3 and More)',
+    h1: 'Retatrutide and tirzepatide code names used by shops',
+    category: 'Product names',
+    publishedDate: '2026-11-20',
+    excerpt: 'Many shops list retatrutide and tirzepatide under code names. This list shows the product names we recorded in our audit, and how to check identity on a report.',
+    keyPoints: [
+      'Code names are not standardised; the same code can mean different things at different shops.',
+      'Only a lab report with identity testing (mass spectrometry) confirms what is in the vial.',
+      'The list below comes straight from the product names we recorded.',
     ],
     sections: [
       {
-        heading: 'Portal Resolution Beats PDF Downloads',
-        body: 'PDF metadata and text layers take less than two minutes to edit. Always click through to janoshik.com/tests/, portal.ils-lab.com, or coas.freedomdiagnosticstesting.com and verify that the lab-hosted record shows the identical compound, mg content, and date.',
+        heading: 'How to check identity',
+        body: ['Look for an identity test on the report, usually mass spectrometry (LC-MS or ESI-MS), and compare the mass with the expected value on our compound page. Some labs also offer a blind test that names the compound found.'],
       },
     ],
+    data: 'code-names',
+  },
+  {
+    slug: 'peptide-sciences-alternatives-2026',
+    title: 'Peptide Sciences Closure (2026): What Its Notice Says',
+    h1: 'Peptide Sciences closure: what its notice says',
+    category: 'Shop news',
+    publishedDate: '2026-11-20',
+    excerpt: 'Peptide Sciences stopped selling research products in March 2026. A short summary of its own notice and where to compare audited shops.',
+    keyPoints: [
+      'peptidesciences.com states that sales of research-use-only products were discontinued in March 2026.',
+      'The notice says no third party is authorised to act as its successor or sell on its behalf.',
+      'Audited shops are compared on our shop ranking by audit score.',
+    ],
+    sections: [
+      {
+        heading: 'Summary',
+        body: ['Our status page quotes the notice and lists the highest-scoring audited partner shops in the US and EU.'],
+      },
+    ],
+    data: 'peptide-sciences',
   },
 ];
 
