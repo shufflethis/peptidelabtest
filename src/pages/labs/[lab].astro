@@ -28,7 +28,7 @@ const short = l.name.replace(/ (Analytical|Laboratory|Laboratories|Labs|Analytic
 const fillTxt = fills.length ? `measured content ranged from ${Math.min(...fills).toFixed(1)}% to ${Math.max(...fills).toFixed(1)}% of label` : 'measured mg was not stated';
 const intro = `${l.name} is named on ${reps.length} of the lab reports we opened on ${CHECKED_LABEL}, from ${shops.length} audited ${shops.length === 1 ? 'shop' : 'shops'}. ${portal} of those reports could be checked on the lab's own portal, and ${fillTxt}.`;
 const isJ = l.slug === 'janoshik';
-const title = isJ ? `Janoshik Verify: How to Check a Janoshik Report (${YEAR})` : `${l.name}: How to Verify a Report & Shops Using It (${YEAR})`;
+const title = isJ ? `Janoshik Verify: How to Check a Janoshik Report (${YEAR})` : `${l.name}: How to Verify a Report (${YEAR})`;
 const h1 = isJ ? 'Janoshik: how to verify a report, and is it legit?' : `${l.name}: how to verify a report`;
 const description = `${l.name}: how to verify its peptide reports, ${reps.length} reports opened from ${shops.length} shops, ${portal} portal-verified, measured vs label. Checked ${CHECKED_LABEL}.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Testing labs', url: '/labs/' }, { name: l.name, url: `/labs/${l.slug}/` }];
@@ -36,7 +36,7 @@ const genericSteps = [
   'Find the report number, key or QR code on the report the shop shows you.',
   'Open the lab’s website by typing the address yourself, not through a link in the PDF.',
   'Look the report up and compare compound, label amount, measured mg, purity, test date and batch with the shop’s copy.',
-  'If the lab has no lookup, treat the report as shop-hosted: it may be genuine, but you cannot confirm it with the lab.',
+  'If the lab has no lookup, the report counts as shop-hosted: it may be genuine, but you cannot confirm it with the lab.',
 ];
 const steps = g?.verifySteps || genericSteps;
 const legit = [

@@ -36,7 +36,7 @@ const cheapAt = (slug: string, vslug: string) => offersFor(slug).filter((o) => o
 const rng = (xs: number[], unit = '%') => (xs.length ? `${Math.min(...xs).toFixed(1)}–${Math.max(...xs).toFixed(1)}${unit}` : 'n/a');
 const pm = (n: number | null, cur: string) => (n == null ? 'n/a' : perMg(n, cur));
 
-const title = `${A.short} vs ${B.short}: Research Comparison, Prices & Lab Tests (${YEAR})`;
+const title = `${A.short} vs ${B.short} (${YEAR}): Prices & Lab Tests Compared`;
 const description = `${A.short} vs ${B.short}: identity facts, vial sizes, price per mg (EUR/USD) and lab reports at audited shops. ${both.length} shops list both. No dosing or health claims.`;
 const intro = `${A.short}: ${A.c.formulaOrClass}. ${B.short}: ${B.c.formulaOrClass}. On ${CHECKED_LABEL}, ${A.shops.length} audited shops listed ${A.short} and ${B.shops.length} listed ${B.short}; ${both.length} list both. We opened ${A.reps.length} ${A.short} and ${B.reps.length} ${B.short} lab reports.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Compound comparisons', url: '/compare/' }, { name: `${A.short} vs ${B.short}`, url: `/compare/${pairSlug(a, b)}/` }];

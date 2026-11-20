@@ -32,7 +32,7 @@ const labs = Array.from(new Set(reps.map((r) => r.report.lab.replace(/\s*\(.*\)\
 const hasPrices = PRICE_COMPOUNDS.includes(c.slug);
 
 const intro = `${c.name}: ${c.formulaOrClass}. ${shops.length} of the shops we audited list it in ${sizes.length} vial ${sizes.length === 1 ? 'size' : 'sizes'}${sizes.length ? ` (${listJoin(sizes.map((s) => `${s} mg`))})` : ''}. We opened ${reps.length} lab ${reps.length === 1 ? 'report' : 'reports'} for it${fills.length ? `; measured content was ${Math.min(...fills).toFixed(1)}–${Math.max(...fills).toFixed(1)}% of label` : ''}.`;
-const title = `${short}: Research Compound Facts, Vial Sizes & Lab Tests (${YEAR})`;
+const title = `${short}: Facts, Vial Sizes & Lab Tests (${YEAR})`;
 const description = `${short} facts: class, CAS ${c.casNumber}, molecular weight, vial sizes at ${shops.length} audited shops and ${reps.length} opened lab reports. Research use only.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Compounds', url: '/compounds/' }, { name: short, url: `/compounds/${c.slug}/` }];
 const faqs = [

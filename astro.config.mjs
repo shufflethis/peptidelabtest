@@ -7,6 +7,7 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
+      filter: (page) => !page.includes('/404') && !page.includes('licensed-peptides'),
       changefreq: 'weekly',
       priority: 0.8,
       lastmod: new Date('2026-11-20'),
