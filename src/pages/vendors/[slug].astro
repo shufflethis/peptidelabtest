@@ -217,7 +217,7 @@ const desc = `${vendor.name} 2026 COA audit (${vendor.overallScore.toFixed(1)}/5
                   <td class="py-2.5 text-white font-bold">{b.compoundName}</td>
                   <td class="py-2.5 text-slate-300">{b.labelMg} mg &rarr; {b.measuredMg} mg ({b.variancePercent >= 0 ? '+' : ''}{b.variancePercent}%)</td>
                   <td class="py-2.5 text-cyan-300">{b.purityPercent}% ({b.labName})</td>
-                  <td class="py-2.5 text-emerald-400 font-bold">{b.currency === 'USD' ? '$' : '€'}{b.trueMeasuredCostPerMg.toFixed(2)}/mg</td>
+                  <td class="py-2.5 text-emerald-400 font-bold">{b.currency === 'USD' ? '$' : '€'}{b.trueMeasuredCostPerMg == null ? "n/a" : b.trueMeasuredCostPerMg.toFixed(2)}/mg</td>
                 </tr>
               ))}
             </tbody>
