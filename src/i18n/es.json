@@ -1,1 +1,1359 @@
-{}
+{
+  "common": {
+    "and": "y",
+    "or": "o",
+    "home": "Inicio",
+    "lastChecked": "Última revisión: {date}",
+    "na": "n. d.",
+    "notPublished": "no publicado",
+    "noneNamed": "ninguno indicado",
+    "researchCompound": "compuesto de investigación",
+    "shops": {
+      "one": "{n} tienda",
+      "other": "{n} tiendas"
+    },
+    "reportsOpened": {
+      "one": "{n} informe abierto",
+      "other": "{n} informes abiertos"
+    },
+    "reports": {
+      "one": "{n} informe",
+      "other": "{n} informes"
+    },
+    "from": "desde {p}",
+    "region": "Región",
+    "compounds": {
+      "one": "{n} compuesto",
+      "other": "{n} compuestos"
+    },
+    "listings": {
+      "one": "{n} oferta",
+      "other": "{n} ofertas"
+    },
+    "no": "No",
+    "yes": "Sí"
+  },
+  "footer": {
+    "brandDesc": "Comparación independiente de tiendas de péptidos de investigación: precios por mg e informes de laboratorio verificados, cuando es posible, en el portal del laboratorio emisor. Solo para uso en investigación.",
+    "updated": "Datos actualizados el {date}",
+    "followUs": "Síganos",
+    "telegram": "Telegram",
+    "colPrices": "Comparar precios",
+    "pricesOf": "Precios de {name}",
+    "allPrices": "Todas las comparativas de precios",
+    "priceIndex": "Índice de precios por clase",
+    "colShops": "Tiendas",
+    "bestShops": "Mejores tiendas (ranking)",
+    "bestEu": "Mejores en Europa",
+    "bestUs": "Mejores en EE. UU.",
+    "codes": "Códigos para lectores",
+    "shopVsShop": "Tienda contra tienda",
+    "reportsOpened": "Informes de laboratorio que abrimos",
+    "colLab": "Datos de laboratorio",
+    "labs": "Laboratorios de análisis",
+    "labGuide": "Guía de {name}",
+    "howWeTest": "Cómo evaluamos",
+    "openData": "Datos abiertos (CSV)",
+    "llms": "llms.txt",
+    "colGuides": "Guías",
+    "compounds": "Compuestos",
+    "compareCompounds": "Comparativas de compuestos",
+    "byCountry": "Normas por país",
+    "research": "Guías sobre informes de laboratorio",
+    "calculator": "Calculadora de concentración",
+    "colAbout": "Quiénes somos",
+    "about": "Quiénes somos y normas editoriales",
+    "contact": "Contacto",
+    "affiliate": "Aviso de afiliación",
+    "privacy": "Política de privacidad",
+    "terms": "Condiciones de uso",
+    "forShops": "Para tiendas",
+    "legal": "Aviso legal",
+    "ruo": "Solo para uso en investigación: todos los productos listados se venden como reactivos de laboratorio, no para uso humano ni veterinario. No es asesoramiento médico.",
+    "affLine": "Los enlaces a tiendas asociadas son enlaces de afiliado (rel=\"sponsored\"). Los rankings dependen solo de la puntuación de la auditoría, nunca de la comisión.",
+    "copyright": "© {year} {site}. Datos revisados el {date}.",
+    "languages": "Idiomas"
+  },
+  "about": {
+    "title": "Quiénes somos: normas editoriales de PeptideLabIndex",
+    "description": "Quién gestiona PeptideLabIndex, cómo recopilamos datos, por qué la comisión no cambia una puntuación, cómo corregimos y qué enlaces son de afiliado.",
+    "crumb": "Quiénes somos",
+    "h1": "Sobre PeptideLabIndex y nuestras normas editoriales",
+    "intro": "PeptideLabIndex compara tiendas de péptidos de investigación con hechos verificables: informes de laboratorio, contenido medido, verificación en el portal del laboratorio y precios por mg. Los análisis los escribe el equipo editorial de PeptideLabIndex. El {date} auditamos {shops} tiendas y abrimos {reports} informes de laboratorio.",
+    "whoH": "Quién escribe los análisis",
+    "whoP1": "Todos los análisis, rankings y guías los escribe y revisa el equipo editorial de PeptideLabIndex. Publicamos con el nombre del equipo y no afirmamos tener titulación médica, jurídica ni de laboratorio.",
+    "whoP2": "No analizamos muestras nosotros mismos. Nuestro trabajo es leer lo que publican tiendas y laboratorios y presentarlo en el mismo formato, lado a lado.",
+    "indepH": "Independencia: las puntuaciones nunca dependen de comisiones",
+    "indepP1": "Algunas tiendas son socias de afiliación. Nos pagan una comisión si alguien compra a través de nuestro enlace. La fórmula de puntuación es la misma para todas las tiendas, sean socias o no.",
+    "indepP2": "Las tiendas asociadas obtienen entre {min} y {max} sobre 5. Por ejemplo, {low} obtiene {lowScore} y {high} obtiene {highScore}. Tiendas no asociadas como {np} ({npScore}) pueden puntuar por encima de algunas socias.",
+    "indepP3": "Los rankings ordenan las tiendas asociadas solo por la puntuación de la auditoría. Las tiendas no asociadas conservan su puntuación y se listan con un enlace a nuestro análisis.",
+    "dataH": "Cómo recopilamos los datos",
+    "dataL1": "Auditoría documental el {date} de las páginas públicas de cada tienda: productos, precios, envíos, condiciones y datos legales.",
+    "dataL2": "{reports} informes de laboratorio abiertos; anotamos laboratorio, fecha del análisis, pureza, mg declarados en la etiqueta y mg medidos.",
+    "dataL3": "Informes buscados en el portal del laboratorio cuando existe: {portal} se encontraron allí.",
+    "dataL4": "Sin pedidos de prueba ni análisis propios. Una auditoría documental no puede confirmar el contenido de un envío concreto.",
+    "corrH": "Correcciones",
+    "corrP": "Tiendas y lectores pueden enviarnos nuevos informes de laboratorio o señalar errores a través de la página de contacto. Verificamos cada informe en la web del laboratorio antes de usarlo, y cada página muestra la fecha de su última revisión.",
+    "coiH": "Conflictos de interés",
+    "coiP": "Estas tiendas son socias de afiliación y reciben un enlace a la tienda (marcado con rel=\"sponsored\"): {list}. Las demás tiendas auditadas no reciben enlace saliente.",
+    "links": "Seguir leyendo"
+  },
+  "contact": {
+    "title": "Contacto: correcciones y novedades de tiendas",
+    "description": "Escriba al equipo editorial de PeptideLabIndex: correcciones, nuevos informes de laboratorio para la próxima auditoría o preguntas sobre afiliación.",
+    "crumb": "Contacto",
+    "h1": "Contacto",
+    "intro": "La forma más rápida de contactar con el equipo editorial de PeptideLabIndex es el correo electrónico.",
+    "emailLabel": "Correo electrónico",
+    "whatH": "Qué puede enviarnos",
+    "l1": "Correcciones: la dirección de la página y qué está mal, con una fuente si es posible.",
+    "l2": "Nuevos informes de laboratorio de una tienda: el enlace al informe y, si existe, la clave del portal del laboratorio.",
+    "l3": "Preguntas de tiendas y socios: consulte también nuestra página para tiendas.",
+    "note": "No respondemos preguntas sobre uso humano o veterinario y no damos asesoramiento médico."
+  },
+  "privacy": {
+    "title": "Política de privacidad | PeptideLabIndex",
+    "description": "Privacidad en PeptideLabIndex: estadísticas sin cookies ni datos personales, enlaces de afiliado con cookies de las tiendas y contacto por correo.",
+    "crumb": "Privacidad",
+    "h1": "Política de privacidad",
+    "intro": "En resumen: no usamos cookies y no recopilamos datos personales en este sitio.",
+    "anaH": "Estadísticas",
+    "anaP": "Contamos las visitas con una instancia propia de Plausible Analytics. No usa cookies, no guarda direcciones IP y no crea perfiles de usuario. Solo vemos totales, como páginas vistas y sitios de referencia.",
+    "affH": "Enlaces de afiliado",
+    "affP": "Los enlaces marcados como \"Visitar\" llevan a tiendas asociadas. Tras el clic, la web de la tienda puede guardar una cookie para registrar que viene de nuestro sitio. Esa cookie la pone la tienda según su propia política de privacidad, no este sitio.",
+    "toolH": "Calculadora",
+    "toolP": "La calculadora de concentración funciona en su navegador. Lo que escribe no se nos envía.",
+    "mailH": "Correo electrónico",
+    "mailP": "Si nos escribe, usamos su dirección y su mensaje solo para responder. No lo añadimos a ninguna lista de correo.",
+    "contactH": "Preguntas",
+    "contactP": "Preguntas sobre privacidad: {email}"
+  },
+  "terms": {
+    "title": "Condiciones de uso | PeptideLabIndex",
+    "description": "Condiciones de uso de PeptideLabIndex: solo investigación, sin asesoramiento médico, sin garantía sobre datos de tiendas y fecha de revisión.",
+    "crumb": "Condiciones de uso",
+    "h1": "Condiciones de uso",
+    "intro": "Al usar este sitio acepta estas condiciones.",
+    "ruoH": "Solo para uso en investigación",
+    "ruoP": "Las tiendas venden los productos comparados aquí como reactivos de laboratorio solo para investigación. No están aprobados para uso humano ni veterinario. No damos información sobre ese uso.",
+    "medH": "Sin asesoramiento médico",
+    "medP": "Nada en este sitio es asesoramiento médico, jurídico ni profesional de ningún tipo.",
+    "dataH": "Sin garantía sobre los datos de las tiendas",
+    "dataP": "Precios, existencias, informes de laboratorio y datos de las tiendas proceden de fuentes públicas y se leyeron el {date}. Las tiendas los cambian a menudo. Compruebe la tienda y el portal del laboratorio antes de fiarse de una cifra. No respondemos de los productos, precios ni servicios de ninguna tienda.",
+    "linkH": "Enlaces",
+    "linkP": "Los enlaces a tiendas asociadas son enlaces de afiliado. Las direcciones de los informes de laboratorio aparecen como texto sin enlace; escríbalas usted mismo en el navegador.",
+    "reuseH": "Reutilización de nuestros datos",
+    "reuseP": "El conjunto de datos abiertos puede reutilizarse con licencia CC BY 4.0 citando a PeptideLabIndex."
+  },
+  "affiliate": {
+    "title": "Aviso de afiliación: cómo gana dinero PeptideLabIndex",
+    "description": "Cómo se financia PeptideLabIndex: enlaces de afiliado (rel=sponsored), códigos emitidos para lectores y por qué la comisión no cambia notas.",
+    "crumb": "Aviso de afiliación",
+    "h1": "Aviso de afiliación",
+    "intro": "PeptideLabIndex es gratuito. Ganamos dinero con enlaces de afiliado a algunas tiendas. Esta página explica cómo funciona y qué no cambia.",
+    "howH": "Cómo ganamos dinero",
+    "howP": "Los enlaces marcados como \"Visitar\" llevan a tiendas asociadas y llevan rel=\"sponsored\". Si compra a través de uno de ellos o usa un código para lectores que una tienda asociada nos emitió, podemos recibir una comisión. A usted no le cuesta más.",
+    "partnersH": "Tiendas asociadas actuales",
+    "partnersP": "Ahora mismo {n} tiendas auditadas son socias, ordenadas aquí por puntuación de la auditoría:",
+    "notH": "Lo que la comisión no cambia",
+    "notL1": "La fórmula de puntuación es la misma para todas las tiendas.",
+    "notL2": "Los rankings ordenan las tiendas asociadas solo por la puntuación de la auditoría, nunca por la comisión.",
+    "notL3": "Los puntos débiles siguen en la página, sea la tienda socia o no.",
+    "notL4": "Las tiendas no asociadas conservan su puntuación y se listan con un enlace a nuestro análisis, sin enlace saliente."
+  },
+  "seo": {
+    "pad1": " Datos revisados el {date}.",
+    "pad2": " Solo para investigación.",
+    "pad3": " Auditoría independiente."
+  },
+  "layout": {
+    "orgDesc": "Auditoría documental independiente de tiendas de péptidos de investigación en la UE y EE. UU.: informes de laboratorio abiertos, contenido medido frente a lo declarado, verificación en el portal del laboratorio y precios por mg.",
+    "copied": "Copiado",
+    "skip": "Saltar al contenido",
+    "topPre": "Auditoría documental de páginas públicas de tiendas y portales de laboratorio, revisada por última vez el",
+    "topPost": "Productos solo para investigación; sin información de uso ni de salud.",
+    "howWeScore": "Cómo puntuamos",
+    "homeAria": "Inicio de {site}",
+    "tagline": "Precios e informes de laboratorio comparados",
+    "mainNav": "Menú principal",
+    "language": "Idioma",
+    "cta": "Mejores tiendas auditadas",
+    "openMenu": "Abrir menú"
+  },
+  "nav": {
+    "prices": "Comparar precios",
+    "shops": "Tiendas",
+    "reports": "Informes de laboratorio",
+    "compounds": "Compuestos",
+    "method": "Metodología"
+  },
+  "ships": {
+    "worldwide": "a todo el mundo",
+    "euWide": "a toda la UE",
+    "usOnly": "solo EE. UU.",
+    "countries": "{n} países ({list} …)"
+  },
+  "panels": {
+    "Endotoxin": "Endotoxinas",
+    "HPLC purity": "Pureza HPLC",
+    "Heavy metals": "Metales pesados",
+    "Identity": "Identidad",
+    "LC-MS identity": "Identidad LC-MS",
+    "Measured mg": "mg medidos",
+    "Sterility": "Esterilidad"
+  },
+  "coaAccess": {
+    "None found": "No se encontró ninguno",
+    "On request": "A petición",
+    "Public lab portal keys": "Claves públicas del portal del laboratorio",
+    "Reports on product pages": "Informes en las páginas de producto"
+  },
+  "payments": {
+    "Bank transfer": "Transferencia bancaria",
+    "Bank Transfer": "Transferencia bancaria",
+    "Bank transfer (prepayment)": "Transferencia bancaria (pago por adelantado)",
+    "SEPA bank transfer": "Transferencia SEPA",
+    "SEPA bank transfer (-2%)": "Transferencia SEPA (-2%)",
+    "Credit cards": "Tarjetas de crédito",
+    "Debit cards": "Tarjetas de débito",
+    "Credit/debit card online": "Tarjeta de crédito/débito en línea",
+    "Crypto": "Criptomonedas",
+    "Cryptocurrencies": "Criptomonedas",
+    "Cryptocurrency (Bitcoin)": "Criptomoneda (Bitcoin)",
+    "Cryptocurrency (-5%)": "Criptomoneda (-5%)",
+    "Cash on delivery": "Contra reembolso",
+    "Online banking (banner)": "Banca en línea (banner)",
+    "Paysera (instant SEPA)": "Paysera (SEPA inmediata)",
+    "PayPal (new customers only)": "PayPal (solo clientes nuevos)",
+    "Zelle (5% off)": "Zelle (5% de descuento)"
+  },
+  "sub": {
+    "labVerification": "Verificación de laboratorio",
+    "fillAccuracy": "Exactitud del contenido",
+    "panelDepth": "Alcance de los análisis",
+    "entityTransparency": "Transparencia de la empresa",
+    "dispatchReliability": "Información de envío",
+    "valuePerMg": "Precio por mg"
+  },
+  "calc": {
+    "h": "Concentración de la solución madre (mg/mL)",
+    "intro": "Concentración = masa del vial (mg) dividida por el volumen de disolvente añadido (mL). Solo para trabajo de laboratorio in vitro.",
+    "mode": "Modo",
+    "one": "Un compuesto",
+    "two": "Dos compuestos",
+    "l1": "1. Masa declarada en el vial (mg)",
+    "labelMass": "Masa declarada (mg)",
+    "coa": "mg medidos según el informe (opcional)",
+    "eg": "p. ej., 9,8",
+    "l1b": "1b. Segundo compuesto en el mismo vial (mg)",
+    "l2": "2. Volumen de disolvente añadido (mL)",
+    "result": "Concentración de la solución madre",
+    "massUsed": "Masa utilizada",
+    "second": "Segundo compuesto",
+    "note": "Solo cálculo. Esta herramienta no da indicaciones de uso ni de administración.",
+    "basisReport": "informe de laboratorio",
+    "basisLabel": "etiqueta",
+    "ofLabel": "de lo declarado",
+    "notEntered": "no indicado"
+  },
+  "c": {
+    "breadcrumb": "Ruta de navegación",
+    "code": "Código",
+    "copy": "Copiar",
+    "copyCode": "Copiar el código {code}",
+    "forPct": "para un {n} %",
+    "codeNote": "{n} % de descuento, según lo emitido por la tienda",
+    "codeOnReview": "Código para lectores en el análisis",
+    "codeOnReviewShort": "Código en el análisis",
+    "noCode": "Sin código",
+    "linkNoCode": "Enlace a la tienda, sin código",
+    "noReaderCode": "Sin código para lectores",
+    "compareBoxTitle": "Compare tiendas auditadas con enlace",
+    "compareBoxNote": "Enlaces de socios (afiliado). Orden = puntuación de la auditoría.",
+    "portalOf": "{p} de {o} informes verificados en el portal",
+    "xOfY": "{x} de {y}",
+    "measuredVsLabel": "Medido frente a lo declarado",
+    "visit": "Visitar {shop}",
+    "seeReports": "Ver informes de laboratorio",
+    "readReview": "Leer el análisis",
+    "disclosureLabel": "Aviso:",
+    "disclosure": "Los enlaces marcados como \"Visitar\" llevan a tiendas asociadas y son enlaces de afiliado. Podemos recibir una comisión sin coste adicional para usted. Los rankings dependen solo de la puntuación publicada de la auditoría, nunca de la comisión. Todos los productos se venden como reactivos de laboratorio solo para investigación (RUO). Nada en este sitio es un consejo sobre uso humano o veterinario.",
+    "faq": "Preguntas frecuentes",
+    "related": "Páginas relacionadas",
+    "fillAria": "Contenido medido en porcentaje de lo declarado, {n} informes",
+    "fillRowAria": "{m} de {l} mg, {p}",
+    "portalVerified": "verificado en el portal",
+    "shopHosted": "alojado por la tienda",
+    "fillCaption": "Cada fila es un informe de laboratorio abierto: mg medidos divididos por los mg de la etiqueta. Línea discontinua = 100 % de lo declarado. Zona sombreada = 90 a 110 %.",
+    "fillLegend": "Los valores en naranja quedan fuera de ese rango. Marca rellena = verificado en el portal del laboratorio; marca hueca = informe alojado solo por la tienda.",
+    "barsAria": "Precio por mg en {cur}, del más barato al más caro",
+    "legendPartner": "Tienda asociada (con enlace)",
+    "legendOther": "Otra tienda auditada",
+    "barsNote": "Precio por mg = precio publicado (el de oferta si se muestra) dividido por los mg de la etiqueta. Solo {cur}, sin conversión.",
+    "sectionEUR": {
+      "one": "Tiendas de la UE, precios en EUR: {label} en {n} tienda",
+      "other": "Tiendas de la UE, precios en EUR: {label} en {n} tiendas"
+    },
+    "sectionUSD": {
+      "one": "Precios en USD (sobre todo tiendas de EE. UU.): {label} en {n} tienda",
+      "other": "Precios en USD (sobre todo tiendas de EE. UU.): {label} en {n} tiendas"
+    },
+    "sectionOther": {
+      "one": "Precios en {cur}: {label} en {n} tienda",
+      "other": "Precios en {cur}: {label} en {n} tiendas"
+    },
+    "sectionIntro": "Las tiendas asociadas aparecen primero y después otras tiendas auditadas (en gris, sin enlace). Toque el encabezado de una columna para ordenar. En el móvil, la primera columna muestra el precio por mg; deslice para ver las demás.",
+    "barsTitle": "Precio por mg más bajo por tienda ({cur})",
+    "tableCaption": "{label}: precios en {cur}",
+    "pt": {
+      "shop": "Tienda",
+      "product": "Producto",
+      "productVial": "Producto (vial en mg)",
+      "price": "Precio ({sym})",
+      "perMg": "Precio por mg ({sym})",
+      "report": "Informe de laboratorio de este compuesto",
+      "score": "Puntuación (0-5)",
+      "codeStore": "Código y tienda",
+      "partner": "Socia",
+      "noLink": "sin enlace",
+      "outOfStock": "agotado",
+      "was": "antes",
+      "yesPortal": "Sí, verificado en el portal",
+      "yesShop": "Sí, alojado por la tienda",
+      "mOfL": "{m} de {l} mg ({p})",
+      "mgNotStated": "mg no indicados",
+      "purity": "Pureza {p}",
+      "noReport": "Ningún informe abierto"
+    },
+    "rank": "Puesto {n}",
+    "labs": "Laboratorios",
+    "hplcPurity": "Pureza HPLC",
+    "purity": "Pureza",
+    "priceExample": "Ejemplo de precio",
+    "pricesNotPublished": "Precios no publicados",
+    "partnerNote": "Enlace de socio (afiliado). No cambia la puntuación.",
+    "weight": "peso {n} %",
+    "notAssessable": "no evaluable",
+    "scoreAria": "{label} {score} de 5",
+    "auditScore": "Puntuación de la auditoría",
+    "outOf5": "{score} de 5",
+    "scoreShort": "Puntuación {s}",
+    "nonePublished": "ninguno publicado",
+    "ts": {
+      "shops": "tiendas auditadas",
+      "reports": "informes abiertos",
+      "portal": "verificados en el portal",
+      "prices": "precios registrados",
+      "checked": "última revisión"
+    },
+    "vb": {
+      "portal": "Verificado en el portal",
+      "vendor": "Alojado por la tienda",
+      "none": "Sin informe público"
+    },
+    "rk": {
+      "partnerTitle": "Ranking: tiendas auditadas con enlace",
+      "otherTitle": "Otras tiendas auditadas",
+      "partnerIntro": "Solo tiendas asociadas, ordenadas por puntuación de la auditoría. La comisión no influye en el orden.",
+      "visitNote": "Los botones \"Visitar\" son enlaces de socios (afiliado).",
+      "otherIntro": "Misma auditoría, misma fórmula. Estas tiendas no son socias, así que solo enlazamos a nuestro análisis.",
+      "portalCol": "Informes verificados en el portal",
+      "verdict": "Conclusión"
+    },
+    "euShops": "Tiendas de la UE (precios en EUR)",
+    "usShops": "Tiendas de EE. UU. (precios en USD)",
+    "wtb": {
+      "intro": "Las tiendas asociadas tienen enlace y están ordenadas por puntuación de la auditoría, nunca por comisión. Otras tiendas auditadas que venden {what} enlazan solo a nuestro análisis.",
+      "none": "Ninguna tienda asociada de esta región vende {what}.",
+      "repPortal": "Informe de {c} verificado en el portal",
+      "repShop": "Informe de {c} alojado por la tienda",
+      "repNone": "Ningún informe de {c} abierto",
+      "othersEU": "Otras tiendas de la UE auditadas con {c}:",
+      "othersUS": "Otras tiendas de EE. UU. auditadas con {c}:",
+      "note": "Los enlaces a tiendas son enlaces de socios (afiliado). Precios publicados el {date}, antes de cualquier código."
+    }
+  },
+  "home": {
+    "title": [
+      "Péptidos de investigación: precios e informes de laboratorio {year}",
+      "Péptidos de investigación: precios y análisis {year}"
+    ],
+    "h1": "Comparativa de péptidos de investigación: precios por mg e informes de laboratorio ({year})",
+    "description": [
+      "{shops} tiendas de péptidos de investigación auditadas: {reports} informes abiertos, {portal} verificados en el portal del laboratorio. Compare precios por mg."
+    ],
+    "intro": "El {date} auditamos {shops} tiendas de péptidos de investigación de la UE y EE. UU. Abrimos {reports} informes de laboratorio de {withReports} tiendas, encontramos {portal} de ellos en el portal del laboratorio y registramos {products} precios publicados como precio por mg. El orden depende de la puntuación de la auditoría, nunca de la comisión.",
+    "eyebrow": "Auditoría documental independiente, {date}",
+    "pickerH": "Compare precios de un compuesto",
+    "pickerP": "Elija un compuesto para ver cada tienda, su precio por mg y si abrimos un informe de laboratorio.",
+    "allPrices": "Todas las comparativas de precios",
+    "fullRanking": "Ver el ranking completo de tiendas",
+    "bestH": "Mejores tiendas auditadas con enlace",
+    "bestP": "Son nuestras tiendas asociadas, ordenadas por puntuación de la auditoría en cada región. Todas se puntúan con la misma fórmula. La comisión no cuenta para el orden.",
+    "howH": "Cómo auditamos",
+    "howP": "Es una auditoría documental de páginas públicas de tiendas y portales de laboratorio. No hicimos pedidos de prueba. Cada cifra de este sitio procede de un informe o una página de precios que abrimos el {date}.",
+    "step": "Paso {n}",
+    "s1t": "Abrimos los informes de laboratorio",
+    "s1p": "En cada tienda abrimos los informes publicados y anotamos laboratorio, fecha del análisis, pureza y mg medidos.",
+    "s2t": "Comprobamos el portal del laboratorio",
+    "s2p": "Si el laboratorio ofrece búsqueda, comprobamos que el informe exista en su web. Eso es \"verificado en el portal\".",
+    "s3t": "Comparamos lo medido con lo declarado",
+    "s3p": "mg medidos divididos por los mg de la etiqueta. 100 % significa que el vial contiene lo que dice la etiqueta.",
+    "s4t": "Registramos el precio por mg",
+    "s4p": "Precio por mg = precio del vial dividido por los mg de la etiqueta. EUR y USD van por separado.",
+    "readMethod": "Leer la metodología completa",
+    "otherP": "Estas tiendas se puntúan con el mismo método. No son socias, así que enlazamos solo a nuestro análisis, no a la tienda.",
+    "sizesH": "Tamaños de vial más buscados",
+    "allSizes": "Todos los tamaños de vial",
+    "pairSub": "Mercado, precios e informes cara a cara",
+    "allPairs": "Todas las comparativas",
+    "allLabs": "Todos los laboratorios",
+    "itemList": "Mejores tiendas de péptidos de investigación auditadas (tiendas asociadas por puntuación)",
+    "faqs": [
+      {
+        "q": "¿Cómo puntúan las tiendas de péptidos de investigación?",
+        "a": "Cada tienda recibe una puntuación de 0 a 5 a partir de seis partes: verificación de laboratorio (30 %), exactitud del contenido (20 %), alcance de los análisis (20 %), transparencia de la empresa (15 %), información de envío (10 %) y precio por mg (5 %). Los rankings de este sitio usan solo esta puntuación, nunca la comisión."
+      },
+      {
+        "q": "¿Qué significa \"verificado en el portal\"?",
+        "a": "Que el informe de laboratorio se encontró en la web del propio laboratorio, no solo como archivo en la página de la tienda. {portal} de los {reports} informes que abrimos estaban verificados en el portal."
+      },
+      {
+        "q": "¿Por qué algunas tiendas no tienen botón \"Visitar\"?",
+        "a": "Solo las tiendas asociadas reciben un enlace saliente (un enlace de afiliado). Las demás tiendas auditadas también se puntúan y se listan, con un enlace a nuestro análisis."
+      },
+      {
+        "q": "¿Dan información de uso o de salud?",
+        "a": "No. Todos los productos listados se venden como reactivos de laboratorio solo para investigación. Comparamos únicamente informes de laboratorio, precios publicados y la transparencia de las tiendas."
+      }
+    ]
+  },
+  "pi": {
+    "title": [
+      "Péptidos de investigación: precios por mg {year}"
+    ],
+    "h1": "Comparativa de precios de péptidos de investigación {year}",
+    "description": [
+      "Precio por mg de {n} compuestos de investigación en {shops} tiendas auditadas, EUR y USD por separado, con informes de laboratorio. Compare precios por compuesto."
+    ],
+    "intro": "El {date} registramos {products} precios publicados de {n} compuestos de investigación en {shops} tiendas auditadas de la UE y EE. UU. Cada página de compuesto separa los precios en EUR y USD, muestra el precio por mg por tamaño de vial e indica qué tiendas publicaron un informe de laboratorio que abrimos ({reports} informes en total).",
+    "crumb": "Precios",
+    "eyebrow": "{n} compuestos · {sizes} páginas por tamaño de vial",
+    "pick": "Elija un compuesto",
+    "lowestH": "Precio por mg más bajo de cada compuesto",
+    "colCompound": "Compuesto",
+    "colShops": "Tiendas",
+    "colListings": "Ofertas",
+    "colSizes": "Tamaños de vial",
+    "colLowest": "Precio por mg más bajo ({sym})",
+    "colReports": "Informes abiertos",
+    "tableNote": "Precio por mg publicado más bajo entre todos los tamaños de vial. Precio por mg = precio del vial dividido por los mg de la etiqueta. Los viales grandes suelen salir más baratos por mg. Abra un compuesto para ver las tablas completas en EUR y USD.",
+    "sizesH": "Precios por tamaño de vial",
+    "sizesP": "Combinaciones de compuesto y tamaño de vial que venden al menos tres tiendas auditadas. La cifra es el número de tiendas.",
+    "linkIndex": "Índice de precios por clase de compuesto",
+    "itemList": "Comparativas de precios de compuestos de investigación",
+    "itemName": "Comparativa de precios de {c}",
+    "faqs": [
+      {
+        "q": "¿Cómo se calcula el precio por mg?",
+        "a": "Precio publicado (el de oferta si la tienda lo muestra) dividido por los mg de la etiqueta de ese vial. No se restan códigos de descuento ni se convierten divisas."
+      },
+      {
+        "q": "¿Por qué no se comparan directamente los precios en EUR y USD?",
+        "a": "Las tiendas publican en su propia divisa. Mostramos EUR y USD en tablas y gráficos separados en lugar de convertir, para que cada cifra coincida con el precio de la tienda."
+      },
+      {
+        "q": "¿Qué actualidad tienen los precios?",
+        "a": "Todos los precios se leyeron el {date} en páginas públicas o interfaces de las tiendas. Las tiendas cambian precios a menudo; compruébelos en la tienda antes de pedir."
+      }
+    ]
+  },
+  "pc": {
+    "title": [
+      "Comprar {c}: precios por mg en {n} tiendas",
+      "{c}: comparativa de precios en {n} tiendas",
+      "{c}: precios ({n} tiendas)"
+    ],
+    "h1": "Comparativa de precios de {c} {year}: {n} tiendas, precio por mg e informes de laboratorio",
+    "description": [
+      "Comprar {c} desde {from} en {n} tiendas auditadas. Compare {nl} ofertas, tamaños de vial e informes de laboratorio abiertos antes de pedir.",
+      "{c}: {nl} ofertas en {n} tiendas auditadas, precio por mg en EUR y USD e informes de laboratorio abiertos. Compare precios antes de comprar.",
+      "{c}: {nl} ofertas en {n} tiendas con informes de laboratorio. Compare precios."
+    ],
+    "vialSizes": {
+      "one": "{n} tamaño de vial",
+      "other": "{n} tamaños de vial"
+    },
+    "labReports": {
+      "one": "{n} informe de laboratorio",
+      "other": "{n} informes de laboratorio"
+    },
+    "cheapIn": "{p} ({shop}, {mg}) en {cur}",
+    "intro1": "{c} lo venden {n} de las {total} tiendas que auditamos ({listings}, {sizes}).",
+    "intro2": "Precio por mg publicado más bajo el {date}: {prices}.",
+    "intro3": "Abrimos {reports} de {c} de {repShops}.",
+    "intro3fill": "Abrimos {reports} de {c} de {repShops}; el contenido medido fue del {range} de lo declarado.",
+    "euShops": {
+      "one": "{n} tienda de la UE",
+      "other": "{n} tiendas de la UE"
+    },
+    "usShops": {
+      "one": "{n} tienda de EE. UU.",
+      "other": "{n} tiendas de EE. UU."
+    },
+    "fq1": "¿Dónde comprar {c} para investigación?",
+    "fa1": "{n} tiendas auditadas venden {c}: {euShops} y {usShops}.",
+    "fa1p": "Tiendas con enlace en este sitio, por puntuación de la auditoría: {list}.",
+    "fa1none": "Ninguna es una tienda asociada con enlace.",
+    "fa1end": "Las tablas muestran cada oferta con su precio por mg y el estado del informe de laboratorio.",
+    "fq2": "¿Dónde es más barato {c} por mg?",
+    "fa2": "Precio por mg publicado más bajo el {date}: {prices}. Se basa en el precio publicado por la tienda (el de oferta si se muestra) dividido por los mg de la etiqueta, sin códigos de descuento.",
+    "fq3": "¿Qué tiendas han publicado un informe de laboratorio de {c}?",
+    "fa3": "Abrimos {nrep} informes de {c} de {list}. {portal} estaban verificados en el portal del laboratorio",
+    "fa3fill": "; el contenido medido fue del {range} de lo declarado",
+    "fa3none": "No abrimos ningún informe de laboratorio de {c} en las tiendas auditadas.",
+    "fq4": "¿En qué tamaños de vial se vende {c}?",
+    "fa4": "Las tiendas auditadas venden {c} en viales de {list}.",
+    "fa4p": "Los tamaños que venden al menos tres tiendas tienen su propia comparativa: {list}.",
+    "fq5": "¿Se convierten los precios entre euros y dólares?",
+    "fa5": "No. Los precios en EUR y USD aparecen en tablas separadas, tal como los publica la tienda, sin conversión ni código de descuento.",
+    "fq6": "¿Se vende {c} para uso humano?",
+    "fa6": "No. Las tiendas listadas venden {c} como reactivo de laboratorio solo para investigación (RUO). Esta página compara solo ofertas e informes de laboratorio y no incluye información sobre uso humano o veterinario.",
+    "itemList": "Tiendas que venden {c}",
+    "relFacts": "{c}: datos del compuesto",
+    "relSize": "Precios de {c} {mg}",
+    "relPair": "Comparativa de mercado e informes",
+    "relReview": "{shop}: opiniones y análisis",
+    "statShops": "Tiendas (UE / EE. UU.)",
+    "statLowest": "Precio por mg más bajo ({cur})",
+    "statReports": "Informes abiertos",
+    "nPortal": "{n} verificados en el portal",
+    "bySize": "Precios por tamaño de vial:",
+    "wtbH": "Dónde comprar {c} para investigación: {n} tiendas auditadas",
+    "repH": "Informes de laboratorio de {c}: medido frente a lo declarado",
+    "repP": "{reports} abiertos de {repShops}; {portal} verificados en el portal del laboratorio. Las direcciones e identificadores de los informes están en",
+    "chartTitle": "{c}: contenido medido en % de lo declarado",
+    "about": "Sobre {name}",
+    "factsPage": "Ver la ficha del compuesto"
+  },
+  "ps": {
+    "title": [
+      "Comprar {c} {size}mg: precios e informes {year}",
+      "{c} {size}mg: precios e informes de laboratorio",
+      "{c} {size}mg: comparativa de precios"
+    ],
+    "h1": "{c} {mg}: precios en {n} tiendas e informes de laboratorio ({year})",
+    "description": [
+      "{c} {mg} en {n} tiendas auditadas desde {from}. Compare precios, precio por mg e informes de laboratorio abiertos antes de comprar.",
+      "{c} {mg}: precio del vial en {n} tiendas auditadas, EUR y USD por separado, con precio por mg e informes de laboratorio. Compare precios.",
+      "{c} {mg}: precios en {n} tiendas con informes de laboratorio. Compare precios."
+    ],
+    "vialAt": "{p} por vial en {shop} ({cur})",
+    "intro1": "{n} tiendas auditadas venden {c} en vial de {mg} ({eu} de la UE, {us} de EE. UU.).",
+    "intro2": "Precio publicado más bajo el {date}: {lows}.",
+    "intro3": "Para este tamaño abrimos {reports}; el contenido medido fue del {range} de lo declarado.",
+    "intro3none": "No abrimos ningún informe de {c} {mg}; los informes de otros tamaños están en la página principal de {c}.",
+    "median": "mediana de {p} en {n} ofertas en {cur}",
+    "fq1": "¿Cuánto cuesta un vial de {c} {mg}?",
+    "fa1": "Precios publicados el {date}: {medians}. Más barato: {lows}. Precios sin códigos de descuento y sin conversión.",
+    "fq2": "¿Dónde comprar {c} {mg} para investigación?",
+    "fa2": "Lo venden {n} tiendas auditadas.",
+    "fa2p": "Tiendas con enlace, por puntuación de la auditoría: {list}.",
+    "fq3": "¿Hay un informe de laboratorio de {c} {mg}?",
+    "fa3": "Sí. Para este tamaño abrimos {reports} ({portal} verificados en el portal del laboratorio), de {list}.",
+    "fa3none": "No abrimos ningún informe de {c} {mg}. En la página de precios de {c} hay {nall} informes de {c} de otros tamaños.",
+    "itemList": "Tiendas que venden {c} {mg}",
+    "relAll": "Todos los tamaños de {c}",
+    "relAllSub": "Comparativa de precios completa",
+    "eyebrow": "{c} · vial de {mg}",
+    "statReports": "Informes de {mg} abiertos",
+    "wtbH": "Dónde comprar {c} {mg}: tiendas comparadas",
+    "repH": "{c} {mg}: informes de laboratorio",
+    "chartTitle": "{c} {mg}: contenido medido en % de lo declarado"
+  },
+  "rank": {
+    "label_all": "de la UE y EE. UU.",
+    "label_eu": "de la UE",
+    "label_us": "de EE. UU.",
+    "title_all": [
+      "Tiendas de péptidos de investigación {year}: {n} analizadas",
+      "Tiendas de péptidos {year}: {n} analizadas"
+    ],
+    "title_eu": [
+      "Mejores tiendas de péptidos UE {year}: {n} analizadas",
+      "Mejores tiendas de péptidos UE {year}"
+    ],
+    "title_us": [
+      "Mejores tiendas de péptidos EE. UU. {year}: {n} analizadas",
+      "Mejores tiendas de péptidos EE. UU. {year}"
+    ],
+    "h1_all": "Ranking de tiendas de péptidos de investigación ({year})",
+    "h1_eu": "Mejores tiendas de péptidos de investigación de la UE ({year})",
+    "h1_us": "Mejores tiendas de péptidos de investigación de EE. UU. ({year})",
+    "description": [
+      "{n} tiendas de péptidos de investigación {label} puntuadas de 0 a 5: {opened} informes abiertos, {portal} verificados en el portal. Compare el ranking.",
+      "{n} tiendas de péptidos {label} analizadas con {opened} informes de laboratorio abiertos. Compare el ranking."
+    ],
+    "intro1": "El {date} puntuamos {n} tiendas de péptidos de investigación {label}. En total abrimos {opened} informes de laboratorio y encontramos {portal} de ellos en el portal del laboratorio.",
+    "noReports": {
+      "one": "{n} tienda no publica ningún informe.",
+      "other": "{n} tiendas no publican ningún informe."
+    },
+    "intro2": "La tienda asociada con mejor puntuación es {best} ({bestScore}/5).",
+    "intro3": "Los rankings usan solo la puntuación de la auditoría.",
+    "crumbRegion": "Tiendas {label}",
+    "fq1": "¿Cuál es la mejor tienda de péptidos de investigación {label} en {year}?",
+    "fa1": "Entre las tiendas asociadas con enlace, {best} tiene la mejor puntuación ({bestScore}/5). La puntuación combina verificación de laboratorio, exactitud del contenido medido, alcance de los análisis, transparencia de la empresa, información de envío y precio por mg.",
+    "fa1none": "No hay ninguna tienda asociada en esta región.",
+    "faqs": [
+      {
+        "q": "¿Por qué algunas tiendas con más puntuación aparecen en \"Otras tiendas auditadas\"?",
+        "a": "El ranking incluye solo tiendas asociadas, porque solo ellas reciben enlace. Las demás se puntúan con el mismo método y se muestran con su puntuación y un enlace a nuestro análisis."
+      },
+      {
+        "q": "¿Compraron y analizaron productos ustedes mismos?",
+        "a": "No. Es una auditoría documental de páginas públicas de tiendas, informes y portales de laboratorio. No hicimos pedidos de prueba."
+      }
+    ],
+    "partnerTitle": "Ranking: tiendas {label} con enlace",
+    "otherTitle": "Otras tiendas {label} auditadas",
+    "relPairs": "Tiendas cara a cara",
+    "pairs": {
+      "one": "{n} pareja de socias",
+      "other": "{n} parejas de socias"
+    },
+    "relCodesSub": "Solo tiendas asociadas",
+    "relMethodSub": "Pesos y fuentes",
+    "relPs": "Situación de Peptide Sciences",
+    "relPsSub": "Cerrada desde marzo de 2026"
+  },
+  "v": {
+    "title": [
+      "{nm}: opiniones y análisis, informes y precios",
+      "{nm}: opiniones, informes y precios",
+      "{nm}: opiniones y análisis"
+    ],
+    "h1": "{shop}: opiniones y análisis {year}. Informes de laboratorio, precios y fiabilidad",
+    "description": [
+      "{nm} obtiene {score}/5 en nuestro análisis: {opened} informes abiertos, {portal} verificados en el portal, empresa y precio por mg. Vea los informes.",
+      "{nm}: puntuación {score}/5, {opened} informes ({portal} verificados en el portal), empresa y precio por mg. Vea los informes.",
+      "{nm}: puntuación {score}/5, {opened} informes, precio por mg. Vea los informes."
+    ],
+    "descriptionNoRep": [
+      "{nm} obtiene {score}/5 en nuestro análisis. Sin informes de laboratorio públicos; revisamos empresa, envíos y precio por mg. Lea el análisis.",
+      "{nm}: puntuación {score}/5, sin informes públicos; empresa y precio por mg revisados. Lea el análisis."
+    ],
+    "intro1": "{shop} obtiene {score} sobre 5 en nuestra auditoría documental del {date} (puesto {rank} de {total} tiendas).",
+    "reportTxt": {
+      "one": "Abrimos {opened} de sus informes de laboratorio; {n} estaba verificado en el portal del laboratorio",
+      "other": "Abrimos {opened} de sus informes de laboratorio; {n} estaban verificados en el portal del laboratorio"
+    },
+    "reportTxtFill": ", y el contenido medido fue del {fill} de lo declarado",
+    "noReports": "No encontramos informes de laboratorio públicos.",
+    "introEntity": "Empresa: {e}.",
+    "introPrices": {
+      "one": "Registramos {n} precio publicado.",
+      "other": "Registramos {n} precios publicados."
+    },
+    "introNoPrices": "Los precios no se muestran públicamente.",
+    "legitEntity": "{shop} indica como empresa {e}.",
+    "legitNoEntity": "{shop} no indica ninguna empresa en su web.",
+    "legitReports": "{portal} de {opened} informes abiertos se pudieron verificar en el portal del laboratorio",
+    "legitShopOnly": {
+      "one": "; {n} está alojado solo por la tienda",
+      "other": "; {n} están alojados solo por la tienda"
+    },
+    "legitNoReports": "No encontramos ningún informe de laboratorio público.",
+    "legitWeak": "Lo que no pudimos comprobar o falta: {list}.",
+    "codeYes": "Sí. {shop} emitió a {site} el código para lectores {code}{pct}. Nuestras tablas muestran precios de lista sin código.",
+    "codeLinkOnly": "{shop} no nos ha emitido un código para lectores. Enlazamos a la tienda solo con un enlace de socio.",
+    "codeNo": "No. {shop} no es socia y no nos ha emitido un código para lectores. Las tiendas asociadas con código se comparan en nuestra página de códigos para lectores.",
+    "fqLegit": "¿Es fiable {shop}?",
+    "overall": "Puntuación global de la auditoría: {score} sobre 5.",
+    "fqCode": "¿Hay un código de descuento de {shop}?",
+    "fqLabs": "¿Qué laboratorios analizan los productos de {shop}?",
+    "faLabs": "Los informes abiertos mencionan {list}. Pureza HPLC en esos informes: {purity}.",
+    "faLabsNone": "{shop} menciona {list}; no pudimos abrir ningún informe público.",
+    "fqShip": "¿A dónde envía {shop}?",
+    "faShip": "Envía a: {ships}. Envío: {dispatch}.",
+    "fqPrice": "¿Es cara {shop}?",
+    "faPrice": "El {date} registramos {n} precios publicados. El precio por mg más bajo fue {p} para {product} ({mg}). Son precios de lista, sin código.",
+    "reviewName": "{shop}: opiniones y análisis {year}",
+    "relPair": "Datos de la auditoría cara a cara",
+    "relPriceA": "Comparativa de precios de {c}",
+    "relPriceB": "Precios de {c} en todas las tiendas",
+    "relPriceSub": "{nm} desde {p}",
+    "relPriceAll": "Todas las tiendas auditadas comparadas",
+    "relBoth": "{nm} vende ambos",
+    "relLab": "Guía de {lab}",
+    "relLabSub": "Cómo verificar un informe",
+    "relEu": "Ranking de tiendas de la UE",
+    "relUs": "Ranking de tiendas de EE. UU.",
+    "partnerChip": "Tienda asociada",
+    "notPartnerChip": "No asociada",
+    "reviewedBy": "Revisado el {date} por el equipo editorial de PeptideLabIndex",
+    "auditScore": "Puntuación de la auditoría",
+    "rankOf": "Puesto {rank} de {total}",
+    "partnerNote": "Enlace de socio (afiliado). No cambia la puntuación.",
+    "noLinkNote": "No enlazamos a esta tienda. Más abajo hay tiendas asociadas con enlace para comparar.",
+    "seeAlternatives": "Ver alternativas auditadas",
+    "verdictH": "Nuestra conclusión",
+    "strengths": "Puntos fuertes",
+    "weaknesses": "Puntos débiles",
+    "noneRecorded": "ninguno registrado",
+    "breakdownH": "Desglose de la puntuación",
+    "breakdownP": "Cada parte se puntúa de 0 a 5. El peso indica cuánto cuenta.",
+    "legitIntro": "Solo podemos informar de lo que es público. Esto es lo que comprobamos el {date}:",
+    "kEntity": "Empresa",
+    "kReports": "Informes de laboratorio",
+    "kPurity": "Pureza según los informes abiertos",
+    "kWeak": "Lo que no pudimos comprobar o falta",
+    "legitReportsLine": "{opened} abiertos, {portal} encontrados en el portal del laboratorio, {shopOnly} alojados solo por la tienda.",
+    "noPublicReports": "no se encontraron informes públicos.",
+    "fillLine": "{fill} de la cantidad de la etiqueta (100 % = exacto).",
+    "noTestOrder": "No hicimos ningún pedido de prueba. Una auditoría documental no puede confirmar el contenido de un envío concreto.",
+    "factsH": "Datos clave",
+    "kBased": "Sede",
+    "kShips": "Envía a",
+    "kDispatch": "Envío",
+    "kFree": "Envío gratis desde",
+    "kPayment": "Pago",
+    "kLabs": "Laboratorios indicados",
+    "kTests": "Análisis en los informes",
+    "kShared": "Cómo se comparten los informes",
+    "reportsP": {
+      "one": "{n} informe abierto el {date}. Los enlaces a informes aparecen como texto sin enlace, para que pueda copiarlos y comprobarlos usted mismo en la web del laboratorio.",
+      "other": "{n} informes abiertos el {date}. Los enlaces a informes aparecen como texto sin enlace, para que pueda copiarlos y comprobarlos usted mismo en la web del laboratorio."
+    },
+    "chartTitle": "{shop}: contenido medido en % de lo declarado",
+    "colMeasured": "Medido / declarado (mg)",
+    "colPurity": "Pureza (%)",
+    "colLab": "Laboratorio y fecha",
+    "colVerif": "Verificación",
+    "colId": "ID del informe y enlace (copiar)",
+    "notStated": "no indicado",
+    "ofLabel": "{p} de lo declarado",
+    "dateNotPublished": "fecha no publicada",
+    "shopHosted": "Alojado por la tienda",
+    "noReportFound": "El {date} no encontramos ningún informe de laboratorio público de {shop}.",
+    "pricesH": "Precios de {shop}",
+    "pricesP": {
+      "one": "{n} precio publicado registrado el {date} en {curs}. Precio por mg = precio dividido por los mg de la etiqueta. Los precios de oferta aparecen con el precio anterior tachado. Sin código aplicado.",
+      "other": "{n} precios publicados registrados el {date} en {curs}. Precio por mg = precio dividido por los mg de la etiqueta. Los precios de oferta aparecen con el precio anterior tachado. Sin código aplicado."
+    },
+    "colVial": "Vial (mg)",
+    "colPrice": "Precio",
+    "colPerMg": "Precio por mg",
+    "colRep": "Informe abierto",
+    "colStore": "Tienda",
+    "viewProduct": "Ver producto",
+    "noPricesP": "{shop} no muestra precios públicos, así que el precio por mg no se puntuó.",
+    "codeH": "Código de descuento de {shop}",
+    "codeP": "{shop} emitió este código para lectores a {site}. Introdúzcalo al pagar. Nuestras tablas muestran precios antes de aplicar el código.",
+    "codeLinkOnlyP": "{shop} no nos ha emitido un código para lectores. Enlazamos a la tienda solo con un enlace de socio.",
+    "codeShopsWith": "Tiendas que han emitido un código",
+    "codeNoneP": "Sin código para lectores. {shop} no es socia y no nos ha emitido ningún código.",
+    "codeCompare": "Comparar tiendas con código",
+    "altNote": "Tiendas asociadas de la región {region} con mejor puntuación. Mismo método que {shop}.",
+    "sourcesH": "Fuentes consultadas",
+    "sourcesP": "Páginas públicas leídas el {date}. Como texto, no como enlace.",
+    "stickyAria": "Enlace a la tienda {nm}",
+    "visitShop": "Visitar la tienda"
+  },
+  "vcp": {
+    "title": [
+      "{nA} vs {nB}: informes, precios y puntuación",
+      "{nA} vs {nB}: informes y precios",
+      "{nA} vs {nB}: comparativa"
+    ],
+    "description": [
+      "{nA} ({sA}/5) frente a {nB} ({sB}/5): informes de laboratorio, verificación en el portal y precio por mg de {n} productos comunes. Compare ambas tiendas.",
+      "{nA} frente a {nB}: puntuaciones, informes y precio por mg de {n} productos comunes. Compare ambas tiendas."
+    ],
+    "verdict": "{lead} puntúa más alto en nuestra auditoría ({sL} frente a {sO} sobre 5). Gana en {wins}; {other} gana en {owins}.",
+    "noPart": "ninguna parte concreta",
+    "noneParts": "ninguna de las partes",
+    "tie": "Ambas tiendas obtienen {sA} sobre 5 en nuestra auditoría.",
+    "priceTxt": "En los {same} productos que ambas venden en la misma divisa y tamaño de vial, {a} es más barata por mg en {aC} y {b} en {bC}.",
+    "priceNone": "No venden ningún producto idéntico en la misma divisa y tamaño de vial.",
+    "checked": "Datos revisados el {date}.",
+    "rScore": "Puntuación de la auditoría (0-5)",
+    "rRank": "Puesto (todas las tiendas auditadas)",
+    "rankOf": "{r} de {n}",
+    "rPurity": "Pureza según los informes",
+    "rPrices": "Precios registrados",
+    "rCode": "Código para lectores",
+    "fq1": "¿Qué es mejor, {a} o {b}?",
+    "fa1": "La puntuación pondera verificación de laboratorio, exactitud del contenido, alcance de los análisis, transparencia de la empresa, información de envío y precio por mg.",
+    "fq2": "¿Qué es más barato, {a} o {b}?",
+    "fa2": "Son precios de lista del {date}, sin códigos.",
+    "fq3": "¿Publican {a} y {b} informes de laboratorio?",
+    "fa3": "Abrimos {oA} informes de {a} ({pA} verificados en el portal) y {oB} informes de {b} ({pB} verificados en el portal).",
+    "eyebrow": "Tiendas asociadas ({region}) cara a cara",
+    "higher": "Mayor puntuación",
+    "factsH": "Datos clave comparados",
+    "sameH": "Mismos productos, precio por mg",
+    "sameP": "{n} productos que ambas tiendas venden en el mismo tamaño de vial. Precio por mg publicado más bajo de cada tienda; el valor menor va en negrita. Sin códigos aplicados.",
+    "sameNone": "Las dos tiendas no venden ningún producto idéntico en el mismo tamaño de vial."
+  },
+  "vci": {
+    "title": [
+      "Tiendas de péptidos cara a cara ({n} parejas)"
+    ],
+    "description": [
+      "Tiendas asociadas de la misma región cara a cara: puntuaciones, informes de laboratorio, medido frente a lo declarado y precio por mg. Compare dos tiendas."
+    ],
+    "itemList": "Comparativas de tiendas",
+    "h1": "Tienda contra tienda",
+    "intro": "Datos de la auditoría de tiendas asociadas de la misma región, cara a cara, leídos el {date}: puntuación, informes de laboratorio, medido frente a lo declarado y precio por mg de los productos que venden ambas.",
+    "eu": "Tiendas de la UE",
+    "us": "Tiendas de EE. UU.",
+    "scores": "Puntuaciones {a} frente a {b}"
+  },
+  "psc": {
+    "title": [
+      "Peptide Sciences cerrada (2026): situación y alternativas"
+    ],
+    "description": [
+      "Peptide Sciences dejó de vender productos de investigación en marzo de 2026. Qué dice su propio aviso y qué tiendas auditadas puede comparar en su lugar."
+    ],
+    "h1": "Peptide Sciences cerrada: situación en 2026",
+    "intro": "Peptide Sciences (peptidesciences.com) dejó de vender productos de investigación en marzo de 2026. Según su web, la empresa \"voluntarily discontinued all research-use-only product sales in March 2026\" y no ha autorizado a ningún tercero a vender en su nombre ni a actuar como sucesor. No auditamos Peptide Sciences porque ya no vende.",
+    "faqs": [
+      {
+        "q": "¿Sigue abierta Peptide Sciences?",
+        "a": "No. Según peptidesciences.com, la empresa dejó voluntariamente de vender todos sus productos de uso en investigación en marzo de 2026."
+      },
+      {
+        "q": "¿Es una nueva web de Peptide Sciences la misma empresa?",
+        "a": "Según el aviso de peptidesciences.com, la empresa no ha autorizado a ningún tercero a gestionar una web sustituta, actuar como sucesor ni vender en su nombre. No podemos confirmar ninguna relación entre otras webs que usen el nombre y la empresa original."
+      },
+      {
+        "q": "¿Qué tiendas auditadas puedo comparar en su lugar?",
+        "a": "Nuestro ranking de tiendas lista las tiendas asociadas por puntuación de la auditoría. Las tiendas asociadas de EE. UU. con mejor puntuación son {us}."
+      }
+    ],
+    "saysH": "Qué dice el aviso",
+    "says": [
+      "Dejó de vender productos de uso en investigación en marzo de 2026 (según la empresa, de forma voluntaria).",
+      "Ningún tercero está autorizado a vender en su nombre, gestionar una web sustituta ni presentarse como sucesor.",
+      "La empresa advierte contra webs o vendedores que se hagan pasar por Peptide Sciences."
+    ],
+    "source": "Fuente (como texto):",
+    "read": "leído el {date}.",
+    "meansH": "Qué significa para comparar tiendas",
+    "meansP": "Como Peptide Sciences ya no vende, no tiene puntuación aquí. Si compara tiendas de péptidos de investigación, los recuadros de abajo muestran las tiendas asociadas auditadas con mejor puntuación por región. Todas las tiendas de este sitio se puntúan con el",
+    "sameMethod": "mismo método",
+    "usBox": "Tiendas de EE. UU. auditadas con enlace",
+    "euBox": "Tiendas de la UE auditadas con enlace",
+    "boxNote": "Tiendas asociadas ordenadas por puntuación de la auditoría."
+  },
+  "cp": {
+    "title": [
+      "{a} vs {b}: precios y datos de laboratorio",
+      "{a} vs {b}: precios y laboratorio"
+    ],
+    "description": [
+      "{a} vs {b}: {both} tiendas auditadas venden ambos. Compare identidad, tamaños de vial, precio por mg en EUR y USD e informes de laboratorio abiertos.",
+      "{a} vs {b}: {both} tiendas venden ambos. Compare tamaños de vial, precio por mg e informes de laboratorio."
+    ],
+    "h1": "{a} vs {b}: comparativa de compuestos de investigación",
+    "eyebrow": "Datos de mercado y laboratorio, no efectos",
+    "intro": "El {date}, {nA} tiendas auditadas vendían {a} y {nB} vendían {b}; {both} venden ambos. Abrimos {rA} informes de laboratorio de {a} y {rB} de {b}.",
+    "median": "Mediana del precio por mg en {cur}: {a} {x}, {b} {y}",
+    "fq1": "¿Qué diferencia hay entre {a} y {b}?",
+    "fa1": "Son moléculas diferentes.",
+    "fq2": "¿Qué es más barato por mg, {a} o {b}?",
+    "fa2": "Con todas las ofertas del {date}: {list}. Los viales grandes suelen costar menos por mg, así que compare el mismo tamaño.",
+    "notEnough": "datos insuficientes",
+    "fq3": "¿Qué tiendas venden {a} y {b}?",
+    "fa3": "{both} tiendas auditadas venden ambos: {list}.",
+    "fa3none": "Ninguna tienda auditada vende ambos.",
+    "fq4": "¿Hay datos de laboratorio de {a} y {b}?",
+    "fa4": "Abrimos {rA} informes de {a} ({pA} verificados en el portal) y {rB} informes de {b} ({pB} verificados en el portal). Medido frente a lo declarado: {a} {fA}, {b} {fB}.",
+    "fq5": "¿Se pueden usar {a} o {b} en personas?",
+    "fa5": "Este sitio no trata el uso humano ni veterinario. Las tiendas listadas venden ambos como reactivos de laboratorio solo para investigación, y solo comparamos ofertas e informes de laboratorio.",
+    "rShops": "Tiendas que lo venden (UE / EE. UU.)",
+    "rMedian": "Mediana del precio por mg ({cur})",
+    "sideH": "Cara a cara",
+    "fact": "Dato",
+    "tableNote": "Precio por mg = precio publicado dividido por los mg de la etiqueta. EUR y USD no se convierten. Mediana = valor central de todas las ofertas.",
+    "onReport": "En un informe de laboratorio:",
+    "bothH": "Tiendas que venden ambos",
+    "bothP": "Precio por mg publicado más bajo de cada tienda, ordenado por puntuación de la auditoría. Las tiendas asociadas tienen enlace.",
+    "lowestOf": "{c}: precio por mg más bajo",
+    "vial": "vial de {mg}",
+    "labH": "Informes de laboratorio: medido frente a lo declarado"
+  },
+  "ci": {
+    "title": [
+      "Comparativas de compuestos: precios y datos de laboratorio"
+    ],
+    "description": [
+      "Parejas de compuestos de investigación cara a cara: identidad, tamaños de vial, precio por mg en EUR y USD e informes de laboratorio. Compare las parejas."
+    ],
+    "itemList": "Comparativas de compuestos de investigación",
+    "h1": "Comparativas de compuestos de investigación",
+    "intro": "Datos de compuestos que se buscan juntos a menudo, cara a cara: qué son, tamaños de vial en venta, precio por mg e informes de laboratorio en las tiendas auditadas el {date}. Estas páginas comparan solo ofertas y datos de laboratorio, no efectos.",
+    "row": "{na} tiendas venden {a}, {nb} venden {b} y {both} venden ambos."
+  },
+  "lab": {
+    "auditedShops": {
+      "one": "{n} tienda auditada",
+      "other": "{n} tiendas auditadas"
+    },
+    "intro1": "{lab} aparece en {n} de los informes de laboratorio que abrimos el {date}, de {shops}.",
+    "intro2": "{portal} de esos informes se pudieron verificar en el portal del laboratorio, y el contenido medido fue del {range} de lo declarado.",
+    "intro2none": "{portal} de esos informes se pudieron verificar en el portal del laboratorio; no indicaban mg medidos.",
+    "titleJ": [
+      "Verificar un informe de Janoshik: guía paso a paso",
+      "Janoshik Analytical: verificar un informe"
+    ],
+    "title": [
+      "{lab}: cómo verificar un informe ({year})",
+      "{lab}: cómo verificar un informe",
+      "{short}: cómo verificar un informe"
+    ],
+    "h1J": "Janoshik: cómo verificar un informe y si el laboratorio es fiable",
+    "h1": "{lab}: cómo verificar un informe de laboratorio",
+    "description": [
+      "Cómo verificar un informe de {lab} en {steps} pasos. Abrimos {n} informes de {ns} tiendas y {portal} estaban verificados en el portal.",
+      "Verifique un informe de {short}: {n} informes de {ns} tiendas abiertos, {portal} verificados en el portal. Vea informes y tiendas.",
+      "Verifique un informe de {short}. {n} informes abiertos, {portal} verificados en el portal."
+    ],
+    "genericSteps": [
+      "Busque en el informe que muestra la tienda el número de informe, la clave o el código QR.",
+      "Abra la web del laboratorio escribiendo usted mismo la dirección, no desde un enlace del PDF.",
+      "Busque el informe y compare compuesto, cantidad declarada, mg medidos, pureza, fecha del análisis y lote con la copia de la tienda.",
+      "Si el laboratorio no ofrece búsqueda, el informe se considera alojado solo por la tienda: puede ser auténtico, pero no se puede confirmar con el laboratorio."
+    ],
+    "lAddr": "Publica una dirección: {a}.",
+    "lNoAddr": "No encontramos ninguna dirección publicada.",
+    "lVerify": "Los informes se pueden verificar en {w}.",
+    "lNoVerify": "No encontramos ningún portal público de verificación.",
+    "lAccr": "Sobre la acreditación dice: {a}",
+    "lNoAccr": "No encontramos ninguna declaración de acreditación en las páginas que leímos.",
+    "lPortal": "{portal} de los {n} informes que abrimos se encontraron en el portal del laboratorio.",
+    "fq1J": "¿Cómo verifico un informe de Janoshik?",
+    "fq1": "¿Cómo verifico un informe de {lab}?",
+    "fq2": "¿Es fiable {short}?",
+    "fa2": "No puntuamos laboratorios, pero podemos decir qué es público.",
+    "fq3": "¿Cuánto cuesta un análisis en {short}?",
+    "fa3none": "No se publica en las páginas que leímos.",
+    "fq4": "¿Qué tiendas usan {lab}?",
+    "fa4": "Entre las tiendas que auditamos: {list}.",
+    "relShop": "{shop}: informes de laboratorio y puntuación",
+    "relShopSub": {
+      "one": "{n} informe de {lab} abierto",
+      "other": "{n} informes de {lab} abiertos"
+    },
+    "relLabSub": "Guía del laboratorio",
+    "relAll": "Todos los informes de laboratorio que abrimos",
+    "eyebrow": "Guía del laboratorio de análisis",
+    "testsH": "Análisis que ofrece",
+    "kAddress": "Dirección",
+    "kOperator": "Responsable",
+    "kVerify": "Verificación",
+    "kAccr": "Acreditación",
+    "kPrice": "Precio",
+    "kTurn": "Plazo de entrega",
+    "noPortal": "no se encontró portal",
+    "noStatement": "no se encontró declaración",
+    "howH": "Cómo verificar un informe de {short}",
+    "plain": "Las direcciones aparecen a propósito como texto sin enlace. Escríbalas usted mismo para llegar a la web auténtica del laboratorio.",
+    "noSamples": "No analizamos muestras nosotros mismos. Son datos de las páginas públicas del laboratorio y de los informes que abrimos.",
+    "shopsH": "Tiendas con informes de {short}",
+    "colShopFill": "Tienda: medido frente a lo declarado",
+    "colScore": "Puntuación de la tienda (0-5)",
+    "chartTitle": "Informes de {lab}: contenido medido en % de lo declarado",
+    "sourcesH": "Fuentes",
+    "sourcesP": "Páginas públicas del laboratorio leídas el {date}. Como texto, no como enlace."
+  },
+  "li": {
+    "title": [
+      "Laboratorios de péptidos: cómo verificar informes ({year})"
+    ],
+    "description": [
+      "{n} laboratorios en los {reports} informes de péptidos de investigación que abrimos: cómo verificar sus informes, qué tiendas los usan y qué midieron."
+    ],
+    "itemList": "Laboratorios de análisis de péptidos",
+    "h1": "Laboratorios de análisis de péptidos y cómo verificar sus informes",
+    "intro": "Los {reports} informes de laboratorio que abrimos el {date} mencionan {n} laboratorios de análisis. Cada guía explica cómo verificar un informe en la web del laboratorio, qué tiendas auditadas publican informes de ese laboratorio y qué midieron esos informes.",
+    "colLab": "Laboratorio",
+    "colHow": "Cómo verificar",
+    "noAddress": "dirección no publicada",
+    "faqs": [
+      {
+        "q": "¿Qué es un informe verificado en el portal?",
+        "a": "Un informe que pudimos buscar en la web del propio laboratorio con el código o la clave impresos. Un PDF en la página de la tienda, por sí solo, es solo una afirmación."
+      },
+      {
+        "q": "¿Qué laboratorio es el mejor?",
+        "a": "No puntuamos laboratorios. Cada guía muestra lo que el laboratorio publica sobre sí mismo, cómo verificar sus informes y qué mostraron los informes que abrimos."
+      }
+    ]
+  },
+  "bt": {
+    "title": [
+      "Informes de laboratorio de péptidos: {n} revisados ({year})",
+      "Informes de laboratorio de péptidos: {n} revisados"
+    ],
+    "description": [
+      "{n} informes de laboratorio de péptidos de investigación de {shops} tiendas, con mg medidos y pureza; {portal} verificados en el portal. Filtre por tienda o laboratorio."
+    ],
+    "intro": "Esta tabla lista {n} informes de laboratorio de {shops} tiendas que indican tanto los mg medidos como la pureza. {within10} de ellos midieron entre el 90 y el 110 % de lo declarado, {below90} por debajo del 90 % y {above110} por encima del 110 %. {portal} estaban verificados en el portal del laboratorio. La pureza fue de {pmin} a {pmax}.",
+    "faqs": [
+      {
+        "q": "¿Qué significa \"medido frente a lo declarado\"?",
+        "a": "El laboratorio midió cuántos mg hay en el vial. Lo dividimos por los mg de la etiqueta. 100 % significa que el vial contiene exactamente la cantidad de la etiqueta."
+      },
+      {
+        "q": "¿Por qué no se puede hacer clic en los enlaces de los informes?",
+        "a": "Mostramos las direcciones de los informes como texto sin enlace para que las copie y abra usted mismo la web del laboratorio. No enlazamos a portales de laboratorio."
+      },
+      {
+        "q": "¿Están aquí todos los informes abiertos?",
+        "a": "Esta tabla muestra los {n} informes que indican tanto mg medidos como pureza. En total abrimos {total} informes; los demás están en la página de análisis de cada tienda."
+      }
+    ],
+    "statTable": "Informes en la tabla",
+    "statWithin": "Entre 90 y 110 %",
+    "statMedian": "Mediana medido frente a lo declarado",
+    "allH": "Todos los informes con mg medidos y pureza",
+    "allP": "Escriba una tienda, un compuesto o un laboratorio para filtrar. Toque el encabezado de una columna para ordenar.",
+    "filterLabel": "Filtrar informes",
+    "filterPh": "Filtrar, p. ej., BPC-157 o Janoshik",
+    "colFill": "Medido frente a lo declarado (%)",
+    "mgLabel": "etiqueta {mg}",
+    "mOfL": "{m} de {l} mg",
+    "note": "Los valores en naranja quedan fuera del 90-110 % de lo declarado. Las direcciones de los informes aparecen como texto sin enlace: cópielas en el navegador y compruebe el informe en la web del laboratorio o de la tienda.",
+    "relData": "Descargar los datos (CSV / JSON)"
+  },
+  "dc": {
+    "title": [
+      "Códigos de descuento de tiendas de péptidos {year}",
+      "Códigos para lectores de tiendas de péptidos {year}"
+    ],
+    "description": [
+      "Códigos para lectores que {n} tiendas asociadas auditadas emitieron a PeptideLabIndex, ordenados por puntuación, sin descuentos inventados. Compare las tiendas."
+    ],
+    "h1": "Códigos para lectores de tiendas asociadas auditadas ({year})",
+    "intro": "{n} tiendas asociadas auditadas nos han emitido un código para lectores que podemos mostrar. Los códigos aparecen por orden de puntuación de la auditoría, no por tamaño del descuento. Nuestras tablas de precios muestran siempre precios antes de cualquier código, para que compare las tiendas en igualdad de condiciones.",
+    "faqs": [
+      {
+        "q": "¿Están verificados estos códigos?",
+        "a": "Cada código nos lo emitió la propia tienda a través de su programa de afiliación. No listamos códigos encontrados en otros sitios."
+      },
+      {
+        "q": "¿Por qué algunas tiendas asociadas dicen \"Código para lectores en el análisis\"?",
+        "a": "Las condiciones de afiliación de algunas tiendas no permiten mostrar códigos en páginas de cupones. En esas tiendas el código aparece solo en su propia página de análisis."
+      },
+      {
+        "q": "¿Los códigos cambian sus rankings?",
+        "a": "No. Los rankings usan solo la puntuación de la auditoría. Ni un código ni una comisión cambian nunca la puntuación."
+      }
+    ],
+    "byScore": "Tiendas asociadas por puntuación de la auditoría",
+    "scoreOf": "Puntuación de la auditoría: {s} sobre 5",
+    "linkOnly": "Sin código. Solo enlace a la tienda.",
+    "othersP": "Otras {others} tiendas auditadas no nos han emitido un código para lectores. Su puntuación e informes están en su análisis:",
+    "psNote": "¿Busca Peptide Sciences? Dejó de vender en 2026:",
+    "psLink": "situación de Peptide Sciences y alternativas"
+  },
+  "pix": {
+    "title": [
+      "Índice de precios de péptidos {year} por clase"
+    ],
+    "description": [
+      "Precio por mg publicado más bajo de {n} compuestos de investigación, agrupados por clase, con EUR y USD por separado. Consulte precios y abra comparativas."
+    ],
+    "crumb": "Índice de precios",
+    "h1": "Índice de precios de péptidos de investigación",
+    "otherCat": "Otros compuestos de investigación",
+    "bySize": "Por tamaño:",
+    "intro": "Precio por mg publicado más bajo de {n} compuestos de investigación, agrupados por clase de compuesto. Se basa en {products} precios de {shops} tiendas auditadas, leídos el {date}. EUR y USD nunca se convierten. Abra un compuesto para ver la tabla completa de todas las tiendas."
+  },
+  "cx": {
+    "title": [
+      "Índice de compuestos: datos, viales e informes"
+    ],
+    "description": [
+      "Datos neutrales de {n} compuestos de investigación: clase, CAS, tamaños de vial en venta e informes de laboratorio en {shops} tiendas auditadas. Consulte el índice."
+    ],
+    "itemList": "Compuestos de investigación",
+    "h1": "Índice de compuestos de investigación",
+    "intro": "Datos de referencia neutrales de {n} compuestos de investigación que venden las tiendas auditadas: qué es cada compuesto, su clase e identificadores, tamaños de vial en venta y cuántos informes de laboratorio abrimos. Datos revisados el {date}. Sin información de uso ni de salud.",
+    "reportsOpened": {
+      "one": "{n} informe de laboratorio abierto",
+      "other": "{n} informes de laboratorio abiertos"
+    }
+  },
+  "cmp": {
+    "title": [
+      "{c}: datos, tamaños de vial e informes ({year})",
+      "{c}: datos, tamaños de vial e informes",
+      "{c}: datos e informes de laboratorio"
+    ],
+    "description": [
+      "{c}: clase, CAS {cas}, masa molecular, tamaños de vial en {n} tiendas auditadas y {nrep} informes de laboratorio abiertos. Compare precios.",
+      "{c}: clase, CAS, tamaños de vial en {n} tiendas auditadas y {nrep} informes de laboratorio abiertos. Compare precios."
+    ],
+    "h1": "{name}: datos del compuesto de investigación",
+    "intro1": "{name}: {cls}.",
+    "intro2": "{n} de las tiendas que auditamos lo venden en {sizes} ({list}).",
+    "intro2none": "Ninguna de las tiendas auditadas lo vende.",
+    "intro3": "Abrimos {reports} sobre él.",
+    "intro3fill": "Abrimos {reports} sobre él; el contenido medido fue del {range} de lo declarado.",
+    "fq1": "¿Qué es {c}?",
+    "fa2": "Las tiendas auditadas venden {c} en viales de {list} ({n} tiendas: {eu} de la UE, {us} de EE. UU.).",
+    "fa2none": "Ninguna tienda auditada vende {c}.",
+    "fq3": "¿Hay informes de laboratorio de {c}?",
+    "fa3": "Abrimos {nrep} informes de {c} de {nshops} tiendas; {portal} estaban verificados en el portal del laboratorio. Laboratorios indicados: {labs}.",
+    "fq4": "¿Qué debe mostrar un informe de laboratorio de {c}?",
+    "relPair": "Comparativa de compuestos de investigación",
+    "cta": "Comparar precios de {c}",
+    "whatIs": "Qué es {c}",
+    "checkH": "Qué revisar en el informe de laboratorio",
+    "name": "Nombre",
+    "class": "Clase",
+    "group": "Grupo en este sitio",
+    "cas": "Número CAS",
+    "mw": "Masa molecular",
+    "marketH": "{c} en el mercado",
+    "statShops": "Tiendas que lo venden",
+    "names": "Nombres de producto en las tiendas auditadas:",
+    "barsTitle": "{c}: precio por mg por oferta ({cur})",
+    "coverageH": "Informes de laboratorio",
+    "coverageP": "{reports} abiertos, {portal} verificados en el portal. Laboratorios: {labs}.",
+    "ruo": "Solo para uso en investigación. Esta página describe un reactivo de laboratorio tal como lo listan las tiendas. No incluye información sobre uso humano o veterinario."
+  },
+  "m": {
+    "title": [
+      "Cómo puntuamos tiendas de péptidos: metodología"
+    ],
+    "description": [
+      "Cómo puntuamos: seis partes ponderadas, una puntuación de 0 a 5 y {reports} informes de laboratorio abiertos el {date}. Sin posiciones pagadas. Lea el método."
+    ],
+    "h1": "Cómo puntuamos las tiendas de péptidos de investigación",
+    "intro": "Cada tienda recibe una puntuación de 0 a 5. Es una media ponderada de seis partes, encabezada por la verificación de laboratorio (30 %) y la exactitud del contenido (20 %). El {date} leímos páginas públicas de tiendas, informes y portales de laboratorio. No hicimos pedidos de prueba, y la comisión nunca cambia una puntuación ni un ranking.",
+    "faqs": [
+      {
+        "q": "¿Compran productos y los envían a un laboratorio?",
+        "a": "No. Esta auditoría lee lo que publican tiendas y laboratorios. No hicimos pedidos de prueba, así que no podemos confirmar el contenido de un envío concreto."
+      },
+      {
+        "q": "¿Puede una tienda pagar por una mejor puntuación?",
+        "a": "No. Las tiendas asociadas pagan comisión por las ventas a través de nuestros enlaces, pero la fórmula es la misma para todas. Los rankings ordenan las tiendas asociadas solo por puntuación."
+      },
+      {
+        "q": "¿Cómo se calcula el precio por mg?",
+        "a": "Precio publicado dividido por los mg de la etiqueta. Si se muestra un precio de oferta, usamos ese. No restamos códigos de descuento ni convertimos entre EUR y USD."
+      },
+      {
+        "q": "¿Cada cuánto se actualizan los datos?",
+        "a": "El conjunto de datos actual se leyó el {date}. Cada página muestra la fecha de su última revisión."
+      }
+    ],
+    "partsH": "Las seis partes de la puntuación",
+    "partsP": "El auditor puntúa cada parte de 0 a 10, con una justificación escrita en la página de cada tienda. La media ponderada se divide entre dos para obtener la puntuación de 0 a 5.",
+    "part": {
+      "labVerification": "¿Publica la tienda informes de laboratorio y los encontramos en la web del laboratorio de análisis? Los informes que solo existen como archivo en la tienda cuentan menos que los que pudimos buscar en el portal del laboratorio.",
+      "fillAccuracy": "¿Cuánto se acerca la cantidad medida a lo declarado? En cada informe abierto dividimos los mg medidos por los mg de la etiqueta. 100 % significa que el vial contiene exactamente la cantidad de la etiqueta.",
+      "panelDepth": "¿Qué análisis cubren los informes? Solo pureza puntúa menos que pureza más mg medidos, identidad (espectrometría de masas), endotoxinas, esterilidad o metales pesados.",
+      "entityTransparency": "¿Indica la tienda en sus propias páginas la empresa que hay detrás, con dirección o número de registro?",
+      "dispatchReliability": "¿Publica la tienda a dónde envía, en cuánto tiempo y con qué transportistas?",
+      "valuePerMg": "¿Cómo se compara el precio por mg publicado con el de otras tiendas auditadas? Si una tienda no publica precios, esta parte se omite y los demás pesos se reescalan."
+    },
+    "didH": "Qué hicimos el {date}",
+    "did": [
+      "Leímos las páginas públicas de {shops} tiendas: tienda, productos, envíos, condiciones, aviso legal y páginas de informes.",
+      "Abrimos {reports} informes de laboratorio y anotamos laboratorio, fecha del análisis, pureza, cantidad declarada y mg medidos.",
+      "Buscamos los informes en el portal del laboratorio cuando lo había. {portal} informes se encontraron allí (\"verificados en el portal\").",
+      "Registramos {products} precios publicados con tamaño de vial, divisa y precio de oferta."
+    ],
+    "notH": "Qué no hicimos",
+    "not": [
+      "Ni compras de prueba ni análisis propios.",
+      "Ni consultas en registros mercantiles. La transparencia de la empresa puntúa solo lo que la tienda publica sobre sí misma.",
+      "Ninguna información sobre uso humano o veterinario. Todos los productos se venden como reactivos solo para investigación."
+    ],
+    "termsH": "Términos usados en este sitio",
+    "term": {
+      "portal": "Verificado en el portal",
+      "shop": "Alojado por la tienda",
+      "fill": "Medido frente a lo declarado",
+      "purity": "Pureza",
+      "perMg": "Precio por mg"
+    },
+    "termDef": {
+      "portal": "encontramos el informe en la web del laboratorio de análisis, no solo en la página de la tienda.",
+      "shop": "el informe solo existe como archivo o imagen en la página de la tienda.",
+      "fill": "mg medidos divididos por los mg de la etiqueta, en porcentaje.",
+      "purity": "la pureza HPLC indicada en el informe.",
+      "perMg": "precio del vial dividido por los mg de la etiqueta."
+    },
+    "partnersH": "Socios y enlaces",
+    "partnersP": "Algunas tiendas son socias de afiliación. Solo las tiendas asociadas reciben un enlace \"Visitar\", marcado como patrocinado. Los rankings listan las tiendas asociadas por puntuación. Las demás conservan su puntuación y aparecen en \"Otras tiendas auditadas\" con un enlace a nuestro análisis. Las direcciones de los informes aparecen como texto, no como enlace.",
+    "dataP": "El conjunto de datos completo está disponible en CSV y JSON:"
+  },
+  "legal": {
+    "title": [
+      "Aviso legal y aviso de afiliación | {site}"
+    ],
+    "description": [
+      "Uso solo en investigación, aviso de afiliación, exactitud de los datos y privacidad en PeptideLabIndex (peptidelabtest.org). Cómo funcionan los enlaces de socios."
+    ],
+    "crumb": "Aviso legal",
+    "h1": "Aviso legal, transparencia y privacidad",
+    "h_ruo": "1. Solo para uso en investigación",
+    "p_ruo": "{domain} compara informes de laboratorio públicos, precios publicados y datos de tiendas de productos que las tiendas venden como reactivos de laboratorio solo para investigación (RUO). Nada en este sitio es asesoramiento médico. Ninguno de los productos está aprobado para uso humano ni veterinario, y no damos información sobre ese uso.",
+    "h_aff": "2. Aviso de afiliación",
+    "p_aff1": "Algunas tiendas son socias de afiliación. Los enlaces marcados como \"Visitar\" llevan a esas tiendas y llevan rel=\"sponsored\". Si compra a través de uno o usa un código para lectores de un socio, podemos recibir una comisión sin coste adicional para usted.",
+    "p_aff2": "La comisión no cambia las puntuaciones de la auditoría. Los rankings ordenan las tiendas asociadas solo por puntuación. Las tiendas no asociadas también se puntúan y se listan, sin enlace saliente.",
+    "h_war": "3. Sin garantía",
+    "p_war": "Todos los datos se leyeron de fuentes públicas en la fecha indicada en cada página. Las tiendas cambian precios, existencias e informes a menudo. Compruebe la tienda y el portal del laboratorio antes de fiarse de una cifra.",
+    "h_priv": "4. Privacidad",
+    "p_priv": "Contamos las visitas con una instancia propia de Plausible Analytics, que no usa cookies ni recopila datos personales. La calculadora de concentración funciona por completo en su navegador; lo que escribe no se nos envía.",
+    "h_contact": "5. Contacto",
+    "p_contact": "Contacto editorial y de socios:"
+  },
+  "adv": {
+    "title": [
+      "Para tiendas: auditoría y programa de socios | {site}"
+    ],
+    "description": [
+      "Cómo pueden las tiendas de péptidos de investigación enviar nuevos informes para la próxima auditoría y cómo funciona nuestro programa de socios. Las notas no se venden."
+    ],
+    "h1": "Para tiendas: actualizaciones de la auditoría y programa de socios",
+    "intro": "Auditamos {shops} tiendas con un método público. Las tiendas pueden enviar nuevos informes de laboratorio para la próxima revisión y solicitar nuestro programa de socios. Ninguna de las dos cosas cambia el cálculo de la puntuación.",
+    "sendH": "Enviar nuevos informes de laboratorio",
+    "sendP": "Si su tienda ha publicado nuevos informes, envíenos los enlaces y, si existen, las claves del portal del laboratorio. Los incluiremos en la próxima ronda de auditoría tras comprobarlos en la web del laboratorio.",
+    "progH": "Programa de socios",
+    "prog": [
+      "Las tiendas asociadas reciben un enlace \"Visitar\" con su seguimiento de afiliación.",
+      "Mostramos códigos para lectores solo si usted nos los emite, y solo donde sus condiciones lo permiten.",
+      "Los rankings ordenan las tiendas asociadas por puntuación de la auditoría. Ser socio nunca sube una puntuación ni elimina un punto débil.",
+      "Sus ofertas y textos deben cumplir las normas de uso en investigación. No publicamos afirmaciones de uso ni de salud."
+    ]
+  },
+  "calcp": {
+    "title": [
+      "Calculadora de concentración para viales (mg/mL)"
+    ],
+    "description": [
+      "Calculadora de laboratorio de la concentración madre (mg/mL) para viales con uno o dos compuestos, con mg medidos opcionales. Solo para investigación."
+    ],
+    "crumb": "Calculadora de concentración",
+    "h1": "Calculadora de concentración de la solución madre",
+    "intro": "Calcula la concentración de la solución madre en mg/mL a partir de la masa del vial y el volumen de disolvente añadido. Puede usar los mg medidos de un informe de laboratorio en lugar de lo declarado. Solo para trabajo de laboratorio in vitro; sin indicaciones de uso.",
+    "faqs": [
+      {
+        "q": "¿Cómo se calcula la concentración de la solución madre?",
+        "a": "Concentración madre (mg/mL) = masa del vial (mg) dividida por el volumen de disolvente añadido (mL). Ejemplo: 10 mg en 2 mL = 5 mg/mL."
+      },
+      {
+        "q": "¿Por qué introducir los mg medidos de un informe de laboratorio?",
+        "a": "La cantidad medida en un informe puede diferir de lo declarado. En nuestra auditoría, el contenido medido estuvo a veces por encima y a veces por debajo de lo declarado; con el valor medido la concentración es más exacta."
+      }
+    ]
+  },
+  "lw": {
+    "title": [
+      "Péptidos de investigación por país: autoridades y tiendas"
+    ],
+    "description": [
+      "Información general de {n} países: qué autoridad regula los medicamentos y qué tiendas auditadas de péptidos de investigación envían allí. No es asesoría legal."
+    ],
+    "crumb": "Normas por país",
+    "h1": "Información por país",
+    "intro": "Información general de {n} países: las autoridades competentes en medicamentos y qué tiendas auditadas declaran enviar allí (a {date}). No es asesoría legal. Consulte las normas vigentes con la autoridad antes de pedir.",
+    "shipHere": {
+      "one": "{n} tienda auditada declara enviar aquí",
+      "other": "{n} tiendas auditadas declaran enviar aquí"
+    }
+  },
+  "law": {
+    "title": [
+      "Péptidos de investigación en {country}: normas y tiendas",
+      "Péptidos en {country}: normas y tiendas",
+      "Péptidos en {country}"
+    ],
+    "description": [
+      "{country}: qué autoridad regula los medicamentos y qué tiendas de péptidos de investigación auditadas declaran enviar allí. Consulte tiendas y normas."
+    ],
+    "h1": "Péptidos de investigación en {country}",
+    "intro": {
+      "one": "{n} de las tiendas auditadas declara enviar a {country}. Esta página es información general, no asesoría legal.",
+      "other": "{n} de las tiendas auditadas declaran enviar a {country}. Esta página es información general, no asesoría legal."
+    },
+    "authH": "Autoridades",
+    "rules": "Las normas cambian. Antes de pedir, compruebe la situación actual con la autoridad y siga las normas de compras de su institución.",
+    "shopsH": "Tiendas auditadas que envían a {country}",
+    "shopsP": "Según la información de envío publicada por las tiendas el {date}, ordenadas por puntuación de la auditoría. {unknown} tiendas no indican a dónde envían.",
+    "colShips": "Envía a (según la tienda)",
+    "relAll": "Todas las normas por país"
+  },
+  "ri": {
+    "title": [
+      "Guías: cómo leer y verificar informes de péptidos"
+    ],
+    "description": [
+      "Guías claras sobre informes de laboratorio de péptidos de investigación: cómo verificar un informe, pureza frente a mg medidos y los nombres en clave de las tiendas."
+    ],
+    "crumb": "Guías",
+    "h1": "Guías",
+    "intro": "Guías breves y claras para leer y verificar informes de laboratorio de péptidos de investigación. Sin información de uso ni de salud."
+  },
+  "r": {
+    "keyPoints": "Puntos clave",
+    "whereH": "Dónde permite verificar cada laboratorio",
+    "noLookup": "no se encontró búsqueda pública",
+    "verifyP": "En nuestra auditoría del {date}, {portal} de {reports} informes abiertos se pudieron encontrar en el portal del laboratorio.",
+    "foundH": "Qué encontró nuestra auditoría",
+    "foundP": "De los {n} informes que indican pureza y mg medidos, {hp} muestran una pureza del 99 % o más. {off} de ellos quedaron aun así fuera del 90-110 % de lo declarado.",
+    "allListed": "Todos los informes están en",
+    "namesH": "Nombres de producto de {c} ({n} ofertas)",
+    "psLink": "Ver la página sobre Peptide Sciences",
+    "published": "Publicado el {pub} por el equipo editorial de PeptideLabIndex. Datos revisados el {date}."
+  },
+  "data": {
+    "title": [
+      "Datos abiertos: auditoría de tiendas de péptidos 2026"
+    ],
+    "description": [
+      "Descargue {n} precios publicados de {shops} tiendas auditadas con precio por mg, informes de laboratorio y puntuaciones. CSV y JSON con licencia CC BY 4.0."
+    ],
+    "crumb": "Datos abiertos",
+    "h1": "Datos abiertos: auditoría de tiendas de péptidos de investigación 2026",
+    "intro": "Los datos de precios completos de este sitio: {n} precios publicados de {shops} tiendas auditadas, una fila por producto, con precio por mg, si abrimos un informe de laboratorio de ese compuesto en esa tienda y la puntuación de la tienda. Revisados el {date}. Uso libre con atribución (CC BY 4.0).",
+    "csv": "Descargar CSV",
+    "json": "Descargar JSON",
+    "englishNote": "Los archivos de datos usan nombres de columna y valores en inglés.",
+    "colsH": "Columnas",
+    "colCol": "Columna",
+    "colMeaning": "Significado",
+    "col": {
+      "shop": "Nombre de la tienda",
+      "shopSlug": "ID de la tienda (coincide con /vendors/<id>/)",
+      "region": "EU o US",
+      "compound": "ID del compuesto (coincide con /compounds/<id>/)",
+      "product": "Nombre del producto según la tienda",
+      "vialMg": "mg de la etiqueta",
+      "price": "Precio publicado",
+      "salePrice": "Precio de oferta, si se muestra",
+      "currency": "EUR o USD (nunca convertidos)",
+      "pricePerMg": "Precio (el de oferta si se muestra) / mg de la etiqueta",
+      "labReportOpenedForCompound": "Abrimos un informe de laboratorio de esta tienda para este compuesto",
+      "portalVerified": "Al menos uno de esos informes se encontró en el portal del laboratorio",
+      "shopScore": "Puntuación de la auditoría 0-5",
+      "reviewedAt": "Fecha de la revisión de la tienda"
+    },
+    "notesH": "Notas",
+    "notes": [
+      "Los precios son de lista, sin códigos de descuento. EUR y USD nunca se convierten.",
+      "Las celdas vacías indican que la tienda no publicó el dato.",
+      "Cítelo como: {site}, research peptide shop audit, {date}, {url}."
+    ],
+    "notesReports": "Las direcciones e ID de los informes están en la página de análisis de cada tienda y en"
+  }
+}
