@@ -1,49 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ReconstitutionCalculator from '../components/ReconstitutionCalculator.astro';
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How is stock concentration calculated?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Stock concentration (mg/mL) = compound mass in the vial (mg) divided by the diluent volume added (mL). Example: 10 mg in 2 mL = 5 mg/mL. Laboratory research use only.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Why should I enter the COA measured mg instead of the label mg?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Lyophilized research vials routinely test between -10% below and +20% above label claims on third-party HPLC assays. Using the exact COA milligram weight yields accurate stock concentrations.',
-      },
-    },
-  ],
-};
+import PageHero from '../components/PageHero.astro';
+import ConcentrationCalculator from '../components/ConcentrationCalculator.astro';
+import FAQ from '../components/FAQ.astro';
+import { faqSchema } from '../lib/site';
+const faqs = [
+  { q: 'How is stock concentration calculated?', a: 'Stock concentration (mg/mL) = mass in the vial (mg) divided by the volume of diluent added (mL). Example: 10 mg in 2 mL = 5 mg/mL.' },
+  { q: 'Why enter the measured mg from a lab report?', a: 'The measured amount on a lab report can differ from the label. In our audit, opened reports showed measured content above and below the label amount, so the measured figure gives a more exact concentration.' },
+];
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Concentration calculator', url: '/calculator/' }];
 ---
-
-<BaseLayout
-  title="Vial Stock Concentration Calculator (mg/mL, COA Mass Override)"
-  description="Free laboratory stock concentration calculator (mg/mL) for single and two-compound research vials, with third-party COA measured milligram override. Research use only."
-  jsonLd={faqSchema}
->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
-    <div class="max-w-3xl space-y-3">
-      <nav class="text-xs font-mono text-slate-400">
-        <a href="/" class="hover:text-cyan-400">Home</a> / <span class="text-slate-200">Concentration Calculator</span>
-      </nav>
-      <h1 class="text-3xl sm:text-5xl font-black text-white">
-        Vial Stock Concentration Calculator
-      </h1>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Calculates the stock concentration (mg/mL) of single and two-compound lyophilized research vials, with optional COA-measured milligram adjustment. For in-vitro laboratory research only; no dosing or usage information.
-      </p>
-    </div>
-
-    <ReconstitutionCalculator />
+<BaseLayout title="Vial Stock Concentration Calculator (mg/mL)" description="Laboratory stock concentration calculator (mg/mL) for single and two-compound research vials, with an optional measured-mg input. Research use only." crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title="Vial stock concentration calculator" intro="Works out the stock concentration in mg/mL from the mass in a vial and the volume of diluent added. You can use the measured mg from a lab report instead of the label. For in-vitro laboratory work only; no dosing or usage information." />
+  <div class="wrap mt-10 space-y-14">
+    <ConcentrationCalculator />
+    <FAQ items={faqs} />
   </div>
 </BaseLayout>

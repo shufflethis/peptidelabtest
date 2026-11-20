@@ -1,34 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import { SITE_BRAND } from '../data/affiliates';
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Legal', url: '/legal/' }];
 ---
-
-<BaseLayout
-  title={`Legal Notice, RUO Terms & FTC Disclosure | ${SITE_BRAND.name}`}
-  description="Research Use Only (RUO) terms of use, FTC affiliate disclosure, and privacy policy for PeptideLabIndex (peptidelabtest.org)."
->
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-6">
-    <h1 class="text-3xl sm:text-5xl font-black text-white">Legal Notice, RUO Terms &amp; Disclosures</h1>
-
-    <div class="glass-card rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-extrabold text-white">1. Strict Research Use Only (RUO) Scope</h2>
-      <p class="text-sm text-slate-300 leading-relaxed">
-        {SITE_BRAND.domain} is an informational analytical directory indexing publicly available laboratory Certificates of Analysis (HPLC, LC-MS, endotoxin, sterility) for in-vitro laboratory reagents. None of the information, calculators, or supplier reviews on this website constitutes medical advice or clinical guidance. All referenced compounds are strictly NOT for human or veterinary administration.
-      </p>
+<BaseLayout title={`Legal Notice, Affiliate Disclosure & Privacy | ${SITE_BRAND.name}`} description="Research-use-only scope, affiliate disclosure and privacy notice for PeptideLabIndex (peptidelabtest.org)." crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title="Legal notice, disclosure and privacy" />
+  <div class="wrap mt-12">
+    <div class="prose-read">
+      <h2>1. Research use only</h2>
+      <p>{SITE_BRAND.domain} compares publicly available lab reports, listed prices and shop information for products that shops sell as research-use-only (RUO) laboratory reagents. Nothing on this site is medical advice. None of the products is approved for human or veterinary use, and we give no information on such use.</p>
+      <h2>2. Affiliate disclosure</h2>
+      <p>Some shops are affiliate partners. Links marked "Visit shop" go to these partners and carry rel="sponsored". If you buy through such a link, or use a reader code a partner issued to us, we may earn a commission at no extra cost to you.</p>
+      <p>Commission does not change audit scores. Rankings sort partner shops by audit score only. Shops without a partnership are still scored and listed, without an outbound link.</p>
+      <h2>3. No warranty</h2>
+      <p>All data was read from public sources on the date shown on each page. Shops change prices, stock and reports often. Check the shop and the lab portal before you rely on any figure.</p>
+      <h2>4. Privacy</h2>
+      <p>We use a self-hosted Plausible Analytics instance to count page views. It does not use cookies and does not collect personal data. The concentration calculator runs entirely in your browser; inputs are not sent to us.</p>
+      <h2>5. Contact</h2>
+      <p>Editorial and partner contact: <a href={`mailto:${SITE_BRAND.contactEmail}`}>{SITE_BRAND.contactEmail}</a></p>
     </div>
-
-    <div class="glass-card rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-extrabold text-white">2. FTC Affiliate &amp; Compensation Disclosure</h2>
-      <p class="text-sm text-slate-300 leading-relaxed">
-        In accordance with FTC 16 CFR Part 255 guidelines, readers are advised that outbound links tagged with <code>rel="sponsored"</code> and partner coupon codes (such as <code>{SITE_BRAND.masterCode}</code>) may generate an affiliate referral commission when a qualifying purchase occurs. Audit scores are computed independently via our 6-axis methodology regardless of affiliate status.
-      </p>
-    </div>
-
-    <div class="glass-card rounded-2xl p-6 space-y-3">
-      <h2 class="text-xl font-extrabold text-white">3. Privacy &amp; Zero Tracking Telemetry</h2>
-      <p class="text-sm text-slate-300 leading-relaxed">
-        All calculator inputs (vial mass, diluent volume) execute 100% locally in your browser via client-side JavaScript and are never transmitted to any server. Contact: <a href={`mailto:${SITE_BRAND.contactEmail}`} class="text-cyan-400 underline">{SITE_BRAND.contactEmail}</a>.
-      </p>
-    </div>
-  </section>
+  </div>
 </BaseLayout>

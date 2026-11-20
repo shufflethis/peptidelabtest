@@ -1,41 +1,52 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import VendorCard from '../../components/VendorCard.astro';
+import PageHero from '../../components/PageHero.astro';
+import Ranking from '../../components/Ranking.astro';
+import FAQ from '../../components/FAQ.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Disclosure from '../../components/Disclosure.astro';
+import { PARTNERS, NON_PARTNERS, VENDORS_BY_SCORE, CHECKED_LABEL, YEAR, itemListSchema, faqSchema, SHOP_PAIRS } from '../../lib/site';
 import { VENDORS } from '../../data/vendors';
+
+const REGION = 'ALL' as 'ALL' | 'EU' | 'US';
+const inRegion = (r: string) => REGION === 'ALL' || r === REGION;
+const partners = PARTNERS.filter((v) => inRegion(v.region));
+const others = NON_PARTNERS.filter((v) => inRegion(v.region));
+const all = VENDORS_BY_SCORE.filter((v) => inRegion(v.region));
+const opened = all.reduce((n, v) => n + v.coaStats.opened, 0);
+const portal = all.reduce((n, v) => n + v.coaStats.portalVerified, 0);
+const noReports = all.filter((v) => !v.coaStats.opened).length;
+const label = REGION === 'EU' ? 'EU' : REGION === 'US' ? 'US' : 'EU and US';
+const best = partners[0];
+
+const title = `Research Peptide Shops Ranked ${YEAR}: ${all.length} Audited`;
+const h1 = `Research peptide shops ranked (${YEAR})`;
+const description = `${all.length} ${label} research peptide shops scored 0-5: ${opened} lab reports opened, ${portal} portal-verified. Partner ranking by audit score. Checked ${CHECKED_LABEL}.`;
+const intro = `We scored ${all.length} ${label} research peptide shops on ${CHECKED_LABEL}. Across them we opened ${opened} lab reports and found ${portal} on the lab's own portal; ${noReports} ${noReports === 1 ? 'shop publishes' : 'shops publish'} no report at all. ${best ? `The highest-scoring partner shop is ${best.name} (${best.overallScore.toFixed(1)}/5).` : ''} Rankings use the audit score only.`;
+const crumbs = REGION === 'ALL'
+  ? [{ name: 'Home', url: '/' }, { name: 'Shops', url: '/vendors/' }]
+  : [{ name: 'Home', url: '/' }, { name: 'Shops', url: '/vendors/' }, { name: `${label} shops`, url: REGION === 'EU' ? '/vendors/europe/' : '/vendors/usa/' }];
+const faqs = [
+  { q: `What is the best ${label} research peptide shop in ${YEAR}?`, a: best ? `Among partner shops with a store link, ${best.name} has the highest audit score (${best.overallScore.toFixed(1)}/5). The score combines lab verification, measured fill accuracy, test panel depth, entity transparency, dispatch information and value per mg.` : 'No partner shop in this region.' },
+  { q: 'Why are some higher-scoring shops listed under "Other audited shops"?', a: 'The ranking lists partner shops only, because only they get a store link. Other shops are scored with the same method and shown with their score and a link to our review.' },
+  { q: 'Did you buy and test products yourselves?', a: 'No. This is a desk audit of public shop pages, lab reports and lab portals. We did not place test orders.' },
+];
+const jsonLd = [itemListSchema(h1, partners.map((p) => ({ name: p.name, url: `/vendors/${p.slug}/` }))), faqSchema(faqs)];
+const related = [
+  ...(REGION !== 'EU' ? [{ href: '/vendors/usa/', label: 'US shop ranking', sub: `${VENDORS.filter((v) => v.region === 'US').length} shops` }] : []),
+  ...(REGION !== 'US' ? [{ href: '/vendors/europe/', label: 'EU shop ranking', sub: `${VENDORS.filter((v) => v.region === 'EU').length} shops` }] : []),
+  { href: '/vendors/compare/', label: 'Shop vs shop comparisons', sub: `${SHOP_PAIRS.length} partner pairs` },
+  { href: '/discount-codes/', label: 'Reader codes', sub: 'Partner shops only' },
+  { href: '/methodology/', label: 'How we score', sub: 'Weights and sources' },
+].filter((l) => REGION === 'ALL' ? true : !l.href.endsWith(REGION === 'EU' ? '/europe/' : '/usa/'));
 ---
 
-<BaseLayout
-  title="2026 Research Peptide Vendor Scorecard: 22 US & EU Suppliers Audited"
-  description="Complete 2026 COA verification scorecard ranking 22 US and European research peptide vendors on third-party lab testing, fill accuracy, and entity transparency."
->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-    <div class="max-w-3xl space-y-3">
-      <nav class="text-xs font-mono text-slate-400">
-        <a href="/" class="hover:text-cyan-400">Home</a> / <span class="text-slate-200">Vendor Scorecard</span>
-      </nav>
-      <h1 class="text-3xl sm:text-5xl font-black text-white">
-        2026 Peptide Supplier COA Scorecard
-      </h1>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        All 22 US and European suppliers audited under identical criteria: portal-verifiable third-party HPLC/LC-MS certificates, quantitative net fill weight (mg), safety panels (endotoxin/sterility/heavy metals), and corporate register verification.
-      </p>
-      <div class="flex flex-wrap gap-2.5 pt-2 font-mono text-xs">
-        <a href="/vendors/usa/" class="px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-200">
-          🇺🇸 US Domestic Suppliers Only &rarr;
-        </a>
-        <a href="/vendors/europe/" class="px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-emerald-400 text-slate-200">
-          🇪🇺 EU Domestic Suppliers Only &rarr;
-        </a>
-        <a href="/discount-codes/" class="px-3.5 py-2 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300">
-          🏷️ All Verified LABINDEX Codes &rarr;
-        </a>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
-      {VENDORS.map((vendor) => (
-        <VendorCard vendor={vendor} />
-      ))}
-    </div>
-  </section>
+<BaseLayout title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero crumbs={crumbs} title={h1} intro={intro} />
+  <div class="wrap mt-12 space-y-16">
+    <Ranking partners={partners} others={others} partnerTitle={`Ranking: ${label} shops with a store link`} otherTitle={`Other audited ${label} shops`} />
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
 </BaseLayout>
