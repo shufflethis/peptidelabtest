@@ -47,6 +47,7 @@ const alternatives = partner ? [] : alternativesFor(v, 3);
 const pairs = shopPairsFor(v.slug);
 
 const entityShort = v.legalEntity.split(/,|\s\(/)[0].trim().replace(/\.$/, '');
+const joinWeak = (xs: string[]) => xs.map((w, i) => { const t = w.replace(/\.$/, ''); return i && /^[A-Z][a-z]/.test(t) ? t[0].toLowerCase() + t.slice(1) : t; }).join('; ');
 const scoreTxt = `${v.overallScore.toFixed(1)} out of 5`;
 const reportTxt = st.opened
   ? `We opened ${st.opened} of its lab reports; ${st.portalVerified} ${st.portalVerified === 1 ? 'was' : 'were'} verified on the lab's own portal${st.fillMinPct != null ? `, and measured content was ${fillRange(v)} of the label amount` : ''}.`
@@ -61,7 +62,7 @@ const legitAnswer = [
   st.opened
     ? `${st.portalVerified} of ${st.opened} opened lab reports could be checked on the testing lab's own portal${st.portalVerified < st.opened ? `; ${st.opened - st.portalVerified} ${st.opened - st.portalVerified === 1 ? 'is' : 'are'} only hosted by the shop` : ''}.`
     : 'We could not find any public lab report.',
-  v.weaknesses.length ? `What we could not verify or found lacking: ${v.weaknesses.map((w) => w.replace(/\.$/, '')).join('; ')}.` : '',
+  v.weaknesses.length ? `What we could not verify or found lacking: ${joinWeak(v.weaknesses)}.` : '',
 ].filter(Boolean).join(' ');
 
 const codeAnswer =
@@ -196,7 +197,7 @@ const related = [
           <li><strong>Lab reports:</strong> {st.opened ? `${st.opened} opened, ${st.portalVerified} found on the lab's own portal, ${st.opened - st.portalVerified} hosted by the shop only.` : 'no public lab reports found.'}</li>
           {st.fillMinPct != null && <li><strong>Measured vs label:</strong> {fillRange(v)} of the amount on the label (100% = exact).</li>}
           <li><strong>Purity on opened reports:</strong> {purityRange(v)}.</li>
-          {v.weaknesses.length > 0 && <li><strong>What we could not verify or found lacking:</strong> {v.weaknesses.map((w) => w.replace(/\.$/, '')).join('; ')}.</li>}
+          {v.weaknesses.length > 0 && <li><strong>What we could not verify or found lacking:</strong> {joinWeak(v.weaknesses)}.</li>}
         </ul>
         <p>We did not place a test order. A desk audit cannot confirm what an individual parcel contains.</p>
       </div>

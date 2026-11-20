@@ -171,7 +171,9 @@
 
   /* Definition grids (key facts) */
   .facts { display: grid; gap: 0; }
-  .facts > div { display: grid; grid-template-columns: minmax(8rem, 34%) 1fr; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid #e2e8f0; }
+  .facts > div { display: grid; grid-template-columns: minmax(7rem, 36%) 1fr; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid #e2e8f0; }
+  /* long key-fact lists (cards): stack label over value on phones */
+  @media (max-width: 639px) { .facts.card > div { grid-template-columns: 1fr; gap: 0.1rem; } }
   .facts > div:last-child { border-bottom: 0; }
   .facts dt { color: #475569; font-size: 0.92rem; }
   .facts dd { color: #0f172a; font-size: 0.95rem; }
