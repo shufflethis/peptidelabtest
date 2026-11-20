@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ScoreRing from '../../../components/ScoreRing.astro';
+import SubscoreBars from '../../../components/SubscoreBars.astro';
+import FillChart from '../../../components/FillChart.astro';
+import CodeBadge from '../../../components/CodeBadge.astro';
+import FAQ from '../../../components/FAQ.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Disclosure from '../../../components/Disclosure.astro';
+import Icon from '../../../components/Icon.astro';
+import type { VendorProfile } from '../../../data/vendors';
+import {
+  SHOP_PAIRS, vendorBySlug, shopHref, REL_SPONSORED, fillRange, purityRange, perMg, compoundShort, faqSchema, CHECKED_LABEL, YEAR,
+  VENDORS_BY_SCORE, codeText, SUBSCORE_LABELS, shopPairsFor,
+} from '../../../lib/site';
+
+export function getStaticPaths() {
+  return SHOP_PAIRS.map(([a, b]) => ({ params: { pair: `${a}-vs-${b}` }, props: { A: vendorBySlug(a)!, B: vendorBySlug(b)! } }));
+}
+const { A, B } = Astro.props as { A: VendorProfile; B: VendorProfile };
+const rank = (v: VendorProfile) => VENDORS_BY_SCORE.findIndex((x) => x.slug === v.slug) + 1;
+const leader = A.overallScore === B.overallScore ? null : A.overallScore > B.overallScore ? A : B;
+const other = leader === A ? B : A;
+// overlapping products: same compound + same vial size, cheapest per shop
+const key = (c: string, mg: number | null) => `${c}|${mg}`;
+const best = (v: VendorProfile) => {
+  const m = new Map<string, (typeof v.products)[number]>();
+  for (const p of v.products) {
+    if (p.pricePerMg == null) continue;
+    const k = key(p.compound, p.vialMg);
+    const cur = m.get(k);
+    if (!cur || p.pricePerMg < cur.pricePerMg!) m.set(k, p);
+  }
+  return m;
+};
+const bA = best(A);
+const bB = best(B);
+const overlap = Array.from(bA.keys()).filter((k) => bB.has(k)).map((k) => ({ a: bA.get(k)!, b: bB.get(k)! }))
+  .sort((x, y) => compoundShort(x.a.compound).localeCompare(compoundShort(y.a.compound)) || (x.a.vialMg ?? 0) - (y.a.vialMg ?? 0));
+const sameCur = overlap.filter((o) => o.a.currency === o.b.currency);
+const aCheaper = sameCur.filter((o) => o.a.pricePerMg! < o.b.pricePerMg!).length;
+const bCheaper = sameCur.filter((o) => o.b.pricePerMg! < o.a.pricePerMg!).length;
+const subWins = (x: VendorProfile, y: VendorProfile) => SUBSCORE_LABELS.filter((s) => x.scores[s.key] > y.scores[s.key]).map((s) => s.label.toLowerCase());
+
+const title = `${A.name} vs ${B.name} (${YEAR}): Lab Reports, Prices & Scores`;
+const description = `${A.name} (${A.overallScore.toFixed(1)}/5) vs ${B.name} (${B.overallScore.toFixed(1)}/5): lab reports, portal verification, measured vs label and price per mg for ${overlap.length} shared products.`;
+const verdict = leader
+  ? `${leader.name} scores higher in our audit (${leader.overallScore.toFixed(1)} vs ${other.overallScore.toFixed(1)} out of 5). It leads on ${subWins(leader, other).join(', ') || 'no single part'}; ${other.name} leads on ${subWins(other, leader).join(', ') || 'none of the parts'}.`
+  : `Both shops score ${A.overallScore.toFixed(1)} out of 5 in our audit.`;
+const priceTxt = sameCur.length ? `For the ${sameCur.length} products both list in the same currency and vial size, ${A.name} is cheaper per mg on ${aCheaper} and ${B.name} on ${bCheaper}.` : 'They list no identical product in the same currency and vial size.';
+const intro = `${verdict} ${priceTxt} Data checked ${CHECKED_LABEL}.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Shops', url: '/vendors/' }, { name: 'Shop vs shop', url: '/vendors/compare/' }, { name: `${A.name} vs ${B.name}`, url: `/vendors/compare/${A.slug}-vs-${B.slug}/` }];
+const rows: [string, string, string][] = [
+  ['Audit score (0-5)', A.overallScore.toFixed(1), B.overallScore.toFixed(1)],
+  ['Rank (all audited shops)', `${rank(A)} of ${VENDORS_BY_SCORE.length}`, `${rank(B)} of ${VENDORS_BY_SCORE.length}`],
+  ['Based in', A.originCountry, B.originCountry],
+  ['Legal entity', A.legalEntity, B.legalEntity],
+  ['Labs named', A.testingLabs.join(', '), B.testingLabs.join(', ')],
+  ['Lab reports opened', `${A.coaStats.opened} (${A.coaStats.portalVerified} portal-verified)`, `${B.coaStats.opened} (${B.coaStats.portalVerified} portal-verified)`],
+  ['Measured vs label', fillRange(A), fillRange(B)],
+  ['Purity on reports', purityRange(A), purityRange(B)],
+  ['Tests on reports', A.panelBadges.join(', ') || 'not published', B.panelBadges.join(', ') || 'not published'],
+  ['Ships to', A.shipsTo, B.shipsTo],
+  ['Dispatch', A.dispatchSummary, B.dispatchSummary],
+  ['Payment', A.paymentMethods.join(', '), B.paymentMethods.join(', ')],
+  ['Prices recorded', String(A.products.length), String(B.products.length)],
+  ['Reader code', codeText(A.slug), codeText(B.slug)],
+];
+const faqs = [
+  { q: `Which is better, ${A.name} or ${B.name}?`, a: `${verdict} The score weighs lab verification, fill accuracy, test depth, entity transparency, dispatch information and value per mg.` },
+  { q: `Which is cheaper, ${A.name} or ${B.name}?`, a: `${priceTxt} Prices are list prices on ${CHECKED_LABEL}, without codes.` },
+  { q: `Do ${A.name} and ${B.name} publish lab reports?`, a: `We opened ${A.coaStats.opened} ${A.name} reports (${A.coaStats.portalVerified} portal-verified) and ${B.coaStats.opened} ${B.name} reports (${B.coaStats.portalVerified} portal-verified).` },
+];
+const fr = (v: VendorProfile) => v.coaExamples.map((r) => ({ label: `${compoundShort(r.compound)} ${r.labelMg ?? ''}${r.labelMg ? ' mg' : ''}`, sub: r.lab, labelMg: r.labelMg, measuredMg: r.measuredMg, verified: r.verifiable }));
+const related = [
+  { href: `/vendors/${A.slug}/`, label: `${A.name} review` },
+  { href: `/vendors/${B.slug}/`, label: `${B.name} review` },
+  ...[...shopPairsFor(A.slug), ...shopPairsFor(B.slug)].filter(([x, y]) => `${x}-vs-${y}` !== `${A.slug}-vs-${B.slug}`)
+    .filter((p, i, arr) => arr.findIndex((q) => q[0] === p[0] && q[1] === p[1]) === i).slice(0, 4)
+    .map(([x, y]) => ({ href: `/vendors/compare/${x}-vs-${y}/`, label: `${vendorBySlug(x)!.name} vs ${vendorBySlug(y)!.name}` })),
+];
+---
+<BaseLayout title={title} description={description} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={`${A.name} vs ${B.name}`} eyebrow={`${A.region} partner shops compared`} intro={intro} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="grid gap-5 md:grid-cols-2">
+      {[A, B].map((v) => {
+        const href = shopHref(v.slug);
+        return (
+          <div class="card p-5 sm:p-6 flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <ScoreRing score={v.overallScore} size={76} />
+              <div>
+                <a href={`/vendors/${v.slug}/`} class="text-xl font-extrabold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a>
+                <div class="text-slate-700">{v.coaStats.portalVerified} of {v.coaStats.opened} reports portal-verified</div>
+                {leader?.slug === v.slug && <span class="chip mt-1 bg-teal-50 text-teal-900 ring-1 ring-teal-300">Higher audit score</span>}
+              </div>
+            </div>
+            <SubscoreBars vendor={v} compact />
+            <CodeBadge slug={v.slug} />
+            <div class="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2">
+              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {v.name} <Icon name="external-link" class="w-4 h-4" /></a>}
+              <a href={`/vendors/${v.slug}/`} class="text-link">Read review</a>
+            </div>
+          </div>
+        );
+      })}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="h2">Key facts side by side</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">Fact</th><th scope="col">{A.name}</th><th scope="col">{B.name}</th></tr></thead>
+          <tbody>{rows.map(([k, x, y]) => <tr><td class="font-semibold text-slate-900 min-w-[9rem]">{k}</td><td class="min-w-[13rem]">{x}</td><td class="min-w-[13rem]">{y}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="h2">Same products, price per mg</h2>
+      {overlap.length ? (
+        <>
+          <p class="text-slate-700 max-w-[70ch]">{overlap.length} products that both shops list in the same vial size. Lowest listed price per mg at each shop; the lower value is in bold. No codes applied.</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th scope="col">Product</th><th scope="col" class="num">{A.name}</th><th scope="col" class="num">{B.name}</th></tr></thead>
+              <tbody>
+                {overlap.map((o) => {
+                  const same = o.a.currency === o.b.currency;
+                  const aw = same && o.a.pricePerMg! < o.b.pricePerMg!;
+                  const bw = same && o.b.pricePerMg! < o.a.pricePerMg!;
+                  return (
+                    <tr>
+                      <td class="min-w-[9rem]"><span class="font-semibold text-slate-900">{compoundShort(o.a.compound)}</span><span class="sub">{o.a.vialMg} mg vial</span></td>
+                      <td class={`num ${aw ? 'font-bold text-teal-900' : ''}`}>{perMg(o.a.pricePerMg, o.a.currency)}</td>
+                      <td class={`num ${bw ? 'font-bold text-teal-900' : ''}`}>{perMg(o.b.pricePerMg, o.b.currency)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      ) : <p class="text-slate-700">The two shops list no identical product and vial size.</p>}
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="h2">Lab reports: measured vs label</h2>
+      <div class="grid gap-6 xl:grid-cols-2">
+        <FillChart rows={fr(A)} title={A.name} />
+        <FillChart rows={fr(B)} title={B.name} />
+      </div>
+    </section>
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
+</BaseLayout>
