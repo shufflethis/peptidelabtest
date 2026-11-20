@@ -1,36 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PriceIndexWidget from '../components/PriceIndexWidget.astro';
-import { SITE_BRAND } from '../data/affiliates';
-
-const datasetSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Dataset',
-  name: '2026 Research Peptide True $/mg & €/mg COA Price Index',
-  description:
-    'Comparative dataset of research peptide prices normalized by third-party laboratory measured milligram content across US and EU suppliers.',
-  url: `${SITE_BRAND.url}/price-index/`,
-};
+import PageHero from '../components/PageHero.astro';
+import { PRICE_COMPOUNDS, compoundShort, shopsCarrying, sizePagesFor, offersFor, cheapestBy, perMg, CHECKED_LABEL, TOTALS, getCompound } from '../lib/site';
+const rows = PRICE_COMPOUNDS.map((c) => {
+  const o = offersFor(c);
+  return { slug: c, name: compoundShort(c), cat: getCompound(c)?.category || 'Other research compounds', shops: shopsCarrying(c).length, sizes: sizePagesFor(c), eur: cheapestBy(o, 'EUR'), usd: cheapestBy(o, 'USD') };
+});
+const cats = Array.from(new Set(rows.map((r) => r.cat)));
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Price index', url: '/price-index/' }];
 ---
-
-<BaseLayout
-  title="True $/mg & €/mg Peptide Price Index (2026): Normalized by COA Fill Weight"
-  description="Compare US ($) and EU (€) research peptide prices per real COA-measured milligram after verified discount codes across Retatrutide, Tirzepatide, BPC-157 & TB-500."
-  jsonLd={datasetSchema}
->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-8">
-    <div class="max-w-3xl space-y-3">
-      <nav class="text-xs font-mono text-slate-400">
-        <a href="/" class="hover:text-cyan-400">Home</a> / <span class="text-slate-200">True $/mg Price Index</span>
-      </nav>
-      <h1 class="text-3xl sm:text-5xl font-black text-white">
-        True $/mg &amp; €/mg Price-per-Measured-mg Index
-      </h1>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Standard price comparisons divide checkout price by label claims. Our index divides net post-code price by <strong>actual third-party COA milligram content</strong>—exposing fake "budget" vials that are severely underfilled.
-      </p>
-    </div>
-
-    <PriceIndexWidget />
+<BaseLayout title="Research Peptide Price Index 2026 by Category" description={`Lowest listed price per mg for ${rows.length} research compounds, grouped by class, EUR and USD separate. Links to every price comparison.`} crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title="Research peptide price index" intro={`Lowest listed price per mg for ${rows.length} research compounds, grouped by compound class. Data from ${TOTALS.products} prices at ${TOTALS.shops} audited shops, read on ${CHECKED_LABEL}. EUR and USD are never converted. Open a compound for the full shop-by-shop table.`} />
+  <div class="wrap mt-12 space-y-12">
+    {cats.map((cat) => (
+      <section class="space-y-4">
+        <h2 class="h2">{cat}</h2>
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {rows.filter((r) => r.cat === cat).map((r) => (
+            <li class="card p-5">
+              <a href={`/prices/${r.slug}/`} class="text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{r.name} prices</a>
+              <p class="mt-1 text-slate-700">{r.shops} shops · from {[r.eur && perMg(r.eur.perMg, 'EUR'), r.usd && perMg(r.usd.perMg, 'USD')].filter(Boolean).join(' or ') || 'n/a'}</p>
+              {r.sizes.length > 0 && <p class="mt-2 text-[0.94rem] text-slate-700">By size: {r.sizes.map((s, i) => <>{i > 0 && ', '}<a href={`/prices/${r.slug}/${s.size}mg/`} class="text-link font-medium">{s.size} mg</a></>)}</p>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
   </div>
 </BaseLayout>

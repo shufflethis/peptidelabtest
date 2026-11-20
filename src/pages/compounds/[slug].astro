@@ -1,146 +1,98 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import FillChart from '../../components/FillChart.astro';
+import PriceBars from '../../components/PriceBars.astro';
+import FAQ from '../../components/FAQ.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Icon from '../../components/Icon.astro';
 import { COMPOUNDS, type CompoundSpec } from '../../data/compounds';
-import { getVendorBySlug } from '../../data/vendors';
-import { resolveVendorLink } from '../../data/affiliates';
-import { getComputedBatches } from '../../data/batches';
+import {
+  compoundShort, shopsCarrying, reportsFor, sizesFor, sizePagesFor, offersFor, cheapestBy, perMg, fillPct, CHECKED_LABEL, faqSchema,
+  listJoin, PRICE_COMPOUNDS, compoundPairsFor, pairSlug, labKeyOf, YEAR,
+} from '../../lib/site';
 
 export function getStaticPaths() {
-  return COMPOUNDS.map((compound) => ({
-    params: { slug: compound.slug },
-    props: { compound },
-  }));
+  return COMPOUNDS.map((c) => ({ params: { slug: c.slug }, props: { c } }));
 }
+const { c } = Astro.props as { c: CompoundSpec };
+const short = compoundShort(c.slug);
+const shops = shopsCarrying(c.slug);
+const eu = shops.filter((s) => s.region === 'EU').length;
+const us = shops.filter((s) => s.region === 'US').length;
+const sizes = sizesFor(c.slug);
+const reps = reportsFor(c.slug);
+const portal = reps.filter((r) => r.report.verifiable).length;
+const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+const offers = offersFor(c.slug);
+const cEur = cheapestBy(offers, 'EUR');
+const cUsd = cheapestBy(offers, 'USD');
+const names = Array.from(new Set(offers.map((o) => o.product.shopProductName.replace(/\s*\d+(\.\d+)?\s*mg.*$/i, '').trim()).filter((n) => n && n.toLowerCase() !== short.toLowerCase()))).slice(0, 12);
+const labs = Array.from(new Set(reps.map((r) => r.report.lab.replace(/\s*\(.*\)\s*$/, ''))));
+const hasPrices = PRICE_COMPOUNDS.includes(c.slug);
 
-interface Props {
-  compound: CompoundSpec;
-}
-
-const { compound } = Astro.props;
-const euVendor = getVendorBySlug(compound.topEuVendorSlug);
-const usVendor = getVendorBySlug(compound.topUsVendorSlug);
-const euLink = resolveVendorLink(compound.topEuVendorSlug);
-const usLink = resolveVendorLink(compound.topUsVendorSlug);
-const matchingBatches = getComputedBatches().filter((b) => b.compoundSlug === compound.slug);
+const intro = `${c.name}: ${c.formulaOrClass}. ${shops.length} of the shops we audited list it in ${sizes.length} vial ${sizes.length === 1 ? 'size' : 'sizes'}${sizes.length ? ` (${listJoin(sizes.map((s) => `${s} mg`))})` : ''}. We opened ${reps.length} lab ${reps.length === 1 ? 'report' : 'reports'} for it${fills.length ? `; measured content was ${Math.min(...fills).toFixed(1)}–${Math.max(...fills).toFixed(1)}% of label` : ''}.`;
+const title = `${short}: Research Compound Facts, Vial Sizes & Lab Tests (${YEAR})`;
+const description = `${short} facts: class, CAS ${c.casNumber}, molecular weight, vial sizes at ${shops.length} audited shops and ${reps.length} opened lab reports. Research use only.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Compounds', url: '/compounds/' }, { name: short, url: `/compounds/${c.slug}/` }];
+const faqs = [
+  { q: `What is ${short}?`, a: c.summary },
+  { q: `Which vial sizes of ${short} are on the market?`, a: sizes.length ? `Audited shops list ${short} in ${listJoin(sizes.map((s) => `${s} mg`))} vials (${shops.length} shops: ${eu} EU, ${us} US).` : `None of the audited shops lists ${short}.` },
+  { q: `Are there lab reports for ${short}?`, a: reps.length ? `We opened ${reps.length} ${short} reports from ${new Set(reps.map((r) => r.vendor.slug)).size} shops; ${portal} were verified on the lab's own portal. Labs named: ${listJoin(labs)}.` : `We did not open a ${short} lab report at any audited shop.` },
+  { q: `What should a ${short} lab report show?`, a: c.analyticalNotes },
+];
+const fillRows = reps.map((r) => ({ label: `${r.vendor.name} ${r.report.labelMg ?? ''}${r.report.labelMg ? ' mg' : ''}`, sub: r.report.lab, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }));
+const related = [
+  ...(hasPrices ? [{ href: `/prices/${c.slug}/`, label: `${short} price comparison`, sub: `${shops.length} shops` }] : []),
+  ...sizePagesFor(c.slug).map((s) => ({ href: `/prices/${c.slug}/${s.size}mg/`, label: `${short} ${s.size} mg prices`, sub: `${s.shops} shops` })),
+  ...compoundPairsFor(c.slug).map(([a, b]) => ({ href: `/compare/${pairSlug(a, b)}/`, label: `${compoundShort(a)} vs ${compoundShort(b)}`, sub: 'Research comparison' })),
+  ...Array.from(new Set(reps.map((r) => labKeyOf(r.report.lab)?.slug).filter(Boolean) as string[])).slice(0, 3).map((s) => ({ href: `/labs/${s}/`, label: `Lab guide: ${s.replace(/-/g, ' ')}`, sub: 'How to verify a report' })),
+];
 ---
-
-<BaseLayout
-  title={`${compound.name}: LC-MS Weight (${compound.molecularWeightDa}), COA Specs & Verified Labs`}
-  description={`${compound.name} (CAS ${compound.casNumber}) analytical monograph: ${compound.molecularWeightDa}, code names (${compound.codeNameAliases.slice(0, 3).join(', ')}), reconstitution math & top US/EU labs.`}
->
-  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
-    <nav class="text-xs font-mono text-slate-400">
-      <a href="/" class="hover:text-cyan-400">Home</a> / <a href="/compounds/" class="hover:text-cyan-400">Compounds</a> / <span class="text-slate-200">{compound.name}</span>
-    </nav>
-
-    <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-5">
-      <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
-        <span class="px-2.5 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">{compound.category}</span>
-        <span class="px-2.5 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-800">CAS: {compound.casNumber}</span>
-        <span class="px-2.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Mass: {compound.molecularWeightDa}</span>
+<BaseLayout title={title} description={description} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={`${c.name}: research compound facts`} eyebrow={c.category} intro={intro}>
+    {hasPrices && <div class="mt-6"><a href={`/prices/${c.slug}/`} class="btn-primary">Compare {short} prices <Icon name="arrow-right" class="w-4 h-4" /></a></div>}
+  </PageHero>
+  <div class="wrap mt-12 space-y-14">
+    <section class="grid gap-8 lg:grid-cols-2">
+      <div class="prose-read">
+        <h2 class="!mt-0">What {short} is</h2>
+        <p>{c.summary}</p>
+        <h2>What to check on a lab report</h2>
+        <p>{c.analyticalNotes}</p>
       </div>
+      <dl class="facts card px-5 sm:px-6 py-2 self-start">
+        <div><dt>Name</dt><dd>{c.name}</dd></div>
+        <div><dt>Class</dt><dd>{c.formulaOrClass}</dd></div>
+        <div><dt>Group on this site</dt><dd>{c.category}</dd></div>
+        <div><dt>CAS number</dt><dd>{c.casNumber}</dd></div>
+        <div><dt>Molecular weight</dt><dd>{c.molecularWeightDa}</dd></div>
+      </dl>
+    </section>
 
-      <h1 class="text-3xl sm:text-5xl font-black text-white">{compound.name}</h1>
-      <p class="text-base text-slate-200 leading-relaxed">{compound.summary}</p>
+    <section class="space-y-4">
+      <h2 class="h2">{short} on the market</h2>
+      <dl class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="stat"><dt>Shops listing it</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu} EU, {us} US)</span></dd></div>
+        <div class="stat"><dt>Vial sizes</dt><dd>{sizes.length ? sizes.map((s) => `${s}`).join(', ') + ' mg' : 'n/a'}</dd></div>
+        <div class="stat"><dt>Lowest price per mg (EUR)</dt><dd>{cEur ? perMg(cEur.perMg, 'EUR') : 'n/a'}</dd></div>
+        <div class="stat"><dt>Lowest price per mg (USD)</dt><dd>{cUsd ? perMg(cUsd.perMg, 'USD') : 'n/a'}</dd></div>
+      </dl>
+      {names.length > 0 && <p class="text-slate-700 max-w-[70ch]"><strong class="text-slate-900">Product names used by audited shops:</strong> {names.join(', ')}.</p>}
+      {['EUR', 'USD'].map((cur) => {
+        const bars = offers.filter((o) => o.currency === cur && o.perMg != null).map((o) => ({ label: o.vendor.name, sub: `${o.product.vialMg} mg`, value: o.perMg as number, partner: o.partner }));
+        return bars.length > 2 ? <PriceBars bars={bars} currency={cur} title={`${short}: price per mg by listing (${cur})`} max={10} /> : null;
+      })}
+    </section>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs font-mono">
-        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
-          <span class="text-slate-400 block uppercase text-[10px]">Chemical Class / Sequence</span>
-          <span class="text-slate-100 font-semibold">{compound.formulaOrClass}</span>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
-          <span class="text-slate-400 block uppercase text-[10px]">Known Storefront Code Aliases</span>
-          <span class="text-amber-300 font-semibold">{compound.codeNameAliases.join(' · ')}</span>
-        </div>
-      </div>
+    <section class="space-y-4">
+      <h2 class="h2">Lab-test coverage</h2>
+      <p class="text-slate-700 max-w-[70ch]">{reps.length ? `${reps.length} opened ${reps.length === 1 ? 'report' : 'reports'}, ${portal} portal-verified. Labs: ${listJoin(labs)}.` : `We did not open a ${short} report at any audited shop.`}</p>
+      <FillChart rows={fillRows} title={`${short}: measured content as % of label`} />
+    </section>
 
-      <div class="p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/30 text-sm text-slate-200">
-        <strong class="text-cyan-300 font-mono">🔬 COA Analytical Verification Note:</strong> {compound.analyticalNotes}
-      </div>
-
-      <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-        <div>
-          <strong class="text-white">Standard Volumetric Reference:</strong> {compound.standardReconstitution}
-        </div>
-        <a href="/calculator/" class="text-cyan-400 hover:underline font-bold">Open Concentration Calculator &rarr;</a>
-      </div>
-    </div>
-
-    <!-- Top Audited Domestic Suppliers (EU + US) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {euVendor && (
-        <div class="glass-card rounded-2xl p-6 border border-cyan-500/30 space-y-4">
-          <div class="text-xs font-mono text-cyan-400 font-bold uppercase">🇪🇺 Top Verified EU Domestic Lab</div>
-          <div class="flex justify-between items-center">
-            <h2 class="text-2xl font-extrabold text-white">{euVendor.name}</h2>
-            <span class="font-mono text-emerald-400 font-bold">★ {euVendor.overallScore.toFixed(1)}/5.0</span>
-          </div>
-          <p class="text-xs text-slate-300">{euVendor.puritySummary} · {euVendor.dispatchSummary}</p>
-          <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-800 font-mono text-xs">
-            {euLink.promoCode && !euLink.codeOnlyOnVendorPage && (
-              <button type="button" data-copy-code={euLink.promoCode} class="px-2.5 py-1 rounded bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 cursor-pointer">
-                Code: {euLink.promoCode} (-{euLink.discountPercent}%)
-              </button>
-            )}
-            {euLink.isSponsored && (
-              <a href={euLink.href} rel={euLink.rel} target="_blank" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold">
-              Visit {euVendor.name} &rarr;
-            </a>
-            )}
-          </div>
-        </div>
-      )}
-
-      {usVendor && (
-        <div class="glass-card rounded-2xl p-6 border border-emerald-500/30 space-y-4">
-          <div class="text-xs font-mono text-emerald-400 font-bold uppercase">🇺🇸 Top Verified US Domestic Lab</div>
-          <div class="flex justify-between items-center">
-            <h2 class="text-2xl font-extrabold text-white">{usVendor.name}</h2>
-            <span class="font-mono text-emerald-400 font-bold">★ {usVendor.overallScore.toFixed(1)}/5.0</span>
-          </div>
-          <p class="text-xs text-slate-300">{usVendor.puritySummary} · {usVendor.dispatchSummary}</p>
-          <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-800 font-mono text-xs">
-            {usLink.promoCode && !usLink.codeOnlyOnVendorPage && (
-              <button type="button" data-copy-code={usLink.promoCode} class="px-2.5 py-1 rounded bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 cursor-pointer">
-                Code: {usLink.promoCode} (-{usLink.discountPercent}%)
-              </button>
-            )}
-            {usLink.isSponsored && (
-              <a href={usLink.href} rel={usLink.rel} target="_blank" class="px-4 py-2 rounded-lg bg-emerald-400 text-slate-950 font-bold">
-              Visit {usVendor.name} &rarr;
-            </a>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
-
-    {matchingBatches.length > 0 && (
-      <div class="glass-card rounded-2xl p-6 space-y-4">
-        <h2 class="text-xl font-extrabold text-white">True $/mg &amp; €/mg Audited Batches for {compound.name}</h2>
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs font-mono">
-            <thead>
-              <tr class="border-b border-slate-800 text-slate-400">
-                <th class="py-2">Supplier</th>
-                <th class="py-2">Label &rarr; COA mg</th>
-                <th class="py-2">Lab &amp; Purity</th>
-                <th class="py-2">True Price/mg</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-800/70">
-              {matchingBatches.map((b) => (
-                <tr>
-                  <td class="py-2.5 font-bold text-white"><a href={`/vendors/${b.vendorSlug}/`} class="hover:text-cyan-400">{b.vendorName}</a></td>
-                  <td class="py-2.5 text-slate-300">{b.labelMg} mg &rarr; {b.measuredMg} mg ({b.variancePercent >= 0 ? '+' : ''}{b.variancePercent}%)</td>
-                  <td class="py-2.5 text-cyan-300">{b.purityPercent}% · {b.labName}</td>
-                  <td class="py-2.5 text-emerald-400 font-bold">{b.currency === 'USD' ? '$' : '€'}{b.trueMeasuredCostPerMg == null ? "n/a" : b.trueMeasuredCostPerMg.toFixed(2)}/mg</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    )}
-  </article>
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <p class="text-sm text-slate-600 max-w-[75ch]">Research use only. This page describes a laboratory reagent as listed by shops. It contains no information on use in humans or animals.</p>
+  </div>
 </BaseLayout>

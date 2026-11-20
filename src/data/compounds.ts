@@ -34,15 +34,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: '39-amino-acid acylated triple GIP/GLP-1/GCGR agonist',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['RT-3', 'GLP-3', 'Triple G', 'RP-3', 'SR-3RT', 'GL-3 RT', 'NS-3RT', 'RTA GLP-1'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'arctic-lab-supply',
     summary:
-      'Investigational triple-receptor agonist targeting GIP, GLP-1, and glucagon receptors simultaneously, widely studied in preclinical and clinical metabolic models for energy expenditure and lipid oxidation.',
+      `Retatrutide (development code LY3437943) is a synthetic 39-amino-acid acylated peptide designed to act on three receptors: GIP, GLP-1 and glucagon. It is an investigational compound in clinical development, not an approved medicine. Shops sell it as a research-use-only reagent, often under code names.`,
     analyticalNotes:
-      'Because many storefronts list Retatrutide under shorthand codes (RT-3, GLP-3, Triple G), researchers must verify LC-MS molecular mass (~4731.3 Da) or blind GLP-1 screening on the batch COA.',
+      `Because many shops list retatrutide under code names, check that the lab report confirms identity by mass spectrometry (expected mass about 4731 Da), not only HPLC purity.`,
   },
   {
     slug: 'tirzepatide',
@@ -53,15 +53,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: '39-residue C20 fatty-diacid acylated GIP/GLP-1 co-agonist',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['TZ-2', 'GLP-2', 'GL-2 TZ', 'SR-2TZ', 'TRZ GLP-1'],
-    standardReconstitution: '2.0 ml BAC water into 15 mg vial → 7,500 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 15,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'arctic-lab-supply',
     summary:
-      'Dual incretin receptor agonist with imbalanced affinity favoring GIP over GLP-1 signaling, serving as a primary reference standard in glycemic and adipocyte signaling studies.',
+      `Tirzepatide is a synthetic 39-residue peptide with a C20 fatty diacid side chain that acts on the GIP and GLP-1 receptors. Shops sell research-grade material as a research-use-only reagent. This site covers those research listings only.`,
     analyticalNotes:
-      'Confirm C20 diacid side-chain integrity via ESI-MS deconvolution around 4813.5 Da; check net peptide mass vs. gross lyophilized mannitol cake.',
+      `Check that the report confirms identity by mass spectrometry (expected mass about 4813 Da) and states the measured mg, not only HPLC purity.`,
   },
   {
     slug: 'semaglutide',
@@ -72,15 +72,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: '31-residue acylated GLP-1(7-37) analogue',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['GLP-1 S', 'SG-1', 'Sema'],
-    standardReconstitution: '2.0 ml BAC water into 5 mg vial → 2,500 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'onyx-peptides',
     topUsVendorSlug: 'arctic-lab-supply',
     summary:
-      'Foundational single-receptor GLP-1 mimetic featuring C18 diacid albumin-binding acylation and Aib8 substitution for DPP-4 enzymatic resistance.',
+      `Semaglutide is a 31-residue acylated analogue of GLP-1(7-37) with a C18 fatty diacid side chain and an Aib substitution at position 8. Shops sell research-grade material as a research-use-only reagent. This site covers those research listings only.`,
     analyticalNotes:
-      'Mature synthesis route yields >99.3% purity across reputable labs; reject any lot lacking mass-spec confirmation at 4113.6 Da.',
+      `Check that the report confirms identity by mass spectrometry (expected mass about 4114 Da) and states the measured mg.`,
   },
   {
     slug: 'bpc-157',
@@ -91,15 +91,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: '15-residue synthetic gastric peptide (Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val)',
     purityBenchmark: '≥ 99.2% (RP-HPLC)',
     codeNameAliases: ['PL 14736', 'Body Protection Compound-157', 'BPC157 Acetate / Arginate'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'real-peptides',
     summary:
-      'Synthetic 15-amino-acid sequence investigated extensively in rodent tendon, ligament, microvascular angiogenesis (VEGFR2/eNOS), and gastrointestinal mucosal models.',
+      `BPC-157 is a synthetic 15-amino-acid peptide (Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val). Research on it is preclinical, and it has no approved medical use. Shops sell it as a research-use-only reagent, as acetate or arginate salt.`,
     analyticalNotes:
-      'Distinguish standard acetate salt (lyophilized vials) from stable arginate salt (oral/enteric assays). Check COA net mass closely: our 2026 audit recorded a -39.2% underfill on a budget EU vendor’s 10 mg BPC-157 vial.',
+      `Shops sell acetate and arginate salt forms. Check which salt the report covers and that it states the measured mg, not only HPLC purity.`,
   },
   {
     slug: 'tb-500',
@@ -109,16 +109,16 @@ export const COMPOUNDS: CompoundSpec[] = [
     molecularWeightDa: '4963.50 Da (full Tβ4) / 889.01 Da (17-23 fragment)',
     formulaOrClass: '43-amino-acid actin-sequestering polypeptide (or Ac-LKKTETQ fragment)',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
-    codeNameAliases: ['Thymosin Beta-4', 'TB4', 'Wolverine Stack Component'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
+    codeNameAliases: ['Thymosin Beta-4', 'TB4', 'Thymosin Beta-4 fragment'],
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'particle-peptides',
     topUsVendorSlug: 'real-peptides',
     summary:
-      'Actin-monomer binding peptide studied for dermal wound closure, cytoskeletal cell migration, and cardiac/corneal tissue remodeling; frequently paired with BPC-157 in dual-peptide assays.',
+      `TB-500 is the name shops use for a synthetic peptide related to thymosin beta-4, a 43-amino-acid actin-binding protein. Depending on the shop, the product is the full-length peptide or a short fragment. Research on it is preclinical, and it has no approved medical use.`,
     analyticalNotes:
-      'CRITICAL COA CHECK: Many vendors label the 7-residue fragment Ac-LKKTETQ (~889 Da) as "TB-500" while others supply full 43-aa Thymosin Beta-4 (~4963 Da). Always check the LC-MS molecular weight on the COA!',
+      `Some shops sell the 7-residue fragment Ac-LKKTETQ (about 889 Da) as TB-500, others the full 43-residue thymosin beta-4 (about 4963 Da). Check the mass on the lab report to see which one you are looking at.`,
   },
   {
     slug: 'ghk-cu',
@@ -129,15 +129,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Gly-His-Lys·Cu(II) coordination complex',
     purityBenchmark: '≥ 99.0% peptide moiety + stoichiometric Cu content',
     codeNameAliases: ['Copper Peptide', 'Prezatide Copper'],
-    standardReconstitution: '3.0 ml BAC water into 50 mg vial → 16.67 mg/ml',
+    standardReconstitution: '',
     defaultVialMg: 50,
     defaultBacMl: 3,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'real-peptides',
     summary:
-      'Naturally occurring plasma tripeptide-copper complex studied for extracellular matrix remodeling, collagen I/III gene modulation, and antioxidant SOD upregulation.',
+      `GHK-Cu is the copper(II) complex of the tripeptide glycyl-histidyl-lysine, a sequence that also occurs naturally in human plasma. Shops sell it as a research-use-only reagent, usually in larger vials than other peptides.`,
     analyticalNotes:
-      'Authentic GHK-Cu presents as a deep royal-blue violet lyophilizate; pale blue cakes often indicate excess mannitol filler or sub-stoichiometric copper chelation.',
+      `A complete report states both the peptide purity and the measured amount. Some reports also state the copper content.`,
   },
   {
     slug: 'cjc-1295',
@@ -148,15 +148,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Tetrasubstituted 29-amino-acid GHRH(1-29) analogue',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['Mod GRF 1-29', 'Modified Sermorelin'],
-    standardReconstitution: '2.0 ml BAC water into 5 mg vial → 2,500 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'particle-peptides',
     topUsVendorSlug: 'ascension-peptides',
     summary:
-      'Short-acting GHRH receptor agonist engineered with four amino-acid substitutions (Ala2, Gln8, Ala15, Leu27) to prevent rapid DPP-4 cleavage while preserving pulsatile somatotroph signaling.',
+      `CJC-1295 without DAC (also called Mod GRF 1-29) is a 29-amino-acid analogue of growth-hormone-releasing hormone (GHRH 1-29) with four amino-acid substitutions. A related version with a drug affinity complex (DAC) is sold under a similar name. It has no approved medical use.`,
     analyticalNotes:
-      'Verify whether the vial is Mod GRF 1-29 (~3368 Da, ~30 min half-life) vs. CJC-1295 with DAC (~3647 Da, maleimidopropionic acid albumin linker).',
+      `Check which version the report covers: Mod GRF 1-29 (about 3368 Da) or CJC-1295 with DAC (about 3647 Da).`,
   },
   {
     slug: 'ipamorelin',
@@ -167,15 +167,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Pentapeptide GHS-R1a selective agonist (Aib-His-D-2-Nal-D-Phe-Lys-NH2)',
     purityBenchmark: '≥ 99.2% (RP-HPLC)',
     codeNameAliases: ['NNC 26-0161'],
-    standardReconstitution: '2.0 ml BAC water into 5 mg vial → 2,500 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'particle-peptides',
     topUsVendorSlug: 'purified-peptide',
     summary:
-      'Selective pentapeptide ghrelin-receptor (GHS-R1a) agonist characterized in endocrine research for stimulating GH release without off-target ACTH, cortisol, or prolactin elevation.',
+      `Ipamorelin is a synthetic pentapeptide (Aib-His-D-2-Nal-D-Phe-Lys-NH2) that binds the ghrelin receptor (GHS-R1a). It is an investigational compound with no approved medical use. Shops sell it as a research-use-only reagent.`,
     analyticalNotes:
-      'Short 5-aa synthesis routinely achieves >99.5% purity; any report under 98.5% indicates poor solid-phase purification.',
+      `Check that the report states the measured mg and confirms identity by mass (about 712 Da).`,
   },
   {
     slug: 'tesamorelin',
@@ -186,15 +186,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Trans-3-hexenoic acid-modified human GHRH(1-44)-NH2',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['TH9507'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'peptidprofi',
     topUsVendorSlug: 'source-research',
     summary:
-      'Full-length 44-residue stabilized GHRH analogue bearing an N-terminal hexenoyl moiety, studied extensively for visceral adipose tissue lipolysis and pulsatile IGF-1 regulation.',
+      `Tesamorelin is a 44-amino-acid analogue of human GHRH with a trans-3-hexenoyl group at the N-terminus. Shops sell research-grade material as a research-use-only reagent. This site covers those research listings only.`,
     analyticalNotes:
-      'Long 44-aa chain makes synthesis costlier and more prone to deletion sequences—demand LC-MS confirmation at ~5135.9 Da.',
+      `The long 44-residue chain makes synthesis harder. Check that the report confirms identity by mass spectrometry (about 5136 Da) and states the measured mg.`,
   },
   {
     slug: 'epithalon',
@@ -205,15 +205,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Synthetic tetrapeptide (Ala-Glu-Asp-Gly)',
     purityBenchmark: '≥ 99.5% (RP-HPLC)',
     codeNameAliases: ['Epitalon', 'AEDG Tetrapeptide'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'purified-peptide',
     summary:
-      'Pineal-derived synthetic tetrapeptide researched in telomerase hTERT activation, melatonin rhythm restoration, and replicative senescence cell-culture assays.',
+      `Epithalon (also spelled Epitalon, sequence AEDG) is a synthetic tetrapeptide, Ala-Glu-Asp-Gly. Research on it is preclinical, and it has no approved medical use. Shops sell it as a research-use-only reagent.`,
     analyticalNotes:
-      'Historically subject to misidentification scams (some suppliers shipped Thymogen instead); verify exact 390.35 Da mass spec peak.',
+      `A short peptide with an expected mass of about 390 Da. Check that the report confirms identity by mass as well as purity.`,
   },
   {
     slug: 'mots-c',
@@ -224,15 +224,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: '16-residue mitochondrial-derived peptide (MRWQEMGYIFYPRKLR)',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['Mitochondrial ORF of the 12S rRNA Type-c'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'source-research',
     summary:
-      'Mitochondrial-encoded 16-amino-acid peptide regulating the folate-AICAR-AMPK metabolic axis and stress-induced nuclear gene translocation in skeletal muscle models.',
+      `MOTS-c is a 16-amino-acid peptide (MRWQEMGYIFYPRKLR) encoded in mitochondrial DNA. Research on it is preclinical, and it has no approved medical use. Shops sell it as a research-use-only reagent.`,
     analyticalNotes:
-      'Contains methionine at position 1 and 6—susceptible to sulfoxide oxidation (+16 Da impurity peak on LC-MS) if improperly lyophilized or stored warm.',
+      `The sequence contains methionine, which can oxidise. An oxidised impurity shows up about 16 Da heavier on mass spectrometry.`,
   },
   {
     slug: 'ss-31',
@@ -243,15 +243,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Aromatic-cationic mitochondria-penetrating tetrapeptide (D-Arg-Dmt-Lys-Phe-NH2)',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['Elamipretide', 'MTP-131', 'Bendavia'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'real-peptides',
     summary:
-      'Cardiolipin-binding inner mitochondrial membrane tetrapeptide studied for electron transport chain stabilization, ATP restoration, and mitochondrial ROS attenuation.',
+      `SS-31 (elamipretide) is a synthetic tetrapeptide (D-Arg-Dmt-Lys-Phe-NH2) containing the non-natural amino acid 2',6'-dimethyltyrosine. Shops sell research-grade material as a research-use-only reagent. This site covers those research listings only.`,
     analyticalNotes:
-      'Confirm non-canonical 2,6-dimethyltyrosine (Dmt) incorporation via exact 639.8 Da molecular ion.',
+      `Check that the report confirms identity by mass (about 640 Da) and states the measured mg.`,
   },
   {
     slug: 'nad-plus',
@@ -262,15 +262,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Pyridine nucleotide redox coenzyme / PARP & Sirtuin substrate',
     purityBenchmark: '≥ 99.0% (HPLC, pH-buffered lyophilizate)',
     codeNameAliases: ['Beta-NAD+', 'Coenzyme I'],
-    standardReconstitution: '2.5 ml BAC water into 500 mg vial → 200 mg/ml',
+    standardReconstitution: '',
     defaultVialMg: 500,
     defaultBacMl: 2.5,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'arctic-lab-supply',
     summary:
-      'Central cellular electron carrier and obligatory cosubstrate for sirtuin deacetylases (SIRT1–7) and PARP DNA-repair enzymes in aging research.',
+      `NAD+ (nicotinamide adenine dinucleotide) is a coenzyme found in all living cells. It is a dinucleotide, not a peptide, but peptide shops list it alongside peptides as a research-use-only reagent, usually in large vials.`,
     analyticalNotes:
-      'Unbuffered NAD+ free acid forms highly acidic solutions (pH ~2.5); check whether supplier buffers lyophilizate and verify absence of nicotinamide degradation peaks.',
+      `Check that the report states purity and the measured amount of NAD+ in the vial.`,
   },
   {
     slug: 'semax',
@@ -281,15 +281,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Synthetic heptapeptide (Met-Glu-His-Phe-Pro-Gly-Pro)',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['N-Acetyl Semax Amidate (variant)', 'ACTH(4-7)PGP'],
-    standardReconstitution: '2.0 ml BAC water or sterile saline into 5 mg vial → 2,500 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'limitless-life-nootropics',
     summary:
-      'Non-hormonal ACTH(4-10) heptapeptide analogue studied for hippocampal BDNF/TrkB mRNA upregulation, cerebral ischemia neuroprotection, and melanocortin modulation.',
+      `Semax is a synthetic heptapeptide (Met-Glu-His-Phe-Pro-Gly-Pro) made from the ACTH(4-7) fragment extended with Pro-Gly-Pro. Shops sell it as a research-use-only reagent, sometimes as an N-acetyl amidate variant.`,
     analyticalNotes:
-      'Verify base Semax (813.9 Da) vs. N-Acetyl Semax Amidate (854.9 Da) on LC-MS.',
+      `Base Semax (about 814 Da) and N-acetyl Semax amidate (about 855 Da) differ in mass. Check which one the report covers.`,
   },
   {
     slug: 'selank',
@@ -300,15 +300,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Tuftsin-derived heptapeptide (Thr-Lys-Pro-Arg-Pro-Gly-Pro)',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['TP-7', 'N-Acetyl Selank Amidate (variant)'],
-    standardReconstitution: '2.0 ml BAC water or sterile saline into 5 mg vial → 2,500 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'limitless-life-nootropics',
     summary:
-      'Synthetic analogue of endogenous immunomodulatory tetrapeptide tuftsin extended with Pro-Gly-Pro, studied for allosteric GABAA modulation and enkephalinase inhibition.',
+      `Selank is a synthetic heptapeptide (Thr-Lys-Pro-Arg-Pro-Gly-Pro) made from the tetrapeptide tuftsin extended with Pro-Gly-Pro. Shops sell it as a research-use-only reagent, sometimes as an N-acetyl amidate variant.`,
     analyticalNotes:
-      'High hydrophilicity enables rapid dissolution in 0.9% sterile saline or bacteriostatic water.',
+      `Check which variant the report covers and that it states the measured mg.`,
   },
   {
     slug: 'slu-pp-332',
@@ -319,15 +319,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Synthetic small-molecule acylhydrazone ERRα/β/γ pan-agonist (non-peptide)',
     purityBenchmark: '≥ 99.0% (HPLC / NMR)',
     codeNameAliases: ['Exercise Mimetic ERR Agonist'],
-    standardReconstitution: 'Supplied as research capsules/tablets or DMSO-cosolvent stock (hydrophobic)',
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'avellon-peptides',
     topUsVendorSlug: 'cenexa-labs',
     summary:
-      'Small-molecule pan-estrogen-related receptor (ERRα/β/γ) agonist developed to activate acute aerobic exercise transcriptional programs and mitochondrial fatty-acid oxidation in murine models.',
+      `SLU-PP-332 is a synthetic small molecule, not a peptide. Preclinical literature describes it as an agonist of the estrogen-related receptors (ERR alpha, beta and gamma). It has no approved medical use. Some peptide shops list it as a research-use-only reagent.`,
     analyticalNotes:
-      'Not water-soluble in pure aqueous BAC water—insoluble small molecule requiring oral research matrices or DMSO cosolvents in vitro.',
+      `As a small molecule, identity is usually confirmed by HPLC with mass spectrometry or NMR rather than peptide methods.`,
   },
   {
     slug: 'kpv',
@@ -338,15 +338,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'C-terminal α-MSH tripeptide (Lys-Pro-Val)',
     purityBenchmark: '≥ 99.2% (RP-HPLC)',
     codeNameAliases: ['Alpha-MSH(11-13)'],
-    standardReconstitution: '2.0 ml BAC water into 5 mg vial → 2,500 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'particle-peptides',
     topUsVendorSlug: 'genesis-peptides',
     summary:
-      'Minimal C-terminal tripeptide of alpha-melanocyte-stimulating hormone retaining NF-κB anti-inflammatory suppression without MC1R pigmentary activation.',
+      `KPV is the tripeptide Lys-Pro-Val, the C-terminal end of alpha-melanocyte-stimulating hormone (alpha-MSH 11-13). Research on it is preclinical, and it has no approved medical use. Shops sell it as a research-use-only reagent.`,
     analyticalNotes:
-      'PepT1 transporter substrate studied in both parenteral and colonic epithelial cell models.',
+      `A very short peptide (about 342 Da). Check that the report confirms identity by mass and states the measured mg.`,
   },
   {
     slug: 'thymosin-alpha-1',
@@ -357,15 +357,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'N-acetylated 28-residue thymic polypeptide',
     purityBenchmark: '≥ 98.5% (RP-HPLC)',
     codeNameAliases: ['TA1', 'Thymalfasin'],
-    standardReconstitution: '1.0–2.0 ml BAC water into 5 mg or 10 mg vial',
+    standardReconstitution: '',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'nextself-labs',
     summary:
-      '28-amino-acid acetylated polypeptide investigated for Toll-like receptor (TLR2/9) dendritic signaling, T-cell maturation, and NK-cell cytotoxicity modulation.',
+      `Thymosin alpha-1 is an N-acetylated 28-amino-acid peptide first isolated from thymus tissue. Shops sell research-grade material as a research-use-only reagent. This site covers those research listings only.`,
     analyticalNotes:
-      'Confirm N-terminal acetylation (+42 Da) in mass spectrometry to distinguish authentic Thymalfasin from unacetylated precursors.',
+      `Check the N-terminal acetylation (+42 Da) on mass spectrometry to tell the acetylated peptide from an unacetylated precursor.`,
   },
   {
     slug: 'pt-141',
@@ -376,15 +376,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Cyclic lactam heptapeptide MC3R/MC4R agonist',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['Bremelanotide'],
-    standardReconstitution: '2.0 ml BAC water into 10 mg vial → 5,000 mcg/ml',
+    standardReconstitution: '',
     defaultVialMg: 10,
     defaultBacMl: 2,
     topEuVendorSlug: 'certa-peptides',
     topUsVendorSlug: 'real-peptides',
     summary:
-      'De-amidated cyclic heptapeptide metabolite of Melanotan II acting centrally at hypothalamic MC4R/MC3R receptors.',
+      `PT-141 (bremelanotide) is a cyclic heptapeptide that binds the melanocortin receptors MC3R and MC4R. It is structurally related to melanotan II. Shops sell research-grade material as a research-use-only reagent.`,
     analyticalNotes:
-      'Distinguish C-terminal carboxylic acid PT-141 (1025.2 Da) from C-terminal amide Melanotan II (1024.2 Da) via high-resolution LC-MS.',
+      `PT-141 (about 1025 Da) and melanotan II (about 1024 Da) differ by about 1 Da. Only high-resolution mass spectrometry tells them apart.`,
   },
   {
     slug: 'aod-9604',
@@ -395,15 +395,15 @@ export const COMPOUNDS: CompoundSpec[] = [
     formulaOrClass: 'Disulfide-bridged 16-residue C-terminal hGH fragment',
     purityBenchmark: '≥ 99.0% (RP-HPLC)',
     codeNameAliases: ['Lipotropin Fragment 177-191'],
-    standardReconstitution: '2.0 ml BAC water (+ optional 0.6% acetic acid buffer if gelling occurs) into 5 mg vial',
+    standardReconstitution: '',
     defaultVialMg: 5,
     defaultBacMl: 2,
     topEuVendorSlug: 'particle-peptides',
     topUsVendorSlug: 'core-peptides',
     summary:
-      'C-terminal lipolytic domain of human growth hormone containing a Cys182–Cys189 disulfide loop, researched for beta-3 adrenergic lipolysis without IGF-1 elevation.',
+      `AOD-9604 is a 16-amino-acid fragment of human growth hormone (residues 177-191 plus an added tyrosine) with one internal disulfide bridge. It has no approved medical use. Shops sell it as a research-use-only reagent.`,
     analyticalNotes:
-      'Prone to beta-sheet fibril gelling at neutral pH in high concentrations; verify oxidized intramolecular disulfide mass (1815.1 Da vs. reduced 1817.1 Da).',
+      `Check that the report confirms identity by mass (about 1815 Da for the bridged form) and states the measured mg.`,
   },
 ];
 

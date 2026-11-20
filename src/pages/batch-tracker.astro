@@ -1,112 +1,109 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getComputedBatches } from '../data/batches';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { BATCH_RECORDS } from '../data/batches';
+import { TOTALS, CHECKED_LABEL, faqSchema, median, LABS_IN_DATA, labKeyOf, PRICE_COMPOUNDS, compoundShort } from '../lib/site';
 
-const batches = getComputedBatches().sort((a, b) => a.variancePercent - b.variancePercent);
+const rows = [...BATCH_RECORDS].sort((a, b) => a.vendorName.localeCompare(b.vendorName) || a.compoundName.localeCompare(b.compoundName));
+const fills = rows.map((r) => (100 * r.measuredMg) / r.labelMg);
+const within10 = fills.filter((f) => f >= 90 && f <= 110).length;
+const below90 = fills.filter((f) => f < 90).length;
+const above110 = fills.filter((f) => f > 110).length;
+const portal = rows.filter((r) => r.verifiable).length;
+const med = median(fills);
+const shops = new Set(rows.map((r) => r.vendorSlug)).size;
+const purities = rows.map((r) => r.purityPercent);
+const pMin = Math.min(...purities);
+const pMax = Math.max(...purities);
+
+const title = `Lab Reports We Opened: ${rows.length} Peptide Reports Checked`;
+const description = `${rows.length} research peptide lab reports with measured mg and purity from ${shops} shops; ${portal} portal-verified. Report IDs and links as plain text. Checked ${CHECKED_LABEL}.`;
+const intro = `This table lists ${rows.length} lab reports from ${shops} shops that state both measured mg and purity. ${within10} of them measured within 90-110% of the label amount, ${below90} below 90% and ${above110} above 110%. ${portal} were verified on the lab's own portal. Purity ranged from ${pMin}% to ${pMax}%.`;
+const crumbs = [{ name: 'Home', url: '/' }, { name: 'Lab reports', url: '/batch-tracker/' }];
+const faqs = [
+  { q: 'What does "measured vs label" mean?', a: 'The lab measured how many mg are in the vial. We divide that by the mg printed on the label. 100% means the vial holds exactly what the label says.' },
+  { q: 'Why are the report links not clickable?', a: 'We show lab report addresses as plain text so you can copy them and open the lab site yourself. We do not link to lab portals.' },
+  { q: 'Are all reports you opened listed here?', a: `This table shows the ${rows.length} reports that state both measured mg and purity. In total we opened ${TOTALS.reportsOpened} reports; the others are listed on each shop's review page.` },
+];
 ---
+<BaseLayout title={title} description={description} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title="Lab reports we opened" intro={intro}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>Reports in table</dt><dd>{rows.length}</dd></div>
+      <div class="stat"><dt>Portal-verified</dt><dd>{portal}</dd></div>
+      <div class="stat"><dt>Within 90-110%</dt><dd>{within10}</dd></div>
+      <div class="stat"><dt>Median measured vs label</dt><dd>{med != null ? `${med.toFixed(1)}%` : 'n/a'}</dd></div>
+    </dl>
+  </PageHero>
 
-<BaseLayout
-  title="COA Batch Fill-Variance & Underfill Tracker (2026 Peptide Lab Audit)"
-  description="Track real lyophilized fill variance (-39.2% underfill to +21.4% overfill), endotoxin, sterility, and heavy-metal panel completeness across 20 audited batches."
->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-10">
-    <div class="max-w-3xl space-y-3">
-      <nav class="text-xs font-mono text-slate-400">
-        <a href="/" class="hover:text-cyan-400">Home</a> / <span class="text-slate-200">COA Batch &amp; Fill Tracker</span>
-      </nav>
-      <h1 class="text-3xl sm:text-5xl font-black text-white">
-        COA Fill-Variance &amp; Red-Flag Tracker
-      </h1>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Sorted from worst underfill to highest overfill so researchers can immediately spot quantitative mass deviations and inspect full 6-panel testing depth (HPLC, LC-MS, Endotoxin, Sterility, Heavy Metals, Contaminant Screen).
-      </p>
-    </div>
-
-    <!-- Interactive Red-Flag Pre-Purchase Checklist -->
-    <div class="glass-card rounded-2xl p-6 border border-rose-500/30 space-y-4">
-      <h2 class="text-lg font-extrabold text-white">🚨 5-Point COA Red-Flag Scanner (Check Before Ordering)</h2>
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs font-mono">
-        {[
-          { title: '1. Missing Lab Portal Key', desc: 'PDF has no Janoshik task key, Liquilabs URL, or ILS QR token.' },
-          { title: '2. Purity % Without mg', desc: 'Shows "99.5% pure" but omits net peptide mass in milligrams.' },
-          { title: '3. Upstream Raw Batch', desc: 'Tests raw bulk powder in China rather than finished bottled vials.' },
-          { title: '4. Pre-Dissolved Pens', desc: 'Liquid cartridges shipped warm without stability degradation assays.' },
-          { title: '5. Shared / Stale Lots', desc: 'Identical lot code reused across multiple products or >9 months old.' },
-        ].map((item) => (
-          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-            <div class="text-rose-400 font-bold">{item.title}</div>
-            <div class="text-slate-400 leading-relaxed font-sans">{item.desc}</div>
-          </div>
-        ))}
+  <div class="wrap mt-12 space-y-14">
+    <section class="space-y-4">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-[70ch]">
+          <h2 class="h2">All reports with measured mg and purity</h2>
+          <p class="mt-2 text-slate-700">Type a shop, compound or lab to filter. Tap a column header to sort.</p>
+        </div>
+        <label class="block w-full sm:w-80">
+          <span class="sr-only">Filter reports</span>
+          <span class="relative block">
+            <Icon name="search" class="w-5 h-5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input id="report-filter" type="search" placeholder="Filter, e.g. BPC-157 or Janoshik" class="w-full min-h-[48px] pl-10 pr-3 rounded-xl border border-slate-300 bg-white text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-100" />
+          </span>
+        </label>
       </div>
-    </div>
-
-    <!-- Batch Matrix Table -->
-    <div class="glass-card rounded-2xl p-6 overflow-x-auto">
-      <table class="w-full text-left text-xs font-mono">
-        <thead>
-          <tr class="border-b border-slate-800 text-slate-400 uppercase text-[11px]">
-            <th class="py-3 pr-4">Batch &amp; Vendor</th>
-            <th class="py-3 px-3">Label &rarr; Measured</th>
-            <th class="py-3 px-3">Fill Variance</th>
-            <th class="py-3 px-3">HPLC</th>
-            <th class="py-3 px-3">6-Panel Matrix (HPLC / MS / Endo / Ster / Met / Fent)</th>
-            <th class="py-3 pl-3 text-right">Audit</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-slate-800/70">
-          {batches.map((b) => {
-            const badgeCls =
-              b.variancePercent <= -10
-                ? 'bg-rose-500/20 text-rose-300 border-rose-500/40'
-                : b.variancePercent < 0
-                  ? 'bg-amber-500/15 text-amber-300 border-amber-500/40'
-                  : 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40';
-            return (
-              <tr class="hover:bg-slate-900/50">
-                <td class="py-3.5 pr-4">
-                  <span class="font-sans font-bold text-white block">{b.compoundName}</span>
-                  <span class="text-slate-400">{b.vendorName} · {b.batchRef}</span>
-                </td>
-                <td class="py-3.5 px-3 text-slate-200">
-                  {b.labelMg} mg &rarr; <strong>{b.measuredMg} mg</strong>
-                </td>
-                <td class="py-3.5 px-3">
-                  <span class={`px-2 py-0.5 rounded border font-bold ${badgeCls}`}>
-                    {b.variancePercent >= 0 ? '+' : ''}{b.variancePercent}%
-                  </span>
-                </td>
-                <td class="py-3.5 px-3 text-cyan-300 font-bold">{b.purityPercent}%</td>
-                <td class="py-3.5 px-3 space-x-1">
-                  {[
-                    ['HPLC', b.panels.hplc],
-                    ['MS', b.panels.lcms],
-                    ['ENDO', b.panels.endotoxin],
-                    ['STER', b.panels.sterility],
-                    ['MET', b.panels.heavyMetals],
-                    ['FENT', b.panels.contaminantScreen],
-                  ].map(([lbl, ok]) => (
-                    <span
-                      class={`inline-block px-1.5 py-0.5 rounded text-[10px] border ${
-                        ok
-                          ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30'
-                          : 'bg-slate-950 text-slate-600 border-slate-800'
-                      }`}
-                    >
-                      {lbl}
-                    </span>
-                  ))}
-                </td>
-                <td class="py-3.5 pl-3 text-right">
-                  <a href={`/vendors/${b.vendorSlug}/`} class="text-cyan-400 hover:underline">
-                    Vendor Audit &rarr;
-                  </a>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  </section>
+      <div class="table-wrap">
+        <table class="data-table" data-sortable id="report-table">
+          <thead>
+            <tr>
+              <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">Shop <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">Compound <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Measured vs label (%) <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Purity (%) <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">Lab and test date <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col">Verification</th>
+              <th scope="col">Report ID and link (copy)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => {
+              const f = (100 * r.measuredMg) / r.labelMg;
+              const lab = labKeyOf(r.labName);
+              return (
+                <tr data-filter={`${r.vendorName} ${r.compoundName} ${r.labName}`.toLowerCase()}>
+                  <td data-v={r.vendorName} class="min-w-[9rem]"><a href={`/vendors/${r.vendorSlug}/`} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{r.vendorName}</a><span class="sub">{r.region}</span></td>
+                  <td data-v={r.compoundName} class="min-w-[9rem]">{PRICE_COMPOUNDS.includes(r.compoundSlug) ? <a href={`/prices/${r.compoundSlug}/`} class="font-medium text-slate-900 hover:text-teal-800 hover:underline">{compoundShort(r.compoundSlug)}</a> : compoundShort(r.compoundSlug)}<span class="sub">{r.labelMg} mg label</span></td>
+                  <td class="num" data-v={f.toFixed(2)}><span class={`font-semibold ${f < 90 || f > 110 ? 'text-amber-900' : 'text-slate-900'}`}>{f.toFixed(1)}%</span><span class="sub">{r.measuredMg} of {r.labelMg} mg</span></td>
+                  <td class="num" data-v={r.purityPercent}>{r.purityPercent}</td>
+                  <td data-v={r.labName} class="min-w-[10rem]">{lab ? <a href={`/labs/${lab.slug}/`} class="hover:text-teal-800 hover:underline">{r.labName}</a> : r.labName}<span class="sub">{r.testedDate}</span></td>
+                  <td>{r.verifiable ? 'Portal-verified' : 'Shop-hosted'}</td>
+                  <td class="min-w-[16rem] max-w-[22rem]"><code class="font-mono text-sm text-slate-900">{r.batchRef}</code><span class="sub mono-url">{r.reportUrl}</span></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-slate-600">Amber values are outside 90-110% of the label. Report addresses are plain text: copy them into your browser to check the report on the lab or shop site.</p>
+    </section>
+    <FAQ items={faqs} />
+    <RelatedLinks links={[
+      ...LABS_IN_DATA.slice(0, 4).map((l) => ({ href: `/labs/${l.slug}/`, label: `${l.name} guide`, sub: 'How to verify a report' })),
+      { href: '/methodology/', label: 'How we score' },
+      { href: '/data/', label: 'Download the data (CSV / JSON)' },
+    ]} />
+  </div>
 </BaseLayout>
+
+<script>
+  const input = document.getElementById('report-filter') as HTMLInputElement | null;
+  const table = document.getElementById('report-table');
+  input?.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    table?.querySelectorAll<HTMLTableRowElement>('tbody tr').forEach((tr) => {
+      tr.hidden = q !== '' && !(tr.dataset.filter || '').includes(q);
+    });
+  });
+</script>
