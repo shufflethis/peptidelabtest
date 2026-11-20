@@ -6,6 +6,7 @@ export interface ScoreBreakdown {
   panelDepth: number;
   entityTransparency: number;
   dispatchReliability: number;
+  /** -1 = not assessable (prices not public); excluded from overallScore */
   valuePerMg: number;
 }
 
@@ -32,9 +33,11 @@ export interface VendorProfile {
   weaknesses: string[];
   auditNotes: string;
   scores: ScoreBreakdown;
+  /** Not published yet (e.g. vendor must review the draft first) */
+  draft?: boolean;
 }
 
-export const VENDORS: VendorProfile[] = [
+export const ALL_VENDORS: VendorProfile[] = [
   {
     rank: 1,
     slug: 'certa-peptides',
@@ -620,7 +623,60 @@ export const VENDORS: VendorProfile[] = [
     auditNotes: 'Listed strictly as an analytical risk benchmark.',
     scores: { labVerification: 0.5, fillAccuracy: 0.5, panelDepth: 0.5, entityTransparency: 0.5, dispatchReliability: 2.5, valuePerMg: 1.5 },
   },
+  {
+    rank: 23,
+    slug: 'peptide-pro',
+    name: 'Peptide Pro',
+    region: 'US',
+    countryFlag: '🇺🇸',
+    originCountry: 'Franklin, Tennessee, USA (contiguous US only)',
+    overallScore: 3.0,
+    puritySummary: '98.40%–99.88% HPLC across 7 COAs verified on the issuing labs (Bioviridian, Freedom Diagnostics)',
+    fillVarianceNote: '102%–111% of label on the 7 reports checked; third-party data shows 77%–153% on older 2025 lots',
+    legalEntity: 'Biotech Nutra Inc. (Peptide Pro), 2000 Mallory Ln, Ste 290 #1150, Franklin, TN 37067',
+    testingLabs: ['Bioviridian Inc.', 'Freedom Diagnostics Testing'],
+    panelBadges: ['Lab-Hosted COAs', 'Measured mg', 'Lot on Report', 'LC-MS Identity'],
+    dispatchSummary: 'Contiguous US only; processed within 2 business days (vendor policy, reported by third party)',
+    freeShippingThreshold: 'Not public (catalogue behind login)',
+    paymentMethods: ['Card'],
+    topCompounds: ['BPC-157', 'GHK-Cu', 'Tesamorelin', 'MOTS-C', 'SS-31', 'KPV'],
+    verdictSummary:
+      'Tennessee supplier (Biotech Nutra Inc.) whose 7 checked certificates are served from the issuing labs’ own servers with high purity and measured content close to label; catalogue, prices and COA library sit behind a researcher login.',
+    strengths: ['7/7 checked COAs hosted on the issuing lab domains, naming Peptide Pro, with lot and measured mg', '98.40%–99.88% HPLC purity on checked reports'],
+    weaknesses: ['Catalogue, prices and COA library behind login', 'Third-party data shows wider fill variance (77%–153%) on older lots; strict no-refund policy'],
+    auditNotes:
+      'Desk audit 20 Nov 2026 (no order). COAs verified: Bioviridian COA11277, COA11284, COA11281, COA11283, COA4081; Freedom Diagnostics 2512050007, 2510310029. Opened reports show no endotoxin, heavy-metal or sterility results. $/mg not assessable because prices are not public.',
+    scores: { labVerification: 4.0, fillAccuracy: 3.0, panelDepth: 2.0, entityTransparency: 3.0, dispatchReliability: 2.0, valuePerMg: -1 },
+  },
+  {
+    rank: 24,
+    slug: 'licensed-peptides',
+    draft: true, // Licensed Peptides requires draft review before publication
+    name: 'Licensed Peptides',
+    region: 'US',
+    countryFlag: '🇺🇸',
+    originCountry: 'Boca Raton, Florida, USA (US & territories)',
+    overallScore: 4.1,
+    puritySummary: '98.04%–>99.80% HPLC across 64 Vanguard certificates (71 verified on the lab portal)',
+    fillVarianceNote: '41 of 55 single-compound certificates within 90–110% of label; range 86.1%–149.5%',
+    legalEntity: 'Licensed Peptides, Inc., 1489 W Palmetto Park Rd, Boca Raton, FL 33486',
+    testingLabs: ['Vanguard Laboratory', 'Ethos Analytics (capsules)'],
+    panelBadges: ['71/71 Portal Verified', 'Measured mg', 'Endotoxin (LAL)', 'Heavy Metals', 'Sterility', 'TFA', 'Residual Solvents'],
+    dispatchSummary: 'Same business day if paid before 4 PM PST; USPS, FedEx and UPS options; US only',
+    freeShippingThreshold: '$200 (FedEx 2-Day)',
+    paymentMethods: ['e-Check / ACH'],
+    topCompounds: ['BPC-157', 'BPC-157 / TB-500 Blend', 'GHK-Cu', 'Tesamorelin', 'MOTS-c', 'NAD+'],
+    verdictSummary:
+      'Boca Raton supplier with 71 Vanguard Laboratory certificates that all authenticate on the lab’s own portal; recent reports carry a broad panel (endotoxin, metals, sterility, TFA, solvents). Measured content varies more than the stated tolerance, and prices are visible to approved accounts only.',
+    strengths: ['71/71 Vanguard certificates verified on the lab portal under the company name', 'Recent certificates include endotoxin, heavy metals, sterility, TFA and residual solvents'],
+    weaknesses: ['Measured content 86.1%–149.5% of label, wider than the ±0.5% stated by the vendor', 'Catalogue and prices only for approved accounts; many older certificates lack a lot number'],
+    auditNotes:
+      'Desk audit 20 Nov 2026 (no order). All 71 brand certificates on verifiedbyvanguard.com returned verified for Licensed Peptides Inc. Endotoxin above 5 EU/mg on three reports (18.8, 6.23, <50 EU/mg). Ethos capsule reports read but not portal-checked. $/mg not assessable because prices are not public.',
+    scores: { labVerification: 4.5, fillAccuracy: 3.5, panelDepth: 4.5, entityTransparency: 4.0, dispatchReliability: 3.0, valuePerMg: -1 },
+  },
 ];
+
+export const VENDORS: VendorProfile[] = ALL_VENDORS.filter((v) => !v.draft);
 
 export function getVendorBySlug(slug: string): VendorProfile | undefined {
   return VENDORS.find((v) => v.slug === slug);

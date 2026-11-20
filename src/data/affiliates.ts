@@ -43,6 +43,26 @@ export interface VendorAffiliateConfig {
 }
 
 export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
+  'peptide-pro': {
+    slug: 'peptide-pro',
+    baseUrl: 'https://peptidepro.io/',
+    // Applied 2026-11-19; pilot offered (10% + 10% code + $20 new-customer bonus). Not live until approved.
+    affiliateUrl: 'https://peptidepro.io/',
+    isApproved: false,
+    hasProgram: true,
+    network: 'In-House',
+    signupUrl: 'https://affiliates.peptidepro.io/create-account',
+  },
+  'licensed-peptides': {
+    slug: 'licensed-peptides',
+    baseUrl: 'https://licensedpeptides.com/',
+    // Approved 2026-11-19 (ID 77181). Rule: send page draft to vendor BEFORE activating the link.
+    affiliateUrl: 'https://licensedpeptides.com/ref/77181/',
+    isApproved: false,
+    hasProgram: true,
+    network: 'In-House',
+    signupUrl: 'https://licensedpeptides.com/affiliates/',
+  },
   'certa-peptides': {
     slug: 'certa-peptides',
     baseUrl: 'https://certapeptides.com/',

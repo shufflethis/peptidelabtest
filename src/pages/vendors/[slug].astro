@@ -138,10 +138,10 @@ const desc = `${vendor.name} 2026 COA audit (${vendor.overallScore.toFixed(1)}/5
           <div class="space-y-1">
             <div class="flex justify-between text-xs font-mono">
               <span class="text-slate-300">{item.label}</span>
-              <span class="text-cyan-400 font-bold">{item.val.toFixed(1)} / 5.0</span>
+              <span class="text-cyan-400 font-bold">{item.val < 0 ? 'n/a (prices not public)' : `${item.val.toFixed(1)} / 5.0`}</span>
             </div>
             <div class="h-2 rounded-full bg-slate-900 overflow-hidden">
-              <div class="h-full bg-gradient-to-r from-cyan-500 to-emerald-400" style={`width: ${(item.val / 5) * 100}%`} />
+              <div class="h-full bg-gradient-to-r from-cyan-500 to-emerald-400" style={`width: ${(Math.max(0, item.val) / 5) * 100}%`} />
             </div>
           </div>
         ))}
