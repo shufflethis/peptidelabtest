@@ -32,8 +32,8 @@ for (let t = lo; t <= hi; t += step) ticks.push(t);
     <div class="grid gap-x-4 sm:grid-cols-[15rem_1fr]">
       <span class="hidden sm:block"></span>
       <div class="flex items-end gap-3">
-        <div class="relative flex-1 h-6 text-xs text-slate-700" aria-hidden="true">
-          {ticks.map((t) => <span class="absolute bottom-0 -translate-x-1/2 tabular-nums" style={`left:${x(t)}%`}>{t}%</span>)}
+        <div class="relative flex-1 h-6 text-[0.8rem] font-medium text-slate-700" aria-hidden="true">
+          {ticks.map((t, i) => <span class={`absolute bottom-0 -translate-x-1/2 tabular-nums ${ticks.length > 4 && i % 2 ? 'hidden sm:inline' : ''}`} style={`left:${x(t)}%`}>{t}%</span>)}
         </div>
         <span class="w-[4.5rem] shrink-0"></span>
       </div>

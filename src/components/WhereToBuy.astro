@@ -37,7 +37,7 @@ const regions = ['EU', 'US'].map((r) => ({
                 <div class="flex items-start gap-3">
                   <ScoreRing score={p.overallScore} size={50} />
                   <div class="min-w-0 flex-1">
-                    <a href={`/vendors/${p.slug}/`} class="font-bold text-lg text-slate-900 hover:text-teal-800 hover:underline break-words">{p.name}</a>
+                    <a href={`/vendors/${p.slug}/`} class="tap font-bold text-lg text-slate-900 hover:text-teal-800 hover:underline break-words">{p.name}</a>
                     <div class="text-sm text-slate-600">{o.product.shopProductName}</div>
                     <div class="sm:hidden mt-1"><span class="font-extrabold text-teal-900 tabular-nums">{perMg(o.perMg, o.currency)}</span> <span class="text-sm text-slate-700 tabular-nums">{money(o.price, o.currency)}{o.onSale && <s class="ml-1 text-slate-600">{money(o.listPrice, o.currency)}</s>}</span></div>
                   </div>

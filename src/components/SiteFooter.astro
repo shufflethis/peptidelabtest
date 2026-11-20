@@ -84,7 +84,7 @@ const cols: { id: string; title: string; links: { href: string; label: string }[
   <div class="wrap pt-12 pb-6">
     <div class="grid gap-x-8 gap-y-2 lg:gap-y-10 lg:grid-cols-[1.35fr_repeat(5,1fr)]">
       <div class="pb-6 lg:pb-0">
-        <a href={L('/')} class="inline-flex items-center gap-2.5" aria-label={SITE_NAME}>
+        <a href={L("/")} class="inline-flex items-center gap-2.5 min-h-[44px]" aria-label={SITE_NAME}>
           <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-600 to-emerald-700 flex items-center justify-center shadow-sm">
             <svg viewBox="0 0 24 24" class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h5M10 2.5v6L4.6 18.4A2 2 0 0 0 6.4 21.5h11.2a2 2 0 0 0 1.8-3.1L14 8.5v-6" /><path d="M7.2 14.5h9.6" /></svg>
           </span>
@@ -111,7 +111,7 @@ const cols: { id: string; title: string; links: { href: string; label: string }[
             <Icon name="chevron-down" class="w-5 h-5 text-slate-600 transition-transform group-open:rotate-180 lg:hidden" />
           </summary>
           <ul class="pb-4 lg:pb-0 space-y-1 lg:space-y-2 text-slate-700">
-            {c.links.map((l) => <li><a href={l.href} class="inline-flex items-center min-h-[40px] lg:min-h-0 hover:text-teal-800 hover:underline underline-offset-2">{l.label}</a></li>)}
+            {c.links.map((l) => <li><a href={l.href} class="inline-flex items-center min-h-[44px] lg:min-h-0 hover:text-teal-800 hover:underline underline-offset-2">{l.label}</a></li>)}
           </ul>
         </details>
       ))}

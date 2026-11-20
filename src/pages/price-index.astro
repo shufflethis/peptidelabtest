@@ -18,7 +18,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Price index', url: '/price-
         <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {rows.filter((r) => r.cat === cat).map((r) => (
             <li class="card p-5">
-              <a href={`/prices/${r.slug}/`} class="text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{r.name} prices</a>
+              <a href={`/prices/${r.slug}/`} class="tap text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{r.name} prices</a>
               <p class="mt-1 text-slate-700">{r.shops} shops · from {[r.eur && perMg(r.eur.perMg, 'EUR'), r.usd && perMg(r.usd.perMg, 'USD')].filter(Boolean).join(' or ') || 'n/a'}</p>
               {r.sizes.length > 0 && <p class="mt-2 text-[0.94rem] text-slate-700">By size: {r.sizes.map((s, i) => <>{i > 0 && ', '}<a href={`/prices/${r.slug}/${s.size}mg/`} class="text-link font-medium">{s.size} mg</a></>)}</p>}
             </li>

@@ -24,7 +24,7 @@ const { shops, title = 'Compare: audited shops with a store link', note } = Astr
             <div class="flex items-center gap-3">
               <ScoreRing score={s.overallScore} size={56} />
               <div>
-                <a href={`/vendors/${s.slug}/`} class="font-bold text-lg text-slate-900 hover:text-teal-800 hover:underline">{s.name}</a>
+                <a href={`/vendors/${s.slug}/`} class="tap font-bold text-lg text-slate-900 hover:text-teal-800 hover:underline">{s.name}</a>
                 <div class="text-sm text-slate-600">{s.region} · {s.coaStats.portalVerified} of {s.coaStats.opened} reports portal-verified</div>
                 <div class="text-sm text-slate-600">Measured vs label: {fillRange(s)}</div>
               </div>

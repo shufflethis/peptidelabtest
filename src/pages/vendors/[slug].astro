@@ -367,10 +367,10 @@ const related = [
       <div class="min-w-0 flex-1 leading-tight">
         <div class="font-bold text-slate-900 truncate">{nm}</div>
         {code.kind === 'code' ? (
-          <button type="button" data-copy={code.code} class="text-sm text-slate-700 underline underline-offset-2">Code <code class="font-mono font-bold text-teal-900">{code.code}</code>{code.percent ? ` for ${code.percent}%` : ''}</button>
+          <button type="button" data-copy={code.code} class="min-h-[32px] text-left text-sm text-slate-700 whitespace-nowrap" aria-label={`Copy code ${code.code}`}>Code <code class="font-mono font-bold text-teal-900 underline underline-offset-2">{code.code}</code>{code.percent ? ` · ${code.percent}%` : ''}</button>
         ) : <div class="text-sm text-slate-600">Score {v.overallScore.toFixed(1)} / 5</div>}
       </div>
-      <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary shrink-0">Visit {nm} <Icon name="external-link" class="w-4 h-4" /></a>
+      <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary shrink-0">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>
     </div>
   )}
 </BaseLayout>

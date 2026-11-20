@@ -94,7 +94,7 @@ const related = [
             <div class="flex items-center gap-4">
               <ScoreRing score={v.overallScore} size={76} />
               <div>
-                <a href={`/vendors/${v.slug}/`} class="text-xl font-extrabold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a>
+                <a href={`/vendors/${v.slug}/`} class="tap text-xl font-extrabold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a>
                 <div class="text-slate-700">{v.coaStats.portalVerified} of {v.coaStats.opened} reports portal-verified</div>
                 {leader?.slug === v.slug && <span class="chip mt-1 bg-teal-50 text-teal-900 ring-1 ring-teal-300">Higher audit score</span>}
               </div>

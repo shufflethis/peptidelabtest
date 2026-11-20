@@ -25,7 +25,7 @@ const labs = v.testingLabs.map((l) => l.replace(/\s*\(.*\)\s*$/, '')).slice(0, 3
         <span class="inline-flex items-center gap-1"><Icon name="map-pin" class="w-4 h-4" />{v.region} · {v.originCountry}</span>
       </div>
       <h3 class="mt-1 text-xl font-extrabold text-slate-900 leading-tight">
-        <a href={`/vendors/${v.slug}/`} class="hover:text-teal-800 hover:underline underline-offset-2">{v.name}</a>
+        <a href={`/vendors/${v.slug}/`} class="tap hover:text-teal-800 hover:underline underline-offset-2">{v.name}</a>
       </h3>
       <div class="mt-2"><VerifyBadge level={vendorVerify(v)} text={v.coaStats.opened ? `${v.coaStats.portalVerified} of ${v.coaStats.opened} reports portal-verified` : undefined} /></div>
     </div>

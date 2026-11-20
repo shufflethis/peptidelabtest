@@ -11,7 +11,7 @@ const crumbs = [{ name: 'Home', url: '/' }, { name: 'Compound comparisons', url:
     <ul class="grid gap-4 sm:grid-cols-2">
       {rows.map((r) => (
         <li class="card card-hover p-6">
-          <a href={`/compare/${pairSlug(r.a, r.b)}/`} class="text-xl font-bold text-slate-900 hover:text-teal-800 hover:underline">{compoundShort(r.a)} vs {compoundShort(r.b)}</a>
+          <a href={`/compare/${pairSlug(r.a, r.b)}/`} class="tap text-xl font-bold text-slate-900 hover:text-teal-800 hover:underline">{compoundShort(r.a)} vs {compoundShort(r.b)}</a>
           <p class="mt-2 text-slate-700">{shopsCarrying(r.a).length} shops list {compoundShort(r.a)}, {shopsCarrying(r.b).length} list {compoundShort(r.b)}, {r.both} list both.</p>
         </li>
       ))}

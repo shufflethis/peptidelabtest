@@ -13,7 +13,7 @@ const rows = COUNTRY_LAWS.map((l) => ({ l, n: VENDORS.filter((v) => shipsToCount
     <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {rows.map(({ l, n }) => (
         <li class="card card-hover p-5">
-          <a href={`/laws/${l.slug}/`} class="text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{l.country}</a>
+          <a href={`/laws/${l.slug}/`} class="tap text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{l.country}</a>
           <p class="mt-1.5 text-[0.95rem] text-slate-700">{l.authorities[0]}</p>
           <p class="mt-2 text-sm text-slate-600">{n} audited shops state they ship here</p>
         </li>

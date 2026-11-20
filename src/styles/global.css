@@ -164,7 +164,7 @@
   @media (min-width: 1024px) {
     .data-table tbody td:first-child { position: static; box-shadow: none; }
   }
-  .sort-btn { display: inline-flex; align-items: center; gap: 0.3rem; cursor: pointer; font: inherit; color: inherit; }
+  .sort-btn { display: inline-flex; align-items: center; gap: 0.3rem; cursor: pointer; font: inherit; color: inherit; min-height: 44px; text-align: left; }
   .sort-btn:hover { color: #0f766e; }
 
   .mono-url { font-family: var(--font-mono); font-size: 0.78rem; color: #334155; word-break: break-all; user-select: all; }
@@ -196,4 +196,10 @@
     body:has(.sticky-cta) { padding-bottom: 4.75rem; }
     body:has(.sticky-cta) #copy-toast { bottom: 5.5rem; }
   }
+}
+
+/* A3: tap targets >= 44px without changing the visual layout */
+@layer components {
+  .tap { padding-block: 0.65rem; margin-block: -0.65rem; }
+  :where(.flex, .grid) > a.text-link { display: inline-flex; align-items: center; min-height: 44px; }
 }
