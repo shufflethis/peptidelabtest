@@ -5,12 +5,19 @@ import { codeInfo } from '../lib/site';
 interface Props {
   slug: string;
   onOwnPage?: boolean;
-  size?: 'sm' | 'md';
+  size?: 'xs' | 'sm' | 'md';
 }
 const { slug, onOwnPage = false, size = 'sm' } = Astro.props;
 const c = codeInfo(slug, onOwnPage);
 ---
-{c.kind === 'code' && (
+{c.kind === 'code' && size === 'xs' && (
+  <span class="inline-flex items-center gap-1.5 whitespace-nowrap">
+    <span class="text-sm text-slate-700">Code</span>
+    <code class="font-mono font-bold text-teal-900 text-[0.9rem]">{c.code}</code>
+    <button type="button" data-copy={c.code} class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-teal-800 hover:bg-teal-50" aria-label={`Copy code ${c.code}`}><Icon name="copy" class="w-4 h-4" /></button>
+  </span>
+)}
+{c.kind === 'code' && size !== 'xs' && (
   <span class={`inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-xl border border-dashed border-teal-400 bg-teal-50 ${size === 'md' ? 'px-3.5 py-2.5' : 'px-3 py-1.5'}`}>
     <Icon name="tag" class="w-4 h-4 text-teal-800" />
     <span class="text-sm text-slate-700">Code</span>
@@ -23,8 +30,8 @@ const c = codeInfo(slug, onOwnPage);
 )}
 {c.kind === 'on-review' && (
   <a href={c.reviewUrl} class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-800 underline underline-offset-2 hover:text-teal-950">
-    <Icon name="tag" class="w-4 h-4" />Reader code on review page
+    <Icon name="tag" class="w-4 h-4" />{size === 'xs' ? 'Code on review page' : 'Reader code on review page'}
   </a>
 )}
-{c.kind === 'link-only' && <span class="inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="link" class="w-4 h-4" />Store link, no code</span>}
+{c.kind === 'link-only' && <span class="inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="link" class="w-4 h-4" />{size === 'xs' ? 'No code' : 'Store link, no code'}</span>}
 {c.kind === 'none' && <span class="text-sm text-slate-600">No reader code</span>}

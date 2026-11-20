@@ -28,8 +28,8 @@ const H = headingLevel;
   const bars = cheapestPerShop(xs).map((o) => ({ label: o.vendor.name, sub: o.product.vialMg != null ? `${o.product.vialMg} mg` : undefined, value: o.perMg as number, partner: o.partner }));
   return (
     <section class="space-y-4" id={`prices-${cur.toLowerCase()}`}>
-      <H class={H === 'h2' ? 'h2' : 'h3'}>{currencyHeading(cur)}: {label} at {shops} {shops === 1 ? 'shop' : 'shops'}</H>
-      <p class="text-slate-700 max-w-[70ch]">Partner shops come first, then other audited shops (grey, no store link). Tap a column header to sort. On a phone, swipe the table sideways.</p>
+      <H class={H === 'h2' ? 'h2' : 'h3'}>{`${currencyHeading(cur)}: ${label} at ${shops} ${shops === 1 ? 'shop' : 'shops'}`}</H>
+      <p class="text-slate-700 max-w-[70ch]">Partner shops come first, then other audited shops (grey, no store link). Tap a column header to sort. On a phone, the first column shows price per mg; swipe the table sideways for the rest.</p>
       {bars.length > 1 && <PriceBars bars={bars} currency={cur} title={`Lowest price per mg at each shop (${cur})`} />}
       <PriceTable offers={xs} caption={`${label} prices in ${cur}`} />
     </section>
