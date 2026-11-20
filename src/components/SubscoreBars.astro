@@ -1,0 +1,31 @@
+---
+/** Subscore bars (0-5) with optional reasons from audit.json subscore_reasons. */
+import type { VendorProfile } from '../data/vendors';
+import { SUBSCORE_LABELS } from '../lib/site';
+interface Props {
+  vendor: VendorProfile;
+  reasons?: boolean;
+  compact?: boolean;
+}
+const { vendor, reasons = false, compact = false } = Astro.props;
+const rows = SUBSCORE_LABELS.map((s) => ({
+  ...s,
+  value: vendor.scores[s.key],
+  reason: vendor.subscoreReasons[s.key as string] || '',
+}));
+---
+<ul class={compact ? 'space-y-2' : 'space-y-4'}>
+  {rows.map((r) => (
+    <li>
+      <div class="flex items-baseline justify-between gap-3 text-sm">
+        <span class="font-semibold text-slate-800">{r.label} <span class="text-xs font-normal text-slate-400">{r.weight}%</span></span>
+        <span class="font-bold tabular-nums text-slate-900">{r.value < 0 ? 'not assessable' : `${r.value.toFixed(1)} / 5`}</span>
+      </div>
+      <svg viewBox="0 0 100 6" preserveAspectRatio="none" class="mt-1.5 w-full h-2 block" aria-hidden="true">
+        <rect x="0" y="0" width="100" height="6" rx="3" fill="#e2e8f0" />
+        {r.value > 0 && <rect x="0" y="0" width={(r.value / 5) * 100} height="6" rx="3" fill={r.value >= 3.5 ? '#0f766e' : r.value >= 2 ? '#14b8a6' : '#f59e0b'} />}
+      </svg>
+      {reasons && r.reason && <p class="mt-1.5 text-xs text-slate-600 leading-relaxed">{r.reason}</p>}
+    </li>
+  ))}
+</ul>

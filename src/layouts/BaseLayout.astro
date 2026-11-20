@@ -1,37 +1,82 @@
 ---
 import '../styles/global.css';
+import Icon from '../components/Icon.astro';
 import { SITE_BRAND } from '../data/affiliates';
+import { SITE_URL, SITE_NAME, CHECKED_ISO, CHECKED_LABEL } from '../lib/site';
 
+interface Crumb {
+  name: string;
+  url: string;
+}
 interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  crumbs?: Crumb[];
+  noindex?: boolean;
+  ogType?: string;
 }
 
-const { title, description, canonicalPath = Astro.url.pathname, jsonLd } = Astro.props;
-const canonicalUrl = new URL(canonicalPath, SITE_BRAND.url).toString();
+const { title, description, canonicalPath = Astro.url.pathname, jsonLd, crumbs = [], noindex = false, ogType = 'website' } = Astro.props;
+const path = canonicalPath.endsWith('/') || canonicalPath.includes('.') ? canonicalPath : `${canonicalPath}/`;
+const canonicalUrl = new URL(path, SITE_URL).toString();
 
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: SITE_BRAND.name,
-  url: SITE_BRAND.url,
+  '@id': `${SITE_URL}/#organization`,
+  name: SITE_NAME,
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/favicon.svg`,
   description:
-    'Independent third-party COA verification index, true $/mg price benchmark, and batch fill-variance tracker for research peptides in the US and EU.',
-  sameAs: [SITE_BRAND.telegramUrl],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    email: SITE_BRAND.contactEmail,
-    contactType: 'editorial & partner inquiries',
-  },
+    'Independent desk audit of research peptide shops in the EU and US: opened lab reports, measured vs label content, portal verification and listed prices per mg.',
+  publishingPrinciples: `${SITE_URL}/methodology/`,
+  contactPoint: { '@type': 'ContactPoint', email: SITE_BRAND.contactEmail, contactType: 'editorial' },
 };
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  name: SITE_NAME,
+  url: `${SITE_URL}/`,
+  publisher: { '@id': `${SITE_URL}/#organization` },
+  inLanguage: 'en',
+};
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': canonicalUrl,
+  url: canonicalUrl,
+  name: title,
+  description,
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+  dateModified: CHECKED_ISO,
+  inLanguage: 'en',
+};
+const allCrumbs = crumbs.length ? crumbs : path === '/' ? [] : [{ name: 'Home', url: '/' }, { name: title.split(/[:|–-]/)[0].trim(), url: path }];
+const breadcrumbSchema = allCrumbs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: allCrumbs.map((b, i) => ({ '@type': 'ListItem', position: i + 1, name: b.name, item: new URL(b.url, SITE_URL).toString() })),
+    }
+  : null;
+const extra = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+const schemas = [orgSchema, websiteSchema, webPageSchema, ...(breadcrumbSchema ? [breadcrumbSchema] : []), ...extra];
 
-const extraSchemas = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+const nav = [
+  { href: '/prices/', label: 'Compare prices', icon: 'bar-h' },
+  { href: '/vendors/', label: 'Shops', icon: 'building' },
+  { href: '/batch-tracker/', label: 'Lab reports', icon: 'file-text' },
+  { href: '/compounds/', label: 'Compounds', icon: 'beaker' },
+  { href: '/methodology/', label: 'Methodology', icon: 'microscope' },
+];
+const current = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,17 +85,19 @@ const extraSchemas = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-snippet:-1, max-image-preview:large'} />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-
-    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-    {extraSchemas.map((schema) => (
-      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    ))}
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:modified_time" content={CHECKED_ISO} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
     <!-- Privacy-friendly analytics by Plausible -->
     <script is:inline async src="https://analytics.polymarkt.de/js/pa-gLRgumVP7qfI1CLz6JJes.js"></script>
     <script is:inline>
@@ -58,188 +105,154 @@ const extraSchemas = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
       plausible.init()
     </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-[#030712] text-slate-100 antialiased grid-bg">
-    <!-- Top Audit Status Bar -->
-    <div class="bg-cyan-950/70 border-b border-cyan-800/40 text-cyan-200 text-xs py-2 px-4 text-center font-mono">
-      <span>
-        🔬 <strong>{SITE_BRAND.updatedLabel} COA &amp; Fill-Variance Audit:</strong> 22 US &amp; EU suppliers benchmarked on portal-verifiable COAs &amp; true $/mg.
-        <a href="/price-index/" class="underline hover:text-white ml-1.5 font-semibold">Compare True $/mg &rarr;</a>
-      </span>
+  <body class="min-h-screen flex flex-col bg-white font-sans text-slate-700 antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-3 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+    <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 text-center">
+      Desk audit of public shop pages and lab portals, last checked <strong class="text-white font-semibold">{CHECKED_LABEL}</strong>. Research-use-only products; no dosing or health information.
+      <a href="/methodology/" class="ml-1 underline underline-offset-2 text-teal-300 hover:text-white">How we score</a>
     </div>
 
-    <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#030712]/90 border-b border-slate-800/80">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-        <a href="/" class="flex items-center gap-3 group shrink-0">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-emerald-400 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-            <span class="text-slate-950 font-black text-base font-mono">PLI</span>
-          </div>
-          <div>
-            <span class="font-extrabold text-lg tracking-tight text-white">
-              Peptide<span class="text-cyan-400">Lab</span><span class="text-emerald-400">Index</span>
-            </span>
-            <span class="text-[10px] font-mono text-slate-400 block -mt-1 tracking-widest uppercase">
-              COA &amp; $/mg Audit Directory
-            </span>
-          </div>
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80">
+      <div class="wrap h-16 flex items-center justify-between gap-4">
+        <a href="/" class="flex items-center gap-2.5 shrink-0 group" aria-label={`${SITE_NAME} home`}>
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-600 to-emerald-700 flex items-center justify-center shadow-sm">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h5M10 2.5v6L4.6 18.4A2 2 0 0 0 6.4 21.5h11.2a2 2 0 0 0 1.8-3.1L14 8.5v-6" /><path d="M7.2 14.5h9.6" /></svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block font-extrabold text-[15px] sm:text-lg tracking-tight text-slate-900">Peptide<span class="text-teal-700">Lab</span>Index</span>
+            <span class="block text-[11px] text-slate-500">Prices &amp; lab reports compared</span>
+          </span>
         </a>
-
-        <nav class="hidden xl:flex items-center gap-5 text-sm font-medium text-slate-300 whitespace-nowrap">
-          <a href="/vendors/" class="hover:text-cyan-400 transition-colors">Vendor Scorecard</a>
-          <a href="/price-index/" class="hover:text-cyan-400 transition-colors flex items-center gap-1">
-            <span>True $/mg Index</span>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">LIVE</span>
-          </a>
-          <a href="/batch-tracker/" class="hover:text-cyan-400 transition-colors">Batch Fill Tracker</a>
-          <a href="/calculator/" class="hover:text-cyan-400 transition-colors">Blend Calculator</a>
-          <a href="/compounds/" class="hover:text-cyan-400 transition-colors">Compounds</a>
-          <a href="/laws/" class="hover:text-cyan-400 transition-colors">Customs &amp; Laws</a>
-          <a href="/discount-codes/" class="hover:text-emerald-400 transition-colors text-emerald-300">Verified Codes</a>
+        <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-slate-600" aria-label="Main">
+          {nav.map((n) => (
+            <a href={n.href} class={`px-3 py-2 rounded-lg transition-colors hover:bg-teal-50 hover:text-teal-800 ${current.startsWith(n.href) ? 'text-teal-800 bg-teal-50' : ''}`}>{n.label}</a>
+          ))}
         </nav>
-
-        <div class="flex items-center gap-2.5">
-          <a
-            href="/calculator/"
-            class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3 py-2 rounded-lg bg-slate-900 text-slate-200 border border-slate-700 hover:border-cyan-500/60 transition-all"
-          >
-            🧮 Concentration Tool
-          </a>
-          <a
-            href="/vendors/"
-            class="inline-flex items-center gap-1.5 text-xs font-mono font-bold px-3.5 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 hover:opacity-95 transition-opacity"
-          >
-            Top 2026 Labs &rarr;
-          </a>
-          <button
-            id="mobile-nav-toggle"
-            type="button"
-            aria-label="Toggle navigation menu"
-            class="xl:hidden p-2 rounded-lg border border-slate-800 text-slate-300 hover:text-white"
-          >
-            ☰
+        <div class="flex items-center gap-2">
+          <a href="/vendors/" class="hidden sm:inline-flex btn-primary">Best audited shops</a>
+          <button id="nav-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200 text-slate-700" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+            <Icon name="menu" class="w-5 h-5" />
           </button>
         </div>
       </div>
-
-      <!-- Mobile Menu -->
-      <div id="mobile-nav-panel" class="hidden xl:hidden border-t border-slate-800 bg-slate-950 px-4 py-4 space-y-2 text-sm">
-        <a href="/vendors/" class="block py-1.5 text-slate-200 hover:text-cyan-400">🏆 Vendor Audit Scorecard (US &amp; EU)</a>
-        <a href="/price-index/" class="block py-1.5 text-emerald-300 hover:text-emerald-200">💰 True $/mg &amp; €/mg Price Index</a>
-        <a href="/batch-tracker/" class="block py-1.5 text-slate-200 hover:text-cyan-400">📊 COA Batch &amp; Fill-Variance Tracker</a>
-        <a href="/calculator/" class="block py-1.5 text-slate-200 hover:text-cyan-400">🧮 Vial Concentration Calculator</a>
-        <a href="/compounds/" class="block py-1.5 text-slate-200 hover:text-cyan-400">🧬 Molecular Compound Database</a>
-        <a href="/laws/" class="block py-1.5 text-slate-200 hover:text-cyan-400">🌍 Country Customs &amp; RUO Laws</a>
-        <a href="/labs/" class="block py-1.5 text-slate-200 hover:text-cyan-400">🔬 Analytical Testing Labs</a>
-        <a href="/research/" class="block py-1.5 text-slate-200 hover:text-cyan-400">📑 Research &amp; Code-Name Guides</a>
-        <a href="/discount-codes/" class="block py-1.5 text-cyan-300 hover:text-cyan-200">🏷️ Verified Partner Discount Codes</a>
+      <div id="nav-panel" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 py-3 shadow-lg">
+        {nav.map((n) => (
+          <a href={n.href} class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50"><Icon name={n.icon} class="w-4 h-4 text-teal-700" />{n.label}</a>
+        ))}
+        <a href="/labs/" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50"><Icon name="flask" class="w-4 h-4 text-teal-700" />Testing labs</a>
+        <a href="/compare/" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50"><Icon name="git-compare" class="w-4 h-4 text-teal-700" />Compound comparisons</a>
       </div>
     </header>
 
-    <main class="flex-1">
+    <main id="main" class="flex-grow">
       <slot />
     </main>
 
-    <!-- Copy Toast -->
-    <div
-      id="copy-toast"
-      class="fixed bottom-5 right-5 z-50 hidden px-4 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-mono text-xs font-bold shadow-xl shadow-emerald-500/25"
-    >
-      ✓ Code copied to clipboard!
-    </div>
+    <div id="copy-toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-2 px-4 py-3 rounded-xl bg-slate-900 text-white text-sm font-semibold shadow-2xl" role="status" aria-live="polite"></div>
 
-    <!-- Comprehensive SEO Internal-Link Footer -->
-    <footer class="border-t border-slate-800/80 bg-[#02050e] mt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-10">
-          <div class="lg:col-span-2 space-y-3">
-            <a href="/" class="inline-flex items-center gap-2.5 font-extrabold text-lg text-white">
-              <span>🔬</span>
-              <span>Peptide<span class="text-cyan-400">Lab</span><span class="text-emerald-400">Index</span>.com</span>
-            </a>
-            <p class="text-xs text-slate-400 leading-relaxed max-w-md">
-              Independent analytical directory benchmarking US and European research peptide suppliers against portal-verifiable HPLC/LC-MS Certificates of Analysis, batch fill-weight accuracy, and net cost per measured milligram.
-            </p>
-            <div class="pt-1 flex flex-wrap gap-2 text-[11px] font-mono">
-              <a href="/llms.txt" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-300">
-                🤖 AI / LLMs Reference (llms.txt)
-              </a>
-              <a href="/methodology/" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-300">
-                📐 6-Axis Audit Methodology
-              </a>
-            </div>
-          </div>
-
+    <footer class="mt-20 bg-slate-50 border-t border-slate-200">
+      <div class="wrap py-14">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
           <div>
-            <h2 class="font-mono text-slate-200 font-bold uppercase text-[11px] tracking-wider mb-3">Supplier Audits</h2>
-            <ul class="space-y-2 text-xs text-slate-400">
-              <li><a href="/vendors/" class="hover:text-cyan-400">All 22 Audited Suppliers</a></li>
-              <li><a href="/vendors/usa/" class="hover:text-cyan-400">Best US Domestic Vendors</a></li>
-              <li><a href="/vendors/europe/" class="hover:text-cyan-400">Best EU Domestic Vendors</a></li>
-              <li><a href="/vendors/peptide-sciences/" class="hover:text-cyan-400">Peptide Sciences 2026 Shutdown</a></li>
-              <li><a href="/discount-codes/" class="hover:text-emerald-400">Verified Discount Codes</a></li>
-              <li><a href="/labs/" class="hover:text-cyan-400">Third-Party Testing Labs</a></li>
+            <div class="font-extrabold text-slate-900 text-base">Peptide<span class="text-teal-700">Lab</span>Index</div>
+            <p class="mt-2 text-slate-600 leading-relaxed">We read shop pages, lab portals and price lists so research buyers can compare shops on facts: opened lab reports, measured content and price per mg.</p>
+          </div>
+          <div>
+            <h2 class="text-sm font-bold text-slate-900 mb-3">Compare</h2>
+            <ul class="space-y-2 text-slate-600">
+              <li><a href="/prices/" class="hover:text-teal-700">Price comparison by compound</a></li>
+              <li><a href="/vendors/" class="hover:text-teal-700">Shop ranking</a></li>
+              <li><a href="/vendors/europe/" class="hover:text-teal-700">EU shops</a></li>
+              <li><a href="/vendors/usa/" class="hover:text-teal-700">US shops</a></li>
+              <li><a href="/vendors/compare/" class="hover:text-teal-700">Shop vs shop</a></li>
+              <li><a href="/compare/" class="hover:text-teal-700">Compound vs compound</a></li>
+              <li><a href="/discount-codes/" class="hover:text-teal-700">Reader codes</a></li>
             </ul>
           </div>
-
           <div>
-            <h2 class="font-mono text-slate-200 font-bold uppercase text-[11px] tracking-wider mb-3">Precision Lab Tools</h2>
-            <ul class="space-y-2 text-xs text-slate-400">
-              <li><a href="/price-index/" class="hover:text-cyan-400">True $/mg &amp; €/mg Price Index</a></li>
-              <li><a href="/batch-tracker/" class="hover:text-cyan-400">COA Fill-Variance Tracker</a></li>
-              <li><a href="/calculator/" class="hover:text-cyan-400">Vial Concentration Calculator</a></li>
-              <li><a href="/compounds/" class="hover:text-cyan-400">Molecular Compound Database</a></li>
-              <li><a href="/research/rt-3-glp-3-retatrutide-code-names/" class="hover:text-cyan-400">RT-3 / GLP-3 Code Decoder</a></li>
-              <li><a href="/research/" class="hover:text-cyan-400">All Analytical Guides</a></li>
+            <h2 class="text-sm font-bold text-slate-900 mb-3">Lab data &amp; tools</h2>
+            <ul class="space-y-2 text-slate-600">
+              <li><a href="/batch-tracker/" class="hover:text-teal-700">Lab reports we opened</a></li>
+              <li><a href="/labs/" class="hover:text-teal-700">Testing labs</a></li>
+              <li><a href="/compounds/" class="hover:text-teal-700">Compound index</a></li>
+              <li><a href="/data/" class="hover:text-teal-700">Open dataset (CSV / JSON)</a></li>
+              <li><a href="/calculator/" class="hover:text-teal-700">Stock concentration calculator</a></li>
+              <li><a href="/research/" class="hover:text-teal-700">Guides</a></li>
+              <li><a href="/llms.txt" class="hover:text-teal-700">llms.txt</a></li>
             </ul>
           </div>
-
           <div>
-            <h2 class="font-mono text-slate-200 font-bold uppercase text-[11px] tracking-wider mb-3">Customs, Laws &amp; Legal</h2>
-            <ul class="space-y-2 text-xs text-slate-400">
-              <li><a href="/laws/" class="hover:text-cyan-400">Peptide Laws &amp; Customs Index</a></li>
-              <li><a href="/laws/united-states/" class="hover:text-cyan-400">US RUO &amp; FDA Status</a></li>
-              <li><a href="/laws/germany/" class="hover:text-cyan-400">Germany / EU Zoll Guide</a></li>
-              <li><a href="/laws/united-kingdom/" class="hover:text-cyan-400">UK Post-Brexit Guide</a></li>
-              <li><a href="/advertise/" class="hover:text-cyan-400">Featured Category Sponsorship</a></li>
-              <li><a href="/legal/" class="hover:text-cyan-400">Legal, Terms &amp; Privacy</a></li>
+            <h2 class="text-sm font-bold text-slate-900 mb-3">About &amp; legal</h2>
+            <ul class="space-y-2 text-slate-600">
+              <li><a href="/methodology/" class="hover:text-teal-700">Methodology</a></li>
+              <li><a href="/laws/" class="hover:text-teal-700">Country notes</a></li>
+              <li><a href="/legal/" class="hover:text-teal-700">Legal, disclosure &amp; privacy</a></li>
+              <li><a href="/advertise/" class="hover:text-teal-700">For shops</a></li>
             </ul>
           </div>
         </div>
-
-        <!-- Mandatory RUO & FTC Affiliate Compliance -->
-        <div class="pt-8 border-t border-slate-800/80 space-y-3 text-[11px] text-slate-400 leading-relaxed font-mono">
-          <p>
-            <strong class="text-slate-200">STRICT RESEARCH USE ONLY (RUO) DISCLAIMER:</strong> All chemical compounds, analytical certificates, and concentration tools published on {SITE_BRAND.domain} are strictly intended for qualified in-vitro laboratory research and analytical assay calibration. Nothing on this site constitutes medical, clinical, or dosing advice. Listed reagents are NOT drugs, supplements, or cosmetics and are NOT approved for human or veterinary administration.
-          </p>
-          <p>
-            <strong class="text-slate-200">FTC AFFILIATE &amp; EDITORIAL DISCLOSURE:</strong> {SITE_BRAND.name} operates as an independent analytical index. Outbound links marked with <code>rel="sponsored"</code> or accompanied by partner discount codes may earn a referral commission at zero extra cost to the buyer (in fact reducing net vial price). Referral eligibility never alters our 6-axis COA audit scores; non-affiliated vendors and underfilled batches are audited under identical criteria.
-          </p>
-          <p class="text-slate-500">
-            &copy; 2026 {SITE_BRAND.name} ({SITE_BRAND.domain}). All analytical summaries verified as of {SITE_BRAND.updatedLabel}.
-          </p>
+        <div class="mt-10 pt-6 border-t border-slate-200 space-y-3 text-xs text-slate-500 leading-relaxed">
+          <p><strong class="text-slate-700">Research use only.</strong> All products listed are sold by the shops as research-use-only (RUO) laboratory reagents. They are not drugs, supplements or cosmetics. Nothing on {SITE_BRAND.domain} is medical advice or information about human or animal use.</p>
+          <p><strong class="text-slate-700">Affiliate disclosure.</strong> Store links to partner shops are affiliate links (rel="sponsored"); we may earn a commission at no extra cost to you. Shops without a partnership get no outbound link. Rankings use the published audit score only, never commission.</p>
+          <p>&copy; 2026 {SITE_NAME} ({SITE_BRAND.domain}). Data last checked {CHECKED_LABEL}.</p>
         </div>
       </div>
     </footer>
 
     <script>
-      const navBtn = document.getElementById('mobile-nav-toggle');
-      const navPanel = document.getElementById('mobile-nav-panel');
-      navBtn?.addEventListener('click', () => {
-        navPanel?.classList.toggle('hidden');
+      const btn = document.getElementById('nav-toggle');
+      const panel = document.getElementById('nav-panel');
+      btn?.addEventListener('click', () => {
+        const open = panel?.classList.toggle('hidden') === false;
+        btn.setAttribute('aria-expanded', String(open));
       });
 
+      const toast = document.getElementById('copy-toast');
       document.addEventListener('click', (e) => {
-        const target = (e.target as HTMLElement)?.closest('[data-copy-code]') as HTMLElement | null;
-        if (!target) return;
-        const code = target.getAttribute('data-copy-code');
+        const el = (e.target as HTMLElement)?.closest('[data-copy],[data-copy-code]') as HTMLElement | null;
+        if (!el) return;
+        const code = el.getAttribute('data-copy') || el.getAttribute('data-copy-code');
         if (!code) return;
         navigator.clipboard?.writeText(code);
-        const toast = document.getElementById('copy-toast');
         if (toast) {
-          toast.textContent = `✓ Copied code "${code}" to clipboard!`;
+          toast.textContent = `Copied "${code}"`;
           toast.classList.remove('hidden');
-          setTimeout(() => toast.classList.add('hidden'), 2400);
+          toast.classList.add('flex');
+          setTimeout(() => { toast.classList.add('hidden'); toast.classList.remove('flex'); }, 2200);
         }
+      });
+
+      // Small vanilla table sort: <table data-sortable>, buttons .sort-btn in <th>, cells may carry data-v.
+      document.querySelectorAll<HTMLTableElement>('table[data-sortable]').forEach((table) => {
+        const ths = Array.from(table.querySelectorAll('thead th'));
+        ths.forEach((th, idx) => {
+          const b = th.querySelector<HTMLButtonElement>('.sort-btn');
+          if (!b) return;
+          let asc = true;
+          b.addEventListener('click', () => {
+            const tbody = table.tBodies[0];
+            const rows = Array.from(tbody.rows);
+            const num = b.dataset.sortType === 'num';
+            const val = (r: HTMLTableRowElement) => {
+              const c = r.cells[idx];
+              const raw = c?.dataset.v ?? c?.textContent?.trim() ?? '';
+              if (!num) return raw.toLowerCase();
+              const n = parseFloat(raw);
+              return Number.isFinite(n) ? n : asc ? Infinity : -Infinity;
+            };
+            rows.sort((a, z) => {
+              const x = val(a), y = val(z);
+              if (x < y) return asc ? -1 : 1;
+              if (x > y) return asc ? 1 : -1;
+              return 0;
+            });
+            rows.forEach((r) => tbody.appendChild(r));
+            ths.forEach((t) => t.removeAttribute('aria-sort'));
+            th.setAttribute('aria-sort', asc ? 'ascending' : 'descending');
+            asc = !asc;
+          });
+        });
       });
     </script>
   </body>

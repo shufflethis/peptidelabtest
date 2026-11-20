@@ -1,0 +1,42 @@
+---
+/** "Compare: audited shops with a store link" box for non-partner pages (2-3 best partners, same region). */
+import Icon from './Icon.astro';
+import ScoreRing from './ScoreRing.astro';
+import CodeBadge from './CodeBadge.astro';
+import type { VendorProfile } from '../data/vendors';
+import { shopHref, REL_SPONSORED, fillRange } from '../lib/site';
+interface Props {
+  shops: VendorProfile[];
+  title?: string;
+  note?: string;
+}
+const { shops, title = 'Compare: audited shops with a store link', note } = Astro.props;
+---
+{shops.length > 0 && (
+  <section class="rounded-2xl border border-teal-200 bg-gradient-to-br from-teal-50 to-white p-5 sm:p-6">
+    <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2"><Icon name="git-compare" class="w-5 h-5 text-teal-700" />{title}</h2>
+    {note && <p class="mt-1 text-sm text-slate-600">{note}</p>}
+    <ul class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {shops.map((s) => {
+        const href = shopHref(s.slug);
+        return (
+          <li class="card p-4 flex flex-col gap-3">
+            <div class="flex items-center gap-3">
+              <ScoreRing score={s.overallScore} size={52} />
+              <div>
+                <a href={`/vendors/${s.slug}/`} class="font-bold text-slate-900 hover:text-teal-700">{s.name}</a>
+                <div class="text-xs text-slate-500">{s.region} · {s.coaStats.portalVerified}/{s.coaStats.opened} portal-verified · fill {fillRange(s)}</div>
+              </div>
+            </div>
+            <CodeBadge slug={s.slug} />
+            <div class="flex gap-2">
+              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary !py-1.5 !px-3 !text-xs">Visit shop <Icon name="external-link" class="w-3.5 h-3.5" /></a>}
+              <a href={`/vendors/${s.slug}/`} class="btn-ghost !py-1.5 !px-3 !text-xs">Review</a>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+    <p class="mt-3 text-[11px] text-slate-500">Partner links (affiliate). Order = audit score.</p>
+  </section>
+)}

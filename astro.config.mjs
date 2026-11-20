@@ -9,7 +9,7 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       priority: 0.8,
-      lastmod: new Date('2026-11-18'),
+      lastmod: new Date('2026-11-20'),
     }),
   ],
   vite: {

@@ -1,0 +1,49 @@
+---
+/** Partner tile: score ring, lab facts, cheapest example, code badge, sponsored CTA. Partners only. */
+import Icon from './Icon.astro';
+import ScoreRing from './ScoreRing.astro';
+import CodeBadge from './CodeBadge.astro';
+import VerifyBadge from './VerifyBadge.astro';
+import type { VendorProfile } from '../data/vendors';
+import { shopHref, REL_SPONSORED, vendorVerify, purityRange, fillRange, cheapestFor, perMg, compoundShort, isPartner } from '../lib/site';
+interface Props {
+  vendor: VendorProfile;
+  rank?: number;
+}
+const { vendor: v, rank } = Astro.props;
+const href = shopHref(v.slug);
+const partner = isPartner(v.slug);
+const cheap = cheapestFor(v);
+const labs = v.testingLabs.map((l) => l.replace(/\s*\(.*\)\s*$/, '')).slice(0, 3);
+---
+<article class="card card-hover p-5 sm:p-6 flex flex-col gap-4 h-full">
+  <div class="flex items-start gap-4">
+    <ScoreRing score={v.overallScore} size={68} />
+    <div class="min-w-0 flex-1">
+      <div class="flex flex-wrap items-center gap-2">
+        {rank != null && <span class="chip bg-slate-900 text-white">#{rank}</span>}
+        <span class="chip bg-slate-100 text-slate-700"><Icon name="map-pin" class="w-3 h-3" />{v.region} · {v.originCountry}</span>
+      </div>
+      <h3 class="mt-1.5 text-lg font-extrabold text-slate-900 leading-tight">
+        <a href={`/vendors/${v.slug}/`} class="hover:text-teal-700">{v.name}</a>
+      </h3>
+      <div class="mt-1.5"><VerifyBadge level={vendorVerify(v)} text={v.coaStats.opened ? `${v.coaStats.portalVerified}/${v.coaStats.opened} portal-verified` : undefined} /></div>
+    </div>
+  </div>
+  <dl class="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm">
+    <div class="col-span-2"><dt class="text-xs text-slate-500">Lab(s) on opened reports</dt><dd class="font-medium text-slate-800">{labs.join(', ')}</dd></div>
+    <div><dt class="text-xs text-slate-500">HPLC purity</dt><dd class="font-semibold text-slate-900 tabular-nums">{purityRange(v)}</dd></div>
+    <div><dt class="text-xs text-slate-500">Measured vs label</dt><dd class="font-semibold text-slate-900 tabular-nums">{fillRange(v)}</dd></div>
+    <div class="col-span-2"><dt class="text-xs text-slate-500">Price example</dt><dd class="font-semibold text-slate-900">{cheap ? `${compoundShort(cheap.compound)} ${cheap.vialMg} mg from ${perMg(cheap.pricePerMg, cheap.currency)}` : 'prices not published'}</dd></div>
+  </dl>
+  <div class="mt-auto flex flex-col gap-3">
+    {partner && <CodeBadge slug={v.slug} />}
+    <div class="flex flex-wrap gap-2">
+      {href && (
+        <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>
+      )}
+      <a href={`/vendors/${v.slug}/`} class="btn-ghost">Read review</a>
+    </div>
+    {href && <p class="text-[11px] text-slate-400">Partner link (affiliate). Score is not affected.</p>}
+  </div>
+</article>

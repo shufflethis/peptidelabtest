@@ -1,0 +1,26 @@
+---
+/** FAQ accordion. Pair with faqSchema() in the page's jsonLd for FAQPage markup. */
+import Icon from './Icon.astro';
+interface Props {
+  items: { q: string; a: string }[];
+  title?: string;
+  id?: string;
+}
+const { items, title = 'Frequently asked questions', id = 'faq' } = Astro.props;
+---
+{items.length > 0 && (
+  <section id={id} class="space-y-4">
+    <h2 class="h2">{title}</h2>
+    <div class="card divide-y divide-slate-100">
+      {items.map((f) => (
+        <details class="group p-5">
+          <summary class="flex cursor-pointer items-start justify-between gap-4 font-semibold text-slate-900">
+            <span>{f.q}</span>
+            <Icon name="chevron-down" class="w-5 h-5 text-slate-400 transition-transform group-open:rotate-180" />
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+)}
