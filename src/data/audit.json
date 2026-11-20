@@ -4275,7 +4275,7 @@
    "Additional endotoxin and heavy-metal reports published for tirzepatide 20 mg"
   ],
   "weaknesses": [
-   "Some report labels do not match the listing (BPC-157 report sample named 10 mg for a 5 mg product; semaglutide and BAC water batch codes appear swapped)",
+   "Some report labels do not match the listing (BPC-157 report sample named 10 mg for a 5 mg product; semaglutide and diluent batch codes appear swapped)",
    "6 of 24 products have no published report (available on request)"
   ],
   "verdict": "Peptid24 links most products to Janoshik reports that can be checked on the lab portal, including endotoxin and heavy-metal data for one product. Measured contents vary between 92% and 116% of label, and some report labels do not match the listed product.",
