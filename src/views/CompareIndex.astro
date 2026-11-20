@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { COMPOUND_PAIRS, pairSlug, compoundShort, shopsCarrying, VENDORS_BY_SCORE, CHECKED_ISO, itemListSchema } from '../lib/site';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const rows = COMPOUND_PAIRS.map(([a, b]) => ({ a, b, both: VENDORS_BY_SCORE.filter((v) => shopsCarrying(a).includes(v) && shopsCarrying(b).includes(v)).length }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'footer.compareCompounds'), url: L('/compare/') }];
+const V = { date: fmtDate(lang, CHECKED_ISO), n: rows.length };
+---
+<BaseLayout lang={lang} title={tt(lang, 'ci.title', V)} description={td(lang, 'ci.description', V)} crumbs={crumbs} jsonLd={itemListSchema(t(lang, 'ci.itemList'), rows.map((r) => ({ name: `${compoundShort(r.a)} vs ${compoundShort(r.b)}`, url: L(`/compare/${pairSlug(r.a, r.b)}/`) })))}>
+  <PageHero crumbs={crumbs} title={t(lang, 'ci.h1')} intro={t(lang, 'ci.intro', V)} />
+  <div class="wrap mt-12">
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {rows.map((r) => (
+        <li class="card card-hover p-6">
+          <a href={L(`/compare/${pairSlug(r.a, r.b)}/`)} class="tap text-xl font-bold text-slate-900 hover:text-teal-800 hover:underline">{compoundShort(r.a)} vs {compoundShort(r.b)}</a>
+          <p class="mt-2 text-slate-700">{t(lang, 'ci.row', { na: shopsCarrying(r.a).length, a: compoundShort(r.a), nb: shopsCarrying(r.b).length, b: compoundShort(r.b), both: r.both })}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

@@ -11,6 +11,9 @@ import it from './it.json';
 export const LANGS = ['en', 'de', 'es', 'fr', 'it'] as const;
 export type Lang = (typeof LANGS)[number];
 export const OTHER_LANGS = LANGS.filter((l) => l !== 'en') as Exclude<Lang, 'en'>[];
+/** Languages that are built and linked (hreflang, switcher, sitemap). Enabled one by one once green. */
+export const LIVE_LANGS: Lang[] = ['en'];
+export const LIVE_OTHER = LIVE_LANGS.filter((l) => l !== 'en') as Exclude<Lang, 'en'>[];
 export const LOCALE: Record<Lang, string> = { en: 'en-US', de: 'de-DE', es: 'es-ES', fr: 'fr-FR', it: 'it-IT' };
 export const OG_LOCALE: Record<Lang, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES', fr: 'fr_FR', it: 'it_IT' };
 export const LANG_LABEL: Record<Lang, string> = { en: 'EN', de: 'DE', es: 'ES', fr: 'FR', it: 'IT' };
@@ -107,4 +110,32 @@ export function fmtDate(lang: Lang, iso: string, month: 'short' | 'long' = 'shor
   const d = new Date(`${iso}T12:00:00Z`);
   if (lang === 'en') return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(d);
   return new Intl.DateTimeFormat(LOCALE[lang], { day: 'numeric', month, year: 'numeric', timeZone: 'UTC' }).format(d);
+}
+
+/** Title from a list of candidate templates: first that fits 60 chars (hard limit). */
+export function tt(lang: Lang, key: string, vars?: Vars): string {
+  let v = tv<any>(lang, key);
+  const arr: string[] = (Array.isArray(v) ? v : [v]).filter((x) => typeof x === 'string').map((x: string) => fill(x, vars));
+  for (const c of arr) if (c.length <= 60) return c;
+  const last = arr[arr.length - 1] || key;
+  return last.slice(0, 60).replace(/\s+\S*$/, '');
+}
+
+/** Meta description from candidate templates: first inside 130-155 chars, else first <= 155. */
+export function td(lang: Lang, key: string, vars?: Vars): string {
+  let v = tv<any>(lang, key);
+  const arr: string[] = (Array.isArray(v) ? v : [v]).filter((x) => typeof x === 'string').map((x: string) => fill(x, vars));
+  return arr.find((c) => c.length >= 130 && c.length <= 155) || arr.find((c) => c.length <= 155) || (arr[arr.length - 1] || '').slice(0, 155);
+}
+
+/** FAQ list [{q, a}] with placeholders filled (falls back to English list). */
+export function tfaq(lang: Lang, key: string, vars?: Vars): { q: string; a: string }[] {
+  const arr = tv<{ q: string; a: string }[]>(lang, key) || [];
+  return arr.map((f) => ({ q: fill(f.q, vars), a: fill(f.a, vars) }));
+}
+
+/** String list with placeholders filled. */
+export function tlist(lang: Lang, key: string, vars?: Vars): string[] {
+  const arr = tv<string[]>(lang, key) || [];
+  return arr.map((s) => fill(s, vars));
 }

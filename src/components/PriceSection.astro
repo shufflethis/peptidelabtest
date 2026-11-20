@@ -3,7 +3,8 @@
 import PriceBars from './PriceBars.astro';
 import PriceTable from './PriceTable.astro';
 import type { Offer } from '../lib/site';
-import { currenciesOf, currencyHeading } from '../lib/site';
+import { currenciesOf } from '../lib/site';
+import { t, tn, splitLang } from '../i18n';
 interface Props {
   offers: Offer[];
   label: string;
@@ -21,6 +22,8 @@ function cheapestPerShop(xs: Offer[]) {
   return Array.from(m.values());
 }
 const H = headingLevel;
+const lang = splitLang(Astro.url.pathname).lang;
+const head = (cur: string, n: number) => tn(lang, cur === 'EUR' || cur === 'USD' ? `c.section${cur}` : 'c.sectionOther', n, { label, cur });
 ---
 {curs.map((cur) => {
   const xs = offers.filter((o) => o.currency === cur);
@@ -28,10 +31,10 @@ const H = headingLevel;
   const bars = cheapestPerShop(xs).map((o) => ({ label: o.vendor.name, sub: o.product.vialMg != null ? `${o.product.vialMg} mg` : undefined, value: o.perMg as number, partner: o.partner }));
   return (
     <section class="space-y-4" id={`prices-${cur.toLowerCase()}`}>
-      <H class={H === 'h2' ? 'h2' : 'h3'}>{`${currencyHeading(cur)}: ${label} at ${shops} ${shops === 1 ? 'shop' : 'shops'}`}</H>
-      <p class="text-slate-700 max-w-[70ch]">Partner shops come first, then other audited shops (grey, no store link). Tap a column header to sort. On a phone, the first column shows price per mg; swipe the table sideways for the rest.</p>
-      {bars.length > 1 && <PriceBars bars={bars} currency={cur} title={`Lowest price per mg at each shop (${cur})`} />}
-      <PriceTable offers={xs} caption={`${label} prices in ${cur}`} />
+      <H class={H === 'h2' ? 'h2' : 'h3'}>{head(cur, shops)}</H>
+      <p class="text-slate-700 max-w-[70ch]">{t(lang, 'c.sectionIntro')}</p>
+      {bars.length > 1 && <PriceBars bars={bars} currency={cur} title={t(lang, 'c.barsTitle', { cur })} />}
+      <PriceTable offers={xs} caption={t(lang, 'c.tableCaption', { label, cur })} />
     </section>
   );
 })}

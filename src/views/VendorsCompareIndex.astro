@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { SHOP_PAIRS, vendorBySlug, CHECKED_ISO, itemListSchema } from '../lib/site';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const rows = SHOP_PAIRS.map(([a, b]) => ({ a: vendorBySlug(a)!, b: vendorBySlug(b)! }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'nav.shops'), url: L('/vendors/') }, { name: t(lang, 'footer.shopVsShop'), url: L('/vendors/compare/') }];
+const V = { date: fmtDate(lang, CHECKED_ISO), n: rows.length };
+---
+<BaseLayout lang={lang} title={tt(lang, 'vci.title', V)} description={td(lang, 'vci.description', V)} crumbs={crumbs} jsonLd={itemListSchema(t(lang, 'vci.itemList'), rows.map((r) => ({ name: `${r.a.name} vs ${r.b.name}`, url: L(`/vendors/compare/${r.a.slug}-vs-${r.b.slug}/`) })))}>
+  <PageHero crumbs={crumbs} title={t(lang, 'vci.h1')} intro={t(lang, 'vci.intro', V)} />
+  <div class="wrap mt-12 space-y-10">
+    {['EU', 'US'].map((r) => (
+      <section class="space-y-4">
+        <h2 class="h2">{t(lang, r === 'EU' ? 'vci.eu' : 'vci.us')}</h2>
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {rows.filter((x) => x.a.region === r).map((x) => (
+            <li><a href={L(`/vendors/compare/${x.a.slug}-vs-${x.b.slug}/`)} class="card card-hover block p-5"><span class="block text-lg font-bold text-slate-900">{x.a.name} vs {x.b.name}</span><span class="block mt-1 text-slate-700">{t(lang, 'vci.scores', { a: F.score(x.a.overallScore), b: F.score(x.b.overallScore) })}</span></a></li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</BaseLayout>

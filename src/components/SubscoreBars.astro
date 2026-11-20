@@ -2,14 +2,21 @@
 /** Subscore bars (0-5) with optional reasons from audit.json subscore_reasons. */
 import type { VendorProfile } from '../data/vendors';
 import { SUBSCORE_LABELS } from '../lib/site';
+import { t, splitLang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locVendor } from '../i18n/data';
 interface Props {
   vendor: VendorProfile;
   reasons?: boolean;
   compact?: boolean;
 }
-const { vendor, reasons = false, compact = false } = Astro.props;
+const { vendor: raw, reasons = false, compact = false } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const F = fmt(lang);
+const vendor = locVendor(lang, raw);
 const rows = SUBSCORE_LABELS.map((s) => ({
   ...s,
+  label: t(lang, `sub.${s.key}`),
   value: vendor.scores[s.key],
   reason: vendor.subscoreReasons[s.key as string] || '',
 }));
@@ -18,8 +25,8 @@ const rows = SUBSCORE_LABELS.map((s) => ({
   {rows.map((r) => (
     <li>
       <div class="flex items-baseline justify-between gap-3">
-        <span class="font-semibold text-slate-900">{r.label} <span class="text-sm font-normal text-slate-600">(weight {r.weight}%)</span></span>
-        <span class="font-bold tabular-nums text-slate-900 whitespace-nowrap">{r.value < 0 ? 'not assessable' : `${r.value.toFixed(1)} / 5`}</span>
+        <span class="font-semibold text-slate-900">{r.label} <span class="text-sm font-normal text-slate-600">({t(lang, 'c.weight', { n: r.weight })})</span></span>
+        <span class="font-bold tabular-nums text-slate-900 whitespace-nowrap">{r.value < 0 ? t(lang, 'c.notAssessable') : `${F.score(r.value)} / 5`}</span>
       </div>
       <svg viewBox="0 0 100 6" preserveAspectRatio="none" class="mt-1.5 w-full h-2.5 block" aria-hidden="true">
         <rect x="0" y="0" width="100" height="6" rx="3" fill="#e2e8f0" />

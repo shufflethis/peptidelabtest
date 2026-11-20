@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FAQ from '../components/FAQ.astro';
+import { LABS_IN_DATA, reportsByLab, CHECKED_ISO, TOTALS, faqSchema, itemListSchema, fillPct, YEAR } from '../lib/site';
+import { getLabGuide } from '../data/labGuides';
+import { t, tt, td, tfaq, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locLabGuide } from '../i18n/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const rows = LABS_IN_DATA.map((l) => {
+  const reps = reportsByLab(l.slug);
+  const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+  return { l, g: locLabGuide(lang, getLabGuide(l.slug)), reps: reps.length, portal: reps.filter((r) => r.report.verifiable).length, shops: new Set(reps.map((r) => r.vendor.slug)).size, lo: fills.length ? Math.min(...fills) : null, hi: fills.length ? Math.max(...fills) : null };
+}).sort((a, b) => b.reps - a.reps);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'footer.labs'), url: L('/labs/') }];
+const V = { n: rows.length, reports: TOTALS.reportsOpened, date: fmtDate(lang, CHECKED_ISO), year: YEAR };
+const faqs = tfaq(lang, 'li.faqs', V);
+---
+<BaseLayout lang={lang} title={tt(lang, 'li.title', V)} description={td(lang, 'li.description', V)} crumbs={crumbs} jsonLd={[faqSchema(faqs), itemListSchema(t(lang, 'li.itemList'), rows.map((r) => ({ name: r.l.name, url: L(`/labs/${r.l.slug}/`) })))]}>
+  <PageHero crumbs={crumbs} title={t(lang, 'li.h1')} intro={t(lang, 'li.intro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th scope="col">{t(lang, 'li.colLab')}</th>
+            <th scope="col" class="num">{t(lang, 'pi.colReports')}</th>
+            <th scope="col" class="num">{t(lang, 'c.vb.portal')}</th>
+            <th scope="col" class="num">{t(lang, 'pi.colShops')}</th>
+            <th scope="col">{t(lang, 'c.measuredVsLabel')}</th>
+            <th scope="col">{t(lang, 'li.colHow')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td class="min-w-[10rem]"><a href={L(`/labs/${r.l.slug}/`)} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{r.l.name}</a><span class="sub">{r.g?.address ? r.g.address.split(',').slice(-2).join(',').trim() : t(lang, 'li.noAddress')}</span></td>
+              <td class="num">{r.reps}</td>
+              <td class="num">{r.portal}</td>
+              <td class="num">{r.shops}</td>
+              <td class="whitespace-nowrap">{r.lo != null ? F.pctRange(r.lo, r.hi!) : t(lang, 'v.notStated')}</td>
+              <td class="min-w-[14rem]">{r.g?.verifyWhere || t(lang, 'lab.noPortal')}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <FAQ items={faqs} />
+  </div>
+</BaseLayout>

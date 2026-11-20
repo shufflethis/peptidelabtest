@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FillChart from '../components/FillChart.astro';
+import PriceBars from '../components/PriceBars.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Icon from '../components/Icon.astro';
+import { COMPOUNDS } from '../data/compounds';
+import {
+  compoundShort, shopsCarrying, reportsFor, sizesFor, sizePagesFor, offersFor, cheapestBy, fillPct, CHECKED_ISO, faqSchema,
+  PRICE_COMPOUNDS, compoundPairsFor, pairSlug, labKeyOf, YEAR,
+} from '../lib/site';
+import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locCompound } from '../i18n/data';
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const c = locCompound(lang, COMPOUNDS.find((x) => x.slug === slug)!);
+const short = compoundShort(c.slug);
+const shops = shopsCarrying(c.slug);
+const eu = shops.filter((s) => s.region === 'EU').length;
+const us = shops.filter((s) => s.region === 'US').length;
+const sizes = sizesFor(c.slug);
+const reps = reportsFor(c.slug);
+const portal = reps.filter((r) => r.report.verifiable).length;
+const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+const offers = offersFor(c.slug);
+const cEur = cheapestBy(offers, 'EUR');
+const cUsd = cheapestBy(offers, 'USD');
+const names = Array.from(new Set(offers.map((o) => o.product.shopProductName.replace(/\s*\d+(\.\d+)?\s*mg.*$/i, '').trim()).filter((n) => n && n.toLowerCase() !== short.toLowerCase()))).slice(0, 12);
+const labs = Array.from(new Set(reps.map((r) => r.report.lab.replace(/\s*\(.*\)\s*$/, ''))));
+const hasPrices = PRICE_COMPOUNDS.includes(c.slug);
+const sizeList = listJoin(lang, sizes.map((s) => F.mg(s)));
+const V = { c: short, name: c.name, cls: c.formulaOrClass, n: shops.length, eu, us, sizes: tn(lang, 'pc.vialSizes', sizes.length), list: sizeList, reports: tn(lang, 'pc.labReports', reps.length), nrep: reps.length, portal, cas: c.casNumber, year: YEAR, labs: listJoin(lang, labs), nshops: new Set(reps.map((r) => r.vendor.slug)).size, range: fills.length ? F.pctRange(Math.min(...fills), Math.max(...fills)) : '', date: fmtDate(lang, CHECKED_ISO) };
+const intro = [t(lang, 'cmp.intro1', V), sizes.length ? t(lang, 'cmp.intro2', V) : t(lang, 'cmp.intro2none', V), fills.length ? t(lang, 'cmp.intro3fill', V) : t(lang, 'cmp.intro3', V)].join(' ');
+const title = tt(lang, 'cmp.title', V);
+const description = td(lang, 'cmp.description', V);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'nav.compounds'), url: L('/compounds/') }, { name: short, url: L(`/compounds/${c.slug}/`) }];
+const faqs = [
+  { q: t(lang, 'cmp.fq1', V), a: c.summary },
+  { q: t(lang, 'pc.fq4', V), a: sizes.length ? t(lang, 'cmp.fa2', V) : t(lang, 'cmp.fa2none', V) },
+  { q: t(lang, 'cmp.fq3', V), a: reps.length ? t(lang, 'cmp.fa3', V) : t(lang, 'pc.fa3none', V) },
+  { q: t(lang, 'cmp.fq4', V), a: c.analyticalNotes },
+];
+const fillRows = reps.map((r) => ({ label: `${r.vendor.name}${r.report.labelMg ? ` ${F.mg(r.report.labelMg)}` : ''}`, sub: r.report.lab, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }));
+const related = [
+  ...(hasPrices ? [{ href: L(`/prices/${c.slug}/`), label: t(lang, 'pi.itemName', { c: short }), sub: tn(lang, 'common.shops', shops.length) }] : []),
+  ...sizePagesFor(c.slug).map((s) => ({ href: L(`/prices/${c.slug}/${s.size}mg/`), label: t(lang, 'pc.relSize', { c: short, mg: F.mg(s.size) }), sub: tn(lang, 'common.shops', s.shops) })),
+  ...compoundPairsFor(c.slug).map(([a, b]) => ({ href: L(`/compare/${pairSlug(a, b)}/`), label: `${compoundShort(a)} vs ${compoundShort(b)}`, sub: t(lang, 'cmp.relPair') })),
+  ...Array.from(new Set(reps.map((r) => labKeyOf(r.report.lab)?.slug).filter(Boolean) as string[])).slice(0, 3).map((s) => ({ href: L(`/labs/${s}/`), label: t(lang, 'v.relLab', { lab: labKeyOf(reps.find((r) => labKeyOf(r.report.lab)?.slug === s)!.report.lab)!.name }), sub: t(lang, 'v.relLabSub') })),
+];
+---
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={t(lang, 'cmp.h1', V)} eyebrow={c.category} intro={intro}>
+    {hasPrices && <div class="mt-6"><a href={L(`/prices/${c.slug}/`)} class="btn-primary">{t(lang, 'cmp.cta', V)} <Icon name="arrow-right" class="w-4 h-4" /></a></div>}
+  </PageHero>
+  <div class="wrap mt-12 space-y-14">
+    <section class="grid gap-8 lg:grid-cols-2">
+      <div class="prose-read">
+        <h2 class="!mt-0">{t(lang, 'cmp.whatIs', V)}</h2>
+        <p>{c.summary}</p>
+        <h2>{t(lang, 'cmp.checkH')}</h2>
+        <p>{c.analyticalNotes}</p>
+      </div>
+      <dl class="facts card px-5 sm:px-6 py-2 self-start">
+        <div><dt>{t(lang, 'cmp.name')}</dt><dd>{c.name}</dd></div>
+        <div><dt>{t(lang, 'cmp.class')}</dt><dd>{c.formulaOrClass}</dd></div>
+        <div><dt>{t(lang, 'cmp.group')}</dt><dd>{c.category}</dd></div>
+        <div><dt>{t(lang, 'cmp.cas')}</dt><dd>{c.casNumber}</dd></div>
+        <div><dt>{t(lang, 'cmp.mw')}</dt><dd>{c.molecularWeightDa}</dd></div>
+      </dl>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'cmp.marketH', V)}</h2>
+      <dl class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="stat"><dt>{t(lang, 'cmp.statShops')}</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu} EU, {us} US)</span></dd></div>
+        <div class="stat"><dt>{t(lang, 'pi.colSizes')}</dt><dd>{sizes.length ? `${sizes.map((s) => F.raw(s)).join(', ')} mg` : F.na}</dd></div>
+        <div class="stat"><dt>{t(lang, 'pc.statLowest', { cur: 'EUR' })}</dt><dd>{cEur ? F.perMg(cEur.perMg, 'EUR') : F.na}</dd></div>
+        <div class="stat"><dt>{t(lang, 'pc.statLowest', { cur: 'USD' })}</dt><dd>{cUsd ? F.perMg(cUsd.perMg, 'USD') : F.na}</dd></div>
+      </dl>
+      {names.length > 0 && <p class="text-slate-700 max-w-[70ch]"><strong class="text-slate-900">{t(lang, 'cmp.names')}</strong> {names.join(', ')}.</p>}
+      {['EUR', 'USD'].map((cur) => {
+        const bars = offers.filter((o) => o.currency === cur && o.perMg != null).map((o) => ({ label: o.vendor.name, sub: F.mg(o.product.vialMg), value: o.perMg as number, partner: o.partner }));
+        return bars.length > 2 ? <PriceBars bars={bars} currency={cur} title={t(lang, 'cmp.barsTitle', { c: short, cur })} max={10} /> : null;
+      })}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'cmp.coverageH')}</h2>
+      <p class="text-slate-700 max-w-[70ch]">{reps.length ? t(lang, 'cmp.coverageP', V) : t(lang, 'pc.fa3none', V)}</p>
+      <FillChart rows={fillRows} title={t(lang, 'pc.chartTitle', V)} />
+    </section>
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <p class="text-sm text-slate-600 max-w-[75ch]">{t(lang, 'cmp.ruo')}</p>
+  </div>
+</BaseLayout>

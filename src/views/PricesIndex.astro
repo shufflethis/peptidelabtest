@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import FAQ from '../components/FAQ.astro';
+import {
+  PRICE_COMPOUNDS, offersFor, compoundShort, shopsCarrying, sizesFor, sizePagesFor, reportsFor, cheapestBy, TOTALS,
+  CHECKED_ISO, SIZE_PAGES, itemListSchema, faqSchema, getCompound, YEAR,
+} from '../lib/site';
+import { t, tn, tt, td, tfaq, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { categoryLabel } from '../i18n/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+
+const rows = PRICE_COMPOUNDS.map((c) => {
+  const offers = offersFor(c);
+  return {
+    slug: c, name: compoundShort(c), category: categoryLabel(lang, getCompound(c)), shops: shopsCarrying(c).length, listings: offers.length,
+    sizes: sizesFor(c), sizePages: sizePagesFor(c), eur: cheapestBy(offers, 'EUR'), usd: cheapestBy(offers, 'USD'), reports: reportsFor(c).length,
+  };
+}).sort((a, b) => b.shops - a.shops);
+const V = { n: rows.length, shops: TOTALS.shops, products: TOTALS.products, reports: TOTALS.reportsOpened, date, year: YEAR, sizes: SIZE_PAGES.length };
+const title = tt(lang, 'pi.title', V);
+const description = td(lang, 'pi.description', V);
+const intro = t(lang, 'pi.intro', V);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'pi.crumb'), url: L('/prices/') }];
+const faqs = tfaq(lang, 'pi.faqs', V);
+const jsonLd = [
+  itemListSchema(t(lang, 'pi.itemList'), rows.map((r) => ({ name: t(lang, 'pi.itemName', { c: r.name }), url: L(`/prices/${r.slug}/`) }))),
+  faqSchema(faqs),
+];
+---
+
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero crumbs={crumbs} title={t(lang, 'pi.h1', V)} eyebrow={t(lang, 'pi.eyebrow', V)} intro={intro}>
+    <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2.5" aria-label={t(lang, 'pi.pick')}>
+      {rows.map((r) => (
+        <a href={L(`/prices/${r.slug}/`)} class="card card-hover px-3.5 py-2.5 min-h-[44px]">
+          <span class="block font-bold text-slate-900">{r.name}</span>
+          <span class="block text-sm text-slate-600">{tn(lang, 'common.shops', r.shops)}</span>
+        </a>
+      ))}
+    </div>
+  </PageHero>
+
+  <div class="wrap mt-10 space-y-12">
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'pi.lowestH')}</h2>
+      <div class="table-wrap">
+        <table class="data-table" data-sortable>
+          <thead>
+            <tr>
+              <th><button type="button" class="sort-btn" data-sort-type="text">{t(lang, 'pi.colCompound')} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+              <th class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'pi.colShops')} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+              <th class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'pi.colListings')} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+              <th>{t(lang, 'pi.colSizes')}</th>
+              <th class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'pi.colLowest', { sym: '€' })} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+              <th class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'pi.colLowest', { sym: '$' })} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+              <th class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'pi.colReports')} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr>
+                <td data-v={r.name}><a href={L(`/prices/${r.slug}/`)} class="font-semibold text-slate-900 hover:text-teal-700">{r.name}</a><span class="sub">{r.category}</span></td>
+                <td class="num">{r.shops}</td>
+                <td class="num">{r.listings}</td>
+                <td class="min-w-[10rem]">
+                  {r.sizes.map((s, i) => {
+                    const page = r.sizePages.find((p) => p.size === s);
+                    return <>{i > 0 && ', '}{page ? <a href={L(`/prices/${r.slug}/${s}mg/`)} class="text-link font-medium">{F.mg(s)}</a> : F.mg(s)}</>;
+                  })}
+                </td>
+                <td class="num" data-v={r.eur?.perMg ?? ''}>{r.eur ? <><span class="font-semibold">{F.perMg(r.eur.perMg, 'EUR')}</span><span class="sub">{r.eur.vendor.name}</span></> : F.na}</td>
+                <td class="num" data-v={r.usd?.perMg ?? ''}>{r.usd ? <><span class="font-semibold">{F.perMg(r.usd.perMg, 'USD')}</span><span class="sub">{r.usd.vendor.name}</span></> : F.na}</td>
+                <td class="num">{r.reports}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[0.94rem] text-slate-700 max-w-[70ch]">{t(lang, 'pi.tableNote')}</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'pi.sizesH')}</h2>
+      <p class="text-slate-700 max-w-[70ch]">{t(lang, 'pi.sizesP')}</p>
+      <div class="flex flex-wrap gap-2">
+        {SIZE_PAGES.map((s) => (
+          <a href={L(`/prices/${s.compound}/${s.size}mg/`)} class="inline-flex items-center gap-1.5 min-h-[44px] rounded-xl bg-white border border-slate-300 px-3.5 text-[0.94rem] font-semibold text-slate-800 hover:border-teal-600 hover:text-teal-900">{compoundShort(s.compound)} {F.mg(s.size)} <span class="text-slate-600 font-normal">({s.shops})</span></a>
+        ))}
+      </div>
+    </section>
+
+    <p class="text-slate-700"><a href={L('/price-index/')} class="text-link">{t(lang, 'pi.linkIndex')}</a> · <a href={L('/compare/')} class="text-link">{t(lang, 'footer.compareCompounds')}</a> · <a href={L('/batch-tracker/')} class="text-link">{t(lang, 'footer.reportsOpened')}</a></p>
+
+    <FAQ items={faqs} />
+    <Disclosure />
+  </div>
+</BaseLayout>

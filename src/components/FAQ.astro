@@ -1,12 +1,14 @@
 ---
 /** FAQ accordion. Pair with faqSchema() in the page's jsonLd for FAQPage markup. */
 import Icon from './Icon.astro';
+import { t, splitLang } from '../i18n';
 interface Props {
   items: { q: string; a: string }[];
   title?: string;
   id?: string;
 }
-const { items, title = 'Frequently asked questions', id = 'faq' } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const { items, title = t(lang, 'c.faq'), id = 'faq' } = Astro.props;
 ---
 {items.length > 0 && (
   <section id={id} class="space-y-4">

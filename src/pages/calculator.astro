@@ -1,19 +1,4 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
-import ConcentrationCalculator from '../components/ConcentrationCalculator.astro';
-import FAQ from '../components/FAQ.astro';
-import { faqSchema } from '../lib/site';
-const faqs = [
-  { q: 'How is stock concentration calculated?', a: 'Stock concentration (mg/mL) = mass in the vial (mg) divided by the volume of diluent added (mL). Example: 10 mg in 2 mL = 5 mg/mL.' },
-  { q: 'Why enter the measured mg from a lab report?', a: 'The measured amount on a lab report can differ from the label. In our audit, opened reports showed measured content above and below the label amount, so the measured figure gives a more exact concentration.' },
-];
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'Concentration calculator', url: '/calculator/' }];
+import View from '../views/Calculator.astro';
 ---
-<BaseLayout title="Vial Stock Concentration Calculator (mg/mL)" description="Laboratory stock concentration calculator (mg/mL) for single and two-compound research vials, with an optional measured-mg input. Research use only." crumbs={crumbs} jsonLd={faqSchema(faqs)}>
-  <PageHero crumbs={crumbs} title="Vial stock concentration calculator" intro="Works out the stock concentration in mg/mL from the mass in a vial and the volume of diluent added. You can use the measured mg from a lab report instead of the label. For in-vitro laboratory work only; no dosing or usage information." />
-  <div class="wrap mt-10 space-y-14">
-    <ConcentrationCalculator />
-    <FAQ items={faqs} />
-  </div>
-</BaseLayout>
+<View lang="en" />

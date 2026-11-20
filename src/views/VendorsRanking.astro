@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Ranking from '../components/Ranking.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { PARTNERS, NON_PARTNERS, VENDORS_BY_SCORE, CHECKED_ISO, YEAR, itemListSchema, faqSchema, SHOP_PAIRS } from '../lib/site';
+import { VENDORS } from '../data/vendors';
+import { t, tn, tt, td, tfaq, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang; region: 'ALL' | 'EU' | 'US' }
+const { lang, region: REGION } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const inRegion = (r: string) => REGION === 'ALL' || r === REGION;
+const partners = PARTNERS.filter((v) => inRegion(v.region));
+const others = NON_PARTNERS.filter((v) => inRegion(v.region));
+const all = VENDORS_BY_SCORE.filter((v) => inRegion(v.region));
+const opened = all.reduce((n, v) => n + v.coaStats.opened, 0);
+const portal = all.reduce((n, v) => n + v.coaStats.portalVerified, 0);
+const noReports = all.filter((v) => !v.coaStats.opened).length;
+const R = REGION.toLowerCase();
+const label = t(lang, `rank.label_${R}`);
+const best = partners[0];
+const V = { n: all.length, label, opened, portal, date, year: YEAR, best: best?.name, bestScore: best ? F.score(best.overallScore) : '' };
+const title = tt(lang, `rank.title_${R}`, V);
+const h1 = t(lang, `rank.h1_${R}`, V);
+const description = td(lang, 'rank.description', V);
+const intro = [t(lang, 'rank.intro1', V), tn(lang, 'rank.noReports', noReports), best ? t(lang, 'rank.intro2', V) : '', t(lang, 'rank.intro3')].filter(Boolean).join(' ');
+const regionUrl = REGION === 'EU' ? '/vendors/europe/' : '/vendors/usa/';
+const crumbs = REGION === 'ALL'
+  ? [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'nav.shops'), url: L('/vendors/') }]
+  : [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'nav.shops'), url: L('/vendors/') }, { name: t(lang, 'rank.crumbRegion', V), url: L(regionUrl) }];
+const faqs = [
+  { q: t(lang, 'rank.fq1', V), a: best ? t(lang, 'rank.fa1', V) : t(lang, 'rank.fa1none') },
+  ...tfaq(lang, 'rank.faqs', V),
+];
+const jsonLd = [itemListSchema(h1, partners.map((p) => ({ name: p.name, url: L(`/vendors/${p.slug}/`) }))), faqSchema(faqs)];
+const related = [
+  ...(REGION !== 'US' ? [] : []),
+  ...(REGION !== 'EU' && REGION !== 'US' ? [] : []),
+  ...(REGION === 'ALL' || REGION === 'EU' ? [{ href: L('/vendors/usa/'), label: t(lang, 'v.relUs'), sub: tn(lang, 'common.shops', VENDORS.filter((v) => v.region === 'US').length) }] : []),
+  ...(REGION === 'ALL' || REGION === 'US' ? [{ href: L('/vendors/europe/'), label: t(lang, 'v.relEu'), sub: tn(lang, 'common.shops', VENDORS.filter((v) => v.region === 'EU').length) }] : []),
+  ...(REGION !== 'ALL' ? [{ href: L('/vendors/'), label: t(lang, 'footer.bestShops') }] : []),
+  { href: L('/vendors/compare/'), label: t(lang, 'rank.relPairs'), sub: tn(lang, 'rank.pairs', SHOP_PAIRS.length) },
+  { href: L('/discount-codes/'), label: t(lang, 'footer.codes'), sub: t(lang, 'rank.relCodesSub') },
+  { href: L('/methodology/'), label: t(lang, 'layout.howWeScore'), sub: t(lang, 'rank.relMethodSub') },
+  { href: L('/vendors/peptide-sciences/'), label: t(lang, 'rank.relPs'), sub: t(lang, 'rank.relPsSub') },
+];
+---
+
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero crumbs={crumbs} title={h1} intro={intro} />
+  <div class="wrap mt-12 space-y-16">
+    <Ranking partners={partners} others={others} partnerTitle={t(lang, 'rank.partnerTitle', V)} otherTitle={t(lang, 'rank.otherTitle', V)} />
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
+</BaseLayout>

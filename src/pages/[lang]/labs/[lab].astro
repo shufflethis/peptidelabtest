@@ -1,0 +1,7 @@
+---
+import View from '../../../views/Lab.astro';
+import { R, withLangs } from '../../../lib/routes';
+export const getStaticPaths = () => withLangs(R.lab());
+const { lang, ...rest } = Astro.props as any;
+---
+<View lang={lang} {...rest} />

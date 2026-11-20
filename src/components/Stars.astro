@@ -1,15 +1,17 @@
 ---
 /** SVG star rating (0-5) with partial fill. No unicode star characters. */
+import { t, splitLang, num } from '../i18n';
 interface Props {
   score: number;
   class?: string;
   size?: string;
 }
 const { score, class: cls = '', size = 'w-4 h-4' } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
 const pct = Math.max(0, Math.min(100, (score / 5) * 100));
 const star = 'm12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9Z';
 ---
-<span class={`relative inline-flex align-middle ${cls}`} role="img" aria-label={`${score.toFixed(1)} out of 5`}>
+<span class={`relative inline-flex align-middle ${cls}`} role="img" aria-label={t(lang, 'c.outOf5', { score: num(lang, score, 1) })}>
   <span class="flex text-slate-200">
     {[0, 1, 2, 3, 4].map(() => (
       <svg viewBox="0 0 24 24" class={size} fill="currentColor" aria-hidden="true"><path d={star} /></svg>

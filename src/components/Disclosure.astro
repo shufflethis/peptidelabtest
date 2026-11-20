@@ -1,14 +1,14 @@
 ---
 /** Affiliate + RUO disclosure (inline box). */
 import Icon from './Icon.astro';
+import { t, splitLang } from '../i18n';
 interface Props {
   compact?: boolean;
 }
 const { compact = false } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
 ---
 <aside class={`rounded-2xl border border-slate-200 bg-slate-50 ${compact ? 'p-4 text-sm' : 'p-5 text-[0.94rem]'} text-slate-700 leading-relaxed flex gap-3`}>
   <Icon name="info" class="w-5 h-5 mt-0.5 text-slate-500" />
-  <p class="max-w-[75ch]">
-    <strong class="text-slate-900">Disclosure:</strong> links marked "Visit shop" go to partner shops and are affiliate links. We may earn a commission at no extra cost to you. Rankings use the published audit score only, never commission. All products are sold as research-use-only (RUO) laboratory reagents. Nothing on this site is advice on human or animal use.
-  </p>
+  <p class="max-w-[75ch]"><strong class="text-slate-900">{t(lang, 'c.disclosureLabel')}</strong> {t(lang, 'c.disclosure')}</p>
 </aside>

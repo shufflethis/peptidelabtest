@@ -1,11 +1,13 @@
 ---
 /** Related links block for the internal linking mesh. */
 import Icon from './Icon.astro';
+import { t, splitLang } from '../i18n';
 interface Props {
   title?: string;
   links: { href: string; label: string; sub?: string }[];
 }
-const { title = 'Related pages', links } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const { title = t(lang, 'c.related'), links } = Astro.props;
 ---
 {links.length > 0 && (
   <section>

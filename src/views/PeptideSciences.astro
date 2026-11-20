@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CompareBox from '../components/CompareBox.astro';
+import FAQ from '../components/FAQ.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { partnersIn, CHECKED_ISO, faqSchema } from '../lib/site';
+import { t, tt, td, tfaq, tlist, lp, fmtDate, listJoin, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const us = partnersIn('US').slice(0, 3);
+const eu = partnersIn('EU').slice(0, 3);
+const V = { date: fmtDate(lang, CHECKED_ISO), us: listJoin(lang, us.map((v) => v.name)) };
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'nav.shops'), url: L('/vendors/') }, { name: 'Peptide Sciences', url: L('/vendors/peptide-sciences/') }];
+const faqs = tfaq(lang, 'psc.faqs', V);
+---
+<BaseLayout lang={lang} title={tt(lang, 'psc.title', V)} description={td(lang, 'psc.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={t(lang, 'psc.h1')} intro={t(lang, 'psc.intro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="prose-read">
+      <h2>{t(lang, 'psc.saysH')}</h2>
+      <ul>{tlist(lang, 'psc.says').map((x) => <li>{x}</li>)}</ul>
+      <p>{t(lang, 'psc.source')} <span class="mono-url">https://peptidesciences.com/pages/terms-of-service</span>, {t(lang, 'psc.read', V)}</p>
+      <h2>{t(lang, 'psc.meansH')}</h2>
+      <p>{t(lang, 'psc.meansP')} <a href={L('/methodology/')}>{t(lang, 'psc.sameMethod')}</a>.</p>
+    </section>
+    <CompareBox shops={us} title={t(lang, 'psc.usBox')} note={t(lang, 'psc.boxNote')} />
+    <CompareBox shops={eu} title={t(lang, 'psc.euBox')} note={t(lang, 'psc.boxNote')} />
+    <FAQ items={faqs} />
+    <Disclosure />
+  </div>
+</BaseLayout>

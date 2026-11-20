@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ConcentrationCalculator from '../components/ConcentrationCalculator.astro';
+import FAQ from '../components/FAQ.astro';
+import { faqSchema } from '../lib/site';
+import { t, tt, td, tfaq, lp, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const faqs = tfaq(lang, 'calcp.faqs');
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'calcp.crumb'), url: L('/calculator/') }];
+---
+<BaseLayout lang={lang} title={tt(lang, 'calcp.title')} description={td(lang, 'calcp.description')} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={t(lang, 'calcp.h1')} intro={t(lang, 'calcp.intro')} />
+  <div class="wrap mt-10 space-y-14">
+    <ConcentrationCalculator />
+    <FAQ items={faqs} />
+  </div>
+</BaseLayout>

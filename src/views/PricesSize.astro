@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import PriceSection from '../components/PriceSection.astro';
+import FillChart from '../components/FillChart.astro';
+import FAQ from '../components/FAQ.astro';
+import Disclosure from '../components/Disclosure.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import WhereToBuy from '../components/WhereToBuy.astro';
+import {
+  offersFor, compoundShort, shopsCarrying, reportsFor, cheapestBy, CHECKED_ISO, fillPct, faqSchema,
+  itemListSchema, sizePagesFor, PARTNERS, YEAR, median, compoundPairsFor, pairSlug,
+} from '../lib/site';
+import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang; compound: string; size: number }
+const { lang, compound, size } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const short = compoundShort(compound);
+const offers = offersFor(compound, size);
+const shops = shopsCarrying(compound, size);
+const eu = shops.filter((s) => s.region === 'EU');
+const us = shops.filter((s) => s.region === 'US');
+const repsAll = reportsFor(compound);
+const reps = repsAll.filter((r) => r.report.labelMg === size);
+const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+const portal = reps.filter((r) => r.report.verifiable).length;
+const cEur = cheapestBy(offers, 'EUR');
+const cUsd = cheapestBy(offers, 'USD');
+const medianOf = (cur: string) => median(offers.filter((o) => o.currency === cur && o.price != null).map((o) => o.price as number));
+const mEur = medianOf('EUR');
+const mUsd = medianOf('USD');
+const partnersHere = PARTNERS.filter((p) => shops.some((s) => s.slug === p.slug));
+const vialTxt = (o: NonNullable<ReturnType<typeof cheapestBy>>) => t(lang, 'ps.vialAt', { p: F.money(o.price, o.currency), shop: o.vendor.name, cur: o.currency });
+const lows = listJoin(lang, [cEur && vialTxt(cEur), cUsd && vialTxt(cUsd)].filter(Boolean) as string[]) || F.na;
+const mg = F.mg(size);
+const V = {
+  c: short, size, mg, n: shops.length, eu: eu.length, us: us.length, date, lows, year: YEAR, portal, nrep: reps.length, nall: repsAll.length,
+  reports: tn(lang, 'pc.labReports', reps.length), range: fills.length ? F.pctRange(Math.min(...fills), Math.max(...fills)) : '',
+  from: [cEur && F.perMg(cEur.perMg, 'EUR'), cUsd && F.perMg(cUsd.perMg, 'USD')].filter(Boolean).join(` ${t(lang, 'common.or')} `) || F.na,
+};
+const intro = `${t(lang, 'ps.intro1', V)} ${t(lang, 'ps.intro2', V)} ${reps.length ? t(lang, 'ps.intro3', V) : t(lang, 'ps.intro3none', V)}`;
+const title = tt(lang, 'ps.title', V);
+const h1 = t(lang, 'ps.h1', V);
+const description = td(lang, 'ps.description', V);
+const medians = listJoin(lang, [
+  mEur != null && t(lang, 'ps.median', { p: F.money(mEur, 'EUR'), n: offers.filter((o) => o.currency === 'EUR').length, cur: 'EUR' }),
+  mUsd != null && t(lang, 'ps.median', { p: F.money(mUsd, 'USD'), n: offers.filter((o) => o.currency === 'USD').length, cur: 'USD' }),
+].filter(Boolean) as string[]) || F.na;
+const faqs = [
+  { q: t(lang, 'ps.fq1', V), a: t(lang, 'ps.fa1', { ...V, medians }) },
+  { q: t(lang, 'ps.fq2', V), a: `${t(lang, 'ps.fa2', V)} ${partnersHere.length ? t(lang, 'ps.fa2p', { list: listJoin(lang, partnersHere.map((p) => `${p.name} (${F.score(p.overallScore)}/5)`)) }) : t(lang, 'pc.fa1none')}` },
+  { q: t(lang, 'ps.fq3', V), a: reps.length ? t(lang, 'ps.fa3', { ...V, list: listJoin(lang, Array.from(new Set(reps.map((r) => r.vendor.name)))) }) : t(lang, 'ps.fa3none', V) },
+];
+const crumbs = [
+  { name: t(lang, 'common.home'), url: L('/') },
+  { name: t(lang, 'pi.crumb'), url: L('/prices/') },
+  { name: short, url: L(`/prices/${compound}/`) },
+  { name: mg, url: L(`/prices/${compound}/${size}mg/`) },
+];
+const jsonLd = [faqSchema(faqs), itemListSchema(t(lang, 'ps.itemList', V), shops.map((s) => ({ name: s.name, url: L(`/vendors/${s.slug}/`) })))];
+const fillRows = reps.map((r) => ({ label: r.vendor.name, sub: r.report.lab, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }));
+const related = [
+  { href: L(`/prices/${compound}/`), label: t(lang, 'ps.relAll', V), sub: t(lang, 'ps.relAllSub') },
+  ...sizePagesFor(compound).filter((s) => s.size !== size).map((s) => ({ href: L(`/prices/${compound}/${s.size}mg/`), label: `${short} ${F.mg(s.size)}`, sub: tn(lang, 'common.shops', s.shops) })),
+  { href: L(`/compounds/${compound}/`), label: t(lang, 'pc.relFacts', V) },
+  ...compoundPairsFor(compound).map(([a, b]) => ({ href: L(`/compare/${pairSlug(a, b)}/`), label: `${compoundShort(a)} vs ${compoundShort(b)}`, sub: t(lang, 'pc.relPair') })),
+];
+---
+
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero crumbs={crumbs} title={h1} eyebrow={t(lang, 'ps.eyebrow', V)} intro={intro}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>{t(lang, 'pc.statShops')}</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu.length} / {us.length})</span></dd></div>
+      <div class="stat"><dt>{t(lang, 'pc.statLowest', { cur: 'EUR' })}</dt><dd>{cEur ? F.perMg(cEur.perMg, 'EUR') : F.na}</dd></div>
+      <div class="stat"><dt>{t(lang, 'pc.statLowest', { cur: 'USD' })}</dt><dd>{cUsd ? F.perMg(cUsd.perMg, 'USD') : F.na}</dd></div>
+      <div class="stat"><dt>{t(lang, 'ps.statReports', V)}</dt><dd>{reps.length}</dd></div>
+    </dl>
+  </PageHero>
+
+  <div class="wrap mt-10 space-y-14">
+    <WhereToBuy compound={compound} size={size} title={t(lang, 'ps.wtbH', V)} />
+    <PriceSection offers={offers} label={`${short} ${mg}`} />
+    {fillRows.length > 0 && (
+      <section class="space-y-4">
+        <h2 class="h2">{t(lang, 'ps.repH', V)}</h2>
+        <FillChart rows={fillRows} title={t(lang, 'ps.chartTitle', V)} />
+      </section>
+    )}
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
+</BaseLayout>

@@ -3,6 +3,8 @@
  * "Measured vs label" dot chart: x = measured mg / label mg * 100 %. Dashed 100% line, shaded 90-110% band.
  * HTML labels + one inline SVG strip per row (shared axis), generated at build time from opened reports.
  */
+import { t, splitLang } from '../i18n';
+import { fmt } from '../i18n/format';
 interface Row {
   label: string;
   sub?: string;
@@ -16,6 +18,8 @@ interface Props {
   caption?: string;
 }
 const { rows, title, caption } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const F = fmt(lang);
 const pts = rows
   .filter((r) => r.labelMg && r.measuredMg != null)
   .map((r) => ({ ...r, pct: (100 * (r.measuredMg as number)) / (r.labelMg as number) }));
@@ -33,12 +37,12 @@ for (let t = lo; t <= hi; t += step) ticks.push(t);
       <span class="hidden sm:block"></span>
       <div class="flex items-end gap-3">
         <div class="relative flex-1 h-6 text-[0.8rem] font-medium text-slate-700" aria-hidden="true">
-          {ticks.map((t, i) => <span class={`absolute bottom-0 -translate-x-1/2 tabular-nums ${ticks.length > 4 && i % 2 ? 'hidden sm:inline' : ''}`} style={`left:${x(t)}%`}>{t}%</span>)}
+          {ticks.map((t, i) => <span class={`absolute bottom-0 -translate-x-1/2 tabular-nums ${ticks.length > 4 && i % 2 ? 'hidden sm:inline' : ''}`} style={`left:${x(t)}%`}>{F.pct(t, 0)}</span>)}
         </div>
         <span class="w-[4.5rem] shrink-0"></span>
       </div>
     </div>
-    <ol class="mt-1 space-y-2" aria-label={`Measured content as percent of label, ${pts.length} reports`}>
+    <ol class="mt-1 space-y-2" aria-label={t(lang, 'c.fillAria', { n: pts.length })}>
       {pts.map((p) => {
         const out = p.pct < 90 || p.pct > 110;
         const col = out ? '#b45309' : '#0f766e';
@@ -46,22 +50,22 @@ for (let t = lo; t <= hi; t += step) ticks.push(t);
           <li class="grid gap-x-4 gap-y-0.5 sm:grid-cols-[15rem_1fr] sm:items-center">
             <span class="text-[0.94rem] leading-snug text-slate-900">{p.label}</span>
             <span class="flex items-center gap-3">
-              <svg viewBox="0 0 100 12" preserveAspectRatio="none" class="h-5 flex-1 min-w-0 overflow-visible" role="img" aria-label={`${p.measuredMg} of ${p.labelMg} mg, ${p.pct.toFixed(1)}%`}>
+              <svg viewBox="0 0 100 12" preserveAspectRatio="none" class="h-5 flex-1 min-w-0 overflow-visible" role="img" aria-label={t(lang, 'c.fillRowAria', { m: F.raw(p.measuredMg), l: F.raw(p.labelMg), p: F.pct(p.pct) })}>
                 <rect x={x(90)} y="0" width={x(110) - x(90)} height="12" fill="#ccfbf1" />
                 {ticks.map((t) => <line x1={x(t)} x2={x(t)} y1="0" y2="12" stroke="#e2e8f0" stroke-width="0.4" vector-effect="non-scaling-stroke" />)}
                 <line x1={x(100)} x2={x(100)} y1="0" y2="12" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3 2" vector-effect="non-scaling-stroke" />
                 <line x1={x(100)} x2={x(p.pct)} y1="6" y2="6" stroke={out ? '#f59e0b' : '#14b8a6'} stroke-width="2.5" vector-effect="non-scaling-stroke" />
                 <rect x={x(p.pct) - 1} y="0.8" width="2" height="10.4" rx="0.6" fill={p.verified === false ? '#ffffff' : col} stroke={col} stroke-width="2" vector-effect="non-scaling-stroke" />
               </svg>
-              <span class="w-[4.5rem] shrink-0 text-right font-semibold tabular-nums" style={`color:${col}`}>{p.pct.toFixed(1)}%</span>
+              <span class="w-[4.5rem] shrink-0 text-right font-semibold tabular-nums" style={`color:${col}`}>{F.pct(p.pct)}</span>
             </span>
-            <span class="sr-only">{p.verified ? 'portal-verified' : 'shop-hosted'}</span>
+            <span class="sr-only">{p.verified ? t(lang, 'c.portalVerified') : t(lang, 'c.shopHosted')}</span>
           </li>
         );
       })}
     </ol>
     <p class="mt-4 text-sm text-slate-700 leading-relaxed max-w-[75ch]">
-      {caption || 'Each row is one opened lab report: measured mg divided by label mg. Dashed line = 100% of the label. Shaded band = 90 to 110%.'} Amber values are outside that band. Solid marker = verified on the lab portal, hollow marker = report hosted by the shop only.
+      {caption || t(lang, 'c.fillCaption')} {t(lang, 'c.fillLegend')}
     </p>
   </figure>
 )}

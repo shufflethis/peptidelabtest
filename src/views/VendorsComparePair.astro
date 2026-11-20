@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ScoreRing from '../components/ScoreRing.astro';
+import SubscoreBars from '../components/SubscoreBars.astro';
+import FillChart from '../components/FillChart.astro';
+import CodeBadge from '../components/CodeBadge.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import type { VendorProfile } from '../data/vendors';
+import {
+  vendorBySlug, shopHref, REL_SPONSORED, compoundShort, faqSchema, CHECKED_ISO, YEAR,
+  VENDORS_BY_SCORE, codeInfo, SUBSCORE_LABELS, shopPairsFor, shopShort,
+} from '../lib/site';
+import { t, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locVendor } from '../i18n/data';
+interface Props { lang: Lang; a: string; b: string }
+const { lang, a, b } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const A = locVendor(lang, vendorBySlug(a)!);
+const B = locVendor(lang, vendorBySlug(b)!);
+const NP = t(lang, 'common.notPublished');
+const rank = (v: VendorProfile) => VENDORS_BY_SCORE.findIndex((x) => x.slug === v.slug) + 1;
+const leader = A.overallScore === B.overallScore ? null : A.overallScore > B.overallScore ? A : B;
+const other = leader === A ? B : A;
+const key = (c: string, mg: number | null) => `${c}|${mg}`;
+const best = (v: VendorProfile) => {
+  const m = new Map<string, (typeof v.products)[number]>();
+  for (const p of v.products) {
+    if (p.pricePerMg == null) continue;
+    const k = key(p.compound, p.vialMg);
+    const cur = m.get(k);
+    if (!cur || p.pricePerMg < cur.pricePerMg!) m.set(k, p);
+  }
+  return m;
+};
+const bA = best(A);
+const bB = best(B);
+const overlap = Array.from(bA.keys()).filter((k) => bB.has(k)).map((k) => ({ a: bA.get(k)!, b: bB.get(k)! }))
+  .sort((x, y) => compoundShort(x.a.compound).localeCompare(compoundShort(y.a.compound)) || (x.a.vialMg ?? 0) - (y.a.vialMg ?? 0));
+const sameCur = overlap.filter((o) => o.a.currency === o.b.currency);
+const aCheaper = sameCur.filter((o) => o.a.pricePerMg! < o.b.pricePerMg!).length;
+const bCheaper = sameCur.filter((o) => o.b.pricePerMg! < o.a.pricePerMg!).length;
+const subWins = (x: VendorProfile, y: VendorProfile) => SUBSCORE_LABELS.filter((s) => x.scores[s.key] > y.scores[s.key]).map((s) => t(lang, `sub.${s.key}`).toLowerCase());
+const nA = shopShort(A.name);
+const nB = shopShort(B.name);
+const V = { a: A.name, b: B.name, nA, nB, sA: F.score(A.overallScore), sB: F.score(B.overallScore), n: overlap.length, date, year: YEAR, region: A.region, aC: aCheaper, bC: bCheaper, same: sameCur.length };
+const title = tt(lang, 'vcp.title', V);
+const description = td(lang, 'vcp.description', V);
+const verdict = leader
+  ? t(lang, 'vcp.verdict', { lead: leader.name, other: other.name, sL: F.score(leader.overallScore), sO: F.score(other.overallScore), wins: listJoin(lang, subWins(leader, other)) || t(lang, 'vcp.noPart'), owins: listJoin(lang, subWins(other, leader)) || t(lang, 'vcp.noneParts') })
+  : t(lang, 'vcp.tie', V);
+const priceTxt = sameCur.length ? t(lang, 'vcp.priceTxt', V) : t(lang, 'vcp.priceNone');
+const intro = `${verdict} ${priceTxt} ${t(lang, 'vcp.checked', V)}`;
+const crumbs = [
+  { name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'nav.shops'), url: L('/vendors/') },
+  { name: t(lang, 'footer.shopVsShop'), url: L('/vendors/compare/') }, { name: `${A.name} vs ${B.name}`, url: L(`/vendors/compare/${A.slug}-vs-${B.slug}/`) },
+];
+const codeTxt = (slug: string) => {
+  const c = codeInfo(slug);
+  return c.kind === 'code' ? c.code : c.kind === 'on-review' ? t(lang, 'c.codeOnReview') : c.kind === 'link-only' ? t(lang, 'c.linkNoCode') : t(lang, 'c.noReaderCode');
+};
+const fr = (v: VendorProfile) => (v.coaStats.fillMinPct == null ? NP : F.pctRange(v.coaStats.fillMinPct, v.coaStats.fillMaxPct!));
+const pr = (v: VendorProfile) => (v.coaStats.purityMin == null ? NP : F.rawPctRange(v.coaStats.purityMin, v.coaStats.purityMax!));
+const rep = (v: VendorProfile) => `${v.coaStats.opened} (${t(lang, 'pc.nPortal', { n: v.coaStats.portalVerified })})`;
+const K = (k: string) => t(lang, k);
+const rows: [string, string, string][] = [
+  [K('vcp.rScore'), V.sA, V.sB],
+  [K('vcp.rRank'), t(lang, 'vcp.rankOf', { r: rank(A), n: VENDORS_BY_SCORE.length }), t(lang, 'vcp.rankOf', { r: rank(B), n: VENDORS_BY_SCORE.length })],
+  [K('v.kBased'), A.originCountry, B.originCountry],
+  [K('v.kEntity'), A.legalEntity, B.legalEntity],
+  [K('v.kLabs'), A.testingLabs.join(', '), B.testingLabs.join(', ')],
+  [K('pc.statReports'), rep(A), rep(B)],
+  [K('c.measuredVsLabel'), fr(A), fr(B)],
+  [K('vcp.rPurity'), pr(A), pr(B)],
+  [K('v.kTests'), A.panelBadges.join(', ') || NP, B.panelBadges.join(', ') || NP],
+  [K('v.kShips'), A.shipsTo, B.shipsTo],
+  [K('v.kDispatch'), A.dispatchSummary, B.dispatchSummary],
+  [K('v.kPayment'), A.paymentMethods.join(', '), B.paymentMethods.join(', ')],
+  [K('vcp.rPrices'), String(A.products.length), String(B.products.length)],
+  [K('vcp.rCode'), codeTxt(A.slug), codeTxt(B.slug)],
+];
+const faqs = [
+  { q: t(lang, 'vcp.fq1', V), a: `${verdict} ${t(lang, 'vcp.fa1')}` },
+  { q: t(lang, 'vcp.fq2', V), a: `${priceTxt} ${t(lang, 'vcp.fa2', V)}` },
+  { q: t(lang, 'vcp.fq3', V), a: t(lang, 'vcp.fa3', { ...V, oA: A.coaStats.opened, pA: A.coaStats.portalVerified, oB: B.coaStats.opened, pB: B.coaStats.portalVerified }) },
+];
+const frows = (v: VendorProfile) => v.coaExamples.map((r) => ({ label: `${compoundShort(r.compound)}${r.labelMg ? ` ${F.mg(r.labelMg)}` : ''}`, sub: r.lab, labelMg: r.labelMg, measuredMg: r.measuredMg, verified: r.verifiable }));
+const related = [
+  { href: L(`/vendors/${A.slug}/`), label: t(lang, 'pc.relReview', { shop: A.name }) },
+  { href: L(`/vendors/${B.slug}/`), label: t(lang, 'pc.relReview', { shop: B.name }) },
+  ...[...shopPairsFor(A.slug), ...shopPairsFor(B.slug)].filter(([x, y]) => `${x}-vs-${y}` !== `${A.slug}-vs-${B.slug}`)
+    .filter((p, i, arr) => arr.findIndex((q) => q[0] === p[0] && q[1] === p[1]) === i).slice(0, 4)
+    .map(([x, y]) => ({ href: L(`/vendors/compare/${x}-vs-${y}/`), label: `${vendorBySlug(x)!.name} vs ${vendorBySlug(y)!.name}` })),
+];
+---
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={`${A.name} vs ${B.name}`} eyebrow={t(lang, 'vcp.eyebrow', V)} intro={intro} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="grid gap-5 md:grid-cols-2">
+      {[A, B].map((v) => {
+        const href = shopHref(v.slug);
+        return (
+          <div class="card p-5 sm:p-6 flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <ScoreRing score={v.overallScore} size={76} />
+              <div>
+                <a href={L(`/vendors/${v.slug}/`)} class="tap text-xl font-extrabold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a>
+                <div class="text-slate-700">{t(lang, 'c.portalOf', { p: v.coaStats.portalVerified, o: v.coaStats.opened })}</div>
+                {leader?.slug === v.slug && <span class="chip mt-1 bg-teal-50 text-teal-900 ring-1 ring-teal-300">{t(lang, 'vcp.higher')}</span>}
+              </div>
+            </div>
+            <SubscoreBars vendor={v} compact />
+            <CodeBadge slug={v.slug} />
+            <div class="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2">
+              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">{t(lang, 'c.visit', { shop: shopShort(v.name) })} <Icon name="external-link" class="w-4 h-4" /></a>}
+              <a href={L(`/vendors/${v.slug}/#lab-reports`)} class="text-link">{t(lang, 'c.seeReports')}</a>
+            </div>
+          </div>
+        );
+      })}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'vcp.factsH')}</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">{t(lang, 'cp.fact')}</th><th scope="col">{A.name}</th><th scope="col">{B.name}</th></tr></thead>
+          <tbody>{rows.map(([k, x, y]) => <tr><td class="font-semibold text-slate-900 min-w-[9rem]">{k}</td><td class="min-w-[13rem]">{x}</td><td class="min-w-[13rem]">{y}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'vcp.sameH')}</h2>
+      {overlap.length ? (
+        <>
+          <p class="text-slate-700 max-w-[70ch]">{t(lang, 'vcp.sameP', V)}</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th scope="col">{t(lang, 'c.pt.product')}</th><th scope="col" class="num">{A.name}</th><th scope="col" class="num">{B.name}</th></tr></thead>
+              <tbody>
+                {overlap.map((o) => {
+                  const same = o.a.currency === o.b.currency;
+                  const aw = same && o.a.pricePerMg! < o.b.pricePerMg!;
+                  const bw = same && o.b.pricePerMg! < o.a.pricePerMg!;
+                  return (
+                    <tr>
+                      <td class="min-w-[9rem]"><span class="font-semibold text-slate-900">{compoundShort(o.a.compound)}</span><span class="sub">{t(lang, 'cp.vial', { mg: F.mg(o.a.vialMg) })}</span></td>
+                      <td class={`num ${aw ? 'font-bold text-teal-900' : ''}`}>{F.perMg(o.a.pricePerMg, o.a.currency)}</td>
+                      <td class={`num ${bw ? 'font-bold text-teal-900' : ''}`}>{F.perMg(o.b.pricePerMg, o.b.currency)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      ) : <p class="text-slate-700">{t(lang, 'vcp.sameNone')}</p>}
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="h2">{t(lang, 'cp.labH')}</h2>
+      <div class="grid gap-6 xl:grid-cols-2">
+        <FillChart rows={frows(A)} title={A.name} />
+        <FillChart rows={frows(B)} title={B.name} />
+      </div>
+    </section>
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
+</BaseLayout>

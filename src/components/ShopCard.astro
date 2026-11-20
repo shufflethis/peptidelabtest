@@ -5,45 +5,53 @@ import ScoreRing from './ScoreRing.astro';
 import CodeBadge from './CodeBadge.astro';
 import VerifyBadge from './VerifyBadge.astro';
 import type { VendorProfile } from '../data/vendors';
-import { shopHref, REL_SPONSORED, vendorVerify, purityRange, fillRange, cheapestFor, perMg, compoundShort, isPartner, shopShort } from '../lib/site';
+import { shopHref, REL_SPONSORED, vendorVerify, cheapestFor, compoundShort, isPartner, shopShort } from '../lib/site';
+import { t, lp, splitLang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { countryName } from '../i18n/data';
+import AUDIT from '../data/audit.json';
 interface Props {
   vendor: VendorProfile;
   rank?: number;
 }
 const { vendor: v, rank } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const F = fmt(lang);
 const href = shopHref(v.slug);
 const partner = isPartner(v.slug);
 const cheap = cheapestFor(v);
 const labs = v.testingLabs.map((l) => l.replace(/\s*\(.*\)\s*$/, '')).slice(0, 3);
+const s = v.coaStats;
+const origin = countryName(lang, (AUDIT as any[]).find((a) => a.slug === v.slug)?.originCountry);
 ---
 <article class="card card-hover p-5 sm:p-6 flex flex-col gap-4 h-full">
   <div class="flex items-start gap-4">
     <ScoreRing score={v.overallScore} size={70} />
     <div class="min-w-0 flex-1">
       <div class="flex flex-wrap items-center gap-2 text-sm text-slate-600">
-        {rank != null && <span class="chip bg-teal-800 text-white">Rank {rank}</span>}
-        <span class="inline-flex items-center gap-1"><Icon name="map-pin" class="w-4 h-4" />{v.region} · {v.originCountry}</span>
+        {rank != null && <span class="chip bg-teal-800 text-white">{t(lang, 'c.rank', { n: rank })}</span>}
+        <span class="inline-flex items-center gap-1"><Icon name="map-pin" class="w-4 h-4" />{v.region} · {origin}</span>
       </div>
       <h3 class="mt-1 text-xl font-extrabold text-slate-900 leading-tight">
-        <a href={`/vendors/${v.slug}/`} class="tap hover:text-teal-800 hover:underline underline-offset-2">{v.name}</a>
+        <a href={lp(lang, `/vendors/${v.slug}/`)} class="tap hover:text-teal-800 hover:underline underline-offset-2">{v.name}</a>
       </h3>
-      <div class="mt-2"><VerifyBadge level={vendorVerify(v)} text={v.coaStats.opened ? `${v.coaStats.portalVerified} of ${v.coaStats.opened} reports portal-verified` : undefined} /></div>
+      <div class="mt-2"><VerifyBadge level={vendorVerify(v)} text={s.opened ? t(lang, 'c.portalOf', { p: s.portalVerified, o: s.opened }) : undefined} /></div>
     </div>
   </div>
   <dl class="facts text-[0.94rem]">
-    <div><dt>Labs</dt><dd>{labs.join(', ')}</dd></div>
-    <div><dt>HPLC purity</dt><dd class="tabular-nums">{purityRange(v)}</dd></div>
-    <div><dt>Measured vs label</dt><dd class="tabular-nums">{fillRange(v)}</dd></div>
-    <div><dt>Price example</dt><dd>{cheap ? `${compoundShort(cheap.compound)} ${cheap.vialMg} mg: ${perMg(cheap.pricePerMg, cheap.currency)}` : 'prices not published'}</dd></div>
+    <div><dt>{t(lang, 'c.labs')}</dt><dd>{labs.join(', ')}</dd></div>
+    <div><dt>{t(lang, 'c.hplcPurity')}</dt><dd class="tabular-nums">{s.purityMin == null ? t(lang, 'common.notPublished') : F.rawPctRange(s.purityMin, s.purityMax!)}</dd></div>
+    <div><dt>{t(lang, 'c.measuredVsLabel')}</dt><dd class="tabular-nums">{s.fillMinPct == null ? t(lang, 'common.notPublished') : F.pctRange(s.fillMinPct, s.fillMaxPct!)}</dd></div>
+    <div><dt>{t(lang, 'c.priceExample')}</dt><dd>{cheap ? `${compoundShort(cheap.compound)} ${F.mg(cheap.vialMg)}: ${F.perMg(cheap.pricePerMg, cheap.currency)}` : t(lang, 'c.pricesNotPublished')}</dd></div>
   </dl>
   <div class="mt-auto flex flex-col gap-3">
     {partner && <CodeBadge slug={v.slug} />}
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
       {href ? (
-        <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(v.name)} <Icon name="external-link" class="w-4 h-4" /></a>
+        <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">{t(lang, 'c.visit', { shop: shopShort(v.name) })} <Icon name="external-link" class="w-4 h-4" /></a>
       ) : null}
-      <a href={href ? `/vendors/${v.slug}/#lab-reports` : `/vendors/${v.slug}/`} class={href ? 'text-link' : 'btn-primary'}>{href ? 'See lab reports' : 'Read review'}</a>
+      <a href={href ? lp(lang, `/vendors/${v.slug}/#lab-reports`) : lp(lang, `/vendors/${v.slug}/`)} class={href ? 'text-link' : 'btn-primary'}>{href ? t(lang, 'c.seeReports') : t(lang, 'c.readReview')}</a>
     </div>
-    {href && <p class="text-sm text-slate-600">Partner link (affiliate). Does not change the score.</p>}
+    {href && <p class="text-sm text-slate-600">{t(lang, 'c.partnerNote')}</p>}
   </div>
 </article>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { COUNTRY_LAWS } from '../data/laws';
+import { VENDORS_BY_SCORE, shipsToCountry, isPartner, CHECKED_ISO, YEAR } from '../lib/site';
+import { t, tn, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locLaw, countryName, shipsToText } from '../i18n/data';
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const raw = COUNTRY_LAWS.find((x) => x.slug === slug)!;
+const l = locLaw(lang, raw);
+const country = countryName(lang, raw.code);
+const ships = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, raw.code) === 'yes');
+const unknown = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, raw.code) === null);
+const V = { country, n: ships.length, unknown: unknown.length, date: fmtDate(lang, CHECKED_ISO), year: YEAR };
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'lw.crumb'), url: L('/laws/') }, { name: country, url: L(`/laws/${l.slug}/`) }];
+---
+<BaseLayout lang={lang} title={tt(lang, 'law.title', V)} description={td(lang, 'law.description', V)} crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title={t(lang, 'law.h1', V)} intro={`${l.note} ${tn(lang, 'law.intro', ships.length, V)}`} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="prose-read">
+      <h2>{t(lang, 'law.authH')}</h2>
+      <ul>{l.authorities.map((a) => <li>{a}</li>)}</ul>
+      <p>{t(lang, 'law.rules')}</p>
+    </section>
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'law.shopsH', V)}</h2>
+      <p class="text-slate-700 max-w-[70ch]">{t(lang, 'law.shopsP', V)}</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">{t(lang, 'c.pt.shop')}</th><th scope="col">{t(lang, 'common.region')}</th><th scope="col" class="num">{t(lang, 'c.pt.score')}</th><th scope="col">{t(lang, 'law.colShips')}</th></tr></thead>
+          <tbody>
+            {ships.map((v) => (
+              <tr>
+                <td class="min-w-[10rem]"><a href={L(`/vendors/${v.slug}/`)} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a><span class="sub">{isPartner(v.slug) ? t(lang, 'v.partnerChip') : t(lang, 'c.readReview')}</span></td>
+                <td>{v.region}</td>
+                <td class="num font-semibold">{F.score(v.overallScore)}</td>
+                <td class="min-w-[14rem]">{shipsToText(lang, v.slug)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <RelatedLinks links={[{ href: L('/laws/'), label: t(lang, 'law.relAll') }, { href: L('/vendors/'), label: t(lang, 'footer.bestShops') }, { href: L('/methodology/'), label: t(lang, 'layout.howWeScore') }]} />
+  </div>
+</BaseLayout>

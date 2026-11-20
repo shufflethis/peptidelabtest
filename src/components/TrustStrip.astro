@@ -1,23 +1,25 @@
 ---
 /** Trust strip with counts computed from audit data. */
 import Icon from './Icon.astro';
-import { TOTALS, CHECKED_LABEL } from '../lib/site';
+import { TOTALS, CHECKED_ISO } from '../lib/site';
+import { t, splitLang, fmtDate } from '../i18n';
 interface Props {
   class?: string;
 }
 const { class: cls = '' } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
 const items = [
-  { icon: 'building', value: String(TOTALS.shops), label: 'shops audited' },
-  { icon: 'file-text', value: String(TOTALS.reportsOpened), label: 'lab reports opened' },
-  { icon: 'shield-check', value: String(TOTALS.portalVerified), label: 'verified on a lab portal' },
-  { icon: 'tag', value: String(TOTALS.products), label: 'prices recorded' },
-  { icon: 'calendar', value: CHECKED_LABEL, label: 'last checked' },
+  { icon: 'building', value: String(TOTALS.shops), label: t(lang, 'c.ts.shops') },
+  { icon: 'file-text', value: String(TOTALS.reportsOpened), label: t(lang, 'c.ts.reports') },
+  { icon: 'shield-check', value: String(TOTALS.portalVerified), label: t(lang, 'c.ts.portal') },
+  { icon: 'tag', value: String(TOTALS.products), label: t(lang, 'c.ts.prices') },
+  { icon: 'calendar', value: fmtDate(lang, CHECKED_ISO), label: t(lang, 'c.ts.checked') },
 ];
 ---
 <ul class={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 ${cls}`}>
   {items.map((it) => (
     <li class="card px-4 py-3 flex items-center gap-3">
-      <span class="w-10 h-10 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center"><Icon name={it.icon} class="w-5 h-5" /></span>
+      <span class="w-10 h-10 shrink-0 rounded-xl bg-teal-50 text-teal-800 flex items-center justify-center"><Icon name={it.icon} class="w-5 h-5" /></span>
       <div class="leading-tight">
         <div class="text-lg font-extrabold text-slate-900 tabular-nums">{it.value}</div>
         <div class="text-sm text-slate-600">{it.label}</div>

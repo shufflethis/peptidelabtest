@@ -3,7 +3,8 @@
  * Price-per-mg bar chart for one currency. Partner bars in accent, others grey. No conversion.
  * HTML labels (wrap and stay readable on phones) + one inline SVG bar per row, generated at build time.
  */
-import { curSymbol } from '../lib/site';
+import { t, splitLang } from '../i18n';
+import { fmt } from '../i18n/format';
 interface Bar {
   label: string;
   sub?: string;
@@ -19,13 +20,13 @@ interface Props {
 const { bars, currency, title, max = 16 } = Astro.props;
 const rows = [...bars].filter((b) => b.value != null && Number.isFinite(b.value)).sort((a, b) => a.value - b.value).slice(0, max);
 const hi = Math.max(...rows.map((r) => r.value), 0.0001);
-const sym = curSymbol(currency);
-const fmt = (n: number) => `${sym}${n.toFixed(n < 0.1 ? 3 : 2)}`;
+const lang = splitLang(Astro.url.pathname).lang;
+const F = fmt(lang);
 ---
 {rows.length > 0 && (
   <figure class="card p-4 sm:p-6">
     {title && <figcaption class="h3 mb-4">{title}</figcaption>}
-    <ol class="space-y-2.5" aria-label={`Price per mg in ${currency}, lowest first`}>
+    <ol class="space-y-2.5" aria-label={t(lang, 'c.barsAria', { cur: currency })}>
       {rows.map((r) => (
         <li class="grid gap-x-4 gap-y-1 sm:grid-cols-[15rem_1fr] sm:items-center">
           <span class={`text-[0.94rem] leading-snug ${r.partner ? 'font-semibold text-slate-900' : 'text-slate-700'}`}>{r.label}{r.sub && <span class="text-slate-600 font-normal"> · {r.sub}</span>}</span>
@@ -34,15 +35,15 @@ const fmt = (n: number) => `${sym}${n.toFixed(n < 0.1 ? 3 : 2)}`;
               <rect x="0" y="0" width="100" height="10" rx="2" fill="#f1f5f9" />
               <rect x="0" y="0" width={Math.max(1.5, (r.value / hi) * 100)} height="10" rx="2" fill={r.partner ? '#0f766e' : '#94a3b8'} />
             </svg>
-            <span class="w-[6.5rem] shrink-0 text-right font-semibold tabular-nums text-slate-900">{fmt(r.value)}/mg</span>
+            <span class="w-[7.25rem] shrink-0 text-right font-semibold tabular-nums text-slate-900">{F.perMg(r.value, currency)}</span>
           </span>
         </li>
       ))}
     </ol>
     <div class="mt-4 text-sm text-slate-700 flex flex-wrap items-center gap-x-5 gap-y-1.5">
-      <span class="inline-flex items-center gap-1.5"><svg width="14" height="14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="#0f766e" /></svg>Partner shop (has a store link)</span>
-      <span class="inline-flex items-center gap-1.5"><svg width="14" height="14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="#94a3b8" /></svg>Other audited shop</span>
+      <span class="inline-flex items-center gap-1.5"><svg width="14" height="14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="#0f766e" /></svg>{t(lang, 'c.legendPartner')}</span>
+      <span class="inline-flex items-center gap-1.5"><svg width="14" height="14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="#94a3b8" /></svg>{t(lang, 'c.legendOther')}</span>
     </div>
-    <p class="mt-1.5 text-sm text-slate-600">Price per mg = listed price (sale price if shown) divided by the mg on the label. {currency} only, no conversion.</p>
+    <p class="mt-1.5 text-sm text-slate-600">{t(lang, 'c.barsNote', { cur: currency })}</p>
   </figure>
 )}

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { RESEARCH_ARTICLES } from '../data/labs';
+import { t, tt, td, lp, type Lang } from '../i18n';
+import { locArticle } from '../i18n/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'ri.crumb'), url: L('/research/') }];
+const arts = RESEARCH_ARTICLES.map((a) => locArticle(lang, a));
+---
+<BaseLayout lang={lang} title={tt(lang, 'ri.title')} description={td(lang, 'ri.description')} crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title={t(lang, 'ri.h1')} intro={t(lang, 'ri.intro')} />
+  <div class="wrap mt-12">
+    <ul class="grid gap-4 md:grid-cols-2">
+      {arts.map((a) => (
+        <li class="card card-hover p-6">
+          <p class="text-sm font-semibold text-teal-800">{a.category}</p>
+          <a href={L(`/research/${a.slug}/`)} class="mt-1 block text-xl font-bold text-slate-900 hover:text-teal-800 hover:underline">{a.h1}</a>
+          <p class="mt-2 text-slate-700">{a.excerpt}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

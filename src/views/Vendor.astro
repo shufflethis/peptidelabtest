@@ -1,0 +1,368 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Icon from '../components/Icon.astro';
+import ScoreRing from '../components/ScoreRing.astro';
+import SubscoreBars from '../components/SubscoreBars.astro';
+import FillChart from '../components/FillChart.astro';
+import CodeBadge from '../components/CodeBadge.astro';
+import VerifyBadge from '../components/VerifyBadge.astro';
+import CompareBox from '../components/CompareBox.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { VENDORS } from '../data/vendors';
+import {
+  VENDORS_BY_SCORE, isPartner, shopHref, productHref, REL_SPONSORED, codeInfo, alternativesFor, shopPairsFor,
+  fillPct, compoundShort, vendorVerify, faqSchema, abs, CHECKED_ISO, YEAR, SITE_NAME, SITE_URL,
+  PRICE_COMPOUNDS, labKeyOf, shopShort, COMPOUND_PAIRS, pairSlug,
+} from '../lib/site';
+import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locVendor } from '../i18n/data';
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const raw = VENDORS.find((x) => x.slug === slug)!;
+const v = locVendor(lang, raw);
+const nm = shopShort(v.name);
+const partner = isPartner(v.slug);
+const href = shopHref(v.slug);
+const code = codeInfo(v.slug, true);
+const rank = VENDORS_BY_SCORE.findIndex((x) => x.slug === v.slug) + 1;
+const st = v.coaStats;
+const labs = v.testingLabs.map((l) => l.replace(/\s*\(.*\)\s*$/, ''));
+const reports = v.coaExamples;
+const fillRows = reports.map((r) => ({ label: `${compoundShort(r.compound)}${r.labelMg ? ` ${F.mg(r.labelMg)}` : ''}`, sub: r.lab, labelMg: r.labelMg, measuredMg: r.measuredMg, verified: r.verifiable }));
+const products = [...v.products].sort((a, b) => compoundShort(a.compound).localeCompare(compoundShort(b.compound)) || (a.vialMg ?? 0) - (b.vialMg ?? 0));
+const currencies = Array.from(new Set(products.map((p) => p.currency)));
+const alternatives = partner ? [] : alternativesFor(raw, 3);
+const pairs = shopPairsFor(v.slug);
+const NP = t(lang, 'common.notPublished');
+const hasEntity = raw.legalEntity !== 'not published';
+const entityShort = raw.legalEntity.split(/,|\s\(/)[0].trim().replace(/\.$/, '');
+const fillR = st.fillMinPct == null ? NP : F.pctRange(st.fillMinPct, st.fillMaxPct!);
+const purR = st.purityMin == null ? NP : F.rawPctRange(st.purityMin, st.purityMax!);
+const joinWeak = (xs: string[]) => xs.map((w) => w.replace(/\.$/, '')).join('; ');
+const score = F.score(v.overallScore);
+const V = { shop: v.name, nm, score, date, rank, total: VENDORS.length, opened: st.opened, portal: st.portalVerified, shopOnly: st.opened - st.portalVerified, fill: fillR, purity: purR, year: YEAR, n: products.length };
+
+const reportTxt = st.opened ? `${tn(lang, 'v.reportTxt', st.portalVerified, V)}${st.fillMinPct != null ? t(lang, 'v.reportTxtFill', V) : ''}.` : t(lang, 'v.noReports');
+const intro = [
+  t(lang, 'v.intro1', V),
+  reportTxt,
+  t(lang, 'v.introEntity', { e: hasEntity ? entityShort : NP }),
+  products.length ? tn(lang, 'v.introPrices', products.length) : t(lang, 'v.introNoPrices'),
+].join(' ');
+
+const title = tt(lang, 'v.title', V);
+const h1 = t(lang, 'v.h1', V);
+const description = td(lang, st.opened ? 'v.description' : 'v.descriptionNoRep', V);
+
+const legitAnswer = [
+  hasEntity ? t(lang, 'v.legitEntity', { shop: v.name, e: v.legalEntity.replace(/\.$/, '') }) : t(lang, 'v.legitNoEntity', { shop: v.name }),
+  st.opened ? `${t(lang, 'v.legitReports', V)}${st.portalVerified < st.opened ? tn(lang, 'v.legitShopOnly', st.opened - st.portalVerified) : ''}.` : t(lang, 'v.legitNoReports'),
+  v.weaknesses.length ? t(lang, 'v.legitWeak', { list: joinWeak(v.weaknesses) }) : '',
+].filter(Boolean).join(' ');
+
+const codeAnswer =
+  code.kind === 'code'
+    ? t(lang, 'v.codeYes', { shop: v.name, code: code.code, site: SITE_NAME, pct: code.percent ? ` (${t(lang, 'c.forPct', { n: code.percent })})` : '' })
+    : code.kind === 'link-only'
+      ? t(lang, 'v.codeLinkOnly', { shop: v.name })
+      : t(lang, 'v.codeNo', { shop: v.name });
+
+const cheapest = products.filter((p) => p.pricePerMg != null).sort((a, b) => a.pricePerMg! - b.pricePerMg!)[0];
+const repLabs = Array.from(new Set(reports.map((r) => r.lab.replace(/\s*\(.*\)\s*$/, ''))));
+const faqs = [
+  { q: t(lang, 'v.fqLegit', V), a: `${legitAnswer} ${t(lang, 'v.overall', V)}` },
+  { q: t(lang, 'v.fqCode', V), a: codeAnswer },
+  { q: t(lang, 'v.fqLabs', V), a: st.opened ? t(lang, 'v.faLabs', { list: listJoin(lang, repLabs), purity: purR }) : t(lang, 'v.faLabsNone', { shop: v.name, list: labs.join(', ') }) },
+  { q: t(lang, 'v.fqShip', V), a: t(lang, 'v.faShip', { ships: v.shipsTo, dispatch: v.dispatchSummary }) },
+  ...(cheapest ? [{ q: t(lang, 'v.fqPrice', V), a: t(lang, 'v.faPrice', { ...V, p: F.perMg(cheapest.pricePerMg, cheapest.currency), product: cheapest.shopProductName, mg: F.mg(cheapest.vialMg) }) }] : []),
+];
+
+const crumbs = [
+  { name: t(lang, 'common.home'), url: L('/') },
+  { name: t(lang, 'nav.shops'), url: L('/vendors/') },
+  { name: v.name, url: L(`/vendors/${v.slug}/`) },
+];
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  name: t(lang, 'v.reviewName', V),
+  url: abs(L(`/vendors/${v.slug}/`)),
+  itemReviewed: { '@type': 'Organization', name: v.name, ...(hasEntity ? { legalName: entityShort } : {}) },
+  reviewRating: { '@type': 'Rating', ratingValue: v.overallScore.toFixed(1), bestRating: '5', worstRating: '0' },
+  author: { '@type': 'Organization', name: 'PeptideLabIndex Editorial', url: `${SITE_URL}/methodology/` },
+  publisher: { '@id': `${SITE_URL}/#organization` },
+  datePublished: v.reviewedAt,
+  dateModified: v.reviewedAt,
+  reviewBody: v.verdictSummary,
+  inLanguage: lang,
+};
+const jsonLd = [reviewSchema, faqSchema(faqs)];
+
+const compoundsHere = Array.from(new Set(products.map((p) => p.compound))).filter((c) => PRICE_COMPOUNDS.includes(c));
+/** Compounds where this shop's best price per mg ranks best against the same-currency market. */
+const cheapRank = compoundsHere.map((c) => {
+  const own = products.filter((p) => p.compound === c && p.pricePerMg != null).sort((a, b) => a.pricePerMg! - b.pricePerMg!)[0];
+  if (!own) return null;
+  const market = VENDORS.flatMap((x) => x.products).filter((p) => p.compound === c && p.currency === own.currency && p.pricePerMg != null);
+  const cheaper = market.filter((p) => p.pricePerMg! < own.pricePerMg!).length;
+  return { c, own, share: cheaper / Math.max(1, market.length) };
+}).filter(Boolean).sort((a, b) => a!.share - b!.share || compoundShort(a!.c).localeCompare(compoundShort(b!.c))) as { c: string; own: (typeof products)[number]; share: number }[];
+const pricePages = [...cheapRank.map((x) => x.c), ...compoundsHere.filter((c) => !cheapRank.some((x) => x.c === c))].slice(0, 6);
+const comparePairs = COMPOUND_PAIRS.filter(([a, b]) => compoundsHere.includes(a) && compoundsHere.includes(b));
+const related = [
+  ...pairs.map(([a, b]) => {
+    const other = VENDORS.find((x) => x.slug === (a === v.slug ? b : a))!;
+    return { href: L(`/vendors/compare/${a}-vs-${b}/`), label: `${v.name} vs ${other.name}`, sub: t(lang, 'v.relPair') };
+  }),
+  ...pricePages.map((c, i) => {
+    const own = cheapRank.find((x) => x.c === c)?.own;
+    return { href: L(`/prices/${c}/`), label: t(lang, i % 2 ? 'v.relPriceA' : 'v.relPriceB', { c: compoundShort(c) }), sub: own ? t(lang, 'v.relPriceSub', { nm, p: F.perMg(own.pricePerMg, own.currency) }) : t(lang, 'v.relPriceAll') };
+  }),
+  ...comparePairs.map(([a, b]) => ({ href: L(`/compare/${pairSlug(a, b)}/`), label: `${compoundShort(a)} vs ${compoundShort(b)}`, sub: t(lang, 'v.relBoth', { nm }) })),
+  ...Array.from(new Set(reports.map((r) => labKeyOf(r.lab)?.slug).filter(Boolean))).map((s) => ({ href: L(`/labs/${s}/`), label: t(lang, 'v.relLab', { lab: labKeyOf(reports.find((r) => labKeyOf(r.lab)?.slug === s)!.lab)!.name }), sub: t(lang, 'v.relLabSub') })),
+  { href: L(v.region === 'EU' ? '/vendors/europe/' : '/vendors/usa/'), label: t(lang, v.region === 'EU' ? 'v.relEu' : 'v.relUs') },
+];
+---
+
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd} ogType="article">
+  <section class="hero-bg border-b border-slate-200">
+    <div class="wrap pt-7 pb-10 sm:pt-9">
+      <Breadcrumbs items={crumbs} />
+      <div class="mt-6 grid gap-8 lg:grid-cols-[1fr_20rem] items-start">
+        <div>
+          <div class="flex flex-wrap items-center gap-2 text-sm text-slate-700">
+            <span class="chip bg-white ring-1 ring-slate-300 text-slate-800"><Icon name="map-pin" class="w-4 h-4" />{v.region} · {v.originCountry}</span>
+            <VerifyBadge level={vendorVerify(v)} text={st.opened ? t(lang, 'c.portalOf', { p: st.portalVerified, o: st.opened }) : undefined} />
+            {partner ? <span class="chip bg-teal-50 text-teal-900 ring-1 ring-teal-300">{t(lang, 'v.partnerChip')}</span> : <span class="chip bg-slate-100 text-slate-700 ring-1 ring-slate-300">{t(lang, 'v.notPartnerChip')}</span>}
+          </div>
+          <h1 class="h1 mt-4">{h1}</h1>
+          <p class="lead mt-4" data-answer>{intro}</p>
+          <p class="mt-4 inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="calendar" class="w-4 h-4" />{t(lang, 'v.reviewedBy', { date })}</p>
+        </div>
+        <aside class="card p-5 sm:p-6 flex flex-col gap-4">
+          <div class="flex items-center gap-4">
+            <ScoreRing score={v.overallScore} size={84} />
+            <div>
+              <div class="text-sm text-slate-600">{t(lang, 'v.auditScore')}</div>
+              <div class="text-2xl font-extrabold text-slate-900">{score} <span class="text-base font-semibold text-slate-600">/ 5</span></div>
+              <div class="text-sm text-slate-700">{t(lang, 'v.rankOf', V)}</div>
+            </div>
+          </div>
+          {partner && code.kind !== 'none' && <CodeBadge slug={v.slug} onOwnPage size="md" />}
+          {href ? (
+            <>
+              <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary w-full">{t(lang, 'c.visit', { shop: nm })} <Icon name="external-link" class="w-4 h-4" /></a>
+              <a href="#lab-reports" class="btn-ghost w-full">{t(lang, 'c.seeReports')}</a>
+              <p class="text-sm text-slate-600">{t(lang, 'v.partnerNote')}</p>
+            </>
+          ) : (
+            <>
+              <p class="text-[0.94rem] text-slate-700">{t(lang, 'v.noLinkNote')}</p>
+              <a href="#alternatives" class="btn-ghost w-full">{t(lang, 'v.seeAlternatives')}</a>
+            </>
+          )}
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap mt-12 space-y-16">
+    <section class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h2 class="h2">{t(lang, 'v.verdictH')}</h2>
+        <p class="mt-3 text-slate-700 max-w-[68ch]">{v.verdictSummary}</p>
+        {v.auditNotes && <p class="mt-3 text-slate-700 max-w-[68ch]">{v.auditNotes}</p>}
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-teal-200 bg-teal-50/50 p-4">
+            <h3 class="font-bold text-slate-900 flex items-center gap-2"><Icon name="check-circle" class="w-5 h-5 text-teal-800" />{t(lang, 'v.strengths')}</h3>
+            <ul class="mt-2 space-y-2 text-[0.96rem] text-slate-800">
+              {v.strengths.length ? v.strengths.map((s) => <li class="flex gap-2"><Icon name="check" class="w-4 h-4 mt-1 text-teal-800" />{s}</li>) : <li>{t(lang, 'v.noneRecorded')}</li>}
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-amber-200 bg-amber-50/50 p-4">
+            <h3 class="font-bold text-slate-900 flex items-center gap-2"><Icon name="alert" class="w-5 h-5 text-amber-800" />{t(lang, 'v.weaknesses')}</h3>
+            <ul class="mt-2 space-y-2 text-[0.96rem] text-slate-800">
+              {v.weaknesses.length ? v.weaknesses.map((s) => <li class="flex gap-2"><Icon name="minus" class="w-4 h-4 mt-1 text-amber-800" />{s}</li>) : <li>{t(lang, 'v.noneRecorded')}</li>}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card p-5 sm:p-6">
+        <h2 class="h3">{t(lang, 'v.breakdownH')}</h2>
+        <p class="mt-1 text-sm text-slate-600">{t(lang, 'v.breakdownP')} <a href={L('/methodology/')} class="text-link">{t(lang, 'nav.method')}</a></p>
+        <div class="mt-5"><SubscoreBars vendor={raw} reasons /></div>
+      </div>
+    </section>
+
+    <section id="legit" class="space-y-4">
+      <h2 class="h2">{t(lang, 'v.fqLegit', V)}</h2>
+      <div class="prose-read">
+        <p>{t(lang, 'v.legitIntro', V)}</p>
+        <ul>
+          <li><strong>{t(lang, 'v.kEntity')}:</strong> {v.legalEntity.replace(/\.$/, '')}.</li>
+          <li><strong>{t(lang, 'v.kReports')}:</strong> {st.opened ? t(lang, 'v.legitReportsLine', V) : t(lang, 'v.noPublicReports')}</li>
+          {st.fillMinPct != null && <li><strong>{t(lang, 'c.measuredVsLabel')}:</strong> {t(lang, 'v.fillLine', V)}</li>}
+          <li><strong>{t(lang, 'v.kPurity')}:</strong> {purR}.</li>
+          {v.weaknesses.length > 0 && <li><strong>{t(lang, 'v.kWeak')}:</strong> {joinWeak(v.weaknesses)}.</li>}
+        </ul>
+        <p>{t(lang, 'v.noTestOrder')}</p>
+      </div>
+    </section>
+
+    <section id="facts" class="space-y-4">
+      <h2 class="h2">{t(lang, 'v.factsH')}</h2>
+      <dl class="facts card px-5 sm:px-6 py-2 max-w-4xl">
+        <div><dt>{t(lang, 'v.kEntity')}</dt><dd>{v.legalEntity}</dd></div>
+        <div><dt>{t(lang, 'v.kBased')}</dt><dd>{v.originCountry}</dd></div>
+        <div><dt>{t(lang, 'v.kShips')}</dt><dd>{v.shipsTo}</dd></div>
+        <div><dt>{t(lang, 'v.kDispatch')}</dt><dd>{v.dispatchSummary}</dd></div>
+        <div><dt>{t(lang, 'v.kFree')}</dt><dd>{v.freeShippingThreshold}</dd></div>
+        <div><dt>{t(lang, 'v.kPayment')}</dt><dd>{v.paymentMethods.join(', ')}</dd></div>
+        <div><dt>{t(lang, 'v.kLabs')}</dt><dd>{labs.join(', ')}</dd></div>
+        <div><dt>{t(lang, 'v.kTests')}</dt><dd>{v.panelBadges.length ? v.panelBadges.join(', ') : NP}</dd></div>
+        <div><dt>{t(lang, 'v.kShared')}</dt><dd>{v.coaAccess}</dd></div>
+      </dl>
+    </section>
+
+    <section id="lab-reports" class="space-y-5">
+      <h2 class="h2">{t(lang, 'footer.reportsOpened')}</h2>
+      {reports.length ? (
+        <>
+          <p class="text-slate-700 max-w-[70ch]">{tn(lang, 'v.reportsP', reports.length, V)}</p>
+          <FillChart rows={fillRows} title={t(lang, 'v.chartTitle', V)} />
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">{t(lang, 'pi.colCompound')}</th>
+                  <th scope="col" class="num">{t(lang, 'v.colMeasured')}</th>
+                  <th scope="col" class="num">{t(lang, 'v.colPurity')}</th>
+                  <th scope="col">{t(lang, 'v.colLab')}</th>
+                  <th scope="col">{t(lang, 'v.colVerif')}</th>
+                  <th scope="col">{t(lang, 'v.colId')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {reports.map((r) => {
+                  const fp = fillPct(r);
+                  return (
+                    <tr>
+                      <td class="min-w-[9rem]"><span class="font-semibold text-slate-900">{compoundShort(r.compound)}</span><span class="sub">{r.shopProductName}</span></td>
+                      <td class="num">{r.measuredMg != null && r.labelMg != null ? `${F.raw(r.measuredMg)} / ${F.raw(r.labelMg)}` : t(lang, 'v.notStated')}{fp != null && <span class="sub">{t(lang, 'v.ofLabel', { p: F.pct(fp) })}</span>}</td>
+                      <td class="num">{r.purityPercent != null ? F.raw(r.purityPercent) : F.na}</td>
+                      <td class="min-w-[10rem]">{r.lab}<span class="sub">{r.testDate || t(lang, 'v.dateNotPublished')}</span></td>
+                      <td>{r.verifiable ? t(lang, 'c.vb.portal') : t(lang, 'v.shopHosted')}</td>
+                      <td class="min-w-[16rem] max-w-[22rem]">{r.reportId && <code class="font-mono text-sm text-slate-900">{r.reportId}</code>}<span class="sub mono-url">{r.url}</span></td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      ) : (
+        <p class="text-slate-700 max-w-[70ch]">{t(lang, 'v.noReportFound', V)}</p>
+      )}
+    </section>
+
+    <section id="prices" class="space-y-5">
+      <h2 class="h2">{t(lang, 'v.pricesH', V)}</h2>
+      {products.length ? (
+        <>
+          <p class="text-slate-700 max-w-[70ch]">{tn(lang, 'v.pricesP', products.length, { ...V, curs: listJoin(lang, currencies) })}</p>
+          <div class="table-wrap">
+            <table class="data-table" data-sortable>
+              <thead>
+                <tr>
+                  <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">{t(lang, 'c.pt.product')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+                  <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'v.colVial')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+                  <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'v.colPrice')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+                  <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'v.colPerMg')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+                  <th scope="col">{t(lang, 'v.colRep')}</th>
+                  {partner && <th scope="col">{t(lang, 'v.colStore')}</th>}
+                </tr>
+              </thead>
+              <tbody>
+                {products.map((p) => {
+                  const onSale = p.salePrice != null && p.price != null && p.salePrice < p.price;
+                  const price = p.salePrice ?? p.price;
+                  const rep = reports.find((r) => r.compound === p.compound && r.labelMg === p.vialMg) || reports.find((r) => r.compound === p.compound);
+                  const ph = productHref(v.slug, p.url);
+                  return (
+                    <tr>
+                      <td data-v={p.shopProductName} class="min-w-[11rem]">
+                        {PRICE_COMPOUNDS.includes(p.compound) ? <a href={L(`/prices/${p.compound}/`)} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{compoundShort(p.compound)}</a> : <span class="font-semibold text-slate-900">{compoundShort(p.compound)}</span>}
+                        <span class="sub">{p.shopProductName}{p.inStock === false ? ` (${t(lang, 'c.pt.outOfStock')})` : ''}</span>
+                      </td>
+                      <td class="num" data-v={p.vialMg ?? ''}>{p.vialMg != null ? F.raw(p.vialMg) : F.na}</td>
+                      <td class="num" data-v={price ?? ''}>{F.money(price, p.currency)}{onSale && <span class="sub"><s>{F.money(p.price, p.currency)}</s></span>}</td>
+                      <td class="num font-semibold" data-v={p.pricePerMg ?? ''}>{F.perMg(p.pricePerMg, p.currency)}</td>
+                      <td>{rep ? (rep.verifiable ? t(lang, 'c.pt.yesPortal') : t(lang, 'c.pt.yesShop')) : t(lang, 'common.no')}</td>
+                      {partner && <td>{ph && <a href={ph} rel={REL_SPONSORED} target="_blank" class="text-link whitespace-nowrap">{t(lang, 'v.viewProduct')}</a>}</td>}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      ) : (
+        <p class="text-slate-700 max-w-[70ch]">{t(lang, 'v.noPricesP', V)}</p>
+      )}
+    </section>
+
+    <section id="coupon" class="space-y-4">
+      <h2 class="h2">{t(lang, 'v.codeH', V)}</h2>
+      {code.kind === 'code' && (
+        <div class="card p-5 sm:p-6 max-w-3xl space-y-4">
+          <p class="text-slate-700">{t(lang, 'v.codeP', { shop: v.name, site: SITE_NAME })}</p>
+          <CodeBadge slug={v.slug} onOwnPage size="md" />
+          {href && <div><a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">{t(lang, 'c.visit', { shop: nm })} <Icon name="external-link" class="w-4 h-4" /></a></div>}
+        </div>
+      )}
+      {code.kind === 'link-only' && (
+        <p class="text-slate-700 max-w-[70ch]">{t(lang, 'v.codeLinkOnlyP', { shop: v.name })} <a href={L('/discount-codes/')} class="text-link">{t(lang, 'v.codeShopsWith')}</a></p>
+      )}
+      {code.kind === 'none' && (
+        <p class="text-slate-700 max-w-[70ch]">{t(lang, 'v.codeNoneP', { shop: v.name })} <a href={L('/discount-codes/')} class="text-link">{t(lang, 'v.codeCompare')}</a></p>
+      )}
+    </section>
+
+    {alternatives.length > 0 && (
+      <div id="alternatives">
+        <CompareBox shops={alternatives} note={t(lang, 'v.altNote', { region: v.region, shop: v.name })} />
+      </div>
+    )}
+
+    <FAQ items={faqs} />
+
+    <section class="space-y-3">
+      <h2 class="h3">{t(lang, 'v.sourcesH')}</h2>
+      <p class="text-sm text-slate-600">{t(lang, 'v.sourcesP', V)}</p>
+      <ul class="space-y-1 max-w-4xl">
+        {v.sources.map((s) => <li class="mono-url">{s}</li>)}
+      </ul>
+    </section>
+
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
+  {href && (
+    <div class="sticky-cta lg:hidden" role="region" aria-label={t(lang, 'v.stickyAria', { nm })}>
+      <div class="min-w-0 flex-1 leading-tight">
+        <div class="font-bold text-slate-900 truncate">{nm}</div>
+        {code.kind === 'code' ? (
+          <button type="button" data-copy={code.code} class="min-h-[32px] text-left text-sm text-slate-700 whitespace-nowrap" aria-label={t(lang, 'c.copyCode', { code: code.code })}>{t(lang, 'c.code')} <code class="font-mono font-bold text-teal-900 underline underline-offset-2">{code.code}</code>{code.percent ? ` · ${F.pct(code.percent, 0)}` : ''}</button>
+        ) : <div class="text-sm text-slate-600">{t(lang, 'v.auditScore')} {score} / 5</div>}
+      </div>
+      <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary shrink-0">{t(lang, 'v.visitShop')} <Icon name="external-link" class="w-4 h-4" /></a>
+    </div>
+  )}
+</BaseLayout>

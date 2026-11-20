@@ -1,0 +1,7 @@
+---
+import View from '../../views/DiscountCodes.astro';
+import { R, withLangs } from '../../lib/routes';
+export const getStaticPaths = () => withLangs(R.single());
+const { lang } = Astro.props as any;
+---
+<View lang={lang} />

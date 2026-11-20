@@ -1,22 +1,4 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import PageHero from '../../../components/PageHero.astro';
-import { SHOP_PAIRS, vendorBySlug, CHECKED_LABEL, itemListSchema } from '../../../lib/site';
-const rows = SHOP_PAIRS.map(([a, b]) => ({ a: vendorBySlug(a)!, b: vendorBySlug(b)! }));
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'Shops', url: '/vendors/' }, { name: 'Shop vs shop', url: '/vendors/compare/' }];
+import View from '../../../views/VendorsCompareIndex.astro';
 ---
-<BaseLayout title="Research Peptide Shop Comparisons: Shop vs Shop" description="Partner shops in the same region side by side: scores, lab reports, measured vs label and price per mg for the same products. Compare two shops." crumbs={crumbs} jsonLd={itemListSchema('Shop comparisons', rows.map((r) => ({ name: `${r.a.name} vs ${r.b.name}`, url: `/vendors/compare/${r.a.slug}-vs-${r.b.slug}/` })))}>
-  <PageHero crumbs={crumbs} title="Shop vs shop comparisons" intro={`Side-by-side audit data for partner shops in the same region, read on ${CHECKED_LABEL}: score, lab reports, measured vs label and prices per mg for products both shops sell.`} />
-  <div class="wrap mt-12 space-y-10">
-    {['EU', 'US'].map((r) => (
-      <section class="space-y-4">
-        <h2 class="h2">{r} shops</h2>
-        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {rows.filter((x) => x.a.region === r).map((x) => (
-            <li><a href={`/vendors/compare/${x.a.slug}-vs-${x.b.slug}/`} class="card card-hover block p-5"><span class="block text-lg font-bold text-slate-900">{x.a.name} vs {x.b.name}</span><span class="block mt-1 text-slate-700">Scores {x.a.overallScore.toFixed(1)} vs {x.b.overallScore.toFixed(1)}</span></a></li>
-          ))}
-        </ul>
-      </section>
-    ))}
-  </div>
-</BaseLayout>
+<View lang="en" />

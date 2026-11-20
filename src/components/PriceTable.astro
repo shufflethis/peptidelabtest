@@ -6,7 +6,9 @@
 import Icon from './Icon.astro';
 import CodeBadge from './CodeBadge.astro';
 import type { Offer } from '../lib/site';
-import { money, perMg, REL_SPONSORED, fillPct, mg, compoundShort, curSymbol, shopShort } from '../lib/site';
+import { REL_SPONSORED, fillPct, compoundShort, curSymbol, shopShort } from '../lib/site';
+import { t, lp, splitLang } from '../i18n';
+import { fmt } from '../i18n/format';
 interface Props {
   offers: Offer[];
   showCompound?: boolean;
@@ -14,23 +16,26 @@ interface Props {
   caption?: string;
 }
 const { offers, showCompound = false, id, caption } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const F = fmt(lang);
 const cur = offers[0]?.currency || 'EUR';
 const sym = curSymbol(cur).trim();
 const nOr = (n: number | null | undefined) => (n == null || !Number.isFinite(n) ? '' : String(n));
 const labShort = (l: string) => l.replace(/\s*\(.*\)\s*$/, '');
+const S = (k: string, v?: any) => t(lang, `c.pt.${k}`, v);
 ---
 <div class="table-wrap" id={id}>
   <table class="data-table" data-sortable>
     {caption && <caption class="sr-only">{caption}</caption>}
     <thead>
       <tr>
-        <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">Shop <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
-        <th scope="col"><button type="button" class="sort-btn" data-sort-type="num">{showCompound ? 'Product' : 'Product (vial mg)'} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
-        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Price ({sym}) <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
-        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Price per mg ({sym}) <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
-        <th scope="col">Lab report for this compound</th>
-        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Score (0-5) <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
-        <th scope="col">Code and store</th>
+        <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">{S('shop')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col"><button type="button" class="sort-btn" data-sort-type="num">{showCompound ? S('product') : S('productVial')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">{S('price', { sym })} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">{S('perMg', { sym })} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col">{S('report')}</th>
+        <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">{S('score')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+        <th scope="col">{S('codeStore')}</th>
       </tr>
     </thead>
     <tbody>
@@ -40,43 +45,43 @@ const labShort = (l: string) => l.replace(/\s*\(.*\)\s*$/, '');
         return (
           <tr class={o.partner ? '' : 'row-muted'}>
             <td data-v={o.vendor.name} class="min-w-[8.5rem]">
-              <a href={`/vendors/${o.vendor.slug}/`} class={`font-semibold ${o.partner ? 'text-slate-900' : 'text-slate-700'} hover:text-teal-800 hover:underline`}>{o.vendor.name}</a>
-              <span class="sub">{o.vendor.region}{o.partner ? ' · partner' : ' · no store link'}</span>
-              <span class="md:hidden mt-1 block text-[0.9rem]"><strong class="text-teal-900 tabular-nums">{perMg(o.perMg, o.currency)}</strong> <span class="text-slate-700">· {mg(o.product.vialMg)}</span></span>
+              <a href={lp(lang, `/vendors/${o.vendor.slug}/`)} class={`font-semibold ${o.partner ? 'text-slate-900' : 'text-slate-700'} hover:text-teal-800 hover:underline`}>{o.vendor.name}</a>
+              <span class="sub">{o.vendor.region} · {o.partner ? S('partner') : S('noLink')}</span>
+              <span class="md:hidden mt-1 block text-[0.9rem]"><strong class="text-teal-900 tabular-nums">{F.perMg(o.perMg, o.currency)}</strong> <span class="text-slate-700">· {F.mg(o.product.vialMg)}</span></span>
             </td>
             <td data-v={nOr(o.product.vialMg)} class="min-w-[9rem] max-w-[14rem]">
               {showCompound && <span class="font-semibold">{compoundShort(o.product.compound)} </span>}
-              <span class="font-medium">{mg(o.product.vialMg)}</span>
-              <span class="sub">{o.product.shopProductName}{o.product.inStock === false ? ' (out of stock)' : ''}</span>
+              <span class="font-medium">{F.mg(o.product.vialMg)}</span>
+              <span class="sub">{o.product.shopProductName}{o.product.inStock === false ? ` (${S('outOfStock')})` : ''}</span>
             </td>
             <td class="num" data-v={nOr(o.price)}>
-              <span class="font-semibold text-slate-900">{money(o.price, o.currency)}</span>
-              {o.onSale && <span class="sub"><span class="sr-only">was </span><s>{money(o.listPrice, o.currency)}</s></span>}
+              <span class="font-semibold text-slate-900">{F.money(o.price, o.currency)}</span>
+              {o.onSale && <span class="sub"><span class="sr-only">{S('was')} </span><s>{F.money(o.listPrice, o.currency)}</s></span>}
             </td>
-            <td class="num" data-v={nOr(o.perMg)}><span class={`font-bold ${o.partner ? 'text-teal-900' : 'text-slate-800'}`}>{perMg(o.perMg, o.currency)}</span></td>
+            <td class="num" data-v={nOr(o.perMg)}><span class={`font-bold ${o.partner ? 'text-teal-900' : 'text-slate-800'}`}>{F.perMg(o.perMg, o.currency)}</span></td>
             <td class="min-w-[11rem] max-w-[15rem]">
               {r ? (
                 <div>
-                  <span class="font-semibold text-slate-900">{r.verifiable ? 'Yes, portal-verified' : 'Yes, shop-hosted'}</span>
+                  <span class="font-semibold text-slate-900">{r.verifiable ? S('yesPortal') : S('yesShop')}</span>
                   <span class="sub">
-                    {r.measuredMg != null && r.labelMg != null ? `${r.measuredMg} of ${r.labelMg} mg (${fp!.toFixed(1)}%)` : 'mg not stated'}
-                    {r.purityPercent != null ? `, purity ${r.purityPercent}%` : ''}
+                    {r.measuredMg != null && r.labelMg != null ? S('mOfL', { m: F.raw(r.measuredMg), l: F.raw(r.labelMg), p: F.pct(fp) }) : S('mgNotStated')}
+                    {r.purityPercent != null ? `, ${S('purity', { p: F.rawPct(r.purityPercent) })}` : ''}
                   </span>
                   <span class="sub">{labShort(r.lab)}</span>
                 </div>
               ) : (
-                <span class="text-slate-700">No report opened</span>
+                <span class="text-slate-700">{S('noReport')}</span>
               )}
             </td>
-            <td class="num" data-v={String(o.vendor.overallScore)}><span class="font-semibold">{o.vendor.overallScore.toFixed(1)}</span></td>
+            <td class="num" data-v={String(o.vendor.overallScore)}><span class="font-semibold">{F.score(o.vendor.overallScore)}</span></td>
             <td class="min-w-[10.5rem]">
               {o.href ? (
                 <div class="flex flex-col items-start gap-2">
                   <CodeBadge slug={o.vendor.slug} size="xs" />
-                  <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(o.vendor.name)} <Icon name="external-link" class="w-4 h-4" /></a>
+                  <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">{t(lang, 'c.visit', { shop: shopShort(o.vendor.name) })} <Icon name="external-link" class="w-4 h-4" /></a>
                 </div>
               ) : (
-                <a href={`/vendors/${o.vendor.slug}/`} class="text-link whitespace-nowrap">Read review</a>
+                <a href={lp(lang, `/vendors/${o.vendor.slug}/`)} class="text-link whitespace-nowrap">{t(lang, 'c.readReview')}</a>
               )}
             </td>
           </tr>

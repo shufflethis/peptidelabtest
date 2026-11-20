@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FillChart from '../components/FillChart.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { LABS_IN_DATA, reportsByLab, CHECKED_ISO, faqSchema, fillPct, compoundShort, YEAR, LAB_KEYS } from '../lib/site';
+import { getLabGuide } from '../data/labGuides';
+import { t, tn, tt, td, tlist, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locLabGuide } from '../i18n/data';
+interface Props { lang: Lang; lab: string }
+const { lang, lab } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const l = LAB_KEYS.find((k) => k.slug === lab)!;
+const g = locLabGuide(lang, getLabGuide(l.slug));
+const reps = reportsByLab(l.slug);
+const portal = reps.filter((r) => r.report.verifiable).length;
+const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+const pur = reps.map((r) => r.report.purityPercent).filter((x): x is number => x != null);
+const shopMap = new Map<string, { v: (typeof reps)[number]['vendor']; n: number; p: number }>();
+for (const r of reps) {
+  const e = shopMap.get(r.vendor.slug) || { v: r.vendor, n: 0, p: 0 };
+  e.n++; if (r.report.verifiable) e.p++;
+  shopMap.set(r.vendor.slug, e);
+}
+const shops = Array.from(shopMap.values()).sort((a, b) => b.v.overallScore - a.v.overallScore);
+const short = l.name.replace(/ (Analytical|Laboratory|Laboratories|Labs|Analytics|Diagnostics Testing)$/, '');
+const NP = t(lang, 'common.notPublished');
+const steps = g?.verifySteps || tlist(lang, 'lab.genericSteps');
+const V = { lab: l.name, short, n: reps.length, shops: tn(lang, 'lab.auditedShops', shops.length), ns: shops.length, portal, date, year: YEAR, steps: steps.length, range: fills.length ? F.pctRange(Math.min(...fills), Math.max(...fills)) : '' };
+const intro = `${t(lang, 'lab.intro1', V)} ${fills.length ? t(lang, 'lab.intro2', V) : t(lang, 'lab.intro2none', V)}`;
+const isJ = l.slug === 'janoshik';
+const title = isJ ? tt(lang, 'lab.titleJ', V) : tt(lang, 'lab.title', V);
+const h1 = isJ ? t(lang, 'lab.h1J') : t(lang, 'lab.h1', V);
+const description = td(lang, 'lab.description', V);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'footer.labs'), url: L('/labs/') }, { name: l.name, url: L(`/labs/${l.slug}/`) }];
+const legit = [
+  g?.address ? t(lang, 'lab.lAddr', { a: g.address }) : t(lang, 'lab.lNoAddr'),
+  g?.verifyWhere ? t(lang, 'lab.lVerify', { w: g.verifyWhere }) : t(lang, 'lab.lNoVerify'),
+  g?.accreditation ? t(lang, 'lab.lAccr', { a: g.accreditation }) : t(lang, 'lab.lNoAccr'),
+  t(lang, 'lab.lPortal', V),
+].join(' ');
+const faqs = [
+  { q: isJ ? t(lang, 'lab.fq1J') : t(lang, 'lab.fq1', V), a: steps.join(' ') },
+  { q: t(lang, 'lab.fq2', V), a: `${t(lang, 'lab.fa2')} ${legit}` },
+  { q: t(lang, 'lab.fq3', V), a: g?.pricing || t(lang, 'lab.fa3none') },
+  { q: t(lang, 'lab.fq4', V), a: t(lang, 'lab.fa4', { list: listJoin(lang, shops.map((s) => s.v.name)) }) },
+];
+const fillRows = reps.map((r) => ({ label: `${r.vendor.name} · ${compoundShort(r.report.compound)}`, sub: r.report.lab, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }));
+const fr = (v: (typeof shops)[number]['v']) => (v.coaStats.fillMinPct == null ? NP : F.pctRange(v.coaStats.fillMinPct, v.coaStats.fillMaxPct!));
+const related = [
+  ...shops.slice(0, 4).map((s) => ({ href: L(`/vendors/${s.v.slug}/`), label: t(lang, 'lab.relShop', { shop: s.v.name }), sub: tn(lang, 'lab.relShopSub', s.n, { lab: short }) })),
+  ...LAB_KEYS.filter((k) => k.slug !== l.slug && LABS_IN_DATA.includes(k)).slice(0, 4).map((k) => ({ href: L(`/labs/${k.slug}/`), label: k.name, sub: t(lang, 'lab.relLabSub') })),
+  { href: L('/batch-tracker/'), label: t(lang, 'lab.relAll') },
+];
+---
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={h1} eyebrow={t(lang, 'lab.eyebrow')} intro={intro}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>{t(lang, 'pi.colReports')}</dt><dd>{reps.length}</dd></div>
+      <div class="stat"><dt>{t(lang, 'c.vb.portal')}</dt><dd>{portal}</dd></div>
+      <div class="stat"><dt>{t(lang, 'pi.colShops')}</dt><dd>{shops.length}</dd></div>
+      <div class="stat"><dt>{t(lang, 'vcp.rPurity')}</dt><dd>{pur.length ? F.rawPctRange(Math.min(...pur), Math.max(...pur)) : F.na}</dd></div>
+    </dl>
+  </PageHero>
+  <div class="wrap mt-12 space-y-14">
+    <section class="grid gap-8 lg:grid-cols-2">
+      <div class="prose-read">
+        <h2 class="!mt-0">{t(lang, 'cmp.whatIs', { c: l.name })}</h2>
+        <p>{g?.about || NP}</p>
+        {g && g.tests.length > 0 && (<><h3>{t(lang, 'lab.testsH')}</h3><ul>{g.tests.map((x) => <li>{x}</li>)}</ul></>)}
+      </div>
+      <dl class="facts card px-5 sm:px-6 py-2 self-start">
+        <div><dt>{t(lang, 'lab.kAddress')}</dt><dd>{g?.address || NP}</dd></div>
+        <div><dt>{t(lang, 'lab.kOperator')}</dt><dd>{g?.operator || NP}</dd></div>
+        <div><dt>{t(lang, 'lab.kVerify')}</dt><dd>{g?.verifyWhere || t(lang, 'lab.noPortal')}</dd></div>
+        <div><dt>{t(lang, 'lab.kAccr')}</dt><dd>{g?.accreditation || t(lang, 'lab.noStatement')}</dd></div>
+        <div><dt>{t(lang, 'lab.kPrice')}</dt><dd>{g?.pricing || NP}</dd></div>
+        <div><dt>{t(lang, 'lab.kTurn')}</dt><dd>{g?.turnaround || NP}</dd></div>
+      </dl>
+    </section>
+
+    <section class="prose-read">
+      <h2>{t(lang, 'lab.howH', V)}</h2>
+      <ol>{steps.map((s) => <li>{s}</li>)}</ol>
+      <p>{t(lang, 'lab.plain')}</p>
+      <h2>{t(lang, 'lab.fq2', V)}</h2>
+      <p>{legit}</p>
+      <p>{t(lang, 'lab.noSamples')}</p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'lab.shopsH', V)}</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">{t(lang, 'c.pt.shop')}</th><th scope="col" class="num">{t(lang, 'pi.colReports')}</th><th scope="col" class="num">{t(lang, 'c.vb.portal')}</th><th scope="col">{t(lang, 'lab.colShopFill')}</th><th scope="col" class="num">{t(lang, 'lab.colScore')}</th></tr></thead>
+          <tbody>
+            {shops.map((s) => (
+              <tr>
+                <td class="min-w-[10rem]"><a href={L(`/vendors/${s.v.slug}/`)} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{s.v.name}</a><span class="sub">{s.v.region}</span></td>
+                <td class="num">{s.n}</td>
+                <td class="num">{s.p}</td>
+                <td class="whitespace-nowrap">{fr(s.v)}</td>
+                <td class="num font-semibold">{F.score(s.v.overallScore)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <FillChart rows={fillRows} title={t(lang, 'lab.chartTitle', V)} />
+    </section>
+
+    <FAQ items={faqs} />
+    {g && g.sources.length > 0 && (
+      <section class="space-y-2">
+        <h2 class="h3">{t(lang, 'lab.sourcesH')}</h2>
+        <p class="text-sm text-slate-600">{t(lang, 'lab.sourcesP', V)}</p>
+        <ul class="space-y-1">{g.sources.map((s) => <li class="mono-url">{s}</li>)}</ul>
+      </section>
+    )}
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

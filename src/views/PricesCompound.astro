@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import PriceSection from '../components/PriceSection.astro';
+import FillChart from '../components/FillChart.astro';
+import FAQ from '../components/FAQ.astro';
+import Disclosure from '../components/Disclosure.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import WhereToBuy from '../components/WhereToBuy.astro';
+import Icon from '../components/Icon.astro';
+import {
+  PRICE_COMPOUNDS, offersFor, compoundShort, compoundName, shopsCarrying, sizesFor, sizePagesFor, reportsFor, cheapestBy,
+  TOTALS, CHECKED_ISO, fillPct, faqSchema, itemListSchema, PARTNERS, compoundPairsFor, pairSlug, YEAR, getCompound,
+} from '../lib/site';
+import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locCompound } from '../i18n/data';
+interface Props { lang: Lang; compound: string }
+const { lang, compound } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const rawSpec = getCompound(compound);
+const spec = rawSpec ? locCompound(lang, rawSpec) : undefined;
+const short = compoundShort(compound);
+const offers = offersFor(compound);
+const shops = shopsCarrying(compound);
+const eu = shops.filter((s) => s.region === 'EU');
+const us = shops.filter((s) => s.region === 'US');
+const sizes = sizesFor(compound);
+const sizePages = sizePagesFor(compound);
+const reps = reportsFor(compound);
+const repShops = new Set(reps.map((r) => r.vendor.slug));
+const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+const fillLo = fills.length ? Math.min(...fills) : null;
+const fillHi = fills.length ? Math.max(...fills) : null;
+const portal = reps.filter((r) => r.report.verifiable).length;
+const cEur = cheapestBy(offers, 'EUR');
+const cUsd = cheapestBy(offers, 'USD');
+const partnersHere = PARTNERS.filter((p) => shops.some((s) => s.slug === p.slug));
+
+const cheapTxt = (o: NonNullable<ReturnType<typeof cheapestBy>>) => t(lang, 'pc.cheapIn', { p: F.perMg(o.perMg, o.currency), shop: o.vendor.name, mg: F.mg(o.product.vialMg), cur: o.currency });
+const priceSentence = listJoin(lang, [cEur && cheapTxt(cEur), cUsd && cheapTxt(cUsd)].filter(Boolean) as string[]);
+const fromTxt = [cEur && F.perMg(cEur.perMg, 'EUR'), cUsd && F.perMg(cUsd.perMg, 'USD')].filter(Boolean).join(` ${t(lang, 'common.or')} `) || F.na;
+const range = fillLo != null ? F.pctRange(fillLo, fillHi!) : '';
+const V = {
+  c: short, n: shops.length, total: TOTALS.shops, eu: eu.length, us: us.length, listings: tn(lang, 'common.listings', offers.length), nl: offers.length,
+  sizes: tn(lang, 'pc.vialSizes', sizes.length), date, prices: priceSentence || F.na, from: fromTxt, year: YEAR,
+  reports: tn(lang, 'pc.labReports', reps.length), repShops: tn(lang, 'common.shops', repShops.size), range, portal,
+};
+const intro = [t(lang, 'pc.intro1', V), t(lang, 'pc.intro2', V), fills.length ? t(lang, 'pc.intro3fill', V) : t(lang, 'pc.intro3', V)].join(' ');
+
+const title = tt(lang, 'pc.title', V);
+const h1 = t(lang, 'pc.h1', V);
+const description = td(lang, 'pc.description', V);
+
+const partnersTxt = listJoin(lang, partnersHere.map((p) => `${p.name} (${F.score(p.overallScore)}/5, ${p.region})`));
+const faqs = [
+  { q: t(lang, 'pc.fq1', V), a: [t(lang, 'pc.fa1', { ...V, euShops: tn(lang, 'pc.euShops', eu.length), usShops: tn(lang, 'pc.usShops', us.length) }), partnersHere.length ? t(lang, 'pc.fa1p', { list: partnersTxt }) : t(lang, 'pc.fa1none'), t(lang, 'pc.fa1end')].join(' ') },
+  { q: t(lang, 'pc.fq2', V), a: t(lang, 'pc.fa2', V) },
+  {
+    q: t(lang, 'pc.fq3', V),
+    a: reps.length
+      ? `${t(lang, 'pc.fa3', { ...V, nrep: reps.length, list: listJoin(lang, Array.from(repShops).map((s) => shops.find((x) => x.slug === s)?.name || s)) })}${fillLo != null ? t(lang, 'pc.fa3fill', V) : ''}.`
+      : t(lang, 'pc.fa3none', V),
+  },
+  { q: t(lang, 'pc.fq4', V), a: [t(lang, 'pc.fa4', { ...V, list: listJoin(lang, sizes.map((s) => F.mg(s))) }), sizePages.length ? t(lang, 'pc.fa4p', { list: listJoin(lang, sizePages.map((s) => `${F.mg(s.size)} (${tn(lang, 'common.shops', s.shops)})`)) }) : ''].join(' ').trim() },
+  { q: t(lang, 'pc.fq5'), a: t(lang, 'pc.fa5') },
+  { q: t(lang, 'pc.fq6', V), a: t(lang, 'pc.fa6', V) },
+];
+
+const crumbs = [
+  { name: t(lang, 'common.home'), url: L('/') },
+  { name: t(lang, 'pi.crumb'), url: L('/prices/') },
+  { name: short, url: L(`/prices/${compound}/`) },
+];
+const jsonLd = [faqSchema(faqs), itemListSchema(t(lang, 'pc.itemList', V), shops.map((s) => ({ name: s.name, url: L(`/vendors/${s.slug}/`) })))];
+const fillRows = reps.map((r) => ({ label: `${r.vendor.name}${r.report.labelMg ? ` ${F.mg(r.report.labelMg)}` : ''}`, sub: r.report.lab, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }));
+const bestPm = (slug: string) => offers.filter((o) => o.vendor.slug === slug && o.perMg != null).sort((x, y) => x.perMg! - y.perMg!)[0];
+const related = [
+  ...(spec ? [{ href: L(`/compounds/${compound}/`), label: t(lang, 'pc.relFacts', V), sub: spec.category }] : []),
+  ...sizePages.map((s) => ({ href: L(`/prices/${compound}/${s.size}mg/`), label: t(lang, 'pc.relSize', { c: short, mg: F.mg(s.size) }), sub: tn(lang, 'common.shops', s.shops) })),
+  ...compoundPairsFor(compound).map(([a, b]) => ({ href: L(`/compare/${pairSlug(a, b)}/`), label: `${compoundShort(a)} vs ${compoundShort(b)}`, sub: t(lang, 'pc.relPair') })),
+  ...partnersHere.slice(0, 3).map((p) => {
+    const o = bestPm(p.slug);
+    return { href: L(`/vendors/${p.slug}/`), label: t(lang, 'pc.relReview', { shop: p.name }), sub: `${t(lang, 'c.scoreShort', { s: F.score(p.overallScore) })} · ${short} ${t(lang, 'common.from', { p: o ? F.perMg(o.perMg, o.currency) : F.na })}` };
+  }),
+  { href: L('/prices/'), label: t(lang, 'footer.allPrices'), sub: tn(lang, 'common.compounds', PRICE_COMPOUNDS.length) },
+  { href: L('/batch-tracker/'), label: t(lang, 'footer.reportsOpened'), sub: tn(lang, 'common.reports', TOTALS.reportsOpened) },
+];
+---
+
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero crumbs={crumbs} title={h1} eyebrow={spec ? spec.category : t(lang, 'common.researchCompound')} intro={intro}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>{t(lang, 'pc.statShops')}</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu.length} / {us.length})</span></dd></div>
+      <div class="stat"><dt>{t(lang, 'pc.statLowest', { cur: 'EUR' })}</dt><dd>{cEur ? F.perMg(cEur.perMg, 'EUR') : F.na}</dd></div>
+      <div class="stat"><dt>{t(lang, 'pc.statLowest', { cur: 'USD' })}</dt><dd>{cUsd ? F.perMg(cUsd.perMg, 'USD') : F.na}</dd></div>
+      <div class="stat"><dt>{t(lang, 'pc.statReports')}</dt><dd>{reps.length} <span class="text-sm font-medium text-slate-600">({t(lang, 'pc.nPortal', { n: portal })})</span></dd></div>
+    </dl>
+    {sizePages.length > 0 && (
+      <div class="mt-5 flex flex-wrap items-center gap-2">
+        <span class="text-slate-700 font-medium">{t(lang, 'pc.bySize')}</span>
+        {sizePages.map((s) => <a href={L(`/prices/${compound}/${s.size}mg/`)} class="inline-flex items-center min-h-[44px] rounded-xl bg-white border border-slate-300 px-3.5 font-semibold text-slate-800 hover:border-teal-600 hover:text-teal-900">{F.mg(s.size)}</a>)}
+      </div>
+    )}
+  </PageHero>
+
+  <div class="wrap mt-10 space-y-14">
+    <WhereToBuy compound={compound} title={t(lang, 'pc.wtbH', V)} />
+
+    <PriceSection offers={offers} label={short} />
+
+    {fillRows.length > 0 && (
+      <section class="space-y-4">
+        <h2 class="h2">{t(lang, 'pc.repH', V)}</h2>
+        <p class="text-slate-700 max-w-[70ch]">{t(lang, 'pc.repP', V)} <a href={L('/batch-tracker/')} class="text-link">{t(lang, 'footer.reportsOpened')}</a>.</p>
+        <FillChart rows={fillRows} title={t(lang, 'pc.chartTitle', V)} />
+      </section>
+    )}
+
+    {spec && (
+      <section class="card p-5 sm:p-6">
+        <h2 class="h3 flex items-center gap-2"><Icon name="beaker" class="w-5 h-5 text-teal-800" />{t(lang, 'pc.about', { name: compoundName(compound) })}</h2>
+        <dl class="facts mt-3 max-w-3xl">
+          <div><dt>{t(lang, 'cmp.class')}</dt><dd>{spec.formulaOrClass}</dd></div>
+          <div><dt>{t(lang, 'cmp.cas')}</dt><dd>{spec.casNumber}</dd></div>
+          <div><dt>{t(lang, 'cmp.mw')}</dt><dd>{spec.molecularWeightDa}</dd></div>
+        </dl>
+        <a href={L(`/compounds/${compound}/`)} class="mt-4 inline-flex items-center gap-1 min-h-[44px] text-link">{t(lang, 'pc.factsPage')} <Icon name="arrow-right" class="w-4 h-4" /></a>
+      </section>
+    )}
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure />
+  </div>
+</BaseLayout>

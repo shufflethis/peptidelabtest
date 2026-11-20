@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { PRICE_COMPOUNDS, compoundShort, shopsCarrying, sizePagesFor, offersFor, cheapestBy, CHECKED_ISO, TOTALS, getCompound, YEAR } from '../lib/site';
+import { t, tn, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locCompound } from '../i18n/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const rows = PRICE_COMPOUNDS.map((c) => {
+  const o = offersFor(c);
+  const spec = getCompound(c);
+  return { slug: c, name: compoundShort(c), cat: spec ? locCompound(lang, spec).category : t(lang, 'pix.otherCat'), shops: shopsCarrying(c).length, sizes: sizePagesFor(c), eur: cheapestBy(o, 'EUR'), usd: cheapestBy(o, 'USD') };
+});
+const cats = Array.from(new Set(rows.map((r) => r.cat)));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'pix.crumb'), url: L('/price-index/') }];
+const V = { n: rows.length, products: TOTALS.products, shops: TOTALS.shops, date: fmtDate(lang, CHECKED_ISO), year: YEAR };
+---
+<BaseLayout lang={lang} title={tt(lang, 'pix.title', V)} description={td(lang, 'pix.description', V)} crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title={t(lang, 'pix.h1')} intro={t(lang, 'pix.intro', V)} />
+  <div class="wrap mt-12 space-y-12">
+    {cats.map((cat) => (
+      <section class="space-y-4">
+        <h2 class="h2">{cat}</h2>
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {rows.filter((r) => r.cat === cat).map((r) => (
+            <li class="card p-5">
+              <a href={L(`/prices/${r.slug}/`)} class="tap text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{t(lang, 'footer.pricesOf', { name: r.name })}</a>
+              <p class="mt-1 text-slate-700">{tn(lang, 'common.shops', r.shops)} · {t(lang, 'common.from', { p: [r.eur && F.perMg(r.eur.perMg, 'EUR'), r.usd && F.perMg(r.usd.perMg, 'USD')].filter(Boolean).join(` ${t(lang, 'common.or')} `) || F.na })}</p>
+              {r.sizes.length > 0 && <p class="mt-2 text-[0.94rem] text-slate-700">{t(lang, 'pix.bySize')} {r.sizes.map((s, i) => <>{i > 0 && ', '}<a href={L(`/prices/${r.slug}/${s.size}mg/`)} class="text-link font-medium">{F.mg(s.size)}</a></>)}</p>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</BaseLayout>

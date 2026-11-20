@@ -2,37 +2,40 @@
 /** Reader code display following affiliates.ts rules (codeOnlyOnVendorPage -> link to review page). */
 import Icon from './Icon.astro';
 import { codeInfo } from '../lib/site';
+import { t, lp, splitLang } from '../i18n';
 interface Props {
   slug: string;
   onOwnPage?: boolean;
   size?: 'xs' | 'sm' | 'md';
 }
 const { slug, onOwnPage = false, size = 'sm' } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
 const c = codeInfo(slug, onOwnPage);
 ---
 {c.kind === 'code' && size === 'xs' && (
   <span class="inline-flex items-center gap-1.5 whitespace-nowrap">
-    <span class="text-sm text-slate-700">Code</span>
+    <span class="text-sm text-slate-700">{t(lang, 'c.code')}</span>
     <code class="font-mono font-bold text-teal-900 text-[0.9rem]">{c.code}</code>
-    <button type="button" data-copy={c.code} class="inline-flex items-center justify-center w-11 h-11 -my-1.5 rounded-lg text-teal-800 hover:bg-teal-50" aria-label={`Copy code ${c.code}`}><Icon name="copy" class="w-4 h-4" /></button>
+    <button type="button" data-copy={c.code} class="inline-flex items-center justify-center w-11 h-11 -my-1.5 rounded-lg text-teal-800 hover:bg-teal-50" aria-label={t(lang, 'c.copyCode', { code: c.code })}><Icon name="copy" class="w-4 h-4" /></button>
   </span>
 )}
 {c.kind === 'code' && size !== 'xs' && (
   <span class={`inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-xl border border-dashed border-teal-400 bg-teal-50 ${size === 'md' ? 'px-3.5 py-2.5' : 'px-3 py-1.5'}`}>
     <Icon name="tag" class="w-4 h-4 text-teal-800" />
-    <span class="text-sm text-slate-700">Code</span>
+    <span class="text-sm text-slate-700">{t(lang, 'c.code')}</span>
     <code class={`font-mono font-bold text-teal-900 ${size === 'md' ? 'text-lg' : 'text-base'}`}>{c.code}</code>
-    {c.percent ? <span class="text-sm font-semibold text-teal-900">for {c.percent}%</span> : null}
-    <button type="button" data-copy={c.code} class="inline-flex items-center gap-1 min-h-[44px] -my-2 px-1 text-sm font-semibold text-teal-800 hover:text-teal-950 underline underline-offset-2" aria-label={`Copy code ${c.code}`}>
-      <Icon name="copy" class="w-4 h-4" />Copy
+    {c.percent ? <span class="text-sm font-semibold text-teal-900">{t(lang, 'c.forPct', { n: c.percent })}</span> : null}
+    <button type="button" data-copy={c.code} class="inline-flex items-center gap-1 min-h-[44px] -my-2 px-1 text-sm font-semibold text-teal-800 hover:text-teal-950 underline underline-offset-2" aria-label={t(lang, 'c.copyCode', { code: c.code })}>
+      <Icon name="copy" class="w-4 h-4" />{t(lang, 'c.copy')}
     </button>
-    {c.note && size === 'md' && <span class="basis-full text-sm text-slate-700">{c.note}</span>}
+    {c.note && size === 'md' && lang === 'en' && <span class="basis-full text-sm text-slate-700">{c.note}</span>}
+    {c.note && size === 'md' && lang !== 'en' && c.percent ? <span class="basis-full text-sm text-slate-700">{t(lang, 'c.codeNote', { n: c.percent })}</span> : null}
   </span>
 )}
 {c.kind === 'on-review' && (
-  <a href={c.reviewUrl} class="inline-flex items-center gap-1.5 min-h-[44px] text-sm font-semibold text-teal-800 underline underline-offset-2 hover:text-teal-950">
-    <Icon name="tag" class="w-4 h-4" />{size === 'xs' ? 'Code on review page' : 'Reader code on review page'}
+  <a href={lp(lang, c.reviewUrl)} class="inline-flex items-center gap-1.5 min-h-[44px] text-sm font-semibold text-teal-800 underline underline-offset-2 hover:text-teal-950">
+    <Icon name="tag" class="w-4 h-4" />{size === 'xs' ? t(lang, 'c.codeOnReviewShort') : t(lang, 'c.codeOnReview')}
   </a>
 )}
-{c.kind === 'link-only' && <span class="inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="link" class="w-4 h-4" />{size === 'xs' ? 'No code' : 'Store link, no code'}</span>}
-{c.kind === 'none' && <span class="text-sm text-slate-600">No reader code</span>}
+{c.kind === 'link-only' && <span class="inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="link" class="w-4 h-4" />{size === 'xs' ? t(lang, 'c.noCode') : t(lang, 'c.linkNoCode')}</span>}
+{c.kind === 'none' && <span class="text-sm text-slate-600">{t(lang, 'c.noReaderCode')}</span>}

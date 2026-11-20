@@ -1,15 +1,17 @@
 ---
 /** Verification badge: portal-verified / vendor-hosted / none. */
 import Icon from './Icon.astro';
+import { t, splitLang } from '../i18n';
 interface Props {
   level: 'portal' | 'vendor' | 'none';
   text?: string;
 }
 const { level, text } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
 const cfg = {
-  portal: { cls: 'bg-teal-50 text-teal-900 ring-1 ring-teal-300', icon: 'shield-check', label: 'Portal-verified' },
-  vendor: { cls: 'bg-amber-50 text-amber-900 ring-1 ring-amber-300', icon: 'file-text', label: 'Shop-hosted report' },
-  none: { cls: 'bg-slate-100 text-slate-700 ring-1 ring-slate-300', icon: 'shield-off', label: 'No public report' },
+  portal: { cls: 'bg-teal-50 text-teal-900 ring-1 ring-teal-300', icon: 'shield-check', label: t(lang, 'c.vb.portal') },
+  vendor: { cls: 'bg-amber-50 text-amber-900 ring-1 ring-amber-300', icon: 'file-text', label: t(lang, 'c.vb.vendor') },
+  none: { cls: 'bg-slate-100 text-slate-700 ring-1 ring-slate-300', icon: 'shield-off', label: t(lang, 'c.vb.none') },
 }[level];
 ---
 <span class={`chip ${cfg.cls}`}><Icon name={cfg.icon} class="w-4 h-4" />{text || cfg.label}</span>

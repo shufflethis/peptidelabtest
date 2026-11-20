@@ -5,19 +5,28 @@ import ScoreRing from './ScoreRing.astro';
 import CodeBadge from './CodeBadge.astro';
 import VerifyBadge from './VerifyBadge.astro';
 import type { VendorProfile } from '../data/vendors';
-import { shopHref, REL_SPONSORED, vendorVerify, purityRange, fillRange, cheapestFor, perMg, compoundShort, shopShort } from '../lib/site';
+import { shopHref, REL_SPONSORED, vendorVerify, cheapestFor, compoundShort, shopShort } from '../lib/site';
+import { t, lp, splitLang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locVendor } from '../i18n/data';
 interface Props {
   partners: VendorProfile[];
   others: VendorProfile[];
   partnerTitle?: string;
   otherTitle?: string;
 }
-const { partners, others, partnerTitle = 'Ranking: audited shops with a store link', otherTitle = 'Other audited shops' } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const F = fmt(lang);
+const { partners: P, others: O, partnerTitle = t(lang, 'c.rk.partnerTitle'), otherTitle = t(lang, 'c.rk.otherTitle') } = Astro.props;
+const partners = P.map((v) => locVendor(lang, v));
+const others = O.map((v) => locVendor(lang, v));
+const fr = (v: VendorProfile) => (v.coaStats.fillMinPct == null ? t(lang, 'common.notPublished') : F.pctRange(v.coaStats.fillMinPct, v.coaStats.fillMaxPct!));
+const pr = (v: VendorProfile) => (v.coaStats.purityMin == null ? t(lang, 'common.notPublished') : F.rawPctRange(v.coaStats.purityMin, v.coaStats.purityMax!));
 ---
 <section class="space-y-5" id="ranking">
   <div class="max-w-[70ch]">
     <h2 class="h2">{partnerTitle}</h2>
-    <p class="mt-2 text-slate-700">Partner shops only, ordered by audit score. Commission has no effect on the order.</p>
+    <p class="mt-2 text-slate-700">{t(lang, 'c.rk.partnerIntro')}</p>
   </div>
   <ol class="space-y-4">
     {partners.map((v, i) => {
@@ -27,57 +36,57 @@ const { partners, others, partnerTitle = 'Ranking: audited shops with a store li
         <li class="card p-5 sm:p-6">
           <div class="grid gap-5 md:grid-cols-[auto_1fr_auto] md:items-center">
             <div class="flex items-center gap-4">
-              <span class="w-10 h-10 rounded-full bg-teal-800 text-white font-bold flex items-center justify-center" aria-label={`Rank ${i + 1}`}>{i + 1}</span>
+              <span class="w-10 h-10 rounded-full bg-teal-800 text-white font-bold flex items-center justify-center" aria-label={t(lang, 'c.rank', { n: i + 1 })}>{i + 1}</span>
               <ScoreRing score={v.overallScore} size={68} />
             </div>
             <div class="min-w-0">
-              <h3 class="text-xl font-extrabold text-slate-900"><a href={`/vendors/${v.slug}/`} class="tap hover:text-teal-800 hover:underline">{v.name}</a> <span class="text-base font-medium text-slate-600">{v.region} · {v.originCountry}</span></h3>
-              <div class="mt-2"><VerifyBadge level={vendorVerify(v)} text={v.coaStats.opened ? `${v.coaStats.portalVerified} of ${v.coaStats.opened} reports portal-verified` : undefined} /></div>
+              <h3 class="text-xl font-extrabold text-slate-900"><a href={lp(lang, `/vendors/${v.slug}/`)} class="tap hover:text-teal-800 hover:underline">{v.name}</a> <span class="text-base font-medium text-slate-600">{v.region} · {v.originCountry}</span></h3>
+              <div class="mt-2"><VerifyBadge level={vendorVerify(v)} text={v.coaStats.opened ? t(lang, 'c.portalOf', { p: v.coaStats.portalVerified, o: v.coaStats.opened }) : undefined} /></div>
               <ul class="mt-3 grid gap-x-6 gap-y-1 sm:grid-cols-2 text-[0.95rem] text-slate-700">
-                <li><span class="text-slate-600">Purity:</span> {purityRange(v)}</li>
-                <li><span class="text-slate-600">Measured vs label:</span> {fillRange(v)}</li>
-                <li><span class="text-slate-600">Labs:</span> {v.testingLabs.map((l) => l.replace(/\s*\(.*\)\s*$/, '')).join(', ')}</li>
-                <li><span class="text-slate-600">Price example:</span> {cheap ? `${compoundShort(cheap.compound)} ${cheap.vialMg} mg, ${perMg(cheap.pricePerMg, cheap.currency)}` : 'not published'}</li>
+                <li><span class="text-slate-600">{t(lang, 'c.purity')}:</span> {pr(v)}</li>
+                <li><span class="text-slate-600">{t(lang, 'c.measuredVsLabel')}:</span> {fr(v)}</li>
+                <li><span class="text-slate-600">{t(lang, 'c.labs')}:</span> {v.testingLabs.map((l) => l.replace(/\s*\(.*\)\s*$/, '')).join(', ')}</li>
+                <li><span class="text-slate-600">{t(lang, 'c.priceExample')}:</span> {cheap ? `${compoundShort(cheap.compound)} ${F.mg(cheap.vialMg)}, ${F.perMg(cheap.pricePerMg, cheap.currency)}` : t(lang, 'common.notPublished')}</li>
               </ul>
               <p class="mt-3 text-slate-700 max-w-[75ch]">{v.verdictSummary}</p>
             </div>
             <div class="flex flex-col gap-3 md:items-end md:min-w-[13rem]">
               <CodeBadge slug={v.slug} />
-              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(v.name)} <Icon name="external-link" class="w-4 h-4" /></a>}
-              <a href={`/vendors/${v.slug}/#lab-reports`} class="text-link">See lab reports</a>
+              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">{t(lang, 'c.visit', { shop: shopShort(v.name) })} <Icon name="external-link" class="w-4 h-4" /></a>}
+              <a href={lp(lang, `/vendors/${v.slug}/#lab-reports`)} class="text-link">{t(lang, 'c.seeReports')}</a>
             </div>
           </div>
         </li>
       );
     })}
   </ol>
-  <p class="text-sm text-slate-600">"Visit" buttons are partner (affiliate) links.</p>
+  <p class="text-sm text-slate-600">{t(lang, 'c.rk.visitNote')}</p>
 </section>
 
 {others.length > 0 && (
   <section class="space-y-5" id="other-shops">
     <div class="max-w-[70ch]">
       <h2 class="h2">{otherTitle}</h2>
-      <p class="mt-2 text-slate-700">Same audit, same score formula. These shops are not partners, so we link to our review only.</p>
+      <p class="mt-2 text-slate-700">{t(lang, 'c.rk.otherIntro')}</p>
     </div>
     <div class="table-wrap">
       <table class="data-table">
         <thead>
           <tr>
-            <th scope="col">Shop</th>
-            <th scope="col" class="num">Score (0-5)</th>
-            <th scope="col" class="num">Reports portal-verified</th>
-            <th scope="col">Measured vs label</th>
-            <th scope="col">Verdict</th>
+            <th scope="col">{t(lang, 'c.pt.shop')}</th>
+            <th scope="col" class="num">{t(lang, 'c.pt.score')}</th>
+            <th scope="col" class="num">{t(lang, 'c.rk.portalCol')}</th>
+            <th scope="col">{t(lang, 'c.measuredVsLabel')}</th>
+            <th scope="col">{t(lang, 'c.rk.verdict')}</th>
           </tr>
         </thead>
         <tbody>
           {others.map((v) => (
             <tr>
-              <td class="min-w-[10rem]"><a href={`/vendors/${v.slug}/`} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a><span class="sub">{v.region} · Read review</span></td>
-              <td class="num font-semibold">{v.overallScore.toFixed(1)}</td>
-              <td class="num">{v.coaStats.opened ? `${v.coaStats.portalVerified} of ${v.coaStats.opened}` : 'none published'}</td>
-              <td class="whitespace-nowrap">{fillRange(v)}</td>
+              <td class="min-w-[10rem]"><a href={lp(lang, `/vendors/${v.slug}/`)} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a><span class="sub">{v.region} · {t(lang, 'c.readReview')}</span></td>
+              <td class="num font-semibold">{F.score(v.overallScore)}</td>
+              <td class="num">{v.coaStats.opened ? t(lang, 'c.xOfY', { x: v.coaStats.portalVerified, y: v.coaStats.opened }) : t(lang, 'c.nonePublished')}</td>
+              <td class="whitespace-nowrap">{fr(v)}</td>
               <td class="min-w-[18rem] max-w-[34rem]">{v.verdictSummary}</td>
             </tr>
           ))}

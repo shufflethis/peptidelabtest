@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { SITE_BRAND } from '../data/affiliates';
+import { t, tt, td, lp, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const V = { site: SITE_BRAND.name, domain: SITE_BRAND.domain };
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'legal.crumb'), url: L('/legal/') }];
+---
+<BaseLayout lang={lang} title={tt(lang, 'legal.title', V)} description={td(lang, 'legal.description', V)} crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title={t(lang, 'legal.h1')} />
+  <div class="wrap mt-12">
+    <div class="prose-read">
+      <h2 id="ruo">{t(lang, 'legal.h_ruo')}</h2>
+      <p>{t(lang, 'legal.p_ruo', V)}</p>
+      <h2 id="affiliate">{t(lang, 'legal.h_aff')}</h2>
+      <p>{t(lang, 'legal.p_aff1')}</p>
+      <p>{t(lang, 'legal.p_aff2')} <a href={L('/affiliate-disclosure/')}>{t(lang, 'footer.affiliate')}</a></p>
+      <h2 id="warranty">{t(lang, 'legal.h_war')}</h2>
+      <p>{t(lang, 'legal.p_war')} <a href={L('/terms/')}>{t(lang, 'footer.terms')}</a></p>
+      <h2 id="privacy">{t(lang, 'legal.h_priv')}</h2>
+      <p>{t(lang, 'legal.p_priv')} <a href={L('/privacy/')}>{t(lang, 'footer.privacy')}</a></p>
+      <h2 id="contact">{t(lang, 'legal.h_contact')}</h2>
+      <p>{t(lang, 'legal.p_contact')} <a href={`mailto:${SITE_BRAND.contactEmail}`}>{SITE_BRAND.contactEmail}</a></p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { LIVE_LANGS, LANG_NAME } from '../i18n';
 import { TOTALS, CHECKED_ISO, SITE_URL, PRICE_COMPOUNDS, compoundShort, COMPOUND_PAIRS, pairSlug, LABS_IN_DATA, PARTNERS, SIZE_PAGES } from '../lib/site';
 
 export const GET: APIRoute = () => {
@@ -13,6 +14,10 @@ export const GET: APIRoute = () => {
     `- ${TOTALS.reportsOpened} lab reports opened, ${TOTALS.portalVerified} verified on the lab portal, ${TOTALS.products} prices recorded. No test orders were placed.`,
     '- Rankings list partner shops by audit score only; commission never changes a score.',
     `- Method: ${u('/methodology/')}`,
+    '',
+    '## Language versions',
+    '- Every page exists in each language below with the same path after the language prefix (English at the root). Data files (CSV/JSON) and llms-full.txt are English only.',
+    ...LIVE_LANGS.map((l) => `- ${LANG_NAME[l]} (${l}): ${u(l === 'en' ? '/' : `/${l}/`)}`),
     '',
     '## Key pages',
     `- Shop ranking: ${u('/vendors/')} (EU: ${u('/vendors/europe/')}, US: ${u('/vendors/usa/')})`,

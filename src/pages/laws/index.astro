@@ -1,23 +1,4 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHero from '../../components/PageHero.astro';
-import { COUNTRY_LAWS } from '../../data/laws';
-import { VENDORS } from '../../data/vendors';
-import { shipsToCountry, CHECKED_LABEL } from '../../lib/site';
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'Country notes', url: '/laws/' }];
-const rows = COUNTRY_LAWS.map((l) => ({ l, n: VENDORS.filter((v) => shipsToCountry(v.slug, l.code) === 'yes').length }));
+import View from '../../views/LawsIndex.astro';
 ---
-<BaseLayout title="Peptide Rules by Country: Regulators & Shops That Ship" description="General notes for 10 countries: which authority regulates medicines and which audited research peptide shops state they ship there. Not legal advice." crumbs={crumbs}>
-  <PageHero crumbs={crumbs} title="Country notes" intro={`General information for ${COUNTRY_LAWS.length} countries: the authorities that regulate medicines, and which of the shops we audited state that they ship there (as published on ${CHECKED_LABEL}). This is not legal advice. Check the current rules with the authority before you order.`} />
-  <div class="wrap mt-12">
-    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {rows.map(({ l, n }) => (
-        <li class="card card-hover p-5">
-          <a href={`/laws/${l.slug}/`} class="tap text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{l.country}</a>
-          <p class="mt-1.5 text-[0.95rem] text-slate-700">{l.authorities[0]}</p>
-          <p class="mt-2 text-sm text-slate-600">{n} audited shops state they ship here</p>
-        </li>
-      ))}
-    </ul>
-  </div>
-</BaseLayout>
+<View lang="en" />

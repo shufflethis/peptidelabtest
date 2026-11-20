@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import ScoreRing from '../components/ScoreRing.astro';
+import CodeBadge from '../components/CodeBadge.astro';
+import FAQ from '../components/FAQ.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { PARTNERS, NON_PARTNERS, shopHref, REL_SPONSORED, codeInfo, CHECKED_ISO, faqSchema, YEAR, shopShort } from '../lib/site';
+import { t, tt, td, tfaq, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const withCode = PARTNERS.filter((p) => codeInfo(p.slug).kind === 'code');
+const V = { n: withCode.length, year: YEAR, date: fmtDate(lang, CHECKED_ISO), others: NON_PARTNERS.length };
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'footer.codes'), url: L('/discount-codes/') }];
+const faqs = tfaq(lang, 'dc.faqs', V);
+---
+<BaseLayout lang={lang} title={tt(lang, 'dc.title', V)} description={td(lang, 'dc.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={t(lang, 'dc.h1', V)} intro={t(lang, 'dc.intro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'dc.byScore')}</h2>
+      <ul class="grid gap-4 md:grid-cols-2">
+        {PARTNERS.map((p) => {
+          const href = shopHref(p.slug);
+          const c = codeInfo(p.slug);
+          return (
+            <li class="card p-5 flex flex-col gap-4">
+              <div class="flex items-center gap-4">
+                <ScoreRing score={p.overallScore} size={60} />
+                <div>
+                  <a href={L(`/vendors/${p.slug}/`)} class="tap text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{p.name}</a>
+                  <div class="text-sm text-slate-600">{p.region} · {t(lang, 'dc.scoreOf', { s: F.score(p.overallScore) })}</div>
+                </div>
+              </div>
+              <div>
+                {c.kind === 'code' && <CodeBadge slug={p.slug} size="md" />}
+                {c.kind === 'on-review' && <a href={L(c.reviewUrl)} class="text-link inline-flex items-center min-h-[44px]">{t(lang, 'c.codeOnReview')}</a>}
+                {c.kind === 'link-only' && <span class="text-slate-700">{t(lang, 'dc.linkOnly')}</span>}
+              </div>
+              <div class="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2">
+                {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">{t(lang, 'c.visit', { shop: shopShort(p.name) })} <Icon name="external-link" class="w-4 h-4" /></a>}
+                <a href={L(`/vendors/${p.slug}/#lab-reports`)} class="text-link">{t(lang, 'c.seeReports')}</a>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+    <section class="prose-read">
+      <h2>{t(lang, 'c.rk.otherTitle')}</h2>
+      <p>{t(lang, 'dc.othersP', V)}</p>
+      <p>{NON_PARTNERS.map((v, i) => <>{i > 0 && ', '}<a href={L(`/vendors/${v.slug}/`)}>{v.name}</a></>)}.</p>
+    </section>
+    <p class="text-slate-700 max-w-[70ch]">{t(lang, 'dc.psNote')} <a href={L('/vendors/peptide-sciences/')} class="text-link">{t(lang, 'dc.psLink')}</a>.</p>
+    <FAQ items={faqs} />
+    <Disclosure />
+  </div>
+</BaseLayout>

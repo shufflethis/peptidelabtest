@@ -1,12 +1,14 @@
 ---
 /** Visible breadcrumb trail. BreadcrumbList JSON-LD is emitted by BaseLayout from the same items. */
 import Icon from './Icon.astro';
+import { t, splitLang } from '../i18n';
 interface Props {
   items: { name: string; url: string }[];
 }
 const { items } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
 ---
-<nav aria-label="Breadcrumb" class="text-sm text-slate-600">
+<nav aria-label={t(lang, 'c.breadcrumb')} class="text-sm text-slate-600">
   <ol class="flex flex-wrap items-center gap-1">
     {items.map((it, i) => (
       <li class="inline-flex items-center gap-1">

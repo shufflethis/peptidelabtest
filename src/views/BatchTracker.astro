@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { BATCH_RECORDS } from '../data/batches';
+import { TOTALS, CHECKED_ISO, faqSchema, median, LABS_IN_DATA, labKeyOf, PRICE_COMPOUNDS, compoundShort, YEAR } from '../lib/site';
+import { t, tt, td, tfaq, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const rows = [...BATCH_RECORDS].sort((a, b) => a.vendorName.localeCompare(b.vendorName) || a.compoundName.localeCompare(b.compoundName));
+const fills = rows.map((r) => (100 * r.measuredMg) / r.labelMg);
+const within10 = fills.filter((f) => f >= 90 && f <= 110).length;
+const below90 = fills.filter((f) => f < 90).length;
+const above110 = fills.filter((f) => f > 110).length;
+const portal = rows.filter((r) => r.verifiable).length;
+const med = median(fills);
+const shops = new Set(rows.map((r) => r.vendorSlug)).size;
+const purities = rows.map((r) => r.purityPercent);
+const V = { n: rows.length, shops, portal, within10, below90, above110, pmin: F.rawPct(Math.min(...purities)), pmax: F.rawPct(Math.max(...purities)), total: TOTALS.reportsOpened, date: fmtDate(lang, CHECKED_ISO), year: YEAR };
+const title = tt(lang, 'bt.title', V);
+const description = td(lang, 'bt.description', V);
+const intro = t(lang, 'bt.intro', V);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'nav.reports'), url: L('/batch-tracker/') }];
+const faqs = tfaq(lang, 'bt.faqs', V);
+---
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={t(lang, 'footer.reportsOpened')} intro={intro}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>{t(lang, 'bt.statTable')}</dt><dd>{rows.length}</dd></div>
+      <div class="stat"><dt>{t(lang, 'c.vb.portal')}</dt><dd>{portal}</dd></div>
+      <div class="stat"><dt>{t(lang, 'bt.statWithin')}</dt><dd>{within10}</dd></div>
+      <div class="stat"><dt>{t(lang, 'bt.statMedian')}</dt><dd>{med != null ? F.pct(med) : F.na}</dd></div>
+    </dl>
+  </PageHero>
+
+  <div class="wrap mt-12 space-y-14">
+    <section class="space-y-4">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-[70ch]">
+          <h2 class="h2">{t(lang, 'bt.allH')}</h2>
+          <p class="mt-2 text-slate-700">{t(lang, 'bt.allP')}</p>
+        </div>
+        <label class="block w-full sm:w-80">
+          <span class="sr-only">{t(lang, 'bt.filterLabel')}</span>
+          <span class="relative block">
+            <Icon name="search" class="w-5 h-5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input id="report-filter" type="search" placeholder={t(lang, 'bt.filterPh')} class="w-full min-h-[48px] pl-10 pr-3 rounded-xl border border-slate-300 bg-white text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-100" />
+          </span>
+        </label>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" data-sortable id="report-table">
+          <thead>
+            <tr>
+              <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">{t(lang, 'c.pt.shop')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">{t(lang, 'pi.colCompound')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'bt.colFill')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'v.colPurity')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">{t(lang, 'v.colLab')} <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+              <th scope="col">{t(lang, 'v.colVerif')}</th>
+              <th scope="col">{t(lang, 'v.colId')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => {
+              const f = (100 * r.measuredMg) / r.labelMg;
+              const lab = labKeyOf(r.labName);
+              const off = f < 90 || f > 110;
+              return (
+                <tr data-filter={`${r.vendorName} ${r.compoundName} ${r.labName}`.toLowerCase()}>
+                  <td data-v={r.vendorName} class="min-w-[9rem]"><a href={L(`/vendors/${r.vendorSlug}/`)} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{r.vendorName}</a><span class="sub">{r.region}</span><span class="md:hidden mt-1 block text-[0.9rem]"><strong class={off ? 'text-amber-900' : 'text-teal-900'}>{F.pct(f)}</strong> <span class="text-slate-700">· {compoundShort(r.compoundSlug)} {F.mg(r.labelMg)}</span></span></td>
+                  <td data-v={r.compoundName} class="min-w-[9rem]">{PRICE_COMPOUNDS.includes(r.compoundSlug) ? <a href={L(`/prices/${r.compoundSlug}/`)} class="font-medium text-slate-900 hover:text-teal-800 hover:underline">{compoundShort(r.compoundSlug)}</a> : compoundShort(r.compoundSlug)}<span class="sub">{t(lang, 'bt.mgLabel', { mg: F.mg(r.labelMg) })}</span></td>
+                  <td class="num" data-v={f.toFixed(2)}><span class={`font-semibold ${off ? 'text-amber-900' : 'text-slate-900'}`}>{F.pct(f)}</span><span class="sub">{t(lang, 'bt.mOfL', { m: F.raw(r.measuredMg), l: F.raw(r.labelMg) })}</span></td>
+                  <td class="num" data-v={r.purityPercent}>{F.raw(r.purityPercent)}</td>
+                  <td data-v={r.labName} class="min-w-[10rem]">{lab ? <a href={L(`/labs/${lab.slug}/`)} class="hover:text-teal-800 hover:underline">{r.labName}</a> : r.labName}<span class="sub">{r.testedDate}</span></td>
+                  <td>{r.verifiable ? t(lang, 'c.vb.portal') : t(lang, 'v.shopHosted')}</td>
+                  <td class="min-w-[16rem] max-w-[22rem]"><code class="font-mono text-sm text-slate-900">{r.batchRef}</code><span class="sub mono-url">{r.reportUrl}</span></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-slate-600">{t(lang, 'bt.note')}</p>
+    </section>
+    <FAQ items={faqs} />
+    <RelatedLinks links={[
+      ...LABS_IN_DATA.slice(0, 4).map((l) => ({ href: L(`/labs/${l.slug}/`), label: t(lang, 'footer.labGuide', { name: l.name }), sub: t(lang, 'v.relLabSub') })),
+      { href: L('/methodology/'), label: t(lang, 'layout.howWeScore') },
+      { href: L('/data/'), label: t(lang, 'bt.relData') },
+    ]} />
+  </div>
+</BaseLayout>
+
+<script>
+  const input = document.getElementById('report-filter') as HTMLInputElement | null;
+  const table = document.getElementById('report-table');
+  input?.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    table?.querySelectorAll<HTMLTableRowElement>('tbody tr').forEach((tr) => {
+      tr.hidden = q !== '' && !(tr.dataset.filter || '').includes(q);
+    });
+  });
+</script>

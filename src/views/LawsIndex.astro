@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { COUNTRY_LAWS } from '../data/laws';
+import { VENDORS } from '../data/vendors';
+import { shipsToCountry, CHECKED_ISO } from '../lib/site';
+import { t, tn, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { locLaw, countryName } from '../i18n/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'lw.crumb'), url: L('/laws/') }];
+const rows = COUNTRY_LAWS.map((raw) => ({ l: locLaw(lang, raw), name: countryName(lang, raw.code), n: VENDORS.filter((v) => shipsToCountry(v.slug, raw.code) === 'yes').length }));
+const V = { n: COUNTRY_LAWS.length, date: fmtDate(lang, CHECKED_ISO) };
+---
+<BaseLayout lang={lang} title={tt(lang, 'lw.title', V)} description={td(lang, 'lw.description', V)} crumbs={crumbs}>
+  <PageHero crumbs={crumbs} title={t(lang, 'lw.h1')} intro={t(lang, 'lw.intro', V)} />
+  <div class="wrap mt-12">
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {rows.map(({ l, name, n }) => (
+        <li class="card card-hover p-5">
+          <a href={L(`/laws/${l.slug}/`)} class="tap text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{name}</a>
+          <p class="mt-1.5 text-[0.95rem] text-slate-700">{l.authorities[0]}</p>
+          <p class="mt-2 text-sm text-slate-600">{tn(lang, 'lw.shipHere', n)}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

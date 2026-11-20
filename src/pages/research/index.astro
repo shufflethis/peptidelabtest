@@ -1,20 +1,4 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHero from '../../components/PageHero.astro';
-import { RESEARCH_ARTICLES } from '../../data/labs';
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'Guides', url: '/research/' }];
+import View from '../../views/ResearchIndex.astro';
 ---
-<BaseLayout title="Guides: Reading and Verifying Peptide Lab Reports" description="Plain-language guides on peptide lab reports: how to verify a report, purity vs measured mg, and product code names used by shops." crumbs={crumbs}>
-  <PageHero crumbs={crumbs} title="Guides" intro="Short, plain-language guides on reading and checking lab reports for research peptides. No dosing or health information." />
-  <div class="wrap mt-12">
-    <ul class="grid gap-4 md:grid-cols-2">
-      {RESEARCH_ARTICLES.map((a) => (
-        <li class="card card-hover p-6">
-          <p class="text-sm font-semibold text-teal-800">{a.category}</p>
-          <a href={`/research/${a.slug}/`} class="mt-1 block text-xl font-bold text-slate-900 hover:text-teal-800 hover:underline">{a.h1}</a>
-          <p class="mt-2 text-slate-700">{a.excerpt}</p>
-        </li>
-      ))}
-    </ul>
-  </div>
-</BaseLayout>
+<View lang="en" />

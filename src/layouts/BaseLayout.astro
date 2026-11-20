@@ -2,9 +2,9 @@
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import { splitLang, type Lang } from '../i18n';
+import { splitLang, t, lp, fmtDate, LIVE_LANGS, LANG_LABEL, LANG_NAME, OG_LOCALE, type Lang } from '../i18n';
 import { SITE_BRAND } from '../data/affiliates';
-import { SITE_URL, SITE_NAME, CHECKED_ISO, CHECKED_LABEL, padDesc, SOCIAL_SAME_AS } from '../lib/site';
+import { SITE_URL, SITE_NAME, CHECKED_ISO, padDesc, SOCIAL_SAME_AS } from '../lib/site';
 
 interface Crumb {
   name: string;
@@ -19,14 +19,20 @@ interface Props {
   noindex?: boolean;
   ogType?: string;
   lang?: Lang;
+  /** Set false for pages that exist in English only (404). */
+  translated?: boolean;
 }
 
-const { title, description: rawDescription, canonicalPath = Astro.url.pathname, jsonLd, crumbs = [], noindex = false, ogType = 'website' } = Astro.props;
-const { lang = splitLang(Astro.url.pathname).lang } = Astro.props;
-const langPath = splitLang(Astro.url.pathname).path;
-const description = padDesc(rawDescription);
+const { title, description: rawDescription, canonicalPath = Astro.url.pathname, jsonLd, crumbs = [], noindex = false, ogType = 'website', translated = true } = Astro.props;
+const split = splitLang(Astro.url.pathname);
+const { lang = split.lang } = Astro.props;
+const langPath = split.path.endsWith('/') || split.path.includes('.') ? split.path : `${split.path}/`;
+const date = fmtDate(lang, CHECKED_ISO);
+const description = padDesc(rawDescription, [t(lang, 'seo.pad1', { date }), t(lang, 'seo.pad2'), t(lang, 'seo.pad3')]);
 const path = canonicalPath.endsWith('/') || canonicalPath.includes('.') ? canonicalPath : `${canonicalPath}/`;
 const canonicalUrl = new URL(path, SITE_URL).toString();
+const alternates = translated ? LIVE_LANGS.map((l) => ({ lang: l, href: new URL(lp(l, langPath), SITE_URL).toString() })) : [];
+const L = (p: string) => lp(lang, p);
 
 const orgSchema = {
   '@context': 'https://schema.org',
@@ -35,8 +41,7 @@ const orgSchema = {
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/favicon.svg`,
-  description:
-    'Independent desk audit of research peptide shops in the EU and US: opened lab reports, measured vs label content, portal verification and listed prices per mg.',
+  description: t(lang, 'layout.orgDesc'),
   publishingPrinciples: `${SITE_URL}/methodology/`,
   contactPoint: { '@type': 'ContactPoint', email: SITE_BRAND.contactEmail, contactType: 'editorial' },
   ...(SOCIAL_SAME_AS.length ? { sameAs: SOCIAL_SAME_AS } : {}),
@@ -48,7 +53,7 @@ const websiteSchema = {
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   publisher: { '@id': `${SITE_URL}/#organization` },
-  inLanguage: 'en',
+  inLanguage: LIVE_LANGS.length > 1 ? LIVE_LANGS : 'en',
 };
 const webPageSchema = {
   '@context': 'https://schema.org',
@@ -59,9 +64,9 @@ const webPageSchema = {
   description,
   isPartOf: { '@id': `${SITE_URL}/#website` },
   dateModified: CHECKED_ISO,
-  inLanguage: 'en',
+  inLanguage: lang,
 };
-const allCrumbs = crumbs.length ? crumbs : path === '/' ? [] : [{ name: 'Home', url: '/' }, { name: title.split(/[:|–-]/)[0].trim(), url: path }];
+const allCrumbs = crumbs.length ? crumbs : langPath === '/' ? [] : [{ name: t(lang, 'common.home'), url: L('/') }, { name: title.split(/[:|–-]/)[0].trim(), url: path }];
 const breadcrumbSchema = allCrumbs.length
   ? {
       '@context': 'https://schema.org',
@@ -69,27 +74,30 @@ const breadcrumbSchema = allCrumbs.length
       itemListElement: allCrumbs.map((b, i) => ({ '@type': 'ListItem', position: i + 1, name: b.name, item: new URL(b.url, SITE_URL).toString() })),
     }
   : null;
-const extra = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+const extra = (Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : []).map((s) => ('inLanguage' in s || s['@type'] === 'Organization' ? s : { ...s, inLanguage: lang }));
 const schemas = [orgSchema, websiteSchema, webPageSchema, ...(breadcrumbSchema ? [breadcrumbSchema] : []), ...extra];
 
 const nav = [
-  { href: '/prices/', label: 'Compare prices', icon: 'bar-h' },
-  { href: '/vendors/', label: 'Shops', icon: 'building' },
-  { href: '/batch-tracker/', label: 'Lab reports', icon: 'file-text' },
-  { href: '/compounds/', label: 'Compounds', icon: 'beaker' },
-  { href: '/methodology/', label: 'Methodology', icon: 'microscope' },
+  { href: '/prices/', label: t(lang, 'nav.prices'), icon: 'bar-h' },
+  { href: '/vendors/', label: t(lang, 'nav.shops'), icon: 'building' },
+  { href: '/batch-tracker/', label: t(lang, 'nav.reports'), icon: 'file-text' },
+  { href: '/compounds/', label: t(lang, 'nav.compounds'), icon: 'beaker' },
+  { href: '/methodology/', label: t(lang, 'nav.method'), icon: 'microscope' },
 ];
-const current = Astro.url.pathname;
+const current = langPath;
+const showSwitch = translated && LIVE_LANGS.length > 1;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="impact-site-verification" value="9a4d3bdd-10ed-4e2f-a60b-8d61db5f0a63" content="9a4d3bdd-10ed-4e2f-a60b-8d61db5f0a63" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalUrl} />
+    {alternates.length > 1 && alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+    {alternates.length > 1 && <link rel="alternate" hreflang="x-default" href={alternates[0].href} />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-snippet:-1, max-image-preview:large'} />
@@ -98,7 +106,8 @@ const current = Astro.url.pathname;
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
+    {alternates.filter((a) => a.lang !== lang).map((a) => <meta property="og:locale:alternate" content={OG_LOCALE[a.lang]} />)}
     <meta property="article:modified_time" content={CHECKED_ISO} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
@@ -112,43 +121,59 @@ const current = Astro.url.pathname;
       plausible.init()
     </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-white font-sans text-slate-700 antialiased">
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-3 focus:py-2 focus:rounded-lg">Skip to content</a>
+  <body class="min-h-screen flex flex-col bg-white font-sans text-slate-700 antialiased" data-copied={t(lang, 'layout.copied')}>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-3 focus:py-2 focus:rounded-lg">{t(lang, 'layout.skip')}</a>
 
     <div class="bg-slate-900 text-slate-100 text-sm py-2 px-4 text-center leading-snug">
-      Desk audit of public shop pages and lab portals, last checked <strong class="text-white font-semibold">{CHECKED_LABEL}</strong>. Research-use-only products; no dosing or health information.
-      <a href="/methodology/" class="tap ml-1 underline underline-offset-2 text-teal-200 hover:text-white">How we score</a>
+      {t(lang, 'layout.topPre')} <strong class="text-white font-semibold">{date}</strong>. {t(lang, 'layout.topPost')}
+      <a href={L('/methodology/')} class="tap ml-1 underline underline-offset-2 text-teal-200 hover:text-white">{t(lang, 'layout.howWeScore')}</a>
     </div>
 
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80">
-      <div class="wrap h-16 flex items-center justify-between gap-4">
-        <a href="/" class="flex items-center gap-2.5 shrink-0 group min-h-[44px]" aria-label={`${SITE_NAME} home`}>
+      <div class="wrap h-16 flex items-center justify-between gap-3">
+        <a href={L('/')} class="flex items-center gap-2.5 shrink-0 group min-h-[44px]" aria-label={t(lang, 'layout.homeAria', { site: SITE_NAME })}>
           <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-600 to-emerald-700 flex items-center justify-center shadow-sm">
             <svg viewBox="0 0 24 24" class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h5M10 2.5v6L4.6 18.4A2 2 0 0 0 6.4 21.5h11.2a2 2 0 0 0 1.8-3.1L14 8.5v-6" /><path d="M7.2 14.5h9.6" /></svg>
           </span>
           <span class="leading-tight">
             <span class="block font-extrabold text-[15px] sm:text-lg tracking-tight text-slate-900">Peptide<span class="text-teal-700">Lab</span>Index</span>
-            <span class="hidden sm:block text-xs text-slate-600">Prices &amp; lab reports compared</span>
+            <span class="hidden sm:block text-xs text-slate-600">{t(lang, 'layout.tagline')}</span>
           </span>
         </a>
-        <nav class="hidden lg:flex items-center gap-1 text-[0.94rem] font-medium text-slate-700" aria-label="Main">
+        <nav class="hidden xl:flex items-center gap-1 text-[0.94rem] font-medium text-slate-700" aria-label={t(lang, 'layout.mainNav')}>
           {nav.map((n) => (
-            <a href={n.href} class={`px-3 py-2 rounded-lg transition-colors hover:bg-teal-50 hover:text-teal-800 ${current.startsWith(n.href) ? 'text-teal-800 bg-teal-50' : ''}`}>{n.label}</a>
+            <a href={L(n.href)} class={`px-3 py-2 rounded-lg transition-colors hover:bg-teal-50 hover:text-teal-800 ${current.startsWith(n.href) ? 'text-teal-800 bg-teal-50' : ''}`}>{n.label}</a>
           ))}
         </nav>
         <div class="flex items-center gap-2">
-          <a href="/vendors/" class="hidden sm:inline-flex btn-primary">Best audited shops</a>
-          <button id="nav-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 text-slate-700" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+          {showSwitch && (
+            <details class="relative lang-switch">
+              <summary class="inline-flex items-center gap-1 min-h-[44px] px-3 rounded-xl border border-slate-200 text-sm font-semibold text-slate-800 cursor-pointer" aria-label={t(lang, 'layout.language')}>
+                <Icon name="globe" class="w-4 h-4 text-teal-700" />{LANG_LABEL[lang]}
+              </summary>
+              <ul class="absolute right-0 mt-2 w-44 rounded-xl border border-slate-200 bg-white shadow-lg py-1 z-50">
+                {alternates.map((a) => (
+                  <li>
+                    {a.lang === lang
+                      ? <span class="flex items-center justify-between px-3 min-h-[44px] font-bold text-slate-900" aria-current="true">{LANG_NAME[a.lang]} <span class="text-sm text-slate-600">{LANG_LABEL[a.lang]}</span></span>
+                      : <a href={lp(a.lang, langPath)} hreflang={a.lang} lang={a.lang} class="flex items-center justify-between px-3 min-h-[44px] text-slate-800 hover:bg-teal-50">{LANG_NAME[a.lang]} <span class="text-sm text-slate-600">{LANG_LABEL[a.lang]}</span></a>}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+          <a href={L('/vendors/')} class="hidden md:inline-flex btn-primary">{t(lang, 'layout.cta')}</a>
+          <button id="nav-toggle" type="button" class="xl:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 text-slate-700" aria-label={t(lang, 'layout.openMenu')} aria-expanded="false" aria-controls="nav-panel">
             <Icon name="menu" class="w-5 h-5" />
           </button>
         </div>
       </div>
-      <div id="nav-panel" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 py-3 shadow-lg">
+      <div id="nav-panel" class="hidden xl:hidden border-t border-slate-200 bg-white px-4 py-3 shadow-lg">
         {nav.map((n) => (
-          <a href={n.href} class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name={n.icon} class="w-4 h-4 text-teal-700" />{n.label}</a>
+          <a href={L(n.href)} class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name={n.icon} class="w-4 h-4 text-teal-700" />{n.label}</a>
         ))}
-        <a href="/labs/" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name="flask" class="w-4 h-4 text-teal-700" />Testing labs</a>
-        <a href="/compare/" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name="git-compare" class="w-4 h-4 text-teal-700" />Compound comparisons</a>
+        <a href={L('/labs/')} class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name="flask" class="w-4 h-4 text-teal-700" />{t(lang, 'footer.labs')}</a>
+        <a href={L('/compare/')} class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-teal-50"><Icon name="git-compare" class="w-4 h-4 text-teal-700" />{t(lang, 'footer.compareCompounds')}</a>
       </div>
     </header>
 
@@ -158,7 +183,7 @@ const current = Astro.url.pathname;
 
     <div id="copy-toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-2 px-4 py-3 rounded-xl bg-slate-900 text-white text-sm font-semibold shadow-2xl" role="status" aria-live="polite"></div>
 
-    <SiteFooter lang={lang} path={langPath} />
+    <SiteFooter lang={lang} path={langPath} langsLive={showSwitch} />
 
     <script>
       const btn = document.getElementById('nav-toggle');
@@ -167,8 +192,13 @@ const current = Astro.url.pathname;
         const open = panel?.classList.toggle('hidden') === false;
         btn.setAttribute('aria-expanded', String(open));
       });
+      document.addEventListener('click', (e) => {
+        const sw = document.querySelector<HTMLDetailsElement>('details.lang-switch');
+        if (sw?.open && !sw.contains(e.target as Node)) sw.open = false;
+      });
 
       const toast = document.getElementById('copy-toast');
+      const copied = document.body.dataset.copied || 'Copied';
       document.addEventListener('click', (e) => {
         const el = (e.target as HTMLElement)?.closest('[data-copy],[data-copy-code]') as HTMLElement | null;
         if (!el) return;
@@ -176,7 +206,7 @@ const current = Astro.url.pathname;
         if (!code) return;
         navigator.clipboard?.writeText(code);
         if (toast) {
-          toast.textContent = `Copied "${code}"`;
+          toast.textContent = `${copied}: "${code}"`;
           toast.classList.remove('hidden');
           toast.classList.add('flex');
           setTimeout(() => { toast.classList.add('hidden'); toast.classList.remove('flex'); }, 2200);

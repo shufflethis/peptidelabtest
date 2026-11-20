@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { SUBSCORE_LABELS, TOTALS, CHECKED_ISO, faqSchema } from '../lib/site';
+import { t, tn, tt, td, tfaq, tlist, lp, fmtDate, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const V = { date: fmtDate(lang, CHECKED_ISO), reports: TOTALS.reportsOpened, shops: TOTALS.shops, portal: TOTALS.portalVerified, products: TOTALS.products };
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'nav.method'), url: L('/methodology/') }];
+const faqs = tfaq(lang, 'm.faqs', V);
+---
+<BaseLayout lang={lang} title={tt(lang, 'm.title', V)} description={td(lang, 'm.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero crumbs={crumbs} title={t(lang, 'm.h1')} intro={t(lang, 'm.intro', V)} />
+  <div class="wrap mt-12 space-y-16">
+    <section class="space-y-5">
+      <h2 class="h2">{t(lang, 'm.partsH')}</h2>
+      <p class="text-slate-700 max-w-[70ch]">{t(lang, 'm.partsP')}</p>
+      <ol class="grid gap-4 md:grid-cols-2">
+        {SUBSCORE_LABELS.map((s) => (
+          <li class="card p-5 flex gap-4">
+            <span class="shrink-0 w-14 h-14 rounded-2xl bg-teal-50 text-teal-900 font-extrabold text-lg flex items-center justify-center ring-1 ring-teal-200">{s.weight}%</span>
+            <div>
+              <h3 class="h3">{t(lang, `sub.${s.key}`)}</h3>
+              <p class="mt-1.5 text-slate-700">{t(lang, `m.part.${s.key}`)}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="prose-read">
+      <h2>{t(lang, 'm.didH', V)}</h2>
+      <ul>{tlist(lang, 'm.did', V).map((x) => <li>{x}</li>)}</ul>
+      <h2>{t(lang, 'm.notH')}</h2>
+      <ul>{tlist(lang, 'm.not', V).map((x) => <li>{x}</li>)}</ul>
+      <h2>{t(lang, 'm.termsH')}</h2>
+      <ul>
+        {(['portal', 'shop', 'fill', 'purity', 'perMg'] as const).map((k) => <li><strong>{t(lang, `m.term.${k}`)}:</strong> {t(lang, `m.termDef.${k}`)}</li>)}
+      </ul>
+      <h2>{t(lang, 'm.partnersH')}</h2>
+      <p>{t(lang, 'm.partnersP')}</p>
+      <p>{t(lang, 'm.dataP')} <a href={L('/data/')}>{t(lang, 'footer.openData')}</a>.</p>
+    </section>
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={[
+      { href: L('/vendors/'), label: t(lang, 'footer.bestShops'), sub: tn(lang, 'common.shops', TOTALS.shops) },
+      { href: L('/batch-tracker/'), label: t(lang, 'footer.reportsOpened'), sub: tn(lang, 'common.reports', TOTALS.reportsOpened) },
+      { href: L('/data/'), label: t(lang, 'footer.openData') },
+      { href: L('/about/'), label: t(lang, 'footer.about') },
+    ]} />
+  </div>
+</BaseLayout>

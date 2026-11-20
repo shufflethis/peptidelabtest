@@ -1,44 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHero from '../../components/PageHero.astro';
-import RelatedLinks from '../../components/RelatedLinks.astro';
-import { COUNTRY_LAWS, type CountryLawGuide } from '../../data/laws';
-import { VENDORS_BY_SCORE, shipsToCountry, isPartner, CHECKED_LABEL } from '../../lib/site';
-export function getStaticPaths() {
-  return COUNTRY_LAWS.map((l) => ({ params: { slug: l.slug }, props: { l } }));
-}
-const { l } = Astro.props as { l: CountryLawGuide };
-const ships = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, l.code) === 'yes');
-const unknown = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, l.code) === null);
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'Country notes', url: '/laws/' }, { name: l.country, url: `/laws/${l.slug}/` }];
+import View from '../../views/Law.astro';
+import { R } from '../../lib/routes';
+export const getStaticPaths = () => R.law();
 ---
-<BaseLayout title={`Research Peptides in ${l.country}: Rules & Shops (2026)`} description={`${l.country}: which authority regulates medicines and which of our audited research peptide shops state they ship there. See the shops and the rules.`} crumbs={crumbs}>
-  <PageHero crumbs={crumbs} title={`Research peptides in ${l.country}`} intro={`${l.note} ${ships.length} of the shops we audited state that they ship to ${l.country}. This page is general information, not legal advice.`} />
-  <div class="wrap mt-12 space-y-14">
-    <section class="prose-read">
-      <h2>Authorities</h2>
-      <ul>{l.authorities.map((a) => <li>{a}</li>)}</ul>
-      <p>Rules change. Check the current position with the authority before you order, and follow your institution's procurement rules.</p>
-    </section>
-    <section class="space-y-4">
-      <h2 class="h2">Audited shops that state they ship to {l.country}</h2>
-      <p class="text-slate-700 max-w-[70ch]">Based on each shop's published shipping information on {CHECKED_LABEL}, sorted by audit score. {unknown.length} shops do not publish where they ship.</p>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead><tr><th scope="col">Shop</th><th scope="col">Region</th><th scope="col" class="num">Score (0-5)</th><th scope="col">Ships to (as published)</th></tr></thead>
-          <tbody>
-            {ships.map((v) => (
-              <tr>
-                <td class="min-w-[10rem]"><a href={`/vendors/${v.slug}/`} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a><span class="sub">{isPartner(v.slug) ? 'Partner shop' : 'Read review'}</span></td>
-                <td>{v.region}</td>
-                <td class="num font-semibold">{v.overallScore.toFixed(1)}</td>
-                <td class="min-w-[14rem]">{v.shipsTo}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-    <RelatedLinks links={[{ href: '/laws/', label: 'All country notes' }, { href: '/vendors/', label: 'Shop ranking' }, { href: '/methodology/', label: 'How we score' }]} />
-  </div>
-</BaseLayout>
+<View lang="en" {...(Astro.props as any)} />

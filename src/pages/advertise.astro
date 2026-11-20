@@ -1,25 +1,4 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
-import { SITE_BRAND } from '../data/affiliates';
-import { TOTALS } from '../lib/site';
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'For shops', url: '/advertise/' }];
+import View from '../views/Advertise.astro';
 ---
-<BaseLayout title={`For Shops: Audit Updates & Partner Program | ${SITE_BRAND.name}`} description="How research peptide shops can send new lab reports for the next audit and how our partner program works. Scores cannot be bought." crumbs={crumbs}>
-  <PageHero crumbs={crumbs} title="For shops: audit updates and partner program" intro={`We audit ${TOTALS.shops} shops with one public method. Shops can send new lab reports for the next check and can apply to our affiliate partner program. Neither changes how a score is calculated.`} />
-  <div class="wrap mt-12">
-    <div class="prose-read">
-      <h2>Send new lab reports</h2>
-      <p>If your shop has published new reports, send the report links and, if available, the lab portal keys. We add them in the next audit round after checking them on the lab's own site.</p>
-      <h2>Partner program</h2>
-      <ul>
-        <li>Partner shops get a "Visit shop" link with your affiliate tracking.</li>
-        <li>Reader codes are only shown if you issued them to us, and only where your terms allow it.</li>
-        <li>Rankings sort partner shops by audit score. A partnership never raises a score or removes a weakness.</li>
-        <li>Your listings and texts must follow research-use-only rules. We publish no dosing or health claims.</li>
-      </ul>
-      <h2>Contact</h2>
-      <p><a href={`mailto:${SITE_BRAND.contactEmail}`}>{SITE_BRAND.contactEmail}</a></p>
-    </div>
-  </div>
-</BaseLayout>
+<View lang="en" />

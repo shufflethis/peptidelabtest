@@ -3,7 +3,35 @@
     "and": "and",
     "or": "or",
     "home": "Home",
-    "lastChecked": "Last checked {date}"
+    "lastChecked": "Last checked {date}",
+    "na": "n/a",
+    "notPublished": "not published",
+    "noneNamed": "none named",
+    "researchCompound": "Research compound",
+    "shops": {
+      "one": "{n} shop",
+      "other": "{n} shops"
+    },
+    "reportsOpened": {
+      "one": "{n} report opened",
+      "other": "{n} reports opened"
+    },
+    "reports": {
+      "one": "{n} report",
+      "other": "{n} reports"
+    },
+    "from": "from {p}",
+    "region": "Region",
+    "compounds": {
+      "one": "{n} compound",
+      "other": "{n} compounds"
+    },
+    "listings": {
+      "one": "{n} listing",
+      "other": "{n} listings"
+    },
+    "no": "No",
+    "yes": "Yes"
   },
   "footer": {
     "brandDesc": "Independent comparison of research-peptide shops: prices per mg, lab reports checked on the issuing lab's portal where possible. Research use only.",
@@ -132,5 +160,1171 @@
     "notL2": "Rankings sort partner shops by audit score only, never by commission.",
     "notL3": "Weaknesses stay on the page whether a shop is a partner or not.",
     "notL4": "Shops without a partnership keep their score and are listed with a link to our review, without an outbound link."
+  },
+  "seo": {
+    "pad1": " Data checked {date}.",
+    "pad2": " Research use only.",
+    "pad3": " Independent desk audit."
+  },
+  "layout": {
+    "orgDesc": "Independent desk audit of research peptide shops in the EU and US: opened lab reports, measured vs label content, portal verification and listed prices per mg.",
+    "copied": "Copied",
+    "skip": "Skip to content",
+    "topPre": "Desk audit of public shop pages and lab portals, last checked",
+    "topPost": "Research-use-only products; no dosing or health information.",
+    "howWeScore": "How we score",
+    "homeAria": "{site} home",
+    "tagline": "Prices & lab reports compared",
+    "mainNav": "Main",
+    "language": "Language",
+    "cta": "Best audited shops",
+    "openMenu": "Open menu"
+  },
+  "nav": {
+    "prices": "Compare prices",
+    "shops": "Shops",
+    "reports": "Lab reports",
+    "compounds": "Compounds",
+    "method": "Methodology"
+  },
+  "ships": {
+    "worldwide": "worldwide",
+    "euWide": "EU-wide",
+    "usOnly": "US only",
+    "countries": "{n} countries ({list} …)"
+  },
+  "panels": {
+    "Endotoxin": "Endotoxin",
+    "HPLC purity": "HPLC purity",
+    "Heavy metals": "Heavy metals",
+    "Identity": "Identity",
+    "LC-MS identity": "LC-MS identity",
+    "Measured mg": "Measured mg",
+    "Sterility": "Sterility"
+  },
+  "coaAccess": {
+    "None found": "None found",
+    "On request": "On request",
+    "Public lab portal keys": "Public lab portal keys",
+    "Reports on product pages": "Reports on product pages"
+  },
+  "payments": {},
+  "sub": {
+    "labVerification": "Lab verification",
+    "fillAccuracy": "Fill accuracy",
+    "panelDepth": "Panel depth",
+    "entityTransparency": "Entity transparency",
+    "dispatchReliability": "Dispatch info",
+    "valuePerMg": "Value per mg"
+  },
+  "calc": {
+    "h": "Stock concentration (mg/mL)",
+    "intro": "Concentration = mass in the vial (mg) divided by the volume of diluent added (mL). For in-vitro laboratory work only.",
+    "mode": "Mode",
+    "one": "One compound",
+    "two": "Two compounds",
+    "l1": "1. Mass on the vial label (mg)",
+    "labelMass": "Label mass (mg)",
+    "coa": "Measured mg from the lab report (optional)",
+    "eg": "e.g. 9.8",
+    "l1b": "1b. Second compound in the same vial (mg)",
+    "l2": "2. Diluent volume added (mL)",
+    "result": "Stock concentration",
+    "massUsed": "Mass used",
+    "second": "Second compound",
+    "note": "Arithmetic only. This tool gives no dosing, administration or usage guidance.",
+    "basisReport": "lab report",
+    "basisLabel": "label",
+    "ofLabel": "of label",
+    "notEntered": "not entered"
+  },
+  "c": {
+    "breadcrumb": "Breadcrumb",
+    "code": "Code",
+    "copy": "Copy",
+    "copyCode": "Copy code {code}",
+    "forPct": "for {n}%",
+    "codeNote": "{n}% off, as issued by the shop",
+    "codeOnReview": "Reader code on review page",
+    "codeOnReviewShort": "Code on review page",
+    "noCode": "No code",
+    "linkNoCode": "Store link, no code",
+    "noReaderCode": "No reader code",
+    "compareBoxTitle": "Compare: audited shops with a store link",
+    "compareBoxNote": "Partner links (affiliate). Order = audit score.",
+    "portalOf": "{p} of {o} reports portal-verified",
+    "xOfY": "{x} of {y}",
+    "measuredVsLabel": "Measured vs label",
+    "visit": "Visit {shop}",
+    "seeReports": "See lab reports",
+    "readReview": "Read review",
+    "disclosureLabel": "Disclosure:",
+    "disclosure": "links marked \"Visit\" go to partner shops and are affiliate links. We may earn a commission at no extra cost to you. Rankings use the published audit score only, never commission. All products are sold as research-use-only (RUO) laboratory reagents. Nothing on this site is advice on human or animal use.",
+    "faq": "Frequently asked questions",
+    "related": "Related pages",
+    "fillAria": "Measured content as percent of label, {n} reports",
+    "fillRowAria": "{m} of {l} mg, {p}",
+    "portalVerified": "portal-verified",
+    "shopHosted": "shop-hosted",
+    "fillCaption": "Each row is one opened lab report: measured mg divided by label mg. Dashed line = 100% of the label. Shaded band = 90 to 110%.",
+    "fillLegend": "Amber values are outside that band. Solid marker = verified on the lab portal, hollow marker = report hosted by the shop only.",
+    "barsAria": "Price per mg in {cur}, lowest first",
+    "legendPartner": "Partner shop (has a store link)",
+    "legendOther": "Other audited shop",
+    "barsNote": "Price per mg = listed price (sale price if shown) divided by the mg on the label. {cur} only, no conversion.",
+    "sectionEUR": {
+      "one": "EU shops – prices in EUR: {label} at {n} shop",
+      "other": "EU shops – prices in EUR: {label} at {n} shops"
+    },
+    "sectionUSD": {
+      "one": "Prices in USD (mostly US shops): {label} at {n} shop",
+      "other": "Prices in USD (mostly US shops): {label} at {n} shops"
+    },
+    "sectionOther": {
+      "one": "Prices in {cur}: {label} at {n} shop",
+      "other": "Prices in {cur}: {label} at {n} shops"
+    },
+    "sectionIntro": "Partner shops come first, then other audited shops (grey, no store link). Tap a column header to sort. On a phone, the first column shows price per mg; swipe the table sideways for the rest.",
+    "barsTitle": "Lowest price per mg at each shop ({cur})",
+    "tableCaption": "{label} prices in {cur}",
+    "pt": {
+      "shop": "Shop",
+      "product": "Product",
+      "productVial": "Product (vial mg)",
+      "price": "Price ({sym})",
+      "perMg": "Price per mg ({sym})",
+      "report": "Lab report for this compound",
+      "score": "Score (0-5)",
+      "codeStore": "Code and store",
+      "partner": "partner",
+      "noLink": "no store link",
+      "outOfStock": "out of stock",
+      "was": "was",
+      "yesPortal": "Yes, portal-verified",
+      "yesShop": "Yes, shop-hosted",
+      "mOfL": "{m} of {l} mg ({p})",
+      "mgNotStated": "mg not stated",
+      "purity": "purity {p}",
+      "noReport": "No report opened"
+    },
+    "rank": "Rank {n}",
+    "labs": "Labs",
+    "hplcPurity": "HPLC purity",
+    "purity": "Purity",
+    "priceExample": "Price example",
+    "pricesNotPublished": "prices not published",
+    "partnerNote": "Partner link (affiliate). Does not change the score.",
+    "weight": "weight {n}%",
+    "notAssessable": "not assessable",
+    "scoreAria": "{label} {score} out of 5",
+    "auditScore": "audit score",
+    "outOf5": "{score} out of 5",
+    "scoreShort": "score {s}",
+    "nonePublished": "none published",
+    "ts": {
+      "shops": "shops audited",
+      "reports": "lab reports opened",
+      "portal": "verified on a lab portal",
+      "prices": "prices recorded",
+      "checked": "last checked"
+    },
+    "vb": {
+      "portal": "Portal-verified",
+      "vendor": "Shop-hosted report",
+      "none": "No public report"
+    },
+    "rk": {
+      "partnerTitle": "Ranking: audited shops with a store link",
+      "otherTitle": "Other audited shops",
+      "partnerIntro": "Partner shops only, ordered by audit score. Commission has no effect on the order.",
+      "visitNote": "\"Visit\" buttons are partner (affiliate) links.",
+      "otherIntro": "Same audit, same score formula. These shops are not partners, so we link to our review only.",
+      "portalCol": "Reports portal-verified",
+      "verdict": "Verdict"
+    },
+    "euShops": "EU shops (prices in EUR)",
+    "usShops": "US shops (prices in USD)",
+    "wtb": {
+      "intro": "Partner shops have a store link and are ordered by audit score, never by commission. Other audited shops that list {what} link to our review only.",
+      "none": "No partner shop in this region lists {what}.",
+      "repPortal": "{c} report portal-verified",
+      "repShop": "{c} report shop-hosted",
+      "repNone": "No {c} report opened",
+      "othersEU": "Other audited EU shops listing {c}:",
+      "othersUS": "Other audited US shops listing {c}:",
+      "note": "Store links are partner (affiliate) links. Prices as listed on {date}, before any code."
+    }
+  },
+  "home": {
+    "title": [
+      "Research Peptide Prices & Lab Tests Compared ({year})"
+    ],
+    "h1": "Research Peptide Prices & Lab Tests Compared ({year})",
+    "description": [
+      "{shops} research peptide shops audited: {reports} lab reports opened, {portal} verified on the lab portal. Compare price per mg in EUR and USD."
+    ],
+    "intro": "We audited {shops} research peptide shops in the EU and US on {date}. We opened {reports} lab reports from {withReports} shops, found {portal} of them on the lab's own portal, and recorded {products} listed prices as price per mg. Shops are ranked by audit score, never by commission.",
+    "eyebrow": "Independent desk audit, {date}",
+    "pickerH": "Compare prices for a compound",
+    "pickerP": "Pick a compound to see every shop, its price per mg and whether we opened a lab report.",
+    "allPrices": "All price comparisons",
+    "fullRanking": "See the full shop ranking",
+    "bestH": "Best audited shops with a store link",
+    "bestP": "These are our partner shops, ordered by audit score within each region. Every shop is scored with the same formula. Commission plays no part in the order.",
+    "howH": "How we test",
+    "howP": "This is a desk audit of public shop pages and lab portals. We did not place test orders. Every number on the site comes from a report or price page we opened on {date}.",
+    "step": "Step {n}",
+    "s1t": "We open the lab reports",
+    "s1p": "For each shop we open the lab reports it publishes and note the lab, test date, purity and measured mg.",
+    "s2t": "We check the lab portal",
+    "s2p": "Where the lab offers a lookup, we check that the report exists on the lab’s own site. That is “portal-verified”.",
+    "s3t": "We compare measured vs label",
+    "s3p": "Measured mg divided by label mg. 100% means the vial holds what the label says.",
+    "s4t": "We record prices per mg",
+    "s4p": "Price per mg = listed vial price divided by the mg on the label. EUR and USD stay separate.",
+    "readMethod": "Read the full methodology",
+    "otherP": "These shops are scored with the same method. They are not partners, so we link to our review only, not to the shop.",
+    "sizesH": "Popular vial sizes",
+    "allSizes": "All vial sizes",
+    "pairSub": "Market, prices and lab reports side by side",
+    "allPairs": "All comparisons",
+    "allLabs": "All labs",
+    "itemList": "Best audited research peptide shops (partner shops by audit score)",
+    "faqs": [
+      {
+        "q": "How do you rank research peptide shops?",
+        "a": "Each shop gets a 0-5 audit score from six parts: lab verification (30%), fill accuracy (20%), test panel depth (20%), entity transparency (15%), dispatch information (10%) and value per mg (5%). Rankings on this site use that score only, never commission."
+      },
+      {
+        "q": "What does \"portal-verified\" mean?",
+        "a": "The lab report could be found on the testing lab's own website, not only as a file on the shop's site. {portal} of the {reports} reports we opened were portal-verified."
+      },
+      {
+        "q": "Why do some shops have no \"Visit\" button?",
+        "a": "Only partner shops get an outbound store link (an affiliate link). Other audited shops are still scored and listed, with a link to our review page only."
+      },
+      {
+        "q": "Do you give dosing or health information?",
+        "a": "No. All listed products are sold as research-use-only laboratory reagents. We compare lab reports, listed prices and shop transparency only."
+      }
+    ]
+  },
+  "pc": {
+    "title": [
+      "{c} Price per mg: {n} Shops Compared ({year})",
+      "{c} Price per mg: {n} Shops Compared",
+      "{c} Prices: {n} Shops"
+    ],
+    "h1": "{c} price comparison {year}: {n} shops, price per mg and lab tests",
+    "description": [
+      "{c} costs from {from} at {n} audited shops. Compare {nl} listings, vial sizes and opened lab reports.",
+      "{c}: {nl} listings at {n} audited shops, price per mg in EUR and USD and opened lab reports. Compare prices before you order.",
+      "{c}: {nl} listings at {n} shops, price per mg and lab reports. Compare prices."
+    ],
+    "vialSizes": {
+      "one": "{n} vial size",
+      "other": "{n} vial sizes"
+    },
+    "labReports": {
+      "one": "{n} lab report",
+      "other": "{n} lab reports"
+    },
+    "cheapIn": "{p} ({shop}, {mg}) in {cur}",
+    "intro1": "{c} is listed by {n} of the {total} shops we audited ({listings}, {sizes}).",
+    "intro2": "Lowest listed price per mg on {date}: {prices}.",
+    "intro3": "We opened {reports} for {c} from {repShops}.",
+    "intro3fill": "We opened {reports} for {c} from {repShops}; measured content was {range} of label.",
+    "euShops": {
+      "one": "{n} EU shop",
+      "other": "{n} EU shops"
+    },
+    "usShops": {
+      "one": "{n} US shop",
+      "other": "{n} US shops"
+    },
+    "fq1": "Where to buy {c} for research?",
+    "fa1": "{n} audited shops list {c}: {euShops} and {usShops}.",
+    "fa1p": "Shops with a store link on this site, ranked by audit score: {list}.",
+    "fa1none": "None of them is a partner shop with a store link.",
+    "fa1end": "The tables list every listing with price per mg and lab report status.",
+    "fq2": "What is the cheapest {c} per mg?",
+    "fa2": "Lowest listed price per mg on {date}: {prices}. Prices are the shop's listed price (sale price where shown) divided by label mg, without discount codes.",
+    "fq3": "Which shops published a lab report for {c}?",
+    "fa3": "We opened {nrep} {c} reports from {list}. {portal} of them were verified on the lab's own portal",
+    "fa3fill": "; measured content ranged from {range} of the label amount",
+    "fa3none": "We did not open a {c} lab report at any audited shop.",
+    "fq4": "Which vial sizes of {c} are on the market?",
+    "fa4": "Audited shops list {c} in {list} vials.",
+    "fa4p": "Sizes sold by at least three shops have their own comparison page: {list}.",
+    "fq5": "Are prices converted between euro and dollar?",
+    "fa5": "No. EUR and USD prices are shown in separate tables exactly as listed by each shop, with no currency conversion and no discount code applied.",
+    "fq6": "Is {c} sold for human use?",
+    "fa6": "No. The shops listed sell {c} as a research-use-only (RUO) laboratory reagent. This page compares listings and lab reports only and gives no information on use in humans or animals.",
+    "itemList": "Shops listing {c}",
+    "relFacts": "{c} compound facts",
+    "relSize": "{c} {mg} prices",
+    "relPair": "Market and lab-report comparison",
+    "relReview": "{shop} review",
+    "statShops": "Shops (EU / US)",
+    "statLowest": "Lowest price per mg ({cur})",
+    "statReports": "Lab reports opened",
+    "nPortal": "{n} portal-verified",
+    "bySize": "Prices by vial size:",
+    "wtbH": "Where to buy {c} for research: {n} audited shops compared",
+    "repH": "{c} lab reports: measured vs label",
+    "repP": "{reports} opened from {repShops}; {portal} verified on the lab portal. Report URLs and IDs are listed on",
+    "chartTitle": "{c}: measured content as % of label",
+    "about": "About {name}",
+    "factsPage": "Compound facts page"
+  },
+  "pi": {
+    "title": [
+      "Research Peptide Prices {year}: Price per mg by Shop"
+    ],
+    "h1": "Research peptide price comparison {year}",
+    "description": [
+      "Price per mg for {n} research compounds at {shops} audited shops, EUR and USD separate, with lab-report coverage. Compare prices by compound."
+    ],
+    "intro": "We recorded {products} listed prices for {n} research compounds at {shops} audited EU and US shops on {date}. Each compound page splits EUR and USD prices, shows price per mg by vial size and marks which shops published a lab report we opened ({reports} reports in total).",
+    "crumb": "Prices",
+    "eyebrow": "{n} compounds · {sizes} vial-size pages",
+    "pick": "Pick a compound",
+    "lowestH": "Lowest price per mg by compound",
+    "colCompound": "Compound",
+    "colShops": "Shops",
+    "colListings": "Listings",
+    "colSizes": "Vial sizes",
+    "colLowest": "Lowest price per mg ({sym})",
+    "colReports": "Reports opened",
+    "tableNote": "Lowest listed price per mg across all vial sizes. Price per mg = vial price divided by the mg on the label. Larger vials are usually cheaper per mg. Open a compound for the full EUR and USD tables.",
+    "sizesH": "Prices by vial size",
+    "sizesP": "Compound and vial-size combinations listed by at least three audited shops. The number is the shop count.",
+    "linkIndex": "Price index grouped by compound class",
+    "itemList": "Research compound price comparisons",
+    "itemName": "{c} price comparison",
+    "faqs": [
+      {
+        "q": "How is price per mg calculated?",
+        "a": "Listed price (the sale price where a shop shows one) divided by the label amount in mg of that vial. Discount codes are not applied and currencies are not converted."
+      },
+      {
+        "q": "Why are EUR and USD prices not compared directly?",
+        "a": "Shops list prices in their own currency. We show EUR and USD in separate tables and charts instead of converting, so every figure matches what the shop listed."
+      },
+      {
+        "q": "How current are the prices?",
+        "a": "All prices were read from public shop pages or store APIs on {date}. Shops change prices often; check the shop before ordering."
+      }
+    ]
+  },
+  "ps": {
+    "title": [
+      "{c} {size}mg Prices & Lab Tests ({year})",
+      "{c} {size}mg Prices & Lab Tests"
+    ],
+    "h1": "{c} {mg}: prices at {n} shops and lab tests ({year})",
+    "description": [
+      "{c} {mg} vials at {n} audited shops from {from}. Compare prices, price per mg and opened lab reports.",
+      "{c} {mg} vial prices at {n} audited shops, EUR and USD separate, with price per mg and lab reports. Compare prices.",
+      "{c} {mg} prices at {n} shops with lab reports. Compare prices."
+    ],
+    "vialAt": "{p} per vial at {shop} ({cur})",
+    "intro1": "{n} audited shops list {c} as a {mg} vial ({eu} EU, {us} US).",
+    "intro2": "Lowest listed price on {date}: {lows}.",
+    "intro3": "We opened {reports} for this size; measured content was {range} of label.",
+    "intro3none": "We did not open a {mg} lab report for {c}; reports for other sizes are on the main {c} page.",
+    "median": "median {p} across {n} {cur} listings",
+    "fq1": "How much does a {c} {mg} vial cost?",
+    "fa1": "Listed prices on {date}: {medians}. Lowest: {lows}. Prices exclude discount codes and are not converted.",
+    "fq2": "Where to buy {c} {mg} for research?",
+    "fa2": "{n} audited shops list it.",
+    "fa2p": "Shops with a store link, ranked by audit score: {list}.",
+    "fq3": "Is there a lab report for {c} {mg}?",
+    "fa3": "Yes. We opened {reports} for this size ({portal} verified on the lab portal) from {list}.",
+    "fa3none": "We did not open a {mg} {c} report. {nall} {c} reports for other vial sizes are listed on the {c} price page.",
+    "itemList": "Shops listing {c} {mg}",
+    "relAll": "All {c} sizes",
+    "relAllSub": "Full price comparison",
+    "eyebrow": "{c} · {mg} vial",
+    "statReports": "{mg} lab reports opened",
+    "wtbH": "Where to buy {c} {mg}: shops compared",
+    "repH": "{c} {mg} lab reports",
+    "chartTitle": "{c} {mg}: measured content as % of label"
+  },
+  "bt": {
+    "title": [
+      "Peptide Lab Reports: {n} COAs Checked ({year})"
+    ],
+    "description": [
+      "{n} research peptide lab reports from {shops} shops with measured mg and purity, {portal} portal-verified. Filter by shop, compound or lab."
+    ],
+    "intro": "This table lists {n} lab reports from {shops} shops that state both measured mg and purity. {within10} of them measured within 90-110% of the label amount, {below90} below 90% and {above110} above 110%. {portal} were verified on the lab's own portal. Purity ranged from {pmin} to {pmax}.",
+    "faqs": [
+      {
+        "q": "What does \"measured vs label\" mean?",
+        "a": "The lab measured how many mg are in the vial. We divide that by the mg printed on the label. 100% means the vial holds exactly what the label says."
+      },
+      {
+        "q": "Why are the report links not clickable?",
+        "a": "We show lab report addresses as plain text so you can copy them and open the lab site yourself. We do not link to lab portals."
+      },
+      {
+        "q": "Are all reports you opened listed here?",
+        "a": "This table shows the {n} reports that state both measured mg and purity. In total we opened {total} reports; the others are listed on each shop's review page."
+      }
+    ],
+    "statTable": "Reports in table",
+    "statWithin": "Within 90-110%",
+    "statMedian": "Median measured vs label",
+    "allH": "All reports with measured mg and purity",
+    "allP": "Type a shop, compound or lab to filter. Tap a column header to sort.",
+    "filterLabel": "Filter reports",
+    "filterPh": "Filter, e.g. BPC-157 or Janoshik",
+    "colFill": "Measured vs label (%)",
+    "mgLabel": "{mg} label",
+    "mOfL": "{m} of {l} mg",
+    "note": "Amber values are outside 90-110% of the label. Report addresses are plain text: copy them into your browser to check the report on the lab or shop site.",
+    "relData": "Download the data (CSV / JSON)"
+  },
+  "dc": {
+    "title": [
+      "Peptide Shop Reader Codes {year}: Partner Shops Only"
+    ],
+    "description": [
+      "Reader codes issued to PeptideLabIndex by {n} audited partner shops, ordered by audit score, no invented discounts. Compare shops and copy a code."
+    ],
+    "h1": "Reader codes from audited partner shops ({year})",
+    "intro": "{n} audited partner shops issued a reader code to us that may be shown here. Codes are listed in order of audit score, not discount size. Our price tables always show prices before any code, so you can compare shops on the same basis.",
+    "faqs": [
+      {
+        "q": "Are these codes verified?",
+        "a": "Each code was issued to us by the shop through its affiliate program. We do not list codes we found elsewhere."
+      },
+      {
+        "q": "Why do some partner shops show \"Reader code on review page\"?",
+        "a": "Some shops' partner terms do not allow codes on a code page. For those shops the code appears only on their own review page."
+      },
+      {
+        "q": "Do codes change your rankings?",
+        "a": "No. Rankings use the audit score only. A code or commission never changes the score."
+      }
+    ],
+    "byScore": "Partner shops by audit score",
+    "scoreOf": "audit score {s} of 5",
+    "linkOnly": "No code. Store link only.",
+    "othersP": "{others} other audited shops have not issued a reader code to us. See each review for scores and lab reports:",
+    "psNote": "Looking for Peptide Sciences? It stopped selling in 2026:",
+    "psLink": "Peptide Sciences status and alternatives"
+  },
+  "pix": {
+    "title": [
+      "Research Peptide Price Index {year} by Category"
+    ],
+    "description": [
+      "Lowest listed price per mg for {n} research compounds, grouped by class, EUR and USD kept separate. Check prices and open each comparison."
+    ],
+    "crumb": "Price index",
+    "h1": "Research peptide price index",
+    "otherCat": "Other research compounds",
+    "bySize": "By size:",
+    "intro": "Lowest listed price per mg for {n} research compounds, grouped by compound class. Data from {products} prices at {shops} audited shops, read on {date}. EUR and USD are never converted. Open a compound for the full shop-by-shop table."
+  },
+  "cx": {
+    "title": [
+      "Research Compound Index: Facts, Vial Sizes & Lab Tests"
+    ],
+    "description": [
+      "Neutral facts for {n} research compounds: class, CAS, vial sizes on the market and lab-report coverage at {shops} audited shops. Browse the index."
+    ],
+    "itemList": "Research compounds",
+    "h1": "Research compound index",
+    "intro": "Neutral reference facts for {n} research compounds sold by the shops we audit: what each compound is, its class and identifiers, the vial sizes on the market and how many lab reports we opened. Data checked {date}. No dosing or health information.",
+    "reportsOpened": {
+      "one": "{n} lab report opened",
+      "other": "{n} lab reports opened"
+    }
+  },
+  "cmp": {
+    "title": [
+      "{c}: Facts, Vial Sizes & Lab Tests ({year})",
+      "{c}: Facts, Vial Sizes & Lab Tests"
+    ],
+    "description": [
+      "{c} facts: class, CAS {cas}, molecular weight, vial sizes at {n} audited shops and {nrep} opened lab reports. Compare prices.",
+      "{c}: class, CAS, vial sizes at {n} audited shops and {nrep} opened lab reports. Compare prices."
+    ],
+    "h1": "{name}: research compound facts",
+    "intro1": "{name}: {cls}.",
+    "intro2": "{n} of the shops we audited list it in {sizes} ({list}).",
+    "intro2none": "None of the shops we audited lists it.",
+    "intro3": "We opened {reports} for it.",
+    "intro3fill": "We opened {reports} for it; measured content was {range} of label.",
+    "fq1": "What is {c}?",
+    "fa2": "Audited shops list {c} in {list} vials ({n} shops: {eu} EU, {us} US).",
+    "fa2none": "None of the audited shops lists {c}.",
+    "fq3": "Are there lab reports for {c}?",
+    "fa3": "We opened {nrep} {c} reports from {nshops} shops; {portal} were verified on the lab's own portal. Labs named: {labs}.",
+    "fq4": "What should a {c} lab report show?",
+    "relPair": "Research comparison",
+    "cta": "Compare {c} prices",
+    "whatIs": "What {c} is",
+    "checkH": "What to check on a lab report",
+    "name": "Name",
+    "class": "Class",
+    "group": "Group on this site",
+    "cas": "CAS number",
+    "mw": "Molecular weight",
+    "marketH": "{c} on the market",
+    "statShops": "Shops listing it",
+    "names": "Product names used by audited shops:",
+    "barsTitle": "{c}: price per mg by listing ({cur})",
+    "coverageH": "Lab-test coverage",
+    "coverageP": "{reports} opened, {portal} portal-verified. Labs: {labs}.",
+    "ruo": "Research use only. This page describes a laboratory reagent as listed by shops. It contains no information on use in humans or animals."
+  },
+  "cp": {
+    "title": [
+      "{a} vs {b}: Prices & Lab Data Compared",
+      "{a} vs {b}: Prices & Lab Data"
+    ],
+    "description": [
+      "{a} vs {b}: {both} audited shops list both. Compare identity facts, vial sizes, price per mg in EUR and USD and opened lab reports.",
+      "{a} vs {b}: {both} shops list both. Compare vial sizes, price per mg and opened lab reports."
+    ],
+    "h1": "{a} vs {b}: research compound comparison",
+    "eyebrow": "Market and lab data, no effects",
+    "intro": "On {date}, {nA} audited shops listed {a} and {nB} listed {b}; {both} list both. We opened {rA} {a} and {rB} {b} lab reports.",
+    "median": "median {cur} price per mg: {a} {x}, {b} {y}",
+    "fq1": "What is the difference between {a} and {b}?",
+    "fa1": "They are different molecules.",
+    "fq2": "Which is cheaper per mg, {a} or {b}?",
+    "fa2": "Across all listings on {date}: {list}. Larger vials usually cost less per mg, so compare the same vial size.",
+    "notEnough": "not enough data",
+    "fq3": "Which shops sell both {a} and {b}?",
+    "fa3": "{both} audited shops list both: {list}.",
+    "fa3none": "None of the audited shops lists both.",
+    "fq4": "Is there lab-test data for {a} and {b}?",
+    "fa4": "We opened {rA} {a} reports ({pA} portal-verified) and {rB} {b} reports ({pB} portal-verified). Measured vs label: {a} {fA}, {b} {fB}.",
+    "fq5": "Can {a} or {b} be used in humans?",
+    "fa5": "This site does not cover human or animal use. The shops listed sell both as research-use-only laboratory reagents, and we compare listings and lab reports only.",
+    "rShops": "Shops listing it (EU / US)",
+    "rMedian": "Median price per mg ({cur})",
+    "sideH": "Side by side",
+    "fact": "Fact",
+    "tableNote": "Price per mg = listed price divided by label mg. EUR and USD are not converted. Median = middle value of all listings.",
+    "onReport": "On a lab report:",
+    "bothH": "Shops that list both",
+    "bothP": "Lowest listed price per mg at each shop, by audit score. Partner shops have a store link.",
+    "lowestOf": "{c} lowest per mg",
+    "vial": "{mg} vial",
+    "labH": "Lab reports: measured vs label"
+  },
+  "ci": {
+    "title": [
+      "Compound Comparisons: Prices & Lab Data Side by Side"
+    ],
+    "description": [
+      "Research compound pairs side by side: identity facts, vial sizes, price per mg in EUR and USD and lab-report coverage. Compare the pairs here."
+    ],
+    "itemList": "Research compound comparisons",
+    "h1": "Research compound comparisons",
+    "intro": "Side-by-side facts for compounds that are often looked up together: what each one is, vial sizes on the market, price per mg and lab-report coverage at the shops we audited on {date}. These pages compare listings and lab data only, not effects.",
+    "row": "{na} shops list {a}, {nb} list {b}, {both} list both."
+  },
+  "lab": {
+    "auditedShops": {
+      "one": "{n} audited shop",
+      "other": "{n} audited shops"
+    },
+    "intro1": "{lab} is named on {n} of the lab reports we opened on {date}, from {shops}.",
+    "intro2": "{portal} of those reports could be checked on the lab's own portal, and measured content ranged from {range} of label.",
+    "intro2none": "{portal} of those reports could be checked on the lab's own portal; measured mg was not stated.",
+    "titleJ": [
+      "Janoshik Analytical: How to Verify a Report"
+    ],
+    "title": [
+      "{lab}: How to Verify a Report ({year})",
+      "{lab}: How to Verify a Report"
+    ],
+    "h1J": "Janoshik: how to verify a report, and is it legit?",
+    "h1": "{lab}: how to verify a report",
+    "description": [
+      "How to verify a {lab} report in {steps} steps. We opened {n} of its reports from {ns} shops, {portal} portal-verified. See the results.",
+      "How to verify a {short} report: {n} reports opened from {ns} shops, {portal} portal-verified. See lab reports and shops.",
+      "How to verify a {short} report. {n} reports opened, {portal} portal-verified. See lab reports."
+    ],
+    "genericSteps": [
+      "Find the report number, key or QR code on the report the shop shows you.",
+      "Open the lab’s website by typing the address yourself, not through a link in the PDF.",
+      "Look the report up and compare compound, label amount, measured mg, purity, test date and batch with the shop’s copy.",
+      "If the lab has no lookup, the report counts as shop-hosted: it may be genuine, but you cannot confirm it with the lab."
+    ],
+    "lAddr": "It publishes an address: {a}.",
+    "lNoAddr": "We could not find a published address.",
+    "lVerify": "Reports can be checked at {w}.",
+    "lNoVerify": "We found no public verification portal.",
+    "lAccr": "On accreditation it states: {a}",
+    "lNoAccr": "We found no accreditation statement on the pages we read.",
+    "lPortal": "{portal} of the {n} reports we opened were found on the lab's own portal.",
+    "fq1J": "How do I verify a Janoshik report?",
+    "fq1": "How do I verify a {lab} report?",
+    "fq2": "Is {short} legit?",
+    "fa2": "We do not rate labs, but we can say what is public.",
+    "fq3": "How much does {short} testing cost?",
+    "fa3none": "Not published on the pages we read.",
+    "fq4": "Which shops use {lab}?",
+    "fa4": "Among the shops we audited: {list}.",
+    "relShop": "{shop}: lab reports and score",
+    "relShopSub": {
+      "one": "{n} {lab} report opened",
+      "other": "{n} {lab} reports opened"
+    },
+    "relLabSub": "Lab guide",
+    "relAll": "All lab reports we opened",
+    "eyebrow": "Testing lab guide",
+    "testsH": "Tests it lists",
+    "kAddress": "Address",
+    "kOperator": "Operator",
+    "kVerify": "Verification",
+    "kAccr": "Accreditation",
+    "kPrice": "Price",
+    "kTurn": "Turnaround",
+    "noPortal": "no portal found",
+    "noStatement": "no statement found",
+    "howH": "How to verify a {short} report",
+    "plain": "Addresses are written as plain text on purpose. Type them yourself so that you land on the lab's real site.",
+    "noSamples": "We did not test samples ourselves. These are facts from the lab's public pages and from the reports we opened.",
+    "shopsH": "Shops that publish {short} reports",
+    "colShopFill": "Shop measured vs label",
+    "colScore": "Shop score (0-5)",
+    "chartTitle": "{lab} reports: measured content as % of label",
+    "sourcesH": "Sources",
+    "sourcesP": "The lab's public pages, read on {date}. Plain text, not links."
+  },
+  "li": {
+    "title": [
+      "Peptide Testing Labs: How to Verify a Lab Report ({year})"
+    ],
+    "description": [
+      "{n} labs on the {reports} research peptide reports we opened: how to verify each lab's reports, which shops use them and measured results."
+    ],
+    "itemList": "Peptide testing labs",
+    "h1": "Peptide testing labs and how to verify their reports",
+    "intro": "The {reports} lab reports we opened on {date} name {n} testing labs. Each guide explains how to check a report on the lab's own site, which audited shops publish reports from that lab, and what those reports measured.",
+    "colLab": "Lab",
+    "colHow": "How to verify",
+    "noAddress": "address not published",
+    "faqs": [
+      {
+        "q": "What is a portal-verified report?",
+        "a": "A report we could look up on the testing lab’s own website, using the code or key printed on it. A PDF on a shop’s site alone is only a claim."
+      },
+      {
+        "q": "Which lab is best?",
+        "a": "We do not rate labs. Each guide lists what the lab publishes about itself, how to check its reports and what the reports we opened showed."
+      }
+    ]
+  },
+  "m": {
+    "title": [
+      "How We Score Research Peptide Shops (Methodology)"
+    ],
+    "description": [
+      "How we score shops: six weighted parts, a 0-5 score and {reports} lab reports opened on {date}. No paid placements. See the method."
+    ],
+    "h1": "How we score research peptide shops",
+    "intro": "Every shop gets a score from 0 to 5. It is a weighted average of six parts, led by lab verification (30%) and fill accuracy (20%). We read public shop pages, lab reports and lab portals on {date}. We did not place test orders, and commission never changes a score or a ranking.",
+    "faqs": [
+      {
+        "q": "Do you buy products and send them to a lab?",
+        "a": "No. This audit reads what shops and labs publish. We did not place test orders, so we cannot confirm what an individual parcel contains."
+      },
+      {
+        "q": "Can a shop pay for a better score?",
+        "a": "No. Partner shops pay commission on sales made through our links, but the score formula is the same for every shop. Rankings sort partner shops by score only."
+      },
+      {
+        "q": "How is price per mg calculated?",
+        "a": "Listed price divided by the mg on the label. If a sale price is shown, we use it. We do not apply discount codes and we do not convert between EUR and USD."
+      },
+      {
+        "q": "How often is the data updated?",
+        "a": "The current data set was read on {date}. Each page shows the date of the last check."
+      }
+    ],
+    "partsH": "The six parts of the score",
+    "partsP": "Each part is rated 0 to 10 by the auditor, with a written reason on every shop page. The weighted average is divided by two to give the 0-5 score.",
+    "part": {
+      "labVerification": "Does the shop publish lab reports, and can we find them on the testing lab’s own website? Reports that only exist as files on the shop’s site count less than reports we could look up on the lab portal.",
+      "fillAccuracy": "How close is the measured amount to the label? We divide measured mg by label mg on every opened report. 100% means the vial holds exactly what the label says.",
+      "panelDepth": "Which tests do the reports cover? Purity only scores lower than purity plus measured mg, identity (mass spectrometry), endotoxin, sterility or heavy metals.",
+      "entityTransparency": "Does the shop name the company behind it, with an address or registration number, on its own pages?",
+      "dispatchReliability": "Does the shop publish where it ships, how fast it dispatches and which carriers it uses?",
+      "valuePerMg": "How does the listed price per mg compare with other audited shops? If a shop does not publish prices, this part is left out and the other weights are scaled up."
+    },
+    "didH": "What we did on {date}",
+    "did": [
+      "Read the public pages of {shops} shops: shop, product, shipping, terms, imprint and lab report pages.",
+      "Opened {reports} lab reports and wrote down the lab, test date, purity, label mg and measured mg.",
+      "Looked up reports on the lab's own portal where the lab offers one. {portal} reports were found there (\"portal-verified\").",
+      "Recorded {products} listed prices with vial size, currency and sale price."
+    ],
+    "notH": "What we did not do",
+    "not": [
+      "No test purchases and no own lab tests.",
+      "No checks in company registries. Entity transparency only rates what the shop publishes about itself.",
+      "No information on use in humans or animals. All products are sold as research-use-only reagents."
+    ],
+    "termsH": "Terms used on this site",
+    "term": {
+      "portal": "Portal-verified",
+      "shop": "Shop-hosted",
+      "fill": "Measured vs label",
+      "purity": "Purity",
+      "perMg": "Price per mg"
+    },
+    "termDef": {
+      "portal": "we found the report on the testing lab's website, not only on the shop's site.",
+      "shop": "the report exists only as a file or image on the shop's site.",
+      "fill": "measured mg divided by label mg, as a percentage.",
+      "purity": "the HPLC purity figure printed on the report.",
+      "perMg": "listed vial price divided by the mg on the label."
+    },
+    "partnersH": "Partners and links",
+    "partnersP": "Some shops are affiliate partners. Only partner shops get a \"Visit\" link, and those links are marked as sponsored. Rankings list partner shops by audit score. All other shops keep their score and appear under \"Other audited shops\" with a link to our review. Lab report addresses are shown as plain text, not as links.",
+    "dataP": "The full data set is available as CSV and JSON:"
+  },
+  "legal": {
+    "title": [
+      "Legal Notice & Affiliate Disclosure | {site}"
+    ],
+    "description": [
+      "Research-use-only scope, affiliate disclosure, data accuracy and privacy notice for PeptideLabIndex (peptidelabtest.org). Read how partner links work."
+    ],
+    "crumb": "Legal",
+    "h1": "Legal notice, disclosure and privacy",
+    "h_ruo": "1. Research use only",
+    "p_ruo": "{domain} compares publicly available lab reports, listed prices and shop information for products that shops sell as research-use-only (RUO) laboratory reagents. Nothing on this site is medical advice. None of the products is approved for human or veterinary use, and we give no information on such use.",
+    "h_aff": "2. Affiliate disclosure",
+    "p_aff1": "Some shops are affiliate partners. Links marked \"Visit\" go to these partners and carry rel=\"sponsored\". If you buy through such a link, or use a reader code a partner issued to us, we may earn a commission at no extra cost to you.",
+    "p_aff2": "Commission does not change audit scores. Rankings sort partner shops by audit score only. Shops without a partnership are still scored and listed, without an outbound link.",
+    "h_war": "3. No warranty",
+    "p_war": "All data was read from public sources on the date shown on each page. Shops change prices, stock and reports often. Check the shop and the lab portal before you rely on any figure.",
+    "h_priv": "4. Privacy",
+    "p_priv": "We use a self-hosted Plausible Analytics instance to count page views. It does not use cookies and does not collect personal data. The concentration calculator runs entirely in your browser; inputs are not sent to us.",
+    "h_contact": "5. Contact",
+    "p_contact": "Editorial and partner contact:"
+  },
+  "adv": {
+    "title": [
+      "For Shops: Audit Updates & Partner Program | {site}"
+    ],
+    "description": [
+      "How research peptide shops can send new lab reports for the next audit and how our partner program works. Scores cannot be bought."
+    ],
+    "h1": "For shops: audit updates and partner program",
+    "intro": "We audit {shops} shops with one public method. Shops can send new lab reports for the next check and can apply to our affiliate partner program. Neither changes how a score is calculated.",
+    "sendH": "Send new lab reports",
+    "sendP": "If your shop has published new reports, send the report links and, if available, the lab portal keys. We add them in the next audit round after checking them on the lab's own site.",
+    "progH": "Partner program",
+    "prog": [
+      "Partner shops get a \"Visit\" link with your affiliate tracking.",
+      "Reader codes are only shown if you issued them to us, and only where your terms allow it.",
+      "Rankings sort partner shops by audit score. A partnership never raises a score or removes a weakness.",
+      "Your listings and texts must follow research-use-only rules. We publish no dosing or health claims."
+    ]
+  },
+  "calcp": {
+    "title": [
+      "Vial Stock Concentration Calculator (mg/mL)"
+    ],
+    "description": [
+      "Laboratory stock concentration calculator (mg/mL) for single and two-compound research vials, with an optional measured-mg input. Research use only."
+    ],
+    "crumb": "Concentration calculator",
+    "h1": "Vial stock concentration calculator",
+    "intro": "Works out the stock concentration in mg/mL from the mass in a vial and the volume of diluent added. You can use the measured mg from a lab report instead of the label. For in-vitro laboratory work only; no dosing or usage information.",
+    "faqs": [
+      {
+        "q": "How is stock concentration calculated?",
+        "a": "Stock concentration (mg/mL) = mass in the vial (mg) divided by the volume of diluent added (mL). Example: 10 mg in 2 mL = 5 mg/mL."
+      },
+      {
+        "q": "Why enter the measured mg from a lab report?",
+        "a": "The measured amount on a lab report can differ from the label. In our audit, opened reports showed measured content above and below the label amount, so the measured figure gives a more exact concentration."
+      }
+    ]
+  },
+  "lw": {
+    "title": [
+      "Peptide Rules by Country: Regulators & Shops That Ship"
+    ],
+    "description": [
+      "General notes for {n} countries: which authority regulates medicines and which audited research peptide shops state they ship there. Not legal advice."
+    ],
+    "crumb": "Country notes",
+    "h1": "Country notes",
+    "intro": "General information for {n} countries: the authorities that regulate medicines, and which of the shops we audited state that they ship there (as published on {date}). This is not legal advice. Check the current rules with the authority before you order.",
+    "shipHere": {
+      "one": "{n} audited shop states it ships here",
+      "other": "{n} audited shops state they ship here"
+    }
+  },
+  "law": {
+    "title": [
+      "Research Peptides in {country}: Rules & Shops ({year})",
+      "Research Peptides in {country}: Rules & Shops"
+    ],
+    "description": [
+      "{country}: which authority regulates medicines and which of our audited research peptide shops state they ship there. See the shops and the rules."
+    ],
+    "h1": "Research peptides in {country}",
+    "intro": {
+      "one": "{n} of the shops we audited states that it ships to {country}. This page is general information, not legal advice.",
+      "other": "{n} of the shops we audited state that they ship to {country}. This page is general information, not legal advice."
+    },
+    "authH": "Authorities",
+    "rules": "Rules change. Check the current position with the authority before you order, and follow your institution's procurement rules.",
+    "shopsH": "Audited shops that state they ship to {country}",
+    "shopsP": "Based on each shop's published shipping information on {date}, sorted by audit score. {unknown} shops do not publish where they ship.",
+    "colShips": "Ships to (as published)",
+    "relAll": "All country notes"
+  },
+  "ri": {
+    "title": [
+      "Guides: Reading and Verifying Peptide Lab Reports"
+    ],
+    "description": [
+      "Plain-language guides on peptide lab reports: how to verify a report, purity vs measured mg, and product code names used by shops."
+    ],
+    "crumb": "Guides",
+    "h1": "Guides",
+    "intro": "Short, plain-language guides on reading and checking lab reports for research peptides. No dosing or health information."
+  },
+  "r": {
+    "keyPoints": "Key points",
+    "whereH": "Where each lab lets you check a report",
+    "noLookup": "no public lookup found",
+    "verifyP": "In our audit of {date}, {portal} of {reports} opened reports could be found on the lab's own portal.",
+    "foundH": "What our audit found",
+    "foundP": "Of the {n} reports that state both purity and measured mg, {hp} show purity of 99% or more. {off} of those still measured outside 90-110% of the label amount.",
+    "allListed": "Every report is listed on",
+    "namesH": "Product names for {c} ({n} listings)",
+    "psLink": "Read the Peptide Sciences status page",
+    "published": "Published {pub} by PeptideLabIndex Editorial. Data checked {date}."
+  },
+  "data": {
+    "title": [
+      "Open Data: Research Peptide Shop Audit 2026 (CSV, JSON)"
+    ],
+    "description": [
+      "Download {n} listed prices from {shops} audited shops with price per mg, lab-report coverage and scores. CSV and JSON, CC BY 4.0."
+    ],
+    "crumb": "Open data",
+    "h1": "Open data: research peptide shop audit 2026",
+    "intro": "The full price data behind this site: {n} listed prices from {shops} audited shops, one row per product, with price per mg, whether we opened a lab report for that compound at that shop, and the shop's audit score. Checked {date}. Free to reuse with attribution (CC BY 4.0).",
+    "csv": "Download CSV",
+    "json": "Download JSON",
+    "englishNote": "The data files use English column names and values.",
+    "colsH": "Columns",
+    "colCol": "Column",
+    "colMeaning": "Meaning",
+    "col": {
+      "shop": "Shop name",
+      "shopSlug": "Shop ID (matches /vendors/<id>/)",
+      "region": "EU or US",
+      "compound": "Compound ID (matches /compounds/<id>/)",
+      "product": "Product name as listed by the shop",
+      "vialMg": "mg on the label",
+      "price": "Listed price",
+      "salePrice": "Sale price if shown",
+      "currency": "EUR or USD (never converted)",
+      "pricePerMg": "Price (sale price if shown) / label mg",
+      "labReportOpenedForCompound": "We opened a lab report from this shop for this compound",
+      "portalVerified": "At least one such report was found on the lab portal",
+      "shopScore": "Audit score 0-5",
+      "reviewedAt": "Date the shop was checked"
+    },
+    "notesH": "Notes",
+    "notes": [
+      "Prices are list prices without discount codes. EUR and USD are never converted.",
+      "Empty cells mean the shop did not publish the value.",
+      "Please cite as: {site}, research peptide shop audit, {date}, {url}."
+    ],
+    "notesReports": "Lab report addresses and IDs are on each shop's review page and on"
+  },
+  "rank": {
+    "label_all": "EU and US",
+    "label_eu": "EU",
+    "label_us": "US",
+    "title_all": [
+      "Best Research Peptide Shops {year}: {n} Ranked"
+    ],
+    "title_eu": [
+      "Best EU Peptide Shops {year}: {n} Shops Lab-Checked"
+    ],
+    "title_us": [
+      "Best US Peptide Shops {year}: {n} Shops Lab-Checked"
+    ],
+    "h1_all": "Research peptide shops ranked ({year})",
+    "h1_eu": "Best EU research peptide shops ({year})",
+    "h1_us": "Best US research peptide shops ({year})",
+    "description": [
+      "{n} {label} research peptide shops scored 0-5: {opened} lab reports opened, {portal} portal-verified. Compare the ranking and see lab reports.",
+      "{n} {label} research peptide shops scored 0-5 with {opened} lab reports opened. Compare the ranking."
+    ],
+    "intro1": "We scored {n} {label} research peptide shops on {date}. Across them we opened {opened} lab reports and found {portal} on the lab's own portal.",
+    "noReports": {
+      "one": "{n} shop publishes no report at all.",
+      "other": "{n} shops publish no report at all."
+    },
+    "intro2": "The highest-scoring partner shop is {best} ({bestScore}/5).",
+    "intro3": "Rankings use the audit score only.",
+    "crumbRegion": "{label} shops",
+    "fq1": "What is the best {label} research peptide shop in {year}?",
+    "fa1": "Among partner shops with a store link, {best} has the highest audit score ({bestScore}/5). The score combines lab verification, measured fill accuracy, test panel depth, entity transparency, dispatch information and value per mg.",
+    "fa1none": "No partner shop in this region.",
+    "faqs": [
+      {
+        "q": "Why are some higher-scoring shops listed under \"Other audited shops\"?",
+        "a": "The ranking lists partner shops only, because only they get a store link. Other shops are scored with the same method and shown with their score and a link to our review."
+      },
+      {
+        "q": "Did you buy and test products yourselves?",
+        "a": "No. This is a desk audit of public shop pages, lab reports and lab portals. We did not place test orders."
+      }
+    ],
+    "partnerTitle": "Ranking: {label} shops with a store link",
+    "otherTitle": "Other audited {label} shops",
+    "relPairs": "Shop vs shop comparisons",
+    "pairs": {
+      "one": "{n} partner pair",
+      "other": "{n} partner pairs"
+    },
+    "relCodesSub": "Partner shops only",
+    "relMethodSub": "Weights and sources",
+    "relPs": "Peptide Sciences status",
+    "relPsSub": "Closed in March 2026"
+  },
+  "v": {
+    "title": [
+      "{nm} Review: Legit? Lab Tests & Prices",
+      "{nm} Review: Lab Tests & Prices",
+      "{nm} Review"
+    ],
+    "h1": "{shop} review {year}: lab reports, prices and legitimacy checked",
+    "description": [
+      "{nm} scores {score}/5 in our audit: {opened} lab reports opened, {portal} portal-verified, legal entity and prices per mg. See lab reports.",
+      "{nm}: score {score}/5, {opened} lab reports opened ({portal} portal-verified), entity and price per mg. See lab reports.",
+      "{nm}: score {score}/5, {opened} lab reports, price per mg. See lab reports."
+    ],
+    "descriptionNoRep": [
+      "{nm} scores {score}/5 in our audit. No public lab reports found; we checked the legal entity, shipping and prices per mg. See the audit.",
+      "{nm}: score {score}/5, no public lab reports found, entity and price per mg checked. See the audit."
+    ],
+    "intro1": "{shop} scores {score} out of 5 in our desk audit of {date} (rank {rank} of {total} shops).",
+    "reportTxt": {
+      "one": "We opened {opened} of its lab reports; {n} was verified on the lab's own portal",
+      "other": "We opened {opened} of its lab reports; {n} were verified on the lab's own portal"
+    },
+    "reportTxtFill": ", and measured content was {fill} of the label amount",
+    "noReports": "We found no public lab reports to open.",
+    "introEntity": "Legal entity: {e}.",
+    "introPrices": {
+      "one": "We recorded {n} listed price.",
+      "other": "We recorded {n} listed prices."
+    },
+    "introNoPrices": "Prices are not published publicly.",
+    "legitEntity": "{shop} names its operator as {e}.",
+    "legitNoEntity": "{shop} does not publish a legal entity on its site.",
+    "legitReports": "{portal} of {opened} opened lab reports could be checked on the testing lab's own portal",
+    "legitShopOnly": {
+      "one": "; {n} is only hosted by the shop",
+      "other": "; {n} are only hosted by the shop"
+    },
+    "legitNoReports": "We could not find any public lab report.",
+    "legitWeak": "What we could not verify or found lacking: {list}.",
+    "codeYes": "Yes. {shop} issued the reader code {code} to {site}{pct}. Our price tables show list prices without the code.",
+    "codeLinkOnly": "{shop} has not issued a reader code to us. We link to the shop through a partner link only.",
+    "codeNo": "No. {shop} is not a partner and has not issued a reader code to us. Partner shops with a code are compared on our reader code page.",
+    "fqLegit": "Is {shop} legit?",
+    "overall": "Overall audit score: {score} out of 5.",
+    "fqCode": "Does {shop} have a coupon code?",
+    "fqLabs": "Which labs test {shop} products?",
+    "faLabs": "The reports we opened name {list}. HPLC purity on those reports: {purity}.",
+    "faLabsNone": "{shop} names {list}; we could not open a public report.",
+    "fqShip": "Where does {shop} ship?",
+    "faShip": "Ships to: {ships}. Dispatch: {dispatch}.",
+    "fqPrice": "How expensive is {shop}?",
+    "faPrice": "We recorded {n} listed prices on {date}. The lowest price per mg was {p} for {product} ({mg}). Prices are list prices without any code.",
+    "reviewName": "{shop} review {year}",
+    "relPair": "Side-by-side audit data",
+    "relPriceA": "{c} price comparison",
+    "relPriceB": "{c} prices at all shops",
+    "relPriceSub": "{nm} from {p}",
+    "relPriceAll": "All audited shops compared",
+    "relBoth": "{nm} lists both",
+    "relLab": "Lab guide: {lab}",
+    "relLabSub": "How to verify a report",
+    "relEu": "EU shop ranking",
+    "relUs": "US shop ranking",
+    "partnerChip": "Partner shop",
+    "notPartnerChip": "Not a partner",
+    "reviewedBy": "Reviewed {date} by PeptideLabIndex Editorial",
+    "auditScore": "Audit score",
+    "rankOf": "Rank {rank} of {total}",
+    "partnerNote": "Partner link (affiliate). It does not change the score.",
+    "noLinkNote": "We do not link to this shop. Compare partner shops with a store link below.",
+    "seeAlternatives": "See audited alternatives",
+    "verdictH": "Our verdict",
+    "strengths": "Strengths",
+    "weaknesses": "Weaknesses",
+    "noneRecorded": "none recorded",
+    "breakdownH": "Score breakdown",
+    "breakdownP": "Each part is scored 0-5. The weight shows how much it counts.",
+    "legitIntro": "We can only report what is public. Here is what we checked on {date}:",
+    "kEntity": "Legal entity",
+    "kReports": "Lab reports",
+    "kPurity": "Purity on opened reports",
+    "kWeak": "What we could not verify or found lacking",
+    "legitReportsLine": "{opened} opened, {portal} found on the lab's own portal, {shopOnly} hosted by the shop only.",
+    "noPublicReports": "no public lab reports found.",
+    "fillLine": "{fill} of the amount on the label (100% = exact).",
+    "noTestOrder": "We did not place a test order. A desk audit cannot confirm what an individual parcel contains.",
+    "factsH": "Key facts",
+    "kBased": "Based in",
+    "kShips": "Ships to",
+    "kDispatch": "Dispatch",
+    "kFree": "Free shipping from",
+    "kPayment": "Payment",
+    "kLabs": "Labs named",
+    "kTests": "Tests on reports",
+    "kShared": "How reports are shared",
+    "reportsP": {
+      "one": "{n} report opened on {date}. Report links are shown as plain text so you can copy them and check the lab's site yourself.",
+      "other": "{n} reports opened on {date}. Report links are shown as plain text so you can copy them and check the lab's site yourself."
+    },
+    "chartTitle": "{shop}: measured content as % of label",
+    "colMeasured": "Measured / label (mg)",
+    "colPurity": "Purity (%)",
+    "colLab": "Lab and test date",
+    "colVerif": "Verification",
+    "colId": "Report ID and link (copy)",
+    "notStated": "not stated",
+    "ofLabel": "{p} of label",
+    "dateNotPublished": "date not published",
+    "shopHosted": "Shop-hosted",
+    "noReportFound": "We found no public lab report for {shop} on {date}.",
+    "pricesH": "{shop} prices",
+    "pricesP": {
+      "one": "{n} listed price recorded on {date} in {curs}. Price per mg = price divided by the mg on the label. Sale prices are shown with the old price struck through. No code is applied.",
+      "other": "{n} listed prices recorded on {date} in {curs}. Price per mg = price divided by the mg on the label. Sale prices are shown with the old price struck through. No code is applied."
+    },
+    "colVial": "Vial (mg)",
+    "colPrice": "Price",
+    "colPerMg": "Price per mg",
+    "colRep": "Lab report opened",
+    "colStore": "Store",
+    "viewProduct": "View product",
+    "noPricesP": "{shop} does not publish prices publicly, so value per mg was not scored.",
+    "codeH": "{shop} coupon code",
+    "codeP": "{shop} issued this reader code to {site}. Enter it at checkout. Our price tables show prices before the code.",
+    "codeLinkOnlyP": "{shop} has not issued a reader code to us. We link to the shop with a partner link only.",
+    "codeShopsWith": "Shops that did issue a code",
+    "codeNoneP": "No reader code. {shop} is not a partner and has not issued a code to us.",
+    "codeCompare": "Compare shops with a code",
+    "altNote": "Partner shops in the {region} with the highest audit scores. Same method as {shop}.",
+    "sourcesH": "Sources we read",
+    "sourcesP": "Public pages read on {date}. Shown as plain text, not links.",
+    "stickyAria": "{nm} store link",
+    "visitShop": "Visit shop"
+  },
+  "vcp": {
+    "title": [
+      "{nA} vs {nB}: Lab Reports, Prices & Scores",
+      "{nA} vs {nB}: Lab Tests & Prices Compared",
+      "{nA} vs {nB}: Lab Tests & Prices"
+    ],
+    "description": [
+      "{nA} ({sA}/5) vs {nB} ({sB}/5): lab reports, portal checks and price per mg for {n} shared products. Compare both.",
+      "{nA} vs {nB}: scores, lab reports and price per mg for {n} shared products. Compare both shops."
+    ],
+    "verdict": "{lead} scores higher in our audit ({sL} vs {sO} out of 5). It leads on {wins}; {other} leads on {owins}.",
+    "noPart": "no single part",
+    "noneParts": "none of the parts",
+    "tie": "Both shops score {sA} out of 5 in our audit.",
+    "priceTxt": "For the {same} products both list in the same currency and vial size, {a} is cheaper per mg on {aC} and {b} on {bC}.",
+    "priceNone": "They list no identical product in the same currency and vial size.",
+    "checked": "Data checked {date}.",
+    "rScore": "Audit score (0-5)",
+    "rRank": "Rank (all audited shops)",
+    "rankOf": "{r} of {n}",
+    "rPurity": "Purity on reports",
+    "rPrices": "Prices recorded",
+    "rCode": "Reader code",
+    "fq1": "Which is better, {a} or {b}?",
+    "fa1": "The score weighs lab verification, fill accuracy, test depth, entity transparency, dispatch information and value per mg.",
+    "fq2": "Which is cheaper, {a} or {b}?",
+    "fa2": "Prices are list prices on {date}, without codes.",
+    "fq3": "Do {a} and {b} publish lab reports?",
+    "fa3": "We opened {oA} {a} reports ({pA} portal-verified) and {oB} {b} reports ({pB} portal-verified).",
+    "eyebrow": "{region} partner shops compared",
+    "higher": "Higher audit score",
+    "factsH": "Key facts side by side",
+    "sameH": "Same products, price per mg",
+    "sameP": "{n} products that both shops list in the same vial size. Lowest listed price per mg at each shop; the lower value is in bold. No codes applied.",
+    "sameNone": "The two shops list no identical product and vial size."
+  },
+  "vci": {
+    "title": [
+      "Peptide Shop Comparisons: Shop vs Shop ({n} Pairs)"
+    ],
+    "description": [
+      "Partner shops in the same region side by side: scores, lab reports, measured vs label and price per mg for the same products. Compare two shops."
+    ],
+    "itemList": "Shop comparisons",
+    "h1": "Shop vs shop comparisons",
+    "intro": "Side-by-side audit data for partner shops in the same region, read on {date}: score, lab reports, measured vs label and prices per mg for products both shops sell.",
+    "eu": "EU shops",
+    "us": "US shops",
+    "scores": "Scores {a} vs {b}"
+  },
+  "psc": {
+    "title": [
+      "Peptide Sciences Shut Down (2026): Status and Audited Shops"
+    ],
+    "description": [
+      "Peptide Sciences stopped selling research products in March 2026. What its own notice says, and audited shops to compare instead."
+    ],
+    "h1": "Peptide Sciences shut down: status in 2026",
+    "intro": "Peptide Sciences (peptidesciences.com) stopped selling research products in March 2026. Its own site states that it \"voluntarily discontinued all research-use-only product sales in March 2026\" and has not authorised any third party to sell on its behalf or act as a successor. We did not audit Peptide Sciences because it no longer sells.",
+    "faqs": [
+      {
+        "q": "Is Peptide Sciences still open?",
+        "a": "No. peptidesciences.com states that the company voluntarily discontinued all research-use-only product sales in March 2026."
+      },
+      {
+        "q": "Is a new Peptide Sciences website the same company?",
+        "a": "The notice on peptidesciences.com says the company has not authorised any third party to operate a replacement website, act as a successor or sell on its behalf. We cannot confirm any link between other sites using the name and the original company."
+      },
+      {
+        "q": "Which audited shops can I compare instead?",
+        "a": "Our shop ranking lists partner shops by audit score. The highest-scoring US partner shops are {us}."
+      }
+    ],
+    "saysH": "What the notice says",
+    "says": [
+      "Sales of research-use-only products were discontinued in March 2026 (the company calls it voluntary).",
+      "No third party is authorised to sell on its behalf, run a replacement website or claim to be its successor.",
+      "The company asks readers to beware of websites or sellers impersonating it."
+    ],
+    "source": "Source (plain text):",
+    "read": "read {date}.",
+    "meansH": "What this means for comparing shops",
+    "meansP": "Because Peptide Sciences no longer sells, it has no score on this site. If you are comparing research peptide shops, the boxes below show the highest-scoring audited partner shops in each region. Every shop on this site is scored with the",
+    "sameMethod": "same method",
+    "usBox": "Audited US shops with a store link",
+    "euBox": "Audited EU shops with a store link",
+    "boxNote": "Partner shops ranked by audit score."
   }
 }

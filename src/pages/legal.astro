@@ -1,24 +1,4 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
-import { SITE_BRAND } from '../data/affiliates';
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'Legal', url: '/legal/' }];
+import View from '../views/Legal.astro';
 ---
-<BaseLayout title={`Legal Notice & Affiliate Disclosure | ${SITE_BRAND.name}`} description="Research-use-only scope, affiliate disclosure, data accuracy and privacy notice for PeptideLabIndex (peptidelabtest.org). Read how partner links work." crumbs={crumbs}>
-  <PageHero crumbs={crumbs} title="Legal notice, disclosure and privacy" />
-  <div class="wrap mt-12">
-    <div class="prose-read">
-      <h2>1. Research use only</h2>
-      <p>{SITE_BRAND.domain} compares publicly available lab reports, listed prices and shop information for products that shops sell as research-use-only (RUO) laboratory reagents. Nothing on this site is medical advice. None of the products is approved for human or veterinary use, and we give no information on such use.</p>
-      <h2>2. Affiliate disclosure</h2>
-      <p>Some shops are affiliate partners. Links marked "Visit shop" go to these partners and carry rel="sponsored". If you buy through such a link, or use a reader code a partner issued to us, we may earn a commission at no extra cost to you.</p>
-      <p>Commission does not change audit scores. Rankings sort partner shops by audit score only. Shops without a partnership are still scored and listed, without an outbound link.</p>
-      <h2>3. No warranty</h2>
-      <p>All data was read from public sources on the date shown on each page. Shops change prices, stock and reports often. Check the shop and the lab portal before you rely on any figure.</p>
-      <h2>4. Privacy</h2>
-      <p>We use a self-hosted Plausible Analytics instance to count page views. It does not use cookies and does not collect personal data. The concentration calculator runs entirely in your browser; inputs are not sent to us.</p>
-      <h2>5. Contact</h2>
-      <p>Editorial and partner contact: <a href={`mailto:${SITE_BRAND.contactEmail}`}>{SITE_BRAND.contactEmail}</a></p>
-    </div>
-  </div>
-</BaseLayout>
+<View lang="en" />

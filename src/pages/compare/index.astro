@@ -1,20 +1,4 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHero from '../../components/PageHero.astro';
-import { COMPOUND_PAIRS, pairSlug, compoundShort, shopsCarrying, VENDORS_BY_SCORE, CHECKED_LABEL, itemListSchema } from '../../lib/site';
-const rows = COMPOUND_PAIRS.map(([a, b]) => ({ a, b, both: VENDORS_BY_SCORE.filter((v) => shopsCarrying(a).includes(v) && shopsCarrying(b).includes(v)).length }));
-const crumbs = [{ name: 'Home', url: '/' }, { name: 'Compound comparisons', url: '/compare/' }];
+import View from '../../views/CompareIndex.astro';
 ---
-<BaseLayout title="Compound Comparisons: Prices & Lab Data Side by Side" description="Research compound pairs side by side: identity facts, vial sizes, price per mg in EUR and USD and lab-report coverage. Compare the pairs here." crumbs={crumbs} jsonLd={itemListSchema('Research compound comparisons', rows.map((r) => ({ name: `${compoundShort(r.a)} vs ${compoundShort(r.b)}`, url: `/compare/${pairSlug(r.a, r.b)}/` })))}>
-  <PageHero crumbs={crumbs} title="Research compound comparisons" intro={`Side-by-side facts for compounds that are often looked up together: what each one is, vial sizes on the market, price per mg and lab-report coverage at the shops we audited on ${CHECKED_LABEL}. These pages compare listings and lab data only, not effects.`} />
-  <div class="wrap mt-12">
-    <ul class="grid gap-4 sm:grid-cols-2">
-      {rows.map((r) => (
-        <li class="card card-hover p-6">
-          <a href={`/compare/${pairSlug(r.a, r.b)}/`} class="tap text-xl font-bold text-slate-900 hover:text-teal-800 hover:underline">{compoundShort(r.a)} vs {compoundShort(r.b)}</a>
-          <p class="mt-2 text-slate-700">{shopsCarrying(r.a).length} shops list {compoundShort(r.a)}, {shopsCarrying(r.b).length} list {compoundShort(r.b)}, {r.both} list both.</p>
-        </li>
-      ))}
-    </ul>
-  </div>
-</BaseLayout>
+<View lang="en" />
