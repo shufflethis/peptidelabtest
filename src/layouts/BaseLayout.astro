@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
 import { SITE_BRAND } from '../data/affiliates';
-import { SITE_URL, SITE_NAME, CHECKED_ISO, CHECKED_LABEL } from '../lib/site';
+import { SITE_URL, SITE_NAME, CHECKED_ISO, CHECKED_LABEL, padDesc } from '../lib/site';
 
 interface Crumb {
   name: string;
@@ -18,7 +18,8 @@ interface Props {
   ogType?: string;
 }
 
-const { title, description, canonicalPath = Astro.url.pathname, jsonLd, crumbs = [], noindex = false, ogType = 'website' } = Astro.props;
+const { title, description: rawDescription, canonicalPath = Astro.url.pathname, jsonLd, crumbs = [], noindex = false, ogType = 'website' } = Astro.props;
+const description = padDesc(rawDescription);
 const path = canonicalPath.endsWith('/') || canonicalPath.includes('.') ? canonicalPath : `${canonicalPath}/`;
 const canonicalUrl = new URL(path, SITE_URL).toString();
 

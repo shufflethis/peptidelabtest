@@ -9,7 +9,7 @@ import RelatedLinks from '../../../components/RelatedLinks.astro';
 import WhereToBuy from '../../../components/WhereToBuy.astro';
 import {
   SIZE_PAGES, offersFor, compoundShort, shopsCarrying, reportsFor, cheapestBy, perMg, CHECKED_LABEL, fillPct, faqSchema,
-  itemListSchema, listJoin, sizePagesFor, PARTNERS, YEAR, median, curSymbol,
+  itemListSchema, listJoin, sizePagesFor, PARTNERS, YEAR, median, curSymbol, fitTitle, fitDesc,
 } from '../../../lib/site';
 
 export function getStaticPaths() {
@@ -38,8 +38,13 @@ const lows = [cEur && `${vialTxt(cEur)} (EUR)`, cUsd && `${vialTxt(cUsd)} (USD)`
 
 const intro = `${shops.length} audited shops list ${short} as a ${size} mg vial (${eu.length} EU, ${us.length} US). Lowest listed price on ${CHECKED_LABEL}: ${lows || 'n/a'}. ${reps.length ? `We opened ${reps.length} ${size} mg lab ${reps.length === 1 ? 'report' : 'reports'}; measured content was ${Math.min(...fills).toFixed(1)}–${Math.max(...fills).toFixed(1)}% of label.` : `We did not open a ${size} mg lab report for ${short}; reports for other sizes are on the main ${short} page.`}`;
 
-const title = `${short} ${size}mg: Prices at ${shops.length} Shops & Lab Tests (${YEAR})`;
-const description = `${short} ${size} mg vial prices at ${shops.length} audited shops, EUR and USD separate, price per mg and opened lab reports. Checked ${CHECKED_LABEL}.`;
+const title = fitTitle(`${short} ${size}mg Prices & Lab Tests (${YEAR})`, `${short} ${size}mg Prices & Lab Tests`);
+const h1 = `${short} ${size} mg: prices at ${shops.length} shops and lab tests (${YEAR})`;
+const description = fitDesc(
+  `${short} ${size} mg vials at ${shops.length} audited shops from ${[cEur && perMg(cEur.perMg, 'EUR'), cUsd && perMg(cUsd.perMg, 'USD')].filter(Boolean).join(' or ') || 'n/a'}. Compare prices, price per mg and opened lab reports.`,
+  `${short} ${size} mg vial prices at ${shops.length} audited shops, EUR and USD separate, with price per mg and lab reports. Compare prices.`,
+  `${short} ${size} mg prices at ${shops.length} shops with lab reports. Compare prices.`,
+);
 
 const faqs = [
   {
@@ -74,7 +79,7 @@ const related = [
 ---
 
 <BaseLayout title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
-  <PageHero crumbs={crumbs} title={title} eyebrow={`${short} · ${size} mg vial`} intro={intro}>
+  <PageHero crumbs={crumbs} title={h1} eyebrow={`${short} · ${size} mg vial`} intro={intro}>
     <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
       <div class="stat"><dt>Shops (EU / US)</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu.length} / {us.length})</span></dd></div>
       <div class="stat"><dt>Lowest price per mg (EUR)</dt><dd>{cEur ? perMg(cEur.perMg, 'EUR') : 'n/a'}</dd></div>

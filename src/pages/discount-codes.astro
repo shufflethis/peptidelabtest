@@ -6,11 +6,11 @@ import ScoreRing from '../components/ScoreRing.astro';
 import CodeBadge from '../components/CodeBadge.astro';
 import FAQ from '../components/FAQ.astro';
 import Disclosure from '../components/Disclosure.astro';
-import { PARTNERS, NON_PARTNERS, shopHref, REL_SPONSORED, codeInfo, CHECKED_LABEL, faqSchema, YEAR } from '../lib/site';
+import { PARTNERS, NON_PARTNERS, shopHref, REL_SPONSORED, codeInfo, CHECKED_LABEL, faqSchema, YEAR, shopShort, fitDesc } from '../lib/site';
 
 const withCode = PARTNERS.filter((p) => codeInfo(p.slug).kind === 'code');
-const title = `Research Peptide Shop Reader Codes ${YEAR} (Partner Shops Only)`;
-const description = `Reader codes issued to PeptideLabIndex by ${withCode.length} audited partner shops, ordered by audit score. No invented discounts. Checked ${CHECKED_LABEL}.`;
+const title = `Peptide Shop Reader Codes ${YEAR}: Partner Shops Only`;
+const description = fitDesc(`Reader codes issued to PeptideLabIndex by ${withCode.length} audited partner shops, ordered by audit score, no invented discounts. Compare shops and copy a code.`);
 const intro = `${withCode.length} audited partner shops issued a reader code to us that may be shown here. Codes are listed in order of audit score, not discount size. Our price tables always show prices before any code, so you can compare shops on the same basis.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Reader codes', url: '/discount-codes/' }];
 const faqs = [
@@ -43,8 +43,8 @@ const faqs = [
                 {c.kind === 'link-only' && <span class="text-slate-700">No code. Store link only.</span>}
               </div>
               <div class="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2">
-                {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>}
-                <a href={`/vendors/${p.slug}/`} class="text-link">Read review</a>
+                {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(p.name)} <Icon name="external-link" class="w-4 h-4" /></a>}
+                <a href={`/vendors/${p.slug}/#lab-reports`} class="text-link">See lab reports</a>
               </div>
             </li>
           );

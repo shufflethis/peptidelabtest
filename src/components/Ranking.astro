@@ -5,7 +5,7 @@ import ScoreRing from './ScoreRing.astro';
 import CodeBadge from './CodeBadge.astro';
 import VerifyBadge from './VerifyBadge.astro';
 import type { VendorProfile } from '../data/vendors';
-import { shopHref, REL_SPONSORED, vendorVerify, purityRange, fillRange, cheapestFor, perMg, compoundShort } from '../lib/site';
+import { shopHref, REL_SPONSORED, vendorVerify, purityRange, fillRange, cheapestFor, perMg, compoundShort, shopShort } from '../lib/site';
 interface Props {
   partners: VendorProfile[];
   others: VendorProfile[];
@@ -43,15 +43,15 @@ const { partners, others, partnerTitle = 'Ranking: audited shops with a store li
             </div>
             <div class="flex flex-col gap-3 md:items-end md:min-w-[13rem]">
               <CodeBadge slug={v.slug} />
-              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>}
-              <a href={`/vendors/${v.slug}/`} class="text-link">Read review</a>
+              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(v.name)} <Icon name="external-link" class="w-4 h-4" /></a>}
+              <a href={`/vendors/${v.slug}/#lab-reports`} class="text-link">See lab reports</a>
             </div>
           </div>
         </li>
       );
     })}
   </ol>
-  <p class="text-sm text-slate-600">"Visit shop" links are partner (affiliate) links.</p>
+  <p class="text-sm text-slate-600">"Visit" buttons are partner (affiliate) links.</p>
 </section>
 
 {others.length > 0 && (

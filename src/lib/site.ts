@@ -117,6 +117,33 @@ export function score(n: number): string {
   return n.toFixed(1);
 }
 
+/** First candidate that fits the hard 60-char title limit; last resort: hard cut on a word boundary. */
+export function fitTitle(...cands: string[]): string {
+  for (const c of cands) if (c.length <= 60) return c;
+  const last = cands[cands.length - 1];
+  return last.slice(0, 60).replace(/\s+\S*$/, '');
+}
+
+/** First candidate inside the 130-155 char meta description window, else the first one that is <= 155. */
+export function fitDesc(...cands: string[]): string {
+  return cands.find((c) => c.length >= 130 && c.length <= 155) || cands.find((c) => c.length <= 155) || cands[cands.length - 1].slice(0, 155);
+}
+
+/** Pads a short meta description into the 130-155 window with neutral, true suffixes. */
+export function padDesc(d: string, pads: string[] = [` Data checked ${CHECKED_LABEL}.`, ' Research use only.', ' Independent desk audit.']): string {
+  let out = d.trim();
+  for (const p of pads) {
+    if (out.length >= 130) break;
+    if (out.length + p.length <= 155) out += p;
+  }
+  return out;
+}
+
+/** Shop name without the operator in brackets: "24Peptides (Grail Formula)" -> "24Peptides" */
+export function shopShort(name: string): string {
+  return name.replace(/\s*\(.*\)\s*$/, '').trim();
+}
+
 export function regionLabel(r: string): string {
   return r === 'EU' ? 'EU' : r === 'US' ? 'US' : r;
 }

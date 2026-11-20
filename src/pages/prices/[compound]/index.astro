@@ -10,7 +10,7 @@ import WhereToBuy from '../../../components/WhereToBuy.astro';
 import Icon from '../../../components/Icon.astro';
 import {
   PRICE_COMPOUNDS, offersFor, compoundShort, compoundName, shopsCarrying, sizesFor, sizePagesFor, reportsFor, cheapestBy,
-  perMg, TOTALS, CHECKED_LABEL, fillPct, faqSchema, itemListSchema, PARTNERS, listJoin, compoundPairsFor, pairSlug, YEAR, getCompound,
+  perMg, TOTALS, CHECKED_LABEL, fillPct, faqSchema, itemListSchema, PARTNERS, listJoin, compoundPairsFor, pairSlug, YEAR, getCompound, fitTitle, fitDesc,
 } from '../../../lib/site';
 
 export function getStaticPaths() {
@@ -40,8 +40,13 @@ const cheapTxt = (o: ReturnType<typeof cheapestBy>) => (o ? `${perMg(o.perMg, o.
 const priceSentence = [cEur && `${cheapTxt(cEur)} in EUR`, cUsd && `${cheapTxt(cUsd)} in USD`].filter(Boolean).join(' and ');
 const intro = `${short} is listed by ${shops.length} of the ${TOTALS.shops} shops we audited (${offers.length} listings, ${sizes.length} vial ${sizes.length === 1 ? 'size' : 'sizes'}). Lowest listed price per mg on ${CHECKED_LABEL}: ${priceSentence || 'n/a'}. We opened ${reps.length} lab ${reps.length === 1 ? 'report' : 'reports'} for ${short} from ${repShops.size} ${repShops.size === 1 ? 'shop' : 'shops'}${fillLo != null ? `; measured content was ${fillLo.toFixed(1)}–${fillHi!.toFixed(1)}% of label` : ''}.`;
 
-const title = `${short} Price Comparison ${YEAR}: ${shops.length} Shops, Price per mg & Lab Tests`;
-const description = `${short}: ${offers.length} listings at ${shops.length} audited shops. Price per mg in EUR and USD, vial sizes and opened lab reports. Checked ${CHECKED_LABEL}.`;
+const title = fitTitle(`${short} Price per mg: ${shops.length} Shops Compared (${YEAR})`, `${short} Price per mg: ${shops.length} Shops Compared`);
+const h1 = `${short} price comparison ${YEAR}: ${shops.length} shops, price per mg and lab tests`;
+const description = fitDesc(
+  `${short} costs from ${priceSentence ? [cEur && perMg(cEur.perMg, 'EUR'), cUsd && perMg(cUsd.perMg, 'USD')].filter(Boolean).join(' or ') : 'n/a'} at ${shops.length} audited shops. Compare ${offers.length} listings, vial sizes and opened lab reports.`,
+  `${short}: ${offers.length} listings at ${shops.length} audited shops, price per mg in EUR and USD and opened lab reports. Compare prices before you order.`,
+  `${short}: ${offers.length} listings at ${shops.length} shops, price per mg and lab reports. Compare prices.`,
+);
 
 const faqs = [
   {
@@ -97,7 +102,7 @@ const related = [
 ---
 
 <BaseLayout title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
-  <PageHero crumbs={crumbs} title={title} eyebrow={spec ? spec.category : 'Research compound'} intro={intro}>
+  <PageHero crumbs={crumbs} title={h1} eyebrow={spec ? spec.category : 'Research compound'} intro={intro}>
     <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
       <div class="stat"><dt>Shops (EU / US)</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu.length} / {us.length})</span></dd></div>
       <div class="stat"><dt>Lowest price per mg (EUR)</dt><dd>{cEur ? perMg(cEur.perMg, 'EUR') : 'n/a'}</dd></div>

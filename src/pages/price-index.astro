@@ -9,7 +9,7 @@ const rows = PRICE_COMPOUNDS.map((c) => {
 const cats = Array.from(new Set(rows.map((r) => r.cat)));
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Price index', url: '/price-index/' }];
 ---
-<BaseLayout title="Research Peptide Price Index 2026 by Category" description={`Lowest listed price per mg for ${rows.length} research compounds, grouped by class, EUR and USD separate. Links to every price comparison.`} crumbs={crumbs}>
+<BaseLayout title="Research Peptide Price Index 2026 by Category" description={`Lowest listed price per mg for ${rows.length} research compounds, grouped by class, EUR and USD kept separate. Check prices and open each comparison.`} crumbs={crumbs}>
   <PageHero crumbs={crumbs} title="Research peptide price index" intro={`Lowest listed price per mg for ${rows.length} research compounds, grouped by compound class. Data from ${TOTALS.products} prices at ${TOTALS.shops} audited shops, read on ${CHECKED_LABEL}. EUR and USD are never converted. Open a compound for the full shop-by-shop table.`} />
   <div class="wrap mt-12 space-y-12">
     {cats.map((cat) => (

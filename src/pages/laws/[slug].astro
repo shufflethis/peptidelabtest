@@ -12,7 +12,7 @@ const ships = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, l.code) === 
 const unknown = VENDORS_BY_SCORE.filter((v) => shipsToCountry(v.slug, l.code) === null);
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Country notes', url: '/laws/' }, { name: l.country, url: `/laws/${l.slug}/` }];
 ---
-<BaseLayout title={`Research Peptides in ${l.country}: Regulators & Shops (2026)`} description={`${l.country}: which authority regulates medicines and which audited research peptide shops state they ship there. General information only.`} crumbs={crumbs}>
+<BaseLayout title={`Research Peptides in ${l.country}: Rules & Shops (2026)`} description={`${l.country}: which authority regulates medicines and which of our audited research peptide shops state they ship there. See the shops and the rules.`} crumbs={crumbs}>
   <PageHero crumbs={crumbs} title={`Research peptides in ${l.country}`} intro={`${l.note} ${ships.length} of the shops we audited state that they ship to ${l.country}. This page is general information, not legal advice.`} />
   <div class="wrap mt-12 space-y-14">
     <section class="prose-read">

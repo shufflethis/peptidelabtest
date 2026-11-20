@@ -22,6 +22,7 @@ const c = codeInfo(slug, onOwnPage);
     <Icon name="tag" class="w-4 h-4 text-teal-800" />
     <span class="text-sm text-slate-700">Code</span>
     <code class={`font-mono font-bold text-teal-900 ${size === 'md' ? 'text-lg' : 'text-base'}`}>{c.code}</code>
+    {c.percent ? <span class="text-sm font-semibold text-teal-900">for {c.percent}%</span> : null}
     <button type="button" data-copy={c.code} class="inline-flex items-center gap-1 min-h-[32px] px-1 text-sm font-semibold text-teal-800 hover:text-teal-950 underline underline-offset-2" aria-label={`Copy code ${c.code}`}>
       <Icon name="copy" class="w-4 h-4" />Copy
     </button>

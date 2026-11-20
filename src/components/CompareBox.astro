@@ -4,7 +4,7 @@ import Icon from './Icon.astro';
 import ScoreRing from './ScoreRing.astro';
 import CodeBadge from './CodeBadge.astro';
 import type { VendorProfile } from '../data/vendors';
-import { shopHref, REL_SPONSORED, fillRange } from '../lib/site';
+import { shopHref, REL_SPONSORED, fillRange, shopShort } from '../lib/site';
 interface Props {
   shops: VendorProfile[];
   title?: string;
@@ -31,8 +31,8 @@ const { shops, title = 'Compare: audited shops with a store link', note } = Astr
             </div>
             <CodeBadge slug={s.slug} />
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-auto">
-              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>}
-              <a href={`/vendors/${s.slug}/`} class="text-link">Review</a>
+              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(s.name)} <Icon name="external-link" class="w-4 h-4" /></a>}
+              <a href={`/vendors/${s.slug}/#lab-reports`} class="text-link">See lab reports</a>
             </div>
           </li>
         );

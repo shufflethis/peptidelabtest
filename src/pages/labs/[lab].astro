@@ -5,7 +5,7 @@ import FillChart from '../../components/FillChart.astro';
 import FAQ from '../../components/FAQ.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Disclosure from '../../components/Disclosure.astro';
-import { LABS_IN_DATA, reportsByLab, CHECKED_LABEL, faqSchema, fillPct, compoundShort, listJoin, fillRange, YEAR, LAB_KEYS, type LabKey } from '../../lib/site';
+import { LABS_IN_DATA, reportsByLab, CHECKED_LABEL, faqSchema, fillPct, compoundShort, listJoin, fillRange, YEAR, LAB_KEYS, type LabKey, fitTitle, fitDesc } from '../../lib/site';
 import { getLabGuide } from '../../data/labGuides';
 
 export function getStaticPaths() {
@@ -28,9 +28,8 @@ const short = l.name.replace(/ (Analytical|Laboratory|Laboratories|Labs|Analytic
 const fillTxt = fills.length ? `measured content ranged from ${Math.min(...fills).toFixed(1)}% to ${Math.max(...fills).toFixed(1)}% of label` : 'measured mg was not stated';
 const intro = `${l.name} is named on ${reps.length} of the lab reports we opened on ${CHECKED_LABEL}, from ${shops.length} audited ${shops.length === 1 ? 'shop' : 'shops'}. ${portal} of those reports could be checked on the lab's own portal, and ${fillTxt}.`;
 const isJ = l.slug === 'janoshik';
-const title = isJ ? `Janoshik Verify: How to Check a Janoshik Report (${YEAR})` : `${l.name}: How to Verify a Report (${YEAR})`;
+const title = isJ ? 'Janoshik Analytical: How to Verify a Report' : fitTitle(`${l.name}: How to Verify a Report (${YEAR})`, `${l.name}: How to Verify a Report`);
 const h1 = isJ ? 'Janoshik: how to verify a report, and is it legit?' : `${l.name}: how to verify a report`;
-const description = `${l.name}: how to verify its peptide reports, ${reps.length} reports opened from ${shops.length} shops, ${portal} portal-verified, measured vs label. Checked ${CHECKED_LABEL}.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Testing labs', url: '/labs/' }, { name: l.name, url: `/labs/${l.slug}/` }];
 const genericSteps = [
   'Find the report number, key or QR code on the report the shop shows you.',
@@ -39,6 +38,11 @@ const genericSteps = [
   'If the lab has no lookup, the report counts as shop-hosted: it may be genuine, but you cannot confirm it with the lab.',
 ];
 const steps = g?.verifySteps || genericSteps;
+const description = fitDesc(
+  `How to verify a ${l.name} report in ${steps.length} steps. We opened ${reps.length} of its reports from ${shops.length} shops, ${portal} portal-verified. See the results.`,
+  `How to verify a ${short} report: ${reps.length} reports opened from ${shops.length} shops, ${portal} portal-verified. See lab reports and shops.`,
+  `How to verify a ${short} report. ${reps.length} reports opened, ${portal} portal-verified. See lab reports.`,
+);
 const legit = [
   g?.address ? `It publishes an address: ${g.address}.` : 'We could not find a published address.',
   g?.verifyWhere ? `Reports can be checked at ${g.verifyWhere}.` : 'We found no public verification portal.',

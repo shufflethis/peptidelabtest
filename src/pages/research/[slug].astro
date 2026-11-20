@@ -28,7 +28,7 @@ const article = {
   author: { '@type': 'Organization', name: 'PeptideLabIndex Editorial' }, publisher: { '@id': `${SITE_URL}/#organization` }, mainEntityOfPage: abs(`/research/${a.slug}/`),
 };
 ---
-<BaseLayout title={a.title} description={a.excerpt} crumbs={crumbs} jsonLd={article} ogType="article">
+<BaseLayout title={a.title} description={a.excerpt.length <= 155 ? a.excerpt : `${a.excerpt.slice(0, 150).replace(/\s+\S*$/, '')} …`} crumbs={crumbs} jsonLd={article} ogType="article">
   <PageHero crumbs={crumbs} title={a.h1} eyebrow={a.category} intro={a.excerpt} />
   <div class="wrap mt-12 space-y-12">
     <aside class="rounded-2xl border border-teal-200 bg-teal-50/60 p-5 sm:p-6 max-w-3xl">

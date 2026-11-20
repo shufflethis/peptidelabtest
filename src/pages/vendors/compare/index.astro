@@ -5,7 +5,7 @@ import { SHOP_PAIRS, vendorBySlug, CHECKED_LABEL, itemListSchema } from '../../.
 const rows = SHOP_PAIRS.map(([a, b]) => ({ a: vendorBySlug(a)!, b: vendorBySlug(b)! }));
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Shops', url: '/vendors/' }, { name: 'Shop vs shop', url: '/vendors/compare/' }];
 ---
-<BaseLayout title="Research Peptide Shop Comparisons: Shop vs Shop" description="Side-by-side audit data for partner shops in the same region: scores, lab reports, measured vs label, prices per mg for the same products." crumbs={crumbs} jsonLd={itemListSchema('Shop comparisons', rows.map((r) => ({ name: `${r.a.name} vs ${r.b.name}`, url: `/vendors/compare/${r.a.slug}-vs-${r.b.slug}/` })))}>
+<BaseLayout title="Research Peptide Shop Comparisons: Shop vs Shop" description="Partner shops in the same region side by side: scores, lab reports, measured vs label and price per mg for the same products. Compare two shops." crumbs={crumbs} jsonLd={itemListSchema('Shop comparisons', rows.map((r) => ({ name: `${r.a.name} vs ${r.b.name}`, url: `/vendors/compare/${r.a.slug}-vs-${r.b.slug}/` })))}>
   <PageHero crumbs={crumbs} title="Shop vs shop comparisons" intro={`Side-by-side audit data for partner shops in the same region, read on ${CHECKED_LABEL}: score, lab reports, measured vs label and prices per mg for products both shops sell.`} />
   <div class="wrap mt-12 space-y-10">
     {['EU', 'US'].map((r) => (

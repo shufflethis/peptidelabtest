@@ -182,3 +182,18 @@
   .stat dt { font-size: 0.85rem; color: #475569; }
   .stat dd { font-size: 1.2rem; font-weight: 800; color: #0f172a; font-variant-numeric: tabular-nums; }
 }
+
+/* Sticky mobile CTA bar on partner vendor pages (shop name + code + button) */
+@layer components {
+  .sticky-cta {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.97); border-top: 1px solid #e2e8f0;
+    box-shadow: 0 -8px 24px -12px rgba(15, 23, 42, 0.25);
+  }
+  @media (max-width: 1023px) {
+    body:has(.sticky-cta) { padding-bottom: 4.75rem; }
+    body:has(.sticky-cta) #copy-toast { bottom: 5.5rem; }
+  }
+}

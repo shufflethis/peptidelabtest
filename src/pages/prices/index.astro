@@ -6,7 +6,7 @@ import Icon from '../../components/Icon.astro';
 import FAQ from '../../components/FAQ.astro';
 import {
   PRICE_COMPOUNDS, offersFor, compoundShort, shopsCarrying, sizesFor, sizePagesFor, reportsFor, cheapestBy, perMg, TOTALS,
-  CHECKED_LABEL, SIZE_PAGES, itemListSchema, faqSchema, getCompound,
+  CHECKED_LABEL, SIZE_PAGES, itemListSchema, faqSchema, getCompound, fitDesc,
 } from '../../lib/site';
 
 const rows = PRICE_COMPOUNDS.map((c) => {
@@ -25,8 +25,8 @@ const rows = PRICE_COMPOUNDS.map((c) => {
   };
 }).sort((a, b) => b.shops - a.shops);
 
-const title = 'Research Peptide Price Comparison 2026: Price per mg by Shop';
-const description = `Price per mg for ${rows.length} research compounds across ${TOTALS.shops} audited shops, EUR and USD separate, with lab-report coverage. Checked ${CHECKED_LABEL}.`;
+const title = 'Research Peptide Prices 2026: Price per mg by Shop';
+const description = fitDesc(`Price per mg for ${rows.length} research compounds at ${TOTALS.shops} audited shops, EUR and USD separate, with lab-report coverage. Compare prices by compound.`);
 const intro = `We recorded ${TOTALS.products} listed prices for ${rows.length} research compounds at ${TOTALS.shops} audited EU and US shops on ${CHECKED_LABEL}. Each compound page splits EUR and USD prices, shows price per mg by vial size and marks which shops published a lab report we opened (${TOTALS.reportsOpened} reports in total).`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Prices', url: '/prices/' }];
 const faqs = [

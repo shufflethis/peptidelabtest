@@ -6,7 +6,7 @@
 import Icon from './Icon.astro';
 import CodeBadge from './CodeBadge.astro';
 import type { Offer } from '../lib/site';
-import { money, perMg, REL_SPONSORED, fillPct, mg, compoundShort, curSymbol } from '../lib/site';
+import { money, perMg, REL_SPONSORED, fillPct, mg, compoundShort, curSymbol, shopShort } from '../lib/site';
 interface Props {
   offers: Offer[];
   showCompound?: boolean;
@@ -73,7 +73,7 @@ const labShort = (l: string) => l.replace(/\s*\(.*\)\s*$/, '');
               {o.href ? (
                 <div class="flex flex-col items-start gap-2">
                   <CodeBadge slug={o.vendor.slug} size="xs" />
-                  <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>
+                  <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(o.vendor.name)} <Icon name="external-link" class="w-4 h-4" /></a>
                 </div>
               ) : (
                 <a href={`/vendors/${o.vendor.slug}/`} class="text-link whitespace-nowrap">Read review</a>

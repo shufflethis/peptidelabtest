@@ -5,7 +5,7 @@ import Icon from '../components/Icon.astro';
 import FAQ from '../components/FAQ.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import { BATCH_RECORDS } from '../data/batches';
-import { TOTALS, CHECKED_LABEL, faqSchema, median, LABS_IN_DATA, labKeyOf, PRICE_COMPOUNDS, compoundShort } from '../lib/site';
+import { TOTALS, CHECKED_LABEL, faqSchema, median, LABS_IN_DATA, labKeyOf, PRICE_COMPOUNDS, compoundShort, fitDesc } from '../lib/site';
 
 const rows = [...BATCH_RECORDS].sort((a, b) => a.vendorName.localeCompare(b.vendorName) || a.compoundName.localeCompare(b.compoundName));
 const fills = rows.map((r) => (100 * r.measuredMg) / r.labelMg);
@@ -19,8 +19,8 @@ const purities = rows.map((r) => r.purityPercent);
 const pMin = Math.min(...purities);
 const pMax = Math.max(...purities);
 
-const title = `Lab Reports We Opened: ${rows.length} Peptide Reports Checked`;
-const description = `${rows.length} research peptide lab reports with measured mg and purity from ${shops} shops; ${portal} portal-verified. Report IDs and links as plain text. Checked ${CHECKED_LABEL}.`;
+const title = `Peptide Lab Reports: ${rows.length} COAs Checked (2026)`;
+const description = fitDesc(`${rows.length} research peptide lab reports from ${shops} shops with measured mg and purity, ${portal} portal-verified. Filter by shop, compound or lab.`);
 const intro = `This table lists ${rows.length} lab reports from ${shops} shops that state both measured mg and purity. ${within10} of them measured within 90-110% of the label amount, ${below90} below 90% and ${above110} above 110%. ${portal} were verified on the lab's own portal. Purity ranged from ${pMin}% to ${pMax}%.`;
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Lab reports', url: '/batch-tracker/' }];
 const faqs = [

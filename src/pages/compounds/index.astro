@@ -7,7 +7,7 @@ const rows = COMPOUNDS.map((c) => ({ c, short: compoundShort(c.slug), shops: sho
 const cats = Array.from(new Set(COMPOUNDS.map((c) => c.category)));
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Compounds', url: '/compounds/' }];
 ---
-<BaseLayout title="Research Peptide Compound Index: Facts, Vial Sizes, Lab Tests" description={`Neutral facts for ${COMPOUNDS.length} research compounds: class, sequence, CAS, vial sizes on the market and lab-report coverage at ${TOTALS.shops} audited shops.`} crumbs={crumbs} jsonLd={itemListSchema('Research compounds', rows.map((r) => ({ name: r.short, url: `/compounds/${r.c.slug}/` })))}>
+<BaseLayout title="Research Compound Index: Facts, Vial Sizes & Lab Tests" description={`Neutral facts for ${COMPOUNDS.length} research compounds: class, CAS, vial sizes on the market and lab-report coverage at ${TOTALS.shops} audited shops. Browse the index.`} crumbs={crumbs} jsonLd={itemListSchema('Research compounds', rows.map((r) => ({ name: r.short, url: `/compounds/${r.c.slug}/` })))}>
   <PageHero crumbs={crumbs} title="Research compound index" intro={`Neutral reference facts for ${COMPOUNDS.length} research compounds sold by the shops we audit: what each compound is, its class and identifiers, the vial sizes on the market and how many lab reports we opened. Data checked ${CHECKED_LABEL}. No dosing or health information.`} />
   <div class="wrap mt-12 space-y-12">
     {cats.map((cat) => (

@@ -4,7 +4,7 @@ import Icon from './Icon.astro';
 import ScoreRing from './ScoreRing.astro';
 import CodeBadge from './CodeBadge.astro';
 import VerifyBadge from './VerifyBadge.astro';
-import { PARTNERS, NON_PARTNERS, offersFor, perMg, money, REL_SPONSORED, compoundShort, reportVerify, CHECKED_LABEL } from '../lib/site';
+import { PARTNERS, NON_PARTNERS, offersFor, perMg, money, REL_SPONSORED, compoundShort, reportVerify, CHECKED_LABEL, shopShort } from '../lib/site';
 interface Props {
   compound: string;
   size?: number;
@@ -51,7 +51,7 @@ const regions = ['EU', 'US'].map((r) => ({
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
                   <CodeBadge slug={p.slug} />
-                  {o.href && <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>}
+                  {o.href && <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(p.name)} <Icon name="external-link" class="w-4 h-4" /></a>}
                 </div>
               </li>
             );

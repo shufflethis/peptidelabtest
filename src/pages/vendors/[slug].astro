@@ -16,7 +16,7 @@ import { resolveVendorLink } from '../../data/affiliates';
 import {
   VENDORS_BY_SCORE, isPartner, shopHref, productHref, REL_SPONSORED, codeInfo, alternativesFor, shopPairsFor, purityRange, fillRange,
   fillPct, money, perMg, mg, compoundShort, vendorVerify, listJoin, faqSchema, abs, CHECKED_LABEL, YEAR, SITE_NAME, SITE_URL,
-  PRICE_COMPOUNDS, labKeyOf,
+  PRICE_COMPOUNDS, labKeyOf, shopShort, fitTitle, fitDesc,
 } from '../../lib/site';
 
 export function getStaticPaths() {
@@ -54,8 +54,14 @@ const reportTxt = st.opened
   : 'We found no public lab reports to open.';
 const intro = `${v.name} scores ${scoreTxt} in our desk audit of ${CHECKED_LABEL} (rank ${rank} of ${VENDORS.length} shops). ${reportTxt} Legal entity: ${v.legalEntity === 'not published' ? 'not published' : entityShort}. ${products.length ? `We recorded ${products.length} listed prices.` : 'Prices are not published publicly.'}`;
 
-const title = `${v.name} Review ${YEAR}: Lab Reports, Prices & Legitimacy Checked`;
-const description = `${v.name} audit: score ${v.overallScore.toFixed(1)}/5, ${st.opened} lab reports opened (${st.portalVerified} portal-verified), legal entity, prices per mg. Checked ${CHECKED_LABEL}.`;
+const nm = shopShort(v.name);
+const title = fitTitle(`${nm} Review: Legit? Lab Tests & Prices`, `${nm} Review: Lab Tests & Prices`, `${nm} Review`);
+const h1 = `${v.name} review ${YEAR}: lab reports, prices and legitimacy checked`;
+const description = fitDesc(
+  `${nm} scores ${v.overallScore.toFixed(1)}/5 in our audit: ${st.opened} lab reports opened, ${st.portalVerified} portal-verified, legal entity and prices per mg. See lab reports.`,
+  `${nm}: score ${v.overallScore.toFixed(1)}/5, ${st.opened} lab reports opened (${st.portalVerified} portal-verified), entity and price per mg. See lab reports.`,
+  `${nm}: score ${v.overallScore.toFixed(1)}/5, ${st.opened} lab reports, price per mg. See lab reports.`,
+);
 
 const legitAnswer = [
   `${v.name} ${v.legalEntity === 'not published' ? 'does not publish a legal entity on its site' : `names its operator as ${v.legalEntity.replace(/\.$/, '')}`}.`,
@@ -130,7 +136,7 @@ const related = [
             <VerifyBadge level={vendorVerify(v)} text={st.opened ? `${st.portalVerified} of ${st.opened} reports portal-verified` : undefined} />
             {partner ? <span class="chip bg-teal-50 text-teal-900 ring-1 ring-teal-300">Partner shop</span> : <span class="chip bg-slate-100 text-slate-700 ring-1 ring-slate-300">Not a partner</span>}
           </div>
-          <h1 class="h1 mt-4">{title}</h1>
+          <h1 class="h1 mt-4">{h1}</h1>
           <p class="lead mt-4" data-answer>{intro}</p>
           <p class="mt-4 inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="calendar" class="w-4 h-4" />Reviewed {CHECKED_LABEL} by PeptideLabIndex Editorial</p>
         </div>
@@ -146,7 +152,8 @@ const related = [
           {partner && code.kind !== 'none' && <CodeBadge slug={v.slug} onOwnPage size="md" />}
           {href ? (
             <>
-              <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary w-full">Visit {v.name} <Icon name="external-link" class="w-4 h-4" /></a>
+              <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary w-full">Visit {nm} <Icon name="external-link" class="w-4 h-4" /></a>
+              <a href="#lab-reports" class="btn-ghost w-full">See lab reports</a>
               <p class="text-sm text-slate-600">Partner link (affiliate). It does not change the score.</p>
             </>
           ) : (
@@ -311,7 +318,7 @@ const related = [
         <div class="card p-5 sm:p-6 max-w-3xl space-y-4">
           <p class="text-slate-700">{v.name} issued this reader code to {SITE_NAME}. Enter it at checkout. Our price tables show prices before the code.</p>
           <CodeBadge slug={v.slug} onOwnPage size="md" />
-          {href && <div><a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {v.name} <Icon name="external-link" class="w-4 h-4" /></a></div>}
+          {href && <div><a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {nm} <Icon name="external-link" class="w-4 h-4" /></a></div>}
         </div>
       )}
       {code.kind === 'link-only' && (
@@ -341,4 +348,15 @@ const related = [
     <RelatedLinks links={related} />
     <Disclosure />
   </div>
+  {href && (
+    <div class="sticky-cta lg:hidden" role="region" aria-label={`${nm} store link`}>
+      <div class="min-w-0 flex-1 leading-tight">
+        <div class="font-bold text-slate-900 truncate">{nm}</div>
+        {code.kind === 'code' ? (
+          <button type="button" data-copy={code.code} class="text-sm text-slate-700 underline underline-offset-2">Code <code class="font-mono font-bold text-teal-900">{code.code}</code>{code.percent ? ` for ${code.percent}%` : ''}</button>
+        ) : <div class="text-sm text-slate-600">Score {v.overallScore.toFixed(1)} / 5</div>}
+      </div>
+      <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary shrink-0">Visit {nm} <Icon name="external-link" class="w-4 h-4" /></a>
+    </div>
+  )}
 </BaseLayout>

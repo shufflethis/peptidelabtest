@@ -5,7 +5,7 @@ import ScoreRing from './ScoreRing.astro';
 import CodeBadge from './CodeBadge.astro';
 import VerifyBadge from './VerifyBadge.astro';
 import type { VendorProfile } from '../data/vendors';
-import { shopHref, REL_SPONSORED, vendorVerify, purityRange, fillRange, cheapestFor, perMg, compoundShort, isPartner } from '../lib/site';
+import { shopHref, REL_SPONSORED, vendorVerify, purityRange, fillRange, cheapestFor, perMg, compoundShort, isPartner, shopShort } from '../lib/site';
 interface Props {
   vendor: VendorProfile;
   rank?: number;
@@ -40,9 +40,9 @@ const labs = v.testingLabs.map((l) => l.replace(/\s*\(.*\)\s*$/, '')).slice(0, 3
     {partner && <CodeBadge slug={v.slug} />}
     <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
       {href ? (
-        <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit shop <Icon name="external-link" class="w-4 h-4" /></a>
+        <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(v.name)} <Icon name="external-link" class="w-4 h-4" /></a>
       ) : null}
-      <a href={`/vendors/${v.slug}/`} class={href ? 'text-link' : 'btn-primary'}>Read review</a>
+      <a href={href ? `/vendors/${v.slug}/#lab-reports` : `/vendors/${v.slug}/`} class={href ? 'text-link' : 'btn-primary'}>{href ? 'See lab reports' : 'Read review'}</a>
     </div>
     {href && <p class="text-sm text-slate-600">Partner link (affiliate). Does not change the score.</p>}
   </div>

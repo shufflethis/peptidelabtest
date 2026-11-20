@@ -5,7 +5,7 @@ import Ranking from '../../components/Ranking.astro';
 import FAQ from '../../components/FAQ.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Disclosure from '../../components/Disclosure.astro';
-import { PARTNERS, NON_PARTNERS, VENDORS_BY_SCORE, CHECKED_LABEL, YEAR, itemListSchema, faqSchema, SHOP_PAIRS } from '../../lib/site';
+import { PARTNERS, NON_PARTNERS, VENDORS_BY_SCORE, CHECKED_LABEL, YEAR, itemListSchema, faqSchema, SHOP_PAIRS, fitDesc } from '../../lib/site';
 import { VENDORS } from '../../data/vendors';
 
 const REGION = 'ALL' as 'ALL' | 'EU' | 'US';
@@ -19,9 +19,9 @@ const noReports = all.filter((v) => !v.coaStats.opened).length;
 const label = REGION === 'EU' ? 'EU' : REGION === 'US' ? 'US' : 'EU and US';
 const best = partners[0];
 
-const title = `Research Peptide Shops Ranked ${YEAR}: ${all.length} Audited`;
+const title = `Best Research Peptide Shops ${YEAR}: ${all.length} Ranked`;
 const h1 = `Research peptide shops ranked (${YEAR})`;
-const description = `${all.length} ${label} research peptide shops scored 0-5: ${opened} lab reports opened, ${portal} portal-verified. Partner ranking by audit score. Checked ${CHECKED_LABEL}.`;
+const description = fitDesc(`${all.length} ${label} research peptide shops scored 0-5: ${opened} lab reports opened, ${portal} portal-verified. Compare the ranking and see lab reports.`, `${all.length} ${label} research peptide shops scored 0-5 with ${opened} lab reports opened. Compare the ranking.`);
 const intro = `We scored ${all.length} ${label} research peptide shops on ${CHECKED_LABEL}. Across them we opened ${opened} lab reports and found ${portal} on the lab's own portal; ${noReports} ${noReports === 1 ? 'shop publishes' : 'shops publish'} no report at all. ${best ? `The highest-scoring partner shop is ${best.name} (${best.overallScore.toFixed(1)}/5).` : ''} Rankings use the audit score only.`;
 const crumbs = REGION === 'ALL'
   ? [{ name: 'Home', url: '/' }, { name: 'Shops', url: '/vendors/' }]

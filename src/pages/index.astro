@@ -7,7 +7,7 @@ import FAQ from '../components/FAQ.astro';
 import Disclosure from '../components/Disclosure.astro';
 import {
   PARTNERS, NON_PARTNERS, partnersIn, PRICE_COMPOUNDS, compoundShort, shopsCarrying, TOTALS, CHECKED_LABEL, YEAR,
-  itemListSchema, faqSchema, COMPOUND_PAIRS, pairSlug, LABS_IN_DATA, reportsByLab, SIZE_PAGES, offersFor, cheapestBy, perMg,
+  itemListSchema, faqSchema, COMPOUND_PAIRS, pairSlug, LABS_IN_DATA, reportsByLab, SIZE_PAGES, offersFor, cheapestBy, perMg, fitDesc,
 } from '../lib/site';
 
 const picker = PRICE_COMPOUNDS.map((c) => ({ slug: c, name: compoundShort(c), shops: shopsCarrying(c).length }))
@@ -17,7 +17,7 @@ const usPartners = partnersIn('US');
 const shopsWithReports = TOTALS.shopsWithReports;
 
 const title = `Research Peptide Prices & Lab Tests Compared (${YEAR})`;
-const description = `${TOTALS.shops} research peptide shops audited: ${TOTALS.reportsOpened} lab reports opened, ${TOTALS.portalVerified} verified on the lab portal, price per mg in EUR and USD.`;
+const description = fitDesc(`${TOTALS.shops} research peptide shops audited: ${TOTALS.reportsOpened} lab reports opened, ${TOTALS.portalVerified} verified on the lab portal. Compare price per mg in EUR and USD.`);
 const intro = `We audited ${TOTALS.shops} research peptide shops in the EU and US on ${CHECKED_LABEL}. We opened ${TOTALS.reportsOpened} lab reports from ${shopsWithReports} shops, found ${TOTALS.portalVerified} of them on the lab's own portal, and recorded ${TOTALS.products} listed prices as price per mg. Shops are ranked by audit score, never by commission.`;
 
 const topPairs = COMPOUND_PAIRS.slice(0, 4);

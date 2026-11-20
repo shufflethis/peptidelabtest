@@ -12,7 +12,7 @@ import Icon from '../../../components/Icon.astro';
 import type { VendorProfile } from '../../../data/vendors';
 import {
   SHOP_PAIRS, vendorBySlug, shopHref, REL_SPONSORED, fillRange, purityRange, perMg, compoundShort, faqSchema, CHECKED_LABEL, YEAR,
-  VENDORS_BY_SCORE, codeText, SUBSCORE_LABELS, shopPairsFor,
+  VENDORS_BY_SCORE, codeText, SUBSCORE_LABELS, shopPairsFor, shopShort, fitTitle, fitDesc,
 } from '../../../lib/site';
 
 export function getStaticPaths() {
@@ -43,8 +43,10 @@ const aCheaper = sameCur.filter((o) => o.a.pricePerMg! < o.b.pricePerMg!).length
 const bCheaper = sameCur.filter((o) => o.b.pricePerMg! < o.a.pricePerMg!).length;
 const subWins = (x: VendorProfile, y: VendorProfile) => SUBSCORE_LABELS.filter((s) => x.scores[s.key] > y.scores[s.key]).map((s) => s.label.toLowerCase());
 
-const title = `${A.name} vs ${B.name} (${YEAR}): Lab Reports, Prices & Scores`;
-const description = `${A.name} (${A.overallScore.toFixed(1)}/5) vs ${B.name} (${B.overallScore.toFixed(1)}/5): lab reports, portal verification, measured vs label and price per mg for ${overlap.length} shared products.`;
+const nA = shopShort(A.name);
+const nB = shopShort(B.name);
+const title = fitTitle(`${nA} vs ${nB}: Lab Reports, Prices & Scores`, `${nA} vs ${nB}: Lab Tests & Prices Compared`, `${nA} vs ${nB}: Lab Tests & Prices`);
+const description = fitDesc(`${nA} (${A.overallScore.toFixed(1)}/5) vs ${nB} (${B.overallScore.toFixed(1)}/5): lab reports, portal checks and price per mg for ${overlap.length} shared products. Compare both.`, `${nA} vs ${nB}: scores, lab reports and price per mg for ${overlap.length} shared products. Compare both shops.`);
 const verdict = leader
   ? `${leader.name} scores higher in our audit (${leader.overallScore.toFixed(1)} vs ${other.overallScore.toFixed(1)} out of 5). It leads on ${subWins(leader, other).join(', ') || 'no single part'}; ${other.name} leads on ${subWins(other, leader).join(', ') || 'none of the parts'}.`
   : `Both shops score ${A.overallScore.toFixed(1)} out of 5 in our audit.`;
@@ -100,8 +102,8 @@ const related = [
             <SubscoreBars vendor={v} compact />
             <CodeBadge slug={v.slug} />
             <div class="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2">
-              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {v.name} <Icon name="external-link" class="w-4 h-4" /></a>}
-              <a href={`/vendors/${v.slug}/`} class="text-link">Read review</a>
+              {href && <a href={href} rel={REL_SPONSORED} target="_blank" class="btn-primary">Visit {shopShort(v.name)} <Icon name="external-link" class="w-4 h-4" /></a>}
+              <a href={`/vendors/${v.slug}/#lab-reports`} class="text-link">See lab reports</a>
             </div>
           </div>
         );
