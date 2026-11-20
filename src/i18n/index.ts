@@ -12,7 +12,7 @@ export const LANGS = ['en', 'de', 'es', 'fr', 'it'] as const;
 export type Lang = (typeof LANGS)[number];
 export const OTHER_LANGS = LANGS.filter((l) => l !== 'en') as Exclude<Lang, 'en'>[];
 /** Languages that are built and linked (hreflang, switcher, sitemap). Enabled one by one once green. */
-export const LIVE_LANGS: Lang[] = ['en'];
+export const LIVE_LANGS: Lang[] = ['en', 'de'];
 export const LIVE_OTHER = LIVE_LANGS.filter((l) => l !== 'en') as Exclude<Lang, 'en'>[];
 export const LOCALE: Record<Lang, string> = { en: 'en-US', de: 'de-DE', es: 'es-ES', fr: 'fr-FR', it: 'it-IT' };
 export const OG_LOCALE: Record<Lang, string> = { en: 'en_US', de: 'de_DE', es: 'es_ES', fr: 'fr_FR', it: 'it_IT' };
@@ -52,7 +52,7 @@ export function tn(lang: Lang, key: string, n: number, vars?: Vars): string {
   if (!v || typeof v !== 'object') return key;
   const cat = n === 0 && v.zero ? 'zero' : new Intl.PluralRules(LOCALE[lang]).select(n);
   const s = v[cat] ?? v.other;
-  return fill(s, { n, ...vars });
+  return fill(s, { ...vars, n });
 }
 
 /** Array/object lookup (lists of FAQ, steps …), falling back to English. */

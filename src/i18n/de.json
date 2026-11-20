@@ -1,1 +1,1358 @@
-{}
+{
+  "common": {
+    "and": "und",
+    "or": "oder",
+    "home": "Startseite",
+    "lastChecked": "Zuletzt geprüft am {date}",
+    "na": "k. A.",
+    "notPublished": "nicht veröffentlicht",
+    "noneNamed": "keines genannt",
+    "researchCompound": "Forschungssubstanz",
+    "shops": {
+      "one": "{n} Shop",
+      "other": "{n} Shops"
+    },
+    "reportsOpened": {
+      "one": "{n} Bericht geöffnet",
+      "other": "{n} Berichte geöffnet"
+    },
+    "reports": {
+      "one": "{n} Bericht",
+      "other": "{n} Berichte"
+    },
+    "from": "ab {p}",
+    "region": "Region",
+    "compounds": {
+      "one": "{n} Substanz",
+      "other": "{n} Substanzen"
+    },
+    "listings": {
+      "one": "{n} Angebot",
+      "other": "{n} Angebote"
+    },
+    "no": "Nein",
+    "yes": "Ja"
+  },
+  "footer": {
+    "brandDesc": "Unabhängiger Vergleich von Shops für Forschungspeptide: Preise pro mg und Laborberichte, wo möglich im Portal des ausstellenden Labors geprüft. Nur für Forschungszwecke.",
+    "updated": "Daten zuletzt aktualisiert am {date}",
+    "followUs": "Folgen Sie uns",
+    "telegram": "Telegram",
+    "colPrices": "Preise vergleichen",
+    "pricesOf": "{name} Preise",
+    "allPrices": "Alle Preisvergleiche",
+    "priceIndex": "Preisindex nach Klasse",
+    "colShops": "Shops",
+    "bestShops": "Beste Shops (Ranking)",
+    "bestEu": "Beste in Europa",
+    "bestUs": "Beste in den USA",
+    "codes": "Leser-Codes",
+    "shopVsShop": "Shop gegen Shop",
+    "reportsOpened": "Von uns geöffnete Laborberichte",
+    "colLab": "Labordaten",
+    "labs": "Prüflabore",
+    "labGuide": "{name}: Leitfaden",
+    "howWeTest": "So prüfen wir",
+    "openData": "Offene Daten (CSV)",
+    "llms": "llms.txt",
+    "colGuides": "Ratgeber",
+    "compounds": "Substanzen",
+    "compareCompounds": "Substanzvergleiche",
+    "byCountry": "Regeln nach Land",
+    "research": "Ratgeber zu Laborberichten",
+    "calculator": "Konzentrationsrechner",
+    "colAbout": "Über uns",
+    "about": "Über uns & redaktionelle Standards",
+    "contact": "Kontakt",
+    "affiliate": "Affiliate-Hinweis",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "forShops": "Für Shops",
+    "legal": "Rechtliche Hinweise",
+    "ruo": "Nur für Forschungszwecke: Alle gelisteten Produkte werden als Laborreagenzien verkauft, nicht zur Anwendung an Mensch oder Tier. Keine medizinische Beratung.",
+    "affLine": "Shop-Links zu Partnershops sind Affiliate-Links (rel=\"sponsored\"). Rankings richten sich nur nach dem Audit-Score, nie nach Provision.",
+    "copyright": "© {year} {site}. Daten geprüft am {date}.",
+    "languages": "Sprachen"
+  },
+  "about": {
+    "title": "Über PeptideLabIndex: Redaktionelle Standards",
+    "description": "Wer PeptideLabIndex betreibt, wie wir Daten erheben, warum Provisionen keinen Score ändern, wie Korrekturen laufen und welche Links Affiliate-Links sind.",
+    "crumb": "Über uns",
+    "h1": "Über PeptideLabIndex und unsere redaktionellen Standards",
+    "intro": "PeptideLabIndex vergleicht Shops für Forschungspeptide anhand prüfbarer Fakten: Laborberichte, gemessener Gehalt, Prüfung im Laborportal und gelistete Preise pro mg. Die Tests schreibt die Redaktion von PeptideLabIndex. Am {date} haben wir {shops} Shops geprüft und {reports} Laborberichte geöffnet.",
+    "whoH": "Wer die Tests schreibt",
+    "whoP1": "Alle Tests, Rankings und Ratgeber werden von der Redaktion von PeptideLabIndex geschrieben und geprüft. Wir veröffentlichen unter dem Namen der Redaktion und beanspruchen keine medizinischen, juristischen oder labortechnischen Qualifikationen.",
+    "whoP2": "Wir testen keine Proben selbst. Unsere Stärke ist es, das zu lesen, was Shops und Labore veröffentlichen, und es im gleichen Format nebeneinanderzustellen.",
+    "indepH": "Unabhängigkeit: Scores hängen nie von Provisionen ab",
+    "indepP1": "Einige Shops sind Affiliate-Partner. Sie zahlen uns eine Provision, wenn jemand über unseren Link kauft. Die Score-Formel ist für jeden Shop gleich, ob Partner oder nicht.",
+    "indepP2": "Partnershops erreichen zwischen {min} und {max} von 5 Punkten. So kommt {low} auf {lowScore}, {high} auf {highScore}. Shops ohne Partnerschaft wie {np} ({npScore}) können höher liegen als manche Partner.",
+    "indepP3": "Rankings sortieren Partnershops nur nach Audit-Score. Shops ohne Partnerschaft behalten ihren Score und werden mit einem Link zu unserem Test gelistet.",
+    "dataH": "So erheben wir Daten",
+    "dataL1": "Schreibtisch-Audit am {date} öffentlicher Shopseiten: Produkte, Preise, Versand, AGB und Impressum.",
+    "dataL2": "{reports} Laborberichte geöffnet; Labor, Testdatum, Reinheit, Etikettangabe in mg und gemessene mg notiert.",
+    "dataL3": "Berichte im Portal des Prüflabors nachgeschlagen, wo es eines gibt: {portal} dort gefunden.",
+    "dataL4": "Keine Testbestellungen und keine eigenen Labortests. Ein Schreibtisch-Audit kann nicht bestätigen, was in einer einzelnen Sendung steckt.",
+    "corrH": "Korrekturen",
+    "corrP": "Shops und Leser können neue Laborberichte schicken oder auf Fehler hinweisen, über unsere Kontaktseite. Wir prüfen jeden Bericht auf der Website des Labors, bevor wir ihn verwenden, und jede Seite zeigt das Datum der letzten Prüfung.",
+    "coiH": "Interessenkonflikte",
+    "coiP": "Diese Shops sind Affiliate-Partner und erhalten einen Shop-Link (markiert mit rel=\"sponsored\"): {list}. Alle anderen geprüften Shops erhalten keinen ausgehenden Link.",
+    "links": "Weiterlesen"
+  },
+  "contact": {
+    "title": "Kontakt PeptideLabIndex: Korrekturen & Shop-Updates",
+    "description": "Die Redaktion von PeptideLabIndex per E-Mail erreichen: Korrekturen, neue Laborberichte für das nächste Audit oder Fragen zur Partnerschaft.",
+    "crumb": "Kontakt",
+    "h1": "Kontakt",
+    "intro": "Am schnellsten erreichen Sie die Redaktion von PeptideLabIndex per E-Mail.",
+    "emailLabel": "E-Mail",
+    "whatH": "Was Sie uns schicken können",
+    "l1": "Korrekturen: die Seitenadresse und was falsch ist, möglichst mit Quelle.",
+    "l2": "Neue Laborberichte eines Shops: den Link zum Bericht und, falls vorhanden, den Schlüssel für das Laborportal.",
+    "l3": "Fragen von Shops und Partnern: siehe auch unsere Seite für Shops.",
+    "note": "Fragen zur Anwendung an Mensch oder Tier beantworten wir nicht, und wir geben keine medizinische Beratung."
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung | PeptideLabIndex",
+    "description": "Datenschutz bei PeptideLabIndex: Statistik ohne Cookies und ohne personenbezogene Daten, Affiliate-Links mit Cookies der Shops, Kontakt per E-Mail.",
+    "crumb": "Datenschutz",
+    "h1": "Datenschutzerklärung",
+    "intro": "Kurz gesagt: Wir setzen keine Cookies und erheben auf dieser Website keine personenbezogenen Daten.",
+    "anaH": "Statistik",
+    "anaP": "Seitenaufrufe zählen wir mit einer selbst gehosteten Instanz von Plausible Analytics. Sie setzt keine Cookies, speichert keine IP-Adressen und erstellt keine Nutzerprofile. Wir sehen nur Summen wie Seitenaufrufe und verweisende Websites.",
+    "affH": "Affiliate-Links",
+    "affP": "Mit \"Besuchen\" markierte Links führen zu Partnershops. Nach einem Klick kann die Website des Shops ein Cookie setzen, um festzuhalten, dass Sie von uns kommen. Dieses Cookie setzt der Shop nach seiner eigenen Datenschutzerklärung, nicht diese Website.",
+    "toolH": "Rechner",
+    "toolP": "Der Konzentrationsrechner läuft in Ihrem Browser. Eingaben werden nicht an uns gesendet.",
+    "mailH": "E-Mail",
+    "mailP": "Wenn Sie uns schreiben, nutzen wir Ihre Adresse und Nachricht nur für die Antwort. Wir nehmen sie in keinen Verteiler auf.",
+    "contactH": "Fragen",
+    "contactP": "Fragen zum Datenschutz: {email}"
+  },
+  "terms": {
+    "title": "Nutzungsbedingungen | PeptideLabIndex",
+    "description": "Nutzungsbedingungen von PeptideLabIndex: nur für Forschungszwecke, keine medizinische Beratung, keine Gewähr für Shopdaten, Datum der letzten Prüfung.",
+    "crumb": "Nutzungsbedingungen",
+    "h1": "Nutzungsbedingungen",
+    "intro": "Mit der Nutzung dieser Website akzeptieren Sie diese Bedingungen.",
+    "ruoH": "Nur für Forschungszwecke",
+    "ruoP": "Die hier verglichenen Produkte verkaufen die Shops als Laborreagenzien nur für Forschungszwecke. Sie sind nicht zur Anwendung an Mensch oder Tier zugelassen. Wir geben keine Informationen zu einer solchen Anwendung.",
+    "medH": "Keine medizinische Beratung",
+    "medP": "Nichts auf dieser Website ist medizinische, rechtliche oder sonstige fachliche Beratung.",
+    "dataH": "Keine Gewähr für Shopdaten",
+    "dataP": "Preise, Lagerbestand, Laborberichte und Shopangaben stammen aus öffentlichen Quellen und wurden am {date} gelesen. Shops ändern sie oft. Prüfen Sie Shop und Laborportal, bevor Sie sich auf eine Zahl verlassen. Für Produkte, Preise oder Leistungen eines Shops übernehmen wir keine Verantwortung.",
+    "linkH": "Links",
+    "linkP": "Links zu Partnershops sind Affiliate-Links. Adressen von Laborberichten stehen als reiner Text da; geben Sie sie selbst im Browser ein.",
+    "reuseH": "Weiterverwendung unserer Daten",
+    "reuseP": "Der offene Datensatz darf unter CC BY 4.0 mit Nennung von PeptideLabIndex weiterverwendet werden."
+  },
+  "affiliate": {
+    "title": "Affiliate-Hinweis: So finanziert sich PeptideLabIndex",
+    "description": "So finanziert sich PeptideLabIndex: Affiliate-Links zu Partnershops (rel=sponsored), Leser-Codes und warum Provisionen nie einen Score ändern.",
+    "crumb": "Affiliate-Hinweis",
+    "h1": "Affiliate-Hinweis",
+    "intro": "PeptideLabIndex ist kostenlos. Wir verdienen Geld über Affiliate-Links zu einigen Shops. Diese Seite erklärt, wie das funktioniert und was es nicht verändert.",
+    "howH": "Wie wir verdienen",
+    "howP": "Mit \"Besuchen\" markierte Links führen zu Partnershops und tragen rel=\"sponsored\". Wenn Sie über einen solchen Link kaufen oder einen Leser-Code nutzen, den ein Partner an uns ausgegeben hat, erhalten wir eventuell eine Provision. Für Sie entstehen keine Mehrkosten.",
+    "partnersH": "Aktuelle Partnershops",
+    "partnersP": "Derzeit sind {n} geprüfte Shops Partner, hier nach Audit-Score sortiert:",
+    "notH": "Was Provisionen nicht ändern",
+    "notL1": "Die Score-Formel ist für jeden Shop gleich.",
+    "notL2": "Rankings sortieren Partnershops nur nach Audit-Score, nie nach Provision.",
+    "notL3": "Schwächen bleiben auf der Seite, egal ob ein Shop Partner ist oder nicht.",
+    "notL4": "Shops ohne Partnerschaft behalten ihren Score und werden mit einem Link zu unserem Test gelistet, ohne ausgehenden Link."
+  },
+  "seo": {
+    "pad1": " Daten geprüft am {date}.",
+    "pad2": " Nur für Forschungszwecke.",
+    "pad3": " Unabhängiges Audit."
+  },
+  "layout": {
+    "orgDesc": "Unabhängiges Schreibtisch-Audit von Shops für Forschungspeptide in der EU und den USA: geöffnete Laborberichte, gemessener Gehalt gegenüber Etikett, Prüfung im Laborportal und gelistete Preise pro mg.",
+    "copied": "Kopiert",
+    "skip": "Zum Inhalt springen",
+    "topPre": "Schreibtisch-Audit öffentlicher Shopseiten und Laborportale, zuletzt geprüft am",
+    "topPost": "Produkte nur für Forschungszwecke; keine Anwendungs- oder Gesundheitsangaben.",
+    "howWeScore": "So bewerten wir",
+    "homeAria": "{site} Startseite",
+    "tagline": "Preise & Laborberichte im Vergleich",
+    "mainNav": "Hauptmenü",
+    "language": "Sprache",
+    "cta": "Beste geprüfte Shops",
+    "openMenu": "Menü öffnen"
+  },
+  "nav": {
+    "prices": "Preise vergleichen",
+    "shops": "Shops",
+    "reports": "Laborberichte",
+    "compounds": "Substanzen",
+    "method": "Methodik"
+  },
+  "ships": {
+    "worldwide": "weltweit",
+    "euWide": "EU-weit",
+    "usOnly": "nur USA",
+    "countries": "{n} Länder ({list} …)"
+  },
+  "panels": {
+    "Endotoxin": "Endotoxin",
+    "HPLC purity": "HPLC-Reinheit",
+    "Heavy metals": "Schwermetalle",
+    "Identity": "Identität",
+    "LC-MS identity": "LC-MS-Identität",
+    "Measured mg": "Gemessene mg",
+    "Sterility": "Sterilität"
+  },
+  "coaAccess": {
+    "None found": "Keine gefunden",
+    "On request": "Auf Anfrage",
+    "Public lab portal keys": "Öffentliche Schlüssel für das Laborportal",
+    "Reports on product pages": "Berichte auf den Produktseiten"
+  },
+  "payments": {
+    "Bank transfer": "Banküberweisung",
+    "Bank Transfer": "Banküberweisung",
+    "Bank transfer (prepayment)": "Banküberweisung (Vorkasse)",
+    "SEPA bank transfer": "SEPA-Überweisung",
+    "SEPA bank transfer (-2%)": "SEPA-Überweisung (-2%)",
+    "Credit cards": "Kreditkarten",
+    "Debit cards": "Debitkarten",
+    "Credit/debit card online": "Kredit-/Debitkarte online",
+    "Crypto": "Krypto",
+    "Cryptocurrencies": "Kryptowährungen",
+    "Cryptocurrency (Bitcoin)": "Kryptowährung (Bitcoin)",
+    "Cryptocurrency (-5%)": "Kryptowährung (-5%)",
+    "Cash on delivery": "Nachnahme",
+    "Online banking (banner)": "Online-Banking (Banner)",
+    "Paysera (instant SEPA)": "Paysera (SEPA-Echtzeit)",
+    "PayPal (new customers only)": "PayPal (nur Neukunden)",
+    "Zelle (5% off)": "Zelle (5% Rabatt)"
+  },
+  "sub": {
+    "labVerification": "Laborprüfung",
+    "fillAccuracy": "Füllgenauigkeit",
+    "panelDepth": "Testumfang",
+    "entityTransparency": "Transparenz zum Betreiber",
+    "dispatchReliability": "Versandangaben",
+    "valuePerMg": "Preis pro mg"
+  },
+  "calc": {
+    "h": "Stammkonzentration (mg/mL)",
+    "intro": "Konzentration = Masse im Vial (mg) geteilt durch das zugegebene Volumen Lösungsmittel (mL). Nur für In-vitro-Laborarbeit.",
+    "mode": "Modus",
+    "one": "Eine Substanz",
+    "two": "Zwei Substanzen",
+    "l1": "1. Masse laut Vial-Etikett (mg)",
+    "labelMass": "Etikettmasse (mg)",
+    "coa": "Gemessene mg laut Laborbericht (optional)",
+    "eg": "z. B. 9,8",
+    "l1b": "1b. Zweite Substanz im selben Vial (mg)",
+    "l2": "2. Zugegebenes Volumen Lösungsmittel (mL)",
+    "result": "Stammkonzentration",
+    "massUsed": "Verwendete Masse",
+    "second": "Zweite Substanz",
+    "note": "Reine Rechnung. Dieses Werkzeug gibt keine Anwendungs- oder Verabreichungshinweise.",
+    "basisReport": "Laborbericht",
+    "basisLabel": "Etikett",
+    "ofLabel": "der Etikettangabe",
+    "notEntered": "nicht eingegeben"
+  },
+  "c": {
+    "breadcrumb": "Brotkrümelnavigation",
+    "code": "Code",
+    "copy": "Kopieren",
+    "copyCode": "Code {code} kopieren",
+    "forPct": "für {n} %",
+    "codeNote": "{n} % Rabatt, wie vom Shop ausgegeben",
+    "codeOnReview": "Leser-Code auf der Testseite",
+    "codeOnReviewShort": "Code auf der Testseite",
+    "noCode": "Kein Code",
+    "linkNoCode": "Shop-Link, kein Code",
+    "noReaderCode": "Kein Leser-Code",
+    "compareBoxTitle": "Vergleich: geprüfte Shops mit Shop-Link",
+    "compareBoxNote": "Partnerlinks (Affiliate). Reihenfolge = Audit-Score.",
+    "portalOf": "{p} von {o} Berichten im Portal bestätigt",
+    "xOfY": "{x} von {y}",
+    "measuredVsLabel": "Gemessen vs. Etikett",
+    "visit": "{shop} besuchen",
+    "seeReports": "Laborberichte ansehen",
+    "readReview": "Zum Test",
+    "disclosureLabel": "Hinweis:",
+    "disclosure": "Mit \"Besuchen\" markierte Links führen zu Partnershops und sind Affiliate-Links. Wir erhalten eventuell eine Provision, für Sie ohne Mehrkosten. Rankings richten sich nur nach dem veröffentlichten Audit-Score, nie nach Provision. Alle Produkte werden als Laborreagenzien nur für Forschungszwecke (RUO) verkauft. Nichts auf dieser Website ist ein Rat zur Anwendung an Mensch oder Tier.",
+    "faq": "Häufige Fragen",
+    "related": "Verwandte Seiten",
+    "fillAria": "Gemessener Gehalt in Prozent der Etikettangabe, {n} Berichte",
+    "fillRowAria": "{m} von {l} mg, {p}",
+    "portalVerified": "im Portal bestätigt",
+    "shopHosted": "vom Shop bereitgestellt",
+    "fillCaption": "Jede Zeile ist ein geöffneter Laborbericht: gemessene mg geteilt durch die mg auf dem Etikett. Gestrichelte Linie = 100 % der Etikettangabe. Schattierter Bereich = 90 bis 110 %.",
+    "fillLegend": "Orange Werte liegen außerhalb dieses Bereichs. Gefüllte Markierung = im Laborportal bestätigt, hohle Markierung = Bericht nur beim Shop.",
+    "barsAria": "Preis pro mg in {cur}, günstigster zuerst",
+    "legendPartner": "Partnershop (mit Shop-Link)",
+    "legendOther": "Weiterer geprüfter Shop",
+    "barsNote": "Preis pro mg = gelisteter Preis (Angebotspreis, falls angezeigt) geteilt durch die mg auf dem Etikett. Nur {cur}, ohne Umrechnung.",
+    "sectionEUR": {
+      "one": "EU-Shops, Preise in EUR: {label} bei {n} Shop",
+      "other": "EU-Shops, Preise in EUR: {label} bei {n} Shops"
+    },
+    "sectionUSD": {
+      "one": "Preise in USD (meist US-Shops): {label} bei {n} Shop",
+      "other": "Preise in USD (meist US-Shops): {label} bei {n} Shops"
+    },
+    "sectionOther": {
+      "one": "Preise in {cur}: {label} bei {n} Shop",
+      "other": "Preise in {cur}: {label} bei {n} Shops"
+    },
+    "sectionIntro": "Partnershops stehen oben, danach weitere geprüfte Shops (grau, ohne Shop-Link). Zum Sortieren auf einen Spaltenkopf tippen. Auf dem Handy zeigt die erste Spalte den Preis pro mg; die übrigen Spalten seitlich wischen.",
+    "barsTitle": "Günstigster Preis pro mg je Shop ({cur})",
+    "tableCaption": "{label}: Preise in {cur}",
+    "pt": {
+      "shop": "Shop",
+      "product": "Produkt",
+      "productVial": "Produkt (Vial in mg)",
+      "price": "Preis ({sym})",
+      "perMg": "Preis pro mg ({sym})",
+      "report": "Laborbericht zu dieser Substanz",
+      "score": "Score (0-5)",
+      "codeStore": "Code und Shop",
+      "partner": "Partner",
+      "noLink": "kein Shop-Link",
+      "outOfStock": "nicht vorrätig",
+      "was": "vorher",
+      "yesPortal": "Ja, im Portal bestätigt",
+      "yesShop": "Ja, vom Shop bereitgestellt",
+      "mOfL": "{m} von {l} mg ({p})",
+      "mgNotStated": "mg nicht angegeben",
+      "purity": "Reinheit {p}",
+      "noReport": "Kein Bericht geöffnet"
+    },
+    "rank": "Platz {n}",
+    "labs": "Labore",
+    "hplcPurity": "HPLC-Reinheit",
+    "purity": "Reinheit",
+    "priceExample": "Preisbeispiel",
+    "pricesNotPublished": "Preise nicht veröffentlicht",
+    "partnerNote": "Partnerlink (Affiliate). Ändert den Score nicht.",
+    "weight": "Gewicht {n} %",
+    "notAssessable": "nicht bewertbar",
+    "scoreAria": "{label} {score} von 5",
+    "auditScore": "Audit-Score",
+    "outOf5": "{score} von 5",
+    "scoreShort": "Score {s}",
+    "nonePublished": "keine veröffentlicht",
+    "ts": {
+      "shops": "Shops geprüft",
+      "reports": "Laborberichte geöffnet",
+      "portal": "im Laborportal bestätigt",
+      "prices": "Preise erfasst",
+      "checked": "zuletzt geprüft"
+    },
+    "vb": {
+      "portal": "Im Portal bestätigt",
+      "vendor": "Bericht nur beim Shop",
+      "none": "Kein öffentlicher Bericht"
+    },
+    "rk": {
+      "partnerTitle": "Ranking: geprüfte Shops mit Shop-Link",
+      "otherTitle": "Weitere geprüfte Shops",
+      "partnerIntro": "Nur Partnershops, sortiert nach Audit-Score. Provisionen haben keinen Einfluss auf die Reihenfolge.",
+      "visitNote": "Die \"Besuchen\"-Buttons sind Partnerlinks (Affiliate).",
+      "otherIntro": "Gleiches Audit, gleiche Score-Formel. Diese Shops sind keine Partner, daher verlinken wir nur auf unseren Test.",
+      "portalCol": "Berichte im Portal bestätigt",
+      "verdict": "Fazit"
+    },
+    "euShops": "EU-Shops (Preise in EUR)",
+    "usShops": "US-Shops (Preise in USD)",
+    "wtb": {
+      "intro": "Partnershops haben einen Shop-Link und sind nach Audit-Score sortiert, nie nach Provision. Weitere geprüfte Shops, die {what} führen, verlinken nur auf unseren Test.",
+      "none": "Kein Partnershop in dieser Region führt {what}.",
+      "repPortal": "{c}-Bericht im Portal bestätigt",
+      "repShop": "{c}-Bericht nur beim Shop",
+      "repNone": "Kein {c}-Bericht geöffnet",
+      "othersEU": "Weitere geprüfte EU-Shops mit {c}:",
+      "othersUS": "Weitere geprüfte US-Shops mit {c}:",
+      "note": "Shop-Links sind Partnerlinks (Affiliate). Preise wie am {date} gelistet, vor jedem Code."
+    }
+  },
+  "home": {
+    "title": [
+      "Forschungspeptide kaufen: Preisvergleich & Laborberichte {year}",
+      "Forschungspeptide: Preisvergleich & Laborberichte {year}"
+    ],
+    "h1": "Forschungspeptide im Preisvergleich: Preise pro mg und Laborberichte ({year})",
+    "description": [
+      "{shops} Shops für Forschungspeptide geprüft: {reports} Laborberichte geöffnet, {portal} im Laborportal bestätigt. Preise pro mg in EUR und USD vergleichen."
+    ],
+    "intro": "Wir haben am {date} {shops} Shops für Forschungspeptide in der EU und den USA geprüft. Wir haben {reports} Laborberichte von {withReports} Shops geöffnet, {portal} davon im Portal des Labors gefunden und {products} gelistete Preise als Preis pro mg erfasst. Die Rangfolge richtet sich nach dem Audit-Score, nie nach Provision.",
+    "eyebrow": "Unabhängiges Schreibtisch-Audit, {date}",
+    "pickerH": "Preise für eine Substanz vergleichen",
+    "pickerP": "Wählen Sie eine Substanz: Sie sehen jeden Shop, den Preis pro mg und ob wir einen Laborbericht geöffnet haben.",
+    "allPrices": "Alle Preisvergleiche",
+    "fullRanking": "Zum vollständigen Shop-Ranking",
+    "bestH": "Beste geprüfte Shops mit Shop-Link",
+    "bestP": "Das sind unsere Partnershops, je Region nach Audit-Score sortiert. Jeder Shop wird mit derselben Formel bewertet. Provisionen spielen für die Reihenfolge keine Rolle.",
+    "howH": "So prüfen wir",
+    "howP": "Dies ist ein Schreibtisch-Audit öffentlicher Shopseiten und Laborportale. Testbestellungen gab es nicht. Jede Zahl auf dieser Website stammt aus einem Bericht oder einer Preisseite, die wir am {date} geöffnet haben.",
+    "step": "Schritt {n}",
+    "s1t": "Wir öffnen die Laborberichte",
+    "s1p": "Für jeden Shop öffnen wir die veröffentlichten Laborberichte und notieren Labor, Testdatum, Reinheit und gemessene mg.",
+    "s2t": "Wir prüfen das Laborportal",
+    "s2p": "Wo das Labor eine Abfrage anbietet, prüfen wir, ob der Bericht auf der Website des Labors existiert. Das heißt „im Portal bestätigt“.",
+    "s3t": "Wir vergleichen gemessen und Etikett",
+    "s3p": "Gemessene mg geteilt durch die mg auf dem Etikett. 100 % heißt: Das Vial enthält, was auf dem Etikett steht.",
+    "s4t": "Wir erfassen Preise pro mg",
+    "s4p": "Preis pro mg = gelisteter Vial-Preis geteilt durch die mg auf dem Etikett. EUR und USD bleiben getrennt.",
+    "readMethod": "Zur vollständigen Methodik",
+    "otherP": "Diese Shops werden mit derselben Methode bewertet. Sie sind keine Partner, daher verlinken wir nur auf unseren Test, nicht auf den Shop.",
+    "sizesH": "Beliebte Vial-Größen",
+    "allSizes": "Alle Vial-Größen",
+    "pairSub": "Markt, Preise und Laborberichte im direkten Vergleich",
+    "allPairs": "Alle Vergleiche",
+    "allLabs": "Alle Labore",
+    "itemList": "Beste geprüfte Shops für Forschungspeptide (Partnershops nach Audit-Score)",
+    "faqs": [
+      {
+        "q": "Wie bewerten Sie Shops für Forschungspeptide?",
+        "a": "Jeder Shop erhält einen Audit-Score von 0 bis 5 aus sechs Teilen: Laborprüfung (30 %), Füllgenauigkeit (20 %), Testumfang (20 %), Transparenz zum Betreiber (15 %), Versandangaben (10 %) und Preis pro mg (5 %). Rankings auf dieser Website nutzen nur diesen Score, nie die Provision."
+      },
+      {
+        "q": "Was bedeutet „im Portal bestätigt“?",
+        "a": "Der Laborbericht war auf der Website des Prüflabors selbst auffindbar, nicht nur als Datei auf der Shopseite. {portal} der {reports} von uns geöffneten Berichte waren im Portal bestätigt."
+      },
+      {
+        "q": "Warum haben manche Shops keinen „Besuchen“-Button?",
+        "a": "Nur Partnershops erhalten einen ausgehenden Shop-Link (einen Affiliate-Link). Andere geprüfte Shops werden trotzdem bewertet und gelistet, mit einem Link zu unserem Test."
+      },
+      {
+        "q": "Geben Sie Hinweise zur Anwendung oder Gesundheit?",
+        "a": "Nein. Alle gelisteten Produkte werden als Laborreagenzien nur für Forschungszwecke verkauft. Wir vergleichen ausschließlich Laborberichte, gelistete Preise und die Transparenz der Shops."
+      }
+    ]
+  },
+  "pi": {
+    "title": [
+      "Forschungspeptide Preisvergleich {year}: Preis pro mg",
+      "Forschungspeptide: Preise pro mg {year}"
+    ],
+    "h1": "Preisvergleich für Forschungspeptide {year}",
+    "description": [
+      "Preis pro mg für {n} Forschungssubstanzen bei {shops} geprüften Shops, EUR und USD getrennt, mit Laborberichten. Preise je Substanz vergleichen."
+    ],
+    "intro": "Wir haben am {date} {products} gelistete Preise für {n} Forschungssubstanzen bei {shops} geprüften Shops in der EU und den USA erfasst. Jede Substanzseite trennt EUR- und USD-Preise, zeigt den Preis pro mg je Vial-Größe und markiert, welche Shops einen von uns geöffneten Laborbericht veröffentlicht haben (insgesamt {reports} Berichte).",
+    "crumb": "Preise",
+    "eyebrow": "{n} Substanzen · {sizes} Seiten nach Vial-Größe",
+    "pick": "Substanz wählen",
+    "lowestH": "Günstigster Preis pro mg je Substanz",
+    "colCompound": "Substanz",
+    "colShops": "Shops",
+    "colListings": "Angebote",
+    "colSizes": "Vial-Größen",
+    "colLowest": "Günstigster Preis pro mg ({sym})",
+    "colReports": "Berichte geöffnet",
+    "tableNote": "Günstigster gelisteter Preis pro mg über alle Vial-Größen. Preis pro mg = Vial-Preis geteilt durch die mg auf dem Etikett. Größere Vials sind pro mg meist günstiger. Für die vollständigen EUR- und USD-Tabellen eine Substanz öffnen.",
+    "sizesH": "Preise nach Vial-Größe",
+    "sizesP": "Kombinationen aus Substanz und Vial-Größe, die mindestens drei geprüfte Shops führen. Die Zahl ist die Anzahl der Shops.",
+    "linkIndex": "Preisindex nach Substanzklasse",
+    "itemList": "Preisvergleiche für Forschungssubstanzen",
+    "itemName": "{c} Preisvergleich",
+    "faqs": [
+      {
+        "q": "Wie wird der Preis pro mg berechnet?",
+        "a": "Gelisteter Preis (der Angebotspreis, wenn ein Shop einen zeigt) geteilt durch die mg auf dem Etikett dieses Vials. Rabattcodes werden nicht abgezogen, Währungen nicht umgerechnet."
+      },
+      {
+        "q": "Warum werden EUR- und USD-Preise nicht direkt verglichen?",
+        "a": "Shops listen Preise in ihrer eigenen Währung. Wir zeigen EUR und USD in getrennten Tabellen und Diagrammen statt umzurechnen, damit jede Zahl dem Shop-Preis entspricht."
+      },
+      {
+        "q": "Wie aktuell sind die Preise?",
+        "a": "Alle Preise wurden am {date} von öffentlichen Shopseiten oder Shop-Schnittstellen gelesen. Shops ändern Preise oft; prüfen Sie den Shop vor der Bestellung."
+      }
+    ]
+  },
+  "pc": {
+    "title": [
+      "{c} kaufen: Preisvergleich pro mg, {n} Shops",
+      "{c} Preisvergleich: {n} Shops pro mg",
+      "{c} Preisvergleich ({n} Shops)"
+    ],
+    "h1": "{c} Preisvergleich {year}: {n} Shops, Preis pro mg und Laborberichte",
+    "description": [
+      "{c} kaufen ab {from} bei {n} geprüften Shops. {nl} Angebote, Vial-Größen und geöffnete Laborberichte im Preisvergleich.",
+      "{c}: {nl} Angebote bei {n} geprüften Shops, Preis pro mg in EUR und USD und geöffnete Laborberichte. Vor dem Kauf Preise vergleichen.",
+      "{c}: {nl} Angebote bei {n} Shops mit Laborberichten. Preise vergleichen."
+    ],
+    "vialSizes": {
+      "one": "{n} Vial-Größe",
+      "other": "{n} Vial-Größen"
+    },
+    "labReports": {
+      "one": "{n} Laborbericht",
+      "other": "{n} Laborberichte"
+    },
+    "cheapIn": "{p} ({shop}, {mg}) in {cur}",
+    "intro1": "{c} führen {n} der {total} von uns geprüften Shops ({listings}, {sizes}).",
+    "intro2": "Günstigster gelisteter Preis pro mg am {date}: {prices}.",
+    "intro3": "Wir haben {reports} zu {c} von {repShops} geöffnet.",
+    "intro3fill": "Wir haben {reports} zu {c} von {repShops} geöffnet; der gemessene Gehalt lag bei {range} der Etikettangabe.",
+    "euShops": {
+      "one": "{n} EU-Shop",
+      "other": "{n} EU-Shops"
+    },
+    "usShops": {
+      "one": "{n} US-Shop",
+      "other": "{n} US-Shops"
+    },
+    "fq1": "Wo kann man {c} für die Forschung kaufen?",
+    "fa1": "{n} geprüfte Shops führen {c}: {euShops} und {usShops}.",
+    "fa1p": "Shops mit Shop-Link auf dieser Website, nach Audit-Score: {list}.",
+    "fa1none": "Keiner davon ist ein Partnershop mit Shop-Link.",
+    "fa1end": "Die Tabellen zeigen jedes Angebot mit Preis pro mg und Status des Laborberichts.",
+    "fq2": "Wo ist {c} pro mg am günstigsten?",
+    "fa2": "Günstigster gelisteter Preis pro mg am {date}: {prices}. Grundlage ist der gelistete Preis des Shops (Angebotspreis, falls angezeigt) geteilt durch die mg auf dem Etikett, ohne Rabattcodes.",
+    "fq3": "Welche Shops haben einen Laborbericht zu {c} veröffentlicht?",
+    "fa3": "Wir haben {nrep} Berichte zu {c} von {list} geöffnet. {portal} davon waren im Portal des Labors bestätigt",
+    "fa3fill": "; der gemessene Gehalt lag bei {range} der Etikettangabe",
+    "fa3none": "Wir haben bei keinem geprüften Shop einen Laborbericht zu {c} geöffnet.",
+    "fq4": "Welche Vial-Größen von {c} gibt es?",
+    "fa4": "Geprüfte Shops führen {c} in Vials mit {list}.",
+    "fa4p": "Größen, die mindestens drei Shops führen, haben eine eigene Vergleichsseite: {list}.",
+    "fq5": "Werden Preise zwischen Euro und Dollar umgerechnet?",
+    "fa5": "Nein. EUR- und USD-Preise stehen in getrennten Tabellen, genau wie vom Shop gelistet, ohne Umrechnung und ohne Rabattcode.",
+    "fq6": "Wird {c} zur Anwendung am Menschen verkauft?",
+    "fa6": "Nein. Die gelisteten Shops verkaufen {c} als Laborreagenz nur für Forschungszwecke (RUO). Diese Seite vergleicht nur Angebote und Laborberichte und enthält keine Angaben zur Anwendung an Mensch oder Tier.",
+    "itemList": "Shops mit {c}",
+    "relFacts": "{c}: Fakten zur Substanz",
+    "relSize": "{c} {mg}: Preise",
+    "relPair": "Markt- und Laborberichtsvergleich",
+    "relReview": "{shop}: Test & Erfahrungen",
+    "statShops": "Shops (EU / US)",
+    "statLowest": "Günstigster Preis pro mg ({cur})",
+    "statReports": "Laborberichte geöffnet",
+    "nPortal": "{n} im Portal bestätigt",
+    "bySize": "Preise nach Vial-Größe:",
+    "wtbH": "{c} für die Forschung kaufen: {n} geprüfte Shops im Vergleich",
+    "repH": "{c} Laborberichte: gemessen vs. Etikett",
+    "repP": "{reports} geöffnet von {repShops}; {portal} im Laborportal bestätigt. Adressen und IDs der Berichte stehen unter",
+    "chartTitle": "{c}: gemessener Gehalt in % der Etikettangabe",
+    "about": "Über {name}",
+    "factsPage": "Zur Faktenseite der Substanz"
+  },
+  "ps": {
+    "title": [
+      "{c} {size}mg kaufen: Preise & Laborberichte {year}",
+      "{c} {size}mg: Preisvergleich & Laborberichte",
+      "{c} {size}mg Preisvergleich"
+    ],
+    "h1": "{c} {mg}: Preise bei {n} Shops und Laborberichte ({year})",
+    "description": [
+      "{c} {mg} bei {n} geprüften Shops ab {from}. Preise, Preis pro mg und geöffnete Laborberichte im Preisvergleich.",
+      "{c} {mg}: Vial-Preise bei {n} geprüften Shops, EUR und USD getrennt, mit Preis pro mg und Laborberichten. Preise vergleichen.",
+      "{c} {mg}: Preise bei {n} Shops mit Laborberichten. Preise vergleichen."
+    ],
+    "vialAt": "{p} pro Vial bei {shop} ({cur})",
+    "intro1": "{n} geprüfte Shops führen {c} als Vial mit {mg} ({eu} EU, {us} US).",
+    "intro2": "Günstigster gelisteter Preis am {date}: {lows}.",
+    "intro3": "Für diese Größe haben wir {reports} geöffnet; der gemessene Gehalt lag bei {range} der Etikettangabe.",
+    "intro3none": "Für {c} {mg} haben wir keinen Laborbericht geöffnet; Berichte zu anderen Größen stehen auf der {c}-Hauptseite.",
+    "median": "Median {p} über {n} Angebote in {cur}",
+    "fq1": "Was kostet ein Vial {c} {mg}?",
+    "fa1": "Gelistete Preise am {date}: {medians}. Am günstigsten: {lows}. Preise ohne Rabattcodes und ohne Umrechnung.",
+    "fq2": "Wo kann man {c} {mg} für die Forschung kaufen?",
+    "fa2": "{n} geprüfte Shops führen es.",
+    "fa2p": "Shops mit Shop-Link, nach Audit-Score: {list}.",
+    "fq3": "Gibt es einen Laborbericht zu {c} {mg}?",
+    "fa3": "Ja. Für diese Größe haben wir {reports} geöffnet ({portal} im Laborportal bestätigt), von {list}.",
+    "fa3none": "Wir haben keinen Bericht zu {c} {mg} geöffnet. {nall} Berichte zu {c} in anderen Vial-Größen stehen auf der {c}-Preisseite.",
+    "itemList": "Shops mit {c} {mg}",
+    "relAll": "Alle Größen von {c}",
+    "relAllSub": "Vollständiger Preisvergleich",
+    "eyebrow": "{c} · Vial mit {mg}",
+    "statReports": "Laborberichte zu {mg} geöffnet",
+    "wtbH": "{c} {mg} kaufen: Shops im Vergleich",
+    "repH": "{c} {mg}: Laborberichte",
+    "chartTitle": "{c} {mg}: gemessener Gehalt in % der Etikettangabe"
+  },
+  "rank": {
+    "label_all": "EU- und US-",
+    "label_eu": "EU-",
+    "label_us": "US-",
+    "title_all": [
+      "Shops für Forschungspeptide {year}: {n} im Test",
+      "Peptid-Shops im Test {year}: {n} Shops"
+    ],
+    "title_eu": [
+      "Beste EU-Peptid-Shops {year}: {n} Shops im Test"
+    ],
+    "title_us": [
+      "Beste US-Peptid-Shops {year}: {n} Shops im Test"
+    ],
+    "h1_all": "Shops für Forschungspeptide im Ranking ({year})",
+    "h1_eu": "Beste EU-Shops für Forschungspeptide ({year})",
+    "h1_us": "Beste US-Shops für Forschungspeptide ({year})",
+    "description": [
+      "{n} {label}Shops für Forschungspeptide mit Score von 0 bis 5: {opened} Laborberichte geöffnet, {portal} im Portal bestätigt. Ranking vergleichen.",
+      "{n} {label}Shops für Forschungspeptide im Test mit {opened} geöffneten Laborberichten. Ranking vergleichen."
+    ],
+    "intro1": "Wir haben am {date} {n} {label}Shops für Forschungspeptide bewertet. Insgesamt haben wir {opened} Laborberichte geöffnet und {portal} davon im Portal des Labors gefunden.",
+    "noReports": {
+      "one": "{n} Shop veröffentlicht gar keinen Bericht.",
+      "other": "{n} Shops veröffentlichen gar keinen Bericht."
+    },
+    "intro2": "Der Partnershop mit dem höchsten Score ist {best} ({bestScore}/5).",
+    "intro3": "Rankings nutzen nur den Audit-Score.",
+    "crumbRegion": "{label}Shops",
+    "fq1": "Welcher {label}Shop für Forschungspeptide ist {year} der beste?",
+    "fa1": "Unter den Partnershops mit Shop-Link hat {best} den höchsten Audit-Score ({bestScore}/5). Der Score kombiniert Laborprüfung, gemessene Füllgenauigkeit, Testumfang, Transparenz zum Betreiber, Versandangaben und Preis pro mg.",
+    "fa1none": "In dieser Region gibt es keinen Partnershop.",
+    "faqs": [
+      {
+        "q": "Warum stehen manche Shops mit höherem Score unter „Weitere geprüfte Shops“?",
+        "a": "Das Ranking listet nur Partnershops, weil nur sie einen Shop-Link erhalten. Andere Shops werden mit derselben Methode bewertet und mit Score und einem Link zu unserem Test gezeigt."
+      },
+      {
+        "q": "Haben Sie Produkte selbst gekauft und getestet?",
+        "a": "Nein. Dies ist ein Schreibtisch-Audit öffentlicher Shopseiten, Laborberichte und Laborportale. Testbestellungen gab es nicht."
+      }
+    ],
+    "partnerTitle": "Ranking: {label}Shops mit Shop-Link",
+    "otherTitle": "Weitere geprüfte {label}Shops",
+    "relPairs": "Shops im direkten Vergleich",
+    "pairs": {
+      "one": "{n} Partner-Paar",
+      "other": "{n} Partner-Paare"
+    },
+    "relCodesSub": "Nur Partnershops",
+    "relMethodSub": "Gewichtung und Quellen",
+    "relPs": "Status von Peptide Sciences",
+    "relPsSub": "Seit März 2026 geschlossen"
+  },
+  "v": {
+    "title": [
+      "{nm} Test & Erfahrungen: Laborberichte & Preise",
+      "{nm} Erfahrungen: Laborberichte & Preise",
+      "{nm} Test & Erfahrungen"
+    ],
+    "h1": "{shop} Test & Erfahrungen {year}: Laborberichte, Preise und Seriosität geprüft",
+    "description": [
+      "{nm} erreicht {score}/5 in unserem Test: {opened} Laborberichte geöffnet, {portal} im Portal bestätigt, Betreiber und Preise pro mg. Laborberichte ansehen.",
+      "{nm}: Score {score}/5, {opened} Laborberichte ({portal} im Portal bestätigt), Betreiber und Preis pro mg. Laborberichte ansehen.",
+      "{nm}: Score {score}/5, {opened} Laborberichte, Preis pro mg. Laborberichte ansehen."
+    ],
+    "descriptionNoRep": [
+      "{nm} erreicht {score}/5 in unserem Test. Keine öffentlichen Laborberichte gefunden; Betreiber, Versand und Preise pro mg geprüft. Zum Test.",
+      "{nm}: Score {score}/5, keine öffentlichen Laborberichte, Betreiber und Preis pro mg geprüft. Zum Test."
+    ],
+    "intro1": "{shop} erreicht in unserem Schreibtisch-Audit vom {date} {score} von 5 Punkten (Platz {rank} von {total} Shops).",
+    "reportTxt": {
+      "one": "Wir haben {opened} seiner Laborberichte geöffnet; {n} war im Portal des Labors bestätigt",
+      "other": "Wir haben {opened} seiner Laborberichte geöffnet; {n} waren im Portal des Labors bestätigt"
+    },
+    "reportTxtFill": ", und der gemessene Gehalt lag bei {fill} der Etikettangabe",
+    "noReports": "Wir haben keine öffentlichen Laborberichte gefunden.",
+    "introEntity": "Betreiber: {e}.",
+    "introPrices": {
+      "one": "Wir haben {n} gelisteten Preis erfasst.",
+      "other": "Wir haben {n} gelistete Preise erfasst."
+    },
+    "introNoPrices": "Preise werden nicht öffentlich angezeigt.",
+    "legitEntity": "{shop} nennt als Betreiber {e}.",
+    "legitNoEntity": "{shop} nennt auf seiner Website keinen Betreiber.",
+    "legitReports": "{portal} von {opened} geöffneten Laborberichten ließen sich im Portal des Prüflabors bestätigen",
+    "legitShopOnly": {
+      "one": "; {n} liegt nur beim Shop",
+      "other": "; {n} liegen nur beim Shop"
+    },
+    "legitNoReports": "Wir konnten keinen öffentlichen Laborbericht finden.",
+    "legitWeak": "Was wir nicht prüfen konnten oder was fehlt: {list}.",
+    "codeYes": "Ja. {shop} hat {site} den Leser-Code {code} ausgegeben{pct}. Unsere Preistabellen zeigen Listenpreise ohne Code.",
+    "codeLinkOnly": "{shop} hat uns keinen Leser-Code ausgegeben. Wir verlinken den Shop nur über einen Partnerlink.",
+    "codeNo": "Nein. {shop} ist kein Partner und hat uns keinen Leser-Code ausgegeben. Partnershops mit Code vergleichen wir auf unserer Seite mit Leser-Codes.",
+    "fqLegit": "Ist {shop} seriös?",
+    "overall": "Gesamter Audit-Score: {score} von 5.",
+    "fqCode": "Gibt es einen Gutscheincode für {shop}?",
+    "fqLabs": "Welche Labore testen Produkte von {shop}?",
+    "faLabs": "Die geöffneten Berichte nennen {list}. HPLC-Reinheit auf diesen Berichten: {purity}.",
+    "faLabsNone": "{shop} nennt {list}; einen öffentlichen Bericht konnten wir nicht öffnen.",
+    "fqShip": "Wohin liefert {shop}?",
+    "faShip": "Lieferung nach: {ships}. Versand: {dispatch}.",
+    "fqPrice": "Wie teuer ist {shop}?",
+    "faPrice": "Wir haben am {date} {n} gelistete Preise erfasst. Der günstigste Preis pro mg lag bei {p} für {product} ({mg}). Es sind Listenpreise ohne Code.",
+    "reviewName": "{shop} Test & Erfahrungen {year}",
+    "relPair": "Audit-Daten im direkten Vergleich",
+    "relPriceA": "{c} Preisvergleich",
+    "relPriceB": "{c}: Preise aller Shops",
+    "relPriceSub": "{nm} ab {p}",
+    "relPriceAll": "Alle geprüften Shops im Vergleich",
+    "relBoth": "{nm} führt beide",
+    "relLab": "Leitfaden: {lab}",
+    "relLabSub": "So prüfen Sie einen Bericht",
+    "relEu": "Ranking der EU-Shops",
+    "relUs": "Ranking der US-Shops",
+    "partnerChip": "Partnershop",
+    "notPartnerChip": "Kein Partner",
+    "reviewedBy": "Geprüft am {date} von der Redaktion von PeptideLabIndex",
+    "auditScore": "Audit-Score",
+    "rankOf": "Platz {rank} von {total}",
+    "partnerNote": "Partnerlink (Affiliate). Er ändert den Score nicht.",
+    "noLinkNote": "Wir verlinken diesen Shop nicht. Unten finden Sie Partnershops mit Shop-Link zum Vergleich.",
+    "seeAlternatives": "Geprüfte Alternativen ansehen",
+    "verdictH": "Unser Fazit",
+    "strengths": "Stärken",
+    "weaknesses": "Schwächen",
+    "noneRecorded": "keine erfasst",
+    "breakdownH": "Score im Detail",
+    "breakdownP": "Jeder Teil wird von 0 bis 5 bewertet. Das Gewicht zeigt, wie stark er zählt.",
+    "legitIntro": "Wir können nur berichten, was öffentlich ist. Das haben wir am {date} geprüft:",
+    "kEntity": "Betreiber",
+    "kReports": "Laborberichte",
+    "kPurity": "Reinheit laut geöffneten Berichten",
+    "kWeak": "Was wir nicht prüfen konnten oder was fehlt",
+    "legitReportsLine": "{opened} geöffnet, {portal} im Portal des Labors gefunden, {shopOnly} nur beim Shop.",
+    "noPublicReports": "keine öffentlichen Laborberichte gefunden.",
+    "fillLine": "{fill} der Menge auf dem Etikett (100 % = exakt).",
+    "noTestOrder": "Wir haben keine Testbestellung aufgegeben. Ein Schreibtisch-Audit kann nicht bestätigen, was in einer einzelnen Sendung steckt.",
+    "factsH": "Die wichtigsten Fakten",
+    "kBased": "Sitz",
+    "kShips": "Lieferung nach",
+    "kDispatch": "Versand",
+    "kFree": "Versandkostenfrei ab",
+    "kPayment": "Zahlung",
+    "kLabs": "Genannte Labore",
+    "kTests": "Tests auf den Berichten",
+    "kShared": "Wie Berichte bereitgestellt werden",
+    "reportsP": {
+      "one": "{n} Bericht am {date} geöffnet. Links zu Berichten stehen als reiner Text da, damit Sie sie kopieren und selbst auf der Website des Labors prüfen können.",
+      "other": "{n} Berichte am {date} geöffnet. Links zu Berichten stehen als reiner Text da, damit Sie sie kopieren und selbst auf der Website des Labors prüfen können."
+    },
+    "chartTitle": "{shop}: gemessener Gehalt in % der Etikettangabe",
+    "colMeasured": "Gemessen / Etikett (mg)",
+    "colPurity": "Reinheit (%)",
+    "colLab": "Labor und Testdatum",
+    "colVerif": "Prüfung",
+    "colId": "Berichts-ID und Link (kopieren)",
+    "notStated": "nicht angegeben",
+    "ofLabel": "{p} der Etikettangabe",
+    "dateNotPublished": "Datum nicht veröffentlicht",
+    "shopHosted": "Nur beim Shop",
+    "noReportFound": "Wir haben am {date} keinen öffentlichen Laborbericht von {shop} gefunden.",
+    "pricesH": "{shop}: Preise",
+    "pricesP": {
+      "one": "{n} gelisteter Preis am {date} in {curs} erfasst. Preis pro mg = Preis geteilt durch die mg auf dem Etikett. Angebotspreise stehen mit durchgestrichenem Altpreis. Kein Code abgezogen.",
+      "other": "{n} gelistete Preise am {date} in {curs} erfasst. Preis pro mg = Preis geteilt durch die mg auf dem Etikett. Angebotspreise stehen mit durchgestrichenem Altpreis. Kein Code abgezogen."
+    },
+    "colVial": "Vial (mg)",
+    "colPrice": "Preis",
+    "colPerMg": "Preis pro mg",
+    "colRep": "Laborbericht geöffnet",
+    "colStore": "Shop",
+    "viewProduct": "Zum Produkt",
+    "noPricesP": "{shop} zeigt keine öffentlichen Preise, daher wurde der Preis pro mg nicht bewertet.",
+    "codeH": "{shop} Gutscheincode",
+    "codeP": "{shop} hat diesen Leser-Code an {site} ausgegeben. Geben Sie ihn an der Kasse ein. Unsere Preistabellen zeigen Preise vor Abzug des Codes.",
+    "codeLinkOnlyP": "{shop} hat uns keinen Leser-Code ausgegeben. Wir verlinken den Shop nur mit einem Partnerlink.",
+    "codeShopsWith": "Shops, die einen Code ausgegeben haben",
+    "codeNoneP": "Kein Leser-Code. {shop} ist kein Partner und hat uns keinen Code ausgegeben.",
+    "codeCompare": "Shops mit Code vergleichen",
+    "altNote": "Partnershops in der Region {region} mit den höchsten Audit-Scores. Gleiche Methode wie bei {shop}.",
+    "sourcesH": "Gelesene Quellen",
+    "sourcesP": "Öffentliche Seiten, gelesen am {date}. Als reiner Text, nicht als Link.",
+    "stickyAria": "Shop-Link zu {nm}",
+    "visitShop": "Zum Shop"
+  },
+  "vcp": {
+    "title": [
+      "{nA} vs {nB}: Laborberichte, Preise & Scores",
+      "{nA} vs {nB}: Laborberichte & Preise",
+      "{nA} vs {nB} im Vergleich"
+    ],
+    "description": [
+      "{nA} ({sA}/5) gegen {nB} ({sB}/5): Laborberichte, Portalprüfung und Preis pro mg für {n} gemeinsame Produkte. Beide Shops vergleichen.",
+      "{nA} gegen {nB}: Scores, Laborberichte und Preis pro mg für {n} gemeinsame Produkte. Beide Shops vergleichen."
+    ],
+    "verdict": "{lead} schneidet in unserem Audit besser ab ({sL} zu {sO} von 5). Vorne liegt der Shop bei {wins}; {other} liegt vorne bei {owins}.",
+    "noPart": "keinem einzelnen Teil",
+    "noneParts": "keinem der Teile",
+    "tie": "Beide Shops erreichen in unserem Audit {sA} von 5.",
+    "priceTxt": "Bei den {same} Produkten, die beide in derselben Währung und Vial-Größe führen, ist {a} bei {aC} pro mg günstiger und {b} bei {bC}.",
+    "priceNone": "Sie führen kein identisches Produkt in derselben Währung und Vial-Größe.",
+    "checked": "Daten geprüft am {date}.",
+    "rScore": "Audit-Score (0-5)",
+    "rRank": "Platz (alle geprüften Shops)",
+    "rankOf": "{r} von {n}",
+    "rPurity": "Reinheit laut Berichten",
+    "rPrices": "Erfasste Preise",
+    "rCode": "Leser-Code",
+    "fq1": "Was ist besser, {a} oder {b}?",
+    "fa1": "Der Score gewichtet Laborprüfung, Füllgenauigkeit, Testumfang, Transparenz zum Betreiber, Versandangaben und Preis pro mg.",
+    "fq2": "Was ist günstiger, {a} oder {b}?",
+    "fa2": "Es sind Listenpreise vom {date}, ohne Codes.",
+    "fq3": "Veröffentlichen {a} und {b} Laborberichte?",
+    "fa3": "Wir haben {oA} Berichte von {a} ({pA} im Portal bestätigt) und {oB} Berichte von {b} ({pB} im Portal bestätigt) geöffnet.",
+    "eyebrow": "Partnershops ({region}) im Vergleich",
+    "higher": "Höherer Audit-Score",
+    "factsH": "Die wichtigsten Fakten im Vergleich",
+    "sameH": "Gleiche Produkte, Preis pro mg",
+    "sameP": "{n} Produkte, die beide Shops in derselben Vial-Größe führen. Günstigster gelisteter Preis pro mg je Shop; der niedrigere Wert ist fett. Keine Codes abgezogen.",
+    "sameNone": "Die beiden Shops führen kein identisches Produkt in derselben Vial-Größe."
+  },
+  "vci": {
+    "title": [
+      "Peptid-Shops im Vergleich: Shop gegen Shop ({n} Paare)"
+    ],
+    "description": [
+      "Partnershops derselben Region im direkten Vergleich: Scores, Laborberichte, gemessen vs. Etikett und Preis pro mg für gleiche Produkte. Zwei Shops vergleichen."
+    ],
+    "itemList": "Shop-Vergleiche",
+    "h1": "Shop gegen Shop",
+    "intro": "Audit-Daten von Partnershops derselben Region im direkten Vergleich, gelesen am {date}: Score, Laborberichte, gemessen vs. Etikett und Preise pro mg für Produkte, die beide Shops führen.",
+    "eu": "EU-Shops",
+    "us": "US-Shops",
+    "scores": "Scores {a} zu {b}"
+  },
+  "psc": {
+    "title": [
+      "Peptide Sciences geschlossen (2026): Status & geprüfte Shops"
+    ],
+    "description": [
+      "Peptide Sciences hat den Verkauf von Forschungsprodukten im März 2026 eingestellt. Was die eigene Mitteilung sagt und welche geprüften Shops es zum Vergleich gibt."
+    ],
+    "h1": "Peptide Sciences geschlossen: Stand 2026",
+    "intro": "Peptide Sciences (peptidesciences.com) hat den Verkauf von Forschungsprodukten im März 2026 eingestellt. Laut eigener Website hat das Unternehmen „voluntarily discontinued all research-use-only product sales in March 2026“ und keinen Dritten autorisiert, in seinem Namen zu verkaufen oder als Nachfolger aufzutreten. Wir haben Peptide Sciences nicht geprüft, weil es nicht mehr verkauft.",
+    "faqs": [
+      {
+        "q": "Ist Peptide Sciences noch geöffnet?",
+        "a": "Nein. Laut peptidesciences.com hat das Unternehmen den Verkauf aller Produkte für Forschungszwecke im März 2026 freiwillig eingestellt."
+      },
+      {
+        "q": "Ist eine neue Peptide-Sciences-Website dasselbe Unternehmen?",
+        "a": "Laut Mitteilung auf peptidesciences.com hat das Unternehmen keinen Dritten autorisiert, eine Ersatz-Website zu betreiben, als Nachfolger aufzutreten oder in seinem Namen zu verkaufen. Eine Verbindung zwischen anderen Websites mit diesem Namen und dem ursprünglichen Unternehmen können wir nicht bestätigen."
+      },
+      {
+        "q": "Welche geprüften Shops kann ich stattdessen vergleichen?",
+        "a": "Unser Shop-Ranking listet Partnershops nach Audit-Score. Die US-Partnershops mit den höchsten Scores sind {us}."
+      }
+    ],
+    "saysH": "Was die Mitteilung sagt",
+    "says": [
+      "Der Verkauf von Produkten für Forschungszwecke wurde im März 2026 eingestellt (laut Unternehmen freiwillig).",
+      "Kein Dritter ist autorisiert, in seinem Namen zu verkaufen, eine Ersatz-Website zu betreiben oder sich als Nachfolger auszugeben.",
+      "Das Unternehmen warnt vor Websites oder Verkäufern, die sich als Peptide Sciences ausgeben."
+    ],
+    "source": "Quelle (als Text):",
+    "read": "gelesen am {date}.",
+    "meansH": "Was das für den Shop-Vergleich bedeutet",
+    "meansP": "Da Peptide Sciences nicht mehr verkauft, hat es hier keinen Score. Wenn Sie Shops für Forschungspeptide vergleichen, zeigen die Kästen unten die geprüften Partnershops mit den höchsten Scores je Region. Jeder Shop auf dieser Website wird nach der",
+    "sameMethod": "gleichen Methode bewertet",
+    "usBox": "Geprüfte US-Shops mit Shop-Link",
+    "euBox": "Geprüfte EU-Shops mit Shop-Link",
+    "boxNote": "Partnershops nach Audit-Score sortiert."
+  },
+  "cp": {
+    "title": [
+      "{a} vs {b}: Preisvergleich & Labordaten",
+      "{a} vs {b}: Preise & Labordaten"
+    ],
+    "description": [
+      "{a} vs {b}: {both} geprüfte Shops führen beide. Fakten zur Identität, Vial-Größen, Preis pro mg in EUR und USD und geöffnete Laborberichte vergleichen.",
+      "{a} vs {b}: {both} Shops führen beide. Vial-Größen, Preis pro mg und geöffnete Laborberichte vergleichen."
+    ],
+    "h1": "{a} vs {b}: Vergleich der Forschungssubstanzen",
+    "eyebrow": "Markt- und Labordaten, keine Wirkungen",
+    "intro": "Am {date} führten {nA} geprüfte Shops {a} und {nB} führten {b}; {both} führen beide. Wir haben {rA} Laborberichte zu {a} und {rB} zu {b} geöffnet.",
+    "median": "Median-Preis pro mg in {cur}: {a} {x}, {b} {y}",
+    "fq1": "Was ist der Unterschied zwischen {a} und {b}?",
+    "fa1": "Es sind unterschiedliche Moleküle.",
+    "fq2": "Was ist pro mg günstiger, {a} oder {b}?",
+    "fa2": "Über alle Angebote am {date}: {list}. Größere Vials kosten pro mg meist weniger, daher dieselbe Vial-Größe vergleichen.",
+    "notEnough": "zu wenig Daten",
+    "fq3": "Welche Shops verkaufen {a} und {b}?",
+    "fa3": "{both} geprüfte Shops führen beide: {list}.",
+    "fa3none": "Kein geprüfter Shop führt beide.",
+    "fq4": "Gibt es Labordaten zu {a} und {b}?",
+    "fa4": "Wir haben {rA} Berichte zu {a} ({pA} im Portal bestätigt) und {rB} Berichte zu {b} ({pB} im Portal bestätigt) geöffnet. Gemessen vs. Etikett: {a} {fA}, {b} {fB}.",
+    "fq5": "Darf {a} oder {b} am Menschen angewendet werden?",
+    "fa5": "Diese Website behandelt keine Anwendung an Mensch oder Tier. Die gelisteten Shops verkaufen beide als Laborreagenzien nur für Forschungszwecke, und wir vergleichen nur Angebote und Laborberichte.",
+    "rShops": "Shops, die es führen (EU / US)",
+    "rMedian": "Median-Preis pro mg ({cur})",
+    "sideH": "Im direkten Vergleich",
+    "fact": "Merkmal",
+    "tableNote": "Preis pro mg = gelisteter Preis geteilt durch die mg auf dem Etikett. EUR und USD werden nicht umgerechnet. Median = mittlerer Wert aller Angebote.",
+    "onReport": "Auf einem Laborbericht:",
+    "bothH": "Shops, die beide führen",
+    "bothP": "Günstigster gelisteter Preis pro mg je Shop, sortiert nach Audit-Score. Partnershops haben einen Shop-Link.",
+    "lowestOf": "{c}: günstigster Preis pro mg",
+    "vial": "Vial mit {mg}",
+    "labH": "Laborberichte: gemessen vs. Etikett"
+  },
+  "ci": {
+    "title": [
+      "Substanzvergleiche: Preise & Labordaten im Vergleich"
+    ],
+    "description": [
+      "Paare von Forschungssubstanzen im direkten Vergleich: Fakten zur Identität, Vial-Größen, Preis pro mg in EUR und USD und Laborberichte. Paare vergleichen."
+    ],
+    "itemList": "Vergleiche von Forschungssubstanzen",
+    "h1": "Vergleiche von Forschungssubstanzen",
+    "intro": "Fakten zu Substanzen, die oft zusammen gesucht werden, im direkten Vergleich: was sie sind, Vial-Größen im Handel, Preis pro mg und Laborberichte bei den am {date} geprüften Shops. Diese Seiten vergleichen nur Angebote und Labordaten, keine Wirkungen.",
+    "row": "{na} Shops führen {a}, {nb} führen {b}, {both} führen beide."
+  },
+  "lab": {
+    "auditedShops": {
+      "one": "{n} geprüften Shop",
+      "other": "{n} geprüften Shops"
+    },
+    "intro1": "{lab} steht auf {n} der Laborberichte, die wir am {date} geöffnet haben, von {shops}.",
+    "intro2": "{portal} dieser Berichte ließen sich im Portal des Labors prüfen, und der gemessene Gehalt lag bei {range} der Etikettangabe.",
+    "intro2none": "{portal} dieser Berichte ließen sich im Portal des Labors prüfen; gemessene mg waren nicht angegeben.",
+    "titleJ": [
+      "Janoshik Laborbericht prüfen: So geht die Verifizierung",
+      "Janoshik Analytical: Laborbericht prüfen"
+    ],
+    "title": [
+      "{lab}: Laborbericht prüfen ({year})",
+      "{lab}: Laborbericht prüfen",
+      "{short}: Laborbericht prüfen"
+    ],
+    "h1J": "Janoshik: Laborbericht prüfen – und ist das Labor seriös?",
+    "h1": "{lab}: So prüfen Sie einen Laborbericht",
+    "description": [
+      "So prüfen Sie einen Laborbericht von {lab} in {steps} Schritten. Wir haben {n} Berichte von {ns} Shops geöffnet, {portal} im Portal bestätigt.",
+      "Laborbericht von {short} prüfen: {n} Berichte von {ns} Shops geöffnet, {portal} im Portal bestätigt. Berichte und Shops ansehen.",
+      "Laborbericht von {short} prüfen. {n} Berichte geöffnet, {portal} im Portal bestätigt."
+    ],
+    "genericSteps": [
+      "Suchen Sie auf dem Bericht, den der Shop zeigt, die Berichtsnummer, den Schlüssel oder den QR-Code.",
+      "Öffnen Sie die Website des Labors, indem Sie die Adresse selbst eintippen, nicht über einen Link im PDF.",
+      "Schlagen Sie den Bericht nach und vergleichen Sie Substanz, Etikettangabe, gemessene mg, Reinheit, Testdatum und Charge mit der Kopie des Shops.",
+      "Hat das Labor keine Abfrage, gilt der Bericht als nur beim Shop: Er kann echt sein, lässt sich aber nicht beim Labor bestätigen."
+    ],
+    "lAddr": "Es veröffentlicht eine Adresse: {a}.",
+    "lNoAddr": "Eine veröffentlichte Adresse konnten wir nicht finden.",
+    "lVerify": "Berichte lassen sich hier prüfen: {w}.",
+    "lNoVerify": "Ein öffentliches Prüfportal haben wir nicht gefunden.",
+    "lAccr": "Zur Akkreditierung heißt es: {a}",
+    "lNoAccr": "Auf den gelesenen Seiten fanden wir keine Angabe zur Akkreditierung.",
+    "lPortal": "{portal} der {n} von uns geöffneten Berichte fanden sich im Portal des Labors.",
+    "fq1J": "Wie prüfe ich einen Janoshik-Bericht?",
+    "fq1": "Wie prüfe ich einen Bericht von {lab}?",
+    "fq2": "Ist {short} seriös?",
+    "fa2": "Wir bewerten keine Labore, können aber sagen, was öffentlich ist.",
+    "fq3": "Was kostet ein Test bei {short}?",
+    "fa3none": "Auf den gelesenen Seiten nicht veröffentlicht.",
+    "fq4": "Welche Shops nutzen {lab}?",
+    "fa4": "Unter den von uns geprüften Shops: {list}.",
+    "relShop": "{shop}: Laborberichte und Score",
+    "relShopSub": {
+      "one": "{n} Bericht von {lab} geöffnet",
+      "other": "{n} Berichte von {lab} geöffnet"
+    },
+    "relLabSub": "Leitfaden zum Labor",
+    "relAll": "Alle von uns geöffneten Laborberichte",
+    "eyebrow": "Leitfaden zum Prüflabor",
+    "testsH": "Angebotene Tests",
+    "kAddress": "Adresse",
+    "kOperator": "Betreiber",
+    "kVerify": "Prüfung",
+    "kAccr": "Akkreditierung",
+    "kPrice": "Preis",
+    "kTurn": "Bearbeitungszeit",
+    "noPortal": "kein Portal gefunden",
+    "noStatement": "keine Angabe gefunden",
+    "howH": "So prüfen Sie einen Bericht von {short}",
+    "plain": "Adressen stehen bewusst als reiner Text da. Tippen Sie sie selbst ein, damit Sie auf der echten Website des Labors landen.",
+    "noSamples": "Wir haben keine Proben selbst getestet. Dies sind Fakten aus den öffentlichen Seiten des Labors und aus den geöffneten Berichten.",
+    "shopsH": "Shops mit Berichten von {short}",
+    "colShopFill": "Shop: gemessen vs. Etikett",
+    "colScore": "Shop-Score (0-5)",
+    "chartTitle": "Berichte von {lab}: gemessener Gehalt in % der Etikettangabe",
+    "sourcesH": "Quellen",
+    "sourcesP": "Öffentliche Seiten des Labors, gelesen am {date}. Als reiner Text, nicht als Link."
+  },
+  "li": {
+    "title": [
+      "Prüflabore für Peptide: Laborbericht prüfen ({year})"
+    ],
+    "description": [
+      "{n} Labore auf den {reports} geöffneten Laborberichten zu Forschungspeptiden: wie man Berichte prüft, welche Shops sie nutzen und was gemessen wurde."
+    ],
+    "itemList": "Prüflabore für Peptide",
+    "h1": "Prüflabore für Peptide und wie man ihre Berichte prüft",
+    "intro": "Die {reports} Laborberichte, die wir am {date} geöffnet haben, nennen {n} Prüflabore. Jeder Leitfaden erklärt, wie man einen Bericht auf der Website des Labors prüft, welche geprüften Shops Berichte dieses Labors veröffentlichen und was diese Berichte gemessen haben.",
+    "colLab": "Labor",
+    "colHow": "So prüfen",
+    "noAddress": "Adresse nicht veröffentlicht",
+    "faqs": [
+      {
+        "q": "Was ist ein im Portal bestätigter Bericht?",
+        "a": "Ein Bericht, den wir mit dem aufgedruckten Code oder Schlüssel auf der Website des Prüflabors selbst nachschlagen konnten. Ein PDF auf der Shopseite allein ist nur eine Behauptung."
+      },
+      {
+        "q": "Welches Labor ist das beste?",
+        "a": "Wir bewerten keine Labore. Jeder Leitfaden zeigt, was das Labor über sich veröffentlicht, wie man seine Berichte prüft und was die geöffneten Berichte zeigten."
+      }
+    ]
+  },
+  "bt": {
+    "title": [
+      "Peptid-Laborberichte: {n} Analysen geprüft ({year})",
+      "Peptid-Laborberichte: {n} Analysen geprüft"
+    ],
+    "description": [
+      "{n} Laborberichte zu Forschungspeptiden von {shops} Shops mit gemessenen mg und Reinheit, {portal} im Portal bestätigt. Nach Shop, Substanz oder Labor filtern."
+    ],
+    "intro": "Diese Tabelle listet {n} Laborberichte von {shops} Shops, die sowohl gemessene mg als auch Reinheit angeben. {within10} davon lagen bei 90-110 % der Etikettangabe, {below90} unter 90 % und {above110} über 110 %. {portal} waren im Portal des Labors bestätigt. Die Reinheit lag zwischen {pmin} und {pmax}.",
+    "faqs": [
+      {
+        "q": "Was bedeutet „gemessen vs. Etikett“?",
+        "a": "Das Labor hat gemessen, wie viele mg im Vial sind. Wir teilen das durch die mg auf dem Etikett. 100 % heißt: Das Vial enthält genau die Menge auf dem Etikett."
+      },
+      {
+        "q": "Warum sind die Links zu den Berichten nicht anklickbar?",
+        "a": "Wir zeigen Adressen von Laborberichten als reinen Text, damit Sie sie kopieren und die Website des Labors selbst öffnen. Wir verlinken keine Laborportale."
+      },
+      {
+        "q": "Stehen hier alle geöffneten Berichte?",
+        "a": "Diese Tabelle zeigt die {n} Berichte, die sowohl gemessene mg als auch Reinheit angeben. Insgesamt haben wir {total} Berichte geöffnet; die übrigen stehen auf der Testseite des jeweiligen Shops."
+      }
+    ],
+    "statTable": "Berichte in der Tabelle",
+    "statWithin": "Innerhalb 90-110 %",
+    "statMedian": "Median gemessen vs. Etikett",
+    "allH": "Alle Berichte mit gemessenen mg und Reinheit",
+    "allP": "Shop, Substanz oder Labor eintippen, um zu filtern. Zum Sortieren auf einen Spaltenkopf tippen.",
+    "filterLabel": "Berichte filtern",
+    "filterPh": "Filtern, z. B. BPC-157 oder Janoshik",
+    "colFill": "Gemessen vs. Etikett (%)",
+    "mgLabel": "Etikett {mg}",
+    "mOfL": "{m} von {l} mg",
+    "note": "Orange Werte liegen außerhalb von 90-110 % der Etikettangabe. Adressen der Berichte stehen als reiner Text da: in den Browser kopieren und den Bericht auf der Website von Labor oder Shop prüfen.",
+    "relData": "Daten herunterladen (CSV / JSON)"
+  },
+  "dc": {
+    "title": [
+      "Gutscheincodes für Peptid-Shops {year}: nur Partner",
+      "Peptid-Shops: Leser-Codes {year}"
+    ],
+    "description": [
+      "Leser-Codes, die {n} geprüfte Partnershops an PeptideLabIndex ausgegeben haben, nach Audit-Score sortiert, ohne erfundene Rabatte. Shops vergleichen."
+    ],
+    "h1": "Leser-Codes geprüfter Partnershops ({year})",
+    "intro": "{n} geprüfte Partnershops haben uns einen Leser-Code ausgegeben, den wir hier zeigen dürfen. Die Codes stehen in der Reihenfolge des Audit-Scores, nicht nach Rabatthöhe. Unsere Preistabellen zeigen immer Preise vor jedem Code, damit Sie Shops auf gleicher Grundlage vergleichen können.",
+    "faqs": [
+      {
+        "q": "Sind diese Codes geprüft?",
+        "a": "Jeder Code wurde uns vom Shop über sein Partnerprogramm ausgegeben. Codes, die wir anderswo gefunden haben, listen wir nicht."
+      },
+      {
+        "q": "Warum steht bei manchen Partnershops „Leser-Code auf der Testseite“?",
+        "a": "Die Partnerbedingungen mancher Shops erlauben keine Codes auf Gutscheinseiten. Bei diesen Shops steht der Code nur auf ihrer eigenen Testseite."
+      },
+      {
+        "q": "Ändern Codes Ihre Rankings?",
+        "a": "Nein. Rankings nutzen nur den Audit-Score. Ein Code oder eine Provision ändert den Score nie."
+      }
+    ],
+    "byScore": "Partnershops nach Audit-Score",
+    "scoreOf": "Audit-Score {s} von 5",
+    "linkOnly": "Kein Code. Nur Shop-Link.",
+    "othersP": "{others} weitere geprüfte Shops haben uns keinen Leser-Code ausgegeben. Scores und Laborberichte stehen im jeweiligen Test:",
+    "psNote": "Sie suchen Peptide Sciences? Der Shop hat 2026 den Verkauf eingestellt:",
+    "psLink": "Status von Peptide Sciences und Alternativen"
+  },
+  "pix": {
+    "title": [
+      "Preisindex Forschungspeptide {year} nach Klasse"
+    ],
+    "description": [
+      "Günstigster gelisteter Preis pro mg für {n} Forschungssubstanzen, nach Klasse gruppiert, EUR und USD getrennt. Preise prüfen und Vergleiche öffnen."
+    ],
+    "crumb": "Preisindex",
+    "h1": "Preisindex für Forschungspeptide",
+    "otherCat": "Weitere Forschungssubstanzen",
+    "bySize": "Nach Größe:",
+    "intro": "Günstigster gelisteter Preis pro mg für {n} Forschungssubstanzen, nach Substanzklasse gruppiert. Grundlage sind {products} Preise bei {shops} geprüften Shops, gelesen am {date}. EUR und USD werden nie umgerechnet. Für die vollständige Tabelle aller Shops eine Substanz öffnen."
+  },
+  "cx": {
+    "title": [
+      "Substanzen-Index: Fakten, Vial-Größen & Laborberichte"
+    ],
+    "description": [
+      "Neutrale Fakten zu {n} Forschungssubstanzen: Klasse, CAS, Vial-Größen im Handel und Laborberichte bei {shops} geprüften Shops. Index durchsuchen."
+    ],
+    "itemList": "Forschungssubstanzen",
+    "h1": "Index der Forschungssubstanzen",
+    "intro": "Neutrale Referenzfakten zu {n} Forschungssubstanzen, die die geprüften Shops verkaufen: was die Substanz ist, Klasse und Kennungen, Vial-Größen im Handel und wie viele Laborberichte wir geöffnet haben. Daten geprüft am {date}. Keine Anwendungs- oder Gesundheitsangaben.",
+    "reportsOpened": {
+      "one": "{n} Laborbericht geöffnet",
+      "other": "{n} Laborberichte geöffnet"
+    }
+  },
+  "cmp": {
+    "title": [
+      "{c}: Fakten, Vial-Größen & Laborberichte ({year})",
+      "{c}: Fakten, Vial-Größen & Laborberichte",
+      "{c}: Fakten & Laborberichte"
+    ],
+    "description": [
+      "{c}: Klasse, CAS {cas}, Molmasse, Vial-Größen bei {n} geprüften Shops und {nrep} geöffnete Laborberichte. Preise vergleichen.",
+      "{c}: Klasse, CAS, Vial-Größen bei {n} geprüften Shops und {nrep} geöffnete Laborberichte. Preise vergleichen."
+    ],
+    "h1": "{name}: Fakten zur Forschungssubstanz",
+    "intro1": "{name}: {cls}.",
+    "intro2": "{n} der von uns geprüften Shops führen es in {sizes} ({list}).",
+    "intro2none": "Keiner der geprüften Shops führt es.",
+    "intro3": "Wir haben {reports} dazu geöffnet.",
+    "intro3fill": "Wir haben {reports} dazu geöffnet; der gemessene Gehalt lag bei {range} der Etikettangabe.",
+    "fq1": "Was ist {c}?",
+    "fa2": "Geprüfte Shops führen {c} in Vials mit {list} ({n} Shops: {eu} EU, {us} US).",
+    "fa2none": "Keiner der geprüften Shops führt {c}.",
+    "fq3": "Gibt es Laborberichte zu {c}?",
+    "fa3": "Wir haben {nrep} Berichte zu {c} von {nshops} Shops geöffnet; {portal} waren im Portal des Labors bestätigt. Genannte Labore: {labs}.",
+    "fq4": "Was sollte ein Laborbericht zu {c} zeigen?",
+    "relPair": "Vergleich der Forschungssubstanzen",
+    "cta": "{c} Preise vergleichen",
+    "whatIs": "Was {c} ist",
+    "checkH": "Worauf man im Laborbericht achtet",
+    "name": "Name",
+    "class": "Klasse",
+    "group": "Gruppe auf dieser Website",
+    "cas": "CAS-Nummer",
+    "mw": "Molmasse",
+    "marketH": "{c} im Handel",
+    "statShops": "Shops, die es führen",
+    "names": "Produktnamen bei geprüften Shops:",
+    "barsTitle": "{c}: Preis pro mg je Angebot ({cur})",
+    "coverageH": "Laborberichte",
+    "coverageP": "{reports} geöffnet, {portal} im Portal bestätigt. Labore: {labs}.",
+    "ruo": "Nur für Forschungszwecke. Diese Seite beschreibt ein Laborreagenz, wie es Shops listen. Sie enthält keine Angaben zur Anwendung an Mensch oder Tier."
+  },
+  "m": {
+    "title": [
+      "So bewerten wir Peptid-Shops: Methodik des Tests"
+    ],
+    "description": [
+      "So bewerten wir Shops: sechs gewichtete Teile, ein Score von 0 bis 5 und {reports} am {date} geöffnete Laborberichte. Keine bezahlten Platzierungen."
+    ],
+    "h1": "So bewerten wir Shops für Forschungspeptide",
+    "intro": "Jeder Shop erhält einen Score von 0 bis 5. Er ist ein gewichteter Durchschnitt aus sechs Teilen, angeführt von Laborprüfung (30 %) und Füllgenauigkeit (20 %). Wir haben am {date} öffentliche Shopseiten, Laborberichte und Laborportale gelesen. Testbestellungen gab es nicht, und Provisionen ändern nie einen Score oder ein Ranking.",
+    "faqs": [
+      {
+        "q": "Kaufen Sie Produkte und schicken sie an ein Labor?",
+        "a": "Nein. Dieses Audit liest, was Shops und Labore veröffentlichen. Testbestellungen gab es nicht, daher können wir nicht bestätigen, was in einer einzelnen Sendung steckt."
+      },
+      {
+        "q": "Kann ein Shop für einen besseren Score bezahlen?",
+        "a": "Nein. Partnershops zahlen Provision auf Verkäufe über unsere Links, doch die Score-Formel ist für jeden Shop gleich. Rankings sortieren Partnershops nur nach Score."
+      },
+      {
+        "q": "Wie wird der Preis pro mg berechnet?",
+        "a": "Gelisteter Preis geteilt durch die mg auf dem Etikett. Wird ein Angebotspreis gezeigt, nehmen wir diesen. Rabattcodes ziehen wir nicht ab, und zwischen EUR und USD rechnen wir nicht um."
+      },
+      {
+        "q": "Wie oft werden die Daten aktualisiert?",
+        "a": "Der aktuelle Datensatz wurde am {date} gelesen. Jede Seite zeigt das Datum der letzten Prüfung."
+      }
+    ],
+    "partsH": "Die sechs Teile des Scores",
+    "partsP": "Jeder Teil wird vom Prüfer mit 0 bis 10 bewertet, mit einer schriftlichen Begründung auf jeder Shopseite. Der gewichtete Durchschnitt wird durch zwei geteilt und ergibt den Score von 0 bis 5.",
+    "part": {
+      "labVerification": "Veröffentlicht der Shop Laborberichte, und finden wir sie auf der Website des Prüflabors? Berichte, die nur als Datei beim Shop liegen, zählen weniger als Berichte, die wir im Laborportal nachschlagen konnten.",
+      "fillAccuracy": "Wie nah liegt die gemessene Menge an der Etikettangabe? Wir teilen bei jedem geöffneten Bericht die gemessenen mg durch die mg auf dem Etikett. 100 % heißt: Das Vial enthält genau die Menge auf dem Etikett.",
+      "panelDepth": "Welche Tests decken die Berichte ab? Nur Reinheit bringt weniger Punkte als Reinheit plus gemessene mg, Identität (Massenspektrometrie), Endotoxine, Sterilität oder Schwermetalle.",
+      "entityTransparency": "Nennt der Shop auf seinen eigenen Seiten das Unternehmen dahinter, mit Adresse oder Registernummer?",
+      "dispatchReliability": "Veröffentlicht der Shop, wohin er liefert, wie schnell er versendet und welche Versanddienste er nutzt?",
+      "valuePerMg": "Wie liegt der gelistete Preis pro mg im Vergleich zu anderen geprüften Shops? Veröffentlicht ein Shop keine Preise, entfällt dieser Teil und die übrigen Gewichte werden hochgerechnet."
+    },
+    "didH": "Was wir am {date} gemacht haben",
+    "did": [
+      "Die öffentlichen Seiten von {shops} Shops gelesen: Shop, Produkte, Versand, AGB, Impressum und Seiten mit Laborberichten.",
+      "{reports} Laborberichte geöffnet und Labor, Testdatum, Reinheit, Etikettangabe und gemessene mg notiert.",
+      "Berichte im Portal des Labors nachgeschlagen, wo das Labor eines anbietet. {portal} Berichte fanden sich dort („im Portal bestätigt“).",
+      "{products} gelistete Preise mit Vial-Größe, Währung und Angebotspreis erfasst."
+    ],
+    "notH": "Was wir nicht gemacht haben",
+    "not": [
+      "Keine Testkäufe und keine eigenen Labortests.",
+      "Keine Abfragen in Handelsregistern. Die Transparenz zum Betreiber bewertet nur, was der Shop über sich selbst veröffentlicht.",
+      "Keine Angaben zur Anwendung an Mensch oder Tier. Alle Produkte werden als Reagenzien nur für Forschungszwecke verkauft."
+    ],
+    "termsH": "Begriffe auf dieser Website",
+    "term": {
+      "portal": "Im Portal bestätigt",
+      "shop": "Nur beim Shop",
+      "fill": "Gemessen vs. Etikett",
+      "purity": "Reinheit",
+      "perMg": "Preis pro mg"
+    },
+    "termDef": {
+      "portal": "Wir haben den Bericht auf der Website des Prüflabors gefunden, nicht nur auf der Shopseite.",
+      "shop": "Der Bericht existiert nur als Datei oder Bild auf der Shopseite.",
+      "fill": "gemessene mg geteilt durch die mg auf dem Etikett, in Prozent.",
+      "purity": "die auf dem Bericht angegebene HPLC-Reinheit.",
+      "perMg": "gelisteter Vial-Preis geteilt durch die mg auf dem Etikett."
+    },
+    "partnersH": "Partner und Links",
+    "partnersP": "Einige Shops sind Affiliate-Partner. Nur Partnershops erhalten einen „Besuchen“-Link, und diese Links sind als gesponsert markiert. Rankings listen Partnershops nach Audit-Score. Alle anderen Shops behalten ihren Score und stehen unter „Weitere geprüfte Shops“ mit einem Link zu unserem Test. Adressen von Laborberichten stehen als reiner Text da, nicht als Link.",
+    "dataP": "Der vollständige Datensatz steht als CSV und JSON bereit:"
+  },
+  "legal": {
+    "title": [
+      "Rechtliche Hinweise & Affiliate-Hinweis | {site}"
+    ],
+    "description": [
+      "Nur für Forschungszwecke, Affiliate-Hinweis, Datengenauigkeit und Datenschutz bei PeptideLabIndex (peptidelabtest.org). So funktionieren Partnerlinks."
+    ],
+    "crumb": "Rechtliches",
+    "h1": "Rechtliche Hinweise, Offenlegung und Datenschutz",
+    "h_ruo": "1. Nur für Forschungszwecke",
+    "p_ruo": "{domain} vergleicht öffentlich verfügbare Laborberichte, gelistete Preise und Shopangaben zu Produkten, die Shops als Laborreagenzien nur für Forschungszwecke (RUO) verkaufen. Nichts auf dieser Website ist medizinische Beratung. Keines der Produkte ist zur Anwendung an Mensch oder Tier zugelassen, und wir geben keine Informationen zu einer solchen Anwendung.",
+    "h_aff": "2. Affiliate-Hinweis",
+    "p_aff1": "Einige Shops sind Affiliate-Partner. Mit „Besuchen“ markierte Links führen zu diesen Partnern und tragen rel=\"sponsored\". Wenn Sie über einen solchen Link kaufen oder einen Leser-Code eines Partners nutzen, erhalten wir eventuell eine Provision, für Sie ohne Mehrkosten.",
+    "p_aff2": "Provisionen ändern keine Audit-Scores. Rankings sortieren Partnershops nur nach Audit-Score. Shops ohne Partnerschaft werden trotzdem bewertet und gelistet, ohne ausgehenden Link.",
+    "h_war": "3. Keine Gewähr",
+    "p_war": "Alle Daten wurden an dem auf jeder Seite genannten Datum aus öffentlichen Quellen gelesen. Shops ändern Preise, Bestand und Berichte oft. Prüfen Sie Shop und Laborportal, bevor Sie sich auf eine Zahl verlassen.",
+    "h_priv": "4. Datenschutz",
+    "p_priv": "Wir zählen Seitenaufrufe mit einer selbst gehosteten Instanz von Plausible Analytics. Sie setzt keine Cookies und erhebt keine personenbezogenen Daten. Der Konzentrationsrechner läuft vollständig in Ihrem Browser; Eingaben werden nicht an uns gesendet.",
+    "h_contact": "5. Kontakt",
+    "p_contact": "Kontakt für Redaktion und Partner:"
+  },
+  "adv": {
+    "title": [
+      "Für Shops: Audit-Updates & Partnerprogramm | {site}"
+    ],
+    "description": [
+      "Wie Shops für Forschungspeptide neue Laborberichte für das nächste Audit schicken und wie unser Partnerprogramm funktioniert. Scores sind nicht käuflich."
+    ],
+    "h1": "Für Shops: Audit-Updates und Partnerprogramm",
+    "intro": "Wir prüfen {shops} Shops nach einer öffentlichen Methode. Shops können neue Laborberichte für die nächste Prüfung schicken und sich für unser Partnerprogramm bewerben. Beides ändert nichts an der Berechnung des Scores.",
+    "sendH": "Neue Laborberichte schicken",
+    "sendP": "Wenn Ihr Shop neue Berichte veröffentlicht hat, schicken Sie uns die Links und, falls vorhanden, die Schlüssel für das Laborportal. Wir nehmen sie in der nächsten Audit-Runde auf, nachdem wir sie auf der Website des Labors geprüft haben.",
+    "progH": "Partnerprogramm",
+    "prog": [
+      "Partnershops erhalten einen „Besuchen“-Link mit Ihrem Affiliate-Tracking.",
+      "Leser-Codes zeigen wir nur, wenn Sie sie an uns ausgegeben haben, und nur dort, wo Ihre Bedingungen es erlauben.",
+      "Rankings sortieren Partnershops nach Audit-Score. Eine Partnerschaft erhöht nie einen Score und entfernt keine Schwäche.",
+      "Ihre Angebote und Texte müssen den Regeln für Forschungszwecke entsprechen. Wir veröffentlichen keine Anwendungs- oder Gesundheitsversprechen."
+    ]
+  },
+  "calcp": {
+    "title": [
+      "Konzentrationsrechner für Vials (mg/mL)"
+    ],
+    "description": [
+      "Rechner für die Stammkonzentration (mg/mL) im Labor für Vials mit einer oder zwei Substanzen, optional mit gemessenen mg. Nur für Forschungszwecke."
+    ],
+    "crumb": "Konzentrationsrechner",
+    "h1": "Rechner für die Stammkonzentration im Vial",
+    "intro": "Berechnet die Stammkonzentration in mg/mL aus der Masse im Vial und dem zugegebenen Volumen Lösungsmittel. Statt der Etikettangabe können Sie die gemessenen mg aus einem Laborbericht nutzen. Nur für In-vitro-Laborarbeit; keine Anwendungshinweise.",
+    "faqs": [
+      {
+        "q": "Wie wird die Stammkonzentration berechnet?",
+        "a": "Stammkonzentration (mg/mL) = Masse im Vial (mg) geteilt durch das zugegebene Volumen Lösungsmittel (mL). Beispiel: 10 mg in 2 mL = 5 mg/mL."
+      },
+      {
+        "q": "Warum die gemessenen mg aus einem Laborbericht eingeben?",
+        "a": "Die gemessene Menge auf einem Laborbericht kann von der Etikettangabe abweichen. In unserem Audit lag der gemessene Gehalt teils über, teils unter der Etikettangabe; mit dem gemessenen Wert wird die Konzentration genauer."
+      }
+    ]
+  },
+  "lw": {
+    "title": [
+      "Forschungspeptide nach Land: Behörden & Shops"
+    ],
+    "description": [
+      "Allgemeine Hinweise für {n} Länder: welche Behörde Arzneimittel regelt und welche geprüften Shops für Forschungspeptide dorthin liefern. Keine Rechtsberatung."
+    ],
+    "crumb": "Länderhinweise",
+    "h1": "Länderhinweise",
+    "intro": "Allgemeine Informationen zu {n} Ländern: die zuständigen Arzneimittelbehörden und welche der geprüften Shops angeben, dorthin zu liefern (Stand {date}). Das ist keine Rechtsberatung. Prüfen Sie die aktuellen Regeln vor einer Bestellung bei der Behörde.",
+    "shipHere": {
+      "one": "{n} geprüfter Shop gibt an, hierher zu liefern",
+      "other": "{n} geprüfte Shops geben an, hierher zu liefern"
+    }
+  },
+  "law": {
+    "title": [
+      "Forschungspeptide in {country}: Regeln & Shops {year}",
+      "Forschungspeptide in {country}: Regeln & Shops",
+      "Peptide in {country}: Regeln & Shops"
+    ],
+    "description": [
+      "{country}: welche Behörde Arzneimittel regelt und welche unserer geprüften Shops für Forschungspeptide angeben, dorthin zu liefern. Shops und Regeln ansehen."
+    ],
+    "h1": "Forschungspeptide in {country}",
+    "intro": {
+      "one": "{n} der geprüften Shops gibt an, nach {country} zu liefern. Diese Seite ist eine allgemeine Information, keine Rechtsberatung.",
+      "other": "{n} der geprüften Shops geben an, nach {country} zu liefern. Diese Seite ist eine allgemeine Information, keine Rechtsberatung."
+    },
+    "authH": "Behörden",
+    "rules": "Regeln ändern sich. Prüfen Sie vor einer Bestellung den aktuellen Stand bei der Behörde und beachten Sie die Beschaffungsregeln Ihrer Einrichtung.",
+    "shopsH": "Geprüfte Shops mit Lieferung nach {country}",
+    "shopsP": "Grundlage sind die veröffentlichten Versandangaben der Shops am {date}, sortiert nach Audit-Score. {unknown} Shops geben nicht an, wohin sie liefern.",
+    "colShips": "Lieferung nach (laut Shop)",
+    "relAll": "Alle Länderhinweise"
+  },
+  "ri": {
+    "title": [
+      "Ratgeber: Laborberichte zu Peptiden lesen und prüfen"
+    ],
+    "description": [
+      "Verständliche Ratgeber zu Laborberichten für Peptide: wie man einen Bericht prüft, Reinheit gegenüber gemessenen mg und Code-Namen, die Shops verwenden."
+    ],
+    "crumb": "Ratgeber",
+    "h1": "Ratgeber",
+    "intro": "Kurze, verständliche Ratgeber zum Lesen und Prüfen von Laborberichten für Forschungspeptide. Keine Anwendungs- oder Gesundheitsangaben."
+  },
+  "r": {
+    "keyPoints": "Das Wichtigste",
+    "whereH": "Wo jedes Labor eine Prüfung ermöglicht",
+    "noLookup": "keine öffentliche Abfrage gefunden",
+    "verifyP": "In unserem Audit vom {date} ließen sich {portal} von {reports} geöffneten Berichten im Portal des Labors finden.",
+    "foundH": "Was unser Audit ergab",
+    "foundP": "Von den {n} Berichten, die sowohl Reinheit als auch gemessene mg angeben, zeigen {hp} eine Reinheit von 99 % oder mehr. {off} davon lagen trotzdem außerhalb von 90-110 % der Etikettangabe.",
+    "allListed": "Alle Berichte stehen unter",
+    "namesH": "Produktnamen für {c} ({n} Angebote)",
+    "psLink": "Zur Statusseite von Peptide Sciences",
+    "published": "Veröffentlicht am {pub} von der Redaktion von PeptideLabIndex. Daten geprüft am {date}."
+  },
+  "data": {
+    "title": [
+      "Offene Daten: Audit der Peptid-Shops 2026 (CSV, JSON)"
+    ],
+    "description": [
+      "{n} gelistete Preise von {shops} geprüften Shops mit Preis pro mg, Laborberichten und Scores herunterladen. CSV und JSON, Lizenz CC BY 4.0."
+    ],
+    "crumb": "Offene Daten",
+    "h1": "Offene Daten: Audit der Shops für Forschungspeptide 2026",
+    "intro": "Die vollständigen Preisdaten hinter dieser Website: {n} gelistete Preise von {shops} geprüften Shops, eine Zeile pro Produkt, mit Preis pro mg, ob wir für diese Substanz bei diesem Shop einen Laborbericht geöffnet haben, und dem Audit-Score des Shops. Geprüft am {date}. Frei nutzbar mit Namensnennung (CC BY 4.0).",
+    "csv": "CSV herunterladen",
+    "json": "JSON herunterladen",
+    "englishNote": "Die Datendateien verwenden englische Spaltennamen und Werte.",
+    "colsH": "Spalten",
+    "colCol": "Spalte",
+    "colMeaning": "Bedeutung",
+    "col": {
+      "shop": "Name des Shops",
+      "shopSlug": "Shop-ID (entspricht /vendors/<id>/)",
+      "region": "EU oder US",
+      "compound": "Substanz-ID (entspricht /compounds/<id>/)",
+      "product": "Produktname laut Shop",
+      "vialMg": "mg auf dem Etikett",
+      "price": "Gelisteter Preis",
+      "salePrice": "Angebotspreis, falls angezeigt",
+      "currency": "EUR oder USD (nie umgerechnet)",
+      "pricePerMg": "Preis (Angebotspreis, falls angezeigt) / mg laut Etikett",
+      "labReportOpenedForCompound": "Wir haben einen Laborbericht dieses Shops zu dieser Substanz geöffnet",
+      "portalVerified": "Mindestens ein solcher Bericht fand sich im Laborportal",
+      "shopScore": "Audit-Score 0-5",
+      "reviewedAt": "Datum der Prüfung des Shops"
+    },
+    "notesH": "Hinweise",
+    "notes": [
+      "Preise sind Listenpreise ohne Rabattcodes. EUR und USD werden nie umgerechnet.",
+      "Leere Zellen bedeuten, dass der Shop den Wert nicht veröffentlicht hat.",
+      "Bitte zitieren als: {site}, research peptide shop audit, {date}, {url}."
+    ],
+    "notesReports": "Adressen und IDs der Laborberichte stehen auf der Testseite jedes Shops und unter"
+  }
+}

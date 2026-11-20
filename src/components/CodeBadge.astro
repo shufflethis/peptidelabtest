@@ -3,6 +3,7 @@
 import Icon from './Icon.astro';
 import { codeInfo } from '../lib/site';
 import { t, lp, splitLang } from '../i18n';
+import { discountNote } from '../i18n/discountNotes';
 interface Props {
   slug: string;
   onOwnPage?: boolean;
@@ -11,6 +12,7 @@ interface Props {
 const { slug, onOwnPage = false, size = 'sm' } = Astro.props;
 const lang = splitLang(Astro.url.pathname).lang;
 const c = codeInfo(slug, onOwnPage);
+const note = c.kind === 'code' ? (discountNote(lang, c.note) ?? (c.note && c.percent ? t(lang, 'c.codeNote', { n: c.percent }) : undefined)) : undefined;
 ---
 {c.kind === 'code' && size === 'xs' && (
   <span class="inline-flex items-center gap-1.5 whitespace-nowrap">
@@ -28,8 +30,7 @@ const c = codeInfo(slug, onOwnPage);
     <button type="button" data-copy={c.code} class="inline-flex items-center gap-1 min-h-[44px] -my-2 px-1 text-sm font-semibold text-teal-800 hover:text-teal-950 underline underline-offset-2" aria-label={t(lang, 'c.copyCode', { code: c.code })}>
       <Icon name="copy" class="w-4 h-4" />{t(lang, 'c.copy')}
     </button>
-    {c.note && size === 'md' && lang === 'en' && <span class="basis-full text-sm text-slate-700">{c.note}</span>}
-    {c.note && size === 'md' && lang !== 'en' && c.percent ? <span class="basis-full text-sm text-slate-700">{t(lang, 'c.codeNote', { n: c.percent })}</span> : null}
+    {note && size === 'md' && <span class="basis-full text-sm text-slate-700">{note}</span>}
   </span>
 )}
 {c.kind === 'on-review' && (
