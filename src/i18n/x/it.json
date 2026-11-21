@@ -684,5 +684,109 @@
     ],
     "iH1": "Negozi di peptidi per paese",
     "iIntro": "{n} paesi: quanti dei {total} negozi verificati hanno sede lì e quanti dichiarano di spedire lì, secondo le pagine dei negozi, verificato il {date}."
+  },
+  "br": {
+    "crumb": "Stato dei marchi",
+    "eyebrow": "Verifica del marchio",
+    "domainsH": "Siti che usano il nome {name}",
+    "domainsP": "Cosa mostrava ogni sito quando l'abbiamo aperto il {date}. I domini sono mostrati come testo, non come link.",
+    "colDomain": "Sito",
+    "colState": "Cosa abbiamo trovato",
+    "colSeen": "Testo della pagina",
+    "colBrand": "Marchio",
+    "colStatus": "Stato",
+    "colDomains": "Siti verificati",
+    "srcH": "Pagine aperte:",
+    "reviewLink": "{name}: analisi completa",
+    "state": {
+      "officialClosed": "Sito originale: vendite interrotte",
+      "successorClaim": "Altro sito che dichiara di continuare il marchio",
+      "researcherGate": "Catalogo dietro una verifica ricercatore",
+      "shop": "Negozio che usa il nome",
+      "accessGate": "Negozio dietro una pagina di accesso",
+      "forSale": "Dominio in vendita",
+      "audited": "Negozio verificato"
+    },
+    "short": {
+      "closed": "Chiuso (secondo il proprio sito)",
+      "gated": "Catalogo dietro una verifica ricercatore",
+      "unclear": "Più siti, origine poco chiara",
+      "audited": "Verificato, vedi analisi"
+    },
+    "checkH": "Come verificare un marchio prima di ordinare",
+    "checkP": "Digiti l'indirizzo da sé invece di seguire annunci, lo confronti con l'indirizzo che il marchio indica sulle proprie pagine, cerchi una società con nome e indirizzo e confermi un referto sul portale del laboratorio. Un sito che copia il nome di un marchio non prova nulla sull'originale.",
+    "fq1": "{name} vende ancora?",
+    "fq2": "Qual è il vero sito di {name}?",
+    "fq3": "Avete analizzato prodotti {name}?",
+    "closed": {
+      "title": [
+        "{name} stato 2026: chiuso? Qual è il sito vero",
+        "{name} stato 2026: chiuso?"
+      ],
+      "description": [
+        "Stato di {name} verificato il {date}: il sito originale dichiara la fine delle vendite di prodotti per la ricerca a marzo 2026 e nessun successore autorizzato; un altro sito dichiara di continuare il marchio.",
+        "Stato di {name}: cosa dice il sito originale e quali altri siti usano il nome, verificato il {date}."
+      ],
+      "h1": "{name}: stato e qual è il sito vero",
+      "answer": "Il sito originale di {name} dichiara di aver interrotto a marzo 2026 tutte le vendite di prodotti solo per la ricerca e di non aver autorizzato alcun successore o sito sostitutivo. Almeno un altro sito dichiara di continuare il marchio. Verificato il {date}.",
+      "fa1": "No, secondo il proprio sito: peptidesciences.com dichiara che le vendite di prodotti solo per la ricerca sono cessate a marzo 2026.",
+      "fa2": "Il sito originale dichiara di non aver autorizzato terzi né siti sostitutivi. Un sito che si presenta come continuazione del marchio contraddice questa dichiarazione.",
+      "fa3": "No. Il negozio era chiuso al momento della nostra verifica, quindi non c'era nulla da valutare."
+    },
+    "gated": {
+      "title": [
+        "{name} peptidi: stato, siti e cosa abbiamo verificato",
+        "{name} peptidi: verifica dello stato"
+      ],
+      "description": [
+        "{name} peptidi verificato il {date}: il catalogo appare solo dopo una verifica ricercatore (data di nascita e dichiarazione) e {n} siti usano il nome. Cosa abbiamo potuto verificare e cosa no.",
+        "{name} peptidi: verifica ricercatore prima del catalogo e {n} siti con il nome, verificato il {date}."
+      ],
+      "h1": "{name} peptidi: stato e cosa abbiamo potuto verificare",
+      "answer": "{name} mostra il catalogo solo dopo una verifica ricercatore che chiede la data di nascita e una dichiarazione di uso per ricerca. Non compiliamo moduli, quindi non abbiamo potuto leggere prezzi né referti e non abbiamo valutato il negozio. {n} siti usano il nome. Verificato il {date}.",
+      "fa1": "I siti erano online alla verifica del {date}; il catalogo è dietro una verifica ricercatore, quindi non abbiamo visto disponibilità né prezzi.",
+      "fa2": "Abbiamo trovato {n} siti che usano il nome. Dalle pagine leggibili non abbiamo potuto confermare quale sia l'originale.",
+      "fa3": "No. Senza accesso a catalogo e referti non abbiamo potuto valutarlo; non fa parte della nostra verifica di {shops} negozi."
+    },
+    "unclear": {
+      "title": [
+        "{name}: qual è il sito vero? Verifica 2026",
+        "{name}: qual è il sito vero?"
+      ],
+      "description": [
+        "{name} verificato il {date}: {n} siti diversi usano il nome, con grafica e cataloghi diversi. Cosa mostrava ogni sito e perché non ne abbiamo valutato nessuno.",
+        "{name}: {n} siti usano il nome; cosa mostrava ciascuno alla verifica del {date}."
+      ],
+      "h1": "{name}: qual è il sito vero?",
+      "answer": "{n} siti diversi usano il nome {name}. Nessuna delle pagine lette indica una società con indirizzo che mostri quale sia l'originale, quindi non ne abbiamo valutato nessuno. Verificato il {date}.",
+      "fa1": "Il {date} erano online diversi siti con questo nome; dalle loro pagine non è chiaro se uno di essi sia il marchio originale.",
+      "fa2": "Non abbiamo potuto stabilirlo. I siti aperti non indicano una società con indirizzo che li colleghi a un marchio.",
+      "fa3": "No. Con l'origine poco chiara non abbiamo verificato nessuno dei siti; non fanno parte della nostra verifica di {shops} negozi."
+    },
+    "audited": {
+      "title": [
+        "{name} peptidi: analisi, punteggio {score}/5",
+        "{name} peptidi: analisi e stato"
+      ],
+      "description": [
+        "{name} peptidi: verificato nella nostra analisi di {shops} negozi, punteggio {score}/5, {opened} referti aperti, {portal} confermati su un portale di laboratorio. Verificato il {date}.",
+        "{name} peptidi: il nostro punteggio {score}/5 e la verifica dei referti, {date}."
+      ],
+      "h1": "{name} peptidi: stato e dati dell'analisi",
+      "answer": "{name} fa parte della nostra verifica di {shops} negozi: punteggio {score}/5 (posizione {rank}), {opened} referti aperti, {portal} confermati su un portale di laboratorio. Tutti i dati nella pagina dell'analisi.",
+      "fa1": "Sì, il negozio vendeva quando l'abbiamo verificato.",
+      "fa2": "Il negozio verificato è indicato qui sotto con la sua analisi; altri siti che usano il nome non sono stati verificati.",
+      "fa3": "Abbiamo aperto {opened} dei suoi referti; {portal} sono stati confermati sul portale del laboratorio."
+    },
+    "iTitle": [
+      "Stato dei marchi di peptidi: chiusure e copie",
+      "Stato dei marchi di peptidi"
+    ],
+    "iDescription": [
+      "Stato di {n} marchi di peptidi verificato il {date}: negozi chiusi, siti che dichiarano di continuare un marchio, cataloghi dietro verifiche ricercatore e nomi usati da più siti.",
+      "Stato dei marchi di peptidi: negozi chiusi e nomi usati da più siti, verificato il {date}."
+    ],
+    "iH1": "Stato dei marchi di peptidi",
+    "iIntro": "{n} marchi cercati che non abbiamo potuto valutare come negozi normali o che richiedono una nota sullo stato: negozi chiusi, siti che dichiarano di continuare un marchio e nomi usati da più siti. Verificato il {date}."
   }
 }

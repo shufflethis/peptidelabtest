@@ -53,7 +53,7 @@ const related = [
 ];
 ---
 <BaseLayout lang={lang} title={tt(lang, `bl.t.${b.key}`, V)} description={td(lang, 'bl.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
-  <PageHero lang={lang} crumbs={crumbs} title={t(lang, `bl.h.${b.key}`, V)} eyebrow={t(lang, 'bl.eyebrow')} intro={t(lang, 'bl.intro', V)}>
+  <PageHero lang={lang} checked="2026-11-21" crumbs={crumbs} title={t(lang, `bl.h.${b.key}`, V)} eyebrow={t(lang, 'bl.eyebrow')} intro={t(lang, 'bl.intro', V)}>
     <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
       <div class="stat"><dt>{t(lang, 'bl.statShops')}</dt><dd>{shops.length}</dd></div>
       <div class="stat"><dt>{t(lang, 'bl.statOffers')}</dt><dd>{offers.length}</dd></div>

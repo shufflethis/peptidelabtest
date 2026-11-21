@@ -20,7 +20,7 @@ const V = { n: BLENDS.length, shops: new Set(BLENDS.flatMap((b) => blendOffers(b
 const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'bl.crumb'), url: L('/blends/') }];
 ---
 <BaseLayout lang={lang} title={tt(lang, 'bl.iTitle', V)} description={td(lang, 'bl.iDescription', V)} crumbs={crumbs}>
-  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'bl.iH1')} eyebrow={t(lang, 'bl.eyebrow')} intro={t(lang, 'bl.iIntro', V)} />
+  <PageHero lang={lang} checked="2026-11-21" crumbs={crumbs} title={t(lang, 'bl.iH1')} eyebrow={t(lang, 'bl.eyebrow')} intro={t(lang, 'bl.iIntro', V)} />
   <div class="wrap mt-12 space-y-14">
     <div class="table-wrap">
       <table class="data-table">

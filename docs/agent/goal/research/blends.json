@@ -1018,6 +1018,295 @@
    "url": "https://cenexalabs.com/product/peptides/cjc-1295-ipamorelin-blend-peptide/?attribute_pa_size=10mg",
    "readAt": "2026-11-21",
    "note": "per-compound amounts not captured"
+  },
+  {
+   "shop": "pure-peptides",
+   "blend": "klow",
+   "shopProductName": "KLOW Blend 10mg/10mg/50mg/10mg",
+   "totalMg": 80,
+   "composition": {
+    "ghk-cu": 50,
+    "bpc-157": 10,
+    "tb-500": 10,
+    "kpv": 10
+   },
+   "price": 160.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://purepeptides.com/product/klow-peptide-blend",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "pure-peptides",
+   "blend": "glow",
+   "shopProductName": "GLOW Blend 10mg/10mg/50mg",
+   "totalMg": 70,
+   "composition": {
+    "ghk-cu": 50,
+    "bpc-157": 10,
+    "tb-500": 10
+   },
+   "price": 135.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://purepeptides.com/product/glow-peptide-blend",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "pure-peptides",
+   "blend": "wolverine",
+   "shopProductName": "Wolverine Blend 5mg/5mg",
+   "totalMg": 10,
+   "composition": {
+    "bpc-157": 5,
+    "tb-500": 5
+   },
+   "price": 76.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://purepeptides.com/product/bpc-157-tb-500-blend",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "ez-peptides",
+   "blend": "wolverine",
+   "shopProductName": "BPC-157 / TB4 Blend 5mg/5mg",
+   "totalMg": 10,
+   "composition": {
+    "bpc-157": 5,
+    "tb-500": 5
+   },
+   "price": 53.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://ezpeptides.com/product/bpc-157-tb4-blend-5mg-5mg/",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "ez-peptides",
+   "blend": "wolverine",
+   "shopProductName": "BPC-157 / TB4 Blend 10mg/10mg",
+   "totalMg": 20,
+   "composition": {
+    "bpc-157": 10,
+    "tb-500": 10
+   },
+   "price": 88.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://ezpeptides.com/product/bpc-157-tb4-blend-10mg-10mg/",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "ez-peptides",
+   "blend": "klow",
+   "shopProductName": "Klow Blend 80mg",
+   "totalMg": 80,
+   "composition": null,
+   "price": 98.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://ezpeptides.com/product/klow-blend-80mg/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
+  },
+  {
+   "shop": "ez-peptides",
+   "blend": "glow",
+   "shopProductName": "Glow Blend (BPC-157/TB4/GHK-Cu) 70mg",
+   "totalMg": 70,
+   "composition": null,
+   "price": 88.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://ezpeptides.com/product/glow-blend-bpc-157-tb4-ghk-cu-10mg/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
+  },
+  {
+   "shop": "ez-peptides",
+   "blend": "cjc-ipamorelin",
+   "shopProductName": "CJC-no DAC / Ipamorelin Blend 5mg/5mg",
+   "totalMg": 10,
+   "composition": {
+    "cjc-1295": 5,
+    "ipamorelin": 5
+   },
+   "price": 53.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://ezpeptides.com/product/cjc-no-dac-ipamorelin-blend-5mg-5mg/",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "biotech-peptides",
+   "blend": "klow",
+   "shopProductName": "KLOW Blend (80mg)",
+   "totalMg": 80,
+   "composition": null,
+   "price": 220.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://biotechpeptides.com/product/klow-blend-80mg/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
+  },
+  {
+   "shop": "biotech-peptides",
+   "blend": "glow",
+   "shopProductName": "BPC-157 & TB-500 & GHK-Cu Blend (70mg)",
+   "totalMg": 70,
+   "composition": null,
+   "price": 205.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://biotechpeptides.com/product/bpc-157-tb-500-ghk-cu-blend-70mg/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
+  },
+  {
+   "shop": "biotech-peptides",
+   "blend": "wolverine",
+   "shopProductName": "BPC-157 & TB-500 Blend (10mg)",
+   "totalMg": 10,
+   "composition": null,
+   "price": 115.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://biotechpeptides.com/product/bpc-157-tb-500-10mg-blend-2/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
+  },
+  {
+   "shop": "biotech-peptides",
+   "blend": "cjc-ipamorelin",
+   "shopProductName": "CJC-1295 & Ipamorelin Blend (10mg)",
+   "totalMg": 10,
+   "composition": null,
+   "price": 81.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://biotechpeptides.com/product/cjc-1295-ipamorelin-10mg-blend-2/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
+  },
+  {
+   "shop": "modern-aminos",
+   "blend": "wolverine",
+   "shopProductName": "BPC-157/TB-500 Blend 5MG/5MG",
+   "totalMg": 10,
+   "composition": {
+    "bpc-157": 5,
+    "tb-500": 5
+   },
+   "price": 59.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://modernaminos.com/product/bpc-157tb-500-blend/",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "modern-aminos",
+   "blend": "wolverine",
+   "shopProductName": "BPC-157/TB-500 Blend 10MG/10MG",
+   "totalMg": 20,
+   "composition": {
+    "bpc-157": 10,
+    "tb-500": 10
+   },
+   "price": 89.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://modernaminos.com/product/bpc-157tb-500-blend/",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "modern-aminos",
+   "blend": "cjc-ipamorelin",
+   "shopProductName": "CJC-1295 (no DAC) / Ipamorelin 5MG/5MG",
+   "totalMg": 10,
+   "composition": {
+    "cjc-1295": 5,
+    "ipamorelin": 5
+   },
+   "price": 55.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://modernaminos.com/product/cjc-1295-no-dac-ipamorelin/",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "modern-aminos",
+   "blend": "cjc-ipamorelin",
+   "shopProductName": "CJC-1295 (no DAC) / Ipamorelin 10MG/10MG",
+   "totalMg": 20,
+   "composition": {
+    "cjc-1295": 10,
+    "ipamorelin": 10
+   },
+   "price": 104.0,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://modernaminos.com/product/cjc-1295-no-dac-ipamorelin/",
+   "readAt": "2026-11-21"
+  },
+  {
+   "shop": "glacier-aminos",
+   "blend": "klow",
+   "shopProductName": "KLOW 80MG",
+   "totalMg": 80,
+   "composition": null,
+   "price": 99.99,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://glacieraminos.shop/product/klow-80/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
+  },
+  {
+   "shop": "glacier-aminos",
+   "blend": "glow",
+   "shopProductName": "GLOW 70MG",
+   "totalMg": 70,
+   "composition": null,
+   "price": 89.99,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://glacieraminos.shop/product/glow/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
+  },
+  {
+   "shop": "glacier-aminos",
+   "blend": "cjc-ipamorelin",
+   "shopProductName": "CJC 1295 No DAC/IPA Blend 10MG",
+   "totalMg": 10,
+   "composition": null,
+   "price": 54.99,
+   "salePrice": null,
+   "currency": "USD",
+   "inStock": true,
+   "url": "https://glacieraminos.shop/product/cjc-1295-no-dac-ipa-blend/",
+   "readAt": "2026-11-21",
+   "note": "per-compound amounts not stated"
   }
  ],
  "reports": [

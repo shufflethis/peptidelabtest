@@ -6,6 +6,7 @@ import { COUNTRY_LAWS } from '../data/laws';
 import { RESEARCH_ARTICLES } from '../data/labs';
 import { BLENDS } from './blends';
 import { COUNTRIES } from './m4';
+import { BRANDS } from '../data/brandStatus';
 import { PRICE_COMPOUNDS, SIZE_PAGES, COMPOUND_PAIRS, pairSlug, SHOP_PAIRS, LABS_IN_DATA, CALC_COMPOUNDS } from './site';
 
 type P = { params: Record<string, string>; props: Record<string, any> };
@@ -22,6 +23,7 @@ export const R = {
   calc: (): P[] => CALC_COMPOUNDS.map((compound) => ({ params: { compound }, props: { compound } })),
   blend: (): P[] => BLENDS.map((b) => ({ params: { blend: b.slug }, props: { blend: b.slug } })),
   country: (): P[] => COUNTRIES.map((c) => ({ params: { country: c.slug }, props: { country: c.slug } })),
+  brand: (): P[] => BRANDS.map((b) => ({ params: { brand: b.slug }, props: { brand: b.slug } })),
   single: (): P[] => [{ params: {}, props: {} }],
 };
 

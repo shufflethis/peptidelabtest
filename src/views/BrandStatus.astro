@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { faqSchema, vendorBySlug, TOTALS } from '../lib/site';
+import { BRANDS, brandBySlug } from '../data/brandStatus';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang; brand: string }
+const { lang, brand } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const b = brandBySlug(brand)!;
+const v = b.vendor ? vendorBySlug(b.vendor) : undefined;
+const date = fmtDate(lang, '2026-11-21');
+const V = { name: b.name, n: b.domains.length, date, shops: TOTALS.shops, score: v ? F.score(v.overallScore) : '', rank: v?.rank ?? '', opened: v?.coaStats.opened ?? 0, portal: v?.coaStats.portalVerified ?? 0 };
+const faqs = [1, 2, 3].map((i) => ({ q: t(lang, `br.fq${i}`, V), a: t(lang, `br.${b.status}.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'br.crumb'), url: L('/brands/') }, { name: b.name, url: L(`/brands/${b.slug}/`) }];
+---
+<BaseLayout lang={lang} title={tt(lang, `br.${b.status}.title`, V)} description={td(lang, `br.${b.status}.description`, V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} checked="2026-11-21" crumbs={crumbs} title={t(lang, `br.${b.status}.h1`, V)} eyebrow={t(lang, 'br.eyebrow')} intro={t(lang, `br.${b.status}.answer`, V)} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="space-y-4">
+      <div class="max-w-[70ch]"><h2 class="h2">{t(lang, 'br.domainsH', V)}</h2><p class="mt-2 text-slate-700">{t(lang, 'br.domainsP', V)}</p></div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">{t(lang, 'br.colDomain')}</th><th scope="col">{t(lang, 'br.colState')}</th><th scope="col">{t(lang, 'br.colSeen')}</th></tr></thead>
+          <tbody>
+            {b.domains.map((d) => (
+              <tr><td class="font-semibold text-slate-900 whitespace-nowrap">{d.domain}</td><td class="min-w-[10rem]">{t(lang, `br.state.${d.state}`)}</td><td class="min-w-[14rem] text-slate-700">{d.state === 'audited' && v ? <a href={L(`/vendors/${v.slug}/`)} class="text-link">{t(lang, 'br.reviewLink', V)}</a> : <q>{d.seen}</q>}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {b.sources.length > 0 && <div class="text-sm text-slate-600"><p>{t(lang, 'br.srcH')}</p><ul class="mt-1 space-y-0.5">{b.sources.map((s) => <li class="mono-url">{s}</li>)}</ul></div>}
+    </section>
+    <section class="prose-read">
+      <h2 class="!mt-0">{t(lang, 'br.checkH')}</h2>
+      <p>{t(lang, 'br.checkP')}</p>
+    </section>
+    <FAQ items={faqs} />
+    <RelatedLinks links={[
+      ...(v ? [{ href: L(`/vendors/${v.slug}/`), label: t(lang, 'br.reviewLink', V) }] : []),
+      { href: L('/trusted-peptide-vendors/'), label: t(lang, 'tv.crumb') },
+      { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'lg.crumb') },
+      ...BRANDS.filter((x) => x.slug !== b.slug).map((x) => ({ href: L(`/brands/${x.slug}/`), label: x.name })),
+    ]} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

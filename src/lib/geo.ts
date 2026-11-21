@@ -4,6 +4,7 @@ import { CASES } from './cases';
 import { COA_STATS } from './coa';
 import { BLENDS, blendOffers } from './blends';
 import { CODE_NAMES, COUNTRIES, countryData } from './m4';
+import { BRANDS } from '../data/brandStatus';
 
 export function geoAnswers(): { q: string; path: string; a: string }[] {
   const [p1, p2, p3] = PARTNERS;
@@ -52,6 +53,7 @@ export function geoAnswers(): { q: string; path: string; a: string }[] {
       const d = countryData(c.code);
       return { q: `Which audited peptide shops are based in / ship to ${c.code}?`, path: `/shops-by-country/${c.slug}/`, a: `${d.based.length} of ${d.total} audited shops based there (${d.based.map((v) => v.name).join(', ') || 'none'}); ${d.ship.length} state they ship there; ${d.np.length} publish no shipping countries.` };
     }),
+    ...BRANDS.map((b) => ({ q: `Is ${b.name} legit / still selling? Which site is real?`, path: `/brands/${b.slug}/`, a: `${b.domains.map((d) => `${d.domain}: ${d.state}`).join('; ')} (opened 2026-11-21).` })),
     {
       q: 'Peptide reconstitution calculator (lab mg/mL)?', path: '/calculator/',
       a: 'Lab concentration only: mg in the vial / mL of diluent = mg/mL stock, optional correction with the measured mg from a lab report. Per-compound pages show vial sizes, price per mg and reports.',

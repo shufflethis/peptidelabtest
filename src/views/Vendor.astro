@@ -24,8 +24,8 @@ interface Props { lang: Lang; slug: string }
 const { lang, slug } = Astro.props;
 const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
-const date = fmtDate(lang, CHECKED_ISO);
 const raw = VENDORS.find((x) => x.slug === slug)!;
+const date = fmtDate(lang, (raw as any).reviewedAt || CHECKED_ISO);
 const v = locVendor(lang, raw);
 const nm = shopShort(v.name);
 const partner = isPartner(v.slug);

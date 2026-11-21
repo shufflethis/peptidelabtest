@@ -1,0 +1,170 @@
+{
+ "slug": "modern-aminos",
+ "name": "Modern Aminos",
+ "shopUrl": "https://modernaminos.com",
+ "region": "US",
+ "originCountry": "US",
+ "shipsTo": null,
+ "legalEntity": "not published",
+ "testingLabs": [],
+ "coaAccess": "COA batch search (modernaminos.com/coa-search/); reports not listed without a batch number",
+ "coaExamples": [],
+ "panels": {
+  "hplc": false,
+  "lcms": false,
+  "mass": false,
+  "endotoxin": false,
+  "sterility": false,
+  "heavyMetals": false
+ },
+ "paymentMethods": [],
+ "freeShippingThreshold": null,
+ "dispatchInfo": "Contact page: orders before the 4 PM CT cut-off typically ship the same business day; FedEx or UPS tracking",
+ "products": [
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "GHK-CU (Copper Tripeptide-1) 100mg",
+   "vialMg": 100.0,
+   "price": 60.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/ghk-cu/",
+   "inStock": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "GHK-CU (Copper Tripeptide-1) 50mg",
+   "vialMg": 50.0,
+   "price": 38.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/ghk-cu/",
+   "inStock": true
+  },
+  {
+   "compound": "cjc-1295",
+   "shopProductName": "CJC-1295 w/o DAC 2mg",
+   "vialMg": 2.0,
+   "price": 19.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/cjc-1295-no-dac-2mg/",
+   "inStock": true
+  },
+  {
+   "compound": "cjc-1295",
+   "shopProductName": "CJC-1295 w/o DAC 5mg",
+   "vialMg": 5.0,
+   "price": 34.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/cjc-1295-no-dac-2mg/",
+   "inStock": true
+  },
+  {
+   "compound": "mots-c",
+   "shopProductName": "MOTS-C 10mg",
+   "vialMg": 10.0,
+   "price": 39.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/mots-c/",
+   "inStock": true
+  },
+  {
+   "compound": "mots-c",
+   "shopProductName": "MOTS-C 40mg",
+   "vialMg": 40.0,
+   "price": 96.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/mots-c/",
+   "inStock": true
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB-500 (Thymosin Beta-4) 5mg",
+   "vialMg": 5.0,
+   "price": 34.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/tb-500-thymosin-beta-4/",
+   "inStock": false
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB-500 (Thymosin Beta-4) 10mg",
+   "vialMg": 10.0,
+   "price": 59.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/tb-500-thymosin-beta-4/",
+   "inStock": true
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 (Pentadecapeptide) 10mg",
+   "vialMg": 10.0,
+   "price": 54.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/pentadecapeptide/",
+   "inStock": true
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 (Pentadecapeptide) 5mg",
+   "vialMg": 5.0,
+   "price": 33.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/pentadecapeptide/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesamorelin 10MG",
+   "vialMg": 10.0,
+   "price": 68.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://modernaminos.com/product/tesamorelin/",
+   "inStock": true
+  }
+ ],
+ "subscores": {
+  "labVerification": 1,
+  "fillAccuracy": 3,
+  "panelDepth": 1,
+  "entityTransparency": 2,
+  "dispatchReliability": 6,
+  "valuePerMg": 5
+ },
+ "subscore_reasons": {
+  "labVerification": "Reports are found only through a batch-number search; product pages show no report, lab name or key.",
+  "fillAccuracy": "No report opened, so no measured mg to compare with the label.",
+  "panelDepth": "No test panel could be read without a batch number.",
+  "entityTransparency": "No company name or address found on the pages we could read (the site is behind a bot check; policy pages returned no text).",
+  "dispatchReliability": "Same-day dispatch before 4 PM CT stated on the contact page; shipping policy text could not be read.",
+  "valuePerMg": "BPC-157 $5.40/mg (10 mg) and TB-500 $5.90/mg (10 mg) are around the market middle; no GLP-1-class single compounds except a CagriSema blend."
+ },
+ "strengths": [
+  "Same-day dispatch cut-off stated",
+  "Batch-number COA search"
+ ],
+ "weaknesses": [
+  "No lab report can be opened without a batch number",
+  "No company name or address found",
+  "Site behind a bot check; policy pages could not be read"
+ ],
+ "verdict": "Modern Aminos sells about 190 listings and offers a batch-number COA search, but we could not open any report without a batch number and found no company name or address.",
+ "summary": "US shop (modernaminos.com) with about 190 listings incl. blends, strips and capsules; batch-number COA search; same-day dispatch before 4 PM CT.",
+ "notes": "Read via the public WooCommerce Store API and WordPress pages API (GET) because the pages are behind a bot check. Other domains using the name (modernaminosusa.com, modernaminos.eu) not audited.",
+ "sources": [
+  "https://modernaminos.com",
+  "https://modernaminos.com/wp-json/wc/store/v1/products",
+  "https://modernaminos.com/contact-us/",
+  "https://modernaminos.com/coa-search/"
+ ],
+ "readAt": "2026-11-21"
+}

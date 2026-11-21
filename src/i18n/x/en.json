@@ -684,5 +684,109 @@
     ],
     "iH1": "Peptide shops by country",
     "iIntro": "{n} countries: how many of {total} audited shops are based there and how many state that they ship there, from the shops' own pages, checked {date}."
+  },
+  "br": {
+    "crumb": "Brand status",
+    "eyebrow": "Brand check",
+    "domainsH": "Sites using the name {name}",
+    "domainsP": "What each site showed when we opened it on {date}. Domains are shown as text, not links.",
+    "colDomain": "Site",
+    "colState": "What we found",
+    "colSeen": "Text on the page",
+    "colBrand": "Brand",
+    "colStatus": "Status",
+    "colDomains": "Sites checked",
+    "srcH": "Pages opened:",
+    "reviewLink": "{name}: full review",
+    "state": {
+      "officialClosed": "Original site: sales stopped",
+      "successorClaim": "Other site claiming to continue the brand",
+      "researcherGate": "Catalog behind a researcher check",
+      "shop": "Shop using the name",
+      "accessGate": "Shop behind an access page",
+      "forSale": "Domain offered for sale",
+      "audited": "Audited shop"
+    },
+    "short": {
+      "closed": "Closed (per its own site)",
+      "gated": "Catalog behind a researcher check",
+      "unclear": "Several sites, original unclear",
+      "audited": "Audited, see review"
+    },
+    "checkH": "How to check a brand before ordering",
+    "checkP": "Type the address yourself instead of following ads, compare it with the address the brand names on its own pages, look for a named company with an address, and confirm a lab report on the lab's own portal. A site that copies a brand name is not proof of anything about the original.",
+    "fq1": "Is {name} still selling?",
+    "fq2": "Which {name} website is the real one?",
+    "fq3": "Did you test {name} products?",
+    "closed": {
+      "title": [
+        "{name} Status 2026: Closed? Which Site Is Real",
+        "{name} Status 2026: Closed?"
+      ],
+      "description": [
+        "{name} status checked {date}: the original site says research-product sales stopped in March 2026 and no successor is authorized; another site claims to continue the brand.",
+        "{name} status: what the original site says, which other sites use the name, checked {date}."
+      ],
+      "h1": "{name}: status and which site is real",
+      "answer": "The original {name} site says it stopped all research-use-only sales in March 2026 and has not authorized any successor or replacement site. At least one other site claims to continue the brand. Checked {date}.",
+      "fa1": "Not according to its own site: peptidesciences.com says research-use-only sales stopped in March 2026.",
+      "fa2": "The original site says it has not authorized any third party or replacement website. A site that says it is the brand's continuation contradicts that statement.",
+      "fa3": "No. The shop was closed when we audited, so there was nothing to score."
+    },
+    "gated": {
+      "title": [
+        "{name} Peptides: Status, Sites & What We Checked",
+        "{name} Peptides: Status Check"
+      ],
+      "description": [
+        "{name} peptides checked {date}: the catalog is shown only after a researcher check (date of birth and a declaration), and {n} sites use the name. What we could and could not verify.",
+        "{name} peptides: researcher check before the catalog and {n} sites using the name, checked {date}."
+      ],
+      "h1": "{name} peptides: status and what we could check",
+      "answer": "{name} shows its catalog only after a researcher check that asks for a date of birth and a research-use declaration. We do not fill in forms, so we could not read prices or lab reports and did not score the shop. {n} sites use the name. Checked {date}.",
+      "fa1": "The sites were online when we checked on {date}; the catalog is behind a researcher check, so we could not see stock or prices.",
+      "fa2": "We found {n} sites using the name. We could not confirm which one is the original from the pages we were able to read.",
+      "fa3": "No. Without access to the catalog and reports we could not score it; it is not part of our {shops}-shop audit."
+    },
+    "unclear": {
+      "title": [
+        "{name}: Which Site Is Real? Status Check 2026",
+        "{name}: Which Site Is Real?"
+      ],
+      "description": [
+        "{name} checked {date}: {n} different websites use the name, with different designs and catalogs. What each site showed, and why we did not score any of them.",
+        "{name}: {n} websites use the name; what each one showed when we checked on {date}."
+      ],
+      "h1": "{name}: which site is real?",
+      "answer": "{n} different websites use the name {name}. None of the pages we read named a company with an address that would show which one is the original, so we did not score any of them. Checked {date}.",
+      "fa1": "Several sites using the name were online on {date}; whether any of them is the original brand is not clear from their pages.",
+      "fa2": "We could not tell. The sites we opened do not name a company with an address that ties them to one brand.",
+      "fa3": "No. With the origin unclear we did not audit any of the sites; it is not part of our {shops}-shop audit."
+    },
+    "audited": {
+      "title": [
+        "{name} Peptides Review: Score {score}/5, Lab Reports",
+        "{name} Peptides: Review & Status"
+      ],
+      "description": [
+        "{name} peptides: audited as part of our {shops}-shop review, score {score}/5, {opened} lab reports opened, {portal} confirmed on a lab portal. Checked {date}.",
+        "{name} peptides: our audit score {score}/5 and lab report checks, {date}."
+      ],
+      "h1": "{name} peptides: status and review data",
+      "answer": "{name} is part of our audit of {shops} shops: score {score}/5 (rank {rank}), {opened} lab reports opened, {portal} confirmed on a lab portal. Full data on the review page.",
+      "fa1": "Yes, the shop was selling when we checked it.",
+      "fa2": "The shop we audited is listed below with its review; other sites using the name were not checked.",
+      "fa3": "We opened {opened} of its lab reports; {portal} were confirmed on the lab's own portal."
+    },
+    "iTitle": [
+      "Peptide Brand Status: Closed Shops and Copycat Sites",
+      "Peptide Brand Status Checks"
+    ],
+    "iDescription": [
+      "Status of {n} peptide brands checked {date}: closed shops, sites that claim to continue a brand, catalogs behind researcher checks and names used by several websites.",
+      "Peptide brand status: closed shops and names used by several websites, checked {date}."
+    ],
+    "iH1": "Peptide brand status",
+    "iIntro": "{n} brands people search for that we could not score as normal shops, or that need a status note: closed shops, sites that claim to continue a brand, and names used by several websites. Checked {date}."
   }
 }

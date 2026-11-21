@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { BRANDS } from '../data/brandStatus';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const V = { n: BRANDS.length, date: fmtDate(lang, '2026-11-21') };
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'br.crumb'), url: L('/brands/') }];
+---
+<BaseLayout lang={lang} title={tt(lang, 'br.iTitle', V)} description={td(lang, 'br.iDescription', V)} crumbs={crumbs}>
+  <PageHero lang={lang} checked="2026-11-21" crumbs={crumbs} title={t(lang, 'br.iH1')} eyebrow={t(lang, 'br.eyebrow')} intro={t(lang, 'br.iIntro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th scope="col">{t(lang, 'br.colBrand')}</th><th scope="col">{t(lang, 'br.colStatus')}</th><th scope="col" class="num">{t(lang, 'br.colDomains')}</th></tr></thead>
+        <tbody>{BRANDS.map((b) => <tr><td><a href={L(`/brands/${b.slug}/`)} class="font-semibold text-slate-900 hover:underline">{b.name}</a></td><td>{t(lang, `br.short.${b.status}`)}</td><td class="num">{b.domains.length}</td></tr>)}</tbody>
+      </table>
+    </div>
+    <RelatedLinks links={BRANDS.map((b) => ({ href: L(`/brands/${b.slug}/`), label: b.name }))} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

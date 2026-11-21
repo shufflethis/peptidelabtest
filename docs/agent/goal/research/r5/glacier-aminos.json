@@ -1,0 +1,162 @@
+{
+ "slug": "glacier-aminos",
+ "name": "Glacier Aminos",
+ "shopUrl": "https://glacieraminos.shop",
+ "region": "US",
+ "originCountry": "US",
+ "shipsTo": "US-only",
+ "legalEntity": "Glacier Aminos LLC (named in the terms); no address found on the pages read",
+ "testingLabs": [],
+ "coaAccess": "COA search by batch number (glacieraminos.shop/coas/); no reports listed without a batch number",
+ "coaExamples": [],
+ "panels": {
+  "hplc": false,
+  "lcms": false,
+  "mass": false,
+  "endotoxin": false,
+  "sterility": false,
+  "heavyMetals": false
+ },
+ "paymentMethods": [],
+ "freeShippingThreshold": null,
+ "dispatchInfo": "Terms: shipped within 1-2 business days, same day before 2:00 PM Mountain Time Mon-Sat; standard 3-5 days $14, next day $49; US, Puerto Rico and US Virgin Islands; international shipping not available",
+ "products": [
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "TESAMORELIN 10MG",
+   "vialMg": 10.0,
+   "price": 59.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/tesamorelin/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "TESAMORELIN 20MG",
+   "vialMg": 20.0,
+   "price": 114.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/tesamorelin/",
+   "inStock": true
+  },
+  {
+   "compound": "ss-31",
+   "shopProductName": "SS-31 10MG",
+   "vialMg": 10.0,
+   "price": 39.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/s-31-s-10/",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "NAD+ 500MG Buffered",
+   "vialMg": 500.0,
+   "price": 49.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/nad-500mg-buffered/",
+   "inStock": true
+  },
+  {
+   "compound": "kpv",
+   "shopProductName": "KPV 10MG",
+   "vialMg": 10.0,
+   "price": 45.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/kpv/",
+   "inStock": true
+  },
+  {
+   "compound": "ipamorelin",
+   "shopProductName": "IPAMORELIN 10MG",
+   "vialMg": 10.0,
+   "price": 51.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/ipamorelin-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "cjc-1295",
+   "shopProductName": "CJC-1295 W/O DAC 10MG",
+   "vialMg": 10.0,
+   "price": 67.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/cjc-1295-w-o-dac-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "pt-141",
+   "shopProductName": "PT-141 10MG",
+   "vialMg": 10.0,
+   "price": 40.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/pt-141/",
+   "inStock": true
+  },
+  {
+   "compound": "thymosin-alpha-1",
+   "shopProductName": "THYMOSIN ALPHA 1 10MG",
+   "vialMg": 10.0,
+   "price": 63.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/thymosin-alpha-1/",
+   "inStock": true
+  },
+  {
+   "compound": "aod-9604",
+   "shopProductName": "AOD-9604 10MG",
+   "vialMg": 10.0,
+   "price": 89.99,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://glacieraminos.shop/product/aod-9604-10/",
+   "inStock": true
+  }
+ ],
+ "subscores": {
+  "labVerification": 1,
+  "fillAccuracy": 3,
+  "panelDepth": 1,
+  "entityTransparency": 4,
+  "dispatchReliability": 7,
+  "valuePerMg": 5
+ },
+ "subscore_reasons": {
+  "labVerification": "Reports are only found by entering a batch number from a vial in the COA search; product pages show no report, lab name or key.",
+  "fillAccuracy": "No report opened, so no measured mg to compare with the label.",
+  "panelDepth": "No test panel could be read without a batch number.",
+  "entityTransparency": "Glacier Aminos LLC is named in the terms; no address or state of registration found; contact by form and e-mail.",
+  "dispatchReliability": "Written shipping terms with cut-off time, carriers options and prices; US territories only.",
+  "valuePerMg": "Ipamorelin $5.20/mg and KPV $4.60/mg (10 mg vials) are around the market middle; GLA-coded products are not counted because the shop does not name the compound."
+ },
+ "strengths": [
+  "Clear written shipping terms with cut-off time",
+  "Named LLC in the terms"
+ ],
+ "weaknesses": [
+  "No lab report can be opened without a batch number from a vial",
+  "No address published",
+  "Products sold under code names (GLA-1 SM, GLA-2 TRZ, GLA-3 RT) without naming the compound"
+ ],
+ "verdict": "Glacier Aminos names Glacier Aminos LLC and has clear shipping terms, but its lab reports can only be found with a batch number from a vial, so we could not open any. Several products are sold under code names without naming the compound.",
+ "summary": "US shop (Glacier Aminos LLC) with about 170 listings incl. multi-packs, products sold under code names (GLA-1 SM, GLA-2 TRZ, GLA-3 RT) and a batch-number COA search; US shipping only.",
+ "notes": "glacieraminos.com redirects to glacieraminos.shop. Prices from the public WooCommerce Store API (GET); multi-packs, strips, sprays and capsules excluded. The product pages do not state which compound GLA-1 SM, GLA-2 TRZ and GLA-3 RT contain; so they are not included in our price comparisons. A search result on glacieraminosus.com (a different domain, blocked for us) describes \"GLA-3 RT retatrutide\"; not used as a source.",
+ "sources": [
+  "https://glacieraminos.shop",
+  "https://glacieraminos.shop/wp-json/wc/store/v1/products",
+  "https://glacieraminos.shop/coas/",
+  "https://glacieraminos.shop/terms-conditions/",
+  "https://glacieraminos.shop/shipping-delivery/",
+  "https://glacieraminos.shop/contact/"
+ ],
+ "readAt": "2026-11-21"
+}

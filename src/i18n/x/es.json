@@ -684,5 +684,109 @@
     ],
     "iH1": "Tiendas de péptidos por país",
     "iIntro": "{n} países: cuántas de {total} tiendas auditadas tienen sede allí y cuántas dicen enviar allí, según las páginas de las tiendas, revisado el {date}."
+  },
+  "br": {
+    "crumb": "Estado de marcas",
+    "eyebrow": "Comprobación de marca",
+    "domainsH": "Webs que usan el nombre {name}",
+    "domainsP": "Lo que mostraba cada web cuando la abrimos el {date}. Los dominios se muestran como texto, no como enlace.",
+    "colDomain": "Web",
+    "colState": "Lo que encontramos",
+    "colSeen": "Texto de la página",
+    "colBrand": "Marca",
+    "colStatus": "Estado",
+    "colDomains": "Webs revisadas",
+    "srcH": "Páginas abiertas:",
+    "reviewLink": "{name}: análisis completo",
+    "state": {
+      "officialClosed": "Web original: ventas detenidas",
+      "successorClaim": "Otra web que dice continuar la marca",
+      "researcherGate": "Catálogo tras una verificación de investigador",
+      "shop": "Tienda que usa el nombre",
+      "accessGate": "Tienda tras una página de acceso",
+      "forSale": "Dominio en venta",
+      "audited": "Tienda auditada"
+    },
+    "short": {
+      "closed": "Cerrada (según su propia web)",
+      "gated": "Catálogo tras una verificación de investigador",
+      "unclear": "Varias webs, original poco claro",
+      "audited": "Auditada, ver análisis"
+    },
+    "checkH": "Cómo comprobar una marca antes de pedir",
+    "checkP": "Escriba la dirección usted mismo en lugar de seguir anuncios, compárela con la dirección que la marca indica en sus propias páginas, busque una empresa con nombre y dirección y confirme un informe de laboratorio en el portal del laboratorio. Una web que copia el nombre de una marca no demuestra nada sobre la original.",
+    "fq1": "¿Sigue vendiendo {name}?",
+    "fq2": "¿Cuál es la web real de {name}?",
+    "fq3": "¿Analizaron productos de {name}?",
+    "closed": {
+      "title": [
+        "{name}: estado 2026. ¿Cerrada? ¿Qué web es real?",
+        "{name}: estado 2026, ¿cerrada?"
+      ],
+      "description": [
+        "Estado de {name} revisado el {date}: la web original dice que dejó de vender productos de investigación en marzo de 2026 y que no ha autorizado ningún sucesor; otra web dice continuar la marca.",
+        "Estado de {name}: qué dice la web original y qué otras webs usan el nombre, revisado el {date}."
+      ],
+      "h1": "{name}: estado y qué web es la real",
+      "answer": "La web original de {name} dice que dejó todas las ventas de productos solo para investigación en marzo de 2026 y que no ha autorizado ningún sucesor ni web de reemplazo. Al menos otra web dice continuar la marca. Revisado el {date}.",
+      "fa1": "No según su propia web: peptidesciences.com dice que las ventas de productos solo para investigación se detuvieron en marzo de 2026.",
+      "fa2": "La web original dice que no ha autorizado a terceros ni webs de reemplazo. Una web que se presenta como continuación de la marca contradice esa declaración.",
+      "fa3": "No. La tienda estaba cerrada cuando hicimos la auditoría, así que no había nada que puntuar."
+    },
+    "gated": {
+      "title": [
+        "{name} péptidos: estado, webs y qué revisamos",
+        "{name} péptidos: estado"
+      ],
+      "description": [
+        "{name} péptidos revisado el {date}: el catálogo solo se muestra tras una verificación de investigador (fecha de nacimiento y declaración) y {n} webs usan el nombre. Qué pudimos y qué no pudimos verificar.",
+        "{name} péptidos: verificación de investigador antes del catálogo y {n} webs con el nombre, revisado el {date}."
+      ],
+      "h1": "{name} péptidos: estado y qué pudimos revisar",
+      "answer": "{name} solo muestra su catálogo tras una verificación de investigador que pide fecha de nacimiento y una declaración de uso en investigación. No rellenamos formularios, así que no pudimos leer precios ni informes y no puntuamos la tienda. {n} webs usan el nombre. Revisado el {date}.",
+      "fa1": "Las webs estaban en línea cuando revisamos el {date}; el catálogo está tras una verificación de investigador, así que no pudimos ver existencias ni precios.",
+      "fa2": "Encontramos {n} webs que usan el nombre. Con las páginas que pudimos leer no pudimos confirmar cuál es la original.",
+      "fa3": "No. Sin acceso al catálogo ni a los informes no pudimos puntuarla; no forma parte de nuestra auditoría de {shops} tiendas."
+    },
+    "unclear": {
+      "title": [
+        "{name}: ¿qué web es la real? Estado 2026",
+        "{name}: ¿qué web es la real?"
+      ],
+      "description": [
+        "{name} revisado el {date}: {n} webs distintas usan el nombre, con diseños y catálogos diferentes. Qué mostraba cada una y por qué no puntuamos ninguna.",
+        "{name}: {n} webs usan el nombre; qué mostraba cada una al revisarlas el {date}."
+      ],
+      "h1": "{name}: ¿qué web es la real?",
+      "answer": "{n} webs distintas usan el nombre {name}. Ninguna de las páginas que leímos nombra una empresa con dirección que indique cuál es la original, así que no puntuamos ninguna. Revisado el {date}.",
+      "fa1": "El {date} había varias webs con el nombre en línea; sus páginas no dejan claro si alguna es la marca original.",
+      "fa2": "No pudimos saberlo. Las webs que abrimos no nombran una empresa con dirección que las vincule a una marca.",
+      "fa3": "No. Con el origen poco claro no auditamos ninguna de las webs; no forman parte de nuestra auditoría de {shops} tiendas."
+    },
+    "audited": {
+      "title": [
+        "{name} péptidos: análisis, puntuación {score}/5",
+        "{name} péptidos: análisis y estado"
+      ],
+      "description": [
+        "{name} péptidos: auditada en nuestro análisis de {shops} tiendas, puntuación {score}/5, {opened} informes abiertos, {portal} confirmados en un portal de laboratorio. Revisado el {date}.",
+        "{name} péptidos: nuestra puntuación {score}/5 y la revisión de informes, {date}."
+      ],
+      "h1": "{name} péptidos: estado y datos del análisis",
+      "answer": "{name} forma parte de nuestra auditoría de {shops} tiendas: puntuación {score}/5 (puesto {rank}), {opened} informes abiertos, {portal} confirmados en un portal de laboratorio. Todos los datos en la página del análisis.",
+      "fa1": "Sí, la tienda estaba vendiendo cuando la revisamos.",
+      "fa2": "La tienda auditada aparece abajo con su análisis; no revisamos otras webs que usan el nombre.",
+      "fa3": "Abrimos {opened} de sus informes; {portal} se confirmaron en el portal del laboratorio."
+    },
+    "iTitle": [
+      "Estado de marcas de péptidos: cierres y copias",
+      "Estado de marcas de péptidos"
+    ],
+    "iDescription": [
+      "Estado de {n} marcas de péptidos revisado el {date}: tiendas cerradas, webs que dicen continuar una marca, catálogos tras verificaciones de investigador y nombres usados por varias webs.",
+      "Estado de marcas de péptidos: tiendas cerradas y nombres usados por varias webs, revisado el {date}."
+    ],
+    "iH1": "Estado de marcas de péptidos",
+    "iIntro": "{n} marcas buscadas que no pudimos puntuar como tiendas normales o que necesitan una nota de estado: tiendas cerradas, webs que dicen continuar una marca y nombres usados por varias webs. Revisado el {date}."
   }
 }

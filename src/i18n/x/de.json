@@ -684,5 +684,109 @@
     ],
     "iH1": "Peptid-Shops nach Land",
     "iIntro": "{n} Länder: wie viele von {total} geprüften Shops dort ihren Sitz haben und wie viele angeben, dorthin zu liefern, laut den Seiten der Shops, geprüft am {date}."
+  },
+  "br": {
+    "crumb": "Marken-Status",
+    "eyebrow": "Marken-Check",
+    "domainsH": "Websites mit dem Namen {name}",
+    "domainsP": "Was jede Website zeigte, als wir sie am {date} öffneten. Domains stehen als Text da, nicht als Link.",
+    "colDomain": "Website",
+    "colState": "Was wir fanden",
+    "colSeen": "Text auf der Seite",
+    "colBrand": "Marke",
+    "colStatus": "Status",
+    "colDomains": "Geprüfte Websites",
+    "srcH": "Geöffnete Seiten:",
+    "reviewLink": "{name}: vollständiger Test",
+    "state": {
+      "officialClosed": "Original-Website: Verkauf eingestellt",
+      "successorClaim": "Andere Website, die behauptet, die Marke fortzuführen",
+      "researcherGate": "Katalog hinter einer Forscher-Abfrage",
+      "shop": "Shop mit diesem Namen",
+      "accessGate": "Shop hinter einer Zugangsseite",
+      "forSale": "Domain wird zum Verkauf angeboten",
+      "audited": "Geprüfter Shop"
+    },
+    "short": {
+      "closed": "Geschlossen (laut eigener Website)",
+      "gated": "Katalog hinter einer Forscher-Abfrage",
+      "unclear": "Mehrere Websites, Original unklar",
+      "audited": "Geprüft, siehe Test"
+    },
+    "checkH": "So prüfen Sie eine Marke vor der Bestellung",
+    "checkP": "Tippen Sie die Adresse selbst ein, statt Anzeigen zu folgen, vergleichen Sie sie mit der Adresse, die die Marke auf ihren eigenen Seiten nennt, achten Sie auf eine benannte Firma mit Adresse und bestätigen Sie einen Laborbericht im Portal des Labors. Eine Website, die einen Markennamen kopiert, beweist nichts über das Original.",
+    "fq1": "Verkauft {name} noch?",
+    "fq2": "Welche {name}-Website ist die echte?",
+    "fq3": "Haben Sie Produkte von {name} geprüft?",
+    "closed": {
+      "title": [
+        "{name} Status 2026: Geschlossen? Welche Seite ist echt",
+        "{name} Status 2026: Geschlossen?"
+      ],
+      "description": [
+        "{name} Status, geprüft am {date}: Die Original-Website meldet das Ende des Verkaufs von Forschungsprodukten im März 2026 und keinen autorisierten Nachfolger; eine andere Website behauptet, die Marke fortzuführen.",
+        "{name} Status: was die Original-Website sagt und welche anderen Websites den Namen nutzen, geprüft am {date}."
+      ],
+      "h1": "{name}: Status und welche Website echt ist",
+      "answer": "Die Original-Website von {name} gibt an, im März 2026 alle Verkäufe von Produkten nur für Forschungszwecke eingestellt und keinen Nachfolger oder Ersatz-Website autorisiert zu haben. Mindestens eine andere Website behauptet, die Marke fortzuführen. Geprüft am {date}.",
+      "fa1": "Laut eigener Website nicht: peptidesciences.com gibt an, dass der Verkauf von Produkten nur für Forschungszwecke im März 2026 eingestellt wurde.",
+      "fa2": "Die Original-Website gibt an, keinen Dritten und keine Ersatz-Website autorisiert zu haben. Eine Website, die sich als Fortsetzung der Marke ausgibt, widerspricht dieser Aussage.",
+      "fa3": "Nein. Der Shop war bei unserer Prüfung geschlossen, es gab also nichts zu bewerten."
+    },
+    "gated": {
+      "title": [
+        "{name} Peptide: Status, Websites & was wir prüften",
+        "{name} Peptide: Status-Check"
+      ],
+      "description": [
+        "{name} Peptide, geprüft am {date}: Der Katalog erscheint erst nach einer Forscher-Abfrage (Geburtsdatum und Erklärung), und {n} Websites nutzen den Namen. Was wir prüfen konnten und was nicht.",
+        "{name} Peptide: Forscher-Abfrage vor dem Katalog und {n} Websites mit dem Namen, geprüft am {date}."
+      ],
+      "h1": "{name} Peptide: Status und was wir prüfen konnten",
+      "answer": "{name} zeigt den Katalog erst nach einer Forscher-Abfrage mit Geburtsdatum und Erklärung zum Forschungszweck. Wir füllen keine Formulare aus, konnten daher weder Preise noch Laborberichte lesen und haben den Shop nicht bewertet. {n} Websites nutzen den Namen. Geprüft am {date}.",
+      "fa1": "Die Websites waren bei unserer Prüfung am {date} online; der Katalog liegt hinter einer Forscher-Abfrage, daher konnten wir weder Bestand noch Preise sehen.",
+      "fa2": "Wir fanden {n} Websites mit dem Namen. Anhand der lesbaren Seiten konnten wir nicht bestätigen, welche das Original ist.",
+      "fa3": "Nein. Ohne Zugang zu Katalog und Berichten konnten wir den Shop nicht bewerten; er ist nicht Teil unseres Tests von {shops} Shops."
+    },
+    "unclear": {
+      "title": [
+        "{name}: Welche Website ist echt? Status 2026",
+        "{name}: Welche Website ist echt?"
+      ],
+      "description": [
+        "{name}, geprüft am {date}: {n} verschiedene Websites nutzen den Namen, mit unterschiedlichem Design und Sortiment. Was jede Website zeigte und warum wir keine davon bewertet haben.",
+        "{name}: {n} Websites nutzen den Namen; was jede bei unserer Prüfung am {date} zeigte."
+      ],
+      "h1": "{name}: Welche Website ist echt?",
+      "answer": "{n} verschiedene Websites nutzen den Namen {name}. Keine der gelesenen Seiten nennt eine Firma mit Adresse, die zeigen würde, welche das Original ist, daher haben wir keine davon bewertet. Geprüft am {date}.",
+      "fa1": "Am {date} waren mehrere Websites mit dem Namen online; ob eine davon die Original-Marke ist, geht aus ihren Seiten nicht hervor.",
+      "fa2": "Das konnten wir nicht feststellen. Die geöffneten Websites nennen keine Firma mit Adresse, die sie einer Marke zuordnet.",
+      "fa3": "Nein. Da die Herkunft unklar ist, haben wir keine der Websites geprüft; sie sind nicht Teil unseres Tests von {shops} Shops."
+    },
+    "audited": {
+      "title": [
+        "{name} Peptide Test: Bewertung {score}/5, Laborberichte",
+        "{name} Peptide: Test & Status"
+      ],
+      "description": [
+        "{name} Peptide: Teil unseres Tests von {shops} Shops, Bewertung {score}/5, {opened} Laborberichte geöffnet, {portal} im Laborportal bestätigt. Geprüft am {date}.",
+        "{name} Peptide: unsere Bewertung {score}/5 und Prüfung der Laborberichte, {date}."
+      ],
+      "h1": "{name} Peptide: Status und Testdaten",
+      "answer": "{name} ist Teil unseres Tests von {shops} Shops: Bewertung {score}/5 (Rang {rank}), {opened} Laborberichte geöffnet, {portal} im Laborportal bestätigt. Alle Daten auf der Testseite.",
+      "fa1": "Ja, der Shop verkaufte bei unserer Prüfung.",
+      "fa2": "Der geprüfte Shop steht unten mit seinem Test; andere Websites mit dem Namen haben wir nicht geprüft.",
+      "fa3": "Wir haben {opened} seiner Laborberichte geöffnet; {portal} wurden im Portal des Labors bestätigt."
+    },
+    "iTitle": [
+      "Peptid-Marken-Status: geschlossene Shops und Kopien",
+      "Peptid-Marken: Status-Checks"
+    ],
+    "iDescription": [
+      "Status von {n} Peptid-Marken, geprüft am {date}: geschlossene Shops, Websites, die eine Marke fortführen wollen, Kataloge hinter Forscher-Abfragen und Namen, die mehrere Websites nutzen.",
+      "Peptid-Marken-Status: geschlossene Shops und Namen, die mehrere Websites nutzen, geprüft am {date}."
+    ],
+    "iH1": "Peptid-Marken-Status",
+    "iIntro": "{n} gesuchte Marken, die wir nicht wie normale Shops bewerten konnten oder die einen Status-Hinweis brauchen: geschlossene Shops, Websites, die eine Marke fortführen wollen, und Namen, die mehrere Websites nutzen. Geprüft am {date}."
   }
 }

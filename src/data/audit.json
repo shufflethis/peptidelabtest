@@ -4828,6 +4828,542 @@
   "rank": 10
  },
  {
+  "slug": "ez-peptides",
+  "name": "EZ Peptides",
+  "shopUrl": "https://ezpeptides.com",
+  "region": "US",
+  "originCountry": "US",
+  "shipsTo": "US-only",
+  "legalEntity": "EZ Peptides LLC (named in the terms and payment policy); postal address 5203 Juan Tabo Blvd NE, STE 2B, Albuquerque, NM 87111, USA (contact page)",
+  "testingLabs": [
+   "Janoshik Analytical"
+  ],
+  "coaAccess": "Batch lookup on testing.ezpeptides.com linking each result to the Janoshik report and verification key",
+  "coaExamples": [
+   {
+    "compound": "semaglutide",
+    "shopProductName": "EZP-1P 10mg (batch EZP-1P1007112026-04)",
+    "labelMg": 10,
+    "measuredMg": 11.38,
+    "purityPercent": 99.68,
+    "lab": "Janoshik Analytical",
+    "reportId": "#207836 / key 2JQKFXD8EMFI",
+    "testDate": "2026-07-23",
+    "url": "https://janoshik.com/tests/207836-1P_10mg_Transparent_Yellow_Blue_2JQKFXD8EMFI",
+    "verifiable": true
+   },
+   {
+    "compound": "tirzepatide",
+    "shopProductName": "EZP-2P 30mg (batch EZP-2P3006232026-04)",
+    "labelMg": 30,
+    "measuredMg": 34.81,
+    "purityPercent": 99.95,
+    "lab": "Janoshik Analytical",
+    "reportId": "#199011 / key FRIRZI1VXGWW",
+    "testDate": "2026-07-02",
+    "url": "https://janoshik.com/tests/199011-2P_30mg_Transparent_Green_Green_FRIRZI1VXGWW",
+    "verifiable": true
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "EZP-3P 24mg (batch EZP-3P2405072026-01)",
+    "labelMg": 24,
+    "measuredMg": 25.52,
+    "purityPercent": 99.564,
+    "lab": "Janoshik Analytical",
+    "reportId": "#155945 / key QAY8CRPMIMEL",
+    "testDate": "2026-05-15",
+    "url": "https://janoshik.com/tests/155945-EZP_3P_24mg_Transparent_Green_or_GreenAutumn_Gold_QAY8CRPMIMEL",
+    "verifiable": true
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg (batch EZP-BPC1005082026-22)",
+    "labelMg": 10,
+    "measuredMg": 12.12,
+    "purityPercent": 99.91,
+    "lab": "Janoshik Analytical",
+    "reportId": "#163729 / key HFJHL2Q9KMHR",
+    "testDate": "2026-05-25",
+    "url": "https://verify.janoshik.com/tests/163729-BPC157_10mg_Transparent_Blue_or_Blue_Autumn_Gold_HFJHL2Q9KMHR",
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": false,
+   "mass": true,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [
+   "Visa, MasterCard, American Express via ConvesioPay",
+   "Cryptocurrency (10% off, per checkout banner)"
+  ],
+  "freeShippingThreshold": null,
+  "dispatchInfo": "Processed within 0-2 business days; same day if ordered before the 2:00 cut-off; UPS primary carrier; US only, no PO boxes",
+  "products": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "EZP-3P 20mg",
+    "vialMg": 20.0,
+    "price": 59.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-3p-20mg/",
+    "inStock": true,
+    "pricePerMg": 2.95
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "EZP-3P 10mg",
+    "vialMg": 10.0,
+    "price": 42.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-3p-10mg-glp-3rt/",
+    "inStock": true,
+    "pricePerMg": 4.2
+   },
+   {
+    "compound": "aod-9604",
+    "shopProductName": "AOD-9604 5MG",
+    "vialMg": 5.0,
+    "price": 53.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/aod-9604-5mg/",
+    "inStock": true,
+    "pricePerMg": 10.6
+   },
+   {
+    "compound": "thymosin-alpha-1",
+    "shopProductName": "Thymosin Alpha 1 10mg",
+    "vialMg": 10.0,
+    "price": 58.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/thymosin-alpha-1-10mg/",
+    "inStock": true,
+    "pricePerMg": 5.8
+   },
+   {
+    "compound": "aod-9604",
+    "shopProductName": "AOD-9604 2MG",
+    "vialMg": 2.0,
+    "price": 38.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/aod-9604-2mg-research-grade-compound/",
+    "inStock": true,
+    "pricePerMg": 19.0
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "Buffered NAD+ 250MG",
+    "vialMg": 250.0,
+    "price": 44.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/buffered-nad-250mg/",
+    "inStock": true,
+    "pricePerMg": 0.176
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "EZP-3P 48mg",
+    "vialMg": 48.0,
+    "price": 139.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-3p-48mg/",
+    "inStock": true,
+    "pricePerMg": 2.896
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB4 10mg",
+    "vialMg": 10.0,
+    "price": 68.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/tb4-10mg/",
+    "inStock": true,
+    "pricePerMg": 6.8
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-C 10mg",
+    "vialMg": 10.0,
+    "price": 54.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/mots-c-10mg/",
+    "inStock": true,
+    "pricePerMg": 5.4
+   },
+   {
+    "compound": "cjc-1295",
+    "shopProductName": "CJC-1295 No DAC 5mg",
+    "vialMg": 5.0,
+    "price": 38.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/cjc-1295-no-dac-5mg/",
+    "inStock": true,
+    "pricePerMg": 7.6
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10mg",
+    "vialMg": 10.0,
+    "price": 68.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/tesamorelin-10mg/",
+    "inStock": true,
+    "pricePerMg": 6.8
+   },
+   {
+    "compound": "kpv",
+    "shopProductName": "KPV 10mg",
+    "vialMg": 10.0,
+    "price": 44.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/kpv-10mg/",
+    "inStock": true,
+    "pricePerMg": 4.4
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-cu Lyophilized 100mg",
+    "vialMg": 100.0,
+    "price": 53.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ghk-cu-lyophilized-100mg/",
+    "inStock": true,
+    "pricePerMg": 0.53
+   },
+   {
+    "compound": "semaglutide",
+    "shopProductName": "EZP-1P 5mg",
+    "vialMg": 5.0,
+    "price": 27.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-1p-5mg/",
+    "inStock": true,
+    "pricePerMg": 5.4
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "EZP-3P 24mg",
+    "vialMg": 24.0,
+    "price": 70.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-3p-24mg/",
+    "inStock": true,
+    "pricePerMg": 2.917
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "EZP-3P 6mg",
+    "vialMg": 6.0,
+    "price": 37.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-3p-6mg/",
+    "inStock": true,
+    "pricePerMg": 6.167
+   },
+   {
+    "compound": "semaglutide",
+    "shopProductName": "EZP-1P 10mg",
+    "vialMg": 10.0,
+    "price": 34.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-1p-10mg/",
+    "inStock": true,
+    "pricePerMg": 3.4
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "EZP-3P 12mg",
+    "vialMg": 12.0,
+    "price": 50.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-3p-12mg/",
+    "inStock": true,
+    "pricePerMg": 4.167
+   },
+   {
+    "compound": "tirzepatide",
+    "shopProductName": "EZP-2P 60mg",
+    "vialMg": 60.0,
+    "price": 84.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-2p-60mg/",
+    "inStock": true,
+    "pricePerMg": 1.4
+   },
+   {
+    "compound": "tirzepatide",
+    "shopProductName": "EZP-2P 30mg",
+    "vialMg": 30.0,
+    "price": 54.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-2p-30mg/",
+    "inStock": true,
+    "pricePerMg": 1.8
+   },
+   {
+    "compound": "tirzepatide",
+    "shopProductName": "EZP-2P 20mg",
+    "vialMg": 20.0,
+    "price": 48.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-2p-20mg/",
+    "inStock": true,
+    "pricePerMg": 2.4
+   },
+   {
+    "compound": "tirzepatide",
+    "shopProductName": "EZP-2P 15mg",
+    "vialMg": 15.0,
+    "price": 41.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-2p-15mg/",
+    "inStock": true,
+    "pricePerMg": 2.733
+   },
+   {
+    "compound": "tirzepatide",
+    "shopProductName": "EZP-2P 10mg",
+    "vialMg": 10.0,
+    "price": 28.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ezp-2p-10mg/",
+    "inStock": true,
+    "pricePerMg": 2.8
+   },
+   {
+    "compound": "pt-141",
+    "shopProductName": "PT-141 10mg",
+    "vialMg": 10.0,
+    "price": 44.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/pt-141-10mg/",
+    "inStock": true,
+    "pricePerMg": 4.4
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "Buffered NAD+ 500mg",
+    "vialMg": 500.0,
+    "price": 68.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/buffered-nad-500mg/",
+    "inStock": true,
+    "pricePerMg": 0.136
+   },
+   {
+    "compound": "ipamorelin",
+    "shopProductName": "Ipamorelin 10mg",
+    "vialMg": 10.0,
+    "price": 44.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ipamorelin-10mg/",
+    "inStock": true,
+    "pricePerMg": 4.4
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu Lyophilized 50mg",
+    "vialMg": 50.0,
+    "price": 35.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/ghk-cu-50mg/",
+    "inStock": true,
+    "pricePerMg": 0.7
+   },
+   {
+    "compound": "epithalon",
+    "shopProductName": "Epitalon 10mg",
+    "vialMg": 10.0,
+    "price": 38.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/epitalon-10mg/",
+    "inStock": true,
+    "pricePerMg": 3.8
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg",
+    "vialMg": 10.0,
+    "price": 44.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://ezpeptides.com/product/bpc-157-10mg/",
+    "inStock": true,
+    "pricePerMg": 4.4
+   }
+  ],
+  "subscores": {
+   "labVerification": 8,
+   "fillAccuracy": 6,
+   "panelDepth": 3,
+   "entityTransparency": 7,
+   "dispatchReliability": 8,
+   "valuePerMg": 9
+  },
+  "subscore_reasons": {
+   "labVerification": "The COA page lists 264 batches, 123 with a certificate; the 4 batch pages we opened link Janoshik reports, and all 4 task numbers opened on janoshik.com.",
+   "fillAccuracy": "All 4 measured reports were above the label: 106% (retatrutide 24 mg) to 121% (BPC-157 10 mg); vial means used.",
+   "panelDepth": "Janoshik mass and purity only; no endotoxin, sterility, heavy-metal or separate LC-MS results found.",
+   "entityTransparency": "EZ Peptides LLC is named in the terms, with a postal address and phone number in Albuquerque, New Mexico; state of registration not stated.",
+   "dispatchReliability": "Written policy: processed within 0-2 business days, same day before the cut-off, UPS; US addresses only.",
+   "valuePerMg": "Tirzepatide from $1.40/mg (60 mg), retatrutide from $2.90/mg (48 mg) and semaglutide $3.40/mg (10 mg) are among the lowest prices in our data."
+  },
+  "strengths": [
+   "Batch lookup with Janoshik task numbers and keys; all 4 opened reports found on janoshik.com",
+   "Named LLC with address and phone",
+   "Low price per mg on GLP-1-class products"
+  ],
+  "weaknesses": [
+   "GLP-1-class products only under code names (EZP-1P, EZP-2P, EZP-3P); the compound is named only in the lab results",
+   "Measured content above label on all 4 opened reports (106-121%)",
+   "Mass and purity only, no endotoxin or sterility tests found"
+  ],
+  "verdict": "EZ Peptides links its batches to Janoshik reports, and all 4 we opened were on janoshik.com. It names EZ Peptides LLC with an address in New Mexico. Products are sold under code names, and all 4 measured vials held more than the label.",
+  "summary": "US shop (EZ Peptides LLC, Albuquerque) shipping within the US only, with Janoshik-tested batches and code-named GLP-1-class products.",
+  "notes": "Prices from the public WooCommerce Store API (GET), regular price; a site banner advertised 30% off sitewide until Nov 30 (not applied). Code names: EZP-1P = semaglutide, EZP-2P = tirzepatide, EZP-3P = retatrutide, as named in the Janoshik results linked from the batch pages. TB4 10mg recorded as tb-500 as in the rest of our data. Kits (10 vials) and tablets excluded. Product \"§-31 30mg\" excluded (name unclear).",
+  "sources": [
+   "https://ezpeptides.com",
+   "https://ezpeptides.com/wp-json/wc/store/v1/products",
+   "https://ezpeptides.com/coa/",
+   "https://ezpeptides.com/contact-us/",
+   "https://ezpeptides.com/terms-conditions/",
+   "https://ezpeptides.com/payment-and-billing-policy/",
+   "https://ezpeptides.com/shipping-and-delivery-policy/",
+   "https://testing.ezpeptides.com/EZP-1P1007112026-04",
+   "https://testing.ezpeptides.com/EZP-2P3006232026-04",
+   "https://testing.ezpeptides.com/EZP-3P2405072026-01",
+   "https://testing.ezpeptides.com/EZP-BPC1005082026-22",
+   "https://janoshik.com/tests/207836-1P_10mg_Transparent_Yellow_Blue_2JQKFXD8EMFI"
+  ],
+  "readAt": "2026-11-21",
+  "overallScore": 3.2,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 4,
+   "purityMin": 99.564,
+   "purityMax": 99.95,
+   "purityMedian": 99.8,
+   "fillMinPct": 106.3,
+   "fillMaxPct": 121.2
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "Measured mg"
+  ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 / TB4 Blend 5mg/5mg",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 53.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ezpeptides.com/product/bpc-157-tb4-blend-5mg-5mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.3
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 / TB4 Blend 10mg/10mg",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 88.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ezpeptides.com/product/bpc-157-tb4-blend-10mg-10mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 4.4
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "Klow Blend 80mg",
+    "totalMg": 80,
+    "composition": null,
+    "price": 98.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ezpeptides.com/product/klow-blend-80mg/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 1.225
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "Glow Blend (BPC-157/TB4/GHK-Cu) 70mg",
+    "totalMg": 70,
+    "composition": null,
+    "price": 88.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ezpeptides.com/product/glow-blend-bpc-157-tb4-ghk-cu-10mg/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 1.257
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-no DAC / Ipamorelin Blend 5mg/5mg",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": 53.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ezpeptides.com/product/cjc-no-dac-ipamorelin-blend-5mg-5mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.3
+   }
+  ],
+  "blendReports": [],
+  "rank": 11
+ },
+ {
   "slug": "avellon-peptides",
   "name": "Avellon Peptides",
   "shopUrl": "https://avellon-peptides.com",
@@ -5218,7 +5754,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 11
+  "rank": 12
  },
  {
   "slug": "ascension-peptides",
@@ -5761,7 +6297,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 12
+  "rank": 13
  },
  {
   "slug": "core-peptides",
@@ -6304,7 +6840,7 @@
     "note": "shop states >99% purity by HPLC"
    }
   ],
-  "rank": 13
+  "rank": 14
  },
  {
   "slug": "real-peptides",
@@ -6903,7 +7439,7 @@
     "readAt": "2026-11-21"
    }
   ],
-  "rank": 14
+  "rank": 15
  },
  {
   "slug": "genesis-peptides",
@@ -7440,7 +7976,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 15
+  "rank": 16
  },
  {
   "slug": "limitless-life-nootropics",
@@ -7734,7 +8270,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 16
+  "rank": 17
  },
  {
   "slug": "purified-peptide",
@@ -8277,7 +8813,448 @@
    }
   ],
   "blendReports": [],
-  "rank": 17
+  "rank": 18
+ },
+ {
+  "slug": "pure-peptides",
+  "name": "Pure Peptides",
+  "shopUrl": "https://purepeptides.com",
+  "region": "US",
+  "originCountry": "US",
+  "shipsTo": null,
+  "legalEntity": "Calibre Labs LLC, 1309 Coffeen Avenue STE 20165, Sheridan, WY 82801, United States (named on the contact page)",
+  "testingLabs": [
+   "Kovera Labs"
+  ],
+  "coaAccess": "Vendor-hosted PDFs on some product pages; other products \"COA available on request\"",
+  "coaExamples": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 (batch PP/BPC/062026)",
+    "labelMg": 10,
+    "measuredMg": 12.11,
+    "purityPercent": 99.621,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-BB7E5F",
+    "testDate": "2026-07-30",
+    "url": "https://purepeptides.com/coa/bpc-157-pp-bpc-062026.pdf",
+    "verifiable": false
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (batch PP/TBS/062026)",
+    "labelMg": 10,
+    "measuredMg": 13.06,
+    "purityPercent": 99.423,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-8BCB7C",
+    "testDate": "2026-07-30",
+    "url": "https://purepeptides.com/coa/tb-500-pp-tbs-062026.pdf",
+    "verifiable": false
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": true,
+   "mass": true,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [
+   "Credit or debit card",
+   "Cryptocurrency",
+   "Bank transfer"
+  ],
+  "freeShippingThreshold": "$150 (US)",
+  "dispatchInfo": "Homepage: same business day if ordered before 12pm EST; FAQ: orders processed the next business day after payment; USPS Priority Mail 2-3 business days",
+  "products": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Pure-RTA-3 10mg",
+    "vialMg": 10.0,
+    "price": 96.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/pure-rta-3",
+    "inStock": true,
+    "pricePerMg": 9.6
+   },
+   {
+    "compound": "tirzepatide",
+    "shopProductName": "Pure-TRZ-2 20mg",
+    "vialMg": 20.0,
+    "price": 150.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/pure-trz-2",
+    "inStock": true,
+    "pricePerMg": 7.5
+   },
+   {
+    "compound": "semaglutide",
+    "shopProductName": "Pure-SEM-1 10mg",
+    "vialMg": 10.0,
+    "price": 80.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/pure-sem-1",
+    "inStock": false,
+    "pricePerMg": 8.0
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 5mg",
+    "vialMg": 5.0,
+    "price": 29.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/bpc-157",
+    "inStock": true,
+    "pricePerMg": 5.8
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg",
+    "vialMg": 10.0,
+    "price": 51.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/bpc-157",
+    "inStock": true,
+    "pricePerMg": 5.1
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 5mg",
+    "vialMg": 5.0,
+    "price": 30.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/tb-500",
+    "inStock": true,
+    "pricePerMg": 6.0
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10mg",
+    "vialMg": 10.0,
+    "price": 60.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/tb-500",
+    "inStock": true,
+    "pricePerMg": 6.0
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 50mg",
+    "vialMg": 50.0,
+    "price": 49.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/ghk-cu",
+    "inStock": true,
+    "pricePerMg": 0.98
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 100mg",
+    "vialMg": 100.0,
+    "price": 69.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/ghk-cu",
+    "inStock": true,
+    "pricePerMg": 0.69
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-c 10mg",
+    "vialMg": 10.0,
+    "price": 43.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/mots-c",
+    "inStock": true,
+    "pricePerMg": 4.3
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD+ 500mg",
+    "vialMg": 500.0,
+    "price": 48.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/nad",
+    "inStock": true,
+    "pricePerMg": 0.096
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD+ 1000mg",
+    "vialMg": 1000.0,
+    "price": 84.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/nad",
+    "inStock": true,
+    "pricePerMg": 0.084
+   },
+   {
+    "compound": "ipamorelin",
+    "shopProductName": "Ipamorelin 5mg",
+    "vialMg": 5.0,
+    "price": 29.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/ipamorelin",
+    "inStock": true,
+    "pricePerMg": 5.8
+   },
+   {
+    "compound": "ipamorelin",
+    "shopProductName": "Ipamorelin 10mg",
+    "vialMg": 10.0,
+    "price": 57.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/ipamorelin",
+    "inStock": true,
+    "pricePerMg": 5.7
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 5mg",
+    "vialMg": 5.0,
+    "price": 43.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/tesamorelin",
+    "inStock": true,
+    "pricePerMg": 8.6
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10mg",
+    "vialMg": 10.0,
+    "price": 75.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/tesamorelin",
+    "inStock": true,
+    "pricePerMg": 7.5
+   },
+   {
+    "compound": "aod-9604",
+    "shopProductName": "AOD-9604 5mg",
+    "vialMg": 5.0,
+    "price": 43.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/aod-9604",
+    "inStock": true,
+    "pricePerMg": 8.6
+   },
+   {
+    "compound": "aod-9604",
+    "shopProductName": "AOD-9604 10mg",
+    "vialMg": 10.0,
+    "price": 82.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/aod-9604",
+    "inStock": true,
+    "pricePerMg": 8.2
+   },
+   {
+    "compound": "selank",
+    "shopProductName": "Selank 5mg",
+    "vialMg": 5.0,
+    "price": 26.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/selank",
+    "inStock": true,
+    "pricePerMg": 5.2
+   },
+   {
+    "compound": "selank",
+    "shopProductName": "Selank 10mg",
+    "vialMg": 10.0,
+    "price": 49.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/selank",
+    "inStock": true,
+    "pricePerMg": 4.9
+   },
+   {
+    "compound": "semax",
+    "shopProductName": "Semax 5mg",
+    "vialMg": 5.0,
+    "price": 35.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/semax",
+    "inStock": true,
+    "pricePerMg": 7.0
+   },
+   {
+    "compound": "semax",
+    "shopProductName": "Semax 10mg",
+    "vialMg": 10.0,
+    "price": 50.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/semax",
+    "inStock": true,
+    "pricePerMg": 5.0
+   },
+   {
+    "compound": "epithalon",
+    "shopProductName": "Epithalon 10mg",
+    "vialMg": 10.0,
+    "price": 40.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/epitalon",
+    "inStock": true,
+    "pricePerMg": 4.0
+   },
+   {
+    "compound": "kpv",
+    "shopProductName": "KPV 5mg",
+    "vialMg": 5.0,
+    "price": 42.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/kpv",
+    "inStock": true,
+    "pricePerMg": 8.4
+   },
+   {
+    "compound": "kpv",
+    "shopProductName": "KPV 10mg",
+    "vialMg": 10.0,
+    "price": 60.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://purepeptides.com/product/kpv",
+    "inStock": true,
+    "pricePerMg": 6.0
+   }
+  ],
+  "subscores": {
+   "labVerification": 4,
+   "fillAccuracy": 6,
+   "panelDepth": 4,
+   "entityTransparency": 6,
+   "dispatchReliability": 7,
+   "valuePerMg": 4
+  },
+  "subscore_reasons": {
+   "labVerification": "Kovera PDFs with report numbers and access codes are linked on some product pages, but the Kovera verify page was blocked for us and the GLP-1-class products say \"COA available on request\".",
+   "fillAccuracy": "Both opened reports measured above the label: 12.11 mg and 13.06 mg in 10 mg vials (121% and 131%).",
+   "panelDepth": "Reports show HPLC purity, LC-MS identity and net content; no endotoxin, sterility or heavy-metal results found.",
+   "entityTransparency": "Contact page names Calibre Labs LLC with a Wyoming address; the company name differs from the brand.",
+   "dispatchReliability": "Same-day dispatch before 12pm EST on the homepage, but the FAQ says orders are processed the next business day; USPS Priority 2-3 days.",
+   "valuePerMg": "Retatrutide $9.60/mg (10 mg), tirzepatide $7.50/mg (20 mg) and BPC-157 $5.10-5.80/mg are above the market median in our data."
+  },
+  "strengths": [
+   "Named LLC with address on the contact page",
+   "Kovera reports state batch, net content and LC-MS identity"
+  ],
+  "weaknesses": [
+   "Reports for the GLP-1-class products only on request",
+   "Both opened reports were far above the label amount (121-131%)",
+   "Kovera verification could not be opened for us"
+  ],
+  "verdict": "Pure Peptides publishes some Kovera reports with batch, net content and LC-MS identity, and names Calibre Labs LLC as the business. Reports for the GLP-1-class products are only on request, and we could not confirm any report on the lab portal.",
+  "summary": "US shop run by Calibre Labs LLC (Wyoming) with about 70 products, Kovera reports on some product pages and US shipping.",
+  "notes": "Prices read per size on product pages (default option and size buttons). Pure-SEM-1 size from the product image text (10 mg), out of stock. Shipping countries not listed; pages mention US shipping only. Kovera verify (koveralabs.com) returned \"Access denied\" for both access codes.",
+  "sources": [
+   "https://purepeptides.com",
+   "https://purepeptides.com/products",
+   "https://purepeptides.com/contact",
+   "https://purepeptides.com/compliance",
+   "https://purepeptides.com/faq",
+   "https://purepeptides.com/coa/bpc-157-pp-bpc-062026.pdf",
+   "https://purepeptides.com/coa/tb-500-pp-tbs-062026.pdf",
+   "https://purepeptides.com/product/pure-rta-3",
+   "https://purepeptides.com/product/pure-trz-2"
+  ],
+  "readAt": "2026-11-21",
+  "overallScore": 2.5,
+  "coaStats": {
+   "opened": 2,
+   "portalVerified": 0,
+   "purityMin": 99.423,
+   "purityMax": 99.621,
+   "purityMedian": 99.52,
+   "fillMinPct": 121.1,
+   "fillMaxPct": 130.6
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "LC-MS identity",
+   "Measured mg"
+  ],
+  "blendProducts": [
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW Blend 10mg/10mg/50mg/10mg",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 160.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purepeptides.com/product/klow-peptide-blend",
+    "readAt": "2026-11-21",
+    "pricePerMg": 2.0
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW Blend 10mg/10mg/50mg",
+    "totalMg": 70,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 135.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purepeptides.com/product/glow-peptide-blend",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.929
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine Blend 5mg/5mg",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 76.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purepeptides.com/product/bpc-157-tb-500-blend",
+    "readAt": "2026-11-21",
+    "pricePerMg": 7.6
+   }
+  ],
+  "blendReports": [],
+  "rank": 19
  },
  {
   "slug": "peptides-eu",
@@ -8857,7 +9834,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 18
+  "rank": 20
  },
  {
   "slug": "cenexa-labs",
@@ -9405,7 +10382,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 19
+  "rank": 21
  },
  {
   "slug": "onyx-peptides",
@@ -9734,7 +10711,884 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 20
+  "rank": 22
+ },
+ {
+  "slug": "biotech-peptides",
+  "name": "Biotech Peptides",
+  "shopUrl": "https://biotechpeptides.com",
+  "region": "US",
+  "originCountry": "US",
+  "shipsTo": null,
+  "legalEntity": "not published",
+  "testingLabs": [
+   "MZ Biolabs"
+  ],
+  "coaAccess": "Certificate images in the product photo gallery (vendor-hosted)",
+  "coaExamples": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg (lot 3140012)",
+    "labelMg": 10,
+    "measuredMg": null,
+    "purityPercent": 99.88,
+    "lab": "MZ Biolabs",
+    "reportId": "lot 3140012",
+    "testDate": "2026-07-15",
+    "url": "https://biotechpeptides.com/wp-content/uploads/2020/03/COA_BPC-157_10mg_3140012_20260721_BP_page-0001.webp",
+    "verifiable": false
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (Thymosin Beta-4) 10mg (lot 3141080)",
+    "labelMg": 10,
+    "measuredMg": null,
+    "purityPercent": 99.83,
+    "lab": "MZ Biolabs",
+    "reportId": "lot 3141080",
+    "testDate": "2026-07-15",
+    "url": "https://biotechpeptides.com/wp-content/uploads/2020/04/COA_Thymosin_beta4-10_3141080_BP_page-0001.webp",
+    "verifiable": false
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": true,
+   "mass": false,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [
+   "Cash App (instructions page)"
+  ],
+  "freeShippingThreshold": null,
+  "dispatchInfo": "Same-day shipping for orders placed by 1 pm PST (shipping page); lost packages re-sent free of charge",
+  "products": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 5mg",
+    "vialMg": 5.0,
+    "price": 52.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/bpc-157/",
+    "inStock": true,
+    "pricePerMg": 10.4
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg",
+    "vialMg": 10.0,
+    "price": 92.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/bpc-157/",
+    "inStock": true,
+    "pricePerMg": 9.2
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 5mg",
+    "vialMg": 5.0,
+    "price": 38.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/tesamorelin/",
+    "inStock": true,
+    "pricePerMg": 7.6
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10mg",
+    "vialMg": 10.0,
+    "price": 92.0,
+    "currency": "USD",
+    "salePrice": 73.0,
+    "url": "https://biotechpeptides.com/product/tesamorelin/",
+    "inStock": true,
+    "pricePerMg": 7.3
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD+ 100mg",
+    "vialMg": 100.0,
+    "price": 46.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/nad-100mg-500mg/",
+    "inStock": true,
+    "pricePerMg": 0.46
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD+ 500mg",
+    "vialMg": 500.0,
+    "price": 120.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/nad-100mg-500mg/",
+    "inStock": true,
+    "pricePerMg": 0.24
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (Thymosin Beta-4) (5mg)",
+    "vialMg": 5.0,
+    "price": 72.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/tb-500-thymosin-beta-4-5mg/",
+    "inStock": true,
+    "pricePerMg": 14.4
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (Thymosin Beta-4) (10mg)",
+    "vialMg": 10.0,
+    "price": 124.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/tb-500-10mg/",
+    "inStock": true,
+    "pricePerMg": 12.4
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-c (10mg)",
+    "vialMg": 10.0,
+    "price": 99.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/mots-c-10mg/",
+    "inStock": true,
+    "pricePerMg": 9.9
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-CU (Copper) (50mg)",
+    "vialMg": 50.0,
+    "price": 64.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/ghk-cu-50mg-copper/",
+    "inStock": true,
+    "pricePerMg": 1.28
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu (200mg)",
+    "vialMg": 200.0,
+    "price": 186.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/ghk-cu-topical-200mg/",
+    "inStock": true,
+    "pricePerMg": 0.93
+   },
+   {
+    "compound": "ipamorelin",
+    "shopProductName": "Ipamorelin (5mg)",
+    "vialMg": 5.0,
+    "price": 53.0,
+    "currency": "USD",
+    "salePrice": 46.0,
+    "url": "https://biotechpeptides.com/product/ipamorelin-5mg/",
+    "inStock": true,
+    "pricePerMg": 9.2
+   },
+   {
+    "compound": "epithalon",
+    "shopProductName": "Epithalon (25mg)",
+    "vialMg": 25.0,
+    "price": 94.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/epithalon-25mg/",
+    "inStock": true,
+    "pricePerMg": 3.76
+   },
+   {
+    "compound": "cjc-1295",
+    "shopProductName": "Mod GRF 1-29 (CJC-1295 NO DAC) (5mg)",
+    "vialMg": 5.0,
+    "price": 46.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/mod-grf-1-29-5mg-cjc-1295-no-dac/",
+    "inStock": true,
+    "pricePerMg": 9.2
+   },
+   {
+    "compound": "kpv",
+    "shopProductName": "KPV (4mg)",
+    "vialMg": 4.0,
+    "price": 39.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/kpv-4mg/",
+    "inStock": true,
+    "pricePerMg": 9.75
+   },
+   {
+    "compound": "pt-141",
+    "shopProductName": "PT-141 (Bremelanotide) (10mg)",
+    "vialMg": 10.0,
+    "price": 45.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/pt-141-10mg-bremelanotide/",
+    "inStock": true,
+    "pricePerMg": 4.5
+   },
+   {
+    "compound": "thymosin-alpha-1",
+    "shopProductName": "Thymosin Alpha-1 (10mg)",
+    "vialMg": 10.0,
+    "price": 130.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/thymosin-alpha-1-10mg/",
+    "inStock": true,
+    "pricePerMg": 13.0
+   },
+   {
+    "compound": "selank",
+    "shopProductName": "Selank (10mg)",
+    "vialMg": 10.0,
+    "price": 46.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/selank-10mg/",
+    "inStock": true,
+    "pricePerMg": 4.6
+   },
+   {
+    "compound": "semax",
+    "shopProductName": "Semax (25mg)",
+    "vialMg": 25.0,
+    "price": 53.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/semax-25mg/",
+    "inStock": true,
+    "pricePerMg": 2.12
+   },
+   {
+    "compound": "aod-9604",
+    "shopProductName": "AOD 9604 (5mg)",
+    "vialMg": 5.0,
+    "price": 44.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://biotechpeptides.com/product/aod-9604-5mg/",
+    "inStock": true,
+    "pricePerMg": 8.8
+   }
+  ],
+  "subscores": {
+   "labVerification": 3,
+   "fillAccuracy": 3,
+   "panelDepth": 3,
+   "entityTransparency": 2,
+   "dispatchReliability": 7,
+   "valuePerMg": 2
+  },
+  "subscore_reasons": {
+   "labVerification": "MZ Biolabs certificates are shown as images in the product galleries; they carry a QR code but no report number or key we could check on a lab portal.",
+   "fillAccuracy": "The opened certificates state HPLC purity only; no measured mg per vial.",
+   "panelDepth": "HPLC-UV-MS purity with mass confirmation; no net content, endotoxin, sterility or heavy-metal results found.",
+   "entityTransparency": "No company name or address found on the contact, terms or about pages; a phone/SMS line is offered.",
+   "dispatchReliability": "Shipping page states same-day dispatch for orders by 1 pm PST and free re-shipping of lost packages; carriers and countries not stated.",
+   "valuePerMg": "BPC-157 $9.20/mg (10 mg) and TB-500 $12.40/mg (10 mg) are among the highest prices in our data; no GLP-1-class products."
+  },
+  "strengths": [
+   "Lot-numbered MZ Biolabs certificates on product pages",
+   "Public warning page about fake sites copying the shop"
+  ],
+  "weaknesses": [
+   "No company name or address published",
+   "No measured mg on the certificates we opened",
+   "High price per mg"
+  ],
+  "verdict": "Biotech Peptides shows lot-numbered MZ Biolabs purity certificates on its product pages and warns about fake copies of its site. It publishes no company name or address, and the certificates give purity only, not the amount in the vial.",
+  "summary": "US shop (biotechpeptides.com) with about 90 products, MZ Biolabs purity certificates and same-day dispatch; no GLP-1-class products.",
+  "notes": "Prices from the public WooCommerce Store API (GET), incl. variation prices. The shop says it runs no other online store or country site and lists fake sites using its name (fraudulent-ads page, early November 2026). Shipping countries not stated.",
+  "sources": [
+   "https://biotechpeptides.com",
+   "https://biotechpeptides.com/wp-json/wc/store/v1/products",
+   "https://biotechpeptides.com/fraudulent-ads-and-websites/",
+   "https://biotechpeptides.com/shipping/",
+   "https://biotechpeptides.com/terms-and-conditions/",
+   "https://biotechpeptides.com/contact-us/",
+   "https://biotechpeptides.com/cash-app-payment-instructions/",
+   "https://biotechpeptides.com/product/bpc-157/",
+   "https://biotechpeptides.com/product/tb-500-10mg/"
+  ],
+  "readAt": "2026-11-21",
+  "overallScore": 1.6,
+  "coaStats": {
+   "opened": 2,
+   "portalVerified": 0,
+   "purityMin": 99.83,
+   "purityMax": 99.88,
+   "purityMedian": 99.85,
+   "fillMinPct": null,
+   "fillMaxPct": null
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "LC-MS identity"
+  ],
+  "blendProducts": [
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW Blend (80mg)",
+    "totalMg": 80,
+    "composition": null,
+    "price": 220.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://biotechpeptides.com/product/klow-blend-80mg/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 2.75
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "BPC-157 & TB-500 & GHK-Cu Blend (70mg)",
+    "totalMg": 70,
+    "composition": null,
+    "price": 205.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://biotechpeptides.com/product/bpc-157-tb-500-ghk-cu-blend-70mg/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 2.929
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 & TB-500 Blend (10mg)",
+    "totalMg": 10,
+    "composition": null,
+    "price": 115.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://biotechpeptides.com/product/bpc-157-tb-500-10mg-blend-2/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 11.5
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 & Ipamorelin Blend (10mg)",
+    "totalMg": 10,
+    "composition": null,
+    "price": 81.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://biotechpeptides.com/product/cjc-1295-ipamorelin-10mg-blend-2/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 8.1
+   }
+  ],
+  "blendReports": [],
+  "rank": 23
+ },
+ {
+  "slug": "glacier-aminos",
+  "name": "Glacier Aminos",
+  "shopUrl": "https://glacieraminos.shop",
+  "region": "US",
+  "originCountry": "US",
+  "shipsTo": "US-only",
+  "legalEntity": "Glacier Aminos LLC (named in the terms); no address found on the pages read",
+  "testingLabs": [],
+  "coaAccess": "COA search by batch number (glacieraminos.shop/coas/); no reports listed without a batch number",
+  "coaExamples": [],
+  "panels": {
+   "hplc": false,
+   "lcms": false,
+   "mass": false,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [],
+  "freeShippingThreshold": null,
+  "dispatchInfo": "Terms: shipped within 1-2 business days, same day before 2:00 PM Mountain Time Mon-Sat; standard 3-5 days $14, next day $49; US, Puerto Rico and US Virgin Islands; international shipping not available",
+  "products": [
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "TESAMORELIN 10MG",
+    "vialMg": 10.0,
+    "price": 59.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/tesamorelin/",
+    "inStock": true,
+    "pricePerMg": 5.999
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "TESAMORELIN 20MG",
+    "vialMg": 20.0,
+    "price": 114.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/tesamorelin/",
+    "inStock": true,
+    "pricePerMg": 5.749
+   },
+   {
+    "compound": "ss-31",
+    "shopProductName": "SS-31 10MG",
+    "vialMg": 10.0,
+    "price": 39.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/s-31-s-10/",
+    "inStock": true,
+    "pricePerMg": 3.999
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD+ 500MG Buffered",
+    "vialMg": 500.0,
+    "price": 49.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/nad-500mg-buffered/",
+    "inStock": true,
+    "pricePerMg": 0.1
+   },
+   {
+    "compound": "kpv",
+    "shopProductName": "KPV 10MG",
+    "vialMg": 10.0,
+    "price": 45.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/kpv/",
+    "inStock": true,
+    "pricePerMg": 4.599
+   },
+   {
+    "compound": "ipamorelin",
+    "shopProductName": "IPAMORELIN 10MG",
+    "vialMg": 10.0,
+    "price": 51.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/ipamorelin-10mg/",
+    "inStock": true,
+    "pricePerMg": 5.199
+   },
+   {
+    "compound": "cjc-1295",
+    "shopProductName": "CJC-1295 W/O DAC 10MG",
+    "vialMg": 10.0,
+    "price": 67.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/cjc-1295-w-o-dac-10mg/",
+    "inStock": true,
+    "pricePerMg": 6.799
+   },
+   {
+    "compound": "pt-141",
+    "shopProductName": "PT-141 10MG",
+    "vialMg": 10.0,
+    "price": 40.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/pt-141/",
+    "inStock": true,
+    "pricePerMg": 4.099
+   },
+   {
+    "compound": "thymosin-alpha-1",
+    "shopProductName": "THYMOSIN ALPHA 1 10MG",
+    "vialMg": 10.0,
+    "price": 63.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/thymosin-alpha-1/",
+    "inStock": true,
+    "pricePerMg": 6.399
+   },
+   {
+    "compound": "aod-9604",
+    "shopProductName": "AOD-9604 10MG",
+    "vialMg": 10.0,
+    "price": 89.99,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://glacieraminos.shop/product/aod-9604-10/",
+    "inStock": true,
+    "pricePerMg": 8.999
+   }
+  ],
+  "subscores": {
+   "labVerification": 1,
+   "fillAccuracy": 3,
+   "panelDepth": 1,
+   "entityTransparency": 4,
+   "dispatchReliability": 7,
+   "valuePerMg": 5
+  },
+  "subscore_reasons": {
+   "labVerification": "Reports are only found by entering a batch number from a vial in the COA search; product pages show no report, lab name or key.",
+   "fillAccuracy": "No report opened, so no measured mg to compare with the label.",
+   "panelDepth": "No test panel could be read without a batch number.",
+   "entityTransparency": "Glacier Aminos LLC is named in the terms; no address or state of registration found; contact by form and e-mail.",
+   "dispatchReliability": "Written shipping terms with cut-off time, carriers options and prices; US territories only.",
+   "valuePerMg": "Ipamorelin $5.20/mg and KPV $4.60/mg (10 mg vials) are around the market middle; GLA-coded products are not counted because the shop does not name the compound."
+  },
+  "strengths": [
+   "Clear written shipping terms with cut-off time",
+   "Named LLC in the terms"
+  ],
+  "weaknesses": [
+   "No lab report can be opened without a batch number from a vial",
+   "No address published",
+   "Products sold under code names (GLA-1 SM, GLA-2 TRZ, GLA-3 RT) without naming the compound"
+  ],
+  "verdict": "Glacier Aminos names Glacier Aminos LLC and has clear shipping terms, but its lab reports can only be found with a batch number from a vial, so we could not open any. Several products are sold under code names without naming the compound.",
+  "summary": "US shop (Glacier Aminos LLC) with about 170 listings incl. multi-packs, products sold under code names (GLA-1 SM, GLA-2 TRZ, GLA-3 RT) and a batch-number COA search; US shipping only.",
+  "notes": "glacieraminos.com redirects to glacieraminos.shop. Prices from the public WooCommerce Store API (GET); multi-packs, strips, sprays and capsules excluded. The product pages do not state which compound GLA-1 SM, GLA-2 TRZ and GLA-3 RT contain; so they are not included in our price comparisons. A search result on glacieraminosus.com (a different domain, blocked for us) describes \"GLA-3 RT retatrutide\"; not used as a source.",
+  "sources": [
+   "https://glacieraminos.shop",
+   "https://glacieraminos.shop/wp-json/wc/store/v1/products",
+   "https://glacieraminos.shop/coas/",
+   "https://glacieraminos.shop/terms-conditions/",
+   "https://glacieraminos.shop/shipping-delivery/",
+   "https://glacieraminos.shop/contact/"
+  ],
+  "readAt": "2026-11-21",
+  "overallScore": 1.3,
+  "coaStats": {
+   "opened": 0,
+   "portalVerified": 0,
+   "purityMin": null,
+   "purityMax": null,
+   "purityMedian": null,
+   "fillMinPct": null,
+   "fillMaxPct": null
+  },
+  "panelLabels": [],
+  "blendProducts": [
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW 80MG",
+    "totalMg": 80,
+    "composition": null,
+    "price": 99.99,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://glacieraminos.shop/product/klow-80/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 1.25
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW 70MG",
+    "totalMg": 70,
+    "composition": null,
+    "price": 89.99,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://glacieraminos.shop/product/glow/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 1.286
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC 1295 No DAC/IPA Blend 10MG",
+    "totalMg": 10,
+    "composition": null,
+    "price": 54.99,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://glacieraminos.shop/product/cjc-1295-no-dac-ipa-blend/",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 5.499
+   }
+  ],
+  "blendReports": [],
+  "rank": 24
+ },
+ {
+  "slug": "modern-aminos",
+  "name": "Modern Aminos",
+  "shopUrl": "https://modernaminos.com",
+  "region": "US",
+  "originCountry": "US",
+  "shipsTo": null,
+  "legalEntity": "not published",
+  "testingLabs": [],
+  "coaAccess": "COA batch search (modernaminos.com/coa-search/); reports not listed without a batch number",
+  "coaExamples": [],
+  "panels": {
+   "hplc": false,
+   "lcms": false,
+   "mass": false,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [],
+  "freeShippingThreshold": null,
+  "dispatchInfo": "Contact page: orders before the 4 PM CT cut-off typically ship the same business day; FedEx or UPS tracking",
+  "products": [
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-CU (Copper Tripeptide-1) 100mg",
+    "vialMg": 100.0,
+    "price": 60.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/ghk-cu/",
+    "inStock": true,
+    "pricePerMg": 0.6
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-CU (Copper Tripeptide-1) 50mg",
+    "vialMg": 50.0,
+    "price": 38.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/ghk-cu/",
+    "inStock": true,
+    "pricePerMg": 0.76
+   },
+   {
+    "compound": "cjc-1295",
+    "shopProductName": "CJC-1295 w/o DAC 2mg",
+    "vialMg": 2.0,
+    "price": 19.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/cjc-1295-no-dac-2mg/",
+    "inStock": true,
+    "pricePerMg": 9.5
+   },
+   {
+    "compound": "cjc-1295",
+    "shopProductName": "CJC-1295 w/o DAC 5mg",
+    "vialMg": 5.0,
+    "price": 34.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/cjc-1295-no-dac-2mg/",
+    "inStock": true,
+    "pricePerMg": 6.8
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-C 10mg",
+    "vialMg": 10.0,
+    "price": 39.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/mots-c/",
+    "inStock": true,
+    "pricePerMg": 3.9
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-C 40mg",
+    "vialMg": 40.0,
+    "price": 96.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/mots-c/",
+    "inStock": true,
+    "pricePerMg": 2.4
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (Thymosin Beta-4) 5mg",
+    "vialMg": 5.0,
+    "price": 34.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/tb-500-thymosin-beta-4/",
+    "inStock": false,
+    "pricePerMg": 6.8
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (Thymosin Beta-4) 10mg",
+    "vialMg": 10.0,
+    "price": 59.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/tb-500-thymosin-beta-4/",
+    "inStock": true,
+    "pricePerMg": 5.9
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 (Pentadecapeptide) 10mg",
+    "vialMg": 10.0,
+    "price": 54.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/pentadecapeptide/",
+    "inStock": true,
+    "pricePerMg": 5.4
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 (Pentadecapeptide) 5mg",
+    "vialMg": 5.0,
+    "price": 33.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/pentadecapeptide/",
+    "inStock": true,
+    "pricePerMg": 6.6
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10MG",
+    "vialMg": 10.0,
+    "price": 68.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://modernaminos.com/product/tesamorelin/",
+    "inStock": true,
+    "pricePerMg": 6.8
+   }
+  ],
+  "subscores": {
+   "labVerification": 1,
+   "fillAccuracy": 3,
+   "panelDepth": 1,
+   "entityTransparency": 2,
+   "dispatchReliability": 6,
+   "valuePerMg": 5
+  },
+  "subscore_reasons": {
+   "labVerification": "Reports are found only through a batch-number search; product pages show no report, lab name or key.",
+   "fillAccuracy": "No report opened, so no measured mg to compare with the label.",
+   "panelDepth": "No test panel could be read without a batch number.",
+   "entityTransparency": "No company name or address found on the pages we could read (the site is behind a bot check; policy pages returned no text).",
+   "dispatchReliability": "Same-day dispatch before 4 PM CT stated on the contact page; shipping policy text could not be read.",
+   "valuePerMg": "BPC-157 $5.40/mg (10 mg) and TB-500 $5.90/mg (10 mg) are around the market middle; no GLP-1-class single compounds except a CagriSema blend."
+  },
+  "strengths": [
+   "Same-day dispatch cut-off stated",
+   "Batch-number COA search"
+  ],
+  "weaknesses": [
+   "No lab report can be opened without a batch number",
+   "No company name or address found",
+   "Site behind a bot check; policy pages could not be read"
+  ],
+  "verdict": "Modern Aminos sells about 190 listings and offers a batch-number COA search, but we could not open any report without a batch number and found no company name or address.",
+  "summary": "US shop (modernaminos.com) with about 190 listings incl. blends, strips and capsules; batch-number COA search; same-day dispatch before 4 PM CT.",
+  "notes": "Read via the public WooCommerce Store API and WordPress pages API (GET) because the pages are behind a bot check. Other domains using the name (modernaminosusa.com, modernaminos.eu) not audited.",
+  "sources": [
+   "https://modernaminos.com",
+   "https://modernaminos.com/wp-json/wc/store/v1/products",
+   "https://modernaminos.com/contact-us/",
+   "https://modernaminos.com/coa-search/"
+  ],
+  "readAt": "2026-11-21",
+  "overallScore": 1.1,
+  "coaStats": {
+   "opened": 0,
+   "portalVerified": 0,
+   "purityMin": null,
+   "purityMax": null,
+   "purityMedian": null,
+   "fillMinPct": null,
+   "fillMaxPct": null
+  },
+  "panelLabels": [],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157/TB-500 Blend 5MG/5MG",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 59.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://modernaminos.com/product/bpc-157tb-500-blend/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.9
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157/TB-500 Blend 10MG/10MG",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 89.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://modernaminos.com/product/bpc-157tb-500-blend/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 4.45
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 (no DAC) / Ipamorelin 5MG/5MG",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": 55.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://modernaminos.com/product/cjc-1295-no-dac-ipamorelin/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.5
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 (no DAC) / Ipamorelin 10MG/10MG",
+    "totalMg": 20,
+    "composition": {
+     "cjc-1295": 10,
+     "ipamorelin": 10
+    },
+    "price": 104.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://modernaminos.com/product/cjc-1295-no-dac-ipamorelin/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.2
+   }
+  ],
+  "blendReports": [],
+  "rank": 25
  },
  {
   "slug": "biolab-shop",
@@ -9917,7 +11771,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 21
+  "rank": 26
  },
  {
   "slug": "pen-peptide",
@@ -10292,7 +12146,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 22
+  "rank": 27
  },
  {
   "slug": "peptide-pro",
@@ -10373,7 +12227,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 23
+  "rank": 28
  },
  {
   "slug": "nordic-peptides",
@@ -10686,6 +12540,6 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 24
+  "rank": 29
  }
 ]

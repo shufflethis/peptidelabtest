@@ -1,0 +1,7 @@
+---
+import View from '../../../views/BrandStatus.astro';
+import { R, withLangs } from '../../../lib/routes';
+export const getStaticPaths = () => withLangs(R.brand());
+const { lang, brand } = Astro.props as any;
+---
+<View lang={lang} brand={brand} />
