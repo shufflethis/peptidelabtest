@@ -1,0 +1,588 @@
+{
+ "source": "DataForSEO google_ads/search_volume/live + dataforseo_labs bulk_keyword_difficulty, pulled 2026-11-21",
+ "note": "volume null = Google Ads returned no data (often restricted health terms); kd 0/null = often not computed, not easy",
+ "markets": {
+  "de": {
+   "location_code": 2276,
+   "language": "de",
+   "keywords": [
+    {
+     "keyword": "retatrutid",
+     "volume": 74000,
+     "kd": 0,
+     "cpc": 2.54,
+     "competition": "LOW",
+     "cluster": "compound"
+    },
+    {
+     "keyword": "tirzepatid",
+     "volume": 33100,
+     "kd": 8,
+     "cpc": 7.67,
+     "competition": "MEDIUM",
+     "cluster": "compound"
+    },
+    {
+     "keyword": "peptide kaufen",
+     "volume": 12100,
+     "kd": 0,
+     "cpc": 2.4,
+     "competition": "HIGH",
+     "cluster": "buy"
+    },
+    {
+     "keyword": "retatrutide kaufen",
+     "volume": 12100,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "buy"
+    },
+    {
+     "keyword": "peptide rechner",
+     "volume": 6600,
+     "kd": 0,
+     "cpc": 1.84,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "peptid rechner",
+     "volume": 6600,
+     "kd": 0,
+     "cpc": 1.84,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "retatrutid kaufen",
+     "volume": 2900,
+     "kd": 0,
+     "cpc": 2.72,
+     "competition": "HIGH",
+     "cluster": "buy"
+    },
+    {
+     "keyword": "glow peptide",
+     "volume": 2900,
+     "kd": 0,
+     "cpc": 5.03,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "primal peptides",
+     "volume": 2900,
+     "kd": 0,
+     "cpc": 7.37,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "tirzepatid kaufen",
+     "volume": 1900,
+     "kd": 0,
+     "cpc": 8.41,
+     "competition": "HIGH",
+     "cluster": "buy"
+    },
+    {
+     "keyword": "janoshik",
+     "volume": 1900,
+     "kd": 11,
+     "cpc": 7.69,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "peptides eu",
+     "volume": 1900,
+     "kd": 17,
+     "cpc": 4.1,
+     "competition": "HIGH",
+     "cluster": "compound"
+    },
+    {
+     "keyword": "peptide shop",
+     "volume": 1600,
+     "kd": 2,
+     "cpc": 4.63,
+     "competition": "HIGH",
+     "cluster": "buy"
+    },
+    {
+     "keyword": "avellon peptides",
+     "volume": 1600,
+     "kd": null,
+     "cpc": 4.2,
+     "competition": "MEDIUM",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "cjc 1295 ipamorelin",
+     "volume": 1300,
+     "kd": 0,
+     "cpc": 6.58,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "klow peptide",
+     "volume": 1000,
+     "kd": 0,
+     "cpc": 3.62,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "wolverine stack",
+     "volume": 880,
+     "kd": 0,
+     "cpc": 1.95,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "bpc 157 kaufen",
+     "volume": 720,
+     "kd": 0,
+     "cpc": 1.32,
+     "competition": "HIGH",
+     "cluster": "buy"
+    },
+    {
+     "keyword": "tirzepatid preis",
+     "volume": 720,
+     "kd": 0,
+     "cpc": 2.98,
+     "competition": "HIGH",
+     "cluster": "price"
+    },
+    {
+     "keyword": "sind peptide legal",
+     "volume": 590,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "peptide sciences",
+     "volume": 590,
+     "kd": 8,
+     "cpc": 5.41,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "retatrutid preis",
+     "volume": 480,
+     "kd": 0,
+     "cpc": 2.05,
+     "competition": "HIGH",
+     "cluster": "price"
+    },
+    {
+     "keyword": "tb 500 kaufen",
+     "volume": 390,
+     "kd": 0,
+     "cpc": 1.42,
+     "competition": "HIGH",
+     "cluster": "buy"
+    },
+    {
+     "keyword": "peptide shop deutschland",
+     "volume": 260,
+     "kd": 0,
+     "cpc": 2.43,
+     "competition": "HIGH",
+     "cluster": "country"
+    },
+    {
+     "keyword": "primal peptides erfahrungen",
+     "volume": 260,
+     "kd": 0,
+     "cpc": 8.7,
+     "competition": "HIGH",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "analysezertifikat",
+     "volume": 210,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "peptide online kaufen",
+     "volume": 210,
+     "kd": 0,
+     "cpc": 4.12,
+     "competition": "HIGH",
+     "cluster": "buy"
+    },
+    {
+     "keyword": "wolverine peptide",
+     "volume": 170,
+     "kd": 0,
+     "cpc": 2.92,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "peptide europa",
+     "volume": 170,
+     "kd": 0,
+     "cpc": 3.01,
+     "competition": "HIGH",
+     "cluster": "country"
+    },
+    {
+     "keyword": "peptide erfahrungen",
+     "volume": 140,
+     "kd": 0,
+     "cpc": 1,
+     "competition": "MEDIUM",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "glp-3 rt",
+     "volume": 110,
+     "kd": null,
+     "cpc": 2.72,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "peptide polen",
+     "volume": 110,
+     "kd": 0,
+     "cpc": 3.25,
+     "competition": "HIGH",
+     "cluster": "country"
+    },
+    {
+     "keyword": "core peptides",
+     "volume": 110,
+     "kd": 0,
+     "cpc": 9.59,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide legal deutschland",
+     "volume": 90,
+     "kd": 0,
+     "cpc": 3.88,
+     "competition": "LOW",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "peptide test",
+     "volume": 90,
+     "kd": 0,
+     "cpc": 4.15,
+     "competition": "HIGH",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "semaglutid vs tirzepatid",
+     "volume": 90,
+     "kd": 0,
+     "cpc": 16.74,
+     "competition": "MEDIUM",
+     "cluster": "compare"
+    },
+    {
+     "keyword": "modern aminos",
+     "volume": 90,
+     "kd": 5,
+     "cpc": 7.12,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "certa peptides",
+     "volume": 70,
+     "kd": null,
+     "cpc": 3.09,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "janoshik erfahrungen",
+     "volume": 50,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "retatrutid rechner",
+     "volume": 50,
+     "kd": null,
+     "cpc": 3.31,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "limitless biotech",
+     "volume": 50,
+     "kd": null,
+     "cpc": 16.8,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide preis",
+     "volume": 30,
+     "kd": null,
+     "cpc": 0.92,
+     "competition": "MEDIUM",
+     "cluster": "price"
+    },
+    {
+     "keyword": "peptide shop polen",
+     "volume": 30,
+     "kd": null,
+     "cpc": 2.86,
+     "competition": "HIGH",
+     "cluster": "country"
+    },
+    {
+     "keyword": "peptide legal kaufen",
+     "volume": 20,
+     "kd": 0,
+     "cpc": 1.4,
+     "competition": "HIGH",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "rt3 peptide",
+     "volume": 20,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "peptide vergleich",
+     "volume": 20,
+     "kd": null,
+     "cpc": 1.32,
+     "competition": "MEDIUM",
+     "cluster": "compound"
+    },
+    {
+     "keyword": "retatrutid legal",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "coa peptide",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "bpc 157 rechner",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "retatrutid vs tirzepatid",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "compare"
+    },
+    {
+     "keyword": "glp-2 trz",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "genesis peptides",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": "MEDIUM",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide seriös kaufen",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "trust"
+    },
+    {
+     "keyword": "seriöse peptide shops",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "trust"
+    },
+    {
+     "keyword": "peptide laborbericht",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "coa"
+    },
+    {
+     "keyword": "peptide reinheit",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "coa"
+    },
+    {
+     "keyword": "peptide rekonstitution rechner",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "rekonstitution rechner",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "peptid konzentration rechner",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "tirzepatid rechner",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "semaglutid rechner",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "bpc 157 tb 500 blend",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "blend"
+    },
+    {
+     "keyword": "tirzepatid vs retatrutid",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "compare"
+    },
+    {
+     "keyword": "bpc 157 vs tb 500",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "compare"
+    },
+    {
+     "keyword": "rt-3 retatrutid",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "glp 3 rt kaufen",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "peptide preisvergleich",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "price"
+    },
+    {
+     "keyword": "peptide shop niederlande",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "country"
+    },
+    {
+     "keyword": "peptide forschung kaufen",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "buy"
+    },
+    {
+     "keyword": "research peptide kaufen",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "buy"
+    },
+    {
+     "keyword": "bpc 157 erfahrungen",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "trust"
+    },
+    {
+     "keyword": "bpc 157",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "compound"
+    }
+   ]
+  }
+ }
+}

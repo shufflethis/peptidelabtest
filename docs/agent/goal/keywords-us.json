@@ -1,0 +1,1316 @@
+{
+ "source": "DataForSEO google_ads/search_volume/live + dataforseo_labs bulk_keyword_difficulty, pulled 2026-11-21",
+ "note": "volume null = Google Ads returned no data (often restricted health terms); kd 0/null = often not computed, not easy",
+ "markets": {
+  "us": {
+   "location_code": 2840,
+   "language": "en",
+   "keywords": [
+    {
+     "keyword": "peptide calculator",
+     "volume": 368000,
+     "kd": 5,
+     "cpc": 4.42,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "reta peptide",
+     "volume": 201000,
+     "kd": 12,
+     "cpc": 11.71,
+     "competition": "MEDIUM",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "amino club",
+     "volume": 110000,
+     "kd": 0,
+     "cpc": 6.74,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "klow peptide",
+     "volume": 90500,
+     "kd": 0,
+     "cpc": 7.99,
+     "competition": "LOW",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "peptide sciences",
+     "volume": 90500,
+     "kd": 5,
+     "cpc": 12.65,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "glow peptide",
+     "volume": 60500,
+     "kd": 0,
+     "cpc": 6.43,
+     "competition": "LOW",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "cjc-1295 ipamorelin",
+     "volume": 60500,
+     "kd": 0,
+     "cpc": 9.62,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "semaglutide vs tirzepatide",
+     "volume": 60500,
+     "kd": 21,
+     "cpc": 14.47,
+     "competition": "HIGH",
+     "cluster": "compare"
+    },
+    {
+     "keyword": "wolverine peptide",
+     "volume": 40500,
+     "kd": 1,
+     "cpc": 5.42,
+     "competition": "LOW",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "wolverine stack peptide",
+     "volume": 33100,
+     "kd": 12,
+     "cpc": 6.03,
+     "competition": "LOW",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "modern aminos",
+     "volume": 33100,
+     "kd": 0,
+     "cpc": 6.92,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "onyx peptides",
+     "volume": 22200,
+     "kd": 0,
+     "cpc": 6.62,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "skye peptides",
+     "volume": 22200,
+     "kd": 8,
+     "cpc": 8.98,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "janoshik",
+     "volume": 18100,
+     "kd": 0,
+     "cpc": 10.02,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "nextgen peptides",
+     "volume": 18100,
+     "kd": 6,
+     "cpc": 11.53,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "core peptides",
+     "volume": 18100,
+     "kd": 0,
+     "cpc": 11.71,
+     "competition": "MEDIUM",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "swisschems",
+     "volume": 18100,
+     "kd": 33,
+     "cpc": 9.35,
+     "competition": "MEDIUM",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide reconstitution calculator",
+     "volume": 14800,
+     "kd": 4,
+     "cpc": 0.11,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "glp-3 rt",
+     "volume": 14800,
+     "kd": 4,
+     "cpc": 11.28,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "glp 3 rt",
+     "volume": 14800,
+     "kd": 4,
+     "cpc": 11.28,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "biotech peptides",
+     "volume": 14800,
+     "kd": 34,
+     "cpc": 9.24,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "where to buy peptides",
+     "volume": 12100,
+     "kd": 22,
+     "cpc": 6.3,
+     "competition": "HIGH",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "glp-3 peptide",
+     "volume": 12100,
+     "kd": 0,
+     "cpc": 9.56,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "glp 3 peptide",
+     "volume": 12100,
+     "kd": 0,
+     "cpc": 9.56,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "amino asylum",
+     "volume": 12100,
+     "kd": 4,
+     "cpc": 10.06,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "are peptides legal",
+     "volume": 9900,
+     "kd": 0,
+     "cpc": 9.95,
+     "competition": "LOW",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "mg/ml calculator",
+     "volume": 9900,
+     "kd": 4,
+     "cpc": 3.7,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "tirzepatide vs retatrutide",
+     "volume": 9900,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "compare"
+    },
+    {
+     "keyword": "pure peptides",
+     "volume": 9900,
+     "kd": 28,
+     "cpc": 13.2,
+     "competition": "MEDIUM",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "licensed peptides",
+     "volume": 9900,
+     "kd": 0,
+     "cpc": 13.91,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "cjc ipamorelin",
+     "volume": 8100,
+     "kd": 0,
+     "cpc": 11.5,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "ez peptides",
+     "volume": 8100,
+     "kd": 0,
+     "cpc": 11.9,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "ascension peptides",
+     "volume": 8100,
+     "kd": 0,
+     "cpc": 11.48,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide prices",
+     "volume": 8100,
+     "kd": 0,
+     "cpc": 8.37,
+     "competition": "LOW",
+     "cluster": "price"
+    },
+    {
+     "keyword": "where to buy retatrutide",
+     "volume": 6600,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "reconstitution calculator",
+     "volume": 6600,
+     "kd": 0,
+     "cpc": 3.64,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "limitless biotech",
+     "volume": 6600,
+     "kd": 3,
+     "cpc": 15.35,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide pro",
+     "volume": 6600,
+     "kd": 7,
+     "cpc": 9.26,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide testing",
+     "volume": 5400,
+     "kd": 0,
+     "cpc": 7.63,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "best peptide company",
+     "volume": 4400,
+     "kd": 35,
+     "cpc": 6.17,
+     "competition": "HIGH",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "peptide sources",
+     "volume": 4400,
+     "kd": 9,
+     "cpc": 9.51,
+     "competition": "MEDIUM",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "semax vs selank",
+     "volume": 4400,
+     "kd": 0,
+     "cpc": 21.29,
+     "competition": "LOW",
+     "cluster": "compare"
+    },
+    {
+     "keyword": "glacier aminos",
+     "volume": 4400,
+     "kd": 0,
+     "cpc": 9.5,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "janoshik test",
+     "volume": 3600,
+     "kd": null,
+     "cpc": 8.73,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "retatrutide calculator",
+     "volume": 3600,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "tirzepatide reconstitution calculator",
+     "volume": 2900,
+     "kd": 2,
+     "cpc": 7.45,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "tirzepatide calculator",
+     "volume": 2900,
+     "kd": 0,
+     "cpc": 8.81,
+     "competition": "MEDIUM",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "klow blend",
+     "volume": 2900,
+     "kd": null,
+     "cpc": 11.17,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "glow blend peptide",
+     "volume": 2900,
+     "kd": 0,
+     "cpc": 6.39,
+     "competition": "LOW",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "real peptides",
+     "volume": 2900,
+     "kd": 16,
+     "cpc": 10.03,
+     "competition": "MEDIUM",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "best place to buy peptides",
+     "volume": 2400,
+     "kd": 39,
+     "cpc": 6.03,
+     "competition": "HIGH",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "wolverine blend peptide",
+     "volume": 2400,
+     "kd": null,
+     "cpc": 6.45,
+     "competition": "LOW",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "tesamorelin vs ipamorelin",
+     "volume": 2400,
+     "kd": 0,
+     "cpc": 5.97,
+     "competition": "LOW",
+     "cluster": "compare"
+    },
+    {
+     "keyword": "retatrutide glp-3",
+     "volume": 2400,
+     "kd": 13,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "janoshik verify",
+     "volume": 1600,
+     "kd": 25,
+     "cpc": 19.72,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "bpc-157 vs tb500",
+     "volume": 1600,
+     "kd": 0,
+     "cpc": 8.31,
+     "competition": "LOW",
+     "cluster": "compare"
+    },
+    {
+     "keyword": "tirz peptide",
+     "volume": 1600,
+     "kd": 40,
+     "cpc": 14.66,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "limitless biotech peptides",
+     "volume": 1600,
+     "kd": 3,
+     "cpc": 11.76,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "cheapest peptides",
+     "volume": 1600,
+     "kd": 7,
+     "cpc": 8.11,
+     "competition": "HIGH",
+     "cluster": "price"
+    },
+    {
+     "keyword": "reputable peptide companies",
+     "volume": 1300,
+     "kd": 29,
+     "cpc": 6.61,
+     "competition": "HIGH",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "modern aminos review",
+     "volume": 1300,
+     "kd": 0,
+     "cpc": 12.79,
+     "competition": "MEDIUM",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "particle peptides",
+     "volume": 1300,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide warehouse",
+     "volume": 1300,
+     "kd": 0,
+     "cpc": 12.27,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide mixing calculator",
+     "volume": 1000,
+     "kd": 11,
+     "cpc": 0.12,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "glp-2 tz",
+     "volume": 1000,
+     "kd": null,
+     "cpc": 7.88,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "peptide price comparison",
+     "volume": 1000,
+     "kd": 5,
+     "cpc": 4.46,
+     "competition": "LOW",
+     "cluster": "price"
+    },
+    {
+     "keyword": "bac water calculator",
+     "volume": 880,
+     "kd": 2,
+     "cpc": 3.28,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "klow peptide blend",
+     "volume": 880,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "fake coa",
+     "volume": 720,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "peptide lab testing",
+     "volume": 720,
+     "kd": 31,
+     "cpc": 10.45,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "semaglutide calculator",
+     "volume": 720,
+     "kd": 0,
+     "cpc": 8.11,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "primal peptides",
+     "volume": 720,
+     "kd": 0,
+     "cpc": 12.12,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "best peptide vendors",
+     "volume": 590,
+     "kd": 38,
+     "cpc": 5.77,
+     "competition": "MEDIUM",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "semaglutide reconstitution calculator",
+     "volume": 590,
+     "kd": 0,
+     "cpc": 2.83,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "ghk-cu calculator",
+     "volume": 590,
+     "kd": 0,
+     "cpc": 4.59,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "glow peptide blend",
+     "volume": 590,
+     "kd": 0,
+     "cpc": 13.7,
+     "competition": "LOW",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "arctic lab supply",
+     "volume": 590,
+     "kd": 0,
+     "cpc": 9.85,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "cheap retatrutide",
+     "volume": 590,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "price"
+    },
+    {
+     "keyword": "best research peptide companies",
+     "volume": 480,
+     "kd": 39,
+     "cpc": 5.8,
+     "competition": "LOW",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "is retatrutide legal",
+     "volume": 480,
+     "kd": 12,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "janoshik analytical",
+     "volume": 480,
+     "kd": 4,
+     "cpc": 12.71,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "nad+ reconstitution calculator",
+     "volume": 480,
+     "kd": null,
+     "cpc": 11.82,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "cjc 1295 ipamorelin blend",
+     "volume": 480,
+     "kd": 1,
+     "cpc": 11.55,
+     "competition": "HIGH",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "ghostlabz",
+     "volume": 480,
+     "kd": null,
+     "cpc": 5.9,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide coa",
+     "volume": 390,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "janoshik testing cost",
+     "volume": 390,
+     "kd": 1,
+     "cpc": 17.49,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "limitless biotech review",
+     "volume": 390,
+     "kd": 5,
+     "cpc": 5.61,
+     "competition": "LOW",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "is janoshik legit",
+     "volume": 320,
+     "kd": 16,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "bpc-157 reconstitution calculator",
+     "volume": 320,
+     "kd": 0,
+     "cpc": 2.02,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "cjc-1295 vs ipamorelin",
+     "volume": 320,
+     "kd": 0,
+     "cpc": 5.31,
+     "competition": "MEDIUM",
+     "cluster": "blend"
+    },
+    {
+     "keyword": "rt-3 peptide",
+     "volume": 320,
+     "kd": null,
+     "cpc": 8.85,
+     "competition": "LOW",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "glp-1 sm",
+     "volume": 320,
+     "kd": null,
+     "cpc": 17.58,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "core peptides discount code",
+     "volume": 320,
+     "kd": 0,
+     "cpc": 2.1,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "genesis peptides",
+     "volume": 320,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "mots-c reconstitution calculator",
+     "volume": 260,
+     "kd": 0,
+     "cpc": 2.92,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "ameano",
+     "volume": 260,
+     "kd": null,
+     "cpc": 12.08,
+     "competition": "HIGH",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "ghk-cu reconstitution calculator",
+     "volume": 210,
+     "kd": 23,
+     "cpc": 2.97,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "bpc-157 calculator",
+     "volume": 210,
+     "kd": 0,
+     "cpc": 1.89,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "tesamorelin calculator",
+     "volume": 210,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "glp-2 trz",
+     "volume": 210,
+     "kd": null,
+     "cpc": 14.55,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "peptide third party testing",
+     "volume": 170,
+     "kd": 28,
+     "cpc": 11.26,
+     "competition": "MEDIUM",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "tesamorelin reconstitution calculator",
+     "volume": 170,
+     "kd": 8,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "mots-c calculator",
+     "volume": 170,
+     "kd": null,
+     "cpc": 3.02,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "core peptides review",
+     "volume": 170,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "most trusted peptide company",
+     "volume": 140,
+     "kd": null,
+     "cpc": 5.06,
+     "competition": "HIGH",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "peptide concentration calculator",
+     "volume": 140,
+     "kd": 10,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "peptides eu",
+     "volume": 140,
+     "kd": 0,
+     "cpc": 3.48,
+     "competition": "MEDIUM",
+     "cluster": "compound"
+    },
+    {
+     "keyword": "ghk-cu vs bpc-157",
+     "volume": 110,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "compare"
+    },
+    {
+     "keyword": "lp3-r",
+     "volume": 110,
+     "kd": null,
+     "cpc": 8.06,
+     "competition": "LOW",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "peptide vendor reviews",
+     "volume": 90,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "peptide sciences closed",
+     "volume": 90,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide vendors usa",
+     "volume": 70,
+     "kd": 27,
+     "cpc": 3.43,
+     "competition": "HIGH",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "peptide purity test",
+     "volume": 70,
+     "kd": 7,
+     "cpc": 4.77,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "pt-141 reconstitution calculator",
+     "volume": 70,
+     "kd": 8,
+     "cpc": 2.62,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "is buying peptides online legal",
+     "volume": 50,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "are research peptides legal",
+     "volume": 50,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "kpv reconstitution calculator",
+     "volume": 50,
+     "kd": 2,
+     "cpc": 13.8,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "primal peptides review",
+     "volume": 50,
+     "kd": 0,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "trusted peptide vendors",
+     "volume": 40,
+     "kd": null,
+     "cpc": null,
+     "competition": "MEDIUM",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "ipamorelin reconstitution calculator",
+     "volume": 40,
+     "kd": 8,
+     "cpc": 3.33,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "semax reconstitution calculator",
+     "volume": 40,
+     "kd": 0,
+     "cpc": 2.78,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "glp-1 research peptide",
+     "volume": 40,
+     "kd": null,
+     "cpc": 15.84,
+     "competition": "HIGH",
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "certa peptides",
+     "volume": 40,
+     "kd": null,
+     "cpc": 6.23,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "can you legally buy peptides online",
+     "volume": 30,
+     "kd": null,
+     "cpc": 6.88,
+     "competition": "LOW",
+     "cluster": "legal"
+    },
+    {
+     "keyword": "how to read a coa",
+     "volume": 30,
+     "kd": 0,
+     "cpc": 3.11,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "certificate of analysis peptides",
+     "volume": 30,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "coa"
+    },
+    {
+     "keyword": "tb-500 reconstitution calculator",
+     "volume": 30,
+     "kd": 23,
+     "cpc": 2.24,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "cjc-1295 reconstitution calculator",
+     "volume": 30,
+     "kd": null,
+     "cpc": 4.02,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "legit peptide vendors",
+     "volume": 20,
+     "kd": null,
+     "cpc": 3.43,
+     "competition": "HIGH",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "tb-500 calculator",
+     "volume": 20,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "us peptide vendors",
+     "volume": 20,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "how to tell if a peptide company is legit",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "ss-31 reconstitution calculator",
+     "volume": 10,
+     "kd": null,
+     "cpc": 2.7,
+     "competition": "LOW",
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "avellon peptides",
+     "volume": 10,
+     "kd": null,
+     "cpc": 3.05,
+     "competition": "LOW",
+     "cluster": "brand"
+    },
+    {
+     "keyword": "peptide vendors europe",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "trust"
+    },
+    {
+     "keyword": "peptide shop europe",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "country"
+    },
+    {
+     "keyword": "buy peptides poland",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "country"
+    },
+    {
+     "keyword": "peptides netherlands",
+     "volume": 10,
+     "kd": null,
+     "cpc": null,
+     "competition": "LOW",
+     "cluster": "country"
+    },
+    {
+     "keyword": "verified peptide vendors",
+     "volume": 10,
+     "kd": null,
+     "cpc": 4.46,
+     "competition": "MEDIUM",
+     "cluster": "trust"
+    },
+    {
+     "keyword": "can i buy retatrutide in the usa",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "country"
+    },
+    {
+     "keyword": "retatrutide legal status",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "legal"
+    },
+    {
+     "keyword": "buy retatrutide",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "buy"
+    },
+    {
+     "keyword": "research peptides fda",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "legal"
+    },
+    {
+     "keyword": "coa red flags",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "coa"
+    },
+    {
+     "keyword": "hplc peptide purity",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "coa"
+    },
+    {
+     "keyword": "verify peptide coa",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "coa"
+    },
+    {
+     "keyword": "retatrutide reconstitution calculator",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "epitalon reconstitution calculator",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "selank reconstitution calculator",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "calculator"
+    },
+    {
+     "keyword": "bpc-157 tb-500 blend",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "blend"
+    },
+    {
+     "keyword": "bpc 157 tb 500 blend",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "blend"
+    },
+    {
+     "keyword": "ghk-cu bpc-157 tb-500 blend",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "blend"
+    },
+    {
+     "keyword": "retatrutide vs tirzepatide vs semaglutide",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "compare"
+    },
+    {
+     "keyword": "retatrutide vs semaglutide",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "compare"
+    },
+    {
+     "keyword": "sr-3rt",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "gl-3 rt",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "rt 3 retatrutide",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "code-names"
+    },
+    {
+     "keyword": "retatrutide price",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "price"
+    },
+    {
+     "keyword": "tirzepatide price per mg",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "price"
+    },
+    {
+     "keyword": "peptide price index",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "price"
+    },
+    {
+     "keyword": "bpc-157 price",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "price"
+    },
+    {
+     "keyword": "peptide vendors uk",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "trust"
+    },
+    {
+     "keyword": "peptide vendor verified",
+     "volume": null,
+     "kd": null,
+     "cpc": null,
+     "competition": null,
+     "cluster": "trust"
+    }
+   ]
+  }
+ }
+}
