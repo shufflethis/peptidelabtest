@@ -1,4 +1,6 @@
 ---
+import { compoundExtras, hubs, uniqRel } from '../lib/links';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import BarList from '../components/BarList.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
@@ -102,6 +104,7 @@ const jsonLd = [
 
 {/* M5chart */}
     <BarList title={t(lang, 'm5.shopsPerCompound')} rows={rows.map((r) => ({ label: r.name, value: r.shops, display: tn(lang, 'common.shops', r.shops), accent: true, href: L(`/prices/${r.slug}/`) }))} />
+    <RelatedLinks links={hubs(lang, ['priceIndex', 'blends', 'compare', 'codeNames', 'calculator'])} />
     <FAQ items={faqs} />
     <Disclosure />
   </div>

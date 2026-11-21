@@ -932,5 +932,13 @@
     "fq3": "¿Demuestra el sello que un producto es puro?",
     "fa3": "No. No analizamos productos nosotros mismos. La puntuación refleja los informes e información publicados por la tienda tal como los encontramos; compruebe el informe de su lote en el portal del laboratorio.",
     "vendorLine": "{shop} puede mostrar este resultado en su web con nuestro sello de auditoría, que siempre muestra la puntuación vigente:"
+  },
+  "lnk": {
+    "codeNames": "Nombres en clave de {c}",
+    "codeNamesHub": "Nombres en clave de péptidos descifrados",
+    "priceIndex": "Índice de precios de péptidos: mediana por mg",
+    "compareHub": "Todas las comparativas de compuestos",
+    "blendsHub": "Todas las mezclas de péptidos comparadas",
+    "calcHub": "Calculadoras de concentración para todos los compuestos"
   }
 }

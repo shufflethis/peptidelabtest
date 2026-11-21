@@ -932,5 +932,13 @@
     "fq3": "Beweist das Siegel, dass ein Produkt rein ist?",
     "fa3": "Nein. Wir haben keine Produkte selbst getestet. Die Bewertung spiegelt die veröffentlichten Laborberichte und Angaben des Shops wider, wie wir sie vorfanden; prüfen Sie den Bericht zu Ihrer Charge im Portal des Labors.",
     "vendorLine": "{shop} kann dieses Ergebnis mit unserem Prüfsiegel auf der eigenen Website zeigen; es zeigt immer die aktuelle Bewertung:"
+  },
+  "lnk": {
+    "codeNames": "Code-Namen für {c}",
+    "codeNamesHub": "Peptid-Code-Namen entschlüsselt",
+    "priceIndex": "Peptid-Preisindex: Median-Preis pro mg",
+    "compareHub": "Alle Substanz-Vergleiche",
+    "blendsHub": "Alle Peptid-Blends im Vergleich",
+    "calcHub": "Laborkonzentrations-Rechner für alle Substanzen"
   }
 }

@@ -1,4 +1,5 @@
 ---
+import { compoundExtras, hubs, uniqRel } from '../lib/links';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import FillChart from '../components/FillChart.astro';
@@ -96,7 +97,7 @@ const related = [
     </section>
 
     <FAQ items={faqs} />
-    <RelatedLinks links={related} />
+    <RelatedLinks links={uniqRel([...related, ...compoundExtras(lang, c.slug), ...hubs(lang, ['compare'])])} />
     <p class="text-sm text-slate-600 max-w-[75ch]">{t(lang, 'cmp.ruo')}</p>
   </div>
 </BaseLayout>

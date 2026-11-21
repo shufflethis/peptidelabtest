@@ -932,5 +932,13 @@
     "fq3": "Il badge dimostra che un prodotto è puro?",
     "fa3": "No. Non abbiamo testato prodotti direttamente. Il punteggio riflette i referti e le informazioni pubblicati dal negozio così come li abbiamo trovati; verifica il referto del tuo lotto sul portale del laboratorio.",
     "vendorLine": "{shop} può mostrare questo risultato sul proprio sito con il nostro badge di verifica, che mostra sempre il punteggio attuale:"
+  },
+  "lnk": {
+    "codeNames": "Nomi in codice usati per {c}",
+    "codeNamesHub": "Nomi in codice dei peptidi decifrati",
+    "priceIndex": "Indice prezzi dei peptidi: mediana per mg",
+    "compareHub": "Tutti i confronti tra composti",
+    "blendsHub": "Tutte le miscele di peptidi a confronto",
+    "calcHub": "Calcolatori di concentrazione per tutti i composti"
   }
 }

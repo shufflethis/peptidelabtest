@@ -45,7 +45,10 @@ def visible(s):
     s = re.sub(r'<[^>]+>', ' ', s)
     return html.unescape(re.sub(r'\s+', ' ', s))
 
-res = {k: [] for k in ['unsponsored_shop_links', 'lab_links', 'emoji', 'words', 'code_leak', 'undefined_nan', 'licensed', 'long_title', 'long_desc', 'desc_outside_130_155', 'no_canonical', 'no_breadcrumb', 'dup_title']}
+res = {k: [] for k in ['unsponsored_shop_links', 'lab_links', 'emoji', 'words', 'calc_banned', 'code_leak', 'undefined_nan', 'licensed', 'long_title', 'long_desc', 'desc_outside_130_155', 'no_canonical', 'no_breadcrumb', 'dup_title', 'og_image_missing']}
+# M7: calculator pages may say 'reconstitution' in the title, but never dose/units/IU/syringe/inject (any language)
+CALC_BAN = re.compile(r'\b(dose|doses|dosing|dosage|units?|syringes?|inject\w*|Dosis|Dosierung\w*|Einheiten|Spritze\w*|injizier\w*|dosis|unidades|jeringas?|inyect\w*|posologie|unités|seringues?|dosaggio|dosi|unità|siringh?\w*|iniett\w*)\b|\bIU\b', re.I)
+CALC_IU = re.compile(r'\bIU\b')
 titles = {}
 for f in files:
     rel = '/' + os.path.relpath(f, DIST).replace('index.html', '')
@@ -89,6 +92,19 @@ for f in files:
         res['undefined_nan'].append((rel, re.findall(r'.{40}(?:undefined|NaN).{20}', vis)[:2]))
     if 'licensed-peptides' in s or 'Licensed Peptides' in s:
         res['licensed'].append(rel)
+    if base_rel.startswith('/calculator/'):
+        title_txt = (re.search(r'<title>(.*?)</title>', s, flags=re.S) or [None, ''])[1]
+        for w in CALC_BAN.finditer(vis + ' ' + html.unescape(title_txt)):
+            if w.group(0).lower() == 'iu' and w.group(0) != 'IU':
+                continue
+            pre = (vis + ' ' + title_txt)[max(0, w.start() - 30): w.start()]
+            if re.search(r'\b(no|keine?[nr]?|sin|ni|aucune?|nessun\w*|non|ohne|sans|senza)\b[^.]{0,25}$', pre, re.I):
+                continue  # disclaimer such as "no dosing or health information"
+
+            res['calc_banned'].append((rel, w.group(0)))
+    ogm = re.search(r'property="og:image" content="https://www\.peptidelabtest\.org(/og/[^"]+)"', s)
+    if not ogm or not os.path.exists(os.path.join(DIST, ogm.group(1).lstrip('/'))):
+        res['og_image_missing'].append(rel)
     t = re.search(r'<title>(.*?)</title>', s, flags=re.S)
     t = html.unescape(t.group(1)) if t else ''
     d = re.search(r'<meta name="description" content="([^"]*)"', s)
@@ -106,8 +122,9 @@ for f in files:
     titles.setdefault(t, []).append(rel)
 res['dup_title'] = [(t, p) for t, p in titles.items() if len(p) > 1]
 
-# text endpoints
-for f in ['llms.txt', 'llms-full.txt', 'data/peptide-shop-audit-2026.csv', 'data/peptide-shop-audit-2026.json']:
+# text endpoints (+ M5/M6 files: price index CSV, video sitemap, badges)
+extra = ['price-index/peptide-price-index.csv', 'sitemap-video.xml'] + ['badge/' + x for x in sorted(os.listdir(os.path.join(DIST, 'badge'))) if x.endswith('.svg')]
+for f in ['llms.txt', 'llms-full.txt', 'data/peptide-shop-audit-2026.csv', 'data/peptide-shop-audit-2026.json'] + extra:
     s = open(os.path.join(DIST, f), encoding='utf-8').read()
     if 'licensed-peptides' in s or 'Licensed Peptides' in s:
         res['licensed'].append(f)
@@ -126,3 +143,16 @@ for k, v in res.items():
     print(f'== {k}: {len(v)}')
     for x in v[: (40 if k == 'words' else 12)]:
         print('   ', x)
+
+# M7: one entry point for every check (python3 docs/agent/verify.py dist --all)
+if '--all' in sys.argv:
+    import subprocess
+    here = os.path.dirname(os.path.abspath(__file__))
+    runs = [['hreflang_check.py', DIST], ['chartcheck.py', DIST], ['pluralcheck.py', DIST], ['linkgraph.py', DIST], ['keyleak.py', DIST], ['xcheck.py']] + [['numcheck.py', DIST, l] for l in ('de', 'es', 'fr', 'it')]
+    print('== sub-checks')
+    for r in runs:
+        p = subprocess.run([sys.executable, os.path.join(here, r[0])] + r[1:], capture_output=True, text=True)
+        tail = [x for x in p.stdout.strip().splitlines() if x.strip()][-3:]
+        print(f'   {" ".join(r[:1] + r[2:])}: exit {p.returncode} | ' + ' / '.join(x.strip() for x in tail))
+    vs = open(os.path.join(DIST, 'sitemap-video.xml')).read()
+    print('   video sitemap entries:', vs.count('<video:video>'), '| mp4 exists:', os.path.exists(os.path.join(DIST, 'video', 'coa-verified.mp4')))

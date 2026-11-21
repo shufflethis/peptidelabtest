@@ -1,4 +1,5 @@
 ---
+import { compoundExtras, hubs, uniqRel } from '../lib/links';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import PriceSection from '../components/PriceSection.astro';
@@ -132,7 +133,7 @@ const related = [
     )}
 
     <FAQ items={faqs} />
-    <RelatedLinks links={related} />
+    <RelatedLinks links={uniqRel([...related, ...compoundExtras(lang, compound), ...hubs(lang, ['compare'])])} />
     <Disclosure />
   </div>
 </BaseLayout>

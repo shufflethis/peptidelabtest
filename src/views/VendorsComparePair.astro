@@ -1,4 +1,5 @@
 ---
+import { compoundExtras, hubs, uniqRel } from '../lib/links';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ScoreRing from '../components/ScoreRing.astro';
@@ -173,7 +174,7 @@ const related = [
     </section>
 
     <FAQ items={faqs} />
-    <RelatedLinks links={related} />
+    <RelatedLinks links={uniqRel([...related, ...hubs(lang, ['shopPairs'])])} />
     <Disclosure />
   </div>
 </BaseLayout>

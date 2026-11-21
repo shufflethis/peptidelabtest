@@ -49,6 +49,8 @@ const related = variant === 'legal'
       { href: L('/compare/tirzepatide-vs-retatrutide/'), label: t(lang, 'ret.relCompare') },
       { href: L('/laws/united-states/'), label: t(lang, 'ret.relLaw') },
       { href: L('/compounds/retatrutide/'), label: 'Retatrutide' },
+      { href: L('/code-names/#retatrutide'), label: t(lang, 'lnk.codeNames', { c: 'Retatrutide' }) },
+      { href: L('/compare/retatrutide-vs-tirzepatide-vs-semaglutide/'), label: t(lang, 'c3.h1') },
     ];
 ---
 <BaseLayout lang={lang} title={tt(lang, `${NS}.title`, V)} description={td(lang, `${NS}.description`, V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>

@@ -932,5 +932,13 @@
     "fq3": "Le badge prouve-t-il qu'un produit est pur ?",
     "fa3": "Non. Nous n'avons pas testé de produits nous-mêmes. La note reflète les rapports et informations publiés par la boutique tels que nous les avons trouvés ; vérifiez le rapport de votre lot sur le portail du laboratoire.",
     "vendorLine": "{shop} peut afficher ce résultat sur son site avec notre badge d'audit, qui montre toujours la note en vigueur :"
+  },
+  "lnk": {
+    "codeNames": "Noms de code utilisés pour {c}",
+    "codeNamesHub": "Noms de code des peptides décodés",
+    "priceIndex": "Indice des prix des peptides : médiane par mg",
+    "compareHub": "Tous les comparatifs de composés",
+    "blendsHub": "Tous les mélanges de peptides comparés",
+    "calcHub": "Calculateurs de concentration pour tous les composés"
   }
 }

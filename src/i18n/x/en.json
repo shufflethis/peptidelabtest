@@ -932,5 +932,13 @@
     "fq3": "Does the badge prove that a product is pure?",
     "fa3": "No. We did not test products ourselves. The score reflects the shop's published lab reports and information as we found them; check the report for your batch on the lab's own portal.",
     "vendorLine": "{shop} can show this result on its own site with our audit badge, which always displays the current score:"
+  },
+  "lnk": {
+    "codeNames": "Code names used for {c}",
+    "codeNamesHub": "Peptide code names decoded",
+    "priceIndex": "Peptide price index: median price per mg",
+    "compareHub": "All compound comparisons",
+    "blendsHub": "All peptide blends compared",
+    "calcHub": "Lab concentration calculators for all compounds"
   }
 }

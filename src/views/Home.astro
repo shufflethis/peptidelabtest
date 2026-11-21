@@ -1,4 +1,6 @@
 ---
+import { compoundExtras, hubs, uniqRel } from '../lib/links';
+import RelatedLinks from '../components/RelatedLinks.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import ShopCard from '../components/ShopCard.astro';
@@ -204,6 +206,7 @@ const jsonLd = [
       </div>
     </section>
 
+    <RelatedLinks links={hubs(lang, ['priceIndex', 'blends', 'compare', 'codeNames', 'calculator', 'shopPairs'])} />
     <FAQ items={faqs} />
     <Disclosure />
   </div>
