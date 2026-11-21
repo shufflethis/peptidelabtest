@@ -8,7 +8,7 @@ Owner decisions (21.11.2026): full autonomous execution approved. NO dosing cont
 | M1 trust/GEO | done, live 200 | 27779d4 | 4 new page types x 5 langs (20 pages), vendor answer-first, llms answers |
 | M2 COA hub | done, live 200 | 9035fd7, 8cf8a73 | 4 new pages x 5 langs + Janoshik extension + 5 PDFs |
 | M3 calculators/blends | done, live 200 | e1b95b2 | 19 compound calculators + 5 blend pages + 2 compare pages, x 5 langs |
-| M4 shops/brand terms | todo | – | |
+| M4 shops/brand terms | done, live 200 | a3833f1, 84efc04 | /code-names/, /shops-by-country/ (6+hub), 5 new audited shops (28 total), /brands/ (5+hub), x 5 langs |
 | M5 visuals/video | todo | – | |
 | M6 price index/badge | todo | – | |
 | M7 linking/verify | todo | – | |
@@ -24,3 +24,5 @@ Owner decisions (21.11.2026): full autonomous execution approved. NO dosing cont
 - Next: M4 new shops (Primal, Modern Aminos, Biotech Peptides, NextGen, Pure Peptides, Amino Club, Glacier, EZ, Peptide Sciences status, Limitless Biotech) via read-only audit -> new r5.json for build-audit-data.py; /code-names/; /shops-by-country/<land>/.
 - M4a done (a3833f1): /code-names/ (23 shop code names + FDA letter names), /shops-by-country/ hub + usa/germany/poland/netherlands/slovakia/romania, 5 langs. lib/m4.ts.
 - M4b in progress: new-shop audit per docs/agent/goal/research/M4-shops-task.md; done so far r5/pure-peptides.json, r5/ez-peptides.json, r5/biotech-peptides.json (scratch caches in ~/.hermes/cache/scratch/pep-goal/m4/). Pending: modern-aminos, glacier-aminos, amino-club (sign-in wall), primal/nextgen (several same-name domains), peptide-sciences (closed March 2026 per own site), Limitless Biotech section. Then: build-audit-data.py reads r5/*.json, blends.json gets Pure/EZ/Biotech blend rows, data-text translations (src/i18n/data/<lang>.json), vendor pages.
+- M4 done (84efc04): r5/*.json for ez-peptides (3.2), pure-peptides (2.5), biotech-peptides (1.6), glacier-aminos (1.3), modern-aminos (1.1); build-audit-data.py now also reads docs/agent/goal/research/r5/*.json. Data texts translated in src/i18n/data/<lang>.json (numbers checked). Brand status pages from src/data/brandStatus.ts (Peptide Sciences closed per own site + successor-claim site; Amino Club researcher gate (no forms filled); Primal Peptides 5 domains, NextGen 3 domains -> origin unclear, not scored; Limitless Biotech -> audited limitless-life-nootropics). Vendor pages show the shop's own readAt date; PageHero accepts `checked`. Not done in M4: per-shop "coupon code" pages (existing vendor pages already carry code/partner logic).
+- Next: M5 visuals (data SVG per money page, homepage data video + transcript 5 langs + VideoObject + video sitemap, OG image per page).
