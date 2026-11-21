@@ -894,5 +894,43 @@
     "relPrices": "Tous les comparatifs de prix",
     "relData": "Données d'audit complètes (CSV et JSON)",
     "relBlends": "Mélanges de peptides et leurs prix"
+  },
+  "bdg": {
+    "title": [
+      "Badge d'audit PeptideLabIndex : règles et code",
+      "Badge d'audit des boutiques : règles et code"
+    ],
+    "description": [
+      "Badge pour les {shops} boutiques de peptides auditées : il affiche la vraie note, renvoie au test et se met à jour seul. Règles et code d'intégration.",
+      "Badge pour les boutiques de peptides auditées : vraie note, lien vers le test, règles et code."
+    ],
+    "crumb": "Badge d'audit",
+    "eyebrow": "Pour les boutiques auditées",
+    "h1": "Badge d'audit PeptideLabIndex : règles et code d'intégration",
+    "intro": "Chacune des {shops} boutiques auditées peut afficher son résultat avec ce badge. Il montre la vraie note issue de notre examen des pages publiques et des portails de laboratoire ({date}), renvoie au test complet et est servi depuis notre site : il affiche donc toujours la note en vigueur.",
+    "exampleH": "Exemple : {shop}",
+    "exampleP": "À gauche la note (0 à 5), à droite le nom de la boutique et la date de vérification. Le badge est une simple image SVG, sans script ni suivi.",
+    "alt": "Badge d'audit PeptideLabIndex pour {shop} : {s} sur 5",
+    "rulesH": "Règles d'utilisation du badge",
+    "r1": "Le badge affiche la note de notre audit et se charge depuis peptidelabtest.org : il change si un nouvel audit modifie la note. Ne le copiez pas en image statique.",
+    "r2": "Il doit renvoyer vers le test de la boutique sur notre site et ne peut être ni recadré, ni recoloré, ni modifié.",
+    "r3": "Toute boutique auditée peut l'utiliser, quelle que soit sa note. Les boutiques ne peuvent payer ni pour un badge ni pour une meilleure note, et un partenariat d'affiliation ne change pas la note.",
+    "r4": "Le badge porte sur ce que nous avons vérifié sur les pages publiques et les portails de laboratoire. Ce n'est ni un test de produit, ni un certificat de qualité, ni une autorisation, et il ne doit pas être présenté comme tel ni à côté d'allégations de santé ou d'usage.",
+    "r5": "Usage de recherche uniquement. Nous pouvons cesser de servir le badge à une boutique qui l'utilise contre ces règles.",
+    "embedH": "Badge et code d'intégration pour chaque boutique auditée",
+    "embedP": "Trié par note. Collez le code dans une page HTML ; il affiche le badge et renvoie au test.",
+    "reviewOf": "Test de {shop}",
+    "showCode": "Afficher le code",
+    "codeAria": "Code d'intégration pour {shop}",
+    "copy": "Copier le code",
+    "chartTitle": "Notes affichées sur les badges (0 à 5)",
+    "relRanking": "Classement de toutes les boutiques auditées",
+    "fq1": "Que signifie le badge PeptideLabIndex ?",
+    "fa1": "Il affiche la note (0 à 5) attribuée à la boutique après vérification de ses rapports sur les portails des laboratoires, du remplissage mesuré, des analyses, des informations sur la société, de l'expédition et des prix le {date}.",
+    "fq2": "Une boutique peut-elle acheter le badge ou une meilleure note ?",
+    "fa2": "Non. Le badge est gratuit pour toute boutique auditée et affiche la même note que notre test. Les commissions n'influencent jamais les notes ni les classements.",
+    "fq3": "Le badge prouve-t-il qu'un produit est pur ?",
+    "fa3": "Non. Nous n'avons pas testé de produits nous-mêmes. La note reflète les rapports et informations publiés par la boutique tels que nous les avons trouvés ; vérifiez le rapport de votre lot sur le portail du laboratoire.",
+    "vendorLine": "{shop} peut afficher ce résultat sur son site avec notre badge d'audit, qui montre toujours la note en vigueur :"
   }
 }

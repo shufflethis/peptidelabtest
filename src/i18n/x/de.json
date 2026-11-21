@@ -894,5 +894,43 @@
     "relPrices": "Alle Preisvergleiche",
     "relData": "Vollständige Prüfdaten (CSV und JSON)",
     "relBlends": "Peptid-Blends und ihre Preise"
+  },
+  "bdg": {
+    "title": [
+      "Prüfsiegel von PeptideLabIndex: Regeln & Einbettungscode",
+      "Prüfsiegel für Peptid-Shops: Regeln & Code"
+    ],
+    "description": [
+      "Prüfsiegel für die {shops} geprüften Peptid-Shops: zeigt die echte Bewertung, verlinkt den Test und aktualisiert sich selbst. Regeln und Einbettungscode.",
+      "Prüfsiegel für geprüfte Peptid-Shops: echte Bewertung, Link zum Test, Regeln und Einbettungscode."
+    ],
+    "crumb": "Prüfsiegel",
+    "eyebrow": "Für geprüfte Shops",
+    "h1": "Prüfsiegel von PeptideLabIndex: Regeln und Einbettungscode",
+    "intro": "Jeder der {shops} geprüften Shops kann sein Ergebnis mit diesem Siegel zeigen. Es zeigt die echte Bewertung aus unserer Prüfung öffentlicher Shop-Seiten und Laborportale ({date}), verlinkt den vollständigen Test und wird von unserer Website ausgeliefert, zeigt also immer die aktuelle Bewertung.",
+    "exampleH": "Beispiel: {shop}",
+    "exampleP": "Links die Bewertung (0 bis 5), rechts Shop-Name und Prüfdatum. Das Siegel ist ein einfaches SVG-Bild ohne Skripte oder Tracking.",
+    "alt": "Prüfsiegel von PeptideLabIndex für {shop}: {s} von 5",
+    "rulesH": "Regeln für das Siegel",
+    "r1": "Das Siegel zeigt die Bewertung aus unserer Prüfung und wird von peptidelabtest.org geladen; ändert eine neue Prüfung die Bewertung, ändert sich das Siegel. Nicht als statisches Bild kopieren.",
+    "r2": "Es muss auf den Test des Shops auf unserer Website verlinken und darf nicht beschnitten, umgefärbt oder verändert werden.",
+    "r3": "Jeder geprüfte Shop darf es nutzen, unabhängig von der Bewertung. Shops können weder für ein Siegel noch für eine bessere Bewertung bezahlen, und eine Partnerschaft ändert die Bewertung nicht.",
+    "r4": "Das Siegel betrifft, was wir auf öffentlichen Shop-Seiten und in Laborportalen geprüft haben. Es ist kein Produkttest, kein Qualitätszertifikat und keine Zulassung und darf nicht so dargestellt werden, auch nicht neben Gesundheits- oder Anwendungsaussagen.",
+    "r5": "Nur für Forschungszwecke. Wir können das Siegel für einen Shop abschalten, der es entgegen diesen Regeln nutzt.",
+    "embedH": "Siegel und Einbettungscode für jeden geprüften Shop",
+    "embedP": "Nach Bewertung sortiert. Fügen Sie den Code in eine HTML-Seite ein; er zeigt das Siegel und verlinkt den Test.",
+    "reviewOf": "{shop} im Test",
+    "showCode": "Einbettungscode anzeigen",
+    "codeAria": "Einbettungscode für {shop}",
+    "copy": "Code kopieren",
+    "chartTitle": "Bewertungen auf den Siegeln (0 bis 5)",
+    "relRanking": "Alle geprüften Shops im Ranking",
+    "fq1": "Was bedeutet das Prüfsiegel von PeptideLabIndex?",
+    "fa1": "Es zeigt die Bewertung (0 bis 5), die wir dem Shop nach Prüfung seiner Laborberichte in den Laborportalen, der gemessenen Füllmenge, Testumfänge, Firmenangaben, Versandinfos und Preise am {date} gegeben haben.",
+    "fq2": "Kann ein Shop das Siegel oder eine bessere Bewertung kaufen?",
+    "fa2": "Nein. Das Siegel ist für jeden geprüften Shop kostenlos und zeigt dieselbe Bewertung wie unser Test. Provisionen beeinflussen weder Bewertungen noch Rankings.",
+    "fq3": "Beweist das Siegel, dass ein Produkt rein ist?",
+    "fa3": "Nein. Wir haben keine Produkte selbst getestet. Die Bewertung spiegelt die veröffentlichten Laborberichte und Angaben des Shops wider, wie wir sie vorfanden; prüfen Sie den Bericht zu Ihrer Charge im Portal des Labors.",
+    "vendorLine": "{shop} kann dieses Ergebnis mit unserem Prüfsiegel auf der eigenen Website zeigen; es zeigt immer die aktuelle Bewertung:"
   }
 }

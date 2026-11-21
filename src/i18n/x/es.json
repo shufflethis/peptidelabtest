@@ -894,5 +894,43 @@
     "relPrices": "Todas las comparativas de precios",
     "relData": "Datos completos de la auditoría (CSV y JSON)",
     "relBlends": "Mezclas de péptidos y sus precios"
+  },
+  "bdg": {
+    "title": [
+      "Sello de auditoría PeptideLabIndex: reglas y código",
+      "Sello de auditoría para tiendas: reglas y código"
+    ],
+    "description": [
+      "Sello para las {shops} tiendas de péptidos auditadas: muestra la puntuación real, enlaza a la reseña y se actualiza solo. Reglas y código para insertar.",
+      "Sello para tiendas de péptidos auditadas: puntuación real, enlace a la reseña, reglas y código."
+    ],
+    "crumb": "Sello de auditoría",
+    "eyebrow": "Para tiendas auditadas",
+    "h1": "Sello de auditoría de PeptideLabIndex: reglas y código",
+    "intro": "Cada una de las {shops} tiendas auditadas puede mostrar su resultado con este sello. Muestra la puntuación real de nuestra revisión de páginas públicas y portales de laboratorio ({date}), enlaza a la reseña completa y se sirve desde nuestra web, así que siempre muestra la puntuación vigente.",
+    "exampleH": "Ejemplo: {shop}",
+    "exampleP": "A la izquierda la puntuación (0 a 5), a la derecha el nombre de la tienda y la fecha. El sello es una imagen SVG simple, sin scripts ni seguimiento.",
+    "alt": "Sello de auditoría de PeptideLabIndex para {shop}: {s} de 5",
+    "rulesH": "Reglas de uso del sello",
+    "r1": "El sello muestra la puntuación de nuestra auditoría y se carga desde peptidelabtest.org, así que cambia si una nueva auditoría cambia la puntuación. No lo copie como imagen estática.",
+    "r2": "Debe enlazar a la reseña de la tienda en nuestra web y no puede recortarse, recolorearse ni modificarse.",
+    "r3": "Cualquier tienda auditada puede usarlo, sea cual sea su puntuación. Las tiendas no pueden pagar por un sello ni por una puntuación mejor, y una afiliación no cambia la puntuación.",
+    "r4": "El sello cubre lo que revisamos en páginas públicas de la tienda y portales de laboratorio. No es una prueba de producto, un certificado de calidad ni una aprobación, ni debe presentarse como tal ni junto a afirmaciones de salud o de uso.",
+    "r5": "Solo para investigación. Podemos dejar de servir el sello a una tienda que lo use en contra de estas reglas.",
+    "embedH": "Sello y código para cada tienda auditada",
+    "embedP": "Ordenado por puntuación. Pegue el código en cualquier página HTML; muestra el sello y enlaza a la reseña.",
+    "reviewOf": "Reseña de {shop}",
+    "showCode": "Mostrar código",
+    "codeAria": "Código para {shop}",
+    "copy": "Copiar código",
+    "chartTitle": "Puntuaciones que muestran los sellos (0 a 5)",
+    "relRanking": "Ranking de todas las tiendas auditadas",
+    "fq1": "¿Qué significa el sello de PeptideLabIndex?",
+    "fa1": "Muestra la puntuación (0 a 5) que dimos a la tienda tras revisar sus informes en los portales de los laboratorios, el contenido medido, los análisis, los datos de la empresa, el envío y los precios el {date}.",
+    "fq2": "¿Puede una tienda comprar el sello o una mejor puntuación?",
+    "fa2": "No. El sello es gratuito para toda tienda auditada y muestra la misma puntuación que nuestra reseña. Las comisiones nunca afectan a puntuaciones ni rankings.",
+    "fq3": "¿Demuestra el sello que un producto es puro?",
+    "fa3": "No. No analizamos productos nosotros mismos. La puntuación refleja los informes e información publicados por la tienda tal como los encontramos; compruebe el informe de su lote en el portal del laboratorio.",
+    "vendorLine": "{shop} puede mostrar este resultado en su web con nuestro sello de auditoría, que siempre muestra la puntuación vigente:"
   }
 }

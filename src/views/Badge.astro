@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ScoreChart from '../components/ScoreChart.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { VENDORS_BY_SCORE, CHECKED_ISO, TOTALS, faqSchema, shopShort } from '../lib/site';
+import { BADGE_W, BADGE_H, embedCode } from '../lib/badge';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const V = { shops: TOTALS.shops, date: fmtDate(lang, CHECKED_ISO) };
+const example = VENDORS_BY_SCORE[0];
+const rules = [1, 2, 3, 4, 5].map((i) => t(lang, `bdg.r${i}`, V));
+const faqs = [1, 2, 3].map((i) => ({ q: t(lang, `bdg.fq${i}`), a: t(lang, `bdg.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'bdg.crumb'), url: L('/badge/') }];
+const related = [
+  { href: L('/methodology/'), label: t(lang, 'nav.method') },
+  { href: L('/vendors/'), label: t(lang, 'bdg.relRanking') },
+  { href: L('/trusted-peptide-vendors/'), label: t(lang, 'tv.crumb') },
+  { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'lg.h1') },
+];
+---
+<BaseLayout lang={lang} title={tt(lang, 'bdg.title', V)} description={td(lang, 'bdg.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'bdg.h1')} eyebrow={t(lang, 'bdg.eyebrow')} intro={t(lang, 'bdg.intro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="grid gap-8 lg:grid-cols-2 lg:items-start">
+      <div class="card p-5 sm:p-6 space-y-4">
+        <h2 class="h3">{t(lang, 'bdg.exampleH', { shop: example.name })}</h2>
+        <img src={`/badge/${example.slug}.svg`} width={BADGE_W} height={BADGE_H} alt={t(lang, 'bdg.alt', { shop: example.name, s: F.score(example.overallScore) })} loading="lazy" />
+        <p class="text-slate-700">{t(lang, 'bdg.exampleP')}</p>
+      </div>
+      <div class="prose-read">
+        <h2 class="!mt-0">{t(lang, 'bdg.rulesH')}</h2>
+        <ol>{rules.map((r) => <li>{r}</li>)}</ol>
+      </div>
+    </section>
+
+    <section class="space-y-4" id="embed">
+      <div class="max-w-[70ch]">
+        <h2 class="h2">{t(lang, 'bdg.embedH')}</h2>
+        <p class="mt-2 text-slate-700">{t(lang, 'bdg.embedP', V)}</p>
+      </div>
+      <ul class="grid gap-4 lg:grid-cols-2">
+        {VENDORS_BY_SCORE.map((v) => (
+          <li class="card p-4 sm:p-5 space-y-3" id={v.slug}>
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <a href={L(`/vendors/${v.slug}/`)} class="font-semibold text-slate-900 hover:underline">{t(lang, 'bdg.reviewOf', { shop: shopShort(v.name) })}</a>
+              <span class="text-sm font-semibold text-slate-700 tabular-nums">{F.score(v.overallScore)} / 5</span>
+            </div>
+            <img src={`/badge/${v.slug}.svg`} width={BADGE_W} height={BADGE_H} alt={t(lang, 'bdg.alt', { shop: v.name, s: F.score(v.overallScore) })} loading="lazy" />
+            <details>
+              <summary class="cursor-pointer text-[0.94rem] font-semibold text-teal-800 min-h-[44px] flex items-center">{t(lang, 'bdg.showCode')}</summary>
+              <textarea readonly rows="4" class="mt-2 w-full rounded-xl border border-slate-300 bg-slate-50 p-3 text-sm text-slate-800" aria-label={t(lang, 'bdg.codeAria', { shop: v.name })}>{embedCode(v.slug)}</textarea>
+              <button type="button" class="btn-ghost mt-2" data-copy={embedCode(v.slug)}>{t(lang, 'bdg.copy')}</button>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <ScoreChart vendors={VENDORS_BY_SCORE} title={t(lang, 'bdg.chartTitle')} />
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

@@ -894,5 +894,43 @@
     "relPrices": "Tutti i confronti prezzi",
     "relData": "Dati completi della verifica (CSV e JSON)",
     "relBlends": "Miscele di peptidi e i loro prezzi"
+  },
+  "bdg": {
+    "title": [
+      "Badge di verifica PeptideLabIndex: regole e codice",
+      "Badge di verifica per negozi: regole e codice"
+    ],
+    "description": [
+      "Badge per i {shops} negozi di peptidi verificati: mostra il punteggio reale, rimanda alla recensione e si aggiorna da solo. Regole e codice da incorporare.",
+      "Badge per i negozi di peptidi verificati: punteggio reale, link alla recensione, regole e codice."
+    ],
+    "crumb": "Badge di verifica",
+    "eyebrow": "Per i negozi verificati",
+    "h1": "Badge di verifica PeptideLabIndex: regole e codice",
+    "intro": "Ognuno dei {shops} negozi verificati può mostrare il proprio risultato con questo badge. Mostra il punteggio reale della nostra verifica di pagine pubbliche e portali di laboratorio ({date}), rimanda alla recensione completa ed è servito dal nostro sito, quindi mostra sempre il punteggio attuale.",
+    "exampleH": "Esempio: {shop}",
+    "exampleP": "A sinistra il punteggio (da 0 a 5), a destra il nome del negozio e la data. Il badge è una semplice immagine SVG, senza script né tracciamento.",
+    "alt": "Badge di verifica PeptideLabIndex per {shop}: {s} su 5",
+    "rulesH": "Regole d'uso del badge",
+    "r1": "Il badge mostra il punteggio della nostra verifica e viene caricato da peptidelabtest.org, quindi cambia se una nuova verifica cambia il punteggio. Non copiarlo come immagine statica.",
+    "r2": "Deve rimandare alla recensione del negozio sul nostro sito e non può essere ritagliato, ricolorato o modificato.",
+    "r3": "Ogni negozio verificato può usarlo, qualunque sia il punteggio. I negozi non possono pagare per un badge o per un punteggio migliore, e una partnership di affiliazione non cambia il punteggio.",
+    "r4": "Il badge riguarda ciò che abbiamo verificato su pagine pubbliche dei negozi e portali di laboratorio. Non è un test di prodotto, un certificato di qualità o un'approvazione e non va presentato come tale né accanto ad affermazioni sulla salute o sull'uso.",
+    "r5": "Solo per uso di ricerca. Possiamo smettere di fornire il badge a un negozio che lo usa contro queste regole.",
+    "embedH": "Badge e codice per ogni negozio verificato",
+    "embedP": "Ordinato per punteggio. Incolla il codice in una pagina HTML; mostra il badge e rimanda alla recensione.",
+    "reviewOf": "Recensione di {shop}",
+    "showCode": "Mostra il codice",
+    "codeAria": "Codice per {shop}",
+    "copy": "Copia il codice",
+    "chartTitle": "Punteggi mostrati sui badge (da 0 a 5)",
+    "relRanking": "Classifica di tutti i negozi verificati",
+    "fq1": "Che cosa significa il badge PeptideLabIndex?",
+    "fa1": "Mostra il punteggio (da 0 a 5) assegnato al negozio dopo aver verificato i referti sui portali dei laboratori, il contenuto misurato, le analisi, i dati societari, la spedizione e i prezzi il {date}.",
+    "fq2": "Un negozio può comprare il badge o un punteggio migliore?",
+    "fa2": "No. Il badge è gratuito per ogni negozio verificato e mostra lo stesso punteggio della recensione. Le commissioni non influenzano mai punteggi o classifiche.",
+    "fq3": "Il badge dimostra che un prodotto è puro?",
+    "fa3": "No. Non abbiamo testato prodotti direttamente. Il punteggio riflette i referti e le informazioni pubblicati dal negozio così come li abbiamo trovati; verifica il referto del tuo lotto sul portale del laboratorio.",
+    "vendorLine": "{shop} può mostrare questo risultato sul proprio sito con il nostro badge di verifica, che mostra sempre il punteggio attuale:"
   }
 }

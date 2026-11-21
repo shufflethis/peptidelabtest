@@ -894,5 +894,43 @@
     "relPrices": "All price comparisons",
     "relData": "Full audit data (CSV and JSON)",
     "relBlends": "Peptide blends and their prices"
+  },
+  "bdg": {
+    "title": [
+      "PeptideLabIndex Audit Badge: Rules & Embed Code",
+      "Peptide Shop Audit Badge: Rules & Embed Code"
+    ],
+    "description": [
+      "Audit badge for the {shops} peptide shops we checked: it shows the real audit score, links to the review and updates itself. Rules and embed code.",
+      "Audit badge for audited peptide shops: real score, link to the review, rules and embed code."
+    ],
+    "crumb": "Audit badge",
+    "eyebrow": "For audited shops",
+    "h1": "PeptideLabIndex audit badge: rules and embed code",
+    "intro": "Every one of the {shops} shops we audited can show its result with this badge. It displays the shop's real audit score from our check of public shop pages and lab portals ({date}), links to the full review and is served from our site, so it always shows the current score.",
+    "exampleH": "Example: {shop}",
+    "exampleP": "Score on the left (0 to 5), shop name and check date on the right. The badge is a plain SVG image without scripts or tracking.",
+    "alt": "PeptideLabIndex audit badge for {shop}: {s} of 5",
+    "rulesH": "Rules for using the badge",
+    "r1": "The badge shows the score from our audit and is loaded from peptidelabtest.org, so it changes when a re-audit changes the score. Do not copy it as a static image.",
+    "r2": "It must link to the shop's review on our site and may not be cropped, recoloured or edited.",
+    "r3": "Any shop we audited may use it, whatever its score. Shops cannot pay for a badge or a better score, and an affiliate partnership does not change the score.",
+    "r4": "The badge covers what we checked on public shop pages and lab portals. It is not a product test, quality certificate or approval and must not be shown as one, or next to health or use claims.",
+    "r5": "Research use only. We may stop serving the badge for a shop that uses it against these rules.",
+    "embedH": "Badge and embed code for each audited shop",
+    "embedP": "Sorted by audit score. Paste the code into any HTML page; it shows the badge and links to the review.",
+    "reviewOf": "{shop} review",
+    "showCode": "Show embed code",
+    "codeAria": "Embed code for {shop}",
+    "copy": "Copy code",
+    "chartTitle": "Audit scores shown on the badges (0 to 5)",
+    "relRanking": "All audited shops ranked",
+    "fq1": "What does the PeptideLabIndex badge mean?",
+    "fa1": "It shows the audit score (0 to 5) we gave the shop after checking its lab reports on the labs' portals, its measured fill, test panels, company details, dispatch information and prices on {date}.",
+    "fq2": "Can a shop buy the badge or a better score?",
+    "fa2": "No. The badge is free for every audited shop and shows the same score as our review. Commission never affects scores or rankings.",
+    "fq3": "Does the badge prove that a product is pure?",
+    "fa3": "No. We did not test products ourselves. The score reflects the shop's published lab reports and information as we found them; check the report for your batch on the lab's own portal.",
+    "vendorLine": "{shop} can show this result on its own site with our audit badge, which always displays the current score:"
   }
 }
