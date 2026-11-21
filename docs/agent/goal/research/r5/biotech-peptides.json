@@ -1,0 +1,294 @@
+{
+ "slug": "biotech-peptides",
+ "name": "Biotech Peptides",
+ "shopUrl": "https://biotechpeptides.com",
+ "region": "US",
+ "originCountry": "US",
+ "shipsTo": null,
+ "legalEntity": "not published",
+ "testingLabs": [
+  "MZ Biolabs"
+ ],
+ "coaAccess": "Certificate images in the product photo gallery (vendor-hosted)",
+ "coaExamples": [
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 10mg (lot 3140012)",
+   "labelMg": 10,
+   "measuredMg": null,
+   "purityPercent": 99.88,
+   "lab": "MZ Biolabs",
+   "reportId": "lot 3140012",
+   "testDate": "2026-07-15",
+   "url": "https://biotechpeptides.com/wp-content/uploads/2020/03/COA_BPC-157_10mg_3140012_20260721_BP_page-0001.webp",
+   "verifiable": false
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB-500 (Thymosin Beta-4) 10mg (lot 3141080)",
+   "labelMg": 10,
+   "measuredMg": null,
+   "purityPercent": 99.83,
+   "lab": "MZ Biolabs",
+   "reportId": "lot 3141080",
+   "testDate": "2026-07-15",
+   "url": "https://biotechpeptides.com/wp-content/uploads/2020/04/COA_Thymosin_beta4-10_3141080_BP_page-0001.webp",
+   "verifiable": false
+  }
+ ],
+ "panels": {
+  "hplc": true,
+  "lcms": true,
+  "mass": false,
+  "endotoxin": false,
+  "sterility": false,
+  "heavyMetals": false
+ },
+ "paymentMethods": [
+  "Cash App (instructions page)"
+ ],
+ "freeShippingThreshold": null,
+ "dispatchInfo": "Same-day shipping for orders placed by 1 pm PST (shipping page); lost packages re-sent free of charge",
+ "products": [
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 5mg",
+   "vialMg": 5.0,
+   "price": 52.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/bpc-157/",
+   "inStock": true
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 10mg",
+   "vialMg": 10.0,
+   "price": 92.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/bpc-157/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesamorelin 5mg",
+   "vialMg": 5.0,
+   "price": 38.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/tesamorelin/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesamorelin 10mg",
+   "vialMg": 10.0,
+   "price": 92.0,
+   "currency": "USD",
+   "salePrice": 73.0,
+   "url": "https://biotechpeptides.com/product/tesamorelin/",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "NAD+ 100mg",
+   "vialMg": 100.0,
+   "price": 46.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/nad-100mg-500mg/",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "NAD+ 500mg",
+   "vialMg": 500.0,
+   "price": 120.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/nad-100mg-500mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB-500 (Thymosin Beta-4) (5mg)",
+   "vialMg": 5.0,
+   "price": 72.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/tb-500-thymosin-beta-4-5mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB-500 (Thymosin Beta-4) (10mg)",
+   "vialMg": 10.0,
+   "price": 124.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/tb-500-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "mots-c",
+   "shopProductName": "MOTS-c (10mg)",
+   "vialMg": 10.0,
+   "price": 99.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/mots-c-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "GHK-CU (Copper) (50mg)",
+   "vialMg": 50.0,
+   "price": 64.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/ghk-cu-50mg-copper/",
+   "inStock": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "GHK-Cu (200mg)",
+   "vialMg": 200.0,
+   "price": 186.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/ghk-cu-topical-200mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ipamorelin",
+   "shopProductName": "Ipamorelin (5mg)",
+   "vialMg": 5.0,
+   "price": 53.0,
+   "currency": "USD",
+   "salePrice": 46.0,
+   "url": "https://biotechpeptides.com/product/ipamorelin-5mg/",
+   "inStock": true
+  },
+  {
+   "compound": "epithalon",
+   "shopProductName": "Epithalon (25mg)",
+   "vialMg": 25.0,
+   "price": 94.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/epithalon-25mg/",
+   "inStock": true
+  },
+  {
+   "compound": "cjc-1295",
+   "shopProductName": "Mod GRF 1-29 (CJC-1295 NO DAC) (5mg)",
+   "vialMg": 5.0,
+   "price": 46.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/mod-grf-1-29-5mg-cjc-1295-no-dac/",
+   "inStock": true
+  },
+  {
+   "compound": "kpv",
+   "shopProductName": "KPV (4mg)",
+   "vialMg": 4.0,
+   "price": 39.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/kpv-4mg/",
+   "inStock": true
+  },
+  {
+   "compound": "pt-141",
+   "shopProductName": "PT-141 (Bremelanotide) (10mg)",
+   "vialMg": 10.0,
+   "price": 45.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/pt-141-10mg-bremelanotide/",
+   "inStock": true
+  },
+  {
+   "compound": "thymosin-alpha-1",
+   "shopProductName": "Thymosin Alpha-1 (10mg)",
+   "vialMg": 10.0,
+   "price": 130.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/thymosin-alpha-1-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "selank",
+   "shopProductName": "Selank (10mg)",
+   "vialMg": 10.0,
+   "price": 46.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/selank-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "semax",
+   "shopProductName": "Semax (25mg)",
+   "vialMg": 25.0,
+   "price": 53.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/semax-25mg/",
+   "inStock": true
+  },
+  {
+   "compound": "aod-9604",
+   "shopProductName": "AOD 9604 (5mg)",
+   "vialMg": 5.0,
+   "price": 44.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biotechpeptides.com/product/aod-9604-5mg/",
+   "inStock": true
+  }
+ ],
+ "subscores": {
+  "labVerification": 3,
+  "fillAccuracy": 3,
+  "panelDepth": 3,
+  "entityTransparency": 2,
+  "dispatchReliability": 7,
+  "valuePerMg": 2
+ },
+ "subscore_reasons": {
+  "labVerification": "MZ Biolabs certificates are shown as images in the product galleries; they carry a QR code but no report number or key we could check on a lab portal.",
+  "fillAccuracy": "The opened certificates state HPLC purity only; no measured mg per vial.",
+  "panelDepth": "HPLC-UV-MS purity with mass confirmation; no net content, endotoxin, sterility or heavy-metal results found.",
+  "entityTransparency": "No company name or address found on the contact, terms or about pages; a phone/SMS line is offered.",
+  "dispatchReliability": "Shipping page states same-day dispatch for orders by 1 pm PST and free re-shipping of lost packages; carriers and countries not stated.",
+  "valuePerMg": "BPC-157 $9.20/mg (10 mg) and TB-500 $12.40/mg (10 mg) are among the highest prices in our data; no GLP-1-class products."
+ },
+ "strengths": [
+  "Lot-numbered MZ Biolabs certificates on product pages",
+  "Public warning page about fake sites copying the shop"
+ ],
+ "weaknesses": [
+  "No company name or address published",
+  "No measured mg on the certificates we opened",
+  "High price per mg"
+ ],
+ "verdict": "Biotech Peptides shows lot-numbered MZ Biolabs purity certificates on its product pages and warns about fake copies of its site. It publishes no company name or address, and the certificates give purity only, not the amount in the vial.",
+ "summary": "US shop (biotechpeptides.com) with about 90 products, MZ Biolabs purity certificates and same-day dispatch; no GLP-1-class products.",
+ "notes": "Prices from the public WooCommerce Store API (GET), incl. variation prices. The shop says it runs no other online store or country site and lists fake sites using its name (fraudulent-ads page, early November 2026). Shipping countries not stated.",
+ "sources": [
+  "https://biotechpeptides.com",
+  "https://biotechpeptides.com/wp-json/wc/store/v1/products",
+  "https://biotechpeptides.com/fraudulent-ads-and-websites/",
+  "https://biotechpeptides.com/shipping/",
+  "https://biotechpeptides.com/terms-and-conditions/",
+  "https://biotechpeptides.com/contact-us/",
+  "https://biotechpeptides.com/cash-app-payment-instructions/",
+  "https://biotechpeptides.com/product/bpc-157/",
+  "https://biotechpeptides.com/product/tb-500-10mg/"
+ ],
+ "readAt": "2026-11-21"
+}

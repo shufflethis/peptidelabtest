@@ -1,0 +1,413 @@
+{
+ "slug": "ez-peptides",
+ "name": "EZ Peptides",
+ "shopUrl": "https://ezpeptides.com",
+ "region": "US",
+ "originCountry": "US",
+ "shipsTo": "US-only",
+ "legalEntity": "EZ Peptides LLC (named in the terms and payment policy); postal address 5203 Juan Tabo Blvd NE, STE 2B, Albuquerque, NM 87111, USA (contact page)",
+ "testingLabs": [
+  "Janoshik Analytical"
+ ],
+ "coaAccess": "Batch lookup on testing.ezpeptides.com linking each result to the Janoshik report and verification key",
+ "coaExamples": [
+  {
+   "compound": "semaglutide",
+   "shopProductName": "EZP-1P 10mg (batch EZP-1P1007112026-04)",
+   "labelMg": 10,
+   "measuredMg": 11.38,
+   "purityPercent": 99.68,
+   "lab": "Janoshik Analytical",
+   "reportId": "#207836 / key 2JQKFXD8EMFI",
+   "testDate": "2026-07-23",
+   "url": "https://janoshik.com/tests/207836-1P_10mg_Transparent_Yellow_Blue_2JQKFXD8EMFI",
+   "verifiable": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "EZP-2P 30mg (batch EZP-2P3006232026-04)",
+   "labelMg": 30,
+   "measuredMg": 34.81,
+   "purityPercent": 99.95,
+   "lab": "Janoshik Analytical",
+   "reportId": "#199011 / key FRIRZI1VXGWW",
+   "testDate": "2026-07-02",
+   "url": "https://janoshik.com/tests/199011-2P_30mg_Transparent_Green_Green_FRIRZI1VXGWW",
+   "verifiable": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "EZP-3P 24mg (batch EZP-3P2405072026-01)",
+   "labelMg": 24,
+   "measuredMg": 25.52,
+   "purityPercent": 99.564,
+   "lab": "Janoshik Analytical",
+   "reportId": "#155945 / key QAY8CRPMIMEL",
+   "testDate": "2026-05-15",
+   "url": "https://janoshik.com/tests/155945-EZP_3P_24mg_Transparent_Green_or_GreenAutumn_Gold_QAY8CRPMIMEL",
+   "verifiable": true
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 10mg (batch EZP-BPC1005082026-22)",
+   "labelMg": 10,
+   "measuredMg": 12.12,
+   "purityPercent": 99.91,
+   "lab": "Janoshik Analytical",
+   "reportId": "#163729 / key HFJHL2Q9KMHR",
+   "testDate": "2026-05-25",
+   "url": "https://verify.janoshik.com/tests/163729-BPC157_10mg_Transparent_Blue_or_Blue_Autumn_Gold_HFJHL2Q9KMHR",
+   "verifiable": true
+  }
+ ],
+ "panels": {
+  "hplc": true,
+  "lcms": false,
+  "mass": true,
+  "endotoxin": false,
+  "sterility": false,
+  "heavyMetals": false
+ },
+ "paymentMethods": [
+  "Visa, MasterCard, American Express via ConvesioPay",
+  "Cryptocurrency (10% off, per checkout banner)"
+ ],
+ "freeShippingThreshold": null,
+ "dispatchInfo": "Processed within 0-2 business days; same day if ordered before the 2:00 cut-off; UPS primary carrier; US only, no PO boxes",
+ "products": [
+  {
+   "compound": "retatrutide",
+   "shopProductName": "EZP-3P 20mg",
+   "vialMg": 20.0,
+   "price": 59.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-3p-20mg/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "EZP-3P 10mg",
+   "vialMg": 10.0,
+   "price": 42.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-3p-10mg-glp-3rt/",
+   "inStock": true
+  },
+  {
+   "compound": "aod-9604",
+   "shopProductName": "AOD-9604 5MG",
+   "vialMg": 5.0,
+   "price": 53.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/aod-9604-5mg/",
+   "inStock": true
+  },
+  {
+   "compound": "thymosin-alpha-1",
+   "shopProductName": "Thymosin Alpha 1 10mg",
+   "vialMg": 10.0,
+   "price": 58.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/thymosin-alpha-1-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "aod-9604",
+   "shopProductName": "AOD-9604 2MG",
+   "vialMg": 2.0,
+   "price": 38.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/aod-9604-2mg-research-grade-compound/",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "Buffered NAD+ 250MG",
+   "vialMg": 250.0,
+   "price": 44.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/buffered-nad-250mg/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "EZP-3P 48mg",
+   "vialMg": 48.0,
+   "price": 139.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-3p-48mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB4 10mg",
+   "vialMg": 10.0,
+   "price": 68.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/tb4-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "mots-c",
+   "shopProductName": "MOTS-C 10mg",
+   "vialMg": 10.0,
+   "price": 54.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/mots-c-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "cjc-1295",
+   "shopProductName": "CJC-1295 No DAC 5mg",
+   "vialMg": 5.0,
+   "price": 38.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/cjc-1295-no-dac-5mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesamorelin 10mg",
+   "vialMg": 10.0,
+   "price": 68.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/tesamorelin-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "kpv",
+   "shopProductName": "KPV 10mg",
+   "vialMg": 10.0,
+   "price": 44.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/kpv-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "GHK-cu Lyophilized 100mg",
+   "vialMg": 100.0,
+   "price": 53.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ghk-cu-lyophilized-100mg/",
+   "inStock": true
+  },
+  {
+   "compound": "semaglutide",
+   "shopProductName": "EZP-1P 5mg",
+   "vialMg": 5.0,
+   "price": 27.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-1p-5mg/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "EZP-3P 24mg",
+   "vialMg": 24.0,
+   "price": 70.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-3p-24mg/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "EZP-3P 6mg",
+   "vialMg": 6.0,
+   "price": 37.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-3p-6mg/",
+   "inStock": true
+  },
+  {
+   "compound": "semaglutide",
+   "shopProductName": "EZP-1P 10mg",
+   "vialMg": 10.0,
+   "price": 34.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-1p-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "EZP-3P 12mg",
+   "vialMg": 12.0,
+   "price": 50.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-3p-12mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "EZP-2P 60mg",
+   "vialMg": 60.0,
+   "price": 84.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-2p-60mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "EZP-2P 30mg",
+   "vialMg": 30.0,
+   "price": 54.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-2p-30mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "EZP-2P 20mg",
+   "vialMg": 20.0,
+   "price": 48.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-2p-20mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "EZP-2P 15mg",
+   "vialMg": 15.0,
+   "price": 41.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-2p-15mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "EZP-2P 10mg",
+   "vialMg": 10.0,
+   "price": 28.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ezp-2p-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "pt-141",
+   "shopProductName": "PT-141 10mg",
+   "vialMg": 10.0,
+   "price": 44.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/pt-141-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "Buffered NAD+ 500mg",
+   "vialMg": 500.0,
+   "price": 68.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/buffered-nad-500mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ipamorelin",
+   "shopProductName": "Ipamorelin 10mg",
+   "vialMg": 10.0,
+   "price": 44.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ipamorelin-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "GHK-Cu Lyophilized 50mg",
+   "vialMg": 50.0,
+   "price": 35.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/ghk-cu-50mg/",
+   "inStock": true
+  },
+  {
+   "compound": "epithalon",
+   "shopProductName": "Epitalon 10mg",
+   "vialMg": 10.0,
+   "price": 38.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/epitalon-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 10mg",
+   "vialMg": 10.0,
+   "price": 44.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ezpeptides.com/product/bpc-157-10mg/",
+   "inStock": true
+  }
+ ],
+ "subscores": {
+  "labVerification": 8,
+  "fillAccuracy": 6,
+  "panelDepth": 3,
+  "entityTransparency": 7,
+  "dispatchReliability": 8,
+  "valuePerMg": 9
+ },
+ "subscore_reasons": {
+  "labVerification": "The COA page lists 264 batches, 123 with a certificate; the 4 batch pages we opened link Janoshik reports, and all 4 task numbers opened on janoshik.com.",
+  "fillAccuracy": "All 4 measured reports were above the label: 106% (retatrutide 24 mg) to 121% (BPC-157 10 mg); vial means used.",
+  "panelDepth": "Janoshik mass and purity only; no endotoxin, sterility, heavy-metal or separate LC-MS results found.",
+  "entityTransparency": "EZ Peptides LLC is named in the terms, with a postal address and phone number in Albuquerque, New Mexico; state of registration not stated.",
+  "dispatchReliability": "Written policy: processed within 0-2 business days, same day before the cut-off, UPS; US addresses only.",
+  "valuePerMg": "Tirzepatide from $1.40/mg (60 mg), retatrutide from $2.90/mg (48 mg) and semaglutide $3.40/mg (10 mg) are among the lowest prices in our data."
+ },
+ "strengths": [
+  "Batch lookup with Janoshik task numbers and keys; all 4 opened reports found on janoshik.com",
+  "Named LLC with address and phone",
+  "Low price per mg on GLP-1-class products"
+ ],
+ "weaknesses": [
+  "GLP-1-class products only under code names (EZP-1P, EZP-2P, EZP-3P); the compound is named only in the lab results",
+  "Measured content above label on all 4 opened reports (106-121%)",
+  "Mass and purity only, no endotoxin or sterility tests found"
+ ],
+ "verdict": "EZ Peptides links its batches to Janoshik reports, and all 4 we opened were on janoshik.com. It names EZ Peptides LLC with an address in New Mexico. Products are sold under code names, and all 4 measured vials held more than the label.",
+ "summary": "US shop (EZ Peptides LLC, Albuquerque) shipping within the US only, with Janoshik-tested batches and code-named GLP-1-class products.",
+ "notes": "Prices from the public WooCommerce Store API (GET), regular price; a site banner advertised 30% off sitewide until Nov 30 (not applied). Code names: EZP-1P = semaglutide, EZP-2P = tirzepatide, EZP-3P = retatrutide, as named in the Janoshik results linked from the batch pages. TB4 10mg recorded as tb-500 as in the rest of our data. Kits (10 vials) and tablets excluded. Product \"\u00a7-31 30mg\" excluded (name unclear).",
+ "sources": [
+  "https://ezpeptides.com",
+  "https://ezpeptides.com/wp-json/wc/store/v1/products",
+  "https://ezpeptides.com/coa/",
+  "https://ezpeptides.com/contact-us/",
+  "https://ezpeptides.com/terms-conditions/",
+  "https://ezpeptides.com/payment-and-billing-policy/",
+  "https://ezpeptides.com/shipping-and-delivery-policy/",
+  "https://testing.ezpeptides.com/EZP-1P1007112026-04",
+  "https://testing.ezpeptides.com/EZP-2P3006232026-04",
+  "https://testing.ezpeptides.com/EZP-3P2405072026-01",
+  "https://testing.ezpeptides.com/EZP-BPC1005082026-22",
+  "https://janoshik.com/tests/207836-1P_10mg_Transparent_Yellow_Blue_2JQKFXD8EMFI"
+ ],
+ "readAt": "2026-11-21"
+}
