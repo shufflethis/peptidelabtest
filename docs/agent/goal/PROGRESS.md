@@ -11,7 +11,7 @@ Owner decisions (21.11.2026): full autonomous execution approved. NO dosing cont
 | M4 shops/brand terms | done, live 200 | a3833f1, 84efc04 | /code-names/, /shops-by-country/ (6+hub), 5 new audited shops (28 total), /brands/ (5+hub), x 5 langs |
 | M5 visuals/video | done | c7b2b18, 7bbbb7a, 006832a | charts on all money pages (chartcheck), motion, home data video + transcript x5, VideoObject, video sitemap, OG image per page (1120) |
 | M6 price index/badge | done | a203da2, (M6b) | /price-index/ monthly index + CSV, /badge/ + 28 SVG badges, x5 langs |
-| M7 linking/verify | todo | – | |
+| M7 linking/verify | done | 405c00a | 0 orphans, money pages >=5 contextual inbound (5 langs); verify.py --all green 21.11. 18:01 (1125 pages, 950 money pages with chart, numcheck 0 in de/es/fr/it); live screenshots ok |
 
 ## Log
 - Session 1 started: read GOAL, CONTENT_RULES, BRIEF, BUILD-i18n; skills loaded.
@@ -31,3 +31,5 @@ Owner decisions (21.11.2026): full autonomous execution approved. NO dosing cont
 - Next: M6 price index on /price-index/ (monthly median per mg per compound EU/US + CSV) and /badge/.
 - M6 done: lib/priceIndex.ts (median/min/max price per mg per compound, EUR and USD apart, listings, shops, read dates; edition = CHECKED_ISO month; frozen editions go to src/data/priceIndexHistory.json before a new month's audit refresh, previousCell() then fills the 'previous month' line), view PriceIndex rebuilt (charts, sortable table, method, FAQ, Dataset JSON-LD), CSV endpoint /price-index/peptide-price-index.csv (medians verified against audit.json by hand), vercel.json 308 /peptide-price-index/ -> /price-index/ (all langs). Badge: lib/badge.ts + /badge/<slug>.svg for the 28 published shops (real overallScore, link to review via embed code), view Badge (rules, example, per-shop embed code with copy button, score chart, FAQ), links from footer and every vendor page ('legit' section). hreflang_check now ignores file links (.csv/.svg/...).
 - Next: M7 link graph (0 orphans, >=5 contextual inbound per money page), verify.py extension, screenshots.
+
+- M7 done (405c00a + final verify by parent 21.11. 18:01): verify.py --all all checks 0; live check home/price-index/de badge ok. GOAL complete. Open owner decisions: dosing content (stays NO), Telegram (not approved).
