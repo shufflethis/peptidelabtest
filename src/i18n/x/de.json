@@ -434,12 +434,12 @@
       "{c} Rechner (Labor, mg/mL)"
     ],
     "description": [
-      "{c} Rechner für die Laborkonzentration: mg im Fläschchen und mL Lösungsmittel ergeben mg/mL. {nSizes} Größen bei {n} Shops, Preis pro mg und {reports} Laborberichte.",
+      "{c} Rechner für die Laborkonzentration: mg im Fläschchen und mL Lösungsmittel ergeben mg/mL. {nSizes|# Größe|# Größen} bei {n|# Shop|# Shops}, Preis pro mg und {reports|# Laborbericht|# Laborberichte}.",
       "{c} Rechner für die Laborkonzentration in mg/mL, mit Fläschchengrößen, Preisen pro mg und Laborberichten."
     ],
     "h1": "{c} Rechner: Konzentration im Fläschchen (mg/mL)",
     "eyebrow": "Laborrechner",
-    "intro": "Geben Sie die mg in einem {c}-Fläschchen und die mL Lösungsmittel ein und erhalten Sie die Stammkonzentration in mg/mL. {n} geprüfte Shops führen {c} in {nSizes} Fläschchengrößen ({sizes}); statt des Etiketts können Sie die gemessenen mg aus einem Laborbericht verwenden. Nur Laborrechnung.",
+    "intro": "Geben Sie die mg in einem {c}-Fläschchen und die mL Lösungsmittel ein und erhalten Sie die Stammkonzentration in mg/mL. {n|# geprüfter Shop führt|# geprüfte Shops führen} {c} in {nSizes|# Fläschchengröße|# Fläschchengrößen} ({sizes}); statt des Etiketts können Sie die gemessenen mg aus einem Laborbericht verwenden. Nur Laborrechnung.",
     "calcH": "{c} Stammkonzentration (mg/mL)",
     "formulaH": "Die Formel",
     "formula": "Konzentration (mg/mL) = Menge im Fläschchen (mg) ÷ Volumen Lösungsmittel (mL)",
@@ -453,14 +453,14 @@
     "pricesP": "Günstigster Preis pro mg je Shop, EUR und USD getrennt (keine Umrechnung).",
     "barsTitle": "{c}: günstigster Preis pro mg je Shop ({cur})",
     "repsH": "{c} Laborberichte, die wir geöffnet haben",
-    "repsP": "{reports} Berichte, {portal} im Portal des Labors bestätigt. Nutzen Sie die gemessenen mg im Rechner oben für eine genauere Konzentration.",
+    "repsP": "{reports|# Bericht|# Berichte}, {portal} im Portal des Labors bestätigt. Nutzen Sie die gemessenen mg im Rechner oben für eine genauere Konzentration.",
     "relPrices": "{c} Preisvergleich",
     "relCompound": "{c} Wirkstoff-Fakten",
     "relCalc": "{c} Rechner",
     "fq1": "Wie berechne ich die {c}-Konzentration in mg/mL?",
     "fa1": "Teilen Sie die Menge im Fläschchen (mg) durch das zugegebene Lösungsmittel (mL). {def} mg {c} in 2 mL ergeben {defConc} mg/mL.",
     "fq2": "Welche {c}-Fläschchengrößen gibt es?",
-    "fa2": "{n} geprüfte Shops führen {c} in {nSizes} Größen: {sizes}. Geprüft am {date}.",
+    "fa2": "{n|# geprüfter Shop führt|# geprüfte Shops führen} {c} in {nSizes|# Größe|# Größen}: {sizes}. Geprüft am {date}.",
     "fq3": "Warum die gemessenen mg statt des Etiketts verwenden?",
     "fa3": "Der gemessene Inhalt kann vom Etikett abweichen. Ein {label}-mg-Fläschchen {c} von {shop} enthielt {measured} mg ({pct} des Etiketts), 2 mL ergeben also {concMeasured} mg/mL statt {concLabel} mg/mL.",
     "fq4": "Ist dieser Rechner nur für das Labor gedacht?",
@@ -473,7 +473,7 @@
     ],
     "byH": "Rechner nach Wirkstoff",
     "byP": "Jede Seite nutzt die Fläschchengrößen dieses Wirkstoffs und zeigt Preise pro mg und die geöffneten Laborberichte.",
-    "sizes": "{n} Fläschchengrößen"
+    "sizes": "{n|# Fläschchengröße|# Fläschchengrößen}"
   },
   "bl": {
     "crumb": "Peptid-Blends",
@@ -530,7 +530,7 @@
     "review": "Zum Test",
     "note": "Preise wie am {date} gelistet, ohne Codes, EUR und USD getrennt. Pens und andere flüssige Formen sind nicht enthalten.",
     "repsH": "{name}-Laborberichte, die die Shops zeigen",
-    "repsP": "{reports} Berichte auf den Seiten oder in Dateien der Shops. Wir haben sie nicht in den Laborportalen bestätigt; sie gelten daher als Shop-Kopien.",
+    "repsP": "{reports|# Bericht|# Berichte} auf den Seiten oder in Dateien der Shops. Wir haben {reports|ihn|sie} nicht in den Laborportalen bestätigt; {reports|er gilt daher als Shop-Kopie|sie gelten daher als Shop-Kopien}.",
     "repsNone": "Für diesen Blend fanden wir keinen Laborbericht auf den Shop-Seiten.",
     "repsNote": "Berichtsdateien und -seiten stehen als reiner Text da. Mit den Schritten in unserem COA-Ratgeber prüfen Sie einen Bericht im Portal des Labors.",
     "rn": {
@@ -546,7 +546,7 @@
     "fq3": "Wo ist der {name} Blend pro mg am günstigsten?",
     "fa3": "Günstigster gelisteter Preis pro mg: {eu} in EUR und {us} in USD, ohne Codes.",
     "fq4": "Gibt es Laborberichte für den {name} Blend?",
-    "fa4": "Wir fanden {reports} Berichte auf den Seiten der Shops. Keiner wurde von uns in einem Laborportal bestätigt; prüfen Sie die Berichtsnummer auf der Website des Labors.",
+    "fa4": "Wir fanden {reports|# Bericht|# Berichte} auf den Seiten der Shops. {reports|Er wurde von uns in keinem Laborportal bestätigt|Keiner wurde von uns in einem Laborportal bestätigt}; prüfen Sie die Berichtsnummer auf der Website des Labors.",
     "relPrice": "{c} Preisvergleich",
     "relCalc": "Konzentrationsrechner für zwei Wirkstoffe",
     "relBlend": "{name} Blend",
@@ -646,11 +646,11 @@
       "Peptid-Shops {country} ({year})"
     ],
     "description": [
-      "Peptid-Shops, Land {country}: {based} geprüfte Shops mit Sitz dort und {ship}, die laut eigenen Angaben dorthin liefern, mit Bewertung, Laborberichten und Versand. Geprüft am {date}.",
+      "Peptid-Shops, Land {country}: {based|# geprüfter Shop|# geprüfte Shops} mit Sitz dort und {ship|#, der laut eigenen Angaben dorthin liefert|#, die laut eigenen Angaben dorthin liefern}, mit Bewertung, Laborberichten und Versand. Geprüft am {date}.",
       "Peptid-Shops, Land {country}: geprüfte Shops mit Sitz dort und Shops, die dorthin liefern, mit Bewertungen."
     ],
     "h1": "Peptid-Shops nach Land: {country}",
-    "intro": "Von {total} geprüften Shops haben {based} ihren Sitz im Land {country} ({list}), und {ship} geben auf ihren eigenen Seiten an, dorthin zu liefern. {np} Shops nennen keine Lieferländer. Geprüft am {date}.",
+    "intro": "Von {total} geprüften Shops haben {based|# seinen Sitz|# ihren Sitz} im Land {country} ({list}), und {ship|# gibt auf seinen eigenen Seiten an|# geben auf ihren eigenen Seiten an}, dorthin zu liefern. {np|# Shop nennt|# Shops nennen} keine Lieferländer. Geprüft am {date}.",
     "statBased": "Sitz hier",
     "statShip": "Liefern hierher",
     "statNp": "Nicht angegeben",
@@ -739,13 +739,13 @@
         "{name} Peptide: Status-Check"
       ],
       "description": [
-        "{name} Peptide, geprüft am {date}: Der Katalog erscheint erst nach einer Forscher-Abfrage (Geburtsdatum und Erklärung), und {n} Websites nutzen den Namen. Was wir prüfen konnten und was nicht.",
-        "{name} Peptide: Forscher-Abfrage vor dem Katalog und {n} Websites mit dem Namen, geprüft am {date}."
+        "{name} Peptide, geprüft am {date}: Der Katalog erscheint erst nach einer Forscher-Abfrage (Geburtsdatum und Erklärung), und {sitesUse}. Was wir prüfen konnten und was nicht.",
+        "{name} Peptide: Forscher-Abfrage vor dem Katalog und {sitesN} mit dem Namen, geprüft am {date}."
       ],
       "h1": "{name} Peptide: Status und was wir prüfen konnten",
-      "answer": "{name} zeigt den Katalog erst nach einer Forscher-Abfrage mit Geburtsdatum und Erklärung zum Forschungszweck. Wir füllen keine Formulare aus, konnten daher weder Preise noch Laborberichte lesen und haben den Shop nicht bewertet. {n} Websites nutzen den Namen. Geprüft am {date}.",
+      "answer": "{name} zeigt den Katalog erst nach einer Forscher-Abfrage mit Geburtsdatum und Erklärung zum Forschungszweck. Wir füllen keine Formulare aus, konnten daher weder Preise noch Laborberichte lesen und haben den Shop nicht bewertet. {sitesUse}. Geprüft am {date}.",
       "fa1": "Die Websites waren bei unserer Prüfung am {date} online; der Katalog liegt hinter einer Forscher-Abfrage, daher konnten wir weder Bestand noch Preise sehen.",
-      "fa2": "Wir fanden {n} Websites mit dem Namen. Anhand der lesbaren Seiten konnten wir nicht bestätigen, welche das Original ist.",
+      "fa2": "Wir fanden {sitesN} mit dem Namen. Anhand der lesbaren Seiten konnten wir nicht bestätigen, welche das Original ist.",
       "fa3": "Nein. Ohne Zugang zu Katalog und Berichten konnten wir den Shop nicht bewerten; er ist nicht Teil unseres Tests von {shops} Shops."
     },
     "unclear": {
@@ -787,6 +787,14 @@
       "Peptid-Marken-Status: geschlossene Shops und Namen, die mehrere Websites nutzen, geprüft am {date}."
     ],
     "iH1": "Peptid-Marken-Status",
-    "iIntro": "{n} gesuchte Marken, die wir nicht wie normale Shops bewerten konnten oder die einen Status-Hinweis brauchen: geschlossene Shops, Websites, die eine Marke fortführen wollen, und Namen, die mehrere Websites nutzen. Geprüft am {date}."
+    "iIntro": "{n} gesuchte Marken, die wir nicht wie normale Shops bewerten konnten oder die einen Status-Hinweis brauchen: geschlossene Shops, Websites, die eine Marke fortführen wollen, und Namen, die mehrere Websites nutzen. Geprüft am {date}.",
+    "sitesUse": {
+      "one": "{n} Website nutzt den Namen",
+      "other": "{n} Websites nutzen den Namen"
+    },
+    "sitesN": {
+      "one": "{n} Website",
+      "other": "{n} Websites"
+    }
   }
 }

@@ -6,7 +6,7 @@ import RelatedLinks from '../components/RelatedLinks.astro';
 import Disclosure from '../components/Disclosure.astro';
 import { faqSchema, vendorBySlug, TOTALS } from '../lib/site';
 import { BRANDS, brandBySlug } from '../data/brandStatus';
-import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { t, tn, tt, td, lp, fmtDate, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
 interface Props { lang: Lang; brand: string }
 const { lang, brand } = Astro.props;
@@ -15,7 +15,7 @@ const L = (p: string) => lp(lang, p);
 const b = brandBySlug(brand)!;
 const v = b.vendor ? vendorBySlug(b.vendor) : undefined;
 const date = fmtDate(lang, '2026-11-21');
-const V = { name: b.name, n: b.domains.length, date, shops: TOTALS.shops, score: v ? F.score(v.overallScore) : '', rank: v?.rank ?? '', opened: v?.coaStats.opened ?? 0, portal: v?.coaStats.portalVerified ?? 0 };
+const V = { name: b.name, n: b.domains.length, date, shops: TOTALS.shops, score: v ? F.score(v.overallScore) : '', rank: v?.rank ?? '', opened: v?.coaStats.opened ?? 0, portal: v?.coaStats.portalVerified ?? 0, sitesUse: tn(lang, 'br.sitesUse', b.domains.length), sitesN: tn(lang, 'br.sitesN', b.domains.length) };
 const faqs = [1, 2, 3].map((i) => ({ q: t(lang, `br.fq${i}`, V), a: t(lang, `br.${b.status}.fa${i}`, V) }));
 const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'br.crumb'), url: L('/brands/') }, { name: b.name, url: L(`/brands/${b.slug}/`) }];
 ---

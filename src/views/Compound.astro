@@ -34,7 +34,7 @@ const names = Array.from(new Set(offers.map((o) => o.product.shopProductName.rep
 const labs = Array.from(new Set(reps.map((r) => r.report.lab.replace(/\s*\(.*\)\s*$/, ''))));
 const hasPrices = PRICE_COMPOUNDS.includes(c.slug);
 const sizeList = listJoin(lang, sizes.map((s) => F.mg(s)));
-const V = { c: short, name: c.name, cls: c.formulaOrClass, n: shops.length, eu, us, sizes: tn(lang, 'pc.vialSizes', sizes.length), list: sizeList, reports: tn(lang, 'pc.labReports', reps.length), nrep: reps.length, portal, cas: c.casNumber, year: YEAR, labs: listJoin(lang, labs), nshops: new Set(reps.map((r) => r.vendor.slug)).size, range: fills.length ? F.pctRange(Math.min(...fills), Math.max(...fills)) : '', date: fmtDate(lang, CHECKED_ISO) };
+const V = { c: short, name: c.name, cls: c.formulaOrClass, n: shops.length, eu, us, sizes: tn(lang, 'pc.vialSizes', sizes.length), list: sizeList, reports: tn(lang, 'pc.labReports', reps.length), nrep: reps.length, portal, cas: c.casNumber, year: YEAR, labs: listJoin(lang, labs), nshops: new Set(reps.map((r) => r.vendor.slug)).size, nRep: tn(lang, 'common.reports', reps.length), nShops: tn(lang, 'common.shops', new Set(reps.map((r) => r.vendor.slug)).size), range: fills.length ? F.pctRange(Math.min(...fills), Math.max(...fills)) : '', date: fmtDate(lang, CHECKED_ISO) };
 const intro = [t(lang, 'cmp.intro1', V), sizes.length ? t(lang, 'cmp.intro2', V) : t(lang, 'cmp.intro2none', V), fills.length ? t(lang, 'cmp.intro3fill', V) : t(lang, 'cmp.intro3', V)].join(' ');
 const title = tt(lang, 'cmp.title', V);
 const description = td(lang, 'cmp.description', V);

@@ -510,7 +510,7 @@
     "fq2": "Dove costa meno {c} al mg?",
     "fa2": "Prezzo al mg di listino più basso al {date}: {prices}. Il calcolo usa il prezzo di listino del negozio (scontato se indicato) diviso per i mg dell'etichetta, senza codici sconto.",
     "fq3": "Quali negozi hanno pubblicato un referto di laboratorio su {c}?",
-    "fa3": "Abbiamo aperto {nrep} referti su {c} di {list}. {portal} erano verificati sul portale del laboratorio",
+    "fa3": "Abbiamo aperto {nRep} su {c} di {list}. {portal} erano verificati sul portale del laboratorio",
     "fa3fill": "; il contenuto misurato era {range} dell'etichetta",
     "fa3none": "Non abbiamo aperto alcun referto di laboratorio su {c} nei negozi esaminati.",
     "fq4": "In quali formati di fiala è venduto {c}?",
@@ -554,7 +554,10 @@
     "intro2": "Prezzo di listino più basso al {date}: {lows}.",
     "intro3": "Per questo formato abbiamo aperto {reports}; il contenuto misurato era {range} dell'etichetta.",
     "intro3none": "Non abbiamo aperto alcun referto su {c} {mg}; i referti degli altri formati sono nella pagina principale di {c}.",
-    "median": "mediana di {p} su {n} offerte in {cur}",
+    "median": {
+      "one": "mediana di {p} su {n} offerta in {cur}",
+      "other": "mediana di {p} su {n} offerte in {cur}"
+    },
     "fq1": "Quanto costa una fiala di {c} {mg}?",
     "fa1": "Prezzi di listino al {date}: {medians}. Il più economico: {lows}. Prezzi senza codici sconto e senza conversione.",
     "fq2": "Dove comprare {c} {mg} per la ricerca?",
@@ -562,7 +565,7 @@
     "fa2p": "Negozi con link, per punteggio dell'audit: {list}.",
     "fq3": "Esiste un referto di laboratorio su {c} {mg}?",
     "fa3": "Sì. Per questo formato abbiamo aperto {reports} ({portal} verificati sul portale del laboratorio), di {list}.",
-    "fa3none": "Non abbiamo aperto alcun referto su {c} {mg}. Nella pagina prezzi di {c} ci sono {nall} referti su {c} in altri formati di fiala.",
+    "fa3none": "Non abbiamo aperto alcun referto su {c} {mg}. Nella pagina prezzi di {c} {nall|c'è # referto su {c} in un altro formato di fiala|ci sono # referti su {c} in altri formati di fiala}.",
     "itemList": "Negozi che vendono {c} {mg}",
     "relAll": "Tutti i formati di {c}",
     "relAllSub": "Confronto prezzi completo",
@@ -871,7 +874,7 @@
     "fa3": "{both} negozi esaminati vendono entrambi: {list}.",
     "fa3none": "Nessun negozio esaminato vende entrambi.",
     "fq4": "Esistono dati di laboratorio su {a} e {b}?",
-    "fa4": "Abbiamo aperto {rA} referti su {a} ({pA} verificati sul portale) e {rB} referti su {b} ({pB} verificati sul portale). Misurato vs etichetta: {a} {fA}, {b} {fB}.",
+    "fa4": "Abbiamo aperto {rA|# referto|# referti} su {a} ({pA|# verificato|# verificati} sul portale) e {rB|# referto|# referti} su {b} ({pB|# verificato|# verificati} sul portale). Misurato vs etichetta: {a} {fA}, {b} {fB}.",
     "fq5": "{a} o {b} possono essere usati sull'uomo?",
     "fa5": "Questo sito non tratta l'uso umano o veterinario. I negozi elencati vendono entrambi come reagenti di laboratorio solo per ricerca, e noi confrontiamo solo offerte e referti di laboratorio.",
     "rShops": "Negozi che lo vendono (UE / USA)",
@@ -918,9 +921,9 @@
     "h1J": "Janoshik: come verificare un referto e se il laboratorio è affidabile",
     "h1": "{lab}: come verificare un referto di laboratorio",
     "description": [
-      "Come verificare un referto di {lab} in {steps} passi. Abbiamo aperto {n} referti di {ns} negozi, {portal} verificati sul portale.",
-      "Verifica un referto di {short}: {n} referti di {ns} negozi aperti, {portal} verificati sul portale. Vedi referti e negozi.",
-      "Verifica un referto di {short}. {n} referti aperti, {portal} verificati sul portale."
+      "Come verificare un referto di {lab} in {steps} passi. Abbiamo aperto {nRep} di {nsShops}, {portal} verificati sul portale.",
+      "Verifica un referto di {short}: {nRep} di {nsShops} aperti, {portal} verificati sul portale. Vedi referti e negozi.",
+      "Verifica un referto di {short}. {nRep} aperti, {portal} verificati sul portale."
     ],
     "genericSteps": [
       "Trova sul referto mostrato dal negozio il numero del referto, la chiave o il codice QR.",
@@ -1096,8 +1099,8 @@
       "{c}: scheda e referti di laboratorio"
     ],
     "description": [
-      "{c}: classe, CAS {cas}, massa molecolare, formati di fiala in {n} negozi esaminati e {nrep} referti di laboratorio aperti. Confronta i prezzi.",
-      "{c}: classe, CAS, formati di fiala in {n} negozi esaminati e {nrep} referti di laboratorio aperti. Confronta i prezzi."
+      "{c}: classe, CAS {cas}, massa molecolare, formati di fiala in {n|# negozio esaminato|# negozi esaminati} e {nrep|# referto di laboratorio aperto|# referti di laboratorio aperti}. Confronta i prezzi.",
+      "{c}: classe, CAS, formati di fiala in {n|# negozio esaminato|# negozi esaminati} e {nrep|# referto di laboratorio aperto|# referti di laboratorio aperti}. Confronta i prezzi."
     ],
     "h1": "{name}: scheda del composto di ricerca",
     "intro1": "{name}: {cls}.",
@@ -1109,7 +1112,7 @@
     "fa2": "I negozi esaminati vendono {c} in fiale da {list} ({n} negozi: {eu} UE, {us} USA).",
     "fa2none": "Nessun negozio esaminato vende {c}.",
     "fq3": "Esistono referti di laboratorio su {c}?",
-    "fa3": "Abbiamo aperto {nrep} referti su {c} di {nshops} negozi; {portal} erano verificati sul portale del laboratorio. Laboratori indicati: {labs}.",
+    "fa3": "Abbiamo aperto {nRep} su {c} di {nShops}; {portal} erano verificati sul portale del laboratorio. Laboratori indicati: {labs}.",
     "fq4": "Cosa deve mostrare un referto di laboratorio su {c}?",
     "relPair": "Confronto tra composti di ricerca",
     "cta": "Confronta i prezzi di {c}",

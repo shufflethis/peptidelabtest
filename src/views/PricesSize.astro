@@ -46,8 +46,8 @@ const title = tt(lang, 'ps.title', V);
 const h1 = t(lang, 'ps.h1', V);
 const description = td(lang, 'ps.description', V);
 const medians = listJoin(lang, [
-  mEur != null && t(lang, 'ps.median', { p: F.money(mEur, 'EUR'), n: offers.filter((o) => o.currency === 'EUR').length, cur: 'EUR' }),
-  mUsd != null && t(lang, 'ps.median', { p: F.money(mUsd, 'USD'), n: offers.filter((o) => o.currency === 'USD').length, cur: 'USD' }),
+  mEur != null && tn(lang, 'ps.median', offers.filter((o) => o.currency === 'EUR').length, { p: F.money(mEur, 'EUR'), cur: 'EUR' }),
+  mUsd != null && tn(lang, 'ps.median', offers.filter((o) => o.currency === 'USD').length, { p: F.money(mUsd, 'USD'), cur: 'USD' }),
 ].filter(Boolean) as string[]) || F.na;
 const faqs = [
   { q: t(lang, 'ps.fq1', V), a: t(lang, 'ps.fa1', { ...V, medians }) },

@@ -31,7 +31,7 @@ const shops = Array.from(shopMap.values()).sort((a, b) => b.v.overallScore - a.v
 const short = l.name.replace(/ (Analytical|Laboratory|Laboratories|Labs|Analytics|Diagnostics Testing)$/, '');
 const NP = t(lang, 'common.notPublished');
 const steps = g?.verifySteps || tlist(lang, 'lab.genericSteps');
-const V = { lab: l.name, short, n: reps.length, shops: tn(lang, 'lab.auditedShops', shops.length), ns: shops.length, portal, date, year: YEAR, steps: steps.length, range: fills.length ? F.pctRange(Math.min(...fills), Math.max(...fills)) : '' };
+const V = { lab: l.name, short, n: reps.length, shops: tn(lang, 'lab.auditedShops', shops.length), ns: shops.length, nsShops: tn(lang, 'common.shops', shops.length), nRep: tn(lang, 'common.reports', reps.length), portal, date, year: YEAR, steps: steps.length, range: fills.length ? F.pctRange(Math.min(...fills), Math.max(...fills)) : '' };
 const intro = `${t(lang, 'lab.intro1', V)} ${fills.length ? t(lang, 'lab.intro2', V) : t(lang, 'lab.intro2none', V)}`;
 const isJ = l.slug === 'janoshik';
 const title = isJ ? tt(lang, 'lab.titleJ', V) : tt(lang, 'lab.title', V);

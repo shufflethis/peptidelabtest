@@ -24,7 +24,7 @@ const { rows, title, note, max, legend, ref } = Astro.props;
 const hi = max ?? Math.max(...rows.map((r) => r.value), 0.0001);
 ---
 {rows.length > 0 && (
-  <figure class="card p-4 sm:p-6">
+  <figure class="card p-4 sm:p-6" data-chart="bars">
     {title && <figcaption class="h3 mb-4">{title}</figcaption>}
     <ol class="space-y-2.5">
       {rows.map((r) => (

@@ -434,12 +434,12 @@
       "{c} Calculator (Lab mg/mL)"
     ],
     "description": [
-      "{c} lab concentration calculator: vial mg and diluent mL give the stock in mg/mL. {nSizes} vial sizes at {n} shops, price per mg and {reports} lab reports.",
+      "{c} lab concentration calculator: vial mg and diluent mL give the stock in mg/mL. {nSizes|# vial size|# vial sizes} at {n|# shop|# shops}, price per mg and {reports|# lab report|# lab reports}.",
       "{c} lab concentration calculator in mg/mL, with vial sizes, prices per mg and lab reports."
     ],
     "h1": "{c} vial concentration calculator (mg/mL)",
     "eyebrow": "Lab calculator",
-    "intro": "Enter the mg in a {c} vial and the mL of diluent to get the stock concentration in mg/mL. {n} audited shops list {c} in {nSizes} vial sizes ({sizes}); you can use the measured mg from a lab report instead of the label. Laboratory arithmetic only.",
+    "intro": "Enter the mg in a {c} vial and the mL of diluent to get the stock concentration in mg/mL. {n|# audited shop lists|# audited shops list} {c} in {nSizes|# vial size|# vial sizes} ({sizes}); you can use the measured mg from a lab report instead of the label. Laboratory arithmetic only.",
     "calcH": "{c} stock concentration (mg/mL)",
     "formulaH": "The formula",
     "formula": "Concentration (mg/mL) = mass in the vial (mg) ÷ diluent volume (mL)",
@@ -453,14 +453,14 @@
     "pricesP": "Lowest listed price per mg per shop, EUR and USD kept separate (no conversion).",
     "barsTitle": "{c}: lowest price per mg per shop ({cur})",
     "repsH": "{c} lab reports we opened",
-    "repsP": "{reports} reports, {portal} confirmed on the lab's own portal. Use the measured mg in the calculator above for a more exact concentration.",
+    "repsP": "{reports|# report|# reports}, {portal} confirmed on the lab's own portal. Use the measured mg in the calculator above for a more exact concentration.",
     "relPrices": "{c} price comparison",
     "relCompound": "{c} compound facts",
     "relCalc": "{c} calculator",
     "fq1": "How do I calculate {c} concentration in mg/mL?",
     "fa1": "Divide the mass in the vial (mg) by the volume of diluent added (mL). {def} mg of {c} in 2 mL gives {defConc} mg/mL.",
     "fq2": "Which {c} vial sizes are on the market?",
-    "fa2": "{n} audited shops list {c} in {nSizes} sizes: {sizes}. Checked {date}.",
+    "fa2": "{n|# audited shop lists|# audited shops list} {c} in {nSizes|# size|# sizes}: {sizes}. Checked {date}.",
     "fq3": "Why use the measured mg instead of the label?",
     "fa3": "Measured content can differ from the label. A {label} mg {c} vial from {shop} measured {measured} mg ({pct} of label), so 2 mL gives {concMeasured} mg/mL instead of {concLabel} mg/mL.",
     "fq4": "Is this calculator for laboratory use only?",
@@ -473,7 +473,7 @@
     ],
     "byH": "Calculator by compound",
     "byP": "Each page uses the vial sizes listed for that compound and shows prices per mg and the lab reports we opened.",
-    "sizes": "{n} vial sizes"
+    "sizes": "{n|# vial size|# vial sizes}"
   },
   "bl": {
     "crumb": "Peptide blends",
@@ -530,7 +530,7 @@
     "review": "Read our review",
     "note": "Prices as listed on {date}, no codes applied, EUR and USD kept separate. Pens and other liquid forms are not included.",
     "repsH": "{name} lab reports the shops show",
-    "repsP": "{reports} reports found on the shops' own pages or files. We did not confirm them on the lab portals, so they count as shop copies.",
+    "repsP": "{reports|# report|# reports} found on the shops' own pages or files. We did not confirm {reports|it|them} on the lab portals, so {reports|it counts as a shop copy|they count as shop copies}.",
     "repsNone": "We found no lab report for this blend on the shops' pages.",
     "repsNote": "Report files and pages are shown as plain text. Use the steps in our COA guide to check a report on the lab's own portal.",
     "rn": {
@@ -546,7 +546,7 @@
     "fq3": "Where is the {name} blend cheapest per mg?",
     "fa3": "Lowest listed price per mg: {eu} in EUR and {us} in USD, before any codes.",
     "fq4": "Are there lab reports for the {name} blend?",
-    "fa4": "We found {reports} reports on the shops' own pages. None were confirmed by us on a lab portal; check the report number on the lab's website.",
+    "fa4": "We found {reports|# report|# reports} on the shops' own pages. {reports|It was not confirmed|None were confirmed} by us on a lab portal; check the report number on the lab's website.",
     "relPrice": "{c} price comparison",
     "relCalc": "Two-compound concentration calculator",
     "relBlend": "{name} blend",
@@ -646,11 +646,11 @@
       "Peptide Shops in {country} ({year})"
     ],
     "description": [
-      "Peptide shops in {country}: {based} audited shops based there and {ship} that state they ship there, with score, lab reports and shipping notes. Checked {date}.",
+      "Peptide shops in {country}: {based|# audited shop|# audited shops} based there and {ship|# that states it ships|# that state they ship} there, with score, lab reports and shipping notes. Checked {date}.",
       "Peptide shops in {country}: audited shops based there and shops that ship there, with scores and lab reports."
     ],
     "h1": "Peptide shops in {country}",
-    "intro": "Of {total} audited shops, {based} are based in {country} ({list}) and {ship} state on their own pages that they ship there. {np} shops publish no shipping countries. Checked {date}.",
+    "intro": "Of {total} audited shops, {based|# is based|# are based} in {country} ({list}) and {ship|# states on its own pages that it ships|# state on their own pages that they ship} there. {np|# shop publishes|# shops publish} no shipping countries. Checked {date}.",
     "statBased": "Based here",
     "statShip": "Ship here",
     "statNp": "Not published",
@@ -739,13 +739,13 @@
         "{name} Peptides: Status Check"
       ],
       "description": [
-        "{name} peptides checked {date}: the catalog is shown only after a researcher check (date of birth and a declaration), and {n} sites use the name. What we could and could not verify.",
-        "{name} peptides: researcher check before the catalog and {n} sites using the name, checked {date}."
+        "{name} peptides checked {date}: the catalog is shown only after a researcher check (date of birth and a declaration), and {sitesUse}. What we could and could not verify.",
+        "{name} peptides: researcher check before the catalog and {sitesN} using the name, checked {date}."
       ],
       "h1": "{name} peptides: status and what we could check",
-      "answer": "{name} shows its catalog only after a researcher check that asks for a date of birth and a research-use declaration. We do not fill in forms, so we could not read prices or lab reports and did not score the shop. {n} sites use the name. Checked {date}.",
+      "answer": "{name} shows its catalog only after a researcher check that asks for a date of birth and a research-use declaration. We do not fill in forms, so we could not read prices or lab reports and did not score the shop. {sitesUse}. Checked {date}.",
       "fa1": "The sites were online when we checked on {date}; the catalog is behind a researcher check, so we could not see stock or prices.",
-      "fa2": "We found {n} sites using the name. We could not confirm which one is the original from the pages we were able to read.",
+      "fa2": "We found {sitesN} using the name. We could not confirm which one is the original from the pages we were able to read.",
       "fa3": "No. Without access to the catalog and reports we could not score it; it is not part of our {shops}-shop audit."
     },
     "unclear": {
@@ -787,6 +787,14 @@
       "Peptide brand status: closed shops and names used by several websites, checked {date}."
     ],
     "iH1": "Peptide brand status",
-    "iIntro": "{n} brands people search for that we could not score as normal shops, or that need a status note: closed shops, sites that claim to continue a brand, and names used by several websites. Checked {date}."
+    "iIntro": "{n} brands people search for that we could not score as normal shops, or that need a status note: closed shops, sites that claim to continue a brand, and names used by several websites. Checked {date}.",
+    "sitesUse": {
+      "one": "{n} site uses the name",
+      "other": "{n} sites use the name"
+    },
+    "sitesN": {
+      "one": "{n} site",
+      "other": "{n} sites"
+    }
   }
 }

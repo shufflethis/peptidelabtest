@@ -10,7 +10,7 @@ import WhereToBuy from '../components/WhereToBuy.astro';
 import Icon from '../components/Icon.astro';
 import {
   PRICE_COMPOUNDS, offersFor, compoundShort, compoundName, shopsCarrying, sizesFor, sizePagesFor, reportsFor, cheapestBy,
-  TOTALS, CHECKED_ISO, fillPct, faqSchema, itemListSchema, PARTNERS, compoundPairsFor, pairSlug, YEAR, getCompound,
+  TOTALS, CHECKED_ISO, fillPct, faqSchema, itemListSchema, PARTNERS, compoundPairsFor, pairSlug, YEAR, getCompound, vendorBySlug,
 } from '../lib/site';
 import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
@@ -61,7 +61,7 @@ const faqs = [
   {
     q: t(lang, 'pc.fq3', V),
     a: reps.length
-      ? `${t(lang, 'pc.fa3', { ...V, nrep: reps.length, list: listJoin(lang, Array.from(repShops).map((s) => shops.find((x) => x.slug === s)?.name || s)) })}${fillLo != null ? t(lang, 'pc.fa3fill', V) : ''}.`
+      ? `${t(lang, 'pc.fa3', { ...V, nRep: tn(lang, 'common.reports', reps.length), list: listJoin(lang, Array.from(repShops).map((s) => vendorBySlug(s)?.name || shops.find((x) => x.slug === s)?.name || s)) })}${fillLo != null ? t(lang, 'pc.fa3fill', V) : ''}.`
       : t(lang, 'pc.fa3none', V),
   },
   { q: t(lang, 'pc.fq4', V), a: [t(lang, 'pc.fa4', { ...V, list: listJoin(lang, sizes.map((s) => F.mg(s))) }), sizePages.length ? t(lang, 'pc.fa4p', { list: listJoin(lang, sizePages.map((s) => `${F.mg(s.size)} (${tn(lang, 'common.shops', s.shops)})`)) }) : ''].join(' ').trim() },

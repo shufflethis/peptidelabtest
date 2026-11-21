@@ -509,7 +509,7 @@
     "fq2": "¿Dónde es más barato {c} por mg?",
     "fa2": "Precio por mg publicado más bajo el {date}: {prices}. Se basa en el precio publicado por la tienda (el de oferta si se muestra) dividido por los mg de la etiqueta, sin códigos de descuento.",
     "fq3": "¿Qué tiendas han publicado un informe de laboratorio de {c}?",
-    "fa3": "Abrimos {nrep} informes de {c} de {list}. {portal} estaban verificados en el portal del laboratorio",
+    "fa3": "Abrimos {nRep} de {c} de {list}. {portal} estaban verificados en el portal del laboratorio",
     "fa3fill": "; el contenido medido fue del {range} de lo declarado",
     "fa3none": "No abrimos ningún informe de laboratorio de {c} en las tiendas auditadas.",
     "fq4": "¿En qué tamaños de vial se vende {c}?",
@@ -553,7 +553,10 @@
     "intro2": "Precio publicado más bajo el {date}: {lows}.",
     "intro3": "Para este tamaño abrimos {reports}; el contenido medido fue del {range} de lo declarado.",
     "intro3none": "No abrimos ningún informe de {c} {mg}; los informes de otros tamaños están en la página principal de {c}.",
-    "median": "mediana de {p} en {n} ofertas en {cur}",
+    "median": {
+      "one": "mediana de {p} en {n} oferta en {cur}",
+      "other": "mediana de {p} en {n} ofertas en {cur}"
+    },
     "fq1": "¿Cuánto cuesta un vial de {c} {mg}?",
     "fa1": "Precios publicados el {date}: {medians}. Más barato: {lows}. Precios sin códigos de descuento y sin conversión.",
     "fq2": "¿Dónde comprar {c} {mg} para investigación?",
@@ -561,7 +564,7 @@
     "fa2p": "Tiendas con enlace, por puntuación de la auditoría: {list}.",
     "fq3": "¿Hay un informe de laboratorio de {c} {mg}?",
     "fa3": "Sí. Para este tamaño abrimos {reports} ({portal} verificados en el portal del laboratorio), de {list}.",
-    "fa3none": "No abrimos ningún informe de {c} {mg}. En la página de precios de {c} hay {nall} informes de {c} de otros tamaños.",
+    "fa3none": "No abrimos ningún informe de {c} {mg}. En la página de precios de {c} {nall|hay # informe de {c} de otro tamaño|hay # informes de {c} de otros tamaños}.",
     "itemList": "Tiendas que venden {c} {mg}",
     "relAll": "Todos los tamaños de {c}",
     "relAllSub": "Comparativa de precios completa",
@@ -870,7 +873,7 @@
     "fa3": "{both} tiendas auditadas venden ambos: {list}.",
     "fa3none": "Ninguna tienda auditada vende ambos.",
     "fq4": "¿Hay datos de laboratorio de {a} y {b}?",
-    "fa4": "Abrimos {rA} informes de {a} ({pA} verificados en el portal) y {rB} informes de {b} ({pB} verificados en el portal). Medido frente a lo declarado: {a} {fA}, {b} {fB}.",
+    "fa4": "Abrimos {rA|# informe|# informes} de {a} ({pA|# verificado|# verificados} en el portal) y {rB|# informe|# informes} de {b} ({pB|# verificado|# verificados} en el portal). Medido frente a lo declarado: {a} {fA}, {b} {fB}.",
     "fq5": "¿Se pueden usar {a} o {b} en personas?",
     "fa5": "Este sitio no trata el uso humano ni veterinario. Las tiendas listadas venden ambos como reactivos de laboratorio solo para investigación, y solo comparamos ofertas e informes de laboratorio.",
     "rShops": "Tiendas que lo venden (UE / EE. UU.)",
@@ -917,9 +920,9 @@
     "h1J": "Janoshik: cómo verificar un informe y si el laboratorio es fiable",
     "h1": "{lab}: cómo verificar un informe de laboratorio",
     "description": [
-      "Cómo verificar un informe de {lab} en {steps} pasos. Abrimos {n} informes de {ns} tiendas y {portal} estaban verificados en el portal.",
-      "Verifique un informe de {short}: {n} informes de {ns} tiendas abiertos, {portal} verificados en el portal. Vea informes y tiendas.",
-      "Verifique un informe de {short}. {n} informes abiertos, {portal} verificados en el portal."
+      "Cómo verificar un informe de {lab} en {steps} pasos. Abrimos {nRep} de {nsShops} y {portal} estaban verificados en el portal.",
+      "Verifique un informe de {short}: {nRep} de {nsShops} abiertos, {portal} verificados en el portal. Vea informes y tiendas.",
+      "Verifique un informe de {short}. {nRep} abiertos, {portal} verificados en el portal."
     ],
     "genericSteps": [
       "Busque en el informe que muestra la tienda el número de informe, la clave o el código QR.",
@@ -1095,8 +1098,8 @@
       "{c}: datos e informes de laboratorio"
     ],
     "description": [
-      "{c}: clase, CAS {cas}, masa molecular, tamaños de vial en {n} tiendas auditadas y {nrep} informes de laboratorio abiertos. Compare precios.",
-      "{c}: clase, CAS, tamaños de vial en {n} tiendas auditadas y {nrep} informes de laboratorio abiertos. Compare precios."
+      "{c}: clase, CAS {cas}, masa molecular, tamaños de vial en {n|# tienda auditada|# tiendas auditadas} y {nrep|# informe de laboratorio abierto|# informes de laboratorio abiertos}. Compare precios.",
+      "{c}: clase, CAS, tamaños de vial en {n|# tienda auditada|# tiendas auditadas} y {nrep|# informe de laboratorio abierto|# informes de laboratorio abiertos}. Compare precios."
     ],
     "h1": "{name}: datos del compuesto de investigación",
     "intro1": "{name}: {cls}.",
@@ -1108,7 +1111,7 @@
     "fa2": "Las tiendas auditadas venden {c} en viales de {list} ({n} tiendas: {eu} de la UE, {us} de EE. UU.).",
     "fa2none": "Ninguna tienda auditada vende {c}.",
     "fq3": "¿Hay informes de laboratorio de {c}?",
-    "fa3": "Abrimos {nrep} informes de {c} de {nshops} tiendas; {portal} estaban verificados en el portal del laboratorio. Laboratorios indicados: {labs}.",
+    "fa3": "Abrimos {nRep} de {c} de {nShops}; {portal} estaban verificados en el portal del laboratorio. Laboratorios indicados: {labs}.",
     "fq4": "¿Qué debe mostrar un informe de laboratorio de {c}?",
     "relPair": "Comparativa de compuestos de investigación",
     "cta": "Comparar precios de {c}",

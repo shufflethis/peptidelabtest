@@ -450,7 +450,7 @@
     "fq2": "What is the cheapest {c} per mg?",
     "fa2": "Lowest listed price per mg on {date}: {prices}. Prices are the shop's listed price (sale price where shown) divided by label mg, without discount codes.",
     "fq3": "Which shops published a lab report for {c}?",
-    "fa3": "We opened {nrep} {c} reports from {list}. {portal} of them were verified on the lab's own portal",
+    "fa3": "We opened {nRep} on {c} from {list}. {portal} of them were verified on the lab's own portal",
     "fa3fill": "; measured content ranged from {range} of the label amount",
     "fa3none": "We did not open a {c} lab report at any audited shop.",
     "fq4": "Which vial sizes of {c} are on the market?",
@@ -533,7 +533,10 @@
     "intro2": "Lowest listed price on {date}: {lows}.",
     "intro3": "We opened {reports} for this size; measured content was {range} of label.",
     "intro3none": "We did not open a {mg} lab report for {c}; reports for other sizes are on the main {c} page.",
-    "median": "median {p} across {n} {cur} listings",
+    "median": {
+      "one": "median {p} across {n} {cur} listing",
+      "other": "median {p} across {n} {cur} listings"
+    },
     "fq1": "How much does a {c} {mg} vial cost?",
     "fa1": "Listed prices on {date}: {medians}. Lowest: {lows}. Prices exclude discount codes and are not converted.",
     "fq2": "Where to buy {c} {mg} for research?",
@@ -541,7 +544,7 @@
     "fa2p": "Shops with a store link, ranked by audit score: {list}.",
     "fq3": "Is there a lab report for {c} {mg}?",
     "fa3": "Yes. We opened {reports} for this size ({portal} verified on the lab portal) from {list}.",
-    "fa3none": "We did not open a {mg} {c} report. {nall} {c} reports for other vial sizes are listed on the {c} price page.",
+    "fa3none": "We did not open a {mg} {c} report. {nall|# {c} report for another vial size is|# {c} reports for other vial sizes are} listed on the {c} price page.",
     "itemList": "Shops listing {c} {mg}",
     "relAll": "All {c} sizes",
     "relAllSub": "Full price comparison",
@@ -650,8 +653,8 @@
       "{c}: Facts, Vial Sizes & Lab Tests"
     ],
     "description": [
-      "{c} facts: class, CAS {cas}, molecular weight, vial sizes at {n} audited shops and {nrep} opened lab reports. Compare prices.",
-      "{c}: class, CAS, vial sizes at {n} audited shops and {nrep} opened lab reports. Compare prices."
+      "{c} facts: class, CAS {cas}, molecular weight, vial sizes at {n|# audited shop|# audited shops} and {nrep|# opened lab report|# opened lab reports}. Compare prices.",
+      "{c}: class, CAS, vial sizes at {n|# audited shop|# audited shops} and {nrep|# opened lab report|# opened lab reports}. Compare prices."
     ],
     "h1": "{name}: research compound facts",
     "intro1": "{name}: {cls}.",
@@ -663,7 +666,7 @@
     "fa2": "Audited shops list {c} in {list} vials ({n} shops: {eu} EU, {us} US).",
     "fa2none": "None of the audited shops lists {c}.",
     "fq3": "Are there lab reports for {c}?",
-    "fa3": "We opened {nrep} {c} reports from {nshops} shops; {portal} were verified on the lab's own portal. Labs named: {labs}.",
+    "fa3": "We opened {nRep} on {c} from {nShops}; {portal} were verified on the lab's own portal. Labs named: {labs}.",
     "fq4": "What should a {c} lab report show?",
     "relPair": "Research comparison",
     "cta": "Compare {c} prices",
@@ -704,7 +707,7 @@
     "fa3": "{both} audited shops list both: {list}.",
     "fa3none": "None of the audited shops lists both.",
     "fq4": "Is there lab-test data for {a} and {b}?",
-    "fa4": "We opened {rA} {a} reports ({pA} portal-verified) and {rB} {b} reports ({pB} portal-verified). Measured vs label: {a} {fA}, {b} {fB}.",
+    "fa4": "We opened {rA|# {a} report|# {a} reports} ({pA} portal-verified) and {rB|# {b} report|# {b} reports} ({pB} portal-verified). Measured vs label: {a} {fA}, {b} {fB}.",
     "fq5": "Can {a} or {b} be used in humans?",
     "fa5": "This site does not cover human or animal use. The shops listed sell both as research-use-only laboratory reagents, and we compare listings and lab reports only.",
     "rShops": "Shops listing it (EU / US)",
@@ -749,9 +752,9 @@
     "h1J": "Janoshik: how to verify a report, and is it legit?",
     "h1": "{lab}: how to verify a report",
     "description": [
-      "How to verify a {lab} report in {steps} steps. We opened {n} of its reports from {ns} shops, {portal} portal-verified. See the results.",
-      "How to verify a {short} report: {n} reports opened from {ns} shops, {portal} portal-verified. See lab reports and shops.",
-      "How to verify a {short} report. {n} reports opened, {portal} portal-verified. See lab reports."
+      "How to verify a {lab} report in {steps} steps. We opened {n} of its reports from {nsShops}, {portal} portal-verified. See the results.",
+      "How to verify a {short} report: {nRep} opened from {nsShops}, {portal} portal-verified. See lab reports and shops.",
+      "How to verify a {short} report. {nRep} opened, {portal} portal-verified. See lab reports."
     ],
     "genericSteps": [
       "Find the report number, key or QR code on the report the shop shows you.",

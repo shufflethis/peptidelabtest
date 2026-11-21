@@ -437,7 +437,7 @@
     "description": [
       "Preis pro mg für {n} Forschungssubstanzen bei {shops} geprüften Shops, EUR und USD getrennt, mit Laborberichten. Preise je Substanz vergleichen."
     ],
-    "intro": "Wir haben am {date} {products} gelistete Preise für {n} Forschungssubstanzen bei {shops} geprüften Shops in der EU und den USA erfasst. Jede Substanzseite trennt EUR- und USD-Preise, zeigt den Preis pro mg je Vial-Größe und markiert, welche Shops einen von uns geöffneten Laborbericht veröffentlicht haben (insgesamt {reports} Berichte).",
+    "intro": "Am {date} haben wir {products} gelistete Preise für {n} Forschungssubstanzen bei {shops} geprüften Shops in der EU und den USA erfasst. Jede Substanzseite trennt EUR- und USD-Preise, zeigt den Preis pro mg je Vial-Größe und markiert, welche Shops einen von uns geöffneten Laborbericht veröffentlicht haben (insgesamt {reports} Berichte).",
     "crumb": "Preise",
     "eyebrow": "{n} Substanzen · {sizes} Seiten nach Vial-Größe",
     "pick": "Substanz wählen",
@@ -510,7 +510,7 @@
     "fq2": "Wo ist {c} pro mg am günstigsten?",
     "fa2": "Günstigster gelisteter Preis pro mg am {date}: {prices}. Grundlage ist der gelistete Preis des Shops (Angebotspreis, falls angezeigt) geteilt durch die mg auf dem Etikett, ohne Rabattcodes.",
     "fq3": "Welche Shops haben einen Laborbericht zu {c} veröffentlicht?",
-    "fa3": "Wir haben {nrep} Berichte zu {c} von {list} geöffnet. {portal} davon waren im Portal des Labors bestätigt",
+    "fa3": "Wir haben {nRep} zu {c} von {list} geöffnet. {portal} davon waren im Portal des Labors bestätigt",
     "fa3fill": "; der gemessene Gehalt lag bei {range} der Etikettangabe",
     "fa3none": "Wir haben bei keinem geprüften Shop einen Laborbericht zu {c} geöffnet.",
     "fq4": "Welche Vial-Größen von {c} gibt es?",
@@ -554,7 +554,10 @@
     "intro2": "Günstigster gelisteter Preis am {date}: {lows}.",
     "intro3": "Für diese Größe haben wir {reports} geöffnet; der gemessene Gehalt lag bei {range} der Etikettangabe.",
     "intro3none": "Für {c} {mg} haben wir keinen Laborbericht geöffnet; Berichte zu anderen Größen stehen auf der {c}-Hauptseite.",
-    "median": "Median {p} über {n} Angebote in {cur}",
+    "median": {
+      "one": "Median {p} über {n} Angebot in {cur}",
+      "other": "Median {p} über {n} Angebote in {cur}"
+    },
     "fq1": "Was kostet ein Vial {c} {mg}?",
     "fa1": "Gelistete Preise am {date}: {medians}. Am günstigsten: {lows}. Preise ohne Rabattcodes und ohne Umrechnung.",
     "fq2": "Wo kann man {c} {mg} für die Forschung kaufen?",
@@ -562,7 +565,7 @@
     "fa2p": "Shops mit Shop-Link, nach Audit-Score: {list}.",
     "fq3": "Gibt es einen Laborbericht zu {c} {mg}?",
     "fa3": "Ja. Für diese Größe haben wir {reports} geöffnet ({portal} im Laborportal bestätigt), von {list}.",
-    "fa3none": "Wir haben keinen Bericht zu {c} {mg} geöffnet. {nall} Berichte zu {c} in anderen Vial-Größen stehen auf der {c}-Preisseite.",
+    "fa3none": "Wir haben keinen Bericht zu {c} {mg} geöffnet. {nall|# Bericht zu {c} in einer anderen Vial-Größe steht|# Berichte zu {c} in anderen Vial-Größen stehen} auf der {c}-Preisseite.",
     "itemList": "Shops mit {c} {mg}",
     "relAll": "Alle Größen von {c}",
     "relAllSub": "Vollständiger Preisvergleich",
@@ -869,7 +872,7 @@
     "fa3": "{both} geprüfte Shops führen beide: {list}.",
     "fa3none": "Kein geprüfter Shop führt beide.",
     "fq4": "Gibt es Labordaten zu {a} und {b}?",
-    "fa4": "Wir haben {rA} Berichte zu {a} ({pA} im Portal bestätigt) und {rB} Berichte zu {b} ({pB} im Portal bestätigt) geöffnet. Gemessen vs. Etikett: {a} {fA}, {b} {fB}.",
+    "fa4": "Wir haben {rA|# Bericht|# Berichte} zu {a} ({pA} im Portal bestätigt) und {rB|# Bericht|# Berichte} zu {b} ({pB} im Portal bestätigt) geöffnet. Gemessen vs. Etikett: {a} {fA}, {b} {fB}.",
     "fq5": "Darf {a} oder {b} am Menschen angewendet werden?",
     "fa5": "Diese Website behandelt keine Anwendung an Mensch oder Tier. Die gelisteten Shops verkaufen beide als Laborreagenzien nur für Forschungszwecke, und wir vergleichen nur Angebote und Laborberichte.",
     "rShops": "Shops, die es führen (EU / US)",
@@ -916,9 +919,9 @@
     "h1J": "Janoshik: Laborbericht prüfen – und ist das Labor seriös?",
     "h1": "{lab}: So prüfen Sie einen Laborbericht",
     "description": [
-      "So prüfen Sie einen Laborbericht von {lab} in {steps} Schritten. Wir haben {n} Berichte von {ns} Shops geöffnet, {portal} im Portal bestätigt.",
-      "Laborbericht von {short} prüfen: {n} Berichte von {ns} Shops geöffnet, {portal} im Portal bestätigt. Berichte und Shops ansehen.",
-      "Laborbericht von {short} prüfen. {n} Berichte geöffnet, {portal} im Portal bestätigt."
+      "So prüfen Sie einen Laborbericht von {lab} in {steps} Schritten. Wir haben {nRep} von {nsShops} geöffnet, {portal} im Portal bestätigt.",
+      "Laborbericht von {short} prüfen: {nRep} von {nsShops} geöffnet, {portal} im Portal bestätigt. Berichte und Shops ansehen.",
+      "Laborbericht von {short} prüfen. {nRep} geöffnet, {portal} im Portal bestätigt."
     ],
     "genericSteps": [
       "Suchen Sie auf dem Bericht, den der Shop zeigt, die Berichtsnummer, den Schlüssel oder den QR-Code.",
@@ -1094,8 +1097,8 @@
       "{c}: Fakten & Laborberichte"
     ],
     "description": [
-      "{c}: Klasse, CAS {cas}, Molmasse, Vial-Größen bei {n} geprüften Shops und {nrep} geöffnete Laborberichte. Preise vergleichen.",
-      "{c}: Klasse, CAS, Vial-Größen bei {n} geprüften Shops und {nrep} geöffnete Laborberichte. Preise vergleichen."
+      "{c}: Klasse, CAS {cas}, Molmasse, Vial-Größen bei {n|# geprüften Shop|# geprüften Shops} und {nrep|# geöffneter Laborbericht|# geöffnete Laborberichte}. Preise vergleichen.",
+      "{c}: Klasse, CAS, Vial-Größen bei {n|# geprüften Shop|# geprüften Shops} und {nrep|# geöffneter Laborbericht|# geöffnete Laborberichte}. Preise vergleichen."
     ],
     "h1": "{name}: Fakten zur Forschungssubstanz",
     "intro1": "{name}: {cls}.",
@@ -1107,7 +1110,7 @@
     "fa2": "Geprüfte Shops führen {c} in Vials mit {list} ({n} Shops: {eu} EU, {us} US).",
     "fa2none": "Keiner der geprüften Shops führt {c}.",
     "fq3": "Gibt es Laborberichte zu {c}?",
-    "fa3": "Wir haben {nrep} Berichte zu {c} von {nshops} Shops geöffnet; {portal} waren im Portal des Labors bestätigt. Genannte Labore: {labs}.",
+    "fa3": "Wir haben {nRep} zu {c} von {nShops} geöffnet; {portal} waren im Portal des Labors bestätigt. Genannte Labore: {labs}.",
     "fq4": "Was sollte ein Laborbericht zu {c} zeigen?",
     "relPair": "Vergleich der Forschungssubstanzen",
     "cta": "{c} Preise vergleichen",

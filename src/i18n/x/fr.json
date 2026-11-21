@@ -434,12 +434,12 @@
       "Calculateur {c} (labo, mg/mL)"
     ],
     "description": [
-      "Calculateur de concentration de laboratoire pour {c} : mg dans le flacon et mL de solvant donnent des mg/mL. {nSizes} tailles chez {n} boutiques, prix par mg et {reports} rapports.",
+      "Calculateur de concentration de laboratoire pour {c} : mg dans le flacon et mL de solvant donnent des mg/mL. {nSizes|# taille|# tailles} chez {n|# boutique|# boutiques}, prix par mg et {reports|# rapport|# rapports}.",
       "Calculateur de concentration {c} en mg/mL pour le laboratoire, avec tailles de flacon, prix par mg et rapports."
     ],
     "h1": "Calculateur {c} : concentration dans le flacon (mg/mL)",
     "eyebrow": "Calculateur de laboratoire",
-    "intro": "Saisissez les mg d'un flacon de {c} et les mL de solvant pour obtenir la concentration mère en mg/mL. {n} boutiques auditées vendent {c} en {nSizes} tailles de flacon ({sizes}) ; vous pouvez utiliser les mg mesurés d'un rapport de laboratoire au lieu de l'étiquette. Calcul de laboratoire uniquement.",
+    "intro": "Saisissez les mg d'un flacon de {c} et les mL de solvant pour obtenir la concentration mère en mg/mL. {n|# boutique auditée vend|# boutiques auditées vendent} {c} en {nSizes|# taille de flacon|# tailles de flacon} ({sizes}) ; vous pouvez utiliser les mg mesurés d'un rapport de laboratoire au lieu de l'étiquette. Calcul de laboratoire uniquement.",
     "calcH": "Concentration mère de {c} (mg/mL)",
     "formulaH": "La formule",
     "formula": "Concentration (mg/mL) = quantité dans le flacon (mg) ÷ volume de solvant (mL)",
@@ -453,14 +453,14 @@
     "pricesP": "Prix le plus bas par mg dans chaque boutique, EUR et USD séparés (sans conversion).",
     "barsTitle": "{c} : prix le plus bas par mg par boutique ({cur})",
     "repsH": "Rapports de laboratoire {c} que nous avons ouverts",
-    "repsP": "{reports} rapports, dont {portal} confirmés sur le portail du laboratoire. Utilisez les mg mesurés dans le calculateur ci-dessus pour une concentration plus précise.",
+    "repsP": "{reports|# rapport|# rapports}, dont {portal|# confirmé|# confirmés} sur le portail du laboratoire. Utilisez les mg mesurés dans le calculateur ci-dessus pour une concentration plus précise.",
     "relPrices": "Comparatif des prix de {c}",
     "relCompound": "Fiche du composé {c}",
     "relCalc": "Calculateur {c}",
     "fq1": "Comment calculer la concentration de {c} en mg/mL ?",
     "fa1": "Divisez la quantité du flacon (mg) par le solvant ajouté (mL). {def} mg de {c} dans 2 mL donnent {defConc} mg/mL.",
     "fq2": "Quelles tailles de flacon de {c} existent ?",
-    "fa2": "{n} boutiques auditées vendent {c} en {nSizes} tailles : {sizes}. Vérifié le {date}.",
+    "fa2": "{n|# boutique auditée vend|# boutiques auditées vendent} {c} en {nSizes|# taille|# tailles} : {sizes}. Vérifié le {date}.",
     "fq3": "Pourquoi utiliser les mg mesurés plutôt que l'étiquette ?",
     "fa3": "Le contenu mesuré peut différer de l'étiquette. Un flacon de {c} de {label} mg de {shop} contenait {measured} mg ({pct} de l'étiquette), donc 2 mL donnent {concMeasured} mg/mL au lieu de {concLabel} mg/mL.",
     "fq4": "Ce calculateur est-il réservé au laboratoire ?",
@@ -473,7 +473,7 @@
     ],
     "byH": "Calculateurs par composé",
     "byP": "Chaque page utilise les tailles de flacon de ce composé et affiche le prix par mg et les rapports de laboratoire que nous avons ouverts.",
-    "sizes": "{n} tailles de flacon"
+    "sizes": "{n|# taille de flacon|# tailles de flacon}"
   },
   "bl": {
     "crumb": "Mélanges de peptides",
@@ -530,7 +530,7 @@
     "review": "Lire notre test",
     "note": "Prix affichés le {date}, sans codes, EUR et USD séparés. Les stylos et autres formes liquides ne sont pas inclus.",
     "repsH": "Rapports de laboratoire {name} affichés par les boutiques",
-    "repsP": "{reports} rapports trouvés sur les pages ou fichiers des boutiques. Nous ne les avons pas confirmés sur les portails des laboratoires ; ce sont donc des copies de la boutique.",
+    "repsP": "{reports|# rapport trouvé|# rapports trouvés} sur les pages ou fichiers des boutiques. Nous ne {reports|l'avons pas confirmé|les avons pas confirmés} sur les portails des laboratoires ; {reports|c'est donc une copie de la boutique|ce sont donc des copies de la boutique}.",
     "repsNone": "Nous n'avons trouvé aucun rapport de laboratoire pour ce mélange sur les pages des boutiques.",
     "repsNote": "Les fichiers et pages de rapports sont affichés en texte brut. Suivez les étapes de notre guide COA pour vérifier un rapport sur le portail du laboratoire.",
     "rn": {
@@ -546,7 +546,7 @@
     "fq3": "Où le mélange {name} est-il le moins cher par mg ?",
     "fa3": "Prix le plus bas affiché par mg : {eu} en EUR et {us} en USD, avant codes.",
     "fq4": "Existe-t-il des rapports de laboratoire pour le mélange {name} ?",
-    "fa4": "Nous avons trouvé {reports} rapports sur les pages des boutiques. Aucun n'a été confirmé par nous sur un portail de laboratoire ; vérifiez le numéro du rapport sur le site du laboratoire.",
+    "fa4": "Nous avons trouvé {reports|# rapport|# rapports} sur les pages des boutiques. {reports|Il n'a pas été confirmé|Aucun n'a été confirmé} par nous sur un portail de laboratoire ; vérifiez le numéro du rapport sur le site du laboratoire.",
     "relPrice": "Comparatif des prix de {c}",
     "relCalc": "Calculateur de concentration pour deux composés",
     "relBlend": "Mélange {name}",
@@ -646,11 +646,11 @@
       "Boutiques de peptides – {country} ({year})"
     ],
     "description": [
-      "Boutiques de peptides, pays {country} : {based} boutiques auditées qui y ont leur siège et {ship} qui disent y livrer, avec note, rapports de laboratoire et livraison. Vérifié le {date}.",
+      "Boutiques de peptides, pays {country} : {based|# boutique auditée qui y a son siège|# boutiques auditées qui y ont leur siège} et {ship|# qui dit y livrer|# qui disent y livrer}, avec note, rapports de laboratoire et livraison. Vérifié le {date}.",
       "Boutiques de peptides, pays {country} : boutiques auditées qui y ont leur siège et boutiques qui y livrent."
     ],
     "h1": "Boutiques de peptides par pays : {country}",
-    "intro": "Sur {total} boutiques auditées, {based} ont leur siège dans ce pays ({list}) et {ship} indiquent sur leurs propres pages y livrer. {np} boutiques ne publient aucun pays de livraison. Pays : {country}. Vérifié le {date}.",
+    "intro": "Sur {total} boutiques auditées, {based|# a son siège|# ont leur siège} dans ce pays ({list}) et {ship|# indique sur ses propres pages|# indiquent sur leurs propres pages} y livrer. {np|# boutique ne publie|# boutiques ne publient} aucun pays de livraison. Pays : {country}. Vérifié le {date}.",
     "statBased": "Siège ici",
     "statShip": "Livrent ici",
     "statNp": "Non publié",
@@ -669,7 +669,7 @@
     "note": "Livraison telle qu'indiquée par les boutiques ; des exceptions peuvent figurer sur leurs pages. Pas un conseil juridique : les règles d'achat des peptides de recherche varient selon les pays.",
     "lawLink": "Statut juridique : {country}",
     "fq1": "Quelles boutiques de peptides auditées ont leur siège dans ce pays ({country}) ?",
-    "fa1": "{based} boutiques auditées sur {total} : {list}.",
+    "fa1": "{based|# boutique auditée|# boutiques auditées} sur {total} : {list}.",
     "fq2": "Quelles boutiques livrent dans ce pays ({country}) ?",
     "fa2": "{ship} boutiques auditées indiquent y livrer ({country}) ; {np} ne publient aucun pays de livraison.",
     "fq3": "Est-il légal d'acheter des peptides dans ce pays ({country}) ?",
@@ -739,13 +739,13 @@
         "{name} peptides : statut"
       ],
       "description": [
-        "{name} peptides vérifié le {date} : le catalogue ne s'affiche qu'après une vérification chercheur (date de naissance et déclaration), et {n} sites utilisent le nom. Ce que nous avons pu vérifier ou non.",
-        "{name} peptides : vérification chercheur avant le catalogue et {n} sites utilisant le nom, vérifié le {date}."
+        "{name} peptides vérifié le {date} : le catalogue ne s'affiche qu'après une vérification chercheur (date de naissance et déclaration), et {sitesUse}. Ce que nous avons pu vérifier ou non.",
+        "{name} peptides : vérification chercheur avant le catalogue et {sitesN} utilisant le nom, vérifié le {date}."
       ],
       "h1": "{name} peptides : statut et ce que nous avons pu vérifier",
-      "answer": "{name} n'affiche son catalogue qu'après une vérification chercheur demandant une date de naissance et une déclaration d'usage en recherche. Nous ne remplissons pas de formulaires : nous n'avons donc pu lire ni prix ni rapports et n'avons pas noté la boutique. {n} sites utilisent le nom. Vérifié le {date}.",
+      "answer": "{name} n'affiche son catalogue qu'après une vérification chercheur demandant une date de naissance et une déclaration d'usage en recherche. Nous ne remplissons pas de formulaires : nous n'avons donc pu lire ni prix ni rapports et n'avons pas noté la boutique. {sitesUse}. Vérifié le {date}.",
       "fa1": "Les sites étaient en ligne lors de notre vérification du {date} ; le catalogue est derrière une vérification chercheur, nous n'avons donc vu ni stock ni prix.",
-      "fa2": "Nous avons trouvé {n} sites utilisant le nom. Les pages lisibles ne nous ont pas permis de confirmer lequel est l'original.",
+      "fa2": "Nous avons trouvé {sitesN} utilisant le nom. Les pages lisibles ne nous ont pas permis de confirmer lequel est l'original.",
       "fa3": "Non. Sans accès au catalogue ni aux rapports, nous n'avons pas pu la noter ; elle ne fait pas partie de notre audit de {shops} boutiques."
     },
     "unclear": {
@@ -787,6 +787,14 @@
       "Statut des marques de peptides : boutiques fermées et noms utilisés par plusieurs sites, vérifié le {date}."
     ],
     "iH1": "Statut des marques de peptides",
-    "iIntro": "{n} marques recherchées que nous n'avons pas pu noter comme des boutiques normales ou qui nécessitent une note de statut : boutiques fermées, sites affirmant poursuivre une marque et noms utilisés par plusieurs sites. Vérifié le {date}."
+    "iIntro": "{n} marques recherchées que nous n'avons pas pu noter comme des boutiques normales ou qui nécessitent une note de statut : boutiques fermées, sites affirmant poursuivre une marque et noms utilisés par plusieurs sites. Vérifié le {date}.",
+    "sitesUse": {
+      "one": "{n} site utilise le nom",
+      "other": "{n} sites utilisent le nom"
+    },
+    "sitesN": {
+      "one": "{n} site",
+      "other": "{n} sites"
+    }
   }
 }

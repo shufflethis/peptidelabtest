@@ -510,7 +510,7 @@
     "fq2": "Où trouver {c} au meilleur prix par mg ?",
     "fa2": "Prix au mg affiché le plus bas le {date} : {prices}. Calcul basé sur le prix affiché par la boutique (prix promotionnel s'il est indiqué) divisé par les mg de l'étiquette, sans code de réduction.",
     "fq3": "Quelles boutiques ont publié un rapport de laboratoire sur {c} ?",
-    "fa3": "Nous avons ouvert {nrep} rapports sur {c} de {list}. {portal} étaient vérifiés sur le portail du laboratoire",
+    "fa3": "Nous avons ouvert {nRep} sur {c} de {list}. {portal} étaient vérifiés sur le portail du laboratoire",
     "fa3fill": " ; la teneur mesurée était de {range} de l'étiquette",
     "fa3none": "Nous n'avons ouvert aucun rapport de laboratoire sur {c} dans les boutiques auditées.",
     "fq4": "Quelles tailles de flacon existent pour {c} ?",
@@ -554,7 +554,10 @@
     "intro2": "Prix affiché le plus bas le {date} : {lows}.",
     "intro3": "Pour cette taille, nous avons ouvert {reports} ; la teneur mesurée était de {range} de l'étiquette.",
     "intro3none": "Nous n'avons ouvert aucun rapport sur {c} {mg} ; les rapports des autres tailles figurent sur la page principale de {c}.",
-    "median": "médiane de {p} sur {n} offres en {cur}",
+    "median": {
+      "one": "médiane de {p} sur {n} offre en {cur}",
+      "other": "médiane de {p} sur {n} offres en {cur}"
+    },
     "fq1": "Combien coûte un flacon de {c} {mg} ?",
     "fa1": "Prix affichés le {date} : {medians}. Le moins cher : {lows}. Prix hors code de réduction et sans conversion.",
     "fq2": "Où acheter {c} {mg} pour la recherche ?",
@@ -562,7 +565,7 @@
     "fa2p": "Boutiques avec lien, par note d'audit : {list}.",
     "fq3": "Existe-t-il un rapport de laboratoire sur {c} {mg} ?",
     "fa3": "Oui. Pour cette taille, nous avons ouvert {reports} ({portal} vérifiés sur le portail du laboratoire), de {list}.",
-    "fa3none": "Nous n'avons ouvert aucun rapport sur {c} {mg}. La page de prix de {c} présente {nall} rapports sur {c} dans d'autres tailles de flacon.",
+    "fa3none": "Nous n'avons ouvert aucun rapport sur {c} {mg}. La page de prix de {c} présente {nall|# rapport sur {c} dans une autre taille de flacon|# rapports sur {c} dans d'autres tailles de flacon}.",
     "itemList": "Boutiques vendant {c} {mg}",
     "relAll": "Toutes les tailles de {c}",
     "relAllSub": "Comparatif de prix complet",
@@ -871,7 +874,7 @@
     "fa3": "{both} boutiques auditées vendent les deux : {list}.",
     "fa3none": "Aucune boutique auditée ne vend les deux.",
     "fq4": "Existe-t-il des données de laboratoire sur {a} et {b} ?",
-    "fa4": "Nous avons ouvert {rA} rapports sur {a} ({pA} vérifiés sur le portail) et {rB} rapports sur {b} ({pB} vérifiés sur le portail). Mesuré vs étiquette : {a} {fA}, {b} {fB}.",
+    "fa4": "Nous avons ouvert {rA|# rapport|# rapports} sur {a} ({pA|# vérifié|# vérifiés} sur le portail) et {rB|# rapport|# rapports} sur {b} ({pB|# vérifié|# vérifiés} sur le portail). Mesuré vs étiquette : {a} {fA}, {b} {fB}.",
     "fq5": "{a} ou {b} peuvent-ils être utilisés chez l'humain ?",
     "fa5": "Ce site ne traite pas de l'usage humain ou vétérinaire. Les boutiques listées vendent les deux comme réactifs de laboratoire réservés à la recherche, et nous comparons uniquement des offres et des rapports de laboratoire.",
     "rShops": "Boutiques qui le vendent (UE / US)",
@@ -918,9 +921,9 @@
     "h1J": "Janoshik : comment vérifier un rapport, et le laboratoire est-il fiable ?",
     "h1": "{lab} : comment vérifier un rapport de laboratoire",
     "description": [
-      "Comment vérifier un rapport de {lab} en {steps} étapes. Nous avons ouvert {n} rapports de {ns} boutiques, dont {portal} vérifiés sur le portail.",
-      "Vérifier un rapport {short} : {n} rapports de {ns} boutiques ouverts, {portal} vérifiés sur le portail. Consultez rapports et boutiques.",
-      "Vérifier un rapport {short}. {n} rapports ouverts, {portal} vérifiés sur le portail."
+      "Comment vérifier un rapport de {lab} en {steps} étapes. Nous avons ouvert {nRep} de {nsShops}, dont {portal} vérifiés sur le portail.",
+      "Vérifier un rapport {short} : {nRep} de {nsShops} ouverts, {portal} vérifiés sur le portail. Consultez rapports et boutiques.",
+      "Vérifier un rapport {short}. {nRep} ouverts, {portal} vérifiés sur le portail."
     ],
     "genericSteps": [
       "Repérez sur le rapport affiché par la boutique le numéro du rapport, la clé ou le QR code.",
@@ -1096,8 +1099,8 @@
       "{c} : fiche et rapports de labo"
     ],
     "description": [
-      "{c} : classe, CAS {cas}, masse molaire, tailles de flacon dans {n} boutiques auditées et {nrep} rapports de laboratoire ouverts. Comparez les prix.",
-      "{c} : classe, CAS, tailles de flacon dans {n} boutiques auditées et {nrep} rapports de laboratoire ouverts. Comparez les prix."
+      "{c} : classe, CAS {cas}, masse molaire, tailles de flacon dans {n|# boutique auditée|# boutiques auditées} et {nrep|# rapport de laboratoire ouvert|# rapports de laboratoire ouverts}. Comparez les prix.",
+      "{c} : classe, CAS, tailles de flacon dans {n|# boutique auditée|# boutiques auditées} et {nrep|# rapport de laboratoire ouvert|# rapports de laboratoire ouverts}. Comparez les prix."
     ],
     "h1": "{name} : fiche du composé de recherche",
     "intro1": "{name} : {cls}.",
@@ -1109,7 +1112,7 @@
     "fa2": "Les boutiques auditées vendent {c} en flacons de {list} ({n} boutiques : {eu} UE, {us} US).",
     "fa2none": "Aucune boutique auditée ne vend {c}.",
     "fq3": "Existe-t-il des rapports de laboratoire sur {c} ?",
-    "fa3": "Nous avons ouvert {nrep} rapports sur {c} de {nshops} boutiques ; {portal} étaient vérifiés sur le portail du laboratoire. Laboratoires cités : {labs}.",
+    "fa3": "Nous avons ouvert {nRep} sur {c} de {nShops} ; {portal} étaient vérifiés sur le portail du laboratoire. Laboratoires cités : {labs}.",
     "fq4": "Que doit montrer un rapport de laboratoire sur {c} ?",
     "relPair": "Comparatif de composés de recherche",
     "cta": "Comparer les prix de {c}",

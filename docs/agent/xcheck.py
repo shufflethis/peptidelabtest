@@ -25,7 +25,7 @@ for lang in ['de', 'es', 'fr', 'it']:
     for k, v in X.items():
         if k not in E or not isinstance(v, str): continue
         e = E[k]
-        ph = lambda s: Counter(re.findall(r'\{\w+\}', s))
+        ph = lambda s: Counter(re.findall(r'\{\w+\}', re.sub(r'\{(\w+)\|(?:[^{}]|\{\w+\})*\}', r'{\1}', s)))  # inline plural {n|one|other} = {n}
         if re.search(r'\.(title|description)\.\d+$', k):
             base = re.sub(r'\.\d+$', '', k)
             allowed = set().union(*[set(ph(x)) for kk, x in E.items() if re.sub(r'\.\d+$', '', kk) == base and isinstance(x, str)])

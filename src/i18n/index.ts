@@ -48,9 +48,19 @@ function get(obj: any, key: string): any {
 
 export type Vars = Record<string, string | number | null | undefined>;
 
-function fill(s: string, vars?: Vars): string {
+/**
+ * Fill {var} placeholders, then inline plurals {var|singular|plural} ('#' = the number),
+ * chosen with Intl.PluralRules for the language (fr treats 0 and 1 as singular).
+ */
+function fill(s: string, vars?: Vars, lang: Lang = 'en'): string {
   if (!vars) return s;
-  return s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] == null ? m : String(vars[k])));
+  const out = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] == null ? m : String(vars[k])));
+  return out.replace(/\{(\w+)\|([^|{}]*)\|([^|{}]*)\}/g, (m, k, one, other) => {
+    const n = Number(vars[k]);
+    if (vars[k] == null || !Number.isFinite(n)) return m;
+    const form = new Intl.PluralRules(LOCALE[lang]).select(n) === 'one' ? one : other;
+    return form.replace(/#/g, String(vars[k]));
+  });
 }
 
 /** French elision after filling placeholders: "de Ipamorelin" -> "d'Ipamorelin", "que il" -> "qu'il". */
@@ -64,7 +74,7 @@ export function t(lang: Lang, key: string, vars?: Vars): string {
   let v = get(DICTS[lang], key);
   if (typeof v !== 'string') v = get(en, key);
   if (typeof v !== 'string') return key;
-  return elide(lang, fill(v, vars));
+  return elide(lang, fill(v, vars, lang));
 }
 
 /** Plural-aware translation: entry is {one, other} (optionally zero/few/many). {n} is filled automatically. */
@@ -74,7 +84,7 @@ export function tn(lang: Lang, key: string, n: number, vars?: Vars): string {
   if (!v || typeof v !== 'object') return key;
   const cat = n === 0 && v.zero ? 'zero' : new Intl.PluralRules(LOCALE[lang]).select(n);
   const s = v[cat] ?? v.other;
-  return elide(lang, fill(s, { ...vars, n }));
+  return elide(lang, fill(s, { ...vars, n }, lang));
 }
 
 /** Array/object lookup (lists of FAQ, steps …), falling back to English. */
@@ -137,7 +147,7 @@ export function fmtDate(lang: Lang, iso: string, month: 'short' | 'long' = 'shor
 /** Title from a list of candidate templates: first that fits 60 chars (hard limit). */
 export function tt(lang: Lang, key: string, vars?: Vars): string {
   let v = tv<any>(lang, key);
-  const arr: string[] = (Array.isArray(v) ? v : [v]).filter((x) => typeof x === 'string').map((x: string) => fill(x, vars));
+  const arr: string[] = (Array.isArray(v) ? v : [v]).filter((x) => typeof x === 'string').map((x: string) => fill(x, vars, lang));
   for (const c of arr) if (c.length <= 60) return c;
   const last = arr[arr.length - 1] || key;
   return last.slice(0, 60).replace(/\s+\S*$/, '');
@@ -146,18 +156,18 @@ export function tt(lang: Lang, key: string, vars?: Vars): string {
 /** Meta description from candidate templates: first inside 130-155 chars, else first <= 155. */
 export function td(lang: Lang, key: string, vars?: Vars): string {
   let v = tv<any>(lang, key);
-  const arr: string[] = (Array.isArray(v) ? v : [v]).filter((x) => typeof x === 'string').map((x: string) => fill(x, vars));
+  const arr: string[] = (Array.isArray(v) ? v : [v]).filter((x) => typeof x === 'string').map((x: string) => fill(x, vars, lang));
   return arr.find((c) => c.length >= 130 && c.length <= 155) || arr.find((c) => c.length <= 155) || (arr[arr.length - 1] || '').slice(0, 155);
 }
 
 /** FAQ list [{q, a}] with placeholders filled (falls back to English list). */
 export function tfaq(lang: Lang, key: string, vars?: Vars): { q: string; a: string }[] {
   const arr = tv<{ q: string; a: string }[]>(lang, key) || [];
-  return arr.map((f) => ({ q: fill(f.q, vars), a: fill(f.a, vars) }));
+  return arr.map((f) => ({ q: fill(f.q, vars, lang), a: fill(f.a, vars, lang) }));
 }
 
 /** String list with placeholders filled. */
 export function tlist(lang: Lang, key: string, vars?: Vars): string[] {
   const arr = tv<string[]>(lang, key) || [];
-  return arr.map((s) => fill(s, vars));
+  return arr.map((s) => fill(s, vars, lang));
 }
