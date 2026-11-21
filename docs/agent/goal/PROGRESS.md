@@ -6,8 +6,8 @@ Owner decisions (21.11.2026): full autonomous execution approved. NO dosing cont
 |---|---|---|---|
 | M0 keyword plan | done | e6ee280 | keywords-{us,de,es,fr,it}.json + PAGES.md, DataForSEO cost ~0.65 USD |
 | M1 trust/GEO | done, live 200 | 27779d4 | 4 new page types x 5 langs (20 pages), vendor answer-first, llms answers |
-| M2 COA hub | done | 9035fd7 | 4 new pages x 5 langs + Janoshik extension + 5 PDFs |
-| M3 calculators/blends | todo | – | |
+| M2 COA hub | done, live 200 | 9035fd7, 8cf8a73 | 4 new pages x 5 langs + Janoshik extension + 5 PDFs |
+| M3 calculators/blends | done, live 200 | e1b95b2 | 19 compound calculators + 5 blend pages + 2 compare pages, x 5 langs |
 | M4 shops/brand terms | todo | – | |
 | M5 visuals/video | todo | – | |
 | M6 price index/badge | todo | – | |
@@ -20,3 +20,5 @@ Owner decisions (21.11.2026): full autonomous execution approved. NO dosing cont
 - Next: M2 COA hub (/how-to-read-a-peptide-coa/, /coa-red-flags/ = LegitCheck variant redflags + rf.* strings, /coa-checker/, janoshik extend, checklist PDF).
 - M2 done (9035fd7): views CoaGuide, CoaChecker, Checklist, LegitCheck variant redflags; src/lib/coa.ts (COA_STATS, FILL_OUTLIERS, checkerData); PDFs via `sh scripts/make-checklist-pdfs.sh` (needs a fresh build first; rebuild afterwards) -> public/downloads/peptide-coa-checklist-<lang>.pdf (1 page each). Print CSS in global.css. hreflang_check allows /downloads/, keyleak skips .co/.pdf hosts.
 - Next: M3 calculators per compound (/calculator/<slug>/), blends (needs read-only research of shop product pages -> src/data/blends.json via scripts/build-audit-data.py), compare pages semaglutide-vs-tirzepatide + 3-way.
+- M3 done (e1b95b2): /calculator/<slug>/ for 19 compounds (view CalcCompound, mg/mL + µg/µL only, measured-mg correction, size x volume table, price bars, reports); /blends/ + 4 blend pages (view Blend/BlendsIndex, lib/blends.ts). Blend data = read-only research in docs/agent/goal/research/blends.json (61 listings, 9 shop reports, each with URL) merged into audit.json by `python3 scripts/build-audit-data.py .research-backup` (r1-r4 copies in gitignored .research-backup/; the script asserts composition sums and shop slugs). Compare: semaglutide-vs-tirzepatide added to COMPOUND_PAIRS + regulatory status rows (REG_STATUS in regSources.ts), new 3-way /compare/retatrutide-vs-tirzepatide-vs-semaglutide/ (view CompareTriple). Translations in scratch m3_<lang>.json merged into x/<lang>.json, xcheck 0 problems (471 keys). Checks: build 1006 pages, verify/hreflang/keyleak green, numcheck 1 pre-existing de artefact. Live 200 on 9 sample URLs.
+- Next: M4 new shops (Primal, Modern Aminos, Biotech Peptides, NextGen, Pure Peptides, Amino Club, Glacier, EZ, Peptide Sciences status, Limitless Biotech) via read-only audit -> new r5.json for build-audit-data.py; /code-names/; /shops-by-country/<land>/.
