@@ -831,6 +831,17 @@
     "medianTitle": "{a} vs. {b}: Median-Preis pro mg ({cur})",
     "medianNote": "Median der gelisteten Preise pro mg bei den geprüften Shops. Keine Währungsumrechnung.",
     "homeDataH": "Wie viele Laborberichte sind wirklich bestätigt?",
-    "homeDataP": "Wir haben {reports} Laborberichte von {withReports} Shops geöffnet und {portal} davon im Portal des Prüflabors bestätigt. Der Rest existiert nur als Kopie auf den Seiten der Shops."
+    "homeDataP": "Wir haben {reports} Laborberichte von {withReports} Shops geöffnet und {portal} davon im Portal des Prüflabors bestätigt. Der Rest existiert nur als Kopie auf den Seiten der Shops.",
+    "videoName": "Wie viele Peptid-Laborberichte sind wirklich bestätigt?",
+    "videoDesc": "Datenvideo aus unserer Prüfung von {shops} Shops für Forschungspeptide: {opened} Laborberichte geöffnet, {portal} im Portal des Prüflabors bestätigt, Ergebnisse je Labor.",
+    "videoCaption": "Stummes Datenvideo, etwa 30 Sekunden. Bildtext auf Englisch; das vollständige Transkript auf Deutsch steht darunter.",
+    "transcriptH": "Transkript des Videos",
+    "vLab": "{lab} {p} von {o}",
+    "v1": "Prüfung öffentlicher Shop- und Laborseiten, Daten geprüft am {date}: Wie viele Peptid-Laborberichte sind wirklich bestätigt? Alle Zahlen stammen aus unserer eigenen Prüfung von {shops} Shops.",
+    "v2": "{shops} Shops geprüft, {opened} Laborberichte geöffnet, {portal} davon im Portal des Prüflabors bestätigt ({pct}). Die übrigen {copy} existieren nur als Kopie auf der Seite des Shops.",
+    "v3": "Berichte je Prüflabor, im Laborportal bestätigt von geöffnet: {labList}.",
+    "v4": "{zero} von {withRep} Shops, die Berichte veröffentlichen, hatten keinen einzigen im Laborportal bestätigten Bericht. Weitere {noRep} Shops veröffentlichten keinen Bericht, den wir öffnen konnten.",
+    "v5": "So prüfen wir einen Bericht: Bericht auf der Shop-Seite öffnen, denselben Schlüssel im Portal des Labors suchen, dann mg und Reinheit Zeile für Zeile vergleichen.",
+    "v6": "peptidelabtest.org: {shops} Shops, {opened} Laborberichte und {products} Preise pro mg verglichen. Nur für Forschungszwecke. Daten geprüft am {date}."
   }
 }

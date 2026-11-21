@@ -5,6 +5,8 @@ import ShopCard from '../components/ShopCard.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import FAQ from '../components/FAQ.astro';
 import VerifyChart from '../components/VerifyChart.astro';
+import VideoBlock from '../components/VideoBlock.astro';
+import { videoSchema, abs } from '../lib/video';
 import { verifyByLab } from '../lib/charts';
 import Disclosure from '../components/Disclosure.astro';
 import {
@@ -41,6 +43,7 @@ const faqs = tfaq(lang, 'home.faqs', V);
 const jsonLd = [
   itemListSchema(t(lang, 'home.itemList'), PARTNERS.map((p) => ({ name: p.name, url: L(`/vendors/${p.slug}/`) }))),
   faqSchema(faqs),
+  videoSchema(lang, abs(L('/'))),
 ];
 ---
 
@@ -122,7 +125,10 @@ const jsonLd = [
         <h2 class="h2">{t(lang, 'm5.homeDataH')}</h2>
         <p class="mt-3 text-slate-700">{t(lang, 'm5.homeDataP', V)}</p>
       </div>
-      <VerifyChart rows={verifyByLab(L)} title={t(lang, 'm5.verifyTitleLab')} />
+      <div class="grid gap-8 xl:grid-cols-2 xl:items-start">
+        <VideoBlock />
+        <VerifyChart rows={verifyByLab(L)} title={t(lang, 'm5.verifyTitleLab')} />
+      </div>
     </section>
 
     <section id="other-shops" class="space-y-5">

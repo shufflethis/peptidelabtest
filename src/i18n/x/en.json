@@ -831,6 +831,17 @@
     "medianTitle": "{a} vs {b}: median price per mg ({cur})",
     "medianNote": "Median of the listed prices per mg at the audited shops. No currency conversion.",
     "homeDataH": "How many lab reports are really verified?",
-    "homeDataP": "We opened {reports} lab reports from {withReports} shops and could confirm {portal} of them on the testing lab's own portal. The rest exist only as copies on the shops' sites."
+    "homeDataP": "We opened {reports} lab reports from {withReports} shops and could confirm {portal} of them on the testing lab's own portal. The rest exist only as copies on the shops' sites.",
+    "videoName": "How many peptide lab reports are really verified?",
+    "videoDesc": "Data video from our desk audit of {shops} research peptide shops: {opened} lab reports opened, {portal} confirmed on the testing lab's own portal, results by lab.",
+    "videoCaption": "Silent data video, about 30 seconds. On-screen text in English; the full transcript in your language is below.",
+    "transcriptH": "Video transcript",
+    "vLab": "{lab} {p} of {o}",
+    "v1": "Desk audit, data checked {date}: how many peptide lab reports are really verified? All figures come from our own audit of {shops} shops.",
+    "v2": "{shops} shops audited, {opened} lab reports opened, {portal} of them confirmed on the testing lab's own portal ({pct}). The other {copy} exist only as a copy on the shop's site.",
+    "v3": "Reports by testing lab, confirmed on the lab portal out of opened: {labList}.",
+    "v4": "{zero} of {withRep} shops that publish reports had not one report confirmed on the lab's portal. {noRep} more shops published no report we could open.",
+    "v5": "How we check a report: open the report on the shop site, find the same key on the lab's portal, then compare mg and purity line by line.",
+    "v6": "peptidelabtest.org: {shops} shops, {opened} lab reports and {products} prices per mg compared. Research use only. Data checked {date}."
   }
 }

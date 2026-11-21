@@ -831,6 +831,17 @@
     "medianTitle": "{a} vs {b}: prezzo mediano per mg ({cur})",
     "medianNote": "Mediana dei prezzi per mg pubblicati nei negozi verificati. Nessuna conversione di valuta.",
     "homeDataH": "Quanti referti di laboratorio sono davvero verificati?",
-    "homeDataP": "Abbiamo aperto {reports} referti di laboratorio di {withReports} negozi e ne abbiamo confermati {portal} sul portale del laboratorio. Gli altri esistono solo come copie sui siti dei negozi."
+    "homeDataP": "Abbiamo aperto {reports} referti di laboratorio di {withReports} negozi e ne abbiamo confermati {portal} sul portale del laboratorio. Gli altri esistono solo come copie sui siti dei negozi.",
+    "videoName": "Quanti referti di laboratorio sui peptidi sono davvero verificati?",
+    "videoDesc": "Video di dati dalla nostra verifica di {shops} negozi di peptidi per la ricerca: {opened} referti aperti, {portal} confermati sul portale del laboratorio, risultati per laboratorio.",
+    "videoCaption": "Video di dati senza audio, circa 30 secondi. Testo a schermo in inglese; la trascrizione completa in italiano è qui sotto.",
+    "transcriptH": "Trascrizione del video",
+    "vLab": "{lab} {p} su {o}",
+    "v1": "Verifica documentale, dati controllati il {date}: quanti referti di laboratorio sui peptidi sono davvero verificati? Tutti i numeri provengono dalla nostra verifica di {shops} negozi.",
+    "v2": "{shops} negozi verificati, {opened} referti aperti, {portal} dei quali confermati sul portale del laboratorio ({pct}). Gli altri {copy} esistono solo come copia sul sito del negozio.",
+    "v3": "Referti per laboratorio, confermati sul portale su quelli aperti: {labList}.",
+    "v4": "{zero} dei {withRep} negozi che pubblicano referti non avevano nemmeno un referto confermato sul portale del laboratorio. Altri {noRep} negozi non pubblicavano alcun referto che abbiamo potuto aprire.",
+    "v5": "Come verifichiamo un referto: apriamo il referto sul sito del negozio, cerchiamo la stessa chiave sul portale del laboratorio, poi confrontiamo mg e purezza riga per riga.",
+    "v6": "peptidelabtest.org: {shops} negozi, {opened} referti di laboratorio e {products} prezzi per mg a confronto. Solo per uso di ricerca. Dati controllati il {date}."
   }
 }

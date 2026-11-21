@@ -831,6 +831,17 @@
     "medianTitle": "{a} vs {b} : prix médian par mg ({cur})",
     "medianNote": "Médiane des prix affichés par mg dans les boutiques auditées. Sans conversion de devise.",
     "homeDataH": "Combien de rapports de laboratoire sont vraiment vérifiés ?",
-    "homeDataP": "Nous avons ouvert {reports} rapports de laboratoire de {withReports} boutiques et pu en confirmer {portal} sur le portail du laboratoire. Les autres n'existent qu'en copie sur les sites des boutiques."
+    "homeDataP": "Nous avons ouvert {reports} rapports de laboratoire de {withReports} boutiques et pu en confirmer {portal} sur le portail du laboratoire. Les autres n'existent qu'en copie sur les sites des boutiques.",
+    "videoName": "Combien de rapports de laboratoire sur les peptides sont vraiment vérifiés ?",
+    "videoDesc": "Vidéo de données issue de notre audit de {shops} boutiques de peptides de recherche : {opened} rapports ouverts, {portal} confirmés sur le portail du laboratoire, résultats par laboratoire.",
+    "videoCaption": "Vidéo de données muette, environ 30 secondes. Texte à l'écran en anglais ; la transcription complète en français se trouve ci-dessous.",
+    "transcriptH": "Transcription de la vidéo",
+    "vLab": "{lab} {p} sur {o}",
+    "v1": "Audit documentaire, données vérifiées le {date} : combien de rapports de laboratoire sur les peptides sont vraiment vérifiés ? Tous les chiffres proviennent de notre audit de {shops} boutiques.",
+    "v2": "{shops} boutiques auditées, {opened} rapports ouverts, dont {portal} confirmés sur le portail du laboratoire ({pct}). Les {copy} autres n'existent qu'en copie sur le site de la boutique.",
+    "v3": "Rapports par laboratoire, confirmés sur le portail sur le total ouvert : {labList}.",
+    "v4": "{zero} des {withRep} boutiques qui publient des rapports n'avaient aucun rapport confirmé sur le portail du laboratoire. {noRep} autres boutiques ne publiaient aucun rapport que nous ayons pu ouvrir.",
+    "v5": "Comment nous vérifions un rapport : ouvrir le rapport sur le site de la boutique, trouver la même clé sur le portail du laboratoire, puis comparer mg et pureté ligne par ligne.",
+    "v6": "peptidelabtest.org : {shops} boutiques, {opened} rapports de laboratoire et {products} prix par mg comparés. Usage de recherche uniquement. Données vérifiées le {date}."
   }
 }

@@ -33,6 +33,9 @@ const path = canonicalPath.endsWith('/') || canonicalPath.includes('.') ? canoni
 const canonicalUrl = new URL(path, SITE_URL).toString();
 const alternates = translated ? LIVE_LANGS.map((l) => ({ lang: l, href: new URL(lp(l, langPath), SITE_URL).toString() })) : [];
 const L = (p: string) => lp(lang, p);
+// M5: per-page OG image rendered by docs/agent/og.py into public/og/<path>.png ('/' -> home)
+const ogKey = (() => { const p = path.replace(/^\/+|\/+$/g, ''); return ['', 'de', 'es', 'fr', 'it'].includes(p) ? `${p ? `${p}/` : ''}home` : p; })();
+const ogImage = `${SITE_URL}/og/${translated ? ogKey : 'default'}.png`;
 
 const orgSchema = {
   '@context': 'https://schema.org',
@@ -109,7 +112,12 @@ const showSwitch = translated && LIVE_LANGS.length > 1;
     <meta property="og:locale" content={OG_LOCALE[lang]} />
     {alternates.filter((a) => a.lang !== lang).map((a) => <meta property="og:locale:alternate" content={OG_LOCALE[a.lang]} />)}
     <meta property="article:modified_time" content={CHECKED_ISO} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />

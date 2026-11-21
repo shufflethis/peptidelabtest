@@ -26,3 +26,4 @@ Allow: /
 Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 
 Sitemap: https://www.peptidelabtest.org/sitemap-index.xml
+Sitemap: https://www.peptidelabtest.org/sitemap-video.xml

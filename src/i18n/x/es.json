@@ -831,6 +831,17 @@
     "medianTitle": "{a} vs {b}: precio mediano por mg ({cur})",
     "medianNote": "Mediana de los precios por mg publicados en las tiendas auditadas. Sin conversión de moneda.",
     "homeDataH": "¿Cuántos informes de laboratorio están realmente verificados?",
-    "homeDataP": "Abrimos {reports} informes de laboratorio de {withReports} tiendas y pudimos confirmar {portal} en el portal del propio laboratorio. El resto solo existe como copia en las webs de las tiendas."
+    "homeDataP": "Abrimos {reports} informes de laboratorio de {withReports} tiendas y pudimos confirmar {portal} en el portal del propio laboratorio. El resto solo existe como copia en las webs de las tiendas.",
+    "videoName": "¿Cuántos informes de laboratorio de péptidos están realmente verificados?",
+    "videoDesc": "Vídeo de datos de nuestra auditoría de {shops} tiendas de péptidos de investigación: {opened} informes abiertos, {portal} confirmados en el portal del laboratorio, resultados por laboratorio.",
+    "videoCaption": "Vídeo de datos sin sonido, unos 30 segundos. Texto en pantalla en inglés; la transcripción completa en español está debajo.",
+    "transcriptH": "Transcripción del vídeo",
+    "vLab": "{lab} {p} de {o}",
+    "v1": "Auditoría documental, datos revisados el {date}: ¿cuántos informes de laboratorio de péptidos están realmente verificados? Todas las cifras proceden de nuestra auditoría de {shops} tiendas.",
+    "v2": "{shops} tiendas auditadas, {opened} informes abiertos, {portal} de ellos confirmados en el portal del propio laboratorio ({pct}). Los otros {copy} solo existen como copia en la web de la tienda.",
+    "v3": "Informes por laboratorio, confirmados en el portal sobre los abiertos: {labList}.",
+    "v4": "{zero} de {withRep} tiendas que publican informes no tenían ni uno confirmado en el portal del laboratorio. Otras {noRep} tiendas no publicaban ningún informe que pudiéramos abrir.",
+    "v5": "Así revisamos un informe: abrimos el informe en la web de la tienda, buscamos la misma clave en el portal del laboratorio y comparamos mg y pureza línea por línea.",
+    "v6": "peptidelabtest.org: {shops} tiendas, {opened} informes de laboratorio y {products} precios por mg comparados. Solo para investigación. Datos revisados el {date}."
   }
 }
