@@ -1,0 +1,27 @@
+---
+/** Audit score bars (0-5) for a list of shops, partner shops in accent. Order = given order (callers sort by score). */
+import BarList from './BarList.astro';
+import type { VendorProfile } from '../data/vendors';
+import { isPartner, CHECKED_ISO } from '../lib/site';
+import { t, lp, fmtDate, splitLang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props {
+  vendors: VendorProfile[];
+  title?: string;
+  highlight?: string;
+  max?: number;
+  note?: string;
+}
+const { vendors, title, highlight, max = 30, note } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const F = fmt(lang);
+const rows = vendors.slice(0, max).map((v) => ({
+  label: v.name,
+  value: v.overallScore,
+  display: t(lang, 'm5.scoreDisplay', { s: F.score(v.overallScore) }),
+  accent: highlight ? v.slug === highlight : isPartner(v.slug),
+  href: lp(lang, `/vendors/${v.slug}/`),
+}));
+const legend = highlight ? undefined : { accent: t(lang, 'c.legendPartner'), other: t(lang, 'c.legendOther') };
+---
+<BarList rows={rows} max={5} title={title || t(lang, 'm5.scoreTitle')} legend={legend} note={note || t(lang, 'm5.scoreNote', { date: fmtDate(lang, CHECKED_ISO) })} />

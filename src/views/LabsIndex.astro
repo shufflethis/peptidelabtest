@@ -1,4 +1,6 @@
 ---
+import { verifyByLab, verifyByShop, verifyTotal } from '../lib/charts';
+import VerifyChart from '../components/VerifyChart.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import FAQ from '../components/FAQ.astro';
@@ -49,6 +51,8 @@ const faqs = tfaq(lang, 'li.faqs', V);
         </tbody>
       </table>
     </div>
+{/* M5chart */}
+    <VerifyChart rows={verifyByLab(L)} title={t(lang, 'm5.verifyTitleLab')} />
     <FAQ items={faqs} />
   </div>
 </BaseLayout>

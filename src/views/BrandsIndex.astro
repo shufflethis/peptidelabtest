@@ -1,4 +1,5 @@
 ---
+import BarList from '../components/BarList.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
@@ -20,6 +21,8 @@ const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, '
         <tbody>{BRANDS.map((b) => <tr><td><a href={L(`/brands/${b.slug}/`)} class="font-semibold text-slate-900 hover:underline">{b.name}</a></td><td>{t(lang, `br.short.${b.status}`)}</td><td class="num">{b.domains.length}</td></tr>)}</tbody>
       </table>
     </div>
+{/* M5chart */}
+    <BarList title={t(lang, 'm5.brandSitesTitle')} rows={BRANDS.map((b) => ({ label: b.name, value: b.domains.length, display: t(lang, 'm5.sitesDisplay', { n: b.domains.length }), accent: true, href: L(`/brands/${b.slug}/`) }))} />
     <RelatedLinks links={BRANDS.map((b) => ({ href: L(`/brands/${b.slug}/`), label: b.name }))} />
     <Disclosure compact />
   </div>

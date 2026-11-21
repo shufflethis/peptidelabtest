@@ -1,0 +1,54 @@
+---
+/**
+ * Stacked bars per row: opened lab reports split into "confirmed on the lab portal" and "shop copy only".
+ * Pure grouping of audit.json values, built at build time. HTML labels, one inline SVG bar per row.
+ */
+import { t, splitLang } from '../i18n';
+interface Row {
+  label: string;
+  href?: string;
+  opened: number;
+  portal: number;
+  accent?: boolean;
+}
+interface Props {
+  rows: Row[];
+  title: string;
+  note?: string;
+  /** scale bars to share (100 %) instead of absolute counts */
+  share?: boolean;
+}
+const { rows, title, note, share = false } = Astro.props;
+const lang = splitLang(Astro.url.pathname).lang;
+const hi = Math.max(1, ...rows.map((r) => r.opened));
+const w = (n: number, r: Row) => (share ? (r.opened ? (n / r.opened) * 100 : 0) : (n / hi) * 100);
+---
+{rows.length > 0 && (
+  <figure class="card p-4 sm:p-6" data-chart="share">
+    <figcaption class="h3 mb-4">{title}</figcaption>
+    <ol class="space-y-2.5">
+      {rows.map((r) => (
+        <li class="grid gap-x-4 gap-y-1 sm:grid-cols-[15rem_1fr] sm:items-center">
+          <span class={`text-[0.94rem] leading-snug ${r.accent ? 'font-semibold text-slate-900' : 'text-slate-800'}`}>
+            {r.href ? <a href={r.href} class="hover:underline">{r.label}</a> : r.label}
+          </span>
+          <span class="flex items-center gap-3">
+            <svg viewBox="0 0 100 10" preserveAspectRatio="none" class="h-4 flex-1 min-w-0" aria-hidden="true">
+              <rect x="0" y="0" width="100" height="10" rx="2" fill="#f1f5f9" />
+              {r.opened > 0 && <rect class="bar-anim" x="0" y="0" width={w(r.opened, r)} height="10" rx="2" fill="#f59e0b" />}
+              {r.portal > 0 && <rect class="bar-anim" x="0" y="0" width={w(r.portal, r)} height="10" rx="2" fill="#0f766e" />}
+            </svg>
+            <span class="w-[7.5rem] shrink-0 text-right font-semibold tabular-nums text-slate-900">
+              {r.opened ? t(lang, 'm5.verifyDisplay', { portal: r.portal, opened: r.opened }) : t(lang, 'm5.noReports')}
+            </span>
+          </span>
+        </li>
+      ))}
+    </ol>
+    <div class="mt-4 text-sm text-slate-700 flex flex-wrap items-center gap-x-5 gap-y-1.5">
+      <span class="inline-flex items-center gap-1.5"><svg width="14" height="14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="#0f766e" /></svg>{t(lang, 'm5.legendPortal')}</span>
+      <span class="inline-flex items-center gap-1.5"><svg width="14" height="14" aria-hidden="true"><rect width="14" height="14" rx="3" fill="#f59e0b" /></svg>{t(lang, 'm5.legendShop')}</span>
+    </div>
+    {note && <p class="mt-2 text-sm text-slate-600">{note}</p>}
+  </figure>
+)}

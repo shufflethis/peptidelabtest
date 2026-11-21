@@ -1,4 +1,7 @@
 ---
+import { verifyByLab, verifyByShop, verifyTotal } from '../lib/charts';
+import VerifyChart from '../components/VerifyChart.astro';
+import ScoreChart from '../components/ScoreChart.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Ranking from '../components/Ranking.astro';
@@ -55,6 +58,11 @@ const related = [
   <PageHero crumbs={crumbs} title={h1} intro={intro} />
   <div class="wrap mt-12 space-y-16">
     <Ranking partners={partners} others={others} partnerTitle={t(lang, 'rank.partnerTitle', V)} otherTitle={t(lang, 'rank.otherTitle', V)} />
+{/* M5chart */}
+    <section class="grid gap-6 xl:grid-cols-2">
+      <ScoreChart vendors={all} />
+      <VerifyChart rows={verifyByShop(all, L)} title={t(lang, 'm5.verifyTitleShop')} note={t(lang, 'm5.verifyNote', { none: noReports })} />
+    </section>
     <FAQ items={faqs} />
     <RelatedLinks links={related} />
     <Disclosure />

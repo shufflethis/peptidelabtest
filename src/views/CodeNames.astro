@@ -1,4 +1,5 @@
 ---
+import BarList from '../components/BarList.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import FAQ from '../components/FAQ.astro';
@@ -44,6 +45,8 @@ const fdaSrc = Array.from(new Set(FDA_CODE_NAMES.map((f) => f.source))).map((id)
         </div>
       </section>
     ))}
+{/* M5chart */}
+    <BarList title={t(lang, 'm5.codeTitle')} rows={[...CODE_NAMES].sort((a, b) => b.shops.length - a.shops.length).map((r) => ({ label: r.code, sub: compoundShort(r.compound), value: r.shops.length, display: t(lang, 'm5.bothDisplay', { n: r.shops.length }), accent: true, href: L(`/prices/${r.compound}/`) }))} />
     <section class="prose-read" id="fda">
       <h2 class="!mt-0">{t(lang, 'cn.fdaH')}</h2>
       <p>{t(lang, 'cn.fdaP', V)}</p>

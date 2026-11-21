@@ -1,4 +1,5 @@
 ---
+import ScoreChart from '../components/ScoreChart.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Icon from '../components/Icon.astro';
@@ -56,6 +57,8 @@ const faqs = tfaq(lang, 'dc.faqs', V);
       <p>{NON_PARTNERS.map((v, i) => <>{i > 0 && ', '}<a href={L(`/vendors/${v.slug}/`)}>{v.name}</a></>)}.</p>
     </section>
     <p class="text-slate-700 max-w-[70ch]">{t(lang, 'dc.psNote')} <a href={L('/vendors/peptide-sciences/')} class="text-link">{t(lang, 'dc.psLink')}</a>.</p>
+{/* M5chart */}
+    <ScoreChart vendors={PARTNERS} title={t(lang, 'm5.partnerScoreTitle')} />
     <FAQ items={faqs} />
     <Disclosure />
   </div>

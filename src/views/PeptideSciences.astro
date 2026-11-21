@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CompareBox from '../components/CompareBox.astro';
 import FAQ from '../components/FAQ.astro';
+import ScoreChart from '../components/ScoreChart.astro';
+import { PARTNERS } from '../lib/site';
 import Disclosure from '../components/Disclosure.astro';
 import { partnersIn, CHECKED_ISO, faqSchema } from '../lib/site';
 import { t, tt, td, tfaq, tlist, lp, fmtDate, listJoin, type Lang } from '../i18n';
@@ -27,6 +29,8 @@ const faqs = tfaq(lang, 'psc.faqs', V);
     </section>
     <CompareBox shops={us} title={t(lang, 'psc.usBox')} note={t(lang, 'psc.boxNote')} />
     <CompareBox shops={eu} title={t(lang, 'psc.euBox')} note={t(lang, 'psc.boxNote')} />
+    {/* M5chart */}
+    <ScoreChart vendors={PARTNERS} title={t(lang, 'm5.brandAltTitle')} />
     <FAQ items={faqs} />
     <Disclosure />
   </div>

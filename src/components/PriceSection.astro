@@ -33,7 +33,7 @@ const head = (cur: string, n: number) => tn(lang, cur === 'EUR' || cur === 'USD'
     <section class="space-y-4" id={`prices-${cur.toLowerCase()}`}>
       <H class={H === 'h2' ? 'h2' : 'h3'}>{head(cur, shops)}</H>
       <p class="text-slate-700 max-w-[70ch]">{t(lang, 'c.sectionIntro')}</p>
-      {bars.length > 1 && <PriceBars bars={bars} currency={cur} title={t(lang, 'c.barsTitle', { cur })} />}
+      {bars.length > 0 && <PriceBars bars={bars} currency={cur} title={t(lang, 'c.barsTitle', { cur })} />}
       <PriceTable offers={xs} caption={t(lang, 'c.tableCaption', { label, cur })} />
     </section>
   );

@@ -213,6 +213,34 @@ const showSwitch = translated && LIVE_LANGS.length > 1;
         }
       });
 
+      // M5 motion: chart bars grow in (IntersectionObserver fallback where CSS scroll timelines are missing) and
+      // integer counters count up once visible. Everything is skipped under prefers-reduced-motion.
+      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!still && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          for (const en of entries) {
+            if (!en.isIntersecting) continue;
+            const el = en.target as HTMLElement;
+            io.unobserve(el);
+            if (el.hasAttribute('data-chart')) { el.classList.add('in'); continue; }
+            const end = Number(el.dataset.count);
+            if (!Number.isFinite(end) || end < 10) continue;
+            const t0 = performance.now();
+            const step = (now: number) => {
+              const p = Math.min(1, (now - t0) / 900);
+              el.textContent = String(Math.round(end * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+          }
+        }, { rootMargin: '0px 0px -8% 0px' });
+        if (!CSS.supports('animation-timeline: view()')) {
+          document.documentElement.classList.add('io');
+          document.querySelectorAll('[data-chart]').forEach((el) => io.observe(el));
+        }
+        document.querySelectorAll('[data-count]').forEach((el) => io.observe(el));
+      }
+
       // Small vanilla table sort: <table data-sortable>, buttons .sort-btn in <th>, cells may carry data-v.
       document.querySelectorAll<HTMLTableElement>('table[data-sortable]').forEach((table) => {
         const ths = Array.from(table.querySelectorAll('thead th'));

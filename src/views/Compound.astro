@@ -85,7 +85,7 @@ const related = [
       {names.length > 0 && <p class="text-slate-700 max-w-[70ch]"><strong class="text-slate-900">{t(lang, 'cmp.names')}</strong> {names.join(', ')}.</p>}
       {['EUR', 'USD'].map((cur) => {
         const bars = offers.filter((o) => o.currency === cur && o.perMg != null).map((o) => ({ label: o.vendor.name, sub: F.mg(o.product.vialMg), value: o.perMg as number, partner: o.partner }));
-        return bars.length > 2 ? <PriceBars bars={bars} currency={cur} title={t(lang, 'cmp.barsTitle', { c: short, cur })} max={10} /> : null;
+        return bars.length > 0 ? <PriceBars bars={bars} currency={cur} title={t(lang, 'cmp.barsTitle', { c: short, cur })} max={10} /> : null;
       })}
     </section>
 

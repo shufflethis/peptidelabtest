@@ -5,6 +5,8 @@ import Icon from '../components/Icon.astro';
 import ScoreRing from '../components/ScoreRing.astro';
 import SubscoreBars from '../components/SubscoreBars.astro';
 import FillChart from '../components/FillChart.astro';
+import VerifyChart from '../components/VerifyChart.astro';
+import { verifyTotal } from '../lib/charts';
 import CodeBadge from '../components/CodeBadge.astro';
 import VerifyBadge from '../components/VerifyBadge.astro';
 import CompareBox from '../components/CompareBox.astro';
@@ -247,6 +249,8 @@ const related = [
 
     <section id="lab-reports" class="space-y-5">
       <h2 class="h2">{t(lang, 'footer.reportsOpened')}</h2>
+      {/* M5chart */}
+      <VerifyChart share rows={[{ label: v.name, opened: st.opened, portal: st.portalVerified, accent: true }, { label: t(lang, 'm5.allShops', { n: VENDORS.length }), href: L('/batch-tracker/'), ...verifyTotal() }]} title={t(lang, 'm5.vendorVerifyTitle', { shop: v.name })} note={t(lang, 'm5.shareNote')} />
       {reports.length ? (
         <>
           <p class="text-slate-700 max-w-[70ch]">{tn(lang, 'v.reportsP', reports.length, V)}</p>

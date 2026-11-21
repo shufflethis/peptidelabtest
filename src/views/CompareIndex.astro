@@ -1,4 +1,5 @@
 ---
+import BarList from '../components/BarList.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import { COMPOUND_PAIRS, pairSlug, compoundShort, shopsCarrying, VENDORS_BY_SCORE, CHECKED_ISO, itemListSchema } from '../lib/site';
@@ -25,5 +26,7 @@ const V = { date: fmtDate(lang, CHECKED_ISO), n: rows.length };
         </li>
       ))}
     </ul>
+{/* M5chart */}
+    <div class="mt-10"><BarList title={t(lang, 'm5.bothTitle')} rows={rows.map((r) => ({ label: `${compoundShort(r.a)} vs ${compoundShort(r.b)}`, value: r.both, display: t(lang, 'm5.bothDisplay', { n: r.both }), accent: true, href: L(`/compare/${pairSlug(r.a, r.b)}/`) }))} /></div>
   </div>
 </BaseLayout>

@@ -1,4 +1,6 @@
 ---
+import { PARTNERS, VENDORS_BY_SCORE } from '../lib/site';
+import ScoreChart from '../components/ScoreChart.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import FAQ from '../components/FAQ.astro';
@@ -40,6 +42,8 @@ const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, '
       <h2 class="!mt-0">{t(lang, 'br.checkH')}</h2>
       <p>{t(lang, 'br.checkP')}</p>
     </section>
+{/* M5chart */}
+    {v ? <ScoreChart vendors={VENDORS_BY_SCORE} highlight={v.slug} title={t(lang, 'm5.brandRankTitle', { name: v.name })} /> : <ScoreChart vendors={PARTNERS} title={t(lang, 'm5.brandAltTitle')} />}
     <FAQ items={faqs} />
     <RelatedLinks links={[
       ...(v ? [{ href: L(`/vendors/${v.slug}/`), label: t(lang, 'br.reviewLink', V) }] : []),

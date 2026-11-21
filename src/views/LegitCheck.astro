@@ -1,4 +1,5 @@
 ---
+import FillChart from '../components/FillChart.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import FAQ from '../components/FAQ.astro';
@@ -102,6 +103,8 @@ const related = variant === 'legit'
           <h2 class="h2">{t(lang, 'rf.outH')}</h2>
           <p class="mt-2 text-slate-700">{t(lang, 'rf.outP', V)}</p>
         </div>
+{/* M5chart */}
+        <FillChart rows={FILL_OUTLIERS.slice(0, 12).map((r) => ({ label: `${r.vendor.name}: ${compoundShort(r.report.compound)} ${F.mg(r.report.labelMg)}`, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }))} title={t(lang, 'm5.outTitle', { n: Math.min(12, FILL_OUTLIERS.length) })} />
         <div class="table-wrap">
           <table class="data-table">
             <thead><tr><th scope="col">{t(lang, 'rf.colShop')}</th><th scope="col">{t(lang, 'rf.colProduct')}</th><th scope="col" class="num">{t(lang, 'rf.colMeasured')}</th><th scope="col" class="num">{t(lang, 'rf.colPct')}</th><th scope="col">{t(lang, 'rf.colLab')}</th><th scope="col">{t(lang, 'rf.colPortal')}</th></tr></thead>

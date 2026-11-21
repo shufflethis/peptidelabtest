@@ -1,4 +1,5 @@
 ---
+import BarList from '../components/BarList.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
@@ -39,6 +40,8 @@ const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, '
       </table>
     </div>
     <p class="text-slate-700 max-w-[75ch]">{t(lang, 'bl.only')}</p>
+{/* M5chart */}
+    <BarList title={t(lang, 'm5.blendTitle')} rows={rows.map((r) => ({ label: r.b.name, value: r.offers, display: t(lang, 'm5.blendDisplay', { o: r.offers, n: r.n }), accent: true, href: L(`/blends/${r.b.slug}/`) }))} />
     <RelatedLinks links={rows.map((r) => ({ href: L(`/blends/${r.b.slug}/`), label: t(lang, `bl.h.${r.b.key}`), sub: t(lang, 'bl.iSub', { n: r.n, offers: r.offers }) }))} />
     <Disclosure compact />
   </div>

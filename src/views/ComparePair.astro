@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import FillChart from '../components/FillChart.astro';
+import BarList from '../components/BarList.astro';
 import FAQ from '../components/FAQ.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import Disclosure from '../components/Disclosure.astro';
@@ -140,6 +141,13 @@ const related = [
       </section>
     )}
 
+    {/* M5chart */}
+    <section class="grid gap-6 lg:grid-cols-2">
+      {(['USD', 'EUR'] as const).map((cur) => {
+        const rs = [A, B].map((S) => ({ S, m: cur === 'EUR' ? S.medEur : S.medUsd })).filter((x) => x.m != null);
+        return rs.length ? <BarList title={t(lang, 'm5.medianTitle', { a: A.short, b: B.short, cur })} rows={rs.map((x) => ({ label: x.S.short, value: x.m!, display: F.perMg(x.m, cur), accent: true, href: L(`/prices/${x.S.slug}/`) }))} note={t(lang, 'm5.medianNote')} /> : null;
+      })}
+    </section>
     <section class="space-y-6">
       <h2 class="h2">{t(lang, 'cp.labH')}</h2>
       <div class="grid gap-6 xl:grid-cols-2">

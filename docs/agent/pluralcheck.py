@@ -14,7 +14,8 @@ for f in glob.glob(f'{DIST}/**/index.html', recursive=True):
     s = open(f, encoding='utf-8').read()
     s = re.sub(r'<script.*?</script>|<style.*?</style>', '', s, flags=re.S)
     metas = ' '.join(re.findall(r'<meta [^>]*content="([^"]*)"', s))
-    v = html.unescape(re.sub(r'<[^>]+>', ' ', s)) + ' ' + html.unescape(metas)
+    s = re.sub(r'</?(?:td|th|tr|li|p|div|h[1-6]|figcaption|dt|dd|section|ol|ul|table|button|summary)\b[^>]*>', ' \u00a6 ', s)  # block boundary
+    v = html.unescape(re.sub(r'<[^>]+>', ' ', s)) + ' \u00a6 ' + html.unescape(metas)
     v = re.sub(r'\s+', ' ', v)
     for m in RX.finditer(v):
         k = m.group(0)

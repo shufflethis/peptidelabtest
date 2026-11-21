@@ -4,6 +4,8 @@ import Icon from '../components/Icon.astro';
 import ShopCard from '../components/ShopCard.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import FAQ from '../components/FAQ.astro';
+import VerifyChart from '../components/VerifyChart.astro';
+import { verifyByLab } from '../lib/charts';
 import Disclosure from '../components/Disclosure.astro';
 import {
   PARTNERS, NON_PARTNERS, partnersIn, PRICE_COMPOUNDS, compoundShort, shopsCarrying, TOTALS, CHECKED_ISO, YEAR,
@@ -112,6 +114,15 @@ const jsonLd = [
         ))}
       </ol>
       <a href={L('/methodology/')} class="text-link inline-flex items-center gap-1 min-h-[44px]">{t(lang, 'home.readMethod')} <Icon name="arrow-right" class="w-4 h-4" /></a>
+    </section>
+
+    {/* M5chart */}
+    <section id="data" class="space-y-6">
+      <div class="max-w-[70ch]">
+        <h2 class="h2">{t(lang, 'm5.homeDataH')}</h2>
+        <p class="mt-3 text-slate-700">{t(lang, 'm5.homeDataP', V)}</p>
+      </div>
+      <VerifyChart rows={verifyByLab(L)} title={t(lang, 'm5.verifyTitleLab')} />
     </section>
 
     <section id="other-shops" class="space-y-5">

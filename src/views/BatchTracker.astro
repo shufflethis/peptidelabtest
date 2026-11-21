@@ -1,4 +1,6 @@
 ---
+import { verifyByLab, verifyByShop, verifyTotal } from '../lib/charts';
+import VerifyChart from '../components/VerifyChart.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Icon from '../components/Icon.astro';
@@ -88,6 +90,8 @@ const faqs = tfaq(lang, 'bt.faqs', V);
       </div>
       <p class="text-sm text-slate-600">{t(lang, 'bt.note')}</p>
     </section>
+{/* M5chart */}
+    <VerifyChart rows={verifyByLab(L)} title={t(lang, 'm5.verifyTitleLab')} />
     <FAQ items={faqs} />
     <RelatedLinks links={[
       ...LABS_IN_DATA.slice(0, 4).map((l) => ({ href: L(`/labs/${l.slug}/`), label: t(lang, 'footer.labGuide', { name: l.name }), sub: t(lang, 'v.relLabSub') })),
