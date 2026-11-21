@@ -236,5 +236,196 @@
     "relLegal": "Is it legal to buy peptides online?",
     "relCompare": "Tirzepatide vs retatrutide",
     "relLaw": "United States country note"
+  },
+  "rf": {
+    "title": [
+      "Peptide COA Red Flags: {n} Real Cases We Found",
+      "Peptide COA Red Flags: Real Cases"
+    ],
+    "description": [
+      "Peptide COA red flags: {n} real cases from our audit, from cropped or edited reports to batch mismatches, plus {out} reports outside 90–110 % of label.",
+      "Peptide COA red flags: {n} real cases from our audit of {shops} shops, with sources."
+    ],
+    "crumb": "COA red flags",
+    "h1": "Peptide COA red flags: what we found in real reports",
+    "eyebrow": "Lab reports",
+    "intro": "A certificate of analysis is only useful if it is complete, matches the product and can be confirmed by the lab. Below are {n} red flags we found while opening {reports} reports from {shops} shops on {date}, each with the shop and the source, plus every report whose measured content was outside 90–110 % of the label.",
+    "outH": "Reports with measured content outside 90–110 % of the label",
+    "outP": "{out} of {withFill} reports with a measured amount were outside this band ({low} below, {high} above). Above-label results are common and not a quality problem in themselves, but they show that the label alone tells you little.",
+    "colShop": "Shop",
+    "colProduct": "Compound and label",
+    "colMeasured": "Measured",
+    "colPct": "% of label",
+    "colLab": "Lab",
+    "colPortal": "On lab portal",
+    "fq1": "What are red flags on a peptide COA?",
+    "fa1": "A cropped or edited image, no task number or verification key, a missing or mismatched batch number, a sample name or size that does not match the product, a shop copy that differs from the lab's copy, and a report that cannot be found on the lab's portal.",
+    "fq2": "How can I tell if a COA is fake?",
+    "fa2": "Enter the task number and key on the lab's own website and compare every line with the shop's copy. Of the {reports} reports we opened, {portal} could be confirmed this way.",
+    "fq3": "Is a higher measured amount than the label a red flag?",
+    "fa3": "Not necessarily. {high} of {withFill} measured reports we opened were above 110 % of the label and {low} were below 90 %. Large swings in both directions show the label alone is not a reliable guide.",
+    "fq4": "Can a real COA belong to a different batch?",
+    "fa4": "Yes. A genuine report for another batch or vial size says nothing about the vial on sale. Check that sample name, size and batch match the product page.",
+    "relRead": "How to read a peptide COA",
+    "relChecker": "COA checker"
+  },
+  "coa": {
+    "title": [
+      "How to Read a Peptide COA: Annotated Example",
+      "How to Read a Peptide COA"
+    ],
+    "description": [
+      "How to read a peptide COA: an annotated sample report, what each field means, purity vs measured mg, and the red flags we found in {reports} real reports.",
+      "How to read a peptide COA: annotated sample report, field by field, with red flags from {reports} reports."
+    ],
+    "crumb": "How to read a COA",
+    "h1": "How to read a peptide COA (certificate of analysis)",
+    "eyebrow": "Lab reports",
+    "intro": "A peptide COA is a lab report for one sample. Read it in this order: who tested it (lab, task number, key), what was tested (sample name, batch, client), how (method, for example HPLC) and what came out (purity and measured mg). Then confirm the same report on the lab's own portal: {portal} of the {reports} reports we opened could be confirmed that way.",
+    "figTitle": "Sample report, annotated",
+    "figNote": "Our own drawing with placeholder values. It is not a copy of any real report.",
+    "fieldsH": "What each field means",
+    "f1": {
+      "h": "Laboratory",
+      "p": "The lab that ran the test. Look it up yourself instead of following a link on the shop's site."
+    },
+    "f2": {
+      "h": "Task or report number",
+      "p": "The lab's own ID for this test. You need it to find the report on the lab's portal."
+    },
+    "f3": {
+      "h": "Verification key or QR code",
+      "p": "A second code that unlocks the lab's record. Without it many portals cannot show the report."
+    },
+    "f4": {
+      "h": "Client",
+      "p": "Who sent the sample. It may be the shop, a manufacturer or a third party; a blank client field is worth asking about."
+    },
+    "f5": {
+      "h": "Sample name and label amount",
+      "p": "What the sample was declared as, for example a 10 mg vial. It must match the product you are looking at."
+    },
+    "f6": {
+      "h": "Batch or lot",
+      "p": "Links the report to one production lot. Blank, \"N/A\" or \"Unknown\" means it cannot be tied to any vial on sale."
+    },
+    "f7": {
+      "h": "Test date",
+      "p": "When the sample was analysed. An old date may belong to an earlier lot."
+    },
+    "f8": {
+      "h": "Method",
+      "p": "How the result was measured. HPLC gives purity and amount; mass spectrometry (MS) confirms identity."
+    },
+    "f9": {
+      "h": "Purity",
+      "p": "The share of the target peptide in the sample by HPLC. In the reports we opened it ranged from {pmin} to {pmax}."
+    },
+    "f10": {
+      "h": "Measured content",
+      "p": "How many mg the lab found in the vial, compared with the label. {within} of {withFill} measured reports we opened were within 90–110 % of the label."
+    },
+    "pvH": "Purity and content are two different numbers",
+    "pvP": "Purity says how clean the peptide is; content says how much of it is in the vial. A vial can be 99 % pure and still hold less or more than the label states. Price per mg only makes sense with the measured content in mind.",
+    "distTitle": "Measured content vs label in the reports we opened",
+    "bLow": "Below 90 % of label",
+    "bMid": "90–110 % of label",
+    "bHigh": "Above 110 % of label",
+    "panelsH": "What a COA usually does not cover",
+    "panelsP": "Most reports test purity and amount only. Of {shops} shops, {endo} list endotoxin testing, {ster} sterility testing, {metals} heavy metals and {ms} an LC-MS identity test.",
+    "redH": "Red flags",
+    "redP": "Cropped images, missing batch numbers, shop copies that differ from the lab's copy and reports that cannot be found on the portal. We list real cases with sources on a separate page.",
+    "redLink": "See the COA red flags",
+    "checkLink": "Check a report number in our data",
+    "pdfLink": "Download the checklist (PDF)",
+    "fq1": "What is a COA for peptides?",
+    "fa1": "A certificate of analysis is a lab report for one sample of a peptide: identity, purity and usually the measured amount per vial, with the lab's task number and a verification key.",
+    "fq2": "What does HPLC purity mean on a COA?",
+    "fa2": "It is the share of the target peptide among everything the HPLC detected in the sample, given in percent. In the {reports} reports we opened it ranged from {pmin} to {pmax}.",
+    "fq3": "How do I verify a peptide COA?",
+    "fa3": "Type the lab's address into your browser yourself, open its verification page and enter the task number and key from the report. Compare compound, amount, purity, batch and date with the shop's copy.",
+    "fq4": "Why does the measured mg differ from the label?",
+    "fa4": "Filling is never exact, and labs measure what is actually in the vial. Of {withFill} measured reports we opened, {low} were below 90 % of the label and {high} above 110 %.",
+    "fq5": "Does a COA show endotoxin or sterility?",
+    "fa5": "Only if those tests were ordered. Most reports we opened cover purity and amount only; {endo} of {shops} shops list endotoxin testing."
+  },
+  "chk": {
+    "title": [
+      "Peptide COA Checker: Is a Report in Our Data?",
+      "Peptide COA Checker"
+    ],
+    "description": [
+      "Peptide COA checker: enter a shop and report number to see if we opened it and whether the lab's portal confirmed it. {reports} reports from {shops} shops.",
+      "Peptide COA checker: check a report number against the {reports} reports we opened, with lab steps."
+    ],
+    "crumb": "COA checker",
+    "h1": "Peptide COA checker",
+    "eyebrow": "Tool",
+    "intro": "Enter a report number or verification key to see whether it is one of the {reports} lab reports we opened from {shops} shops, and whether we could confirm it on the lab's own portal. The check runs in your browser against our published data.",
+    "shopLabel": "Shop",
+    "anyShop": "Any shop",
+    "idLabel": "Report number or key",
+    "idHint": "For example a task number or unique key printed on the report. At least 4 characters.",
+    "button": "Check report",
+    "short": "Please enter at least 4 characters.",
+    "okPortal": "In our data: confirmed on the lab's portal.",
+    "okShop": "In our data: shop copy only, not confirmed on the lab's portal.",
+    "none": "Not in our data.",
+    "noneP": "That does not mean the report is fake: we only opened {reports} reports. Check it on the lab's own portal using the steps below.",
+    "found": "Matches",
+    "colCompound": "Compound",
+    "colLabel": "Label",
+    "colMeasured": "Measured",
+    "colPurity": "Purity",
+    "colLab": "Lab",
+    "colDate": "Test date",
+    "colId": "Report ID",
+    "colUrl": "Report file (plain text)",
+    "labsH": "How to verify a report at each lab",
+    "labsP": "Always type the lab's address yourself. Our lab guides explain each portal.",
+    "colVerify": "Where to verify",
+    "guide": "Lab guide",
+    "noPortal": "No public verification portal named",
+    "aboutH": "What this checker can and cannot do",
+    "aboutP": "It compares your input with the reports we opened on {date}. A match shows what we recorded; it says nothing about later batches. A miss only means we did not open that report.",
+    "fq1": "How do I check if a peptide COA is real?",
+    "fa1": "Enter the task number and key on the lab's own verification page and compare every line with the shop's copy. Our checker also shows whether we opened and confirmed that report.",
+    "fq2": "What does \"shop copy only\" mean?",
+    "fa2": "We opened the report on the shop's site but could not confirm the same report on the lab's portal. Of {reports} reports we opened, {portal} were confirmed.",
+    "fq3": "Is my data sent anywhere?",
+    "fa3": "No. The check runs in your browser against a data file built into this page."
+  },
+  "jx": {
+    "legitH": "Is Janoshik legit?",
+    "legitP": "Janoshik is a working testing lab with a public verification database: in our audit, {n} reports from {ns} shops named Janoshik, and {portal} of them could be opened in its verification system. Janoshik names its management on its About page (Owner & CEO, CSO, Managing Director & CFO) but the pages we read did not state an address or an accreditation.",
+    "costH": "Janoshik testing cost",
+    "costP": "Janoshik sells tests one by one in its online shop. Its price-list pages we read (for example the BPC-157 analysis) show the method, result format and minimum sample (one whole unopened vial) but no price we could record. It states that it accepts card payments (Visa, Mastercard, American Express) and crypto (BTC, USDT, USDC).",
+    "publicH": "Public results",
+    "publicP": "Besides the verification form, Janoshik runs a public results database (public.janoshik.com). A report you cannot find there may simply be private; use the task number and key instead."
+  },
+  "cl": {
+    "title": [
+      "Peptide COA Checklist (Free PDF, No Sign-up)",
+      "Peptide COA Checklist (Free PDF)"
+    ],
+    "description": [
+      "Peptide COA checklist as a free PDF, no e-mail needed: {n} checks before you trust a lab report, the fields to read and where to verify. From our audit of {shops} shops.",
+      "Peptide COA checklist as a free PDF: {n} checks before you trust a lab report. No sign-up."
+    ],
+    "crumb": "COA checklist",
+    "h1": "Peptide COA checklist",
+    "eyebrow": "Free PDF",
+    "intro": "{n} checks to run before you trust a peptide lab report, on one page. Download it as a PDF in your language; no e-mail address needed.",
+    "download": "Download PDF",
+    "otherLangs": "Other languages",
+    "fieldsH": "Fields to read on every report",
+    "fields": "Laboratory · task number · verification key · client · sample name and label amount · batch · test date · method · purity · measured mg",
+    "footer": "From the PeptideLabIndex audit of {shops} shops, checked {date}. Research use only. peptidelabtest.org"
+  },
+  "lab": {
+    "titleJ": [
+      "Janoshik: Is It Legit? How to Verify a Report",
+      "Janoshik: How to Verify a Report"
+    ]
   }
 }

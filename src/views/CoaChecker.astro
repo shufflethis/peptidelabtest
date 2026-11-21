@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { TOTALS, CHECKED_ISO, YEAR, faqSchema, LABS_IN_DATA, compoundShort, VENDORS_BY_SCORE } from '../lib/site';
+import { checkerData } from '../lib/coa';
+import { getLabGuide } from '../data/labGuides';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { locLabGuide } from '../i18n/data';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const data = checkerData().map((r) => ({
+  ...r,
+  cn: compoundShort(r.c), lf: F.mg(r.l), mf: F.mg(r.m), pf: r.p != null ? F.rawPct(r.p) : F.na, df: r.d ? fmtDate(lang, r.d) : F.na,
+  rv: L(`/vendors/${r.s}/`), lu: r.lk ? L(`/labs/${r.lk}/`) : null,
+}));
+const shops = VENDORS_BY_SCORE.filter((v) => v.coaStats.opened > 0).map((v) => ({ slug: v.slug, name: v.name })).sort((a, b) => a.name.localeCompare(b.name));
+const V = { reports: TOTALS.reportsOpened, shops: TOTALS.shops, portal: TOTALS.portalVerified, date, year: YEAR };
+const labs = LABS_IN_DATA.map((l) => ({ l, g: locLabGuide(lang, getLabGuide(l.slug)) }));
+const S = {
+  short: t(lang, 'chk.short'), okPortal: t(lang, 'chk.okPortal'), okShop: t(lang, 'chk.okShop'), none: t(lang, 'chk.none'), noneP: t(lang, 'chk.noneP', V),
+  found: t(lang, 'chk.found'), cols: ['colCompound', 'colLabel', 'colMeasured', 'colPurity', 'colLab', 'colDate', 'colId'].map((k) => t(lang, `chk.${k}`)), url: t(lang, 'chk.colUrl'),
+  review: t(lang, 'xc.readReview', { shop: '{shop}' }),
+};
+const faqs = [1, 2, 3].map((i) => ({ q: t(lang, `chk.fq${i}`), a: t(lang, `chk.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'chk.crumb'), url: L('/coa-checker/') }];
+const app = { '@context': 'https://schema.org', '@type': 'WebApplication', name: t(lang, 'chk.h1'), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, url: `https://www.peptidelabtest.org${L('/coa-checker/')}` };
+const related = [
+  { href: L('/how-to-read-a-peptide-coa/'), label: t(lang, 'coa.crumb') },
+  { href: L('/coa-red-flags/'), label: t(lang, 'rf.crumb') },
+  { href: L('/batch-tracker/'), label: t(lang, 'tv.relReports') },
+  { href: L('/labs/'), label: t(lang, 'lg.relLabs') },
+  { href: L('/coa-checklist/'), label: t(lang, 'cl.crumb') },
+];
+---
+<BaseLayout lang={lang} title={tt(lang, 'chk.title', V)} description={td(lang, 'chk.description', V)} crumbs={crumbs} jsonLd={[faqSchema(faqs), app]}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'chk.h1')} eyebrow={t(lang, 'chk.eyebrow')} intro={t(lang, 'chk.intro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="card p-5 sm:p-6 max-w-4xl">
+      <form id="coa-form" class="grid gap-4 sm:grid-cols-[1fr_1.4fr_auto] sm:items-end" novalidate>
+        <label class="grid gap-1.5"><span class="font-semibold text-slate-900">{t(lang, 'chk.shopLabel')}</span>
+          <select id="coa-shop" class="min-h-[44px] rounded-xl border border-slate-300 bg-white px-3 text-slate-900">
+            <option value="">{t(lang, 'chk.anyShop')}</option>
+            {shops.map((s) => <option value={s.slug}>{s.name}</option>)}
+          </select>
+        </label>
+        <label class="grid gap-1.5"><span class="font-semibold text-slate-900">{t(lang, 'chk.idLabel')}</span>
+          <input id="coa-id" type="text" autocomplete="off" spellcheck="false" class="min-h-[44px] rounded-xl border border-slate-300 bg-white px-3 text-slate-900" />
+        </label>
+        <button type="submit" class="btn-primary">{t(lang, 'chk.button')}</button>
+      </form>
+      <p class="mt-2 text-sm text-slate-600">{t(lang, 'chk.idHint')}</p>
+      <div id="coa-out" class="mt-5" aria-live="polite"></div>
+    </section>
+
+    <section class="space-y-4" id="labs">
+      <div class="max-w-[70ch]"><h2 class="h2">{t(lang, 'chk.labsH')}</h2><p class="mt-2 text-slate-700">{t(lang, 'chk.labsP')}</p></div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">{t(lang, 'chk.colLab')}</th><th scope="col">{t(lang, 'chk.colVerify')}</th></tr></thead>
+          <tbody>
+            {labs.map(({ l, g }) => (
+              <tr><td class="min-w-[10rem]"><a href={L(`/labs/${l.slug}/`)} class="font-semibold text-slate-900 hover:underline">{l.name}</a></td><td>{g?.verifyWhere || t(lang, 'chk.noPortal')}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="prose-read"><h2 class="!mt-0">{t(lang, 'chk.aboutH')}</h2><p>{t(lang, 'chk.aboutP', V)}</p></section>
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+  <script type="application/json" id="coa-data" set:html={JSON.stringify({ d: data, s: S })} />
+  <script is:inline>
+  (function () {
+    var el = document.getElementById('coa-data'); if (!el) return;
+    var J = JSON.parse(el.textContent), D = J.d, S = J.s;
+    var out = document.getElementById('coa-out');
+    var norm = function (x) { return String(x || '').toUpperCase().replace(/[^A-Z0-9]/g, ''); };
+    var esc = function (x) { return String(x == null ? '' : x).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    document.getElementById('coa-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var shop = document.getElementById('coa-shop').value, q = norm(document.getElementById('coa-id').value);
+      if (q.length < 4) { out.innerHTML = '<p class="text-slate-800">' + esc(S.short) + '</p>'; return; }
+      var hits = D.filter(function (r) { return (!shop || r.s === shop) && (norm(r.id).indexOf(q) >= 0 || norm(r.u).indexOf(q) >= 0); });
+      if (!hits.length) { out.innerHTML = '<div class="rounded-xl border border-slate-300 bg-slate-50 p-4"><p class="font-semibold text-slate-900">' + esc(S.none) + '</p><p class="mt-1 text-slate-700">' + esc(S.noneP) + ' <a class="text-link" href="#labs">&darr;</a></p></div>'; return; }
+      var anyPortal = hits.some(function (r) { return r.v; });
+      var head = anyPortal ? S.okPortal : S.okShop;
+      var cls = anyPortal ? 'border-teal-300 bg-teal-50' : 'border-amber-300 bg-amber-50';
+      var rows = hits.map(function (r) {
+        return '<li class="py-3 border-t border-slate-200"><p class="font-semibold text-slate-900"><a class="hover:underline" href="' + esc(r.rv) + '">' + esc(r.n) + '</a> · ' + esc(r.cn) + ' ' + esc(r.lf) + ' · ' + esc(r.v ? S.okPortal : S.okShop) + '</p>' +
+          '<p class="text-[0.95rem] text-slate-700">' + esc(S.cols[2]) + ': ' + esc(r.mf) + ' · ' + esc(S.cols[3]) + ': ' + esc(r.pf) + ' · ' + esc(S.cols[4]) + ': ' + (r.lu ? '<a class="text-link" href="' + esc(r.lu) + '">' + esc(r.lab) + '</a>' : esc(r.lab)) + ' · ' + esc(S.cols[5]) + ': ' + esc(r.df) + '</p>' +
+          '<p class="text-sm text-slate-700">' + esc(S.cols[6]) + ': <code>' + esc(r.id) + '</code></p><p class="text-sm text-slate-600">' + esc(S.url) + ':</p><p class="mono-url">' + esc(r.u) + '</p></li>';
+      }).join('');
+      out.innerHTML = '<div class="rounded-xl border ' + cls + ' p-4"><p class="font-semibold text-slate-900">' + esc(head) + '</p><p class="text-sm text-slate-700">' + esc(S.found) + ': ' + hits.length + '</p><ul class="mt-2">' + rows + '</ul></div>';
+    });
+  })();
+  </script>
+</BaseLayout>

@@ -59,7 +59,7 @@ for p, s in pages.items():
             if u.netloc and 'peptidelabtest.org' not in u.netloc:
                 continue
             path = u.path
-            if not path.startswith('/') or path.startswith('/llms') or path.startswith('/data/peptide-shop') or path.startswith('/favicon'):
+            if not path.startswith('/') or path.startswith('/llms') or path.startswith('/data/peptide-shop') or path.startswith('/favicon') or path.startswith('/downloads/'):
                 continue
             if 'hreflang=' in m.group(0):
                 continue  # language switcher links

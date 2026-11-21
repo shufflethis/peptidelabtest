@@ -1,6 +1,7 @@
 /** Question -> page map for llms.txt / llms-full.txt (GEO). Extended per milestone; answers are built from data. */
 import { PARTNERS, TOTALS, CHECKED_ISO } from './site';
 import { CASES } from './cases';
+import { COA_STATS } from './coa';
 
 export function geoAnswers(): { q: string; path: string; a: string }[] {
   const [p1, p2, p3] = PARTNERS;
@@ -20,6 +21,18 @@ export function geoAnswers(): { q: string; path: string; a: string }[] {
     {
       q: 'Can I buy retatrutide in the USA?', path: '/can-you-buy-retatrutide-in-the-usa/',
       a: 'Not as an approved medicine: retatrutide is an investigational Eli Lilly molecule (Phase 3), not approved by FDA or any regulator; FDA says it cannot be compounded; Lilly says consumer sales are unlawful.',
+    },
+    {
+      q: 'How to read a peptide COA?', path: '/how-to-read-a-peptide-coa/',
+      a: `Read lab, task number, verification key, client, sample name and label amount, batch, test date, method, purity and measured mg; then confirm the report on the lab's own portal. Of ${COA_STATS.withFill} measured reports we opened, ${COA_STATS.within} were within 90-110% of label, ${COA_STATS.low} below, ${COA_STATS.high} above.`,
+    },
+    {
+      q: 'Is this peptide COA real? (report number check)', path: '/coa-checker/',
+      a: `Client-side checker against the ${COA_STATS.reports} reports we opened: in our data and portal-confirmed / shop copy only / not in our data, plus where to verify at each lab.`,
+    },
+    {
+      q: 'Is Janoshik legit? How to verify a Janoshik report?', path: '/labs/janoshik/',
+      a: 'Janoshik runs a public verification form (task number + unique key) and a public results database; no address or accreditation stated on the pages we read; test prices not shown on its price-list pages.',
     },
   ];
 }

@@ -13,11 +13,16 @@ import deX from './x/de.json';
 import esX from './x/es.json';
 import frX from './x/fr.json';
 import itX from './x/it.json';
-const en: any = { ...en0, ...enX };
-const de: any = { ...de0, ...deX };
-const es: any = { ...es0, ...esX };
-const fr: any = { ...fr0, ...frX };
-const it: any = { ...it0, ...itX };
+function deep(a: any, b: any): any {
+  const o: any = { ...a };
+  for (const [k, v] of Object.entries(b || {})) o[k] = v && typeof v === 'object' && !Array.isArray(v) && a?.[k] && typeof a[k] === 'object' && !Array.isArray(a[k]) ? deep(a[k], v) : v;
+  return o;
+}
+const en: any = deep(en0, enX);
+const de: any = deep(de0, deX);
+const es: any = deep(es0, esX);
+const fr: any = deep(fr0, frX);
+const it: any = deep(it0, itX);
 
 export const LANGS = ['en', 'de', 'es', 'fr', 'it'] as const;
 export type Lang = (typeof LANGS)[number];

@@ -124,7 +124,7 @@ const showSwitch = translated && LIVE_LANGS.length > 1;
   <body class="min-h-screen flex flex-col bg-white font-sans text-slate-700 antialiased" data-copied={t(lang, 'layout.copied')}>
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-3 focus:py-2 focus:rounded-lg">{t(lang, 'layout.skip')}</a>
 
-    <div class="bg-slate-900 text-slate-100 text-sm py-2 px-4 text-center leading-snug">
+    <div class="bg-slate-900 text-slate-100 text-sm py-2 px-4 text-center leading-snug no-print">
       {t(lang, 'layout.topPre')} <strong class="text-white font-semibold">{date}</strong>. {t(lang, 'layout.topPost')}
       <a href={L('/methodology/')} class="tap ml-1 underline underline-offset-2 text-teal-200 hover:text-white">{t(lang, 'layout.howWeScore')}</a>
     </div>

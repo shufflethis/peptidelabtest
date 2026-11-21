@@ -215,3 +215,23 @@
 }
 .check-num { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 9999px; background: #ccfbf1; color: #134e4a; font-weight: 800; flex-shrink: 0; }
 .answer-box { max-width: 72ch; border-left: 4px solid #0f766e; background: #f0fdfa; border-radius: 0.75rem; padding: 1rem 1.25rem; color: #0f172a; font-size: 1.06rem; line-height: 1.65; }
+.check-box { width: 1.4rem; height: 1.4rem; border: 2px solid #0f766e; border-radius: 0.3rem; flex-shrink: 0; margin-top: 0.15rem; }
+.print-only { display: none; }
+@media print {
+  header, footer, nav, .no-print, [data-sticky-cta] { display: none !important; }
+  .print-only { display: block; margin-bottom: 1rem; }
+  .print-sheet { box-shadow: none !important; border: 0 !important; max-width: none !important; }
+  .hero-bg { display: none !important; }
+  .print-sheet { padding: 0 !important; }
+  main, .wrap { margin-top: 0 !important; }
+  body { font-size: 10pt; }
+  .print-sheet { font-size: 10pt; line-height: 1.45; }
+  .print-sheet .text-\[1.05rem\] { font-size: 10.5pt !important; }
+  .print-sheet ol > li + li { margin-top: 0.55rem !important; }
+  main { min-height: 0 !important; }
+  body:has(.print-sheet) > *:not(main) { display: none !important; }
+  body:has(.print-sheet) .wrap > *:not(.print-sheet) { display: none !important; }
+  html, body { height: auto !important; }
+  body { min-height: 0 !important; }
+}
+@page { margin: 12mm 14mm; }

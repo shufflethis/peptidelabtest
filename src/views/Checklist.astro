@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Icon from '../components/Icon.astro';
+import { TOTALS, CHECKED_ISO, YEAR } from '../lib/site';
+import { CASES } from '../lib/cases';
+import { t, tt, td, lp, fmtDate, LIVE_LANGS, LANG_NAME, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const V = { n: CASES.length, shops: TOTALS.shops, date, year: YEAR };
+const pdf = (l: Lang) => `/downloads/peptide-coa-checklist-${l}.pdf`;
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'cl.crumb'), url: L('/coa-checklist/') }];
+const related = [
+  { href: L('/how-to-read-a-peptide-coa/'), label: t(lang, 'coa.crumb') },
+  { href: L('/coa-red-flags/'), label: t(lang, 'rf.crumb') },
+  { href: L('/coa-checker/'), label: t(lang, 'chk.crumb') },
+  { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'tv.relLegit') },
+];
+---
+<BaseLayout lang={lang} title={tt(lang, 'cl.title', V)} description={td(lang, 'cl.description', V)} crumbs={crumbs}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'cl.h1')} eyebrow={t(lang, 'cl.eyebrow')} intro={t(lang, 'cl.intro', V)}>
+    <div class="mt-6 flex flex-wrap items-center gap-3 no-print">
+      <a href={pdf(lang)} class="btn-primary" download><Icon name="download" class="w-4 h-4" />{t(lang, 'cl.download')} ({LANG_NAME[lang]})</a>
+    </div>
+    <p class="mt-3 text-sm text-slate-700 no-print">{t(lang, 'cl.otherLangs')}: {LIVE_LANGS.filter((l) => l !== lang).map((l, i) => <>{i > 0 && ' · '}<a href={pdf(l)} hreflang={l} class="text-link" download>{LANG_NAME[l]} (PDF)</a></>)}</p>
+  </PageHero>
+  <div class="wrap mt-10 space-y-10">
+    <section class="card p-5 sm:p-7 max-w-4xl print-sheet">
+      <p class="print-only font-bold text-xl text-slate-900">{t(lang, 'cl.h1')}</p>
+      <ol class="space-y-4">
+        {CASES.map((c, i) => (
+          <li class="flex items-start gap-3">
+            <span class="check-box" aria-hidden="true"></span>
+            <div><p class="font-bold text-slate-900 text-[1.05rem]">{i + 1}. {t(lang, `cases.${c.key}.h`)}</p><p class="mt-0.5 text-slate-700">{t(lang, `cases.${c.key}.how`)}</p></div>
+          </li>
+        ))}
+      </ol>
+      <h2 class="h3 mt-7">{t(lang, 'cl.fieldsH')}</h2>
+      <p class="mt-2 text-slate-700">{t(lang, 'cl.fields')}</p>
+      <p class="mt-6 text-sm text-slate-600">{t(lang, 'cl.footer', V)}</p>
+    </section>
+    <div class="no-print"><RelatedLinks links={related} /></div>
+  </div>
+</BaseLayout>

@@ -45,9 +45,9 @@ const legit = [
   t(lang, 'lab.lPortal', V),
 ].join(' ');
 const faqs = [
+  ...(isJ ? [{ q: t(lang, 'jx.legitH'), a: t(lang, 'jx.legitP', V) }, { q: t(lang, 'jx.costH'), a: t(lang, 'jx.costP') }] : []),
   { q: isJ ? t(lang, 'lab.fq1J') : t(lang, 'lab.fq1', V), a: steps.join(' ') },
-  { q: t(lang, 'lab.fq2', V), a: `${t(lang, 'lab.fa2')} ${legit}` },
-  { q: t(lang, 'lab.fq3', V), a: g?.pricing || t(lang, 'lab.fa3none') },
+  ...(isJ ? [] : [{ q: t(lang, 'lab.fq2', V), a: `${t(lang, 'lab.fa2')} ${legit}` }, { q: t(lang, 'lab.fq3', V), a: g?.pricing || t(lang, 'lab.fa3none') }]),
   { q: t(lang, 'lab.fq4', V), a: t(lang, 'lab.fa4', { list: listJoin(lang, shops.map((s) => s.v.name)) }) },
 ];
 const fillRows = reps.map((r) => ({ label: `${r.vendor.name} · ${compoundShort(r.report.compound)}`, sub: r.report.lab, labelMg: r.report.labelMg, measuredMg: r.report.measuredMg, verified: r.report.verifiable }));
@@ -84,11 +84,25 @@ const related = [
       </dl>
     </section>
 
+    {isJ && (
+      <section class="space-y-4" id="is-janoshik-legit">
+        <h2 class="h2">{t(lang, 'jx.legitH')}</h2>
+        <p class="answer-box" data-answer>{t(lang, 'jx.legitP', V)}</p>
+        <div class="prose-read">
+          <h2>{t(lang, 'jx.costH')}</h2>
+          <p>{t(lang, 'jx.costP')}</p>
+          <h2>{t(lang, 'jx.publicH')}</h2>
+          <p>{t(lang, 'jx.publicP')}</p>
+          <p><a href={L('/coa-checker/')}>{t(lang, 'chk.h1')}</a> · <a href={L('/how-to-read-a-peptide-coa/')}>{t(lang, 'coa.crumb')}</a> · <a href={L('/coa-red-flags/')}>{t(lang, 'rf.crumb')}</a></p>
+        </div>
+      </section>
+    )}
+
     <section class="prose-read">
       <h2>{t(lang, 'lab.howH', V)}</h2>
       <ol>{steps.map((s) => <li>{s}</li>)}</ol>
       <p>{t(lang, 'lab.plain')}</p>
-      <h2>{t(lang, 'lab.fq2', V)}</h2>
+      <h2>{isJ ? t(lang, 'lab.kAccr') : t(lang, 'lab.fq2', V)}</h2>
       <p>{legit}</p>
       <p>{t(lang, 'lab.noSamples')}</p>
     </section>

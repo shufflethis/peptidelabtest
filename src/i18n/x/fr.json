@@ -29,8 +29,14 @@
     "howTo": "Comment nous vérifions une boutique :"
   },
   "tv": {
-    "title": ["Fournisseurs de peptides fiables {year} : avis labo", "Fournisseurs de peptides fiables {year}"],
-    "description": ["Fournisseurs de peptides fiables {year} : {partners} boutiques avec lien classées par vérification sur le portail du labo, données d'entreprise et mg mesurés.", "Fournisseurs de peptides fiables {year} : classés par vérification labo, données d'entreprise et mg mesurés. {shops} audits."],
+    "title": [
+      "Fournisseurs de peptides fiables {year} : avis labo",
+      "Fournisseurs de peptides fiables {year}"
+    ],
+    "description": [
+      "Fournisseurs de peptides fiables {year} : {partners} boutiques avec lien classées par vérification sur le portail du labo, données d'entreprise et mg mesurés.",
+      "Fournisseurs de peptides fiables {year} : classés par vérification labo, données d'entreprise et mg mesurés. {shops} audits."
+    ],
     "crumb": "Fournisseurs fiables",
     "h1": "Les fournisseurs de peptides les plus fiables en {year}",
     "eyebrow": "Classement de confiance",
@@ -80,8 +86,14 @@
     "relMethod": "Notre méthode"
   },
   "lg": {
-    "title": ["Fournisseur de peptides fiable ? {n} points à vérifier", "Peptides : fournisseur fiable ? {n} points"],
-    "description": ["Comment savoir si un fournisseur de peptides est fiable : {n} points avec des cas réels de notre audit de {shops} boutiques, des rapports recadrés aux sociétés absentes.", "Comment savoir si un fournisseur de peptides est fiable : {n} points avec des cas réels de {shops} boutiques."],
+    "title": [
+      "Fournisseur de peptides fiable ? {n} points à vérifier",
+      "Peptides : fournisseur fiable ? {n} points"
+    ],
+    "description": [
+      "Comment savoir si un fournisseur de peptides est fiable : {n} points avec des cas réels de notre audit de {shops} boutiques, des rapports recadrés aux sociétés absentes.",
+      "Comment savoir si un fournisseur de peptides est fiable : {n} points avec des cas réels de {shops} boutiques."
+    ],
     "crumb": "Fournisseur fiable ?",
     "h1": "Comment savoir si un fournisseur de peptides est fiable",
     "eyebrow": "Liste de contrôle",
@@ -106,18 +118,56 @@
     "relLabs": "Tous les guides des laboratoires"
   },
   "cases": {
-    "portal": { "h": "Le rapport s'ouvre-t-il sur le portail du laboratoire ?", "why": "Une boutique peut publier n'importe quel fichier. Seul le site du laboratoire montre ce que le laboratoire a réellement émis.", "how": "Saisissez le numéro ou la clé du rapport sur la page de vérification du laboratoire et comparez chaque ligne." },
-    "cropped": { "h": "Le rapport est-il complet, sans recadrage ?", "why": "Une image recadrée masque le numéro de tâche, le client et le lot ; personne ne peut alors la rattacher à un produit.", "how": "Cherchez la page entière : nom du laboratoire, numéro de tâche, client, lot, date d'analyse et clé de vérification." },
-    "copy": { "h": "La copie de la boutique correspond-elle à celle du laboratoire ?", "why": "S'il manque au PDF de la boutique une ligne présente sur la copie du laboratoire, le fichier a été modifié ou remplacé.", "how": "Téléchargez les deux copies du même numéro de rapport et comparez-les ligne par ligne." },
-    "batch": { "h": "Le lot et le nom de l'échantillon correspondent-ils au produit ?", "why": "Un rapport pour une autre taille ou un autre lot ne dit rien du flacon que vous recevriez.", "how": "Comparez le nom de l'échantillon, la taille et le lot du rapport avec la page produit." },
-    "drive": { "h": "Où le rapport est-il hébergé ?", "why": "Les fichiers sur Google Drive ou sur le serveur de la boutique peuvent changer à tout moment et ne prouvent pas leur origine.", "how": "Préférez les rapports ouvrables sur le portail du laboratoire aux fichiers dans des dossiers cloud." },
-    "nobatch": { "h": "Le rapport porte-t-il un numéro de lot ?", "why": "Sans numéro de lot, un rapport ne peut être rattaché à aucun lot en vente.", "how": "Vérifiez que le champ lot est rempli et non vide, « N/A » ou « Unknown »." },
-    "entity": { "h": "Y a-t-il une entreprise derrière la boutique ?", "why": "Sans nom d'entreprise ni adresse, vous ne savez pas qui est responsable.", "how": "Cherchez raison sociale, adresse et numéro d'immatriculation dans les CGV, les mentions légales ou la page contact." },
-    "onrequest": { "h": "Les rapports sont-ils publics ou seulement sur demande ?", "why": "Des résultats que vous ne pouvez pas lire ne peuvent pas être vérifiés.", "how": "Considérez « COA sur demande » comme aucun rapport public tant que vous ne pouvez pas l'ouvrir sur le portail du laboratoire." }
+    "portal": {
+      "h": "Le rapport s'ouvre-t-il sur le portail du laboratoire ?",
+      "why": "Une boutique peut publier n'importe quel fichier. Seul le site du laboratoire montre ce que le laboratoire a réellement émis.",
+      "how": "Saisissez le numéro ou la clé du rapport sur la page de vérification du laboratoire et comparez chaque ligne."
+    },
+    "cropped": {
+      "h": "Le rapport est-il complet, sans recadrage ?",
+      "why": "Une image recadrée masque le numéro de tâche, le client et le lot ; personne ne peut alors la rattacher à un produit.",
+      "how": "Cherchez la page entière : nom du laboratoire, numéro de tâche, client, lot, date d'analyse et clé de vérification."
+    },
+    "copy": {
+      "h": "La copie de la boutique correspond-elle à celle du laboratoire ?",
+      "why": "S'il manque au PDF de la boutique une ligne présente sur la copie du laboratoire, le fichier a été modifié ou remplacé.",
+      "how": "Téléchargez les deux copies du même numéro de rapport et comparez-les ligne par ligne."
+    },
+    "batch": {
+      "h": "Le lot et le nom de l'échantillon correspondent-ils au produit ?",
+      "why": "Un rapport pour une autre taille ou un autre lot ne dit rien du flacon que vous recevriez.",
+      "how": "Comparez le nom de l'échantillon, la taille et le lot du rapport avec la page produit."
+    },
+    "drive": {
+      "h": "Où le rapport est-il hébergé ?",
+      "why": "Les fichiers sur Google Drive ou sur le serveur de la boutique peuvent changer à tout moment et ne prouvent pas leur origine.",
+      "how": "Préférez les rapports ouvrables sur le portail du laboratoire aux fichiers dans des dossiers cloud."
+    },
+    "nobatch": {
+      "h": "Le rapport porte-t-il un numéro de lot ?",
+      "why": "Sans numéro de lot, un rapport ne peut être rattaché à aucun lot en vente.",
+      "how": "Vérifiez que le champ lot est rempli et non vide, « N/A » ou « Unknown »."
+    },
+    "entity": {
+      "h": "Y a-t-il une entreprise derrière la boutique ?",
+      "why": "Sans nom d'entreprise ni adresse, vous ne savez pas qui est responsable.",
+      "how": "Cherchez raison sociale, adresse et numéro d'immatriculation dans les CGV, les mentions légales ou la page contact."
+    },
+    "onrequest": {
+      "h": "Les rapports sont-ils publics ou seulement sur demande ?",
+      "why": "Des résultats que vous ne pouvez pas lire ne peuvent pas être vérifiés.",
+      "how": "Considérez « COA sur demande » comme aucun rapport public tant que vous ne pouvez pas l'ouvrir sur le portail du laboratoire."
+    }
   },
   "leg": {
-    "title": ["Les peptides sont-ils légaux ? Achat en ligne {year}", "Peptides légaux ? Achat en ligne ({year})"],
-    "description": ["Acheter des peptides en ligne est-il légal ? Ce que dit la FDA des peptides « recherche uniquement » et les règles sur les médicaments de {n} pays, avec sources.", "Acheter des peptides en ligne est-il légal ? Ce que dit la FDA et les règles de {n} pays, avec sources."],
+    "title": [
+      "Les peptides sont-ils légaux ? Achat en ligne {year}",
+      "Peptides légaux ? Achat en ligne ({year})"
+    ],
+    "description": [
+      "Acheter des peptides en ligne est-il légal ? Ce que dit la FDA des peptides « recherche uniquement » et les règles sur les médicaments de {n} pays, avec sources.",
+      "Acheter des peptides en ligne est-il légal ? Ce que dit la FDA et les règles de {n} pays, avec sources."
+    ],
     "crumb": "Est-ce légal ?",
     "h1": "Est-il légal d'acheter des peptides en ligne ?",
     "eyebrow": "Statut légal",
@@ -146,8 +196,14 @@
     "relLegit": "Un fournisseur est-il fiable ?"
   },
   "ret": {
-    "title": ["Rétatrutide légal aux États-Unis ? Statut {year}", "Rétatrutide aux États-Unis : statut légal"],
-    "description": ["Peut-on acheter du rétatrutide aux États-Unis ? Pas comme médicament approuvé. Ce que disent la FDA et Eli Lilly, lettres d'avertissement et noms de code, sources.", "Peut-on acheter du rétatrutide aux États-Unis ? Ce que disent la FDA et Eli Lilly, avec sources et dates."],
+    "title": [
+      "Rétatrutide légal aux États-Unis ? Statut {year}",
+      "Rétatrutide aux États-Unis : statut légal"
+    ],
+    "description": [
+      "Peut-on acheter du rétatrutide aux États-Unis ? Pas comme médicament approuvé. Ce que disent la FDA et Eli Lilly, lettres d'avertissement et noms de code, sources.",
+      "Peut-on acheter du rétatrutide aux États-Unis ? Ce que disent la FDA et Eli Lilly, avec sources et dates."
+    ],
     "crumb": "Rétatrutide aux États-Unis",
     "h1": "Peut-on acheter du rétatrutide aux États-Unis ?",
     "eyebrow": "Statut légal",
@@ -180,5 +236,196 @@
     "relLegal": "Les peptides sont-ils légaux ?",
     "relCompare": "Tirzépatide vs rétatrutide",
     "relLaw": "Fiche pays : États-Unis"
+  },
+  "lab": {
+    "titleJ": [
+      "Janoshik : fiable ? Comment vérifier un rapport",
+      "Janoshik : vérifier un rapport"
+    ]
+  },
+  "rf": {
+    "title": [
+      "Signaux d'alerte d'un COA de peptides : {n} cas réels",
+      "Signaux d'alerte d'un COA de peptides"
+    ],
+    "description": [
+      "Signaux d'alerte des certificats d'analyse de peptides : {n} cas réels, des rapports recadrés aux lots discordants, plus {out} rapports hors de 90–110 % de l'étiquette.",
+      "Signaux d'alerte des certificats d'analyse de peptides : {n} cas réels de {shops} boutiques, avec sources."
+    ],
+    "crumb": "Signaux d'alerte COA",
+    "h1": "Signaux d'alerte d'un COA de peptides : ce que nous avons trouvé",
+    "eyebrow": "Rapports de laboratoire",
+    "intro": "Un certificat d'analyse n'est utile que s'il est complet, correspond au produit et peut être confirmé par le laboratoire. Voici les {n} signaux d'alerte relevés en ouvrant {reports} rapports de {shops} boutiques le {date}, chacun avec la boutique et la source, ainsi que tous les rapports dont le contenu mesuré sortait de 90–110 % de l'étiquette.",
+    "outH": "Rapports dont le contenu mesuré sort de 90–110 % de l'étiquette",
+    "outP": "{out} des {withFill} rapports avec quantité mesurée sortaient de cette fourchette ({low} en dessous, {high} au-dessus). Les valeurs supérieures à l'étiquette sont fréquentes et ne sont pas en soi un problème de qualité, mais elles montrent que l'étiquette seule en dit peu.",
+    "colShop": "Boutique",
+    "colProduct": "Composé et étiquette",
+    "colMeasured": "Mesuré",
+    "colPct": "% de l'étiquette",
+    "colLab": "Laboratoire",
+    "colPortal": "Sur le portail",
+    "fq1": "Quels sont les signaux d'alerte d'un COA de peptides ?",
+    "fa1": "Une image recadrée ou retouchée, aucun numéro de tâche ni clé de vérification, un lot absent ou discordant, un nom d'échantillon ou une taille qui ne correspond pas au produit, une copie de la boutique différente de celle du laboratoire et un rapport introuvable sur le portail du laboratoire.",
+    "fq2": "Comment savoir si un COA est faux ?",
+    "fa2": "Saisissez le numéro de tâche et la clé sur le site du laboratoire et comparez chaque ligne avec la copie de la boutique. Sur les {reports} rapports ouverts, {portal} ont pu être confirmés ainsi.",
+    "fq3": "Une quantité mesurée supérieure à l'étiquette est-elle un signal d'alerte ?",
+    "fa3": "Pas forcément. {high} des {withFill} rapports mesurés dépassaient 110 % de l'étiquette et {low} étaient sous 90 %. De grands écarts dans les deux sens montrent que l'étiquette seule n'est pas un repère fiable.",
+    "fq4": "Un vrai COA peut-il concerner un autre lot ?",
+    "fa4": "Oui. Un vrai rapport pour un autre lot ou une autre taille de flacon ne dit rien du flacon en vente. Vérifiez que le nom de l'échantillon, la taille et le lot correspondent à la page produit.",
+    "relRead": "Lire un COA de peptides",
+    "relChecker": "Vérificateur de COA"
+  },
+  "coa": {
+    "title": [
+      "Lire un certificat d'analyse de peptides (COA)",
+      "Lire un COA de peptides"
+    ],
+    "description": [
+      "Lire un certificat d'analyse de peptides : un rapport type annoté, la signification de chaque champ, pureté et mg mesurés, et les signaux d'alerte de {reports} rapports.",
+      "Lire un COA de peptides : rapport type champ par champ, avec signaux d'alerte de {reports} rapports."
+    ],
+    "crumb": "Lire un COA",
+    "h1": "Comment lire un certificat d'analyse (COA) de peptides",
+    "eyebrow": "Rapports de laboratoire",
+    "intro": "Un COA de peptides est un rapport de laboratoire pour un échantillon. Lisez-le dans cet ordre : qui l'a analysé (laboratoire, numéro de tâche, clé), ce qui a été analysé (nom de l'échantillon, lot, client), comment (méthode, par exemple HPLC) et le résultat (pureté et mg mesurés). Confirmez ensuite le même rapport sur le portail du laboratoire : {portal} des {reports} rapports ouverts ont pu l'être.",
+    "figTitle": "Rapport type annoté",
+    "figNote": "Dessin original avec des valeurs fictives ; ce n'est la copie d'aucun rapport réel.",
+    "fieldsH": "Ce que signifie chaque champ",
+    "f1": {
+      "h": "Laboratoire",
+      "p": "Le laboratoire qui a fait l'analyse. Cherchez-le vous-même plutôt que de suivre un lien de la boutique."
+    },
+    "f2": {
+      "h": "Numéro de tâche ou de rapport",
+      "p": "L'identifiant propre du laboratoire pour cette analyse. Il sert à retrouver le rapport sur le portail."
+    },
+    "f3": {
+      "h": "Clé de vérification ou QR code",
+      "p": "Un second code qui donne accès à la fiche du laboratoire. Sans lui, beaucoup de portails n'affichent pas le rapport."
+    },
+    "f4": {
+      "h": "Client",
+      "p": "Qui a envoyé l'échantillon : la boutique, un fabricant ou un tiers. Un champ client vide mérite une question."
+    },
+    "f5": {
+      "h": "Nom de l'échantillon et quantité étiquetée",
+      "p": "Sous quel nom l'échantillon a été déclaré, par exemple un flacon de 10 mg. Il doit correspondre au produit que vous regardez."
+    },
+    "f6": {
+      "h": "Lot",
+      "p": "Relie le rapport à un lot de production. Vide, « N/A » ou « Unknown » : impossible de le rattacher à un flacon en vente."
+    },
+    "f7": {
+      "h": "Date d'analyse",
+      "p": "Quand l'échantillon a été analysé. Une date ancienne peut concerner un lot antérieur."
+    },
+    "f8": {
+      "h": "Méthode",
+      "p": "Comment le résultat a été mesuré. L'HPLC donne pureté et quantité ; la spectrométrie de masse (MS) confirme l'identité."
+    },
+    "f9": {
+      "h": "Pureté",
+      "p": "La part du peptide recherché dans l'échantillon selon l'HPLC. Dans les rapports ouverts, elle allait de {pmin} à {pmax}."
+    },
+    "f10": {
+      "h": "Contenu mesuré",
+      "p": "Combien de mg le laboratoire a trouvé dans le flacon, par rapport à l'étiquette. {within} des {withFill} rapports mesurés étaient entre 90 et 110 % de l'étiquette."
+    },
+    "pvH": "Pureté et contenu sont deux chiffres différents",
+    "pvP": "La pureté indique à quel point le peptide est propre ; le contenu, combien il y en a dans le flacon. Un flacon peut être pur à 99 % et contenir moins ou plus que l'étiquette. Le prix par mg n'a de sens qu'en tenant compte du contenu mesuré.",
+    "distTitle": "Contenu mesuré par rapport à l'étiquette dans les rapports ouverts",
+    "bLow": "Moins de 90 % de l'étiquette",
+    "bMid": "90–110 % de l'étiquette",
+    "bHigh": "Plus de 110 % de l'étiquette",
+    "panelsH": "Ce qu'un COA ne couvre généralement pas",
+    "panelsP": "La plupart des rapports ne testent que la pureté et la quantité. Sur {shops} boutiques, {endo} indiquent des tests d'endotoxines, {ster} de stérilité, {metals} de métaux lourds et {ms} un test d'identité par LC-MS.",
+    "redH": "Signaux d'alerte",
+    "redP": "Images recadrées, numéros de lot absents, copies de boutique différentes de celles du laboratoire et rapports introuvables sur le portail. Nous présentons des cas réels avec sources sur une page à part.",
+    "redLink": "Voir les signaux d'alerte",
+    "checkLink": "Vérifier un numéro de rapport",
+    "pdfLink": "Télécharger la liste (PDF)",
+    "fq1": "Qu'est-ce qu'un COA pour les peptides ?",
+    "fa1": "Un certificat d'analyse est un rapport de laboratoire pour un échantillon de peptide : identité, pureté et généralement la quantité mesurée par flacon, avec le numéro de tâche et une clé de vérification du laboratoire.",
+    "fq2": "Que signifie la pureté HPLC sur un COA ?",
+    "fa2": "C'est la part du peptide recherché parmi tout ce que l'HPLC a détecté dans l'échantillon, en pourcentage. Dans les {reports} rapports ouverts, elle allait de {pmin} à {pmax}.",
+    "fq3": "Comment vérifier un COA de peptides ?",
+    "fa3": "Saisissez vous-même l'adresse du laboratoire, ouvrez sa page de vérification et entrez le numéro de tâche et la clé du rapport. Comparez composé, quantité, pureté, lot et date avec la copie de la boutique.",
+    "fq4": "Pourquoi les mg mesurés diffèrent-ils de l'étiquette ?",
+    "fa4": "Le remplissage n'est jamais exact, et les laboratoires mesurent ce qui se trouve réellement dans le flacon. Sur {withFill} rapports mesurés, {low} étaient sous 90 % de l'étiquette et {high} au-dessus de 110 %.",
+    "fq5": "Un COA indique-t-il les endotoxines ou la stérilité ?",
+    "fa5": "Seulement si ces tests ont été commandés. La plupart des rapports ouverts ne couvrent que la pureté et la quantité ; {endo} des {shops} boutiques indiquent des tests d'endotoxines."
+  },
+  "chk": {
+    "title": [
+      "Vérificateur de COA : le rapport est-il dans nos données ?",
+      "Vérificateur de COA de peptides"
+    ],
+    "description": [
+      "Vérificateur de COA de peptides : saisissez boutique et numéro de rapport pour savoir si nous l'avons ouvert et si le portail du labo l'a confirmé. {reports} rapports.",
+      "Vérificateur de COA : comparez un numéro de rapport aux {reports} rapports ouverts, avec étapes par laboratoire."
+    ],
+    "crumb": "Vérificateur de COA",
+    "h1": "Vérificateur de COA de peptides",
+    "eyebrow": "Outil",
+    "intro": "Saisissez un numéro de rapport ou une clé de vérification pour savoir s'il fait partie des {reports} rapports de laboratoire ouverts chez {shops} boutiques, et si nous avons pu le confirmer sur le portail du laboratoire. La vérification se fait dans votre navigateur avec nos données publiées.",
+    "shopLabel": "Boutique",
+    "anyShop": "Toutes les boutiques",
+    "idLabel": "Numéro de rapport ou clé",
+    "idHint": "Par exemple un numéro de tâche ou une clé imprimés sur le rapport. Au moins 4 caractères.",
+    "button": "Vérifier le rapport",
+    "short": "Saisissez au moins 4 caractères.",
+    "okPortal": "Dans nos données : confirmé sur le portail du laboratoire.",
+    "okShop": "Dans nos données : copie de la boutique seulement, non confirmée sur le portail du laboratoire.",
+    "none": "Absent de nos données.",
+    "noneP": "Cela ne veut pas dire que le rapport est faux : nous n'avons ouvert que {reports} rapports. Vérifiez-le sur le portail du laboratoire avec les étapes ci-dessous.",
+    "found": "Correspondances",
+    "colCompound": "Composé",
+    "colLabel": "Étiquette",
+    "colMeasured": "Mesuré",
+    "colPurity": "Pureté",
+    "colLab": "Laboratoire",
+    "colDate": "Date d'analyse",
+    "colId": "Numéro de rapport",
+    "colUrl": "Fichier du rapport (texte)",
+    "labsH": "Comment vérifier un rapport dans chaque laboratoire",
+    "labsP": "Saisissez toujours vous-même l'adresse du laboratoire. Nos guides expliquent chaque portail.",
+    "colVerify": "Où vérifier",
+    "guide": "Guide du laboratoire",
+    "noPortal": "Aucun portail public de vérification indiqué",
+    "aboutH": "Ce que ce vérificateur peut et ne peut pas faire",
+    "aboutP": "Il compare votre saisie aux rapports ouverts le {date}. Une correspondance montre ce que nous avons relevé ; elle ne dit rien des lots suivants. Une absence signifie seulement que nous n'avons pas ouvert ce rapport.",
+    "fq1": "Comment vérifier qu'un COA de peptides est authentique ?",
+    "fa1": "Saisissez le numéro de tâche et la clé sur la page de vérification du laboratoire et comparez chaque ligne avec la copie de la boutique. Notre vérificateur indique aussi si nous avons ouvert et confirmé ce rapport.",
+    "fq2": "Que signifie « copie de la boutique seulement » ?",
+    "fa2": "Nous avons ouvert le rapport sur le site de la boutique, sans pouvoir confirmer le même rapport sur le portail du laboratoire. Sur {reports} rapports ouverts, {portal} ont été confirmés.",
+    "fq3": "Mes données sont-elles envoyées quelque part ?",
+    "fa3": "Non. La vérification se fait dans votre navigateur avec un fichier de données intégré à cette page."
+  },
+  "jx": {
+    "legitH": "Janoshik est-il fiable ?",
+    "legitP": "Janoshik est un laboratoire en activité avec une base de vérification publique : dans notre audit, {n} rapports de {ns} boutiques citaient Janoshik, et {portal} ont pu être ouverts dans son système de vérification. Janoshik nomme sa direction sur sa page About (Owner & CEO, CSO, Managing Director & CFO), mais les pages lues n'indiquaient ni adresse ni accréditation.",
+    "costH": "Combien coûte une analyse Janoshik",
+    "costP": "Janoshik vend ses analyses à l'unité dans sa boutique en ligne. Les pages de tarifs lues (par exemple l'analyse BPC-157) indiquent la méthode, le format du résultat et l'échantillon minimum (un flacon entier non ouvert), mais aucun prix que nous ayons pu relever. Il indique accepter les cartes (Visa, Mastercard, American Express) et les cryptomonnaies (BTC, USDT, USDC).",
+    "publicH": "Résultats publics",
+    "publicP": "En plus du formulaire de vérification, Janoshik tient une base de résultats publics (public.janoshik.com). Un rapport absent de cette base peut simplement être privé ; utilisez alors le numéro de tâche et la clé."
+  },
+  "cl": {
+    "title": [
+      "Liste de contrôle COA de peptides (PDF gratuit)",
+      "Liste de contrôle COA (PDF gratuit)"
+    ],
+    "description": [
+      "Liste de contrôle des COA de peptides en PDF gratuit, sans e-mail : {n} points à vérifier avant de faire confiance à un rapport. Issue de notre audit de {shops} boutiques.",
+      "Liste de contrôle des COA de peptides en PDF gratuit : {n} points, sans inscription."
+    ],
+    "crumb": "Liste de contrôle COA",
+    "h1": "Liste de contrôle des COA de peptides",
+    "eyebrow": "PDF gratuit",
+    "intro": "{n} points à vérifier avant de faire confiance à un rapport de laboratoire, sur une page. Téléchargez-la en PDF dans votre langue ; aucune adresse e-mail requise.",
+    "download": "Télécharger le PDF",
+    "otherLangs": "Autres langues",
+    "fieldsH": "Les champs à lire sur chaque rapport",
+    "fields": "Laboratoire · numéro de tâche · clé de vérification · client · nom de l'échantillon et quantité étiquetée · lot · date d'analyse · méthode · pureté · mg mesurés",
+    "footer": "Issu de l'audit PeptideLabIndex de {shops} boutiques, vérifié le {date}. Réservé à la recherche. peptidelabtest.org"
   }
 }

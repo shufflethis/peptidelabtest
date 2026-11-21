@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import BarList from '../components/BarList.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import { TOTALS, CHECKED_ISO, YEAR, faqSchema } from '../lib/site';
+import { COA_STATS, shopsWithPanel } from '../lib/coa';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const S = COA_STATS;
+const V = {
+  date, year: YEAR, shops: TOTALS.shops, reports: S.reports, portal: TOTALS.portalVerified, withFill: S.withFill, within: S.within, low: S.low, high: S.high,
+  pmin: S.purityMin != null ? F.rawPct(S.purityMin) : F.na, pmax: S.purityMax != null ? F.rawPct(S.purityMax) : F.na,
+  endo: shopsWithPanel('Endotoxin'), ster: shopsWithPanel('Sterility'), metals: shopsWithPanel('Heavy metals'), ms: shopsWithPanel('LC-MS identity'),
+};
+const fields = Array.from({ length: 10 }, (_, i) => ({ n: i + 1, h: t(lang, `coa.f${i + 1}.h`), p: t(lang, `coa.f${i + 1}.p`, V) }));
+// SVG mock report: placeholder values only (no real or invented measurements).
+const rows: { y: number; label: string; value: string; n: number }[] = [
+  { y: 118, label: fields[1].h, value: '#000000', n: 2 },
+  { y: 146, label: fields[3].h, value: '— — —', n: 4 },
+  { y: 174, label: fields[4].h, value: 'XXXX-000 10 mg', n: 5 },
+  { y: 202, label: fields[5].h, value: 'XX-0000', n: 6 },
+  { y: 230, label: fields[6].h, value: 'DD.MM.YYYY', n: 7 },
+  { y: 258, label: fields[7].h, value: 'HPLC', n: 8 },
+];
+const results = [
+  { y: 330, label: fields[8].h, value: '99.xx %', n: 9 },
+  { y: 362, label: fields[9].h, value: 'xx.xx mg', n: 10 },
+];
+const faqs = [1, 2, 3, 4, 5].map((i) => ({ q: t(lang, `coa.fq${i}`), a: t(lang, `coa.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'coa.crumb'), url: L('/how-to-read-a-peptide-coa/') }];
+const dist = [
+  { label: t(lang, 'coa.bLow'), value: S.low, display: String(S.low) },
+  { label: t(lang, 'coa.bMid'), value: S.within, display: String(S.within), accent: true },
+  { label: t(lang, 'coa.bHigh'), value: S.high, display: String(S.high) },
+];
+const related = [
+  { href: L('/coa-red-flags/'), label: t(lang, 'rf.crumb') },
+  { href: L('/coa-checker/'), label: t(lang, 'chk.crumb') },
+  { href: L('/coa-checklist/'), label: t(lang, 'cl.crumb') },
+  { href: L('/labs/janoshik/'), label: t(lang, 'lg.relJanoshik') },
+  { href: L('/batch-tracker/'), label: t(lang, 'tv.relReports') },
+  { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'tv.relLegit') },
+];
+---
+<BaseLayout lang={lang} title={tt(lang, 'coa.title', V)} description={td(lang, 'coa.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'coa.h1')} eyebrow={t(lang, 'coa.eyebrow')} intro={t(lang, 'coa.intro', V)}>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href={L('/coa-checker/')} class="btn-primary"><Icon name="search" class="w-4 h-4" />{t(lang, 'coa.checkLink')}</a>
+      <a href={L('/coa-checklist/')} class="btn-ghost"><Icon name="download" class="w-4 h-4" />{t(lang, 'coa.pdfLink')}</a>
+    </div>
+  </PageHero>
+  <div class="wrap mt-12 space-y-14">
+    <section class="grid gap-8 lg:grid-cols-[minmax(0,26rem)_1fr] lg:items-start">
+      <figure class="card p-4 sm:p-5 lg:sticky lg:top-24">
+        <figcaption class="h3 mb-3">{t(lang, 'coa.figTitle')}</figcaption>
+        <svg viewBox="0 0 400 430" role="img" aria-label={t(lang, 'coa.figTitle')} class="w-full h-auto">
+          <rect x="1" y="1" width="398" height="428" rx="10" fill="#fff" stroke="#cbd5e1" />
+          <rect x="1" y="1" width="398" height="62" rx="10" fill="#f1f5f9" />
+          <rect x="20" y="16" width="34" height="34" rx="6" fill="#0f766e" />
+          <text x="66" y="32" font-size="15" font-weight="700" fill="#0f172a">{fields[0].h}</text>
+          <text x="66" y="50" font-size="12" fill="#475569">www.lab-example.test</text>
+          <g>
+            <rect x="318" y="12" width="40" height="40" fill="none" stroke="#0f172a" stroke-width="1.5" />
+            <path d="M324 18h8v8h-8zM344 18h8v8h-8zM324 38h8v8h-8zM338 32h6v6h-6zM346 40h6v6h-6z" fill="#0f172a" />
+            <circle cx="372" cy="22" r="11" fill="#0f766e" /><text x="372" y="26.5" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+          </g>
+          <g><circle cx="300" cy="33" r="11" fill="#0f766e" /><text x="300" y="37.5" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">1</text></g>
+          <line x1="20" y1="88" x2="380" y2="88" stroke="#e2e8f0" />
+          {rows.map((r) => (
+            <g>
+              <text x="20" y={r.y} font-size="12.5" fill="#475569">{r.label}</text>
+              <text x="210" y={r.y} font-size="12.5" font-weight="600" fill="#0f172a">{r.value}</text>
+              <circle cx="372" cy={r.y - 4} r="11" fill="#0f766e" /><text x="372" y={r.y + 0.5} font-size="12" font-weight="800" fill="#fff" text-anchor="middle">{r.n}</text>
+            </g>
+          ))}
+          <rect x="14" y="292" width="372" height="96" rx="8" fill="#f0fdfa" stroke="#99f6e4" />
+          {results.map((r) => (
+            <g>
+              <text x="28" y={r.y} font-size="13" fill="#134e4a" font-weight="600">{r.label}</text>
+              <text x="210" y={r.y} font-size="15" font-weight="800" fill="#0f172a">{r.value}</text>
+              <circle cx="372" cy={r.y - 5} r="11" fill="#0f766e" /><text x="372" y={r.y - 0.5} font-size="12" font-weight="800" fill="#fff" text-anchor="middle">{r.n}</text>
+            </g>
+          ))}
+          <text x="20" y="414" font-size="11" fill="#64748b">{t(lang, 'coa.figNote')}</text>
+        </svg>
+      </figure>
+      <div>
+        <h2 class="h2">{t(lang, 'coa.fieldsH')}</h2>
+        <ol class="mt-5 space-y-4">
+          {fields.map((f) => (
+            <li class="flex items-start gap-3 reveal">
+              <span class="check-num">{f.n}</span>
+              <div class="max-w-[64ch]"><h3 class="font-bold text-slate-900 text-[1.05rem]">{f.h}</h3><p class="mt-1 text-slate-700">{f.p}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="grid gap-8 lg:grid-cols-2 lg:items-start">
+      <div class="prose-read">
+        <h2 class="!mt-0">{t(lang, 'coa.pvH')}</h2>
+        <p>{t(lang, 'coa.pvP')}</p>
+        <h2>{t(lang, 'coa.panelsH')}</h2>
+        <p>{t(lang, 'coa.panelsP', V)}</p>
+      </div>
+      <BarList rows={dist} title={t(lang, 'coa.distTitle')} note={`n = ${S.withFill}`} />
+    </section>
+
+    <section class="rounded-2xl border border-amber-300 bg-amber-50 p-5 sm:p-6 max-w-4xl">
+      <h2 class="h3 flex items-center gap-2"><Icon name="alert" class="w-5 h-5 text-amber-800" />{t(lang, 'coa.redH')}</h2>
+      <p class="mt-2 text-slate-800">{t(lang, 'coa.redP')}</p>
+      <p class="mt-3"><a href={L('/coa-red-flags/')} class="text-link font-semibold">{t(lang, 'coa.redLink')}</a></p>
+    </section>
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

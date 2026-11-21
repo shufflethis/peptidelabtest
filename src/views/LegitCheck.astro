@@ -7,6 +7,9 @@ import Disclosure from '../components/Disclosure.astro';
 import Icon from '../components/Icon.astro';
 import { VENDORS_BY_SCORE, TOTALS, CHECKED_ISO, YEAR, faqSchema, vendorBySlug } from '../lib/site';
 import { CASES, readAtOf } from '../lib/cases';
+import { COA_STATS, FILL_OUTLIERS } from '../lib/coa';
+import { fmt } from '../i18n/format';
+import { compoundShort } from '../lib/site';
 import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
 import { locVendor } from '../i18n/data';
 interface Props { lang: Lang; variant?: 'legit' | 'redflags' }
@@ -16,14 +19,17 @@ const date = fmtDate(lang, CHECKED_ISO);
 const NS = variant === 'legit' ? 'lg' : 'rf';
 const path = variant === 'legit' ? '/how-to-tell-if-a-peptide-vendor-is-legit/' : '/coa-red-flags/';
 const all = VENDORS_BY_SCORE;
-const V = { n: CASES.length, shops: TOTALS.shops, date, year: YEAR, reports: TOTALS.reportsOpened, portal: TOTALS.portalVerified };
+const REPORT_KEYS = ['portal', 'cropped', 'copy', 'batch', 'drive', 'nobatch'];
+const caseList = variant === 'legit' ? CASES : CASES.filter((c) => REPORT_KEYS.includes(c.key));
+const F = fmt(lang);
+const V = { out: FILL_OUTLIERS.length, low: COA_STATS.low, high: COA_STATS.high, withFill: COA_STATS.withFill, n: caseList.length, shops: TOTALS.shops, date, year: YEAR, reports: TOTALS.reportsOpened, portal: TOTALS.portalVerified };
 const stats = {
   shops: TOTALS.shops,
   noRep: all.filter((v) => v.coaStats.opened === 0).length,
   noPortal: all.filter((v) => v.coaStats.portalVerified === 0).length,
   noEntity: all.filter((v) => v.legalEntity === 'not published').length,
 };
-const cases = CASES.map((c) => {
+const cases = caseList.map((c) => {
   const v = locVendor(lang, vendorBySlug(c.slug)!);
   return { ...c, v, text: v.weaknesses[c.idx], read: fmtDate(lang, readAtOf(c.slug) || CHECKED_ISO) };
 });
@@ -85,10 +91,36 @@ const related = variant === 'legit'
       ))}
     </section>
 
-    <section class="prose-read">
-      <h2>{t(lang, 'lg.statsH')}</h2>
-      <p>{t(lang, 'lg.statsP', stats)}</p>
-    </section>
+    {variant === 'legit' ? (
+      <section class="prose-read">
+        <h2>{t(lang, 'lg.statsH')}</h2>
+        <p>{t(lang, 'lg.statsP', stats)}</p>
+      </section>
+    ) : (
+      <section class="space-y-4" id="fill-outliers">
+        <div class="max-w-[70ch]">
+          <h2 class="h2">{t(lang, 'rf.outH')}</h2>
+          <p class="mt-2 text-slate-700">{t(lang, 'rf.outP', V)}</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th scope="col">{t(lang, 'rf.colShop')}</th><th scope="col">{t(lang, 'rf.colProduct')}</th><th scope="col" class="num">{t(lang, 'rf.colMeasured')}</th><th scope="col" class="num">{t(lang, 'rf.colPct')}</th><th scope="col">{t(lang, 'rf.colLab')}</th><th scope="col">{t(lang, 'rf.colPortal')}</th></tr></thead>
+            <tbody>
+              {FILL_OUTLIERS.map((r) => (
+                <tr>
+                  <td class="min-w-[9rem]"><a href={L(`/vendors/${r.vendor.slug}/`)} class="font-semibold text-slate-900 hover:underline">{r.vendor.name}</a></td>
+                  <td>{compoundShort(r.report.compound)} {F.mg(r.report.labelMg)}</td>
+                  <td class="num">{F.mg(r.report.measuredMg)}</td>
+                  <td class={`num font-semibold ${r.pct < 90 ? 'text-red-800' : 'text-amber-900'}`}>{F.pct(r.pct)}</td>
+                  <td>{r.report.lab.replace(/\s*\(.*\)\s*$/, '')}</td>
+                  <td>{r.report.verifiable ? t(lang, 'xc.yes') : t(lang, 'xc.no')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
 
     <FAQ items={faqs} />
     <RelatedLinks links={related} />
