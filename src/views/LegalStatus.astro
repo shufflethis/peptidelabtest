@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import SourceList from '../components/SourceList.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import { CHECKED_ISO, YEAR, faqSchema, shopsCarrying, reportsFor, TOTALS, compoundShort } from '../lib/site';
+import { COUNTRY_LAWS } from '../data/laws';
+import { REG_SOURCES, RETA_LETTERS, FDA_CODE_NAMES, ACCESSED_ISO } from '../data/regSources';
+import { t, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { locLaw, countryName } from '../i18n/data';
+interface Props { lang: Lang; variant: 'legal' | 'reta' }
+const { lang, variant } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const acc = fmtDate(lang, ACCESSED_ISO);
+const NS = variant === 'legal' ? 'leg' : 'ret';
+const path = variant === 'legal' ? '/is-it-legal-to-buy-peptides-online/' : '/can-you-buy-retatrutide-in-the-usa/';
+const laws = COUNTRY_LAWS.map((l) => locLaw(lang, l));
+const retaShops = shopsCarrying('retatrutide');
+const V = {
+  year: YEAR, date, n: laws.length, shops: TOTALS.shops,
+  ...(variant === 'reta' ? { n: retaShops.length, eu: retaShops.filter((v) => v.region === 'EU').length, us: retaShops.filter((v) => v.region === 'US').length, reports: reportsFor('retatrutide').length } : {}),
+};
+const lettersIds = variant === 'legal' ? ['wlPeptidePartners', 'wlPeak', 'wlPinkPony', 'wlGram', 'wlSummit'] : RETA_LETTERS;
+const letters = lettersIds.map((id) => REG_SOURCES[id]).map((s) => ({
+  s,
+  recipient: s.title.replace(/^Warning letter \d+ \((.*)\)$/, '$1'),
+  names: FDA_CODE_NAMES.filter((c) => c.source === s.id).map((c) => `${c.name} (${compoundShort(c.compound)})`),
+}));
+const faqN = variant === 'legal' ? [1, 2, 3, 4] : [1, 2, 3, 4, 5];
+const faqs = faqN.map((i) => ({ q: t(lang, `${NS}.fq${i}`, V), a: t(lang, `${NS}.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, `${NS}.crumb`), url: L(path) }];
+const srcIds = variant === 'legal' ? ['fdaGlp1', ...lettersIds, 'lillyReta'] : ['lillyReta', 'fdaGlp1', ...lettersIds];
+const sources = srcIds.map((id) => REG_SOURCES[id]).map((s) => ({ label: `${s.publisher}: ${s.title}${s.date ? `, ${fmtDate(lang, s.date)}` : ''}`, url: s.url }));
+const related = variant === 'legal'
+  ? [
+      { href: L('/can-you-buy-retatrutide-in-the-usa/'), label: t(lang, 'leg.relReta') },
+      { href: L('/laws/'), label: t(lang, 'leg.relLaws') },
+      { href: L('/trusted-peptide-vendors/'), label: t(lang, 'leg.relTrusted') },
+      { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'leg.relLegit') },
+      { href: L('/laws/united-states/'), label: t(lang, 'ret.relLaw') },
+    ]
+  : [
+      { href: L('/prices/retatrutide/'), label: t(lang, 'ret.relPrices') },
+      { href: L('/is-it-legal-to-buy-peptides-online/'), label: t(lang, 'ret.relLegal') },
+      { href: L('/compare/tirzepatide-vs-retatrutide/'), label: t(lang, 'ret.relCompare') },
+      { href: L('/laws/united-states/'), label: t(lang, 'ret.relLaw') },
+      { href: L('/compounds/retatrutide/'), label: 'Retatrutide' },
+    ];
+---
+<BaseLayout lang={lang} title={tt(lang, `${NS}.title`, V)} description={td(lang, `${NS}.description`, V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, `${NS}.h1`)} eyebrow={t(lang, `${NS}.eyebrow`)} intro={t(lang, `${NS}.intro`, V)} />
+  <div class="wrap mt-12 space-y-14">
+    <aside class="rounded-2xl border border-slate-300 bg-white p-4 flex gap-3 max-w-4xl text-slate-700"><Icon name="scale" class="w-5 h-5 mt-0.5 text-slate-600" /><p>{t(lang, 'xc.notLegal')}</p></aside>
+
+    {variant === 'legal' && (
+      <section class="prose-read">
+        <h2 class="!mt-0">{t(lang, 'leg.usH')}</h2>
+        <ul>
+          <li>{t(lang, 'leg.us1')}</li>
+          <li>{t(lang, 'leg.us2')}</li>
+          <li>{t(lang, 'leg.us3')}</li>
+        </ul>
+      </section>
+    )}
+    {variant === 'reta' && (
+      <section class="space-y-4">
+        <h2 class="h2">{t(lang, 'ret.factsH')}</h2>
+        <dl class="facts card px-5 sm:px-6 py-2 max-w-4xl">
+          <div><dt>{t(lang, 'ret.kStatus')}</dt><dd>{t(lang, 'ret.vStatus')}</dd></div>
+          <div><dt>{t(lang, 'ret.kCompound')}</dt><dd>{t(lang, 'ret.vCompound')}</dd></div>
+          <div><dt>{t(lang, 'ret.kConsumer')}</dt><dd>{t(lang, 'ret.vConsumer')}</dd></div>
+          <div><dt>{t(lang, 'ret.kTimeline')}</dt><dd>{t(lang, 'ret.vTimeline')}</dd></div>
+        </dl>
+      </section>
+    )}
+
+    <section class="space-y-4">
+      <div class="max-w-[70ch]">
+        <h2 class="h2">{t(lang, `${NS}.lettersH`)}</h2>
+        {variant === 'reta' && <p class="mt-2 text-slate-700">{t(lang, 'ret.lettersP')}</p>}
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">{t(lang, 'xc.colDate')}</th><th scope="col">{t(lang, 'xc.colRecipient')}</th><th scope="col">{t(lang, 'xc.colNames')}</th></tr></thead>
+          <tbody>
+            {letters.map((l) => (
+              <tr><td class="whitespace-nowrap">{fmtDate(lang, l.s.date!)}</td><td class="min-w-[10rem] font-semibold text-slate-900">{l.recipient}</td><td>{l.names.length ? l.names.join(', ') : '–'}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {variant === 'legal' && (
+      <section class="space-y-4">
+        <div class="max-w-[70ch]">
+          <h2 class="h2">{t(lang, 'leg.euH')}</h2>
+          <p class="mt-2 text-slate-700">{t(lang, 'leg.euP', V)}</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th scope="col">{t(lang, 'xc.colCountry')}</th><th scope="col">{t(lang, 'xc.colAuthority')}</th><th scope="col">{t(lang, 'xc.colLaw')}</th></tr></thead>
+            <tbody>
+              {laws.map((l) => (
+                <tr>
+                  <td class="min-w-[9rem]"><a href={L(`/laws/${l.slug}/`)} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{countryName(lang, l.code)}</a></td>
+                  <td class="min-w-[12rem]">{l.authorities.join('; ')}</td>
+                  <td class="min-w-[16rem]">{l.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    <section class="prose-read">
+      {variant === 'legal' ? (
+        <><h2 class="!mt-0">{t(lang, 'leg.ourH')}</h2><p>{t(lang, 'leg.ourP')}</p></>
+      ) : (
+        <><h2 class="!mt-0">{t(lang, 'ret.ruoH')}</h2><p>{t(lang, 'ret.ruoP')}</p><p>{t(lang, 'ret.dataP', V)} <a href={L('/prices/retatrutide/')}>{t(lang, 'ret.relPrices')}</a></p></>
+      )}
+    </section>
+
+    <FAQ items={faqs} />
+    <SourceList title={t(lang, 'xc.sourcesH')} intro={t(lang, 'xc.sourcesP', { date: acc })} items={sources} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

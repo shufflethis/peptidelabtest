@@ -2,11 +2,22 @@
  * i18n core. UI strings live in <lang>.json (nested keys, {placeholders}, plural objects {one, other}).
  * Missing keys fall back to English. Data texts (compounds, labs, audit …) are in data/<lang>.json (flat key paths).
  */
-import en from './en.json';
-import de from './de.json';
-import es from './es.json';
-import fr from './fr.json';
-import it from './it.json';
+import en0 from './en.json';
+import de0 from './de.json';
+import es0 from './es.json';
+import fr0 from './fr.json';
+import it0 from './it.json';
+// GOAL additions (new page types) live in x/<lang>.json, merged on top-level namespaces.
+import enX from './x/en.json';
+import deX from './x/de.json';
+import esX from './x/es.json';
+import frX from './x/fr.json';
+import itX from './x/it.json';
+const en: any = { ...en0, ...enX };
+const de: any = { ...de0, ...deX };
+const es: any = { ...es0, ...esX };
+const fr: any = { ...fr0, ...frX };
+const it: any = { ...it0, ...itX };
 
 export const LANGS = ['en', 'de', 'es', 'fr', 'it'] as const;
 export type Lang = (typeof LANGS)[number];

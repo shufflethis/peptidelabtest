@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import { VENDORS_BY_SCORE, TOTALS, CHECKED_ISO, YEAR, faqSchema, vendorBySlug } from '../lib/site';
+import { CASES, readAtOf } from '../lib/cases';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { locVendor } from '../i18n/data';
+interface Props { lang: Lang; variant?: 'legit' | 'redflags' }
+const { lang, variant = 'legit' } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const NS = variant === 'legit' ? 'lg' : 'rf';
+const path = variant === 'legit' ? '/how-to-tell-if-a-peptide-vendor-is-legit/' : '/coa-red-flags/';
+const all = VENDORS_BY_SCORE;
+const V = { n: CASES.length, shops: TOTALS.shops, date, year: YEAR, reports: TOTALS.reportsOpened, portal: TOTALS.portalVerified };
+const stats = {
+  shops: TOTALS.shops,
+  noRep: all.filter((v) => v.coaStats.opened === 0).length,
+  noPortal: all.filter((v) => v.coaStats.portalVerified === 0).length,
+  noEntity: all.filter((v) => v.legalEntity === 'not published').length,
+};
+const cases = CASES.map((c) => {
+  const v = locVendor(lang, vendorBySlug(c.slug)!);
+  return { ...c, v, text: v.weaknesses[c.idx], read: fmtDate(lang, readAtOf(c.slug) || CHECKED_ISO) };
+});
+const faqs = [1, 2, 3, 4].map((i) => ({ q: t(lang, `${NS}.fq${i}`, V), a: t(lang, `${NS}.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, `${NS}.crumb`), url: L(path) }];
+const related = variant === 'legit'
+  ? [
+      { href: L('/trusted-peptide-vendors/'), label: t(lang, 'lg.relTrusted') },
+      { href: L('/coa-red-flags/'), label: t(lang, 'lg.relRed') },
+      { href: L('/labs/janoshik/'), label: t(lang, 'lg.relJanoshik') },
+      { href: L('/labs/'), label: t(lang, 'lg.relLabs') },
+      { href: L('/batch-tracker/'), label: t(lang, 'tv.relReports') },
+      { href: L('/is-it-legal-to-buy-peptides-online/'), label: t(lang, 'leg.h1') },
+    ]
+  : [
+      { href: L('/how-to-read-a-peptide-coa/'), label: t(lang, 'rf.relRead') },
+      { href: L('/coa-checker/'), label: t(lang, 'rf.relChecker') },
+      { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'tv.relLegit') },
+      { href: L('/labs/janoshik/'), label: t(lang, 'lg.relJanoshik') },
+      { href: L('/trusted-peptide-vendors/'), label: t(lang, 'lg.relTrusted') },
+      { href: L('/batch-tracker/'), label: t(lang, 'tv.relReports') },
+    ];
+---
+<BaseLayout lang={lang} title={tt(lang, `${NS}.title`, V)} description={td(lang, `${NS}.description`, V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, `${NS}.h1`, V)} eyebrow={t(lang, `${NS}.eyebrow`)} intro={t(lang, `${NS}.intro`, V)} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="card p-5 sm:p-6 max-w-4xl">
+      <h2 class="h2">{t(lang, 'lg.quickH')}</h2>
+      <ol class="mt-4 space-y-3">
+        {cases.map((c, i) => (
+          <li class="flex items-start gap-3"><span class="check-num">{i + 1}</span><a href={`#check-${c.key}`} class="pt-1 text-[1.02rem] text-slate-900 hover:underline">{t(lang, `cases.${c.key}.h`)}</a></li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="space-y-6">
+      <h2 class="h2">{t(lang, 'lg.caseH', V)}</h2>
+      {cases.map((c, i) => (
+        <article id={`check-${c.key}`} class="card p-5 sm:p-6 reveal">
+          <div class="flex items-start gap-3">
+            <span class="check-num">{i + 1}</span>
+            <h3 class="h3 pt-1">{t(lang, `cases.${c.key}.h`)}</h3>
+          </div>
+          <div class="mt-4 grid gap-5 lg:grid-cols-2">
+            <div class="space-y-3 text-slate-700 max-w-[68ch]">
+              <p><strong class="text-slate-900">{t(lang, 'lg.why')}:</strong> {t(lang, `cases.${c.key}.why`)}</p>
+              <p><strong class="text-slate-900">{t(lang, 'lg.how')}:</strong> {t(lang, `cases.${c.key}.how`)}</p>
+            </div>
+            <div class="rounded-xl border border-amber-300 bg-amber-50 p-4 space-y-2">
+              <p class="flex items-center gap-2 font-semibold text-amber-950"><Icon name="alert" class="w-5 h-5" />{t(lang, 'xc.caseLabel', { shop: c.v.name })}</p>
+              <p class="text-slate-800"><span class="font-semibold">{t(lang, 'xc.seen')}:</span> {c.text}</p>
+              {c.ids && <p class="text-sm text-slate-700">{t(lang, 'xc.ids')}: {c.ids.map((x) => <code class="mr-2">{x}</code>)}</p>}
+              <p class="text-sm text-slate-700">{t(lang, 'xc.source')}:</p>
+              <ul class="space-y-1">{c.sources.map((s) => <li class="mono-url">{s}</li>)}</ul>
+              <p class="text-sm text-slate-700">{t(lang, 'xc.checked', { date: c.read })} · <a href={L(`/vendors/${c.slug}/`)} class="text-link">{t(lang, 'xc.readReview', { shop: c.v.name })}</a></p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="prose-read">
+      <h2>{t(lang, 'lg.statsH')}</h2>
+      <p>{t(lang, 'lg.statsP', stats)}</p>
+    </section>
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

@@ -67,6 +67,18 @@ const legitAnswer = [
   v.weaknesses.length ? t(lang, 'v.legitWeak', { list: joinWeak(v.weaknesses) }) : '',
 ].filter(Boolean).join(' ');
 
+const entityName = entityShort;
+const legitShort = [
+  !st.opened
+    ? `${t(lang, 'xv.ansD', V)} ${hasEntity ? t(lang, 'xv.ansEntity', { e: entityName }) : t(lang, 'xv.ansNoEntity')}`
+    : st.portalVerified === 0
+      ? `${t(lang, 'xv.ansB', V)} ${hasEntity ? t(lang, 'xv.ansEntity', { e: entityName }) : t(lang, 'xv.ansNoEntity')}`
+      : hasEntity
+        ? t(lang, 'xv.ansA', { ...V, e: entityName })
+        : t(lang, 'xv.ansC', V),
+  t(lang, 'xv.ansScore', V),
+].join(' ');
+
 const codeAnswer =
   code.kind === 'code'
     ? t(lang, 'v.codeYes', { shop: v.name, code: code.code, site: SITE_NAME, pct: code.percent ? ` (${t(lang, 'c.forPct', { n: code.percent })})` : '' })
@@ -77,7 +89,7 @@ const codeAnswer =
 const cheapest = products.filter((p) => p.pricePerMg != null).sort((a, b) => a.pricePerMg! - b.pricePerMg!)[0];
 const repLabs = Array.from(new Set(reports.map((r) => r.lab.replace(/\s*\(.*\)\s*$/, ''))));
 const faqs = [
-  { q: t(lang, 'v.fqLegit', V), a: `${legitAnswer} ${t(lang, 'v.overall', V)}` },
+  { q: t(lang, 'v.fqLegit', V), a: `${legitShort} ${legitAnswer}` },
   { q: t(lang, 'v.fqCode', V), a: codeAnswer },
   { q: t(lang, 'v.fqLabs', V), a: st.opened ? t(lang, 'v.faLabs', { list: listJoin(lang, repLabs), purity: purR }) : t(lang, 'v.faLabsNone', { shop: v.name, list: labs.join(', ') }) },
   { q: t(lang, 'v.fqShip', V), a: t(lang, 'v.faShip', { ships: v.shipsTo, dispatch: v.dispatchSummary }) },
@@ -203,6 +215,7 @@ const related = [
 
     <section id="legit" class="space-y-4">
       <h2 class="h2">{t(lang, 'v.fqLegit', V)}</h2>
+      <p class="answer-box" data-answer>{legitShort}</p>
       <div class="prose-read">
         <p>{t(lang, 'v.legitIntro', V)}</p>
         <ul>
@@ -213,6 +226,7 @@ const related = [
           {v.weaknesses.length > 0 && <li><strong>{t(lang, 'v.kWeak')}:</strong> {joinWeak(v.weaknesses)}.</li>}
         </ul>
         <p>{t(lang, 'v.noTestOrder')}</p>
+        <p>{t(lang, 'xv.howTo')} <a href={L('/how-to-tell-if-a-peptide-vendor-is-legit/')}>{t(lang, 'lg.h1')}</a></p>
       </div>
     </section>
 

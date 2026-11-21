@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import Ranking from '../components/Ranking.astro';
+import BarList from '../components/BarList.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import { PARTNERS, VENDORS_BY_SCORE, TOTALS, CHECKED_ISO, YEAR, SUBSCORE_LABELS, faqSchema, itemListSchema, isPartner, partnersIn, shopShort } from '../lib/site';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const NP = t(lang, 'common.notPublished');
+const all = VENDORS_BY_SCORE;
+const [p1, p2, p3] = PARTNERS;
+const hasEntity = (v: (typeof all)[number]) => v.legalEntity !== 'not published';
+const withRep = all.filter((v) => v.coaStats.opened > 0);
+const withPortal = all.filter((v) => v.coaStats.portalVerified > 0);
+const allPortal = all.filter((v) => v.coaStats.opened > 0 && v.coaStats.portalVerified === v.coaStats.opened);
+const withFill = all.filter((v) => v.coaStats.fillMinPct != null);
+const within = withFill.filter((v) => v.coaStats.fillMinPct! >= 90 && v.coaStats.fillMaxPct! <= 110);
+const w = Object.fromEntries(SUBSCORE_LABELS.map((s, i) => [`w${i + 1}`, s.weight]));
+const eu = partnersIn('EU')[0];
+const us = partnersIn('US')[0];
+const V = {
+  year: YEAR, date, shops: TOTALS.shops, partners: TOTALS.partners, reports: TOTALS.reportsOpened, portal: TOTALS.portalVerified, withReports: TOTALS.shopsWithReports,
+  top: p1.name, topScore: F.score(p1.overallScore), second: p2.name, secondScore: F.score(p2.overallScore), third: p3.name, thirdScore: F.score(p3.overallScore),
+};
+const weights = t(lang, 'tv.weights', w);
+const faqs = [
+  { q: t(lang, 'tv.fq1'), a: t(lang, 'tv.fa1', V) },
+  { q: t(lang, 'tv.fq2'), a: t(lang, 'tv.fa2', { w: weights }) },
+  { q: t(lang, 'tv.fq3'), a: t(lang, 'tv.fa3', V) },
+  { q: t(lang, 'tv.fq4'), a: t(lang, 'tv.fa4', { eu: eu?.name, euScore: eu ? F.score(eu.overallScore) : '', us: us?.name, usScore: us ? F.score(us.overallScore) : '' }) },
+  { q: t(lang, 'tv.fq5'), a: t(lang, 'tv.fa5') },
+];
+const bars = withRep
+  .map((v) => ({ v, share: (v.coaStats.portalVerified / v.coaStats.opened) * 100 }))
+  .sort((a, b) => b.share - a.share || b.v.overallScore - a.v.overallScore)
+  .map(({ v, share }) => ({ label: v.name, value: share, display: `${v.coaStats.portalVerified}/${v.coaStats.opened}`, accent: isPartner(v.slug), href: L(`/vendors/${v.slug}/`) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'tv.crumb'), url: L('/trusted-peptide-vendors/') }];
+const jsonLd = [faqSchema(faqs), itemListSchema(t(lang, 'tv.rankH'), PARTNERS.map((p) => ({ name: p.name, url: L(`/vendors/${p.slug}/`) })))];
+const related = [
+  { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'tv.relLegit') },
+  { href: L('/vendors/europe/'), label: t(lang, 'tv.relEU') },
+  { href: L('/vendors/usa/'), label: t(lang, 'tv.relUS') },
+  { href: L('/batch-tracker/'), label: t(lang, 'tv.relReports') },
+  { href: L('/methodology/'), label: t(lang, 'tv.relMethod') },
+  { href: L('/is-it-legal-to-buy-peptides-online/'), label: t(lang, 'leg.h1') },
+];
+---
+<BaseLayout lang={lang} title={tt(lang, 'tv.title', V)} description={td(lang, 'tv.description', V)} crumbs={crumbs} jsonLd={jsonLd}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'tv.h1', V)} eyebrow={t(lang, 'tv.eyebrow')} intro={t(lang, 'tv.intro', V)}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>{t(lang, 'tv.statShops')}</dt><dd>{TOTALS.shops}</dd></div>
+      <div class="stat"><dt>{t(lang, 'tv.statReports')}</dt><dd>{TOTALS.reportsOpened}</dd></div>
+      <div class="stat"><dt>{t(lang, 'tv.statPortal')}</dt><dd>{TOTALS.portalVerified}</dd></div>
+      <div class="stat"><dt>{t(lang, 'tv.statAll')}</dt><dd>{allPortal.length}</dd></div>
+    </dl>
+  </PageHero>
+  <div class="wrap mt-12 space-y-14">
+    <section class="space-y-5">
+      <div class="max-w-[70ch]">
+        <h2 class="h2">{t(lang, 'tv.critH')}</h2>
+        <p class="mt-2 text-slate-700">{t(lang, 'tv.critP')}</p>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="card p-5 reveal"><div class="flex items-center gap-3"><Icon name="shield-check" class="w-6 h-6 text-teal-700" /><h3 class="h3">{t(lang, 'tv.crit1H')}</h3></div><p class="mt-3 text-slate-700">{t(lang, 'tv.crit1P', { n: withPortal.length, shops: TOTALS.shops, all: allPortal.length })}</p></div>
+        <div class="card p-5 reveal"><div class="flex items-center gap-3"><Icon name="file-text" class="w-6 h-6 text-teal-700" /><h3 class="h3">{t(lang, 'tv.crit2H')}</h3></div><p class="mt-3 text-slate-700">{t(lang, 'tv.crit2P', { n: all.filter(hasEntity).length, shops: TOTALS.shops, w: w.w4 })}</p></div>
+        <div class="card p-5 reveal"><div class="flex items-center gap-3"><Icon name="calendar" class="w-6 h-6 text-teal-700" /><h3 class="h3">{t(lang, 'tv.crit3H')}</h3></div><p class="mt-3 text-slate-700">{t(lang, 'tv.crit3P', { within: within.length, withFill: withFill.length })}</p></div>
+      </div>
+      <p class="text-slate-700 max-w-[75ch]">{weights} <a href={L('/methodology/')} class="text-link">{t(lang, 'tv.method')}</a></p>
+    </section>
+
+    <div>
+      <p class="mb-4 text-slate-700 max-w-[70ch]">{t(lang, 'tv.rankP')}</p>
+      <Ranking partners={PARTNERS} others={[]} partnerTitle={t(lang, 'tv.rankH')} />
+    </div>
+
+    <section class="space-y-4" id="all-shops">
+      <div class="max-w-[70ch]">
+        <h2 class="h2">{t(lang, 'tv.tableH', V)}</h2>
+        <p class="mt-2 text-slate-700">{t(lang, 'tv.tableP', V)}</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr>
+            <th scope="col">{t(lang, 'tv.colShop')}</th>
+            <th scope="col" class="num">{t(lang, 'tv.colScore')}</th>
+            <th scope="col" class="num">{t(lang, 'tv.colOpened')}</th>
+            <th scope="col" class="num">{t(lang, 'tv.colPortal')}</th>
+            <th scope="col">{t(lang, 'tv.colFill')}</th>
+            <th scope="col">{t(lang, 'tv.colEntity')}</th>
+          </tr></thead>
+          <tbody>
+            {all.map((v) => (
+              <tr class={isPartner(v.slug) ? '' : 'row-muted'}>
+                <td class="min-w-[10rem]"><a href={L(`/vendors/${v.slug}/`)} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{v.name}</a><span class="sub">{v.region}{isPartner(v.slug) ? ` · ${t(lang, 'tv.legendAccent')}` : ''}</span></td>
+                <td class="num font-semibold">{F.score(v.overallScore)}</td>
+                <td class="num">{v.coaStats.opened}</td>
+                <td class="num">{v.coaStats.portalVerified}</td>
+                <td class="whitespace-nowrap">{v.coaStats.fillMinPct == null ? NP : F.pctRange(v.coaStats.fillMinPct, v.coaStats.fillMaxPct!)}</td>
+                <td>{hasEntity(v) ? t(lang, 'xc.yes') : t(lang, 'xc.no')}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <BarList rows={bars} max={100} title={t(lang, 'tv.chartTitle')} note={t(lang, 'tv.chartNote', { none: TOTALS.shops - withRep.length })} legend={{ accent: t(lang, 'tv.legendAccent'), other: t(lang, 'tv.legendOther') }} />
+    </section>
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

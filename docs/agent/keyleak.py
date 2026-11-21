@@ -1,6 +1,7 @@
 import os,re,sys,html,json
 DIST=sys.argv[1] if len(sys.argv)>1 else 'dist'
 en=json.load(open('/Users/gorden/sites/peptidelabtest/src/i18n/en.json'))
+en.update(json.load(open('/Users/gorden/sites/peptidelabtest/src/i18n/x/en.json')))
 ns='|'.join(map(re.escape,en.keys()))
 pat=re.compile(r'\b(?:%s)\.[A-Za-z_][\w.]*'%ns)
 hits={}

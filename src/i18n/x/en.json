@@ -1,0 +1,240 @@
+{
+  "xc": {
+    "sourcesH": "Sources we opened",
+    "sourcesP": "Shown as plain text, not as links. Opened on {date}.",
+    "caseLabel": "Real case: {shop}",
+    "seen": "What we found",
+    "source": "Source (plain text)",
+    "ids": "Report IDs",
+    "checked": "Checked on {date}",
+    "readReview": "Read the {shop} review",
+    "notLegal": "General information only, not legal advice. Laws change; check the official sources for your country.",
+    "colDate": "Date",
+    "colRecipient": "Recipient",
+    "colNames": "Product names used by the seller",
+    "colCountry": "Country",
+    "colAuthority": "Authority",
+    "colLaw": "Main rule",
+    "yes": "yes",
+    "no": "no"
+  },
+  "xv": {
+    "ansA": "{shop} looks legitimate on the evidence we could check: the operator is named as {e}, and {portal} of {opened} lab reports we opened were confirmed on the lab's own portal.",
+    "ansB": "{shop} publishes lab reports, but none of the {opened} we opened could be confirmed on the lab's own portal, so they remain shop-hosted copies.",
+    "ansC": "{shop} publishes lab reports ({portal} of {opened} confirmed on the lab's own portal), but no registered company name is published.",
+    "ansD": "We could not verify {shop}: we found no lab report we could open.",
+    "ansEntity": "The operator is named as {e}.",
+    "ansNoEntity": "No registered company name is published.",
+    "ansScore": "Its audit score is {score} of 5, rank {rank} of {total} audited shops.",
+    "howTo": "How we check any shop:"
+  },
+  "tv": {
+    "title": [
+      "Most Trusted Peptide Vendors {year}: Lab-Verified",
+      "Most Trusted Peptide Vendors {year}"
+    ],
+    "description": [
+      "Most trusted peptide vendors {year}: {partners} shops with a store link ranked by lab-portal checks, company data and measured mg. See all {shops} audits.",
+      "Most trusted peptide vendors {year}: ranked by lab-portal checks, company data and measured mg. See all {shops} audits."
+    ],
+    "crumb": "Most trusted vendors",
+    "h1": "Most trusted peptide vendors {year}",
+    "eyebrow": "Trust ranking",
+    "intro": "{top} ranks first among the audited shops with a store link (score {topScore} of 5), followed by {second} ({secondScore}) and {third} ({thirdScore}). On {date} we opened {reports} lab reports from {withReports} shops; {portal} of them could be confirmed on the lab's own portal.",
+    "statShops": "Shops audited",
+    "statReports": "Reports opened",
+    "statPortal": "Confirmed on lab portal",
+    "statAll": "Shops with all reports confirmed",
+    "critH": "What makes a peptide vendor trustworthy",
+    "critP": "We do not take a shop's word for it. Three things carry the most weight in our score:",
+    "crit1H": "Reports confirmed on the lab's portal",
+    "crit1P": "A report counts as verified only when we could open the same report on the testing lab's own website. {n} of {shops} shops had at least one report we could confirm there; at {all} shops every report we opened was confirmed.",
+    "crit2H": "A real company behind the shop",
+    "crit2P": "A named legal entity with an address or registration number tells you who you are dealing with. {n} of {shops} shops publish a company name. Company transparency is {w} % of the score.",
+    "crit3H": "Measured content close to the label",
+    "crit3P": "Labs measure how many mg are really in a vial. At {within} of {withFill} shops with measured reports, every report we opened was between 90 and 110 % of the label.",
+    "weights": "Score weights: lab verification {w1} %, fill accuracy {w2} %, panel depth {w3} %, company transparency {w4} %, dispatch information {w5} %, value per mg {w6} %.",
+    "method": "Read the full method",
+    "rankH": "Ranking: audited shops with a store link",
+    "rankP": "Only shops with a store link are ranked, sorted by audit score. Commission plays no part in the order.",
+    "tableH": "All {shops} audited shops: the evidence",
+    "tableP": "Every shop we audited, sorted by score. Figures come from the reports we opened on {date}. \"Not published\" means the shop published nothing we could check.",
+    "colShop": "Shop",
+    "colScore": "Score",
+    "colOpened": "Reports opened",
+    "colPortal": "On lab portal",
+    "colFill": "Measured vs label",
+    "colEntity": "Company named",
+    "chartTitle": "Share of opened reports confirmed on the lab's portal",
+    "chartNote": "{none} shops published no report we could open and are not shown.",
+    "legendAccent": "Shop with store link",
+    "legendOther": "Other audited shop",
+    "fq1": "What is the most trusted peptide company?",
+    "fa1": "In our audit of {shops} shops on {date}, {top} ranks first among shops with a store link (score {topScore} of 5). We rate trust by reports confirmed on the lab's own portal, a named company and measured content against the label, not by reputation or commission.",
+    "fq2": "How do you decide which peptide vendors are trustworthy?",
+    "fa2": "We open the shop's lab reports and try to find the same report on the testing lab's portal, check the company details and compare measured mg with the label. {w}",
+    "fq3": "Is a COA enough to trust a peptide vendor?",
+    "fa3": "No. A report image or PDF on a shop's site can be cropped, outdated or for a different batch. Of the {reports} reports we opened, {portal} could be confirmed on the lab's portal. Check the report key on the lab's own site.",
+    "fq4": "Which peptide vendors are most reliable in Europe and the USA?",
+    "fa4": "Among shops with a store link, {eu} ranks first in Europe (score {euScore}) and {us} ranks first in the USA (score {usScore}). The regional rankings list all of them.",
+    "fq5": "Do shops pay for their position?",
+    "fa5": "No. Rankings are sorted by audit score. Some shops pay us a commission through affiliate links; that does not change the score or the order.",
+    "relLegit": "How to tell if a vendor is legit",
+    "relEU": "Best shops in Europe",
+    "relUS": "Best shops in the USA",
+    "relReports": "All lab reports we opened",
+    "relMethod": "How we test"
+  },
+  "lg": {
+    "title": [
+      "How to Tell if a Peptide Vendor Is Legit: {n} Checks",
+      "Is a Peptide Vendor Legit? {n} Checks"
+    ],
+    "description": [
+      "How to tell if a peptide vendor is legit: {n} checks with real cases from our audit of {shops} shops, from cropped lab reports to missing company data.",
+      "How to tell if a peptide vendor is legit: {n} checks with real cases from our audit of {shops} shops."
+    ],
+    "crumb": "Is a vendor legit?",
+    "h1": "How to tell if a peptide vendor is legit",
+    "eyebrow": "Checklist",
+    "intro": "Check {n} things before you trust a shop: can the lab report be opened on the lab's own portal, is it complete, does the shop copy match, do the batch numbers fit, where is it hosted, and is there a company behind it. Each check below comes with a real case from our audit of {shops} shops on {date}.",
+    "quickH": "Quick checklist",
+    "caseH": "The {n} checks, with real cases",
+    "why": "Why it matters",
+    "how": "How to check",
+    "statsH": "How the audited shops did",
+    "statsP": "Out of {shops} shops: {noRep} published no report we could open, {noPortal} had no report we could confirm on a lab portal, and {noEntity} publish no company name.",
+    "fq1": "How can I tell if a peptide company is legit?",
+    "fa1": "Open its lab report and look for the same report on the testing lab's own website, check that batch numbers and sizes match the product, and look for a named company with an address. {portal} of the {reports} reports we opened could be confirmed this way.",
+    "fq2": "Is a COA proof that a peptide vendor is legit?",
+    "fa2": "Not on its own. We found cropped report images, shop copies missing a line that the lab's copy shows, batch labels that do not match and reports stored only on Google Drive. A report counts only if the lab's portal confirms it.",
+    "fq3": "What are the red flags of a fake peptide vendor?",
+    "fa3": "No public lab reports or reports only on request, reports that cannot be found on the lab portal, cropped or edited images, batch numbers that are missing or do not match, and no company name or address.",
+    "fq4": "Where can I check a peptide vendor's lab report?",
+    "fa4": "On the testing lab's own website, using the report number or key printed on the report. Our lab guides explain the steps for each lab.",
+    "relTrusted": "Most trusted vendors",
+    "relRed": "COA red flags",
+    "relJanoshik": "How to verify a Janoshik report",
+    "relLabs": "All lab guides"
+  },
+  "cases": {
+    "portal": {
+      "h": "Can the report be opened on the lab's own portal?",
+      "why": "A shop can upload any file. Only the lab's own website shows what the lab really issued.",
+      "how": "Type the report number or key into the lab's verification page and compare every line."
+    },
+    "cropped": {
+      "h": "Is the whole report shown, not cropped?",
+      "why": "A cropped image hides the task number, client and batch, so nobody can match it to a product.",
+      "how": "Look for the full page: lab name, task number, client, batch, test date and the verification key."
+    },
+    "copy": {
+      "h": "Does the shop's copy match the lab's copy?",
+      "why": "If the shop's PDF lacks a line that the lab's copy has, the shop has edited or replaced the file.",
+      "how": "Download both copies of the same report ID and compare them line by line."
+    },
+    "batch": {
+      "h": "Do batch numbers and sample names fit the product?",
+      "why": "A report for a different size or batch says nothing about the vial you would receive.",
+      "how": "Compare the sample name, size and batch on the report with the product page."
+    },
+    "drive": {
+      "h": "Where is the report hosted?",
+      "why": "Files on Google Drive or the shop's own server can be changed at any time and carry no proof of origin.",
+      "how": "Prefer reports you can open on the lab's portal over files in cloud folders."
+    },
+    "nobatch": {
+      "h": "Does the report carry a batch number at all?",
+      "why": "Without a batch number a report cannot be linked to any lot on sale.",
+      "how": "Check that the batch or lot field is filled in, not blank, \"N/A\" or \"Unknown\"."
+    },
+    "entity": {
+      "h": "Is there a company behind the shop?",
+      "why": "Without a company name and address you do not know who is responsible.",
+      "how": "Look for a legal name, address and registration number in the terms, imprint or contact page."
+    },
+    "onrequest": {
+      "h": "Are lab reports public, or only on request?",
+      "why": "Testing claims you cannot read cannot be checked.",
+      "how": "Count \"COA on request\" as no public report until you can open it on the lab's portal."
+    }
+  },
+  "leg": {
+    "title": [
+      "Is It Legal to Buy Peptides Online? ({year})",
+      "Is It Legal to Buy Peptides Online?"
+    ],
+    "description": [
+      "Is it legal to buy peptides online? What the FDA says about research-use-only peptides, plus medicines rules for {n} countries, with sources. General information.",
+      "Is it legal to buy peptides online? What the FDA says about research-use-only peptides, plus rules for {n} countries."
+    ],
+    "crumb": "Is it legal?",
+    "h1": "Is it legal to buy peptides online?",
+    "eyebrow": "Legal status",
+    "intro": "It depends on the country and on how the product is sold. Research peptides are sold as laboratory reagents for research use only. FDA warning letters say this label does not decide the matter: when a website shows products are meant for people, the FDA classes them as unapproved new drugs. In Europe, national medicines laws apply.",
+    "usH": "United States: what the FDA says",
+    "us1": "The FDA says it has warned companies that sold unapproved drugs containing semaglutide, tirzepatide, retatrutide, survodutide or mazdutide labelled \"for research purposes\" or \"not for human consumption\", and urges consumers not to buy these products.",
+    "us2": "The FDA says retatrutide and cagrilintide cannot be used in compounding under federal law and are not components of any FDA-approved drug.",
+    "us3": "In its warning letters the FDA states that a research-use-only label did not stop it from classing the products as unapproved new drugs, because the sellers' websites showed they were intended for people.",
+    "lettersH": "Recent FDA warning letters to peptide sellers",
+    "euH": "Europe and other countries",
+    "euP": "Outside the US, medicines are regulated by national law. Our country notes name the authority and the main law for {n} countries:",
+    "lawLink": "Country note",
+    "ourH": "What this site covers",
+    "ourP": "We compare prices and lab data of products sold as laboratory reagents for research use only. We do not give advice on importing, customs or personal use, and nothing here is a recommendation to buy a product for use in people.",
+    "fq1": "Are peptides legal in the US?",
+    "fa1": "Some peptides are approved medicines available on prescription. Unapproved peptides sold for human use are, according to the FDA, unapproved new drugs, and a \"research use only\" label does not change that when products are marketed for people.",
+    "fq2": "Does a \"research use only\" label make a purchase legal?",
+    "fa2": "No label settles it. The FDA judges how a product is actually marketed. In its warning letters it classed research-labelled semaglutide, tirzepatide and retatrutide as unapproved new drugs.",
+    "fq3": "Are research peptides legal in Europe?",
+    "fa3": "Each country applies its own medicines law, for example the Arzneimittelgesetz in Germany or the Public Health Code in France. Our country notes list the authority and the main law for {n} countries.",
+    "fq4": "Is retatrutide legal?",
+    "fa4": "Retatrutide is an investigational Eli Lilly molecule that has not been approved by the FDA or any other regulator. Lilly says products claiming to be retatrutide offered to consumers are unlawful.",
+    "relReta": "Can you buy retatrutide in the USA?",
+    "relLaws": "Country notes",
+    "relTrusted": "Most trusted vendors",
+    "relLegit": "How to tell if a vendor is legit"
+  },
+  "ret": {
+    "title": [
+      "Can You Buy Retatrutide in the USA? Legal Status",
+      "Retatrutide Legal Status in the USA ({year})"
+    ],
+    "description": [
+      "Can you buy retatrutide in the USA? Not as an approved medicine. What the FDA and Eli Lilly say, FDA warning letters and code names, with sources.",
+      "Can you buy retatrutide in the USA? What the FDA and Eli Lilly say, with sources and dates."
+    ],
+    "crumb": "Retatrutide in the USA",
+    "h1": "Can you buy retatrutide in the USA?",
+    "eyebrow": "Legal status",
+    "intro": "Not as an approved medicine. Retatrutide is an investigational Eli Lilly molecule in Phase 3 trials and has not been approved by the FDA or any other regulator. The FDA says it cannot be used in compounding, and Lilly says any product claiming to be retatrutide offered to consumers is unlawful.",
+    "factsH": "Retatrutide: the regulatory facts",
+    "kStatus": "Status",
+    "vStatus": "Investigational molecule (Eli Lilly), Phase 3; not approved by the FDA or any other regulator.",
+    "kCompound": "Compounding",
+    "vCompound": "Cannot be used in compounding under federal law, according to the FDA.",
+    "kConsumer": "Sale to consumers",
+    "vConsumer": "Lilly says any product claiming to be retatrutide offered for sale to consumers is unlawful.",
+    "kTimeline": "Approval timeline",
+    "vTimeline": "Lilly says it plans to submit a Biologics License Application to the FDA in the first quarter of 2027, with no guarantee of approval.",
+    "lettersH": "FDA warning letters that name retatrutide",
+    "lettersP": "These letters went to sellers that offered retatrutide under its own name or a code name. The FDA classed the products as unapproved new drugs despite \"research use only\" labels.",
+    "ruoH": "What about \"research use only\" retatrutide?",
+    "ruoP": "Some shops list retatrutide as a laboratory reagent, often under code names such as GLP-3 RT or RT-3. Our price comparison shows these research listings with lab data. A listing does not make a product legal for any particular use, and nothing on this site is a recommendation to buy it for use in people.",
+    "dataP": "In our audit, {n} of {shops} shops listed retatrutide ({eu} in Europe, {us} in the USA), and we opened {reports} retatrutide lab reports.",
+    "fq1": "Is retatrutide FDA approved?",
+    "fa1": "No. Lilly says retatrutide has not been approved by the FDA or any other regulatory authority and remains an investigational molecule.",
+    "fq2": "Can retatrutide be compounded?",
+    "fa2": "No. The FDA says retatrutide cannot be used in compounding under federal law.",
+    "fq3": "Is research-use-only retatrutide legal in the USA?",
+    "fa3": "The FDA has sent warning letters to sellers of retatrutide labelled \"research use only\" and classed those products as unapproved new drugs because the websites showed they were meant for people.",
+    "fq4": "When might retatrutide be approved?",
+    "fa4": "Lilly says it plans to submit a Biologics License Application in the first quarter of 2027. Lilly also says there is no guarantee of approval or of that timeline.",
+    "fq5": "What is GLP-3 RT?",
+    "fa5": "GLP-3 RT is a code name some sellers use for retatrutide. The FDA quoted it in a March 2026 warning letter. Our code-name list shows which names the audited shops use.",
+    "relPrices": "Retatrutide price comparison",
+    "relLegal": "Is it legal to buy peptides online?",
+    "relCompare": "Tirzepatide vs retatrutide",
+    "relLaw": "United States country note"
+  }
+}

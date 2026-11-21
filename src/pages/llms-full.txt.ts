@@ -1,4 +1,7 @@
 import type { APIRoute } from 'astro';
+import { geoAnswers } from '../lib/geo';
+import { CASES } from '../lib/cases';
+import { vendorBySlug } from '../lib/site';
 import { VENDORS_BY_SCORE, TOTALS, CHECKED_ISO, SITE_URL, PRICE_COMPOUNDS, compoundShort, offersFor, cheapestBy, perMg, fillRange, purityRange, isPartner } from '../lib/site';
 
 export const GET: APIRoute = () => {
@@ -31,6 +34,13 @@ export const GET: APIRoute = () => {
     const e = cheapestBy(o, 'EUR');
     const u = cheapestBy(o, 'USD');
     out.push(`- ${compoundShort(c)}: EUR ${e ? `${perMg(e.perMg, 'EUR')} (${e.vendor.name}, ${e.product.vialMg} mg)` : 'n/a'}; USD ${u ? `${perMg(u.perMg, 'USD')} (${u.vendor.name}, ${u.product.vialMg} mg)` : 'n/a'} - ${SITE_URL}/prices/${c}/`);
+  }
+  out.push('', '## Answers to common questions');
+  for (const g of geoAnswers()) out.push(`- ${g.q} ${SITE_URL}${g.path}`, `  ${g.a}`);
+  out.push('', '## Real audit cases (what to check before trusting a shop)');
+  for (const c of CASES) {
+    const v = vendorBySlug(c.slug)!;
+    out.push(`- ${c.key}: ${v.name} - ${v.weaknesses[c.idx]} Source: ${c.sources.join(' ; ')}`);
   }
   out.push('');
   return new Response(out.join('\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

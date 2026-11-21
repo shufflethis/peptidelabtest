@@ -1,0 +1,20 @@
+---
+/** Sources as plain, copyable text (never links). */
+interface Props {
+  title: string;
+  intro?: string;
+  items: { label: string; url: string }[];
+}
+const { title, intro, items } = Astro.props;
+---
+{items.length > 0 && (
+  <section class="space-y-2">
+    <h2 class="h3">{title}</h2>
+    {intro && <p class="text-sm text-slate-600 max-w-[70ch]">{intro}</p>}
+    <ul class="space-y-2">
+      {items.map((s) => (
+        <li class="text-[0.95rem] text-slate-700"><span>{s.label}</span><span class="block mono-url">{s.url}</span></li>
+      ))}
+    </ul>
+  </section>
+)}

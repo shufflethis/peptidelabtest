@@ -34,6 +34,8 @@ const cols: { id: string; title: string; links: { href: string; label: string }[
     title: t(lang, 'footer.colShops'),
     links: [
       { href: L('/vendors/'), label: t(lang, 'footer.bestShops') },
+      { href: L('/trusted-peptide-vendors/'), label: t(lang, 'tv.crumb') },
+      { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'lg.crumb') },
       { href: L('/vendors/europe/'), label: t(lang, 'footer.bestEu') },
       { href: L('/vendors/usa/'), label: t(lang, 'footer.bestUs') },
       { href: L('/discount-codes/'), label: t(lang, 'footer.codes') },
@@ -61,6 +63,8 @@ const cols: { id: string; title: string; links: { href: string; label: string }[
       ...COMPOUND_PAIRS.slice(0, 4).map(([a, b]) => ({ href: L(`/compare/${pairSlug(a, b)}/`), label: `${compoundShort(a)} vs ${compoundShort(b)}` })),
       { href: L('/compare/'), label: t(lang, 'footer.compareCompounds') },
       { href: L('/laws/'), label: t(lang, 'footer.byCountry') },
+      { href: L('/is-it-legal-to-buy-peptides-online/'), label: t(lang, 'leg.crumb') },
+      { href: L('/can-you-buy-retatrutide-in-the-usa/'), label: t(lang, 'ret.crumb') },
       { href: L('/research/'), label: t(lang, 'footer.research') },
       { href: L('/calculator/'), label: t(lang, 'footer.calculator') },
     ],

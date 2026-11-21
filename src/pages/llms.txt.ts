@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { LIVE_LANGS, LANG_NAME } from '../i18n';
+import { geoAnswers } from '../lib/geo';
 import { TOTALS, CHECKED_ISO, SITE_URL, PRICE_COMPOUNDS, compoundShort, COMPOUND_PAIRS, pairSlug, LABS_IN_DATA, PARTNERS, SIZE_PAGES } from '../lib/site';
 
 export const GET: APIRoute = () => {
@@ -32,6 +33,9 @@ export const GET: APIRoute = () => {
     `- Contact: ${u('/contact/')}`,
     `- Privacy policy: ${u('/privacy/')}`,
     `- Terms of use: ${u('/terms/')}`,
+    '',
+    '## Answers to common questions',
+    ...geoAnswers().map((g) => `- ${g.q} ${u(g.path)} — ${g.a}`),
     '',
     '## Price comparisons by compound',
     ...PRICE_COMPOUNDS.map((c) => `- ${compoundShort(c)}: ${u(`/prices/${c}/`)}`),
