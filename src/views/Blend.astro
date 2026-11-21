@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import PriceBars from '../components/PriceBars.astro';
+import CodeBadge from '../components/CodeBadge.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import { CHECKED_ISO, YEAR, faqSchema, compoundShort, REL_SPONSORED, shopShort, PRICE_COMPOUNDS, CALC_COMPOUNDS, getCompound } from '../lib/site';
+import { BLENDS, blendOffers, blendReports, blendBySlug } from '../lib/blends';
+import { t, tt, td, lp, fmtDate, num, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang; blend: string }
+const { lang, blend } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, '2026-11-21');
+const b = blendBySlug(blend)!;
+const offers = blendOffers(b.key);
+const reps = blendReports(b.key);
+const shops = Array.from(new Set(offers.map((o) => o.vendor.slug)));
+const comps = b.components.map(compoundShort);
+const compStr = (c: Record<string, number> | null) => (c ? b.components.map((k) => `${compoundShort(k)} ${num(lang, c[k], Number.isInteger(c[k]) ? 0 : 1)} mg`).join(' + ') : t(lang, 'bl.notStated'));
+// most common stated composition
+const counts = new Map<string, number>();
+for (const o of offers) if (o.composition) { const k = compStr(o.composition); counts.set(k, (counts.get(k) || 0) + 1); }
+const common = Array.from(counts.entries()).sort((a, c) => c[1] - a[1])[0];
+const sizes = Array.from(new Set(offers.map((o) => o.totalMg))).sort((a, c) => a - c);
+const curs = Array.from(new Set(offers.filter((o) => o.perMg != null).map((o) => o.currency)));
+const cheapest = (cur: string) => offers.filter((o) => o.currency === cur && o.perMg != null).sort((a, c) => a.perMg! - c.perMg!)[0];
+const eu = cheapest('EUR');
+const us = cheapest('USD');
+const names = Array.from(new Set(offers.map((o) => o.name.replace(/\s*\(\d+\s?mg\)$/i, '')))).slice(0, 10);
+const V = {
+  name: b.name, comps: listJoin(lang, comps), n: shops.length, nOffers: offers.length, sizes: listJoin(lang, sizes.map((s) => `${num(lang, s, 0)} mg`)),
+  common: common ? common[0] : t(lang, 'bl.notStated'), nCommon: common ? common[1] : 0, nStated: offers.filter((o) => o.composition).length, date, year: YEAR,
+  eu: eu ? `${F.perMg(eu.perMg, 'EUR')} (${eu.vendor.name})` : F.na, us: us ? `${F.perMg(us.perMg, 'USD')} (${us.vendor.name})` : F.na, reports: reps.length,
+};
+function perShop(cur: string) {
+  const m = new Map<string, (typeof offers)[number]>();
+  for (const o of offers) { if (o.currency !== cur || o.perMg == null) continue; const x = m.get(o.vendor.slug); if (!x || o.perMg < x.perMg!) m.set(o.vendor.slug, o); }
+  return Array.from(m.values());
+}
+const faqs = [1, 2, 3, 4].map((i) => ({ q: t(lang, `bl.fq${i}`, V), a: t(lang, `bl.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'bl.crumb'), url: L('/blends/') }, { name: b.name, url: L(`/blends/${b.slug}/`) }];
+const related = [
+  ...b.components.filter((c) => PRICE_COMPOUNDS.includes(c)).map((c) => ({ href: L(`/prices/${c}/`), label: t(lang, 'bl.relPrice', { c: compoundShort(c) }) })),
+  ...b.components.filter((c) => getCompound(c)).slice(0, 2).map((c) => ({ href: L(`/compounds/${c}/`), label: t(lang, 'cc.relCompound', { c: compoundShort(c) }) })),
+  { href: L('/calculator/'), label: t(lang, 'bl.relCalc') },
+  ...BLENDS.filter((x) => x.slug !== b.slug).map((x) => ({ href: L(`/blends/${x.slug}/`), label: t(lang, 'bl.relBlend', { name: x.name }) })),
+  { href: L('/how-to-read-a-peptide-coa/'), label: t(lang, 'coa.crumb') },
+];
+---
+<BaseLayout lang={lang} title={tt(lang, `bl.t.${b.key}`, V)} description={td(lang, 'bl.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, `bl.h.${b.key}`, V)} eyebrow={t(lang, 'bl.eyebrow')} intro={t(lang, 'bl.intro', V)}>
+    <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <div class="stat"><dt>{t(lang, 'bl.statShops')}</dt><dd>{shops.length}</dd></div>
+      <div class="stat"><dt>{t(lang, 'bl.statOffers')}</dt><dd>{offers.length}</dd></div>
+      <div class="stat"><dt>{t(lang, 'bl.statEU')}</dt><dd class="text-lg">{eu ? F.perMg(eu.perMg, 'EUR') : F.na}</dd></div>
+      <div class="stat"><dt>{t(lang, 'bl.statUS')}</dt><dd class="text-lg">{us ? F.perMg(us.perMg, 'USD') : F.na}</dd></div>
+    </dl>
+  </PageHero>
+  <div class="wrap mt-12 space-y-14">
+    <section class="grid gap-8 lg:grid-cols-2 lg:items-start">
+      <div class="prose-read">
+        <h2 class="!mt-0">{t(lang, 'bl.compH', V)}</h2>
+        <p>{t(lang, 'bl.compP', V)}</p>
+        <p class="answer-box">{V.common}</p>
+        <p>{t(lang, 'bl.namesP')} {names.join(' · ')}</p>
+        <p>{t(lang, 'bl.only')}</p>
+      </div>
+      <div class="space-y-4">
+        {curs.map((cur) => (
+          <PriceBars currency={cur} title={t(lang, 'bl.barsTitle', { name: b.name, cur })} max={10} bars={perShop(cur).map((o) => ({ label: o.vendor.name, sub: `${num(lang, o.totalMg, 0)} mg`, value: o.perMg!, partner: o.partner }))} />
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-4" id="offers">
+      <div class="max-w-[70ch]"><h2 class="h2">{t(lang, 'bl.tableH', V)}</h2><p class="mt-2 text-slate-700">{t(lang, 'bl.tableP', V)}</p></div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col">{t(lang, 'rf.colShop')}</th><th scope="col">{t(lang, 'bl.colComp')}</th><th scope="col" class="num">{t(lang, 'bl.colPrice')}</th><th scope="col" class="num">{t(lang, 'bl.colPerMg')}</th><th scope="col">{t(lang, 'bl.colShop')}</th></tr></thead>
+          <tbody>
+            {offers.map((o) => (
+              <tr class={o.partner ? '' : 'row-muted'}>
+                <td class="min-w-[11rem]"><a href={L(`/vendors/${o.vendor.slug}/`)} class="font-semibold text-slate-900 hover:underline">{o.vendor.name}</a><span class="sub">{o.name}</span></td>
+                <td class="min-w-[12rem]">{num(lang, o.totalMg, 0)} mg<span class="sub">{compStr(o.composition)}</span></td>
+                <td class="num">{o.price != null ? F.money(o.price, o.currency) : t(lang, 'common.notPublished')}{o.listPrice != null && <span class="sub line-through">{F.money(o.listPrice, o.currency)}</span>}{o.inStock === false && <span class="sub">{t(lang, 'bl.oos')}</span>}</td>
+                <td class="num font-semibold">{o.perMg != null ? F.perMg(o.perMg, o.currency) : F.na}</td>
+                <td class="min-w-[9rem]">
+                  {o.partner && o.href ? (
+                    <div class="flex flex-col gap-1.5 items-start"><a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary !min-h-[40px] !px-3 !text-sm">{t(lang, 'c.visit', { shop: shopShort(o.vendor.name) })} <Icon name="external-link" class="w-3.5 h-3.5" /></a><CodeBadge slug={o.vendor.slug} /></div>
+                  ) : (
+                    <a href={L(`/vendors/${o.vendor.slug}/`)} class="text-link">{t(lang, 'bl.review')}</a>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-slate-600 max-w-[75ch]">{t(lang, 'bl.note', V)}</p>
+    </section>
+
+    <section class="space-y-4" id="lab-reports">
+      <div class="max-w-[70ch]"><h2 class="h2">{t(lang, 'bl.repsH', V)}</h2><p class="mt-2 text-slate-700">{reps.length ? t(lang, 'bl.repsP', V) : t(lang, 'bl.repsNone', V)}</p></div>
+      {reps.length > 0 && (
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th scope="col">{t(lang, 'rf.colShop')}</th><th scope="col">{t(lang, 'rf.colLab')}</th><th scope="col">{t(lang, 'bl.colLot')}</th><th scope="col">{t(lang, 'chk.colDate')}</th><th scope="col" class="num">{t(lang, 'chk.colPurity')}</th><th scope="col">{t(lang, 'bl.colMeasured')}</th></tr></thead>
+            <tbody>
+              {reps.map((r) => (
+                <tr>
+                  <td class="min-w-[9rem]"><a href={L(`/vendors/${r.vendor.slug}/`)} class="font-semibold text-slate-900 hover:underline">{r.vendor.name}</a><span class="sub mono-url">{r.url}</span></td>
+                  <td>{r.lab || t(lang, 'common.notPublished')}</td>
+                  <td>{r.lot || r.reportId || F.na}</td>
+                  <td class="whitespace-nowrap">{r.testDate ? fmtDate(lang, r.testDate) : F.na}</td>
+                  <td class="num">{r.purityPercent != null ? F.rawPct(r.purityPercent) : F.na}</td>
+                  <td class="min-w-[12rem]">{r.measured ? b.components.filter((k) => r.measured![k] != null).map((k) => `${compoundShort(k)} ${num(lang, r.measured![k], 2)} mg`).join(' · ') : F.na}{r.note && <span class="sub">{t(lang, `bl.rn.${r.note.startsWith('listed') ? 'mismatch' : r.note.startsWith('values') ? 'shopcopy' : r.note.startsWith('shop states') ? 'claim' : 'nodata'}`)}</span>}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      <p class="text-sm text-slate-600 max-w-[75ch]">{t(lang, 'bl.repsNote')}</p>
+    </section>
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

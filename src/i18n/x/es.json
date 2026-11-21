@@ -427,5 +427,183 @@
     "fieldsH": "Campos que leer en cada informe",
     "fields": "Laboratorio · número de orden · clave de verificación · cliente · nombre de la muestra y cantidad de etiqueta · lote · fecha del análisis · método · pureza · mg medidos",
     "footer": "Del análisis de PeptideLabIndex de {shops} tiendas, revisado el {date}. Solo para investigación. peptidelabtest.org"
+  },
+  "cc": {
+    "title": [
+      "Calculadora de reconstitución de {c} (mg/mL lab)",
+      "Calculadora de {c} (lab, mg/mL)"
+    ],
+    "description": [
+      "Calculadora de concentración de laboratorio para {c}: mg en el vial y mL de disolvente dan mg/mL. {nSizes} tamaños en {n} tiendas, precio por mg y {reports} informes de laboratorio.",
+      "Calculadora de concentración de {c} en mg/mL para laboratorio, con tamaños de vial, precio por mg e informes."
+    ],
+    "h1": "Calculadora de {c}: concentración en el vial (mg/mL)",
+    "eyebrow": "Calculadora de laboratorio",
+    "intro": "Introduzca los mg de un vial de {c} y los mL de disolvente para obtener la concentración madre en mg/mL. {n} tiendas auditadas venden {c} en {nSizes} tamaños de vial ({sizes}); puede usar los mg medidos de un informe de laboratorio en lugar de la etiqueta. Solo cálculo de laboratorio.",
+    "calcH": "Concentración madre de {c} (mg/mL)",
+    "formulaH": "La fórmula",
+    "formula": "Concentración (mg/mL) = cantidad en el vial (mg) ÷ volumen de disolvente (mL)",
+    "example": "Ejemplo: el tamaño más común es {def} mg. {def} mg en 2 mL dan {defConc} mg/mL.",
+    "exampleReal": "Con datos de laboratorio: un vial de {label} mg de {c} de {shop} contenía {measured} mg según {lab} ({pct} de la etiqueta). En 2 mL son {concMeasured} mg/mL en lugar de {concLabel} mg/mL según la etiqueta.",
+    "only": "El resultado es solo una concentración. Esta página no contiene información sobre uso, administración ni cantidades por persona.",
+    "tableH": "{c}: tamaño del vial × disolvente = mg/mL",
+    "colVial": "Vial (etiqueta)",
+    "colListings": "Ofertas",
+    "pricesH": "Precio por mg de {c} en tiendas auditadas",
+    "pricesP": "Precio más bajo por mg en cada tienda, EUR y USD por separado (sin conversión).",
+    "barsTitle": "{c}: precio más bajo por mg por tienda ({cur})",
+    "repsH": "Informes de laboratorio de {c} que abrimos",
+    "repsP": "{reports} informes, {portal} confirmados en el portal del laboratorio. Use los mg medidos en la calculadora de arriba para una concentración más precisa.",
+    "relPrices": "Comparación de precios de {c}",
+    "relCompound": "Datos del compuesto {c}",
+    "relCalc": "Calculadora de {c}",
+    "fq1": "¿Cómo calculo la concentración de {c} en mg/mL?",
+    "fa1": "Divida la cantidad del vial (mg) entre el disolvente añadido (mL). {def} mg de {c} en 2 mL dan {defConc} mg/mL.",
+    "fq2": "¿Qué tamaños de vial de {c} existen?",
+    "fa2": "{n} tiendas auditadas venden {c} en {nSizes} tamaños: {sizes}. Revisado el {date}.",
+    "fq3": "¿Por qué usar los mg medidos en lugar de la etiqueta?",
+    "fa3": "El contenido medido puede diferir de la etiqueta. Un vial de {label} mg de {c} de {shop} contenía {measured} mg ({pct} de la etiqueta), así que 2 mL dan {concMeasured} mg/mL en lugar de {concLabel} mg/mL.",
+    "fq4": "¿Esta calculadora es solo para laboratorio?",
+    "fa4": "Sí. Hace una división (mg ÷ mL) para soluciones madre in vitro de compuestos de investigación y no contiene información sobre uso en personas o animales."
+  },
+  "calcp": {
+    "title": [
+      "Calculadora de reconstitución de péptidos (mg/mL)",
+      "Calculadora de péptidos (lab, mg/mL)"
+    ],
+    "byH": "Calculadoras por compuesto",
+    "byP": "Cada página usa los tamaños de vial de ese compuesto y muestra el precio por mg y los informes de laboratorio que abrimos.",
+    "sizes": "{n} tamaños de vial"
+  },
+  "bl": {
+    "crumb": "Mezclas de péptidos",
+    "eyebrow": "Mezclas",
+    "t": {
+      "wolverine": [
+        "Mezcla Wolverine (BPC-157 + TB-500): precios",
+        "Mezcla Wolverine BPC-157 + TB-500: precios"
+      ],
+      "klow": [
+        "Mezcla de péptidos KLOW: composición y precios",
+        "Péptido KLOW: tiendas y precios"
+      ],
+      "glow": [
+        "Mezcla de péptidos GLOW: composición y precios",
+        "Péptido GLOW: tiendas y precios"
+      ],
+      "cjc-ipamorelin": [
+        "Mezcla CJC-1295 + Ipamorelin: tiendas y precios",
+        "Precios CJC-1295 Ipamorelin"
+      ]
+    },
+    "h": {
+      "wolverine": "Mezcla de péptidos Wolverine (BPC-157 + TB-500)",
+      "klow": "Mezcla de péptidos KLOW (GHK-Cu, BPC-157, TB-500, KPV)",
+      "glow": "Mezcla de péptidos GLOW (GHK-Cu, BPC-157, TB-500)",
+      "cjc-ipamorelin": "Mezcla CJC-1295 + Ipamorelin"
+    },
+    "description": [
+      "Mezcla {name}: lo que {n} tiendas auditadas dicen que contiene el vial ({comps}), {nOffers} ofertas con precio por mg y los informes de laboratorio que muestran. Revisado el {date}.",
+      "Mezcla {name}: composición, {nOffers} ofertas en {n} tiendas, precio por mg e informes de laboratorio."
+    ],
+    "intro": "{name} es un nombre comercial para un vial que contiene {comps}. El {date} encontramos {nOffers} ofertas en {n} tiendas auditadas, en tamaños de {sizes}. Precio más bajo por mg: {eu} en EUR, {us} en USD. La composición, los precios y los informes de abajo son los que publican las tiendas.",
+    "statShops": "Tiendas",
+    "statOffers": "Ofertas",
+    "statEU": "EUR/mg más bajo",
+    "statUS": "USD/mg más bajo",
+    "compH": "Qué contiene un vial de {name}",
+    "compP": "{nStated} de {nOffers} ofertas indican la cantidad de cada compuesto. El reparto más común ({nCommon} ofertas) es:",
+    "namesP": "Nombres que usan las tiendas:",
+    "only": "Solo mostramos composición, precios y datos de laboratorio. Nada aquí describe efectos, uso en personas o animales ni ningún protocolo; todos los productos se venden para investigación de laboratorio.",
+    "barsTitle": "{name}: precio más bajo por mg por tienda ({cur})",
+    "tableH": "Las {nOffers} ofertas de {name}",
+    "tableP": "Primero las tiendas con enlace, luego por precio por mg. Precio por mg = precio ÷ mg totales del vial.",
+    "colComp": "Composición (según la tienda)",
+    "colPrice": "Precio",
+    "colPerMg": "Precio por mg",
+    "colShop": "Tienda",
+    "colBlend": "Mezcla",
+    "colLot": "Lote / informe",
+    "colMeasured": "Medido por compuesto",
+    "notStated": "sin cantidad por compuesto",
+    "oos": "agotado",
+    "review": "Ver nuestro análisis",
+    "note": "Precios publicados el {date}, sin códigos, EUR y USD por separado. No se incluyen plumas ni otras formas líquidas.",
+    "repsH": "Informes de laboratorio de {name} que muestran las tiendas",
+    "repsP": "{reports} informes en las páginas o archivos de las tiendas. No los confirmamos en los portales de los laboratorios, así que cuentan como copias de la tienda.",
+    "repsNone": "No encontramos ningún informe de laboratorio de esta mezcla en las páginas de las tiendas.",
+    "repsNote": "Los archivos y páginas de informes se muestran como texto. Siga los pasos de nuestra guía de COA para comprobar un informe en el portal del laboratorio.",
+    "rn": {
+      "mismatch": "publicado para el producto de 5 mg + 5 mg, pero el nombre del archivo del certificado dice 10 mg + 10 mg",
+      "shopcopy": "valores tal como aparecen en la página de la tienda",
+      "claim": "la tienda indica una pureza superior al 99 % por HPLC",
+      "nodata": "página de informe en el sitio de la tienda; valores no registrados"
+    },
+    "fq1": "¿Qué contiene la mezcla {name}?",
+    "fa1": "{comps} en un vial. {nStated} de {nOffers} ofertas indican el reparto; el más común es {common}.",
+    "fq2": "¿Qué tiendas venden la mezcla {name}?",
+    "fa2": "El {date} encontramos {nOffers} ofertas en {n} tiendas auditadas, en tamaños de {sizes}.",
+    "fq3": "¿Dónde es más barata la mezcla {name} por mg?",
+    "fa3": "Precio más bajo publicado por mg: {eu} en EUR y {us} en USD, antes de códigos.",
+    "fq4": "¿Hay informes de laboratorio de la mezcla {name}?",
+    "fa4": "Encontramos {reports} informes en las páginas de las tiendas. No confirmamos ninguno en un portal de laboratorio; compruebe el número del informe en la web del laboratorio.",
+    "relPrice": "Comparación de precios de {c}",
+    "relCalc": "Calculadora de concentración para dos compuestos",
+    "relBlend": "Mezcla {name}",
+    "iTitle": [
+      "Mezclas de péptidos: Wolverine, KLOW, GLOW, CJC",
+      "Mezclas de péptidos: precios y composición"
+    ],
+    "iDescription": [
+      "Mezclas de péptidos comparadas: Wolverine (BPC-157 + TB-500), KLOW, GLOW y CJC-1295 + Ipamorelin en {shops} tiendas auditadas, con composición, precio por mg e informes.",
+      "Mezclas de péptidos comparadas: composición, precio por mg e informes en {shops} tiendas auditadas."
+    ],
+    "iH1": "Mezclas de péptidos comparadas",
+    "iIntro": "{n} mezclas de investigación comunes en {shops} tiendas auditadas, revisadas el {date}: lo que la tienda dice que contiene el vial, el precio más bajo por mg y los informes que muestran.",
+    "iSub": "{offers} ofertas en {n} tiendas"
+  },
+  "gs": {
+    "h": "Estado regulatorio",
+    "approvedIngredient": "Principio activo de medicamentos con receta aprobados por la FDA. Las ofertas de investigación comparadas aquí no son esos medicamentos; la FDA llama medicamentos no aprobados a las versiones vendidas fuera de la aprobación.",
+    "investigational": "En investigación (fase 3, Eli Lilly); no aprobado por la FDA ni por ningún otro regulador.",
+    "note": "Estado según las fuentes, revisado el 21 nov 2026. Información general, no asesoramiento legal."
+  },
+  "c3": {
+    "title": [
+      "Retatrutida vs tirzepatida vs semaglutida: datos",
+      "Retatrutida vs tirzepatida vs semaglutida"
+    ],
+    "description": [
+      "Retatrutida vs tirzepatida vs semaglutida: clase, estado regulatorio con fuentes, tamaños de vial, precio por mg (EUR/USD) e informes de {nA}, {nB} y {nC} tiendas.",
+      "Retatrutida vs tirzepatida vs semaglutida: clase, estado, tamaños, precio por mg e informes."
+    ],
+    "h1": "Retatrutida vs tirzepatida vs semaglutida: datos de investigación",
+    "eyebrow": "Comparación de compuestos",
+    "intro": "Tres compuestos de investigación de clase GLP-1 lado a lado: qué es cada molécula, su estado regulatorio con fuentes, los tamaños de vial del mercado, el precio por mg en EUR y USD y los informes que abrimos ({rA}, {rB} y {rC}). Sin efectos ni uso en personas: solo datos, revisados el {date}.",
+    "tableH": "Lado a lado",
+    "rClass": "Molécula",
+    "rStatus": "Estado regulatorio",
+    "rShops": "Tiendas auditadas que lo venden",
+    "rSizes": "Tamaños de vial en el mercado",
+    "rLowEur": "Precio más bajo por mg (EUR)",
+    "rLowUsd": "Precio más bajo por mg (USD)",
+    "rMedEur": "Mediana del precio por mg (EUR)",
+    "rMedUsd": "Mediana del precio por mg (USD)",
+    "rReports": "Informes abiertos",
+    "rFill": "Medido frente a etiqueta",
+    "shopsVal": "{n} ({eu} UE, {us} EE. UU.)",
+    "repVal": "{n} ({p} confirmados en el portal del laboratorio)",
+    "note": "Precios publicados, antes de códigos; EUR y USD por separado. Medianas sobre todas las ofertas con precio.",
+    "chartUsd": "Mediana del precio por mg (USD)",
+    "chartEur": "Mediana del precio por mg (EUR)",
+    "statusP": "La semaglutida y la tirzepatida son principios activos de medicamentos con receta aprobados; la retatrutida sigue en investigación. Las tiendas de esta comparación venden material de investigación etiquetado solo para uso de laboratorio.",
+    "fq1": "¿Qué diferencia hay entre retatrutida, tirzepatida y semaglutida?",
+    "fa1": "Son moléculas distintas: la semaglutida actúa sobre el receptor GLP-1, la tirzepatida sobre los receptores GIP y GLP-1, y la retatrutida sobre los receptores GIP, GLP-1 y de glucagón. La semaglutida y la tirzepatida son principios activos de medicamentos aprobados; la retatrutida está en investigación.",
+    "fq2": "¿Cuál es más barata por mg en las ofertas de investigación?",
+    "fa2": "Mediana del precio publicado por mg en USD: {list}. EUR y USD van por separado; vea la tabla para EUR.",
+    "fq3": "¿Cuántas tiendas venden cada compuesto?",
+    "fa3": "En nuestra auditoría: {a} en {nA} tiendas, {b} en {nB} y {c} en {nC}, revisado el {date}.",
+    "fq4": "¿Hay informes de laboratorio de cada uno?",
+    "fa4": "Abrimos {rA} informes de {a}, {rB} de {b} y {rC} de {c}; la tabla muestra cuántos se confirmaron en el portal del laboratorio."
   }
 }

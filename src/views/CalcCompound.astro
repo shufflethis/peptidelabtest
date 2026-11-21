@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ConcentrationCalculator from '../components/ConcentrationCalculator.astro';
+import PriceBars from '../components/PriceBars.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { CHECKED_ISO, YEAR, faqSchema, compoundShort, offersFor, currenciesOf, reportsFor, fillPct, shopsCarrying, sizeCounts, CALC_COMPOUNDS, compoundPairsFor, pairSlug, getCompound } from '../lib/site';
+import { t, tt, td, lp, fmtDate, num, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang; compound: string }
+const { lang, compound } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const c = compoundShort(compound);
+const sizes = sizeCounts(compound);
+const sizeList = [...sizes].sort((a, b) => a.size - b.size);
+const def = sizes[0]?.size ?? 10;
+const mgN = (n: number) => num(lang, n, Number.isInteger(n) ? 0 : 1);
+const ML = [1, 2, 3];
+const shops = shopsCarrying(compound);
+const reps = reportsFor(compound);
+const measured = reps.filter((r) => r.report.measuredMg != null && r.report.labelMg != null);
+// real worked example: the opened report closest to the most common size, preferring portal-verified ones
+const ex = [...measured].sort((a, b) => Number(b.report.verifiable) - Number(a.report.verifiable) || Math.abs((a.report.labelMg ?? 0) - def) - Math.abs((b.report.labelMg ?? 0) - def))[0];
+const offers = offersFor(compound);
+const curs = currenciesOf(offers);
+function cheapestPerShop(cur: string) {
+  const m = new Map<string, (typeof offers)[number]>();
+  for (const o of offers) {
+    if (o.currency !== cur || o.perMg == null) continue;
+    const x = m.get(o.vendor.slug);
+    if (!x || o.perMg < (x.perMg as number)) m.set(o.vendor.slug, o);
+  }
+  return Array.from(m.values());
+}
+const V = {
+  c, year: YEAR, date, n: shops.length, nSizes: sizes.length, sizes: listJoin(lang, sizeList.map((s) => `${mgN(s.size)} mg`)), def: mgN(def), defConc: num(lang, def / 2, 2),
+  reports: reps.length, portal: reps.filter((r) => r.report.verifiable).length,
+};
+const exV = ex ? {
+  shop: ex.vendor.name, label: mgN(ex.report.labelMg!), measured: num(lang, ex.report.measuredMg!, 2), pct: F.pct(fillPct(ex.report)),
+  concLabel: num(lang, ex.report.labelMg! / 2, 2), concMeasured: num(lang, ex.report.measuredMg! / 2, 2), lab: ex.report.lab.replace(/\s*\(.*\)\s*$/, ''),
+} : null;
+const faqs = [
+  { q: t(lang, 'cc.fq1', V), a: t(lang, 'cc.fa1', V) },
+  { q: t(lang, 'cc.fq2', V), a: t(lang, 'cc.fa2', V) },
+  ...(exV ? [{ q: t(lang, 'cc.fq3', V), a: t(lang, 'cc.fa3', { ...V, ...exV }) }] : []),
+  { q: t(lang, 'cc.fq4', V), a: t(lang, 'cc.fa4', V) },
+];
+const crumbs = [
+  { name: t(lang, 'common.home'), url: L('/') },
+  { name: t(lang, 'calcp.crumb'), url: L('/calculator/') },
+  { name: c, url: L(`/calculator/${compound}/`) },
+];
+const app = { '@context': 'https://schema.org', '@type': 'WebApplication', name: t(lang, 'cc.h1', V), applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } };
+const others = CALC_COMPOUNDS.filter((x) => x !== compound).slice(0, 6);
+const related = [
+  { href: L(`/prices/${compound}/`), label: t(lang, 'cc.relPrices', V) },
+  ...(getCompound(compound) ? [{ href: L(`/compounds/${compound}/`), label: t(lang, 'cc.relCompound', V) }] : []),
+  ...compoundPairsFor(compound).map(([a, b]) => ({ href: L(`/compare/${pairSlug(a, b)}/`), label: `${compoundShort(a)} vs ${compoundShort(b)}` })),
+  { href: L('/how-to-read-a-peptide-coa/'), label: t(lang, 'coa.crumb') },
+  ...others.map((x) => ({ href: L(`/calculator/${x}/`), label: t(lang, 'cc.relCalc', { c: compoundShort(x) }) })),
+];
+---
+<BaseLayout lang={lang} title={tt(lang, 'cc.title', V)} description={td(lang, 'cc.description', V)} crumbs={crumbs} jsonLd={[faqSchema(faqs), app]}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'cc.h1', V)} eyebrow={t(lang, 'cc.eyebrow')} intro={t(lang, 'cc.intro', V)} />
+  <div class="wrap mt-10 space-y-14">
+    <ConcentrationCalculator presetsMg={sizeList.map((s) => s.size).slice(0, 8)} defaultMg={def} title={t(lang, 'cc.calcH', V)} />
+
+    <section class="grid gap-8 lg:grid-cols-2 lg:items-start">
+      <div class="prose-read">
+        <h2 class="!mt-0">{t(lang, 'cc.formulaH')}</h2>
+        <p class="answer-box !mt-3">{t(lang, 'cc.formula')}</p>
+        <p>{t(lang, 'cc.example', V)}</p>
+        {exV && <p>{t(lang, 'cc.exampleReal', { ...V, ...exV })}</p>}
+        <p>{t(lang, 'cc.only')}</p>
+      </div>
+      <div>
+        <h2 class="h3">{t(lang, 'cc.tableH', V)}</h2>
+        <div class="table-wrap mt-3">
+          <table class="data-table">
+            <thead><tr><th scope="col">{t(lang, 'cc.colVial')}</th>{ML.map((m) => <th scope="col" class="num">{num(lang, m, 0)} mL</th>)}<th scope="col" class="num">{t(lang, 'cc.colListings')}</th></tr></thead>
+            <tbody>
+              {sizeList.map((s) => (
+                <tr><td class="font-semibold text-slate-900">{mgN(s.size)} mg</td>{ML.map((m) => <td class="num">{num(lang, s.size / m, 2)} mg/mL</td>)}<td class="num">{s.n}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-5">
+      <div class="max-w-[70ch]">
+        <h2 class="h2">{t(lang, 'cc.pricesH', V)}</h2>
+        <p class="mt-2 text-slate-700">{t(lang, 'cc.pricesP', V)} <a href={L(`/prices/${compound}/`)} class="text-link">{t(lang, 'cc.relPrices', V)}</a></p>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-2">
+        {curs.map((cur) => (
+          <PriceBars currency={cur} title={t(lang, 'cc.barsTitle', { c, cur })} max={8} bars={cheapestPerShop(cur).map((o) => ({ label: o.vendor.name, sub: `${F.mg(o.product.vialMg)}`, value: o.perMg as number, partner: o.partner }))} />
+        ))}
+      </div>
+    </section>
+
+    {reps.length > 0 && (
+      <section class="space-y-4">
+        <div class="max-w-[70ch]"><h2 class="h2">{t(lang, 'cc.repsH', V)}</h2><p class="mt-2 text-slate-700">{t(lang, 'cc.repsP', V)}</p></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th scope="col">{t(lang, 'rf.colShop')}</th><th scope="col" class="num">{t(lang, 'chk.colLabel')}</th><th scope="col" class="num">{t(lang, 'rf.colMeasured')}</th><th scope="col" class="num">{t(lang, 'rf.colPct')}</th><th scope="col" class="num">{t(lang, 'chk.colPurity')}</th><th scope="col">{t(lang, 'rf.colLab')}</th><th scope="col">{t(lang, 'rf.colPortal')}</th></tr></thead>
+            <tbody>
+              {reps.map((r) => (
+                <tr>
+                  <td class="min-w-[9rem]"><a href={L(`/vendors/${r.vendor.slug}/`)} class="font-semibold text-slate-900 hover:underline">{r.vendor.name}</a></td>
+                  <td class="num">{F.mg(r.report.labelMg)}</td>
+                  <td class="num">{F.mg(r.report.measuredMg)}</td>
+                  <td class="num">{F.pct(fillPct(r.report))}</td>
+                  <td class="num">{r.report.purityPercent != null ? F.rawPct(r.report.purityPercent) : F.na}</td>
+                  <td>{r.report.lab.replace(/\s*\(.*\)\s*$/, '')}</td>
+                  <td>{r.report.verifiable ? t(lang, 'xc.yes') : t(lang, 'xc.no')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

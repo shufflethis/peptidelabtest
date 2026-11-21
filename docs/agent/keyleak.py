@@ -13,7 +13,7 @@ for root,_,fs in os.walk(DIST):
       txt=html.unescape(re.sub(r'<[^>]+>',' ',s2))
       attrs=' '.join(re.findall(r'(?:content|aria-label|title|placeholder|alt)="([^"]*)"',s))
       for m in pat.findall(txt+' '+attrs):
-        if re.match(r'^\w+\.(com|org|cz|io|is|de|co|pdf|png|net)\b',m): continue
+        if re.match(r'^\w+\.(com|org|cz|io|is|de|co|pdf|png|net)\b',m) or re.search(r'\.(com|org|co|io|net|de)$',m) or m.startswith('r.o'): continue  # hostnames, 's.r.o.' company suffix
         hits.setdefault(m,set()).add(os.path.relpath(root,DIST))
 for k,v in sorted(hits.items()): print(k,len(v),sorted(v)[:3])
 print('leaks',len(hits))

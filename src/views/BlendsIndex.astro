@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { compoundShort } from '../lib/site';
+import { BLENDS, blendOffers } from '../lib/blends';
+import { t, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const rows = BLENDS.map((b) => {
+  const o = blendOffers(b.key);
+  const ch = (cur: string) => o.filter((x) => x.currency === cur && x.perMg != null).sort((a, c) => a.perMg! - c.perMg!)[0];
+  return { b, n: new Set(o.map((x) => x.vendor.slug)).size, offers: o.length, eu: ch('EUR'), us: ch('USD') };
+});
+const V = { n: BLENDS.length, shops: new Set(BLENDS.flatMap((b) => blendOffers(b.key).map((x) => x.vendor.slug))).size, date: fmtDate(lang, '2026-11-21') };
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'bl.crumb'), url: L('/blends/') }];
+---
+<BaseLayout lang={lang} title={tt(lang, 'bl.iTitle', V)} description={td(lang, 'bl.iDescription', V)} crumbs={crumbs}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'bl.iH1')} eyebrow={t(lang, 'bl.eyebrow')} intro={t(lang, 'bl.iIntro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th scope="col">{t(lang, 'bl.colBlend')}</th><th scope="col">{t(lang, 'bl.colComp')}</th><th scope="col" class="num">{t(lang, 'bl.statShops')}</th><th scope="col" class="num">{t(lang, 'bl.statEU')}</th><th scope="col" class="num">{t(lang, 'bl.statUS')}</th></tr></thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr>
+              <td class="min-w-[10rem]"><a href={L(`/blends/${r.b.slug}/`)} class="font-semibold text-slate-900 hover:underline">{r.b.name}</a></td>
+              <td>{listJoin(lang, r.b.components.map(compoundShort))}</td>
+              <td class="num">{r.n}</td>
+              <td class="num">{r.eu ? F.perMg(r.eu.perMg, 'EUR') : F.na}</td>
+              <td class="num">{r.us ? F.perMg(r.us.perMg, 'USD') : F.na}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="text-slate-700 max-w-[75ch]">{t(lang, 'bl.only')}</p>
+    <RelatedLinks links={rows.map((r) => ({ href: L(`/blends/${r.b.slug}/`), label: t(lang, `bl.h.${r.b.key}`), sub: t(lang, 'bl.iSub', { n: r.n, offers: r.offers }) }))} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

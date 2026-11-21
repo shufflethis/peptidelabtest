@@ -467,6 +467,8 @@
    "Sterility",
    "Heavy metals"
   ],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 1
  },
  {
@@ -924,6 +926,68 @@
    "Endotoxin",
    "Sterility",
    "Heavy metals"
+  ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine Blend 10mg",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 59.99,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://arcticlabsupply.com/products/wolverine-10mg",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.999
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW 80MG",
+    "totalMg": 80,
+    "composition": null,
+    "price": 99.99,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://arcticlabsupply.com/products/klow-80mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated on the page read",
+    "pricePerMg": 1.25
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 + Ipamorelin 10mg",
+    "totalMg": 10,
+    "composition": null,
+    "price": 54.99,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://arcticlabsupply.com/products/cjc-ipamorelin-10mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated on the page read",
+    "pricePerMg": 5.499
+   }
+  ],
+  "blendReports": [
+   {
+    "blend": "klow",
+    "lab": null,
+    "lot": "GW-2501A",
+    "reportId": null,
+    "testDate": "2026-10-15",
+    "purityPercent": null,
+    "labelMg": 80,
+    "measured": null,
+    "url": "https://arcticlabsupply.com/coa/klow-80mg/gw-2501a",
+    "verifiable": false,
+    "readAt": "2026-11-21",
+    "note": "report page on the shop site; values not recorded"
+   }
   ],
   "rank": 2
  },
@@ -1397,6 +1461,156 @@
    "Endotoxin",
    "Heavy metals"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 + TB-500 Blend 5mg / 5mg",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 59.0,
+    "salePrice": 54.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/bpc157-tb500-peptide-blend-5mg-5mg-high-purity-research-peptide-grail-formula/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.4
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 + TB-500 Blend 10mg / 10mg",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 99.0,
+    "salePrice": 89.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/bpc-157-tb-500-blend-10mg-10mg-high-purity-research-peptide-grail-formula/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 4.45
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 + TB-500 Blend 15mg / 15mg",
+    "totalMg": 30,
+    "composition": {
+     "bpc-157": 15,
+     "tb-500": 15
+    },
+    "price": 139.0,
+    "salePrice": 124.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/bpc-157-tb-500-15mg-15mg-high-purity-research-peptide-grail-formula/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 4.133
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 + TB-500 Blend. 30mg / 30mg",
+    "totalMg": 60,
+    "composition": {
+     "bpc-157": 30,
+     "tb-500": 30
+    },
+    "price": 189.0,
+    "salePrice": 169.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/bpc-157-tb-500-30mg-30mg-high-purity-research-peptide-grail-formula/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 2.817
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW – TB-500 10mg / BPC-157 10mg / KPV 10mg / GHK-Cu 50mg",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 159.0,
+    "salePrice": 144.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/klow-tb500-bpc157-kpv-ghkcu-high-purity-research-peptide-grail-formula/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.8
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "Glow – TB-500 10mg / BPC-157 10mg / GHK-Cu 50mg",
+    "totalMg": 70,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 139.0,
+    "salePrice": 124.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/glow-70mg-bpc157-ghkcu-tb500-high-purity-research-peptide-grail-formula/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.771
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 (no dac) 5mg + Ipamorelin 5mg",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": 59.0,
+    "salePrice": 54.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/cjc1295-no-dac-ipamorelin-5mg-5mg-high-purity-research-peptide-grail-formula/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.4
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 (no dac) 6mg + Ipamorelin 11mg",
+    "totalMg": 17,
+    "composition": {
+     "cjc-1295": 6,
+     "ipamorelin": 11
+    },
+    "price": 99.0,
+    "salePrice": 89.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/cjc-1295-ipamorelin-6mg-11mg-high-purity-research-peptide-grail-formula/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.235
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 (no dac) 10mg + Ipamorelin 10mg",
+    "totalMg": 20,
+    "composition": {
+     "cjc-1295": 10,
+     "ipamorelin": 10
+    },
+    "price": 109.0,
+    "salePrice": 99.0,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://24peptides.com/product/cjc-1295-no-dac-10mg-ipamorelin-10mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 4.95
+   }
+  ],
+  "blendReports": [],
   "rank": 3
  },
  {
@@ -1677,6 +1891,43 @@
    "Sterility",
    "Heavy metals"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC+TB Blend 20mg",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 105.0,
+    "salePrice": 84.0,
+    "currency": "USD",
+    "inStock": false,
+    "url": "https://sourceresearch.io/product/bpc-157-tb-500-blend-20mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 4.2
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "Klow Blend 80mg",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 119.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": false,
+    "url": "https://sourceresearch.io/product/klow-blend-80mg-integrated-peptide-research-compound-2/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.488
+   }
+  ],
+  "blendReports": [],
   "rank": 4
  },
  {
@@ -2117,6 +2368,8 @@
    "Endotoxin",
    "Heavy metals"
   ],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 5
  },
  {
@@ -2558,6 +2811,65 @@
    "Identity",
    "Measured mg"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "TB500 / BPC-157 (20mg)",
+    "totalMg": 20,
+    "composition": null,
+    "price": 69.99,
+    "salePrice": 59.99,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://nextselflabs.com/product/tb500-bpc-157/?attribute_vial-size=20mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 3.0
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW Blend (80mg)",
+    "totalMg": 80,
+    "composition": null,
+    "price": 159.99,
+    "salePrice": 139.99,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://nextselflabs.com/product/klow-blend/?attribute_vial-size=80mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 1.75
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW Blend (70mg)",
+    "totalMg": 70,
+    "composition": null,
+    "price": 139.99,
+    "salePrice": 129.99,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://nextselflabs.com/product/glow-blend/?attribute_vial-size=70mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 1.857
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC/IPA w/o DAC (10mg)",
+    "totalMg": 10,
+    "composition": null,
+    "price": 79.99,
+    "salePrice": 59.99,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://nextselflabs.com/product/cjc-1295-ipamorelin-w-o-dac/?attribute_vial-size=10mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 5.999
+   }
+  ],
+  "blendReports": [],
   "rank": 6
  },
  {
@@ -3004,6 +3316,37 @@
    "HPLC purity",
    "Measured mg"
   ],
+  "blendProducts": [
+   {
+    "blend": "klow",
+    "shopProductName": "Klow Blend (BPC-157 + GHK-Cu + TB-500 + KPV) 80mg",
+    "totalMg": 80,
+    "composition": null,
+    "price": null,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": null,
+    "url": "https://certapeptides.com/shop/klow-blend-bpc-157-ghk-cu-tb-500-kpv-80mg",
+    "readAt": "2026-11-21",
+    "note": "price and per-compound amounts not captured",
+    "pricePerMg": null
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "Glow Blend 70mg",
+    "totalMg": 70,
+    "composition": null,
+    "price": null,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": null,
+    "url": "https://certapeptides.com/buy/glow-blend",
+    "readAt": "2026-11-21",
+    "note": "price and per-compound amounts not on the page read",
+    "pricePerMg": null
+   }
+  ],
+  "blendReports": [],
   "rank": 7
  },
  {
@@ -3402,6 +3745,8 @@
    "HPLC purity",
    "Measured mg"
   ],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 8
  },
  {
@@ -3870,6 +4215,98 @@
    "HPLC purity",
    "Measured mg"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine Blend",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 69.99,
+    "salePrice": 59.99,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://ghostlabzresearch.com/product/bpc-157-tb500-5mg-5mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.999
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW Blend 80mg",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://ghostlabzresearch.com/product/klow-80mg/",
+    "readAt": "2026-11-21",
+    "note": "price not captured from the page read",
+    "pricePerMg": null
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW Blend 70mg",
+    "totalMg": 70,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://ghostlabzresearch.com/product/glow-70mg/",
+    "readAt": "2026-11-21",
+    "note": "price not captured from the page read",
+    "pricePerMg": null
+   }
+  ],
+  "blendReports": [
+   {
+    "blend": "klow",
+    "lab": "ILS Laboratories",
+    "lot": "KLOW80-GL01",
+    "testDate": "2026-06-25",
+    "purityPercent": 99.9,
+    "labelMg": 80,
+    "measured": {
+     "ghk-cu": 51.54,
+     "bpc-157": 10.21,
+     "tb-500": 10.41,
+     "kpv": 10.1
+    },
+    "url": "https://ghostlabzresearch.com/product/klow-80mg/",
+    "verifiable": false,
+    "readAt": "2026-11-21",
+    "note": "values as shown on the shop page (shop copy)"
+   },
+   {
+    "blend": "glow",
+    "lab": "ILS Laboratories",
+    "lot": "GLOW70-GL01",
+    "testDate": "2026-06-25",
+    "purityPercent": 99.81,
+    "labelMg": 70,
+    "measured": {
+     "ghk-cu": 51.78,
+     "bpc-157": 10.21,
+     "tb-500": 9.92
+    },
+    "url": "https://ghostlabzresearch.com/product/glow-70mg/",
+    "verifiable": false,
+    "readAt": "2026-11-21",
+    "note": "values as shown on the shop page (shop copy)"
+   }
+  ],
   "rank": 9
  },
  {
@@ -4334,6 +4771,60 @@
    "Endotoxin",
    "Heavy metals"
   ],
+  "blendProducts": [
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW – 80mg",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 149.9,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://peptid24.de/product/11735/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.874
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW Peptid – 70mg",
+    "totalMg": 70,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 159.9,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://peptid24.de/product/glow-peptid/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 2.284
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 + Ipamorelin – 10mg",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": 55.0,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://peptid24.de/product/cjc-1295-ipamorelin-10mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.5
+   }
+  ],
+  "blendReports": [],
   "rank": 10
  },
  {
@@ -4725,6 +5216,8 @@
    "Endotoxin",
    "Heavy metals"
   ],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 11
  },
  {
@@ -5182,6 +5675,92 @@
    "Sterility",
    "Heavy metals"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 10mg + TB-500 10mg (Wolverine Stack 20mg)",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 149.99,
+    "salePrice": 90.0,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ascensionpeptides.com/product/wolverine-stack/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 4.5
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "GHK-Cu 50mg + BPC-157 10mg + TB-500 10mg + KPV 10mg (KLOW 80mg)",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 199.99,
+    "salePrice": 120.0,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ascensionpeptides.com/product/klow-ghk-cu-bpc-157-thymosin-beta4-kpv/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.5
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GHK-CU 50mg + BPC-157 10mg + TB-500 10mg (GLOW 70mg)",
+    "totalMg": 70,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 174.99,
+    "salePrice": 110.0,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ascensionpeptides.com/product/glow-advanced-peptide-blend-for-radiance-recovery/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.571
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 No DAC 5mg + Ipamorelin 5mg (FIT Stack 10mg)",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": 99.99,
+    "salePrice": 70.0,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ascensionpeptides.com/product/fit-stack-cjc-1295-ipamorelin/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 7.0
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 No DAC 10mg + Ipamorelin 10mg (FIT Stack 20mg)",
+    "totalMg": 20,
+    "composition": {
+     "cjc-1295": 10,
+     "ipamorelin": 10
+    },
+    "price": 199.99,
+    "salePrice": 118.0,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://ascensionpeptides.com/product/cjc-1295-no-dac-10mg-ipamorelin-10mg-20mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 5.9
+   }
+  ],
+  "blendReports": [],
   "rank": 12
  },
  {
@@ -5623,6 +6202,107 @@
    "HPLC purity",
    "Identity",
    "Measured mg"
+  ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 & TB-500 Blend – 10mg (5mg/5mg)",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 112.0,
+    "salePrice": 105.0,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://www.corepeptides.com/peptides/bpc-157-tb-500-10mg-blend/?attribute_pa_size=10mg-5mg-5mg",
+    "readAt": "2026-11-21",
+    "pricePerMg": 10.5
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 & TB-500 Blend – 20mg (10mg/10mg)",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 195.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://www.corepeptides.com/peptides/bpc-157-tb-500-10mg-blend/?attribute_pa_size=20mg-10mg-10mg",
+    "readAt": "2026-11-21",
+    "pricePerMg": 9.75
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW (BPC-157, KPV, TB-500, GHK-Cu) Blend – 80MG",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 160.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://www.corepeptides.com/peptides/klow-blend-80mg/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 2.0
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW Blend (BPC-157 & TB-500 & GHK-Cu) – 70MG",
+    "totalMg": 70,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 150.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://www.corepeptides.com/peptides/bpc-157-tb-500-ghk-cu-blend/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 2.143
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 & Ipamorelin Blend – 10MG",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": 80.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://www.corepeptides.com/peptides/cjc-1295-ipamorelin-10mg-blend/",
+    "readAt": "2026-11-21",
+    "pricePerMg": 8.0
+   }
+  ],
+  "blendReports": [
+   {
+    "blend": "wolverine",
+    "lab": "Vanguard Laboratory",
+    "lot": "C74109 (10mg), C74110 (20mg)",
+    "reportId": null,
+    "testDate": "2026-07-22",
+    "purityPercent": null,
+    "labelMg": null,
+    "measured": null,
+    "url": "https://www.corepeptides.com/peptides/bpc-157-tb-500-10mg-blend/",
+    "verifiable": false,
+    "readAt": "2026-11-21",
+    "note": "shop states >99% purity by HPLC"
+   }
   ],
   "rank": 13
  },
@@ -6073,6 +6753,155 @@
    "Endotoxin",
    "Sterility",
    "Heavy metals"
+  ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine Peptide Stack - BPC-157 5mg / TB-500 5mg",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "price not in the public API",
+    "pricePerMg": null
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine Peptide Stack - BPC-157 10mg / TB-500 10mg",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "price not in the public API",
+    "pricePerMg": null
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW",
+    "totalMg": 80,
+    "composition": null,
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "80 mg from certificate file name; price not in the public API",
+    "pricePerMg": null
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW Stack",
+    "totalMg": 70,
+    "composition": null,
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "70 mg from certificate file name; price not in the public API",
+    "pricePerMg": null
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 + Ipamorelin (5mg/5mg)",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "price not in the public API",
+    "pricePerMg": null
+   }
+  ],
+  "blendReports": [
+   {
+    "blend": "klow",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": "KVR-2026-FACF15",
+    "testDate": "2026-11-03",
+    "purityPercent": null,
+    "labelMg": 80,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/394",
+    "verifiable": false,
+    "readAt": "2026-11-21"
+   },
+   {
+    "blend": "glow",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": "KVR-2026-F82166",
+    "testDate": "2026-11-03",
+    "purityPercent": null,
+    "labelMg": 70,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/391",
+    "verifiable": false,
+    "readAt": "2026-11-21"
+   },
+   {
+    "blend": "wolverine",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": "KVR-2026-903BC8",
+    "testDate": "2026-11-03",
+    "purityPercent": null,
+    "labelMg": 20,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/389",
+    "verifiable": false,
+    "readAt": "2026-11-21"
+   },
+   {
+    "blend": "wolverine",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": null,
+    "testDate": "2026-09-22",
+    "purityPercent": 99.669,
+    "labelMg": 10,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/328",
+    "verifiable": false,
+    "readAt": "2026-11-21",
+    "note": "listed for the 5mg/5mg product, but the certificate file name reads 10mg-10mg"
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": null,
+    "testDate": "2026-09-22",
+    "purityPercent": 99.666,
+    "labelMg": 10,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/333",
+    "verifiable": false,
+    "readAt": "2026-11-21"
+   }
   ],
   "rank": 14
  },
@@ -6541,6 +7370,76 @@
    "Endotoxin",
    "Sterility"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC157 + Thymosin Beta-4 (10mg)",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://genesispeptides.com/peptides/bpc157-thymosin-beta-4",
+    "readAt": "2026-11-21",
+    "note": "price not shown to us; store API requires an account",
+    "pricePerMg": null
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC157 + Thymosin Beta-4 (20mg)",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://genesispeptides.com/peptides/bpc157-thymosin-beta-4",
+    "readAt": "2026-11-21",
+    "note": "price not shown to us; store API requires an account",
+    "pricePerMg": null
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW: GHK-Cu + Thymosin Beta-4 + BPC-157 + KPV (80mg)",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://genesispeptides.com/peptides/ghk-cu-tb-500-bpc-157-kpv",
+    "readAt": "2026-11-21",
+    "note": "price not shown to us",
+    "pricePerMg": null
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW: BPC-157 + Thymosin Beta-4 + GHK-Cu (70mg)",
+    "totalMg": 70,
+    "composition": null,
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": null,
+    "url": "https://genesispeptides.com/peptides/bpc-157-tb-500-ghk-cu",
+    "readAt": "2026-11-21",
+    "note": "price and per-compound amounts not captured",
+    "pricePerMg": null
+   }
+  ],
+  "blendReports": [],
   "rank": 15
  },
  {
@@ -6833,6 +7732,8 @@
    "Endotoxin",
    "Sterility"
   ],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 16
  },
  {
@@ -7271,6 +8172,111 @@
    "LC-MS identity",
    "Measured mg"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine – BPC-157 / TB4 (10mg)",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 75.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purifiedpeptide.com/product/wolverine-bpc-157-tb4-5mg-5mg/?attribute_pa_mg=10",
+    "readAt": "2026-11-21",
+    "note": "equal parts of each peptide stated",
+    "pricePerMg": 7.5
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine – BPC-157 / TB4 (20mg)",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 100.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purifiedpeptide.com/product/wolverine-bpc-157-tb4-5mg-5mg/?attribute_pa_mg=20",
+    "readAt": "2026-11-21",
+    "note": "equal parts of each peptide stated",
+    "pricePerMg": 5.0
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine – BPC-157 / TB4 (60mg)",
+    "totalMg": 60,
+    "composition": {
+     "bpc-157": 30,
+     "tb-500": 30
+    },
+    "price": 200.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purifiedpeptide.com/product/wolverine-bpc-157-tb4-5mg-5mg/?attribute_pa_mg=60",
+    "readAt": "2026-11-21",
+    "note": "equal parts of each peptide stated",
+    "pricePerMg": 3.333
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW (80mg)",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 135.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purifiedpeptide.com/product/klow/?attribute_pa_mg=80",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.688
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW (70mg)",
+    "totalMg": 70,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 120.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purifiedpeptide.com/product/glow/?attribute_pa_mg=70",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.714
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-5/IPA-5 (10mg)",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": 75.0,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://purifiedpeptide.com/product/cjc-5-ipa-5/?attribute_pa_mg=10",
+    "readAt": "2026-11-21",
+    "pricePerMg": 7.5
+   }
+  ],
+  "blendReports": [],
   "rank": 17
  },
  {
@@ -7765,6 +8771,92 @@
    "Sterility",
    "Heavy metals"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 5mg + TB-500 5mg blend",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": 70.99,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://www.peptides-eu.net/products/bpc-tb-blend-10",
+    "readAt": "2026-11-21",
+    "pricePerMg": 7.099
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 10mg + TB-500 10mg blend",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 130.99,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://www.peptides-eu.net/products/bpc-tb-blend-20",
+    "readAt": "2026-11-21",
+    "pricePerMg": 6.55
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "Klow Blend 80mg",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 129.89,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://www.peptides-eu.net/products/klow-blend",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.624
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW 70 mg (GHK-Cu, BPC, TB)",
+    "totalMg": 70,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": 109.89,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://www.peptides-eu.net/products/glow-blend",
+    "readAt": "2026-11-21",
+    "pricePerMg": 1.57
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 5mg + Ipamorelin 5mg blend",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": 69.0,
+    "salePrice": null,
+    "currency": "EUR",
+    "inStock": true,
+    "url": "https://www.peptides-eu.net/products/cjc-ipamorelin-blend",
+    "readAt": "2026-11-21",
+    "pricePerMg": 6.9
+   }
+  ],
+  "blendReports": [],
   "rank": 18
  },
  {
@@ -8236,6 +9328,83 @@
    "Measured mg",
    "Endotoxin"
   ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 + TB-500 Blend (10mg)",
+    "totalMg": 10,
+    "composition": null,
+    "price": 94.99,
+    "salePrice": 89.99,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://cenexalabs.com/product/peptides/bpc-157-tb-500-blend-peptide/?attribute_pa_size=10mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 8.999
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "BPC-157 + TB-500 Blend (20mg)",
+    "totalMg": 20,
+    "composition": null,
+    "price": 139.99,
+    "salePrice": 134.99,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://cenexalabs.com/product/peptides/bpc-157-tb-500-blend-peptide/?attribute_pa_size=20mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not stated",
+    "pricePerMg": 6.75
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW Blend (BPC-157+TB-500+GHK-Cu+KPV) 80mg",
+    "totalMg": 80,
+    "composition": {
+     "ghk-cu": 50,
+     "bpc-157": 10,
+     "tb-500": 10,
+     "kpv": 10
+    },
+    "price": 170.59,
+    "salePrice": 159.99,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://cenexalabs.com/product/peptides/peptide-blends/klow-blend-peptide/?attribute_pa_size=80mg",
+    "readAt": "2026-11-21",
+    "pricePerMg": 2.0
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW (70mg)",
+    "totalMg": 70,
+    "composition": null,
+    "price": 145.99,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://cenexalabs.com/product/peptides/glow-blend-peptide/?attribute_pa_size=70mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not captured",
+    "pricePerMg": 2.086
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 (NO DAC) + Ipamorelin (10mg)",
+    "totalMg": 10,
+    "composition": null,
+    "price": 79.99,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://cenexalabs.com/product/peptides/cjc-1295-ipamorelin-blend-peptide/?attribute_pa_size=10mg",
+    "readAt": "2026-11-21",
+    "note": "per-compound amounts not captured",
+    "pricePerMg": 7.999
+   }
+  ],
+  "blendReports": [],
   "rank": 19
  },
  {
@@ -8563,6 +9732,8 @@
    "fillMaxPct": null
   },
   "panelLabels": [],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 20
  },
  {
@@ -8744,6 +9915,8 @@
    "fillMaxPct": null
   },
   "panelLabels": [],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 21
  },
  {
@@ -9117,6 +10290,8 @@
    "fillMaxPct": null
   },
   "panelLabels": [],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 22
  },
  {
@@ -9196,6 +10371,8 @@
    "fillMaxPct": null
   },
   "panelLabels": [],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 23
  },
  {
@@ -9507,6 +10684,8 @@
    "fillMaxPct": null
   },
   "panelLabels": [],
+  "blendProducts": [],
+  "blendReports": [],
   "rank": 24
  }
 ]

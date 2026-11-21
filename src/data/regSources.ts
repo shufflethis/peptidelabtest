@@ -62,3 +62,10 @@ export const FDA_CODE_NAMES: { name: string; compound: string; source: string }[
 
 /** Warning letters that name retatrutide (for the retatrutide page), newest first. */
 export const RETA_LETTERS = ['wlPeptidePartners', 'wlPeak', 'wlPinkPony', 'wlGram', 'wlSummit'];
+
+/** Regulatory status of GLP-1-class compounds compared on the site (i18n key gs.<key>), each with its opened source. */
+export const REG_STATUS: Record<string, { key: 'approvedIngredient' | 'investigational'; source: string }> = {
+  semaglutide: { key: 'approvedIngredient', source: 'fdaGlp1' },
+  tirzepatide: { key: 'approvedIngredient', source: 'fdaGlp1' },
+  retatrutide: { key: 'investigational', source: 'lillyReta' },
+};

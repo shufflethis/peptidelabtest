@@ -2,7 +2,10 @@
 """Merge the sourced re-audit JSON (pep-reaudit/r1-r4.json) into src/data/audit.json.
 
 Every value comes from the audit files; nothing is invented. Run from the repo root:
-  python3 scripts/build-audit-data.py ~/.hermes/cache/scratch/pep-reaudit
+  python3 scripts/build-audit-data.py ~/.hermes/cache/scratch/pep-reaudit [blends.json]
+Local backup of r1-r4: .research-backup/ (gitignored). Blend products (GOAL M3) come from
+docs/agent/goal/research/blends.json (read-only research, sources per row) and are attached to
+each shop as blendProducts / blendReports with pricePerMg = (salePrice or price) / totalMg.
 """
 import json, sys, os, statistics
 
@@ -44,6 +47,23 @@ for v in vendors:
     for p in v.get('products') or []:
         p['pricePerMg'] = round((p['salePrice'] or p['price']) / p['vialMg'], 3) if p.get('price') and p.get('vialMg') else None
     out.append(v)
+
+BLENDS = sys.argv[2] if len(sys.argv) > 2 else 'docs/agent/goal/research/blends.json'
+if os.path.exists(BLENDS):
+    bj = json.load(open(BLENDS))
+    slugs = {v['slug'] for v in out}
+    for p in bj['products'] + bj['reports']:
+        assert p['shop'] in slugs, f"unknown shop in blends: {p['shop']}"
+        assert p['blend'] in bj['blends'], f"unknown blend: {p['blend']}"
+    for p in bj['products']:
+        if p.get('composition'):
+            assert abs(sum(p['composition'].values()) - p['totalMg']) < 0.01, f"composition != total: {p['shopProductName']}"
+            assert set(p['composition']) == set(bj['blends'][p['blend']]['components']), f"components: {p['shopProductName']}"
+        price = p['salePrice'] if p.get('salePrice') is not None else p.get('price')
+        p['pricePerMg'] = round(price / p['totalMg'], 3) if price and p.get('totalMg') else None
+    for v in out:
+        v['blendProducts'] = [{k: x for k, x in p.items() if k != 'shop'} for p in bj['products'] if p['shop'] == v['slug']]
+        v['blendReports'] = [{k: x for k, x in r.items() if k != 'shop'} for r in bj['reports'] if r['shop'] == v['slug']]
 
 out.sort(key=lambda x: -x['overallScore'])
 for i, v in enumerate(out, 1):

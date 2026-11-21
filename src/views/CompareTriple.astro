@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import BarList from '../components/BarList.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { compoundShort, getCompound, shopsCarrying, sizesFor, offersFor, cheapestBy, reportsFor, fillPct, median, faqSchema, CHECKED_ISO, YEAR, pairSlug, COMPOUND_PAIRS } from '../lib/site';
+import { REG_STATUS, REG_SOURCES } from '../data/regSources';
+import { t, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+import { locCompound } from '../i18n/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const SLUGS = ['retatrutide', 'tirzepatide', 'semaglutide'];
+const PATH = '/compare/retatrutide-vs-tirzepatide-vs-semaglutide/';
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const S = SLUGS.map((slug) => {
+  const c = locCompound(lang, getCompound(slug)!);
+  const shops = shopsCarrying(slug);
+  const offers = offersFor(slug);
+  const reps = reportsFor(slug);
+  const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x != null);
+  const med = (cur: string) => median(offers.filter((o) => o.currency === cur && o.perMg != null).map((o) => o.perMg as number));
+  return { slug, c, short: compoundShort(slug), shops, eu: shops.filter((s) => s.region === 'EU').length, us: shops.filter((s) => s.region === 'US').length, sizes: sizesFor(slug), eur: cheapestBy(offers, 'EUR'), usd: cheapestBy(offers, 'USD'), medEur: med('EUR'), medUsd: med('USD'), reps, portal: reps.filter((r) => r.report.verifiable).length, fills, st: REG_STATUS[slug] };
+});
+const V = { a: S[0].short, b: S[1].short, c: S[2].short, nA: S[0].shops.length, nB: S[1].shops.length, nC: S[2].shops.length, date, year: YEAR, rA: S[0].reps.length, rB: S[1].reps.length, rC: S[2].reps.length };
+const rows: { k: string; v: (x: (typeof S)[number]) => string }[] = [
+  { k: 'c3.rClass', v: (x) => x.c.formulaOrClass },
+  { k: 'c3.rStatus', v: (x) => (x.st ? t(lang, `gs.${x.st.key}`) : F.na) },
+  { k: 'c3.rShops', v: (x) => t(lang, 'c3.shopsVal', { n: x.shops.length, eu: x.eu, us: x.us }) },
+  { k: 'c3.rSizes', v: (x) => x.sizes.map((s) => F.mg(s)).join(', ') || F.na },
+  { k: 'c3.rLowEur', v: (x) => (x.eur ? `${F.perMg(x.eur.perMg, 'EUR')} (${x.eur.vendor.name})` : F.na) },
+  { k: 'c3.rLowUsd', v: (x) => (x.usd ? `${F.perMg(x.usd.perMg, 'USD')} (${x.usd.vendor.name})` : F.na) },
+  { k: 'c3.rMedEur', v: (x) => (x.medEur != null ? F.perMg(x.medEur, 'EUR') : F.na) },
+  { k: 'c3.rMedUsd', v: (x) => (x.medUsd != null ? F.perMg(x.medUsd, 'USD') : F.na) },
+  { k: 'c3.rReports', v: (x) => t(lang, 'c3.repVal', { n: x.reps.length, p: x.portal }) },
+  { k: 'c3.rFill', v: (x) => (x.fills.length ? F.pctRange(Math.min(...x.fills), Math.max(...x.fills)) : F.na) },
+];
+const faqs = [1, 2, 3, 4].map((i) => ({ q: t(lang, `c3.fq${i}`, V), a: t(lang, `c3.fa${i}`, { ...V, list: S.map((x) => `${x.short}: ${x.medUsd != null ? F.perMg(x.medUsd, 'USD') : F.na}`).join(', ') }) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'footer.compareCompounds'), url: L('/compare/') }, { name: `${V.a} vs ${V.b} vs ${V.c}`, url: L(PATH) }];
+const sources = Array.from(new Set(S.filter((x) => x.st).map((x) => x.st.source))).map((id) => REG_SOURCES[id]);
+const pairs = COMPOUND_PAIRS.filter(([x, y]) => SLUGS.includes(x) && SLUGS.includes(y));
+const related = [
+  ...pairs.map(([x, y]) => ({ href: L(`/compare/${pairSlug(x, y)}/`), label: `${compoundShort(x)} vs ${compoundShort(y)}` })),
+  ...SLUGS.map((x) => ({ href: L(`/prices/${x}/`), label: t(lang, 'cc.relPrices', { c: compoundShort(x) }) })),
+  ...SLUGS.map((x) => ({ href: L(`/calculator/${x}/`), label: t(lang, 'cc.relCalc', { c: compoundShort(x) }) })),
+  { href: L('/can-you-buy-retatrutide-in-the-usa/'), label: t(lang, 'ret.crumb') },
+];
+---
+<BaseLayout lang={lang} title={tt(lang, 'c3.title', V)} description={td(lang, 'c3.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'c3.h1', V)} eyebrow={t(lang, 'c3.eyebrow')} intro={t(lang, 'c3.intro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="space-y-4">
+      <h2 class="h2">{t(lang, 'c3.tableH')}</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th scope="col"></th>{S.map((x) => <th scope="col"><a href={L(`/prices/${x.slug}/`)} class="hover:underline">{x.short}</a></th>)}</tr></thead>
+          <tbody>{rows.map((r) => <tr><td class="font-semibold text-slate-900 min-w-[9rem]">{t(lang, r.k)}</td>{S.map((x) => <td class="min-w-[11rem]">{r.v(x)}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="text-sm text-slate-600 max-w-[75ch]">{t(lang, 'c3.note')}</p>
+    </section>
+    <section class="grid gap-6 lg:grid-cols-2">
+      <BarList title={t(lang, 'c3.chartUsd')} rows={S.filter((x) => x.medUsd != null).map((x) => ({ label: x.short, value: x.medUsd!, display: F.perMg(x.medUsd, 'USD'), accent: true, href: L(`/prices/${x.slug}/`) }))} />
+      <BarList title={t(lang, 'c3.chartEur')} rows={S.filter((x) => x.medEur != null).map((x) => ({ label: x.short, value: x.medEur!, display: F.perMg(x.medEur, 'EUR'), accent: true, href: L(`/prices/${x.slug}/`) }))} />
+    </section>
+    <section class="prose-read">
+      <h2 class="!mt-0">{t(lang, 'gs.h')}</h2>
+      <p>{t(lang, 'c3.statusP')}</p>
+      <ul>{sources.map((s) => <li>{s.publisher}: {s.title}<span class="block mono-url">{s.url}</span></li>)}</ul>
+      <p>{t(lang, 'gs.note')}</p>
+    </section>
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

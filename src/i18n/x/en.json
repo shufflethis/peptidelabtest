@@ -427,5 +427,183 @@
       "Janoshik: Is It Legit? How to Verify a Report",
       "Janoshik: How to Verify a Report"
     ]
+  },
+  "cc": {
+    "title": [
+      "{c} Reconstitution Calculator (Lab mg/mL)",
+      "{c} Calculator (Lab mg/mL)"
+    ],
+    "description": [
+      "{c} lab concentration calculator: vial mg and diluent mL give the stock in mg/mL. {nSizes} vial sizes at {n} shops, price per mg and {reports} lab reports.",
+      "{c} lab concentration calculator in mg/mL, with vial sizes, prices per mg and lab reports."
+    ],
+    "h1": "{c} vial concentration calculator (mg/mL)",
+    "eyebrow": "Lab calculator",
+    "intro": "Enter the mg in a {c} vial and the mL of diluent to get the stock concentration in mg/mL. {n} audited shops list {c} in {nSizes} vial sizes ({sizes}); you can use the measured mg from a lab report instead of the label. Laboratory arithmetic only.",
+    "calcH": "{c} stock concentration (mg/mL)",
+    "formulaH": "The formula",
+    "formula": "Concentration (mg/mL) = mass in the vial (mg) ÷ diluent volume (mL)",
+    "example": "Example: the most listed size is {def} mg. {def} mg in 2 mL gives {defConc} mg/mL.",
+    "exampleReal": "With lab data: a {label} mg {c} vial from {shop} measured {measured} mg at {lab} ({pct} of label). In 2 mL that is {concMeasured} mg/mL instead of {concLabel} mg/mL by the label.",
+    "only": "The result is a concentration only. This page gives no usage, administration or amount-per-person information.",
+    "tableH": "{c} vial size × diluent volume = mg/mL",
+    "colVial": "Vial (label)",
+    "colListings": "Listings",
+    "pricesH": "{c} price per mg at audited shops",
+    "pricesP": "Lowest listed price per mg per shop, EUR and USD kept separate (no conversion).",
+    "barsTitle": "{c}: lowest price per mg per shop ({cur})",
+    "repsH": "{c} lab reports we opened",
+    "repsP": "{reports} reports, {portal} confirmed on the lab's own portal. Use the measured mg in the calculator above for a more exact concentration.",
+    "relPrices": "{c} price comparison",
+    "relCompound": "{c} compound facts",
+    "relCalc": "{c} calculator",
+    "fq1": "How do I calculate {c} concentration in mg/mL?",
+    "fa1": "Divide the mass in the vial (mg) by the volume of diluent added (mL). {def} mg of {c} in 2 mL gives {defConc} mg/mL.",
+    "fq2": "Which {c} vial sizes are on the market?",
+    "fa2": "{n} audited shops list {c} in {nSizes} sizes: {sizes}. Checked {date}.",
+    "fq3": "Why use the measured mg instead of the label?",
+    "fa3": "Measured content can differ from the label. A {label} mg {c} vial from {shop} measured {measured} mg ({pct} of label), so 2 mL gives {concMeasured} mg/mL instead of {concLabel} mg/mL.",
+    "fq4": "Is this calculator for laboratory use only?",
+    "fa4": "Yes. It performs one division (mg ÷ mL) for in-vitro laboratory stock solutions of research compounds and gives no information about use in people or animals."
+  },
+  "calcp": {
+    "title": [
+      "Peptide Reconstitution Calculator (Lab mg/mL)",
+      "Peptide Calculator (Lab mg/mL)"
+    ],
+    "byH": "Calculator by compound",
+    "byP": "Each page uses the vial sizes listed for that compound and shows prices per mg and the lab reports we opened.",
+    "sizes": "{n} vial sizes"
+  },
+  "bl": {
+    "crumb": "Peptide blends",
+    "eyebrow": "Blends",
+    "t": {
+      "wolverine": [
+        "Wolverine Peptide Blend (BPC-157 + TB-500): Prices",
+        "Wolverine Blend BPC-157 + TB-500: Prices"
+      ],
+      "klow": [
+        "KLOW Peptide Blend: Composition, Shops & Prices",
+        "KLOW Peptide Blend: Shops & Prices"
+      ],
+      "glow": [
+        "GLOW Peptide Blend: Composition, Shops & Prices",
+        "GLOW Peptide Blend: Shops & Prices"
+      ],
+      "cjc-ipamorelin": [
+        "CJC-1295 + Ipamorelin Blend: Shops & Prices",
+        "CJC-1295 Ipamorelin Blend Prices"
+      ]
+    },
+    "h": {
+      "wolverine": "Wolverine peptide blend (BPC-157 + TB-500)",
+      "klow": "KLOW peptide blend (GHK-Cu, BPC-157, TB-500, KPV)",
+      "glow": "GLOW peptide blend (GHK-Cu, BPC-157, TB-500)",
+      "cjc-ipamorelin": "CJC-1295 + Ipamorelin blend"
+    },
+    "description": [
+      "{name} blend: what {n} audited shops say is in the vial ({comps}), {nOffers} listings with price per mg and the lab reports they show. Checked {date}.",
+      "{name} blend: composition, {nOffers} listings at {n} shops, price per mg and lab reports."
+    ],
+    "intro": "{name} is a shop name for one vial that holds {comps}. On {date} we found {nOffers} listings at {n} audited shops in sizes of {sizes}. Lowest listed price per mg: {eu} in EUR, {us} in USD. Composition, prices and lab reports below are as the shops publish them.",
+    "statShops": "Shops",
+    "statOffers": "Listings",
+    "statEU": "Lowest EUR/mg",
+    "statUS": "Lowest USD/mg",
+    "compH": "What is in a {name} vial",
+    "compP": "{nStated} of {nOffers} listings state the amount of each compound. The most common split ({nCommon} listings) is:",
+    "namesP": "Names used by the shops:",
+    "only": "We list composition, prices and lab data only. Nothing here describes effects, use in people or animals, or any protocol; all products are sold for laboratory research.",
+    "barsTitle": "{name}: lowest price per mg per shop ({cur})",
+    "tableH": "All {nOffers} {name} listings",
+    "tableP": "Shops with a store link first, then by price per mg. Price per mg = price ÷ total mg in the vial.",
+    "colComp": "Composition (as stated)",
+    "colPrice": "Price",
+    "colPerMg": "Price per mg",
+    "colShop": "Store",
+    "colBlend": "Blend",
+    "colLot": "Lot / report",
+    "colMeasured": "Measured per compound",
+    "notStated": "not stated per compound",
+    "oos": "out of stock",
+    "review": "Read our review",
+    "note": "Prices as listed on {date}, no codes applied, EUR and USD kept separate. Pens and other liquid forms are not included.",
+    "repsH": "{name} lab reports the shops show",
+    "repsP": "{reports} reports found on the shops' own pages or files. We did not confirm them on the lab portals, so they count as shop copies.",
+    "repsNone": "We found no lab report for this blend on the shops' pages.",
+    "repsNote": "Report files and pages are shown as plain text. Use the steps in our COA guide to check a report on the lab's own portal.",
+    "rn": {
+      "mismatch": "listed for the 5 mg + 5 mg product, but the certificate file name reads 10 mg + 10 mg",
+      "shopcopy": "values as shown on the shop page",
+      "claim": "shop states purity above 99 % by HPLC",
+      "nodata": "report page on the shop site; values not recorded"
+    },
+    "fq1": "What is in the {name} blend?",
+    "fa1": "{comps} in one vial. {nStated} of {nOffers} listings state the split; the most common is {common}.",
+    "fq2": "Which shops sell the {name} blend?",
+    "fa2": "On {date} we found {nOffers} listings at {n} audited shops, in sizes of {sizes}.",
+    "fq3": "Where is the {name} blend cheapest per mg?",
+    "fa3": "Lowest listed price per mg: {eu} in EUR and {us} in USD, before any codes.",
+    "fq4": "Are there lab reports for the {name} blend?",
+    "fa4": "We found {reports} reports on the shops' own pages. None were confirmed by us on a lab portal; check the report number on the lab's website.",
+    "relPrice": "{c} price comparison",
+    "relCalc": "Two-compound concentration calculator",
+    "relBlend": "{name} blend",
+    "iTitle": [
+      "Peptide Blends Compared: Wolverine, KLOW, GLOW, CJC",
+      "Peptide Blends: Prices & Composition"
+    ],
+    "iDescription": [
+      "Peptide blends compared: Wolverine (BPC-157 + TB-500), KLOW, GLOW and CJC-1295 + Ipamorelin at {shops} audited shops, with composition, price per mg and lab reports.",
+      "Peptide blends compared: composition, price per mg and lab reports at {shops} audited shops."
+    ],
+    "iH1": "Peptide blends compared",
+    "iIntro": "{n} common research blends at {shops} audited shops, checked {date}: what the shops say is in the vial, the lowest price per mg and the lab reports they show.",
+    "iSub": "{offers} listings at {n} shops"
+  },
+  "gs": {
+    "h": "Regulatory status",
+    "approvedIngredient": "Active ingredient of FDA-approved prescription medicines. The research-grade listings compared here are not those medicines; the FDA calls versions sold outside approval unapproved drugs.",
+    "investigational": "Investigational (Phase 3, Eli Lilly); not approved by the FDA or any other regulator.",
+    "note": "Status as stated by the sources, checked 21 Nov 2026. General information, not legal advice."
+  },
+  "c3": {
+    "title": [
+      "Retatrutide vs Tirzepatide vs Semaglutide: Data",
+      "Retatrutide vs Tirzepatide vs Semaglutide"
+    ],
+    "description": [
+      "Retatrutide vs tirzepatide vs semaglutide: compound class, regulatory status with sources, vial sizes, price per mg (EUR/USD) and lab reports from {nA}, {nB} and {nC} shops.",
+      "Retatrutide vs tirzepatide vs semaglutide: class, status, vial sizes, price per mg and lab reports."
+    ],
+    "h1": "Retatrutide vs tirzepatide vs semaglutide: research data compared",
+    "eyebrow": "Compound comparison",
+    "intro": "Three GLP-1-class research compounds side by side: what each molecule is, its regulatory status with sources, the vial sizes on the market, price per mg in EUR and USD and the lab reports we opened ({rA}, {rB} and {rC}). No effects, no use in people: data only, checked {date}.",
+    "tableH": "Side by side",
+    "rClass": "Molecule",
+    "rStatus": "Regulatory status",
+    "rShops": "Audited shops listing it",
+    "rSizes": "Vial sizes on the market",
+    "rLowEur": "Lowest price per mg (EUR)",
+    "rLowUsd": "Lowest price per mg (USD)",
+    "rMedEur": "Median price per mg (EUR)",
+    "rMedUsd": "Median price per mg (USD)",
+    "rReports": "Lab reports opened",
+    "rFill": "Measured vs label",
+    "shopsVal": "{n} ({eu} EU, {us} US)",
+    "repVal": "{n} ({p} confirmed on the lab portal)",
+    "note": "Prices as listed, before codes; EUR and USD kept separate. Medians over all listings with a price.",
+    "chartUsd": "Median price per mg (USD)",
+    "chartEur": "Median price per mg (EUR)",
+    "statusP": "Semaglutide and tirzepatide are active ingredients of approved prescription medicines; retatrutide is still investigational. Shops in this comparison sell research-grade material labelled for laboratory use only.",
+    "fq1": "What is the difference between retatrutide, tirzepatide and semaglutide?",
+    "fa1": "They are different molecules: semaglutide acts on the GLP-1 receptor, tirzepatide on the GIP and GLP-1 receptors, and retatrutide on GIP, GLP-1 and glucagon receptors. Semaglutide and tirzepatide are active ingredients of approved medicines; retatrutide is investigational.",
+    "fq2": "Which is cheapest per mg in research listings?",
+    "fa2": "Median listed price per mg in USD: {list}. EUR and USD are kept separate; see the table for EUR.",
+    "fq3": "How many shops list each compound?",
+    "fa3": "In our audit: {a} at {nA} shops, {b} at {nB} and {c} at {nC}, checked {date}.",
+    "fq4": "Are there lab reports for each?",
+    "fa4": "We opened {rA} {a}, {rB} {b} and {rC} {c} reports; the table shows how many were confirmed on the lab's own portal."
   }
 }

@@ -2,8 +2,11 @@
 // Lab stock concentration calculator (research use only).
 // Deliberately NO dose, aliquot, syringe or IU outputs – see CONTENT_RULES.md rule 2.
 import { t, splitLang, LOCALE } from '../i18n';
+interface Props { presetsMg?: number[]; defaultMg?: number; title?: string }
+const { presetsMg = [2, 5, 10, 15, 30, 50], defaultMg = 10, title } = Astro.props;
 const lang = splitLang(Astro.url.pathname).lang;
 const C = (k: string) => t(lang, `calc.${k}`);
+const fmtN = (n: number) => new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 2 }).format(n);
 const inputCls = 'w-full min-h-[48px] px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-slate-900 text-base tabular-nums focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-100';
 const pOff = 'min-h-[44px] px-3.5 rounded-xl border text-[0.94rem] font-semibold cursor-pointer bg-white border-slate-300 text-slate-800 hover:border-teal-600';
 const pOn = 'min-h-[44px] px-3.5 rounded-xl border text-[0.94rem] font-semibold cursor-pointer bg-teal-50 border-teal-600 text-teal-900';
@@ -11,7 +14,7 @@ const pOn = 'min-h-[44px] px-3.5 rounded-xl border text-[0.94rem] font-semibold 
 <section class="card p-5 sm:p-8" data-p-on={pOn} data-p-off={pOff} data-locale={LOCALE[lang]} data-t-report={C('basisReport')} data-t-label={C('basisLabel')} data-t-oflabel={C('ofLabel')} data-t-notentered={C('notEntered')} id="calc">
   <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-200">
     <div class="max-w-[60ch]">
-      <h2 class="h2">{C('h')}</h2>
+      <h2 class="h2">{title || C('h')}</h2>
       <p class="mt-1.5 text-slate-700">{C('intro')}</p>
     </div>
     <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200" role="group" aria-label={C('mode')}>
@@ -25,12 +28,12 @@ const pOn = 'min-h-[44px] px-3.5 rounded-xl border text-[0.94rem] font-semibold 
       <div class="space-y-2">
         <label class="block font-semibold text-slate-900" for="calc-vial-mg">{C('l1')}</label>
         <div class="flex flex-wrap gap-2">
-          {[2, 5, 10, 15, 30, 50].map((val) => <button type="button" data-preset-mg={val} class={val === 10 ? pOn : pOff}>{val} mg</button>)}
+          {presetsMg.map((val) => <button type="button" data-preset-mg={val} class={val === defaultMg ? pOn : pOff}>{fmtN(val)} mg</button>)}
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
           <div>
             <span class="text-sm text-slate-700 block mb-1">{C('labelMass')}</span>
-            <input id="calc-vial-mg" type="number" step="0.01" min="0.1" value="10" class={inputCls} />
+            <input id="calc-vial-mg" type="number" step="0.01" min="0.1" value={defaultMg} class={inputCls} />
           </div>
           <div>
             <label class="text-sm text-slate-700 block mb-1" for="calc-coa-mg">{C('coa')}</label>
@@ -57,13 +60,13 @@ const pOn = 'min-h-[44px] px-3.5 rounded-xl border text-[0.94rem] font-semibold 
       <div>
         <span class="text-sm font-semibold text-slate-700">{C('result')}</span>
         <div class="flex items-baseline gap-2.5 mt-1">
-          <span id="out-conc-mg" class="text-5xl font-extrabold text-teal-900 tabular-nums">5.00</span>
+          <span id="out-conc-mg" class="text-5xl font-extrabold text-teal-900 tabular-nums">{new Intl.NumberFormat(LOCALE[lang], { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(defaultMg / 2)}</span>
           <span class="text-lg font-bold text-slate-800">mg/mL</span>
         </div>
-        <p id="out-conc-mcg" class="text-slate-700 mt-1 tabular-nums">= 5,000 µg/mL</p>
+        <p id="out-conc-mcg" class="text-slate-700 mt-1 tabular-nums">= {new Intl.NumberFormat(LOCALE[lang]).format(Math.round((defaultMg / 2) * 1000))} µg/mL</p>
       </div>
       <dl class="facts text-[0.95rem]">
-        <div><dt>{C('massUsed')}</dt><dd id="out-basis" class="tabular-nums">10 mg</dd></div>
+        <div><dt>{C('massUsed')}</dt><dd id="out-basis" class="tabular-nums">{fmtN(defaultMg)} mg</dd></div>
         <div><dt>{t(lang, 'c.measuredVsLabel')}</dt><dd id="out-dev" class="tabular-nums">{C('notEntered')}</dd></div>
         <div id="out-blend-row" class="hidden"><dt>{C('second')}</dt><dd id="out-blend-conc" class="tabular-nums">2.50 mg/mL</dd></div>
       </dl>

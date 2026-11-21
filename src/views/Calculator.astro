@@ -3,7 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import ConcentrationCalculator from '../components/ConcentrationCalculator.astro';
 import FAQ from '../components/FAQ.astro';
-import { faqSchema } from '../lib/site';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { faqSchema, CALC_COMPOUNDS, compoundShort, sizeCounts } from '../lib/site';
 import { t, tt, td, tfaq, lp, type Lang } from '../i18n';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -15,6 +16,11 @@ const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, '
   <PageHero crumbs={crumbs} title={t(lang, 'calcp.h1')} intro={t(lang, 'calcp.intro')} />
   <div class="wrap mt-10 space-y-14">
     <ConcentrationCalculator />
+    <section class="space-y-3">
+      <h2 class="h2">{t(lang, 'calcp.byH')}</h2>
+      <p class="text-slate-700 max-w-[70ch]">{t(lang, 'calcp.byP')}</p>
+      <RelatedLinks title=" " links={CALC_COMPOUNDS.map((c) => ({ href: L(`/calculator/${c}/`), label: t(lang, 'cc.relCalc', { c: compoundShort(c) }), sub: t(lang, 'calcp.sizes', { n: sizeCounts(c).length }) }))} />
+    </section>
     <FAQ items={faqs} />
   </div>
 </BaseLayout>

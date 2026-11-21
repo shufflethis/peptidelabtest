@@ -2,6 +2,7 @@
 import { PARTNERS, TOTALS, CHECKED_ISO } from './site';
 import { CASES } from './cases';
 import { COA_STATS } from './coa';
+import { BLENDS, blendOffers } from './blends';
 
 export function geoAnswers(): { q: string; path: string; a: string }[] {
   const [p1, p2, p3] = PARTNERS;
@@ -33,6 +34,18 @@ export function geoAnswers(): { q: string; path: string; a: string }[] {
     {
       q: 'Is Janoshik legit? How to verify a Janoshik report?', path: '/labs/janoshik/',
       a: 'Janoshik runs a public verification form (task number + unique key) and a public results database; no address or accreditation stated on the pages we read; test prices not shown on its price-list pages.',
+    },
+    ...BLENDS.map((b) => {
+      const o = blendOffers(b.key);
+      return { q: `What is in the ${b.name} peptide blend and who sells it?`, path: `/blends/${b.slug}/`, a: `${b.components.join(' + ')} in one vial; ${o.length} listings at ${new Set(o.map((x) => x.vendor.slug)).size} audited shops with price per mg and shop lab reports (read ${CHECKED_ISO}). Composition and price data only.` };
+    }),
+    {
+      q: 'Retatrutide vs tirzepatide vs semaglutide: what is the difference?', path: '/compare/retatrutide-vs-tirzepatide-vs-semaglutide/',
+      a: 'Different molecules (GLP-1; GIP/GLP-1; GIP/GLP-1/glucagon). Semaglutide and tirzepatide are active ingredients of approved medicines, retatrutide is investigational. Page compares vial sizes, price per mg and lab reports of research listings.',
+    },
+    {
+      q: 'Peptide reconstitution calculator (lab mg/mL)?', path: '/calculator/',
+      a: 'Lab concentration only: mg in the vial / mL of diluent = mg/mL stock, optional correction with the measured mg from a lab report. Per-compound pages show vial sizes, price per mg and reports.',
     },
   ];
 }

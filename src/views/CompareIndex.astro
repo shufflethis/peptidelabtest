@@ -14,6 +14,10 @@ const V = { date: fmtDate(lang, CHECKED_ISO), n: rows.length };
   <PageHero crumbs={crumbs} title={t(lang, 'ci.h1')} intro={t(lang, 'ci.intro', V)} />
   <div class="wrap mt-12">
     <ul class="grid gap-4 sm:grid-cols-2">
+      <li class="card card-hover p-6 sm:col-span-2">
+        <a href={L('/compare/retatrutide-vs-tirzepatide-vs-semaglutide/')} class="tap text-xl font-bold text-slate-900 hover:text-teal-800 hover:underline">Retatrutide vs Tirzepatide vs Semaglutide</a>
+        <p class="mt-2 text-slate-700">{t(lang, 'c3.tableH')}: {t(lang, 'c3.rStatus')}, {t(lang, 'c3.rSizes')}, {t(lang, 'c3.rMedUsd')}</p>
+      </li>
       {rows.map((r) => (
         <li class="card card-hover p-6">
           <a href={L(`/compare/${pairSlug(r.a, r.b)}/`)} class="tap text-xl font-bold text-slate-900 hover:text-teal-800 hover:underline">{compoundShort(r.a)} vs {compoundShort(r.b)}</a>

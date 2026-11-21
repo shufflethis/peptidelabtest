@@ -380,6 +380,7 @@ export const COMPOUND_PAIRS: [string, string][] = (
   [
     ['bpc-157', 'tb-500'],
     ['tirzepatide', 'retatrutide'],
+    ['semaglutide', 'tirzepatide'],
     ['semax', 'selank'],
     ['tesamorelin', 'ipamorelin'],
     ['ghk-cu', 'ahk-cu'],
@@ -481,4 +482,16 @@ export function shipsToCountry(slug: string, code: string): 'yes' | 'no' | null 
     if (x.toUpperCase() === code) return 'yes';
   }
   return 'no';
+}
+
+// ---------------------------------------------------------------- calculators (GOAL M3)
+
+/** Compounds with at least 3 listed products get their own lab concentration calculator page. */
+export const CALC_COMPOUNDS: string[] = PRICE_COMPOUNDS.filter((c) => productCount(c) >= 3);
+
+/** Vial sizes (mg) on the market for a compound with the number of listings per size, most common first. */
+export function sizeCounts(compound: string): { size: number; n: number }[] {
+  const m = new Map<number, number>();
+  for (const v of VENDORS) for (const p of v.products) if (p.compound === compound && p.vialMg != null) m.set(p.vialMg, (m.get(p.vialMg) || 0) + 1);
+  return Array.from(m.entries()).map(([size, n]) => ({ size, n })).sort((a, b) => b.n - a.n || a.size - b.size);
 }

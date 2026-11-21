@@ -1,0 +1,7 @@
+---
+import View from '../../../views/CalcCompound.astro';
+import { R, withLangs } from '../../../lib/routes';
+export const getStaticPaths = () => withLangs(R.calc());
+const { lang, compound } = Astro.props as any;
+---
+<View lang={lang} compound={compound} />

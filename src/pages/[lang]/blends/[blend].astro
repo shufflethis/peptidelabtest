@@ -1,0 +1,7 @@
+---
+import View from '../../../views/Blend.astro';
+import { R, withLangs } from '../../../lib/routes';
+export const getStaticPaths = () => withLangs(R.blend());
+const { lang, blend } = Astro.props as any;
+---
+<View lang={lang} blend={blend} />

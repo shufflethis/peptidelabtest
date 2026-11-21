@@ -427,5 +427,183 @@
     "fieldsH": "Diese Felder lesen Sie auf jedem Bericht",
     "fields": "Labor · Auftragsnummer · Prüfschlüssel · Kunde · Probenname und Etikettmenge · Charge · Testdatum · Methode · Reinheit · gemessene mg",
     "footer": "Aus dem PeptideLabIndex-Test von {shops} Shops, geprüft am {date}. Nur für Forschungszwecke. peptidelabtest.org"
+  },
+  "cc": {
+    "title": [
+      "{c} Rechner: Rekonstitution in mg/mL (Labor)",
+      "{c} Rechner (Labor, mg/mL)"
+    ],
+    "description": [
+      "{c} Rechner für die Laborkonzentration: mg im Fläschchen und mL Lösungsmittel ergeben mg/mL. {nSizes} Größen bei {n} Shops, Preis pro mg und {reports} Laborberichte.",
+      "{c} Rechner für die Laborkonzentration in mg/mL, mit Fläschchengrößen, Preisen pro mg und Laborberichten."
+    ],
+    "h1": "{c} Rechner: Konzentration im Fläschchen (mg/mL)",
+    "eyebrow": "Laborrechner",
+    "intro": "Geben Sie die mg in einem {c}-Fläschchen und die mL Lösungsmittel ein und erhalten Sie die Stammkonzentration in mg/mL. {n} geprüfte Shops führen {c} in {nSizes} Fläschchengrößen ({sizes}); statt des Etiketts können Sie die gemessenen mg aus einem Laborbericht verwenden. Nur Laborrechnung.",
+    "calcH": "{c} Stammkonzentration (mg/mL)",
+    "formulaH": "Die Formel",
+    "formula": "Konzentration (mg/mL) = Menge im Fläschchen (mg) ÷ Volumen Lösungsmittel (mL)",
+    "example": "Beispiel: Die häufigste Größe ist {def} mg. {def} mg in 2 mL ergeben {defConc} mg/mL.",
+    "exampleReal": "Mit Labordaten: Ein {label}-mg-Fläschchen {c} von {shop} enthielt laut {lab} {measured} mg ({pct} des Etiketts). In 2 mL sind das {concMeasured} mg/mL statt {concLabel} mg/mL nach Etikett.",
+    "only": "Das Ergebnis ist nur eine Konzentration. Diese Seite enthält keine Angaben zu Anwendung, Verabreichung oder Mengen pro Person.",
+    "tableH": "{c}: Fläschchengröße × Lösungsmittel = mg/mL",
+    "colVial": "Fläschchen (Etikett)",
+    "colListings": "Angebote",
+    "pricesH": "{c} Preis pro mg bei geprüften Shops",
+    "pricesP": "Günstigster Preis pro mg je Shop, EUR und USD getrennt (keine Umrechnung).",
+    "barsTitle": "{c}: günstigster Preis pro mg je Shop ({cur})",
+    "repsH": "{c} Laborberichte, die wir geöffnet haben",
+    "repsP": "{reports} Berichte, {portal} im Portal des Labors bestätigt. Nutzen Sie die gemessenen mg im Rechner oben für eine genauere Konzentration.",
+    "relPrices": "{c} Preisvergleich",
+    "relCompound": "{c} Wirkstoff-Fakten",
+    "relCalc": "{c} Rechner",
+    "fq1": "Wie berechne ich die {c}-Konzentration in mg/mL?",
+    "fa1": "Teilen Sie die Menge im Fläschchen (mg) durch das zugegebene Lösungsmittel (mL). {def} mg {c} in 2 mL ergeben {defConc} mg/mL.",
+    "fq2": "Welche {c}-Fläschchengrößen gibt es?",
+    "fa2": "{n} geprüfte Shops führen {c} in {nSizes} Größen: {sizes}. Geprüft am {date}.",
+    "fq3": "Warum die gemessenen mg statt des Etiketts verwenden?",
+    "fa3": "Der gemessene Inhalt kann vom Etikett abweichen. Ein {label}-mg-Fläschchen {c} von {shop} enthielt {measured} mg ({pct} des Etiketts), 2 mL ergeben also {concMeasured} mg/mL statt {concLabel} mg/mL.",
+    "fq4": "Ist dieser Rechner nur für das Labor gedacht?",
+    "fa4": "Ja. Er rechnet eine Division (mg ÷ mL) für In-vitro-Stammlösungen von Forschungssubstanzen und enthält keine Angaben zur Verwendung an Menschen oder Tieren."
+  },
+  "calcp": {
+    "title": [
+      "Peptid Rechner: Rekonstitution in mg/mL (Labor)",
+      "Peptid Rechner (Labor, mg/mL)"
+    ],
+    "byH": "Rechner nach Wirkstoff",
+    "byP": "Jede Seite nutzt die Fläschchengrößen dieses Wirkstoffs und zeigt Preise pro mg und die geöffneten Laborberichte.",
+    "sizes": "{n} Fläschchengrößen"
+  },
+  "bl": {
+    "crumb": "Peptid-Blends",
+    "eyebrow": "Blends",
+    "t": {
+      "wolverine": [
+        "Wolverine Peptid Blend (BPC-157 + TB-500): Preise",
+        "Wolverine Blend BPC-157 + TB-500 Preise"
+      ],
+      "klow": [
+        "KLOW Peptid kaufen: Zusammensetzung & Preise",
+        "KLOW Peptid: Shops & Preise"
+      ],
+      "glow": [
+        "GLOW Peptid kaufen: Zusammensetzung & Preise",
+        "GLOW Peptid: Shops & Preise"
+      ],
+      "cjc-ipamorelin": [
+        "CJC-1295 + Ipamorelin Blend: Shops & Preise",
+        "CJC-1295 Ipamorelin Blend Preise"
+      ]
+    },
+    "h": {
+      "wolverine": "Wolverine Peptid-Blend (BPC-157 + TB-500)",
+      "klow": "KLOW Peptid-Blend (GHK-Cu, BPC-157, TB-500, KPV)",
+      "glow": "GLOW Peptid-Blend (GHK-Cu, BPC-157, TB-500)",
+      "cjc-ipamorelin": "CJC-1295 + Ipamorelin Blend"
+    },
+    "description": [
+      "{name} Blend: Was {n} geprüfte Shops als Inhalt angeben ({comps}), {nOffers} Angebote mit Preis pro mg und die gezeigten Laborberichte. Geprüft am {date}.",
+      "{name} Blend: Zusammensetzung, {nOffers} Angebote bei {n} Shops, Preis pro mg und Laborberichte."
+    ],
+    "intro": "{name} ist ein Shop-Name für ein Fläschchen mit {comps}. Am {date} fanden wir {nOffers} Angebote bei {n} geprüften Shops in den Größen {sizes}. Günstigster Preis pro mg: {eu} in EUR, {us} in USD. Zusammensetzung, Preise und Laborberichte unten stammen aus den Angaben der Shops.",
+    "statShops": "Shops",
+    "statOffers": "Angebote",
+    "statEU": "Günstigster EUR/mg",
+    "statUS": "Günstigster USD/mg",
+    "compH": "Was in einem {name}-Fläschchen steckt",
+    "compP": "{nStated} von {nOffers} Angeboten nennen die Menge jedes Wirkstoffs. Die häufigste Aufteilung ({nCommon} Angebote) ist:",
+    "namesP": "Namen, die die Shops verwenden:",
+    "only": "Wir zeigen nur Zusammensetzung, Preise und Labordaten. Nichts hier beschreibt Wirkungen, die Anwendung an Menschen oder Tieren oder ein Protokoll; alle Produkte werden für die Laborforschung verkauft.",
+    "barsTitle": "{name}: günstigster Preis pro mg je Shop ({cur})",
+    "tableH": "Alle {nOffers} {name}-Angebote",
+    "tableP": "Shops mit Shop-Link zuerst, dann nach Preis pro mg. Preis pro mg = Preis ÷ Gesamt-mg im Fläschchen.",
+    "colComp": "Zusammensetzung (laut Shop)",
+    "colPrice": "Preis",
+    "colPerMg": "Preis pro mg",
+    "colShop": "Shop-Link",
+    "colBlend": "Blend",
+    "colLot": "Charge / Bericht",
+    "colMeasured": "Gemessen je Wirkstoff",
+    "notStated": "nicht je Wirkstoff angegeben",
+    "oos": "ausverkauft",
+    "review": "Zum Test",
+    "note": "Preise wie am {date} gelistet, ohne Codes, EUR und USD getrennt. Pens und andere flüssige Formen sind nicht enthalten.",
+    "repsH": "{name}-Laborberichte, die die Shops zeigen",
+    "repsP": "{reports} Berichte auf den Seiten oder in Dateien der Shops. Wir haben sie nicht in den Laborportalen bestätigt; sie gelten daher als Shop-Kopien.",
+    "repsNone": "Für diesen Blend fanden wir keinen Laborbericht auf den Shop-Seiten.",
+    "repsNote": "Berichtsdateien und -seiten stehen als reiner Text da. Mit den Schritten in unserem COA-Ratgeber prüfen Sie einen Bericht im Portal des Labors.",
+    "rn": {
+      "mismatch": "für das Produkt mit 5 mg + 5 mg gelistet, der Dateiname des Zertifikats lautet aber 10 mg + 10 mg",
+      "shopcopy": "Werte wie auf der Shop-Seite gezeigt",
+      "claim": "Shop nennt eine Reinheit über 99 % per HPLC",
+      "nodata": "Berichtsseite auf der Shop-Website; Werte nicht erfasst"
+    },
+    "fq1": "Was ist im {name} Blend enthalten?",
+    "fa1": "{comps} in einem Fläschchen. {nStated} von {nOffers} Angeboten nennen die Aufteilung; am häufigsten ist {common}.",
+    "fq2": "Welche Shops verkaufen den {name} Blend?",
+    "fa2": "Am {date} fanden wir {nOffers} Angebote bei {n} geprüften Shops in den Größen {sizes}.",
+    "fq3": "Wo ist der {name} Blend pro mg am günstigsten?",
+    "fa3": "Günstigster gelisteter Preis pro mg: {eu} in EUR und {us} in USD, ohne Codes.",
+    "fq4": "Gibt es Laborberichte für den {name} Blend?",
+    "fa4": "Wir fanden {reports} Berichte auf den Seiten der Shops. Keiner wurde von uns in einem Laborportal bestätigt; prüfen Sie die Berichtsnummer auf der Website des Labors.",
+    "relPrice": "{c} Preisvergleich",
+    "relCalc": "Konzentrationsrechner für zwei Wirkstoffe",
+    "relBlend": "{name} Blend",
+    "iTitle": [
+      "Peptid-Blends im Vergleich: Wolverine, KLOW, GLOW, CJC",
+      "Peptid-Blends: Preise & Zusammensetzung"
+    ],
+    "iDescription": [
+      "Peptid-Blends im Vergleich: Wolverine (BPC-157 + TB-500), KLOW, GLOW und CJC-1295 + Ipamorelin bei {shops} geprüften Shops, mit Zusammensetzung, Preis pro mg und Laborberichten.",
+      "Peptid-Blends im Vergleich: Zusammensetzung, Preis pro mg und Laborberichte bei {shops} geprüften Shops."
+    ],
+    "iH1": "Peptid-Blends im Vergleich",
+    "iIntro": "{n} verbreitete Forschungs-Blends bei {shops} geprüften Shops, geprüft am {date}: was laut Shop im Fläschchen ist, der günstigste Preis pro mg und die gezeigten Laborberichte.",
+    "iSub": "{offers} Angebote bei {n} Shops"
+  },
+  "gs": {
+    "h": "Regulatorischer Status",
+    "approvedIngredient": "Wirkstoff von der FDA zugelassener, verschreibungspflichtiger Arzneimittel. Die hier verglichenen Forschungsangebote sind nicht diese Arzneimittel; die FDA nennt Versionen außerhalb der Zulassung nicht zugelassene Arzneimittel.",
+    "investigational": "In Entwicklung (Phase 3, Eli Lilly); weder von der FDA noch von einer anderen Behörde zugelassen.",
+    "note": "Status laut Quellen, geprüft am 21. Nov. 2026. Allgemeine Information, keine Rechtsberatung."
+  },
+  "c3": {
+    "title": [
+      "Retatrutid vs. Tirzepatid vs. Semaglutid: Daten",
+      "Retatrutid vs. Tirzepatid vs. Semaglutid"
+    ],
+    "description": [
+      "Retatrutid vs. Tirzepatid vs. Semaglutid: Wirkstoffklasse, Zulassungsstatus mit Quellen, Fläschchengrößen, Preis pro mg (EUR/USD) und Laborberichte von {nA}, {nB} und {nC} Shops.",
+      "Retatrutid vs. Tirzepatid vs. Semaglutid: Klasse, Status, Größen, Preis pro mg und Laborberichte."
+    ],
+    "h1": "Retatrutid vs. Tirzepatid vs. Semaglutid: Forschungsdaten im Vergleich",
+    "eyebrow": "Wirkstoffvergleich",
+    "intro": "Drei Forschungswirkstoffe der GLP-1-Klasse nebeneinander: was jedes Molekül ist, sein Zulassungsstatus mit Quellen, die angebotenen Fläschchengrößen, Preis pro mg in EUR und USD und die geöffneten Laborberichte ({rA}, {rB} und {rC}). Keine Wirkungen, keine Anwendung am Menschen: nur Daten, geprüft am {date}.",
+    "tableH": "Im direkten Vergleich",
+    "rClass": "Molekül",
+    "rStatus": "Regulatorischer Status",
+    "rShops": "Geprüfte Shops mit Angebot",
+    "rSizes": "Angebotene Fläschchengrößen",
+    "rLowEur": "Günstigster Preis pro mg (EUR)",
+    "rLowUsd": "Günstigster Preis pro mg (USD)",
+    "rMedEur": "Median Preis pro mg (EUR)",
+    "rMedUsd": "Median Preis pro mg (USD)",
+    "rReports": "Geöffnete Laborberichte",
+    "rFill": "Gemessen vs. Etikett",
+    "shopsVal": "{n} ({eu} EU, {us} USA)",
+    "repVal": "{n} ({p} im Laborportal bestätigt)",
+    "note": "Preise wie gelistet, ohne Codes; EUR und USD getrennt. Mediane über alle Angebote mit Preis.",
+    "chartUsd": "Median Preis pro mg (USD)",
+    "chartEur": "Median Preis pro mg (EUR)",
+    "statusP": "Semaglutid und Tirzepatid sind Wirkstoffe zugelassener verschreibungspflichtiger Arzneimittel; Retatrutid ist noch in Entwicklung. Die Shops in diesem Vergleich verkaufen Forschungsmaterial, das nur für den Laborgebrauch gekennzeichnet ist.",
+    "fq1": "Was ist der Unterschied zwischen Retatrutid, Tirzepatid und Semaglutid?",
+    "fa1": "Es sind verschiedene Moleküle: Semaglutid wirkt am GLP-1-Rezeptor, Tirzepatid an den GIP- und GLP-1-Rezeptoren und Retatrutid an GIP-, GLP-1- und Glukagon-Rezeptoren. Semaglutid und Tirzepatid sind Wirkstoffe zugelassener Arzneimittel; Retatrutid ist in Entwicklung.",
+    "fq2": "Welcher ist bei Forschungsangeboten pro mg am günstigsten?",
+    "fa2": "Median des gelisteten Preises pro mg in USD: {list}. EUR und USD bleiben getrennt; EUR steht in der Tabelle.",
+    "fq3": "Wie viele Shops führen jeden Wirkstoff?",
+    "fa3": "In unserem Test: {a} bei {nA} Shops, {b} bei {nB} und {c} bei {nC}, geprüft am {date}.",
+    "fq4": "Gibt es Laborberichte zu jedem?",
+    "fa4": "Wir haben {rA} Berichte zu {a}, {rB} zu {b} und {rC} zu {c} geöffnet; die Tabelle zeigt, wie viele im Portal des Labors bestätigt wurden."
   }
 }

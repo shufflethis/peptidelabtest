@@ -427,5 +427,183 @@
     "fieldsH": "I campi da leggere in ogni report",
     "fields": "Laboratorio · numero d'ordine · chiave di verifica · cliente · nome del campione e quantità in etichetta · lotto · data del test · metodo · purezza · mg misurati",
     "footer": "Dall'analisi PeptideLabIndex di {shops} negozi, verificata il {date}. Solo per ricerca. peptidelabtest.org"
+  },
+  "cc": {
+    "title": [
+      "Calcolatore ricostituzione {c} (mg/mL lab)",
+      "Calcolatore {c} (lab, mg/mL)"
+    ],
+    "description": [
+      "Calcolatore di concentrazione di laboratorio per {c}: mg nel flaconcino e mL di solvente danno mg/mL. {nSizes} formati in {n} negozi, prezzo per mg e {reports} referti di laboratorio.",
+      "Calcolatore di concentrazione {c} in mg/mL per il laboratorio, con formati, prezzo per mg e referti."
+    ],
+    "h1": "Calcolatore {c}: concentrazione nel flaconcino (mg/mL)",
+    "eyebrow": "Calcolatore di laboratorio",
+    "intro": "Inserisca i mg in un flaconcino di {c} e i mL di solvente per ottenere la concentrazione madre in mg/mL. {n} negozi verificati vendono {c} in {nSizes} formati ({sizes}); al posto dell'etichetta può usare i mg misurati da un referto di laboratorio. Solo calcolo di laboratorio.",
+    "calcH": "Concentrazione madre di {c} (mg/mL)",
+    "formulaH": "La formula",
+    "formula": "Concentrazione (mg/mL) = quantità nel flaconcino (mg) ÷ volume di solvente (mL)",
+    "example": "Esempio: il formato più comune è {def} mg. {def} mg in 2 mL danno {defConc} mg/mL.",
+    "exampleReal": "Con dati di laboratorio: un flaconcino di {c} da {label} mg di {shop} conteneva {measured} mg secondo {lab} ({pct} dell'etichetta). In 2 mL sono {concMeasured} mg/mL invece di {concLabel} mg/mL secondo l'etichetta.",
+    "only": "Il risultato è solo una concentrazione. Questa pagina non contiene indicazioni su uso, somministrazione o quantità per persona.",
+    "tableH": "{c}: formato × solvente = mg/mL",
+    "colVial": "Flaconcino (etichetta)",
+    "colListings": "Offerte",
+    "pricesH": "Prezzo per mg di {c} nei negozi verificati",
+    "pricesP": "Prezzo più basso per mg in ogni negozio, EUR e USD separati (nessuna conversione).",
+    "barsTitle": "{c}: prezzo più basso per mg per negozio ({cur})",
+    "repsH": "Referti di laboratorio di {c} che abbiamo aperto",
+    "repsP": "{reports} referti, {portal} confermati sul portale del laboratorio. Usi i mg misurati nel calcolatore qui sopra per una concentrazione più precisa.",
+    "relPrices": "Confronto prezzi di {c}",
+    "relCompound": "Scheda del composto {c}",
+    "relCalc": "Calcolatore {c}",
+    "fq1": "Come si calcola la concentrazione di {c} in mg/mL?",
+    "fa1": "Divida la quantità nel flaconcino (mg) per il solvente aggiunto (mL). {def} mg di {c} in 2 mL danno {defConc} mg/mL.",
+    "fq2": "Quali formati di {c} esistono?",
+    "fa2": "{n} negozi verificati vendono {c} in {nSizes} formati: {sizes}. Verificato il {date}.",
+    "fq3": "Perché usare i mg misurati invece dell'etichetta?",
+    "fa3": "Il contenuto misurato può differire dall'etichetta. Un flaconcino di {c} da {label} mg di {shop} conteneva {measured} mg ({pct} dell'etichetta), quindi 2 mL danno {concMeasured} mg/mL invece di {concLabel} mg/mL.",
+    "fq4": "Questo calcolatore è solo per il laboratorio?",
+    "fa4": "Sì. Esegue una divisione (mg ÷ mL) per soluzioni madre in vitro di composti di ricerca e non contiene indicazioni sull'uso su persone o animali."
+  },
+  "calcp": {
+    "title": [
+      "Calcolatore ricostituzione peptidi (lab, mg/mL)",
+      "Calcolatore peptidi (lab, mg/mL)"
+    ],
+    "byH": "Calcolatori per composto",
+    "byP": "Ogni pagina usa i formati di quel composto e mostra il prezzo per mg e i referti di laboratorio che abbiamo aperto.",
+    "sizes": "{n} formati"
+  },
+  "bl": {
+    "crumb": "Miscele di peptidi",
+    "eyebrow": "Miscele",
+    "t": {
+      "wolverine": [
+        "Miscela Wolverine (BPC-157 + TB-500): prezzi",
+        "Miscela Wolverine BPC-157 + TB-500: prezzi"
+      ],
+      "klow": [
+        "Miscela di peptidi KLOW: composizione e prezzi",
+        "Peptide KLOW: negozi e prezzi"
+      ],
+      "glow": [
+        "Miscela di peptidi GLOW: composizione e prezzi",
+        "Peptide GLOW: negozi e prezzi"
+      ],
+      "cjc-ipamorelin": [
+        "Miscela CJC-1295 + Ipamorelin: negozi e prezzi",
+        "Prezzi CJC-1295 Ipamorelin"
+      ]
+    },
+    "h": {
+      "wolverine": "Miscela di peptidi Wolverine (BPC-157 + TB-500)",
+      "klow": "Miscela di peptidi KLOW (GHK-Cu, BPC-157, TB-500, KPV)",
+      "glow": "Miscela di peptidi GLOW (GHK-Cu, BPC-157, TB-500)",
+      "cjc-ipamorelin": "Miscela CJC-1295 + Ipamorelin"
+    },
+    "description": [
+      "Miscela {name}: cosa dichiarano {n} negozi verificati sul contenuto del flaconcino ({comps}), {nOffers} offerte con prezzo per mg e i referti mostrati. Verificato il {date}.",
+      "Miscela {name}: composizione, {nOffers} offerte in {n} negozi, prezzo per mg e referti di laboratorio."
+    ],
+    "intro": "{name} è un nome commerciale per un flaconcino che contiene {comps}. Il {date} abbiamo trovato {nOffers} offerte in {n} negozi verificati, nei formati {sizes}. Prezzo più basso per mg: {eu} in EUR, {us} in USD. Composizione, prezzi e referti qui sotto sono quelli pubblicati dai negozi.",
+    "statShops": "Negozi",
+    "statOffers": "Offerte",
+    "statEU": "EUR/mg più basso",
+    "statUS": "USD/mg più basso",
+    "compH": "Cosa contiene un flaconcino di {name}",
+    "compP": "{nStated} offerte su {nOffers} indicano la quantità di ogni composto. La ripartizione più comune ({nCommon} offerte) è:",
+    "namesP": "Nomi usati dai negozi:",
+    "only": "Riportiamo solo composizione, prezzi e dati di laboratorio. Nulla qui descrive effetti, uso su persone o animali o protocolli; tutti i prodotti sono venduti per la ricerca di laboratorio.",
+    "barsTitle": "{name}: prezzo più basso per mg per negozio ({cur})",
+    "tableH": "Tutte le {nOffers} offerte di {name}",
+    "tableP": "Prima i negozi con link, poi per prezzo per mg. Prezzo per mg = prezzo ÷ mg totali nel flaconcino.",
+    "colComp": "Composizione (secondo il negozio)",
+    "colPrice": "Prezzo",
+    "colPerMg": "Prezzo per mg",
+    "colShop": "Negozio",
+    "colBlend": "Miscela",
+    "colLot": "Lotto / referto",
+    "colMeasured": "Misurato per composto",
+    "notStated": "quantità per composto non indicata",
+    "oos": "esaurito",
+    "review": "Leggi la nostra analisi",
+    "note": "Prezzi pubblicati il {date}, senza codici, EUR e USD separati. Penne e altre forme liquide non sono incluse.",
+    "repsH": "Referti di laboratorio di {name} mostrati dai negozi",
+    "repsP": "{reports} referti trovati sulle pagine o nei file dei negozi. Non li abbiamo confermati sui portali dei laboratori, quindi valgono come copie del negozio.",
+    "repsNone": "Non abbiamo trovato alcun referto di laboratorio per questa miscela sulle pagine dei negozi.",
+    "repsNote": "File e pagine dei referti sono mostrati come testo. Segua i passaggi della nostra guida al COA per verificare un referto sul portale del laboratorio.",
+    "rn": {
+      "mismatch": "pubblicato per il prodotto da 5 mg + 5 mg, ma il nome del file del certificato riporta 10 mg + 10 mg",
+      "shopcopy": "valori come mostrati sulla pagina del negozio",
+      "claim": "il negozio indica una purezza superiore al 99 % tramite HPLC",
+      "nodata": "pagina del referto sul sito del negozio; valori non rilevati"
+    },
+    "fq1": "Cosa contiene la miscela {name}?",
+    "fa1": "{comps} in un flaconcino. {nStated} offerte su {nOffers} indicano la ripartizione; la più comune è {common}.",
+    "fq2": "Quali negozi vendono la miscela {name}?",
+    "fa2": "Il {date} abbiamo trovato {nOffers} offerte in {n} negozi verificati, nei formati {sizes}.",
+    "fq3": "Dove costa meno per mg la miscela {name}?",
+    "fa3": "Prezzo più basso pubblicato per mg: {eu} in EUR e {us} in USD, prima dei codici.",
+    "fq4": "Esistono referti di laboratorio per la miscela {name}?",
+    "fa4": "Abbiamo trovato {reports} referti sulle pagine dei negozi. Nessuno è stato confermato da noi su un portale di laboratorio; verifichi il numero del referto sul sito del laboratorio.",
+    "relPrice": "Confronto prezzi di {c}",
+    "relCalc": "Calcolatore di concentrazione per due composti",
+    "relBlend": "Miscela {name}",
+    "iTitle": [
+      "Miscele di peptidi: Wolverine, KLOW, GLOW, CJC",
+      "Miscele di peptidi: prezzi e composizione"
+    ],
+    "iDescription": [
+      "Miscele di peptidi a confronto: Wolverine (BPC-157 + TB-500), KLOW, GLOW e CJC-1295 + Ipamorelin in {shops} negozi verificati, con composizione, prezzo per mg e referti.",
+      "Miscele di peptidi a confronto: composizione, prezzo per mg e referti in {shops} negozi verificati."
+    ],
+    "iH1": "Miscele di peptidi a confronto",
+    "iIntro": "{n} miscele di ricerca diffuse in {shops} negozi verificati, controllate il {date}: cosa dichiara il negozio sul contenuto del flaconcino, il prezzo più basso per mg e i referti mostrati.",
+    "iSub": "{offers} offerte in {n} negozi"
+  },
+  "gs": {
+    "h": "Stato regolatorio",
+    "approvedIngredient": "Principio attivo di medicinali su prescrizione approvati dalla FDA. Le offerte di ricerca confrontate qui non sono quei medicinali; la FDA chiama medicinali non approvati le versioni vendute fuori dall'approvazione.",
+    "investigational": "Sperimentale (fase 3, Eli Lilly); non approvato dalla FDA né da altre autorità.",
+    "note": "Stato secondo le fonti, verificato il 21 nov 2026. Informazione generale, non consulenza legale."
+  },
+  "c3": {
+    "title": [
+      "Retatrutide vs tirzepatide vs semaglutide: dati",
+      "Retatrutide vs tirzepatide vs semaglutide"
+    ],
+    "description": [
+      "Retatrutide vs tirzepatide vs semaglutide: classe, stato regolatorio con fonti, formati, prezzo per mg (EUR/USD) e referti di laboratorio di {nA}, {nB} e {nC} negozi.",
+      "Retatrutide vs tirzepatide vs semaglutide: classe, stato, formati, prezzo per mg e referti."
+    ],
+    "h1": "Retatrutide vs tirzepatide vs semaglutide: dati di ricerca a confronto",
+    "eyebrow": "Confronto tra composti",
+    "intro": "Tre composti di ricerca della classe GLP-1 a confronto: cos'è ogni molecola, lo stato regolatorio con fonti, i formati sul mercato, il prezzo per mg in EUR e USD e i referti aperti ({rA}, {rB} e {rC}). Nessun effetto, nessun uso sulle persone: solo dati, verificati il {date}.",
+    "tableH": "Fianco a fianco",
+    "rClass": "Molecola",
+    "rStatus": "Stato regolatorio",
+    "rShops": "Negozi verificati che lo vendono",
+    "rSizes": "Formati sul mercato",
+    "rLowEur": "Prezzo più basso per mg (EUR)",
+    "rLowUsd": "Prezzo più basso per mg (USD)",
+    "rMedEur": "Prezzo mediano per mg (EUR)",
+    "rMedUsd": "Prezzo mediano per mg (USD)",
+    "rReports": "Referti aperti",
+    "rFill": "Misurato vs etichetta",
+    "shopsVal": "{n} ({eu} UE, {us} USA)",
+    "repVal": "{n} ({p} confermati sul portale del laboratorio)",
+    "note": "Prezzi pubblicati, prima dei codici; EUR e USD separati. Mediane su tutte le offerte con prezzo.",
+    "chartUsd": "Prezzo mediano per mg (USD)",
+    "chartEur": "Prezzo mediano per mg (EUR)",
+    "statusP": "Semaglutide e tirzepatide sono principi attivi di medicinali su prescrizione approvati; retatrutide è ancora sperimentale. I negozi di questo confronto vendono materiale di ricerca etichettato solo per uso di laboratorio.",
+    "fq1": "Che differenza c'è tra retatrutide, tirzepatide e semaglutide?",
+    "fa1": "Sono molecole diverse: semaglutide agisce sul recettore GLP-1, tirzepatide sui recettori GIP e GLP-1, retatrutide sui recettori GIP, GLP-1 e del glucagone. Semaglutide e tirzepatide sono principi attivi di medicinali approvati; retatrutide è sperimentale.",
+    "fq2": "Quale costa meno per mg nelle offerte di ricerca?",
+    "fa2": "Prezzo mediano pubblicato per mg in USD: {list}. EUR e USD restano separati; per l'EUR veda la tabella.",
+    "fq3": "Quanti negozi vendono ciascun composto?",
+    "fa3": "Nella nostra verifica: {a} in {nA} negozi, {b} in {nB} e {c} in {nC}, verificato il {date}.",
+    "fq4": "Esistono referti di laboratorio per ciascuno?",
+    "fa4": "Abbiamo aperto {rA} referti di {a}, {rB} di {b} e {rC} di {c}; la tabella mostra quanti sono stati confermati sul portale del laboratorio."
   }
 }

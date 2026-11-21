@@ -4,7 +4,8 @@ import { VENDORS } from '../data/vendors';
 import { COMPOUNDS } from '../data/compounds';
 import { COUNTRY_LAWS } from '../data/laws';
 import { RESEARCH_ARTICLES } from '../data/labs';
-import { PRICE_COMPOUNDS, SIZE_PAGES, COMPOUND_PAIRS, pairSlug, SHOP_PAIRS, LABS_IN_DATA } from './site';
+import { BLENDS } from './blends';
+import { PRICE_COMPOUNDS, SIZE_PAGES, COMPOUND_PAIRS, pairSlug, SHOP_PAIRS, LABS_IN_DATA, CALC_COMPOUNDS } from './site';
 
 type P = { params: Record<string, string>; props: Record<string, any> };
 export const R = {
@@ -17,6 +18,8 @@ export const R = {
   compound: (): P[] => COMPOUNDS.map((c) => ({ params: { slug: c.slug }, props: { slug: c.slug } })),
   law: (): P[] => COUNTRY_LAWS.map((l) => ({ params: { slug: l.slug }, props: { slug: l.slug } })),
   research: (): P[] => RESEARCH_ARTICLES.map((a) => ({ params: { slug: a.slug }, props: { slug: a.slug } })),
+  calc: (): P[] => CALC_COMPOUNDS.map((compound) => ({ params: { compound }, props: { compound } })),
+  blend: (): P[] => BLENDS.map((b) => ({ params: { blend: b.slug }, props: { blend: b.slug } })),
   single: (): P[] => [{ params: {}, props: {} }],
 };
 

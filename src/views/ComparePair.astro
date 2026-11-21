@@ -13,6 +13,7 @@ import {
 import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
 import { locCompound } from '../i18n/data';
+import { REG_STATUS, REG_SOURCES } from '../data/regSources';
 interface Props { lang: Lang; a: string; b: string }
 const { lang, a, b } = Astro.props;
 const F = fmt(lang);
@@ -55,6 +56,7 @@ const faqs = [
   { q: t(lang, 'cp.fq4', V), a: t(lang, 'cp.fa4', V) },
   { q: t(lang, 'cp.fq5', V), a: t(lang, 'cp.fa5') },
 ];
+const statusRows = [a, b].filter((x) => REG_STATUS[x]).map((x) => ({ c: compoundShort(x), txt: t(lang, `gs.${REG_STATUS[x].key}`), src: REG_SOURCES[REG_STATUS[x].source] }));
 const vialsTxt = (S: ReturnType<typeof stats>) => S.sizes.map((s) => F.mg(s)).join(', ') || F.na;
 const low = (o: ReturnType<typeof cheapestBy>, cur: string) => (o ? `${F.perMg(o.perMg, cur)} (${o.vendor.name})` : F.na);
 const pm = (n: number | null, cur: string) => (n == null ? F.na : F.perMg(n, cur));
@@ -146,6 +148,15 @@ const related = [
       </div>
     </section>
 
+    {statusRows.length > 0 && (
+      <section class="space-y-3" id="status">
+        <h2 class="h2">{t(lang, 'gs.h')}</h2>
+        <dl class="facts card px-5 sm:px-6 py-2 max-w-4xl">
+          {statusRows.map((r) => <div><dt>{r.c}</dt><dd>{r.txt}<span class="block mt-1 text-sm text-slate-600">{r.src.publisher}: {r.src.title}</span><span class="block mono-url">{r.src.url}</span></dd></div>)}
+        </dl>
+        <p class="text-sm text-slate-600 max-w-[75ch]">{t(lang, 'gs.note')} <a href={L('/is-it-legal-to-buy-peptides-online/')} class="text-link">{t(lang, 'leg.crumb')}</a></p>
+      </section>
+    )}
     <FAQ items={faqs} />
     <RelatedLinks links={related} />
     <Disclosure />
