@@ -843,5 +843,56 @@
     "v4": "{zero} of {withRep} shops that publish reports had not one report confirmed on the lab's portal. {noRep} more shops published no report we could open.",
     "v5": "How we check a report: open the report on the shop site, find the same key on the lab's portal, then compare mg and purity line by line.",
     "v6": "peptidelabtest.org: {shops} shops, {opened} lab reports and {products} prices per mg compared. Research use only. Data checked {date}."
+  },
+  "pidx": {
+    "title": [
+      "Peptide Price Index: Median Price per mg ({mon})",
+      "Peptide Price Index ({mon})"
+    ],
+    "description": [
+      "Peptide price index for {month}: median price per mg for {n} research compounds from {offers} listings at audited shops, EUR and USD separate. Download the CSV.",
+      "Peptide price index {month}: median price per mg for {n} compounds, EUR and USD separate, with CSV download."
+    ],
+    "h1": "Peptide price index: median price per mg, {month}",
+    "eyebrow": "Monthly index · edition {month}",
+    "intro": "The median listed price per mg for {n} research compounds, from {offers} listings at the shops we audited, read on {dates}. EUR and USD listings are kept apart and never converted. Codes and shipping are not included. One edition per month.",
+    "csv": "Download CSV",
+    "csvNote": "One row per month, compound and currency: median, minimum, maximum, listings, shops and the dates the prices were read.",
+    "chartUsd": "Median price per mg in USD, {month}",
+    "chartEur": "Median price per mg in EUR, {month}",
+    "chartNote": "Compounds with at least 3 listings in this currency. Each bar links to the full price comparison.",
+    "listings": {
+      "one": "{n} listing",
+      "other": "{n} listings"
+    },
+    "listingsShops": {
+      "one": "{n} listing · {s|# shop|# shops}",
+      "other": "{n} listings · {s|# shop|# shops}"
+    },
+    "tableH": "Index table, {month}",
+    "tableP": "Median, lowest and highest listed price per mg per compound. A median from one or two listings says little; the listing count is shown under each value.",
+    "colMedEur": "Median EUR/mg",
+    "colRangeEur": "Range EUR/mg",
+    "colMedUsd": "Median USD/mg",
+    "colRangeUsd": "Range USD/mg",
+    "prev": "previous month {p}",
+    "methodH": "How the index is calculated",
+    "m1": "Price per mg = the shop's listed price (the sale price if one is shown) divided by the mg on the vial label. Every listing counts once.",
+    "m2": "EUR and USD listings are separate indexes. {excluded} listings in other currencies or without a price per mg are left out.",
+    "m3": "Discount codes, shipping and taxes are not applied. Prices change often; the shop's own page is the current source.",
+    "m4": "Prices were read on {dates} from {shops} audited shops. Each monthly edition is frozen when the next one is published, so the CSV keeps the full history.",
+    "editions": "Editions in the index: {list}.",
+    "browseH": "Price comparison by compound class",
+    "medPart": "median {p} across {n} {cur} listings",
+    "fqC": "What does {c} cost per mg in {month}?",
+    "faC": "In the {month} index, {c} had a {list}. Listed prices only, no codes or shipping; the {c} price page shows every shop.",
+    "fq1": "How is the peptide price index calculated?",
+    "fa1": "For each compound we take every listing at the audited shops, divide its listed price by the mg on the label and report the median, separately for EUR and USD. {offers} listings went into the {month} edition.",
+    "fq2": "How often is the index updated?",
+    "fa2": "Once a month. The current edition is {month}; earlier editions stay in the CSV so changes can be tracked.",
+    "dsName": "Peptide price index {month}",
+    "relPrices": "All price comparisons",
+    "relData": "Full audit data (CSV and JSON)",
+    "relBlends": "Peptide blends and their prices"
   }
 }

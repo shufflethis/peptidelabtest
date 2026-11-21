@@ -843,5 +843,56 @@
     "v4": "{zero} dei {withRep} negozi che pubblicano referti non avevano nemmeno un referto confermato sul portale del laboratorio. Altri {noRep} negozi non pubblicavano alcun referto che abbiamo potuto aprire.",
     "v5": "Come verifichiamo un referto: apriamo il referto sul sito del negozio, cerchiamo la stessa chiave sul portale del laboratorio, poi confrontiamo mg e purezza riga per riga.",
     "v6": "peptidelabtest.org: {shops} negozi, {opened} referti di laboratorio e {products} prezzi per mg a confronto. Solo per uso di ricerca. Dati controllati il {date}."
+  },
+  "pidx": {
+    "title": [
+      "Indice prezzi peptidi: prezzo mediano per mg ({mon})",
+      "Indice prezzi peptidi ({mon})"
+    ],
+    "description": [
+      "Indice prezzi peptidi {month}: prezzo mediano per mg di {n} composti da {offers} offerte di negozi verificati, EUR e USD separati. Scarica il CSV.",
+      "Indice prezzi peptidi {month}: prezzo mediano per mg di {n} composti, EUR e USD separati, con CSV."
+    ],
+    "h1": "Indice prezzi dei peptidi: prezzo mediano per mg, {month}",
+    "eyebrow": "Indice mensile · edizione {month}",
+    "intro": "La mediana dei prezzi pubblicati per mg di {n} composti di ricerca, da {offers} offerte dei negozi verificati, lette il {dates}. Le offerte in EUR e in USD restano separate e non vengono mai convertite. Codici e spedizione non inclusi. Un'edizione al mese.",
+    "csv": "Scarica il CSV",
+    "csvNote": "Una riga per mese, composto e valuta: mediana, minimo, massimo, offerte, negozi e le date in cui sono stati letti i prezzi.",
+    "chartUsd": "Prezzo mediano per mg in USD, {month}",
+    "chartEur": "Prezzo mediano per mg in EUR, {month}",
+    "chartNote": "Composti con almeno 3 offerte in questa valuta. Ogni barra porta al confronto completo dei prezzi.",
+    "listings": {
+      "one": "{n} offerta",
+      "other": "{n} offerte"
+    },
+    "listingsShops": {
+      "one": "{n} offerta · {s|# negozio|# negozi}",
+      "other": "{n} offerte · {s|# negozio|# negozi}"
+    },
+    "tableH": "Tabella dell'indice, {month}",
+    "tableP": "Prezzo per mg mediano, minimo e massimo per composto. Una mediana di una o due offerte dice poco; il numero di offerte è indicato sotto ogni valore.",
+    "colMedEur": "Mediana EUR/mg",
+    "colRangeEur": "Intervallo EUR/mg",
+    "colMedUsd": "Mediana USD/mg",
+    "colRangeUsd": "Intervallo USD/mg",
+    "prev": "mese precedente {p}",
+    "methodH": "Come si calcola l'indice",
+    "m1": "Prezzo per mg = prezzo pubblicato dal negozio (quello scontato se indicato) diviso per i mg in etichetta. Ogni offerta conta una volta.",
+    "m2": "Le offerte in EUR e in USD formano indici separati. Sono escluse {excluded} offerte in altre valute o senza prezzo per mg.",
+    "m3": "Codici sconto, spedizione e tasse non sono applicati. I prezzi cambiano spesso; la pagina del negozio è la fonte aggiornata.",
+    "m4": "I prezzi sono stati letti il {dates} in {shops} negozi verificati. Ogni edizione mensile viene congelata quando esce la successiva, quindi il CSV conserva tutta la storia.",
+    "editions": "Edizioni dell'indice: {list}.",
+    "browseH": "Confronto prezzi per classe di composto",
+    "medPart": "mediana di {p} su {n} offerte in {cur}",
+    "fqC": "Quanto costa {c} per mg a {month}?",
+    "faC": "Nell'indice di {month}, {c} aveva una {list}. Solo prezzi pubblicati, senza codici né spedizione; la pagina prezzi di {c} mostra ogni negozio.",
+    "fq1": "Come si calcola l'indice prezzi dei peptidi?",
+    "fa1": "Per ogni composto prendiamo tutte le offerte dei negozi verificati, dividiamo il prezzo pubblicato per i mg in etichetta e indichiamo la mediana, separatamente in EUR e USD. L'edizione di {month} usa {offers} offerte.",
+    "fq2": "Ogni quanto viene aggiornato l'indice?",
+    "fa2": "Una volta al mese. L'edizione attuale è {month}; quelle precedenti restano nel CSV per seguire le variazioni.",
+    "dsName": "Indice prezzi peptidi {month}",
+    "relPrices": "Tutti i confronti prezzi",
+    "relData": "Dati completi della verifica (CSV e JSON)",
+    "relBlends": "Miscele di peptidi e i loro prezzi"
   }
 }

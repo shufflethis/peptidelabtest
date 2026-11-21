@@ -1,14 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { PRICE_COMPOUNDS, compoundShort, shopsCarrying, sizePagesFor, offersFor, cheapestBy, CHECKED_ISO, TOTALS, getCompound, YEAR } from '../lib/site';
-import { t, tn, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import BarList from '../components/BarList.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import { PRICE_COMPOUNDS, compoundShort, shopsCarrying, sizePagesFor, offersFor, cheapestBy, TOTALS, getCompound, YEAR, faqSchema, abs } from '../lib/site';
+import { INDEX_ROWS, INDEX_MONTH, INDEX_TOTALS, INDEX_EDITIONS, CSV_PATH, previousCell, type IndexCur } from '../lib/priceIndex';
+import { t, tn, tt, td, lp, fmtDate, listJoin, LOCALE, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
 import { locCompound } from '../i18n/data';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
+const monthLong = new Intl.DateTimeFormat(LOCALE[lang], { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${INDEX_MONTH}-01T00:00:00Z`));
+const monthShort = new Intl.DateTimeFormat(LOCALE[lang], { month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${INDEX_MONTH}-01T00:00:00Z`));
+const from = fmtDate(lang, INDEX_TOTALS.readFrom);
+const to = fmtDate(lang, INDEX_TOTALS.readTo);
+const V = {
+  n: INDEX_TOTALS.compounds, offers: INDEX_TOTALS.offers, excluded: INDEX_TOTALS.excluded, shops: TOTALS.shops, month: monthLong, mon: monthShort,
+  from, to, dates: from === to ? from : `${from} – ${to}`, year: YEAR, editions: INDEX_EDITIONS.length,
+};
+const cell = (slug: string, cur: IndexCur) => INDEX_ROWS.find((r) => r.compound === slug)?.cells[cur];
+const faqCompounds = ['retatrutide', 'tirzepatide', 'bpc-157'].filter((c) => INDEX_ROWS.some((r) => r.compound === c));
+const medTxt = (slug: string) => listJoin(lang, (['USD', 'EUR'] as IndexCur[]).filter((cur) => cell(slug, cur)).map((cur) => {
+  const c = cell(slug, cur)!;
+  return t(lang, 'pidx.medPart', { p: F.perMg(c.median, cur), n: c.offers, cur });
+}));
+const faqs = [
+  ...faqCompounds.map((c) => ({ q: t(lang, 'pidx.fqC', { c: compoundShort(c), month: monthLong }), a: t(lang, 'pidx.faC', { c: compoundShort(c), list: medTxt(c), month: monthLong }) })),
+  { q: t(lang, 'pidx.fq1'), a: t(lang, 'pidx.fa1', V) },
+  { q: t(lang, 'pidx.fq2'), a: t(lang, 'pidx.fa2', V) },
+];
+const chart = (cur: IndexCur) => INDEX_ROWS.filter((r) => r.cells[cur] && r.cells[cur]!.offers >= 3)
+  .sort((a, b) => b.cells[cur]!.median - a.cells[cur]!.median)
+  .map((r) => ({ label: r.name, sub: tn(lang, 'pidx.listings', r.cells[cur]!.offers), value: r.cells[cur]!.median, display: F.perMg(r.cells[cur]!.median, cur), accent: true, href: L(`/prices/${r.compound}/`) }));
 const rows = PRICE_COMPOUNDS.map((c) => {
   const o = offersFor(c);
   const spec = getCompound(c);
@@ -16,24 +44,112 @@ const rows = PRICE_COMPOUNDS.map((c) => {
 });
 const cats = Array.from(new Set(rows.map((r) => r.cat)));
 const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'pix.crumb'), url: L('/price-index/') }];
-const V = { n: rows.length, products: TOTALS.products, shops: TOTALS.shops, date: fmtDate(lang, CHECKED_ISO), year: YEAR };
+const dataset = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: t(lang, 'pidx.dsName', V),
+  description: t(lang, 'pidx.intro', V),
+  url: abs(L('/price-index/')),
+  temporalCoverage: `${INDEX_TOTALS.readFrom}/${INDEX_TOTALS.readTo}`,
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+  creator: { '@type': 'Organization', name: 'PeptideLabIndex' },
+  isAccessibleForFree: true,
+  distribution: [{ '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: abs(CSV_PATH) }],
+  variableMeasured: ['median price per mg (EUR)', 'median price per mg (USD)', 'listings', 'shops'],
+};
+const related = [
+  { href: L('/prices/'), label: t(lang, 'pidx.relPrices') },
+  { href: L('/data/'), label: t(lang, 'pidx.relData') },
+  { href: L('/compare/retatrutide-vs-tirzepatide-vs-semaglutide/'), label: t(lang, 'c3.h1') },
+  { href: L('/blends/'), label: t(lang, 'pidx.relBlends') },
+  { href: L('/methodology/'), label: t(lang, 'nav.method') },
+];
 ---
-<BaseLayout lang={lang} title={tt(lang, 'pix.title', V)} description={td(lang, 'pix.description', V)} crumbs={crumbs}>
-  <PageHero crumbs={crumbs} title={t(lang, 'pix.h1')} intro={t(lang, 'pix.intro', V)} />
-  <div class="wrap mt-12 space-y-12">
-    {cats.map((cat) => (
-      <section class="space-y-4">
-        <h2 class="h2">{cat}</h2>
-        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {rows.filter((r) => r.cat === cat).map((r) => (
-            <li class="card p-5">
-              <a href={L(`/prices/${r.slug}/`)} class="tap text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{t(lang, 'footer.pricesOf', { name: r.name })}</a>
-              <p class="mt-1 text-slate-700">{tn(lang, 'common.shops', r.shops)} · {t(lang, 'common.from', { p: [r.eur && F.perMg(r.eur.perMg, 'EUR'), r.usd && F.perMg(r.usd.perMg, 'USD')].filter(Boolean).join(` ${t(lang, 'common.or')} `) || F.na })}</p>
-              {r.sizes.length > 0 && <p class="mt-2 text-[0.94rem] text-slate-700">{t(lang, 'pix.bySize')} {r.sizes.map((s, i) => <>{i > 0 && ', '}<a href={L(`/prices/${r.slug}/${s.size}mg/`)} class="text-link font-medium">{F.mg(s.size)}</a></>)}</p>}
-            </li>
-          ))}
-        </ul>
-      </section>
-    ))}
+<BaseLayout lang={lang} title={tt(lang, 'pidx.title', V)} description={td(lang, 'pidx.description', V)} crumbs={crumbs} jsonLd={[dataset, faqSchema(faqs)]}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'pidx.h1', V)} eyebrow={t(lang, 'pidx.eyebrow', V)} intro={t(lang, 'pidx.intro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <section class="flex flex-wrap items-center gap-3">
+      <a href={CSV_PATH} download class="btn-primary"><Icon name="file-text" class="w-4 h-4" />{t(lang, 'pidx.csv')}</a>
+      <span class="text-sm text-slate-600">{t(lang, 'pidx.csvNote', V)}</span>
+    </section>
+
+    <section class="grid gap-6 xl:grid-cols-2">
+      <BarList title={t(lang, 'pidx.chartUsd', V)} rows={chart('USD')} note={t(lang, 'pidx.chartNote')} />
+      <BarList title={t(lang, 'pidx.chartEur', V)} rows={chart('EUR')} note={t(lang, 'pidx.chartNote')} />
+    </section>
+
+    <section class="space-y-4" id="table">
+      <div class="max-w-[70ch]">
+        <h2 class="h2">{t(lang, 'pidx.tableH', V)}</h2>
+        <p class="mt-2 text-slate-700">{t(lang, 'pidx.tableP', V)}</p>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" data-sortable>
+          <thead>
+            <tr>
+              <th scope="col">{t(lang, 'pi.colCompound')}</th>
+              <th scope="col" class="num">{t(lang, 'pidx.colMedEur')}</th>
+              <th scope="col" class="num">{t(lang, 'pidx.colRangeEur')}</th>
+              <th scope="col" class="num">{t(lang, 'pidx.colMedUsd')}</th>
+              <th scope="col" class="num">{t(lang, 'pidx.colRangeUsd')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {INDEX_ROWS.map((r) => (
+              <tr>
+                <td class="min-w-[9rem]"><a href={L(`/prices/${r.compound}/`)} class="font-semibold text-slate-900 hover:underline">{r.name}</a></td>
+                {(['EUR', 'USD'] as IndexCur[]).map((cur) => {
+                  const c = r.cells[cur];
+                  const p = previousCell(r.compound, cur);
+                  return c ? (
+                    <>
+                      <td class="num" data-v={c.median}><span class="font-semibold text-slate-900">{F.perMg(c.median, cur)}</span><span class="sub">{tn(lang, 'pidx.listingsShops', c.offers, { s: c.shops })}</span>{p && <span class="sub">{t(lang, 'pidx.prev', { p: F.perMg(p.median, cur) })}</span>}</td>
+                      <td class="num">{F.perMg(c.min, cur)} – {F.perMg(c.max, cur)}</td>
+                    </>
+                  ) : (
+                    <>
+                      <td class="num text-slate-600" data-v="">{F.na}</td>
+                      <td class="num text-slate-600">{F.na}</td>
+                    </>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="prose-read" id="method">
+      <h2 class="!mt-0">{t(lang, 'pidx.methodH')}</h2>
+      <ul>
+        <li>{t(lang, 'pidx.m1')}</li>
+        <li>{t(lang, 'pidx.m2', V)}</li>
+        <li>{t(lang, 'pidx.m3')}</li>
+        <li>{t(lang, 'pidx.m4', V)}</li>
+      </ul>
+      <p>{t(lang, 'pidx.editions', { list: INDEX_EDITIONS.join(', ') })}</p>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="h2">{t(lang, 'pidx.browseH')}</h2>
+      {cats.map((cat) => (
+        <section class="space-y-4">
+          <h3 class="h3">{cat}</h3>
+          <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {rows.filter((r) => r.cat === cat).map((r) => (
+              <li class="card p-5">
+                <a href={L(`/prices/${r.slug}/`)} class="tap text-lg font-bold text-slate-900 hover:text-teal-800 hover:underline">{t(lang, 'footer.pricesOf', { name: r.name })}</a>
+                <p class="mt-1 text-slate-700">{tn(lang, 'common.shops', r.shops)} · {t(lang, 'common.from', { p: [r.eur && F.perMg(r.eur.perMg, 'EUR'), r.usd && F.perMg(r.usd.perMg, 'USD')].filter(Boolean).join(` ${t(lang, 'common.or')} `) || F.na })}</p>
+                {r.sizes.length > 0 && <p class="mt-2 text-[0.94rem] text-slate-700">{t(lang, 'pix.bySize')} {r.sizes.map((s, i) => <>{i > 0 && ', '}<a href={L(`/prices/${r.slug}/${s.size}mg/`)} class="text-link font-medium">{F.mg(s.size)}</a></>)}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </section>
+    <FAQ items={faqs} />
+    <RelatedLinks links={related} />
+    <Disclosure compact />
   </div>
 </BaseLayout>

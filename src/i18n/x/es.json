@@ -843,5 +843,56 @@
     "v4": "{zero} de {withRep} tiendas que publican informes no tenían ni uno confirmado en el portal del laboratorio. Otras {noRep} tiendas no publicaban ningún informe que pudiéramos abrir.",
     "v5": "Así revisamos un informe: abrimos el informe en la web de la tienda, buscamos la misma clave en el portal del laboratorio y comparamos mg y pureza línea por línea.",
     "v6": "peptidelabtest.org: {shops} tiendas, {opened} informes de laboratorio y {products} precios por mg comparados. Solo para investigación. Datos revisados el {date}."
+  },
+  "pidx": {
+    "title": [
+      "Índice de precios de péptidos: mediana por mg ({mon})",
+      "Índice de precios de péptidos ({mon})"
+    ],
+    "description": [
+      "Índice de precios de péptidos de {month}: precio mediano por mg de {n} compuestos de {offers} ofertas en tiendas auditadas, EUR y USD por separado. CSV.",
+      "Índice de precios de péptidos {month}: precio mediano por mg de {n} compuestos, EUR y USD por separado, con CSV."
+    ],
+    "h1": "Índice de precios de péptidos: precio mediano por mg, {month}",
+    "eyebrow": "Índice mensual · edición {month}",
+    "intro": "La mediana de los precios publicados por mg de {n} compuestos de investigación, a partir de {offers} ofertas de las tiendas auditadas, leídas el {dates}. Las ofertas en EUR y USD se separan y nunca se convierten. No incluye códigos ni envío. Una edición al mes.",
+    "csv": "Descargar CSV",
+    "csvNote": "Una fila por mes, compuesto y moneda: mediana, mínimo, máximo, ofertas, tiendas y las fechas en que se leyeron los precios.",
+    "chartUsd": "Precio mediano por mg en USD, {month}",
+    "chartEur": "Precio mediano por mg en EUR, {month}",
+    "chartNote": "Compuestos con al menos 3 ofertas en esta moneda. Cada barra enlaza a la comparativa completa de precios.",
+    "listings": {
+      "one": "{n} oferta",
+      "other": "{n} ofertas"
+    },
+    "listingsShops": {
+      "one": "{n} oferta · {s|# tienda|# tiendas}",
+      "other": "{n} ofertas · {s|# tienda|# tiendas}"
+    },
+    "tableH": "Tabla del índice, {month}",
+    "tableP": "Precio por mg mediano, más bajo y más alto por compuesto. Una mediana de una o dos ofertas dice poco; el número de ofertas figura bajo cada valor.",
+    "colMedEur": "Mediana EUR/mg",
+    "colRangeEur": "Rango EUR/mg",
+    "colMedUsd": "Mediana USD/mg",
+    "colRangeUsd": "Rango USD/mg",
+    "prev": "mes anterior {p}",
+    "methodH": "Cómo se calcula el índice",
+    "m1": "Precio por mg = precio publicado por la tienda (el de oferta si se muestra) dividido entre los mg de la etiqueta del vial. Cada oferta cuenta una vez.",
+    "m2": "Las ofertas en EUR y USD forman índices separados. Se excluyen {excluded} ofertas en otras monedas o sin precio por mg.",
+    "m3": "No se aplican códigos de descuento, envío ni impuestos. Los precios cambian a menudo; la página de la tienda es la fuente actual.",
+    "m4": "Los precios se leyeron el {dates} en {shops} tiendas auditadas. Cada edición mensual se congela al publicarse la siguiente, así que el CSV conserva todo el historial.",
+    "editions": "Ediciones del índice: {list}.",
+    "browseH": "Comparativa de precios por clase de compuesto",
+    "medPart": "mediana de {p} en {n} ofertas en {cur}",
+    "fqC": "¿Cuánto cuesta {c} por mg en {month}?",
+    "faC": "En el índice de {month}, {c} tenía una {list}. Solo precios publicados, sin códigos ni envío; la página de precios de {c} muestra cada tienda.",
+    "fq1": "¿Cómo se calcula el índice de precios de péptidos?",
+    "fa1": "Para cada compuesto tomamos todas las ofertas de las tiendas auditadas, dividimos el precio publicado entre los mg de la etiqueta y damos la mediana, por separado en EUR y USD. La edición de {month} usa {offers} ofertas.",
+    "fq2": "¿Con qué frecuencia se actualiza el índice?",
+    "fa2": "Una vez al mes. La edición actual es {month}; las anteriores se mantienen en el CSV para seguir los cambios.",
+    "dsName": "Índice de precios de péptidos {month}",
+    "relPrices": "Todas las comparativas de precios",
+    "relData": "Datos completos de la auditoría (CSV y JSON)",
+    "relBlends": "Mezclas de péptidos y sus precios"
   }
 }

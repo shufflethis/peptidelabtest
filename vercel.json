@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/peptide-price-index", "destination": "/price-index/", "permanent": true },
+    { "source": "/peptide-price-index/", "destination": "/price-index/", "permanent": true },
+    { "source": "/:lang(de|es|fr|it)/peptide-price-index", "destination": "/:lang/price-index/", "permanent": true },
+    { "source": "/:lang(de|es|fr|it)/peptide-price-index/", "destination": "/:lang/price-index/", "permanent": true }
+  ]
+}

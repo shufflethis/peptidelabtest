@@ -843,5 +843,56 @@
     "v4": "{zero} von {withRep} Shops, die Berichte veröffentlichen, hatten keinen einzigen im Laborportal bestätigten Bericht. Weitere {noRep} Shops veröffentlichten keinen Bericht, den wir öffnen konnten.",
     "v5": "So prüfen wir einen Bericht: Bericht auf der Shop-Seite öffnen, denselben Schlüssel im Portal des Labors suchen, dann mg und Reinheit Zeile für Zeile vergleichen.",
     "v6": "peptidelabtest.org: {shops} Shops, {opened} Laborberichte und {products} Preise pro mg verglichen. Nur für Forschungszwecke. Daten geprüft am {date}."
+  },
+  "pidx": {
+    "title": [
+      "Peptid-Preisindex: Median-Preis pro mg ({mon})",
+      "Peptid-Preisindex ({mon})"
+    ],
+    "description": [
+      "Peptid-Preisindex {month}: Median-Preis pro mg für {n} Forschungssubstanzen aus {offers} Angeboten geprüfter Shops, EUR und USD getrennt. CSV herunterladen.",
+      "Peptid-Preisindex {month}: Median-Preis pro mg für {n} Substanzen, EUR und USD getrennt, mit CSV-Download."
+    ],
+    "h1": "Peptid-Preisindex: Median-Preis pro mg, {month}",
+    "eyebrow": "Monatlicher Index · Ausgabe {month}",
+    "intro": "Der Median der gelisteten Preise pro mg für {n} Forschungssubstanzen, aus {offers} Angeboten der geprüften Shops, gelesen am {dates}. EUR- und USD-Angebote bleiben getrennt und werden nie umgerechnet. Codes und Versand sind nicht enthalten. Eine Ausgabe pro Monat.",
+    "csv": "CSV herunterladen",
+    "csvNote": "Eine Zeile je Monat, Substanz und Währung: Median, Minimum, Maximum, Angebote, Shops und die Tage, an denen die Preise gelesen wurden.",
+    "chartUsd": "Median-Preis pro mg in USD, {month}",
+    "chartEur": "Median-Preis pro mg in EUR, {month}",
+    "chartNote": "Substanzen mit mindestens 3 Angeboten in dieser Währung. Jeder Balken führt zum vollständigen Preisvergleich.",
+    "listings": {
+      "one": "{n} Angebot",
+      "other": "{n} Angebote"
+    },
+    "listingsShops": {
+      "one": "{n} Angebot · {s|# Shop|# Shops}",
+      "other": "{n} Angebote · {s|# Shop|# Shops}"
+    },
+    "tableH": "Indextabelle, {month}",
+    "tableP": "Median, niedrigster und höchster gelisteter Preis pro mg je Substanz. Ein Median aus ein oder zwei Angeboten sagt wenig aus; die Zahl der Angebote steht unter jedem Wert.",
+    "colMedEur": "Median EUR/mg",
+    "colRangeEur": "Spanne EUR/mg",
+    "colMedUsd": "Median USD/mg",
+    "colRangeUsd": "Spanne USD/mg",
+    "prev": "Vormonat {p}",
+    "methodH": "So wird der Index berechnet",
+    "m1": "Preis pro mg = gelisteter Preis des Shops (der Aktionspreis, falls angezeigt) geteilt durch die mg laut Etikett. Jedes Angebot zählt einmal.",
+    "m2": "EUR- und USD-Angebote sind getrennte Indizes. {excluded} Angebote in anderen Währungen oder ohne Preis pro mg bleiben außen vor.",
+    "m3": "Rabattcodes, Versand und Steuern werden nicht eingerechnet. Preise ändern sich oft; aktuell gilt die Seite des Shops.",
+    "m4": "Die Preise wurden am {dates} bei {shops} geprüften Shops gelesen. Jede Monatsausgabe wird eingefroren, sobald die nächste erscheint; die CSV enthält daher die ganze Historie.",
+    "editions": "Ausgaben im Index: {list}.",
+    "browseH": "Preisvergleich nach Substanzklasse",
+    "medPart": "Median {p} über {n} Angebote in {cur}",
+    "fqC": "Was kostet {c} pro mg im {month}?",
+    "faC": "Im Index {month} lag {c} bei {list}. Nur gelistete Preise, ohne Codes und Versand; die {c}-Preisseite zeigt jeden Shop.",
+    "fq1": "Wie wird der Peptid-Preisindex berechnet?",
+    "fa1": "Für jede Substanz nehmen wir alle Angebote der geprüften Shops, teilen den gelisteten Preis durch die mg laut Etikett und nennen den Median, getrennt für EUR und USD. In die Ausgabe {month} gingen {offers} Angebote ein.",
+    "fq2": "Wie oft wird der Index aktualisiert?",
+    "fa2": "Einmal im Monat. Die aktuelle Ausgabe ist {month}; frühere Ausgaben bleiben in der CSV, damit Veränderungen nachvollziehbar sind.",
+    "dsName": "Peptid-Preisindex {month}",
+    "relPrices": "Alle Preisvergleiche",
+    "relData": "Vollständige Prüfdaten (CSV und JSON)",
+    "relBlends": "Peptid-Blends und ihre Preise"
   }
 }
