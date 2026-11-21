@@ -605,5 +605,84 @@
     "fa3": "In our audit: {a} at {nA} shops, {b} at {nB} and {c} at {nC}, checked {date}.",
     "fq4": "Are there lab reports for each?",
     "fa4": "We opened {rA} {a}, {rB} {b} and {rC} {c} reports; the table shows how many were confirmed on the lab's own portal."
+  },
+  "cn": {
+    "crumb": "Code names",
+    "eyebrow": "Decoder",
+    "title": [
+      "Peptide Code Names Decoded: GLP-3 RT, RT-3, GLP-2 TRZ",
+      "Peptide Code Names Decoded (GLP-3 RT, RT-3)"
+    ],
+    "description": [
+      "What GLP-3 RT, RT-3, SR-3RT, GLP-2 TRZ, GL-1 SM and {n} other shop code names stand for, which audited shops use them, and the code names quoted in FDA warning letters.",
+      "Shop code names for retatrutide, tirzepatide and semaglutide decoded, with the shops that use them and FDA sources."
+    ],
+    "h1": "Peptide code names decoded",
+    "intro": "Many shops list GLP-1-class compounds under code names instead of the compound name. We found {n} code names at {shops} audited shops (checked {date}). Retatrutide: {reta}. Tirzepatide: {tirz}. Semaglutide: {sema}. Each row links to the price comparison for the compound.",
+    "compH": "{c} code names ({n})",
+    "colCode": "Code name",
+    "colShops": "Shops using it",
+    "colExamples": "Product names as listed",
+    "colPrices": "Prices",
+    "priceLink": "{c} price comparison",
+    "fdaH": "Code names quoted in FDA warning letters",
+    "fdaP": "FDA warning letters to sellers of research-labelled products name these code names and the compound they stood for ({nf} names). Quoted as facts from the letters.",
+    "srcH": "Sources (opened 21 Nov 2026):",
+    "note": "A code name does not change what the product is or its legal status. Check that the lab report confirms the compound by mass spectrometry.",
+    "fq1": "What is GLP-3 RT?",
+    "fa1": "A shop code name for retatrutide. In our data, retatrutide is also listed as {reta}.",
+    "fq2": "What does GLP-2 TRZ or SR-2TZ mean?",
+    "fa2": "Both are shop code names for tirzepatide. Tirzepatide code names in our data: {tirz}.",
+    "fq3": "Why do shops use code names?",
+    "fa3": "Shops do not say. FDA warning letters quote such code names ({nf} in the letters we opened) for products that were marketed for human use; a code name does not change the product's legal status.",
+    "fq4": "How can I check what is in a code-named vial?",
+    "fa4": "Open the lab report for the batch and check that identity was confirmed by mass spectrometry and that the measured mg is stated; then confirm the report on the lab's own portal."
+  },
+  "sc": {
+    "crumb": "Shops by country",
+    "eyebrow": "Shops by country",
+    "title": [
+      "Peptide Shops in {country}: Audited ({year})",
+      "Peptide Shops in {country} ({year})"
+    ],
+    "description": [
+      "Peptide shops in {country}: {based} audited shops based there and {ship} that state they ship there, with score, lab reports and shipping notes. Checked {date}.",
+      "Peptide shops in {country}: audited shops based there and shops that ship there, with scores and lab reports."
+    ],
+    "h1": "Peptide shops in {country}",
+    "intro": "Of {total} audited shops, {based} are based in {country} ({list}) and {ship} state on their own pages that they ship there. {np} shops publish no shipping countries. Checked {date}.",
+    "statBased": "Based here",
+    "statShip": "Ship here",
+    "statNp": "Not published",
+    "basedH": "Shops based in {country}",
+    "basedP": "Country from the company details or imprint the shop publishes, sorted by our score.",
+    "shipH": "Shops that ship to {country}",
+    "shipP": "From each shop's shipping page (worldwide, EU-wide or a country list), sorted by our score.",
+    "colBased": "Based in",
+    "colScore": "Score",
+    "colReports": "Reports",
+    "colShips": "Ships to (as stated)",
+    "colCountry": "Country",
+    "repVal": "{n} opened, {p} on portal",
+    "none": "none in our audit",
+    "npP": "No shipping countries published:",
+    "note": "Shipping as the shops state it; exceptions on their pages may apply. Not legal advice: the rules for buying research peptides differ by country.",
+    "lawLink": "Legal status in {country}",
+    "fq1": "Which audited peptide shops are based in {country}?",
+    "fa1": "{based} of {total} audited shops: {list}.",
+    "fq2": "Which shops ship to {country}?",
+    "fa2": "{ship} audited shops state that they ship to {country}; {np} publish no shipping countries.",
+    "fq3": "Is it legal to buy peptides in {country}?",
+    "fa3": "It depends on national medicines law and on how the product is marketed. See our legal-status pages; this is general information, not legal advice.",
+    "iTitle": [
+      "Peptide Shops by Country: Where They Are & Ship",
+      "Peptide Shops by Country"
+    ],
+    "iDescription": [
+      "Audited peptide shops by country: which are based in the USA, Germany, Poland, the Netherlands, Slovakia and Romania, and which ship there. Checked {date}.",
+      "Audited peptide shops by country: where they are based and where they ship."
+    ],
+    "iH1": "Peptide shops by country",
+    "iIntro": "{n} countries: how many of {total} audited shops are based there and how many state that they ship there, from the shops' own pages, checked {date}."
   }
 }

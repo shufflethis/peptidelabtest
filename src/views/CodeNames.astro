@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { compoundShort, faqSchema, CHECKED_ISO, YEAR } from '../lib/site';
+import { CODE_NAMES } from '../lib/m4';
+import { FDA_CODE_NAMES, REG_SOURCES } from '../data/regSources';
+import { t, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const date = fmtDate(lang, CHECKED_ISO);
+const by = (c: string) => CODE_NAMES.filter((r) => r.compound === c);
+const comps = Array.from(new Set(CODE_NAMES.map((r) => r.compound)));
+const shops = new Set(CODE_NAMES.flatMap((r) => r.shops.map((s) => s.slug))).size;
+const names = (c: string) => listJoin(lang, by(c).map((r) => r.code));
+const V = { n: CODE_NAMES.length, shops, date, year: YEAR, reta: names('retatrutide'), tirz: names('tirzepatide'), sema: names('semaglutide'), nf: FDA_CODE_NAMES.length };
+const faqs = [1, 2, 3, 4].map((i) => ({ q: t(lang, `cn.fq${i}`, V), a: t(lang, `cn.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'cn.crumb'), url: L('/code-names/') }];
+const fdaSrc = Array.from(new Set(FDA_CODE_NAMES.map((f) => f.source))).map((id) => REG_SOURCES[id]);
+---
+<BaseLayout lang={lang} title={tt(lang, 'cn.title', V)} description={td(lang, 'cn.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'cn.h1')} eyebrow={t(lang, 'cn.eyebrow')} intro={t(lang, 'cn.intro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    {comps.map((c) => (
+      <section class="space-y-4" id={c}>
+        <div class="max-w-[70ch]"><h2 class="h2">{t(lang, 'cn.compH', { c: compoundShort(c), n: by(c).length })}</h2></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th scope="col">{t(lang, 'cn.colCode')}</th><th scope="col">{t(lang, 'cn.colShops')}</th><th scope="col">{t(lang, 'cn.colExamples')}</th><th scope="col">{t(lang, 'cn.colPrices')}</th></tr></thead>
+            <tbody>
+              {by(c).map((r) => (
+                <tr>
+                  <td class="font-semibold text-slate-900 min-w-[8rem]">{r.code}</td>
+                  <td class="min-w-[10rem]">{r.shops.map((s, i) => <>{i > 0 && ', '}<a href={L(`/vendors/${s.slug}/`)} class="text-link">{s.name}</a></>)}</td>
+                  <td class="min-w-[10rem] text-slate-700">{r.examples.join(' · ')}</td>
+                  <td><a href={L(`/prices/${c}/`)} class="text-link">{t(lang, 'cn.priceLink', { c: compoundShort(c) })}</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))}
+    <section class="prose-read" id="fda">
+      <h2 class="!mt-0">{t(lang, 'cn.fdaH')}</h2>
+      <p>{t(lang, 'cn.fdaP', V)}</p>
+      <ul>{FDA_CODE_NAMES.map((f) => <li><strong>{f.name}</strong>: {compoundShort(f.compound)} ({REG_SOURCES[f.source].title})</li>)}</ul>
+      <p class="text-sm text-slate-600">{t(lang, 'cn.srcH')}</p>
+      <ul class="text-sm">{fdaSrc.map((s) => <li>{s.publisher}: {s.title}<span class="block mono-url">{s.url}</span></li>)}</ul>
+      <p>{t(lang, 'cn.note')}</p>
+    </section>
+    <FAQ items={faqs} />
+    <RelatedLinks links={[
+      ...comps.map((c) => ({ href: L(`/prices/${c}/`), label: t(lang, 'cn.priceLink', { c: compoundShort(c) }) })),
+      { href: L('/compare/retatrutide-vs-tirzepatide-vs-semaglutide/'), label: 'Retatrutide vs Tirzepatide vs Semaglutide' },
+      { href: L('/can-you-buy-retatrutide-in-the-usa/'), label: t(lang, 'ret.crumb') },
+      { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'lg.crumb') },
+    ]} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

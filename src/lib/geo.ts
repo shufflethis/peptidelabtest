@@ -3,6 +3,7 @@ import { PARTNERS, TOTALS, CHECKED_ISO } from './site';
 import { CASES } from './cases';
 import { COA_STATS } from './coa';
 import { BLENDS, blendOffers } from './blends';
+import { CODE_NAMES, COUNTRIES, countryData } from './m4';
 
 export function geoAnswers(): { q: string; path: string; a: string }[] {
   const [p1, p2, p3] = PARTNERS;
@@ -43,6 +44,14 @@ export function geoAnswers(): { q: string; path: string; a: string }[] {
       q: 'Retatrutide vs tirzepatide vs semaglutide: what is the difference?', path: '/compare/retatrutide-vs-tirzepatide-vs-semaglutide/',
       a: 'Different molecules (GLP-1; GIP/GLP-1; GIP/GLP-1/glucagon). Semaglutide and tirzepatide are active ingredients of approved medicines, retatrutide is investigational. Page compares vial sizes, price per mg and lab reports of research listings.',
     },
+    {
+      q: 'What is GLP-3 RT / RT-3 / GLP-2 TRZ (peptide code names)?', path: '/code-names/',
+      a: `Shop code names: ${CODE_NAMES.map((r) => `${r.code} = ${r.compound}`).join('; ')}. FDA warning letters quote similar names; a code name does not change the legal status.`,
+    },
+    ...COUNTRIES.map((c) => {
+      const d = countryData(c.code);
+      return { q: `Which audited peptide shops are based in / ship to ${c.code}?`, path: `/shops-by-country/${c.slug}/`, a: `${d.based.length} of ${d.total} audited shops based there (${d.based.map((v) => v.name).join(', ') || 'none'}); ${d.ship.length} state they ship there; ${d.np.length} publish no shipping countries.` };
+    }),
     {
       q: 'Peptide reconstitution calculator (lab mg/mL)?', path: '/calculator/',
       a: 'Lab concentration only: mg in the vial / mL of diluent = mg/mL stock, optional correction with the measured mg from a lab report. Per-compound pages show vial sizes, price per mg and reports.',

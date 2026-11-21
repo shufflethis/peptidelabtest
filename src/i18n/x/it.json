@@ -605,5 +605,84 @@
     "fa3": "Nella nostra verifica: {a} in {nA} negozi, {b} in {nB} e {c} in {nC}, verificato il {date}.",
     "fq4": "Esistono referti di laboratorio per ciascuno?",
     "fa4": "Abbiamo aperto {rA} referti di {a}, {rB} di {b} e {rC} di {c}; la tabella mostra quanti sono stati confermati sul portale del laboratorio."
+  },
+  "cn": {
+    "crumb": "Nomi in codice",
+    "eyebrow": "Decodificatore",
+    "title": [
+      "Nomi in codice dei peptidi: GLP-3 RT, RT-3, GLP-2",
+      "Nomi in codice dei peptidi (GLP-3 RT, RT-3)"
+    ],
+    "description": [
+      "Cosa significano GLP-3 RT, RT-3, SR-3RT, GLP-2 TRZ, GL-1 SM e altri {n} nomi in codice dei negozi, quali negozi verificati li usano e i nomi citati nelle lettere della FDA.",
+      "Nomi in codice di retatrutide, tirzepatide e semaglutide spiegati, con i negozi che li usano e le fonti FDA."
+    ],
+    "h1": "Nomi in codice dei peptidi spiegati",
+    "intro": "Molti negozi vendono composti della classe GLP-1 con nomi in codice invece del nome del composto. Abbiamo trovato {n} nomi in codice in {shops} negozi verificati (verificato il {date}). Retatrutide: {reta}. Tirzepatide: {tirz}. Semaglutide: {sema}. Ogni riga rimanda al confronto prezzi del composto.",
+    "compH": "Nomi in codice di {c} ({n})",
+    "colCode": "Nome in codice",
+    "colShops": "Negozi che lo usano",
+    "colExamples": "Nomi dei prodotti pubblicati",
+    "colPrices": "Prezzi",
+    "priceLink": "Confronto prezzi di {c}",
+    "fdaH": "Nomi in codice citati nelle lettere di avvertimento della FDA",
+    "fdaP": "Le lettere di avvertimento della FDA a venditori di prodotti etichettati per la ricerca citano questi nomi in codice e il composto corrispondente ({nf} nomi). Citati come fatti dalle lettere.",
+    "srcH": "Fonti (aperte il 21 nov 2026):",
+    "note": "Un nome in codice non cambia cosa sia il prodotto né il suo stato legale. Verifichi che il referto di laboratorio confermi il composto con la spettrometria di massa.",
+    "fq1": "Cos'è GLP-3 RT?",
+    "fa1": "Un nome in codice di negozio per il retatrutide. Nei nostri dati il retatrutide compare anche come {reta}.",
+    "fq2": "Cosa significano GLP-2 TRZ o SR-2TZ?",
+    "fa2": "Sono entrambi nomi in codice di negozio per la tirzepatide. Nomi della tirzepatide nei nostri dati: {tirz}.",
+    "fq3": "Perché i negozi usano nomi in codice?",
+    "fa3": "I negozi non lo spiegano. Le lettere della FDA citano questi nomi ({nf} nelle lettere che abbiamo aperto) per prodotti commercializzati per uso umano; un nome in codice non cambia lo stato legale del prodotto.",
+    "fq4": "Come verifico cosa contiene un flaconcino con nome in codice?",
+    "fa4": "Apra il referto di laboratorio del lotto e verifichi che l'identità sia confermata con la spettrometria di massa e che siano indicati i mg misurati; poi confermi il referto sul portale del laboratorio."
+  },
+  "sc": {
+    "crumb": "Negozi per paese",
+    "eyebrow": "Negozi per paese",
+    "title": [
+      "Negozi di peptidi – {country}: verificati ({year})",
+      "Negozi di peptidi – {country} ({year})"
+    ],
+    "description": [
+      "Negozi di peptidi, paese {country}: {based} negozi verificati con sede lì e {ship} che dichiarano di spedire lì, con punteggio, referti di laboratorio e spedizioni. Verificato il {date}.",
+      "Negozi di peptidi, paese {country}: negozi verificati con sede lì e negozi che spediscono lì, con punteggi."
+    ],
+    "h1": "Negozi di peptidi per paese: {country}",
+    "intro": "Su {total} negozi verificati, {based} hanno sede in questo paese ({list}) e {ship} dichiarano sulle proprie pagine di spedire qui. {np} negozi non pubblicano paesi di spedizione. Paese: {country}. Verificato il {date}.",
+    "statBased": "Con sede qui",
+    "statShip": "Spediscono qui",
+    "statNp": "Non pubblicato",
+    "basedH": "Negozi con sede in questo paese ({country})",
+    "basedP": "Paese secondo i dati societari o le note legali pubblicate dal negozio, ordinato per il nostro punteggio.",
+    "shipH": "Negozi che spediscono in questo paese ({country})",
+    "shipP": "Secondo la pagina spedizioni di ogni negozio (in tutto il mondo, in tutta l'UE o elenco di paesi), ordinato per il nostro punteggio.",
+    "colBased": "Sede",
+    "colScore": "Punteggio",
+    "colReports": "Referti",
+    "colShips": "Spedisce in (secondo il negozio)",
+    "colCountry": "Paese",
+    "repVal": "{n} aperti, {p} sul portale",
+    "none": "nessuno nella nostra verifica",
+    "npP": "Nessun paese di spedizione pubblicato:",
+    "note": "Spedizioni come indicate dai negozi; sulle loro pagine possono esserci eccezioni. Non è consulenza legale: le regole per l'acquisto di peptidi di ricerca variano da paese a paese.",
+    "lawLink": "Stato legale: {country}",
+    "fq1": "Quali negozi di peptidi verificati hanno sede in questo paese ({country})?",
+    "fa1": "{based} negozi verificati su {total}: {list}.",
+    "fq2": "Quali negozi spediscono in questo paese ({country})?",
+    "fa2": "{ship} negozi verificati dichiarano di spedire qui ({country}); {np} non pubblicano paesi di spedizione.",
+    "fq3": "È legale acquistare peptidi in questo paese ({country})?",
+    "fa3": "Dipende dalla legge nazionale sui medicinali e da come il prodotto viene commercializzato. Veda le nostre pagine sullo stato legale; informazione generale, non consulenza legale.",
+    "iTitle": [
+      "Negozi di peptidi per paese: sede e spedizioni",
+      "Negozi di peptidi per paese"
+    ],
+    "iDescription": [
+      "Negozi di peptidi verificati per paese: quali hanno sede negli USA, in Germania, Polonia, Paesi Bassi, Slovacchia e Romania, e quali spediscono lì. Verificato il {date}.",
+      "Negozi di peptidi verificati per paese: dove hanno sede e dove spediscono."
+    ],
+    "iH1": "Negozi di peptidi per paese",
+    "iIntro": "{n} paesi: quanti dei {total} negozi verificati hanno sede lì e quanti dichiarano di spedire lì, secondo le pagine dei negozi, verificato il {date}."
   }
 }

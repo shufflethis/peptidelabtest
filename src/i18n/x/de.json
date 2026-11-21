@@ -605,5 +605,84 @@
     "fa3": "In unserem Test: {a} bei {nA} Shops, {b} bei {nB} und {c} bei {nC}, geprüft am {date}.",
     "fq4": "Gibt es Laborberichte zu jedem?",
     "fa4": "Wir haben {rA} Berichte zu {a}, {rB} zu {b} und {rC} zu {c} geöffnet; die Tabelle zeigt, wie viele im Portal des Labors bestätigt wurden."
+  },
+  "cn": {
+    "crumb": "Codenamen",
+    "eyebrow": "Decoder",
+    "title": [
+      "RT-3 Retatrutid & GLP-3 RT: Peptid-Codenamen erklärt",
+      "RT-3 Retatrutid: Peptid-Codenamen erklärt"
+    ],
+    "description": [
+      "Wofür GLP-3 RT, RT-3, SR-3RT, GLP-2 TRZ, GL-1 SM und {n} weitere Shop-Codenamen stehen, welche geprüften Shops sie nutzen und welche Codenamen FDA-Warnschreiben nennen.",
+      "Shop-Codenamen für Retatrutid, Tirzepatid und Semaglutid entschlüsselt, mit den Shops, die sie nutzen, und FDA-Quellen."
+    ],
+    "h1": "Peptid-Codenamen entschlüsselt: Retatrutid, Tirzepatid, Semaglutid",
+    "intro": "Viele Shops führen Wirkstoffe der GLP-1-Klasse unter Codenamen statt unter dem Wirkstoffnamen. Wir fanden {n} Codenamen bei {shops} geprüften Shops (geprüft am {date}). Retatrutid: {reta}. Tirzepatid: {tirz}. Semaglutid: {sema}. Jede Zeile verlinkt den Preisvergleich des Wirkstoffs.",
+    "compH": "{c} Codenamen ({n})",
+    "colCode": "Codename",
+    "colShops": "Shops, die ihn nutzen",
+    "colExamples": "Produktnamen wie gelistet",
+    "colPrices": "Preise",
+    "priceLink": "{c} Preisvergleich",
+    "fdaH": "Codenamen in FDA-Warnschreiben",
+    "fdaP": "FDA-Warnschreiben an Verkäufer von Produkten mit Forschungs-Etikett nennen diese Codenamen und den Wirkstoff dahinter ({nf} Namen). Als Fakten aus den Schreiben zitiert.",
+    "srcH": "Quellen (geöffnet am 21. Nov. 2026):",
+    "note": "Ein Codename ändert weder, was das Produkt ist, noch seinen rechtlichen Status. Prüfen Sie, ob der Laborbericht den Wirkstoff per Massenspektrometrie bestätigt.",
+    "fq1": "Was ist GLP-3 RT?",
+    "fa1": "Ein Shop-Codename für Retatrutid. In unseren Daten wird Retatrutid auch als {reta} geführt.",
+    "fq2": "Was bedeuten GLP-2 TRZ oder SR-2TZ?",
+    "fa2": "Beides sind Shop-Codenamen für Tirzepatid. Tirzepatid-Codenamen in unseren Daten: {tirz}.",
+    "fq3": "Warum verwenden Shops Codenamen?",
+    "fa3": "Die Shops sagen es nicht. FDA-Warnschreiben zitieren solche Codenamen ({nf} in den geöffneten Schreiben) für Produkte, die für die Anwendung am Menschen beworben wurden; ein Codename ändert den rechtlichen Status nicht.",
+    "fq4": "Wie prüfe ich, was in einem Fläschchen mit Codenamen ist?",
+    "fa4": "Öffnen Sie den Laborbericht der Charge und prüfen Sie, ob die Identität per Massenspektrometrie bestätigt und die gemessene Menge in mg angegeben ist; bestätigen Sie den Bericht dann im Portal des Labors."
+  },
+  "sc": {
+    "crumb": "Shops nach Land",
+    "eyebrow": "Shops nach Land",
+    "title": [
+      "Peptid-Shops {country}: geprüft ({year})",
+      "Peptid-Shops {country} ({year})"
+    ],
+    "description": [
+      "Peptid-Shops, Land {country}: {based} geprüfte Shops mit Sitz dort und {ship}, die laut eigenen Angaben dorthin liefern, mit Bewertung, Laborberichten und Versand. Geprüft am {date}.",
+      "Peptid-Shops, Land {country}: geprüfte Shops mit Sitz dort und Shops, die dorthin liefern, mit Bewertungen."
+    ],
+    "h1": "Peptid-Shops nach Land: {country}",
+    "intro": "Von {total} geprüften Shops haben {based} ihren Sitz im Land {country} ({list}), und {ship} geben auf ihren eigenen Seiten an, dorthin zu liefern. {np} Shops nennen keine Lieferländer. Geprüft am {date}.",
+    "statBased": "Sitz hier",
+    "statShip": "Liefern hierher",
+    "statNp": "Nicht angegeben",
+    "basedH": "Shops mit Sitz im Land {country}",
+    "basedP": "Land laut den Firmenangaben oder dem Impressum des Shops, sortiert nach unserer Bewertung.",
+    "shipH": "Shops mit Lieferung ins Land {country}",
+    "shipP": "Laut Versandseite des Shops (weltweit, EU-weit oder Länderliste), sortiert nach unserer Bewertung.",
+    "colBased": "Sitz",
+    "colScore": "Bewertung",
+    "colReports": "Berichte",
+    "colShips": "Liefert nach (laut Shop)",
+    "colCountry": "Land",
+    "repVal": "{n} geöffnet, {p} im Portal",
+    "none": "keiner in unserem Test",
+    "npP": "Keine Lieferländer angegeben:",
+    "note": "Versand laut Angaben der Shops; Ausnahmen auf deren Seiten sind möglich. Keine Rechtsberatung: Die Regeln für den Kauf von Forschungspeptiden unterscheiden sich je nach Land.",
+    "lawLink": "Rechtslage: {country}",
+    "fq1": "Welche geprüften Peptid-Shops haben ihren Sitz im Land {country}?",
+    "fa1": "{based} von {total} geprüften Shops: {list}.",
+    "fq2": "Welche Shops liefern ins Land {country}?",
+    "fa2": "{ship} geprüfte Shops geben an, ins Land {country} zu liefern; {np} nennen keine Lieferländer.",
+    "fq3": "Ist der Kauf von Peptiden im Land {country} legal?",
+    "fa3": "Das hängt vom nationalen Arzneimittelrecht ab und davon, wie das Produkt beworben wird. Siehe unsere Seiten zur Rechtslage; allgemeine Information, keine Rechtsberatung.",
+    "iTitle": [
+      "Peptid-Shops nach Land: Sitz und Lieferländer",
+      "Peptid-Shops nach Land"
+    ],
+    "iDescription": [
+      "Geprüfte Peptid-Shops nach Land: welche ihren Sitz in den USA, Deutschland, Polen, den Niederlanden, der Slowakei und Rumänien haben und welche dorthin liefern. Geprüft am {date}.",
+      "Geprüfte Peptid-Shops nach Land: wo sie ihren Sitz haben und wohin sie liefern."
+    ],
+    "iH1": "Peptid-Shops nach Land",
+    "iIntro": "{n} Länder: wie viele von {total} geprüften Shops dort ihren Sitz haben und wie viele angeben, dorthin zu liefern, laut den Seiten der Shops, geprüft am {date}."
   }
 }

@@ -605,5 +605,84 @@
     "fa3": "Dans notre audit : {a} chez {nA} boutiques, {b} chez {nB} et {c} chez {nC}, vérifié le {date}.",
     "fq4": "Existe-t-il des rapports de laboratoire pour chacun ?",
     "fa4": "Nous avons ouvert {rA} rapports de {a}, {rB} de {b} et {rC} de {c} ; le tableau indique combien ont été confirmés sur le portail du laboratoire."
+  },
+  "cn": {
+    "crumb": "Noms de code",
+    "eyebrow": "Décodeur",
+    "title": [
+      "Noms de code des peptides : GLP-3 RT, RT-3, GLP-2",
+      "Noms de code des peptides (GLP-3 RT, RT-3)"
+    ],
+    "description": [
+      "Ce que signifient GLP-3 RT, RT-3, SR-3RT, GLP-2 TRZ, GL-1 SM et {n} autres noms de code de boutiques, quelles boutiques auditées les utilisent et les noms cités par la FDA.",
+      "Noms de code du rétatrutide, du tirzépatide et du sémaglutide décodés, avec les boutiques et les sources FDA."
+    ],
+    "h1": "Noms de code des peptides décodés",
+    "intro": "Beaucoup de boutiques vendent des composés de la classe GLP-1 sous des noms de code plutôt que sous le nom du composé. Nous avons trouvé {n} noms de code chez {shops} boutiques auditées (vérifié le {date}). Rétatrutide : {reta}. Tirzépatide : {tirz}. Sémaglutide : {sema}. Chaque ligne renvoie au comparatif des prix du composé.",
+    "compH": "Noms de code de {c} ({n})",
+    "colCode": "Nom de code",
+    "colShops": "Boutiques qui l'utilisent",
+    "colExamples": "Noms de produit affichés",
+    "colPrices": "Prix",
+    "priceLink": "Comparatif des prix de {c}",
+    "fdaH": "Noms de code cités dans les lettres d'avertissement de la FDA",
+    "fdaP": "Les lettres d'avertissement de la FDA adressées à des vendeurs de produits étiquetés pour la recherche citent ces noms de code et le composé correspondant ({nf} noms). Cités comme faits tirés des lettres.",
+    "srcH": "Sources (ouvertes le 21 nov. 2026) :",
+    "note": "Un nom de code ne change ni la nature du produit ni son statut juridique. Vérifiez que le rapport de laboratoire confirme le composé par spectrométrie de masse.",
+    "fq1": "Qu'est-ce que GLP-3 RT ?",
+    "fa1": "Un nom de code de boutique pour le rétatrutide. Dans nos données, le rétatrutide apparaît aussi sous {reta}.",
+    "fq2": "Que signifient GLP-2 TRZ ou SR-2TZ ?",
+    "fa2": "Ce sont deux noms de code de boutique pour le tirzépatide. Noms du tirzépatide dans nos données : {tirz}.",
+    "fq3": "Pourquoi les boutiques utilisent-elles des noms de code ?",
+    "fa3": "Les boutiques ne l'expliquent pas. Les lettres de la FDA citent de tels noms ({nf} dans les lettres ouvertes) pour des produits commercialisés pour un usage humain ; un nom de code ne change pas le statut juridique du produit.",
+    "fq4": "Comment vérifier ce que contient un flacon sous nom de code ?",
+    "fa4": "Ouvrez le rapport de laboratoire du lot et vérifiez que l'identité a été confirmée par spectrométrie de masse et que les mg mesurés sont indiqués ; confirmez ensuite le rapport sur le portail du laboratoire."
+  },
+  "sc": {
+    "crumb": "Boutiques par pays",
+    "eyebrow": "Boutiques par pays",
+    "title": [
+      "Boutiques de peptides – {country} : auditées ({year})",
+      "Boutiques de peptides – {country} ({year})"
+    ],
+    "description": [
+      "Boutiques de peptides, pays {country} : {based} boutiques auditées qui y ont leur siège et {ship} qui disent y livrer, avec note, rapports de laboratoire et livraison. Vérifié le {date}.",
+      "Boutiques de peptides, pays {country} : boutiques auditées qui y ont leur siège et boutiques qui y livrent."
+    ],
+    "h1": "Boutiques de peptides par pays : {country}",
+    "intro": "Sur {total} boutiques auditées, {based} ont leur siège dans ce pays ({list}) et {ship} indiquent sur leurs propres pages y livrer. {np} boutiques ne publient aucun pays de livraison. Pays : {country}. Vérifié le {date}.",
+    "statBased": "Siège ici",
+    "statShip": "Livrent ici",
+    "statNp": "Non publié",
+    "basedH": "Boutiques ayant leur siège dans ce pays ({country})",
+    "basedP": "Pays d'après les informations sur la société ou les mentions légales publiées par la boutique, trié selon notre note.",
+    "shipH": "Boutiques qui livrent dans ce pays ({country})",
+    "shipP": "D'après la page de livraison de chaque boutique (monde entier, toute l'UE ou liste de pays), trié selon notre note.",
+    "colBased": "Siège",
+    "colScore": "Note",
+    "colReports": "Rapports",
+    "colShips": "Livre vers (selon la boutique)",
+    "colCountry": "Pays",
+    "repVal": "{n} ouverts, {p} sur le portail",
+    "none": "aucune dans notre audit",
+    "npP": "Aucun pays de livraison publié :",
+    "note": "Livraison telle qu'indiquée par les boutiques ; des exceptions peuvent figurer sur leurs pages. Pas un conseil juridique : les règles d'achat des peptides de recherche varient selon les pays.",
+    "lawLink": "Statut juridique : {country}",
+    "fq1": "Quelles boutiques de peptides auditées ont leur siège dans ce pays ({country}) ?",
+    "fa1": "{based} boutiques auditées sur {total} : {list}.",
+    "fq2": "Quelles boutiques livrent dans ce pays ({country}) ?",
+    "fa2": "{ship} boutiques auditées indiquent y livrer ({country}) ; {np} ne publient aucun pays de livraison.",
+    "fq3": "Est-il légal d'acheter des peptides dans ce pays ({country}) ?",
+    "fa3": "Cela dépend du droit national du médicament et de la façon dont le produit est commercialisé. Voir nos pages sur le statut juridique ; information générale, pas un conseil juridique.",
+    "iTitle": [
+      "Boutiques de peptides par pays : siège et livraison",
+      "Boutiques de peptides par pays"
+    ],
+    "iDescription": [
+      "Boutiques de peptides auditées par pays : lesquelles ont leur siège aux États-Unis, en Allemagne, en Pologne, aux Pays-Bas, en Slovaquie et en Roumanie, et lesquelles y livrent. Vérifié le {date}.",
+      "Boutiques de peptides auditées par pays : où elles ont leur siège et où elles livrent."
+    ],
+    "iH1": "Boutiques de peptides par pays",
+    "iIntro": "{n} pays : combien des {total} boutiques auditées y ont leur siège et combien disent y livrer, d'après les pages des boutiques, vérifié le {date}."
   }
 }

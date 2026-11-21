@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FAQ from '../components/FAQ.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import Icon from '../components/Icon.astro';
+import { faqSchema, CHECKED_ISO, YEAR, isPartner, shopHref, REL_SPONSORED, shopShort } from '../lib/site';
+import { COUNTRIES, countryData, regionName } from '../lib/m4';
+import AUDIT from '../data/audit.json';
+import { t, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { fmt } from '../i18n/format';
+interface Props { lang: Lang; country: string }
+const { lang, country } = Astro.props;
+const F = fmt(lang);
+const L = (p: string) => lp(lang, p);
+const C = COUNTRIES.find((c) => c.slug === country)!;
+const D = countryData(C.code);
+const cname = regionName(lang, C.code);
+const origin = (slug: string) => { const o = (AUDIT as any[]).find((a) => a.slug === slug)?.originCountry; return o && /^[A-Z]{2}$/.test(o) ? regionName(lang, o) : t(lang, 'common.notPublished'); };
+const V = { country: cname, based: D.based.length, ship: D.ship.length, np: D.np.length, total: D.total, date: fmtDate(lang, CHECKED_ISO), year: YEAR, list: D.based.length ? listJoin(lang, D.based.map((v) => v.name)) : t(lang, 'sc.none') };
+const faqs = [1, 2, 3].map((i) => ({ q: t(lang, `sc.fq${i}`, V), a: t(lang, `sc.fa${i}`, V) }));
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'sc.crumb'), url: L('/shops-by-country/') }, { name: cname, url: L(`/shops-by-country/${C.slug}/`) }];
+const table = (rows: typeof D.based) => rows;
+---
+<BaseLayout lang={lang} title={tt(lang, 'sc.title', V)} description={td(lang, 'sc.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'sc.h1', V)} eyebrow={t(lang, 'sc.eyebrow')} intro={t(lang, 'sc.intro', V)}>
+    <dl class="mt-6 grid grid-cols-3 gap-3 max-w-xl">
+      <div class="stat"><dt>{t(lang, 'sc.statBased')}</dt><dd>{D.based.length}</dd></div>
+      <div class="stat"><dt>{t(lang, 'sc.statShip')}</dt><dd>{D.ship.length}</dd></div>
+      <div class="stat"><dt>{t(lang, 'sc.statNp')}</dt><dd>{D.np.length}</dd></div>
+    </dl>
+  </PageHero>
+  <div class="wrap mt-12 space-y-14">
+    {[{ k: 'based', rows: D.based }, { k: 'ship', rows: D.ship }].map((g) => (
+      <section class="space-y-4" id={g.k}>
+        <div class="max-w-[70ch]"><h2 class="h2">{t(lang, `sc.${g.k}H`, V)}</h2><p class="mt-2 text-slate-700">{t(lang, `sc.${g.k}P`, V)}</p></div>
+        {g.rows.length ? (
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th scope="col">{t(lang, 'rf.colShop')}</th><th scope="col">{t(lang, 'sc.colBased')}</th><th scope="col" class="num">{t(lang, 'sc.colScore')}</th><th scope="col" class="num">{t(lang, 'sc.colReports')}</th><th scope="col">{t(lang, 'sc.colShips')}</th><th scope="col"></th></tr></thead>
+              <tbody>
+                {table(g.rows).map((v) => (
+                  <tr class={isPartner(v.slug) ? '' : 'row-muted'}>
+                    <td class="min-w-[10rem]"><a href={L(`/vendors/${v.slug}/`)} class="font-semibold text-slate-900 hover:underline">{v.name}</a></td>
+                    <td>{origin(v.slug)}</td>
+                    <td class="num">{F.score(v.overallScore)}</td>
+                    <td class="num">{t(lang, 'sc.repVal', { n: v.coaStats.opened, p: v.coaStats.portalVerified })}</td>
+                    <td class="min-w-[9rem]">{v.shipsTo === 'not published' ? t(lang, 'common.notPublished') : v.shipsTo}</td>
+                    <td>{isPartner(v.slug) && shopHref(v.slug) ? <a href={shopHref(v.slug)!} rel={REL_SPONSORED} target="_blank" class="text-link whitespace-nowrap">{t(lang, 'c.visit', { shop: shopShort(v.name) })} <Icon name="external-link" class="w-3.5 h-3.5 inline" /></a> : <a href={L(`/vendors/${v.slug}/`)} class="text-link whitespace-nowrap">{t(lang, 'bl.review')}</a>}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : <p class="answer-box">{t(lang, 'sc.none')}</p>}
+      </section>
+    ))}
+    {D.np.length > 0 && <p class="text-slate-700 max-w-[75ch]">{t(lang, 'sc.npP', V)} {listJoin(lang, D.np.map((v) => v.name))}.</p>}
+    <p class="text-sm text-slate-600 max-w-[75ch]">{t(lang, 'sc.note')}</p>
+    <FAQ items={faqs} />
+    <RelatedLinks links={[
+      ...(C.law ? [{ href: L(`/laws/${C.law}/`), label: t(lang, 'sc.lawLink', V) }] : []),
+      { href: L('/trusted-peptide-vendors/'), label: t(lang, 'tv.crumb') },
+      ...COUNTRIES.filter((x) => x.slug !== C.slug).map((x) => ({ href: L(`/shops-by-country/${x.slug}/`), label: t(lang, 'sc.h1', { country: regionName(lang, x.code) }) })),
+      { href: L('/is-it-legal-to-buy-peptides-online/'), label: t(lang, 'leg.crumb') },
+    ]} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

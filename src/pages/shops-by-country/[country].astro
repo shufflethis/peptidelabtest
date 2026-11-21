@@ -1,0 +1,7 @@
+---
+import View from '../../views/ShopsByCountry.astro';
+import { R } from '../../lib/routes';
+export const getStaticPaths = () => R.country();
+const { country } = Astro.props as any;
+---
+<View lang="en" country={country} />

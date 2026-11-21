@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import Disclosure from '../components/Disclosure.astro';
+import { CHECKED_ISO } from '../lib/site';
+import { COUNTRIES, countryData, regionName } from '../lib/m4';
+import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const L = (p: string) => lp(lang, p);
+const rows = COUNTRIES.map((c) => ({ c, name: regionName(lang, c.code), d: countryData(c.code) }));
+const V = { n: COUNTRIES.length, date: fmtDate(lang, CHECKED_ISO), total: rows[0].d.total };
+const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'sc.crumb'), url: L('/shops-by-country/') }];
+---
+<BaseLayout lang={lang} title={tt(lang, 'sc.iTitle', V)} description={td(lang, 'sc.iDescription', V)} crumbs={crumbs}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'sc.iH1')} eyebrow={t(lang, 'sc.eyebrow')} intro={t(lang, 'sc.iIntro', V)} />
+  <div class="wrap mt-12 space-y-14">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th scope="col">{t(lang, 'sc.colCountry')}</th><th scope="col" class="num">{t(lang, 'sc.statBased')}</th><th scope="col" class="num">{t(lang, 'sc.statShip')}</th><th scope="col" class="num">{t(lang, 'sc.statNp')}</th></tr></thead>
+        <tbody>{rows.map((r) => <tr><td><a href={L(`/shops-by-country/${r.c.slug}/`)} class="font-semibold text-slate-900 hover:underline">{r.name}</a></td><td class="num">{r.d.based.length}</td><td class="num">{r.d.ship.length}</td><td class="num">{r.d.np.length}</td></tr>)}</tbody>
+      </table>
+    </div>
+    <p class="text-sm text-slate-600 max-w-[75ch]">{t(lang, 'sc.note')}</p>
+    <RelatedLinks links={rows.map((r) => ({ href: L(`/shops-by-country/${r.c.slug}/`), label: t(lang, 'sc.h1', { country: r.name }) }))} />
+    <Disclosure compact />
+  </div>
+</BaseLayout>

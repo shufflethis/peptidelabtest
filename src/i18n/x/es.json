@@ -605,5 +605,84 @@
     "fa3": "En nuestra auditoría: {a} en {nA} tiendas, {b} en {nB} y {c} en {nC}, revisado el {date}.",
     "fq4": "¿Hay informes de laboratorio de cada uno?",
     "fa4": "Abrimos {rA} informes de {a}, {rB} de {b} y {rC} de {c}; la tabla muestra cuántos se confirmaron en el portal del laboratorio."
+  },
+  "cn": {
+    "crumb": "Nombres en clave",
+    "eyebrow": "Decodificador",
+    "title": [
+      "Nombres en clave de péptidos: GLP-3 RT, RT-3, GLP-2",
+      "Nombres en clave de péptidos (GLP-3 RT, RT-3)"
+    ],
+    "description": [
+      "Qué significan GLP-3 RT, RT-3, SR-3RT, GLP-2 TRZ, GL-1 SM y otros {n} nombres en clave de tiendas, qué tiendas auditadas los usan y los nombres citados en cartas de la FDA.",
+      "Nombres en clave de retatrutida, tirzepatida y semaglutida explicados, con las tiendas que los usan y fuentes de la FDA."
+    ],
+    "h1": "Nombres en clave de péptidos explicados",
+    "intro": "Muchas tiendas venden compuestos de clase GLP-1 con nombres en clave en lugar del nombre del compuesto. Encontramos {n} nombres en clave en {shops} tiendas auditadas (revisado el {date}). Retatrutida: {reta}. Tirzepatida: {tirz}. Semaglutida: {sema}. Cada fila enlaza a la comparación de precios del compuesto.",
+    "compH": "Nombres en clave de {c} ({n})",
+    "colCode": "Nombre en clave",
+    "colShops": "Tiendas que lo usan",
+    "colExamples": "Nombres de producto publicados",
+    "colPrices": "Precios",
+    "priceLink": "Comparación de precios de {c}",
+    "fdaH": "Nombres en clave citados en cartas de advertencia de la FDA",
+    "fdaP": "Las cartas de advertencia de la FDA a vendedores de productos etiquetados para investigación citan estos nombres en clave y el compuesto al que correspondían ({nf} nombres). Citados como hechos de las cartas.",
+    "srcH": "Fuentes (abiertas el 21 nov 2026):",
+    "note": "Un nombre en clave no cambia lo que es el producto ni su situación legal. Compruebe que el informe de laboratorio confirma el compuesto por espectrometría de masas.",
+    "fq1": "¿Qué es GLP-3 RT?",
+    "fa1": "Un nombre en clave de tienda para la retatrutida. En nuestros datos, la retatrutida también aparece como {reta}.",
+    "fq2": "¿Qué significan GLP-2 TRZ o SR-2TZ?",
+    "fa2": "Ambos son nombres en clave de tienda para la tirzepatida. Nombres de tirzepatida en nuestros datos: {tirz}.",
+    "fq3": "¿Por qué usan las tiendas nombres en clave?",
+    "fa3": "Las tiendas no lo explican. Las cartas de la FDA citan estos nombres ({nf} en las cartas que abrimos) para productos comercializados para uso humano; un nombre en clave no cambia la situación legal del producto.",
+    "fq4": "¿Cómo compruebo qué contiene un vial con nombre en clave?",
+    "fa4": "Abra el informe de laboratorio del lote y compruebe que la identidad se confirmó por espectrometría de masas y que se indican los mg medidos; después confirme el informe en el portal del laboratorio."
+  },
+  "sc": {
+    "crumb": "Tiendas por país",
+    "eyebrow": "Tiendas por país",
+    "title": [
+      "Tiendas de péptidos en {country}: auditadas ({year})",
+      "Tiendas de péptidos en {country} ({year})"
+    ],
+    "description": [
+      "Tiendas de péptidos en {country}: {based} tiendas auditadas con sede allí y {ship} que dicen enviar allí, con puntuación, informes de laboratorio y envíos. Revisado el {date}.",
+      "Tiendas de péptidos en {country}: tiendas auditadas con sede allí y tiendas que envían allí, con puntuaciones."
+    ],
+    "h1": "Tiendas de péptidos en {country}",
+    "intro": "De {total} tiendas auditadas, {based} tienen sede en {country} ({list}) y {ship} indican en sus propias páginas que envían allí. {np} tiendas no publican países de envío. Revisado el {date}.",
+    "statBased": "Con sede aquí",
+    "statShip": "Envían aquí",
+    "statNp": "No publicado",
+    "basedH": "Tiendas con sede en {country}",
+    "basedP": "País según los datos de empresa o el aviso legal que publica la tienda, ordenado por nuestra puntuación.",
+    "shipH": "Tiendas que envían a {country}",
+    "shipP": "Según la página de envíos de cada tienda (todo el mundo, toda la UE o una lista de países), ordenado por nuestra puntuación.",
+    "colBased": "Sede",
+    "colScore": "Puntuación",
+    "colReports": "Informes",
+    "colShips": "Envía a (según la tienda)",
+    "colCountry": "País",
+    "repVal": "{n} abiertos, {p} en el portal",
+    "none": "ninguna en nuestra auditoría",
+    "npP": "Sin países de envío publicados:",
+    "note": "Envíos según indican las tiendas; puede haber excepciones en sus páginas. No es asesoramiento legal: las normas para comprar péptidos de investigación varían según el país.",
+    "lawLink": "Situación legal en {country}",
+    "fq1": "¿Qué tiendas de péptidos auditadas tienen sede en {country}?",
+    "fa1": "{based} de {total} tiendas auditadas: {list}.",
+    "fq2": "¿Qué tiendas envían a {country}?",
+    "fa2": "{ship} tiendas auditadas indican que envían a {country}; {np} no publican países de envío.",
+    "fq3": "¿Es legal comprar péptidos en {country}?",
+    "fa3": "Depende de la ley nacional de medicamentos y de cómo se comercializa el producto. Vea nuestras páginas sobre la situación legal; es información general, no asesoramiento legal.",
+    "iTitle": [
+      "Tiendas de péptidos por país: sede y envíos",
+      "Tiendas de péptidos por país"
+    ],
+    "iDescription": [
+      "Tiendas de péptidos auditadas por país: cuáles tienen sede en EE. UU., Alemania, Polonia, Países Bajos, Eslovaquia y Rumanía, y cuáles envían allí. Revisado el {date}.",
+      "Tiendas de péptidos auditadas por país: dónde tienen sede y adónde envían."
+    ],
+    "iH1": "Tiendas de péptidos por país",
+    "iIntro": "{n} países: cuántas de {total} tiendas auditadas tienen sede allí y cuántas dicen enviar allí, según las páginas de las tiendas, revisado el {date}."
   }
 }
