@@ -309,6 +309,17 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
     hasProgram: false,
     network: 'None',
   },
+  'biolongevity-labs': {
+    slug: 'biolongevity-labs',
+    baseUrl: 'https://biolongevitylabs.com/',
+    // In-house program on HasOffers (affiliates.biolongevitylabs.com). Tracking link + coupon exist only in the
+    // owner's dashboard; set affiliateUrl/promoCode and isApproved: true once the owner provides them.
+    affiliateUrl: 'https://biolongevitylabs.com/',
+    isApproved: false,
+    hasProgram: true,
+    network: 'In-House',
+    signupUrl: 'https://affiliates.biolongevitylabs.com',
+  },
 };
 
 export function resolveVendorLink(slug: string): {

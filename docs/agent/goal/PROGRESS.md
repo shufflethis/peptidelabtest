@@ -33,3 +33,4 @@ Owner decisions (21.11.2026): full autonomous execution approved. NO dosing cont
 - Next: M7 link graph (0 orphans, >=5 contextual inbound per money page), verify.py extension, screenshots.
 
 - M7 done (405c00a + final verify by parent 21.11. 18:01): verify.py --all all checks 0; live check home/price-index/de badge ok. GOAL complete. Open owner decisions: dosing content (stays NO), Telegram (not approved).
+- BioLongevity Labs added (23.11.2026): read-only audit -> r5/biolongevity-labs.json (score 3.1; 4 COAs opened, 2 confirmed on lab portals: AV Analytics /api/coas?code=<COA no.> + /api/coas/<no>/pdf, MDx files.mdxbiolabs.com/download.php?search_code=<code>&response_type=url). build-audit-data.py, data texts de/es/fr/it (numbers checked), affiliates.ts entry (In-House/HasOffers, isApproved false until the owner provides link + coupon), og.py, home video re-rendered (29 shops / 151 reports / 77 portal). verify.py --all all 0.

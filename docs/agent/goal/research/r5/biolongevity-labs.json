@@ -1,0 +1,302 @@
+{
+ "slug": "biolongevity-labs",
+ "name": "BioLongevity Labs",
+ "shopUrl": "https://biolongevitylabs.com",
+ "region": "US",
+ "originCountry": "US",
+ "shipsTo": [
+  "US",
+  "CA"
+ ],
+ "legalEntity": "F2 Nutrition, LLC dba BioLongevity Labs, PO Box 916, Bath, OH 44210 (privacy policy); the site footer names \"F2 Nutrition Inc dba BioLongevity Labs\"; office address 2498 Superior Ave, Cleveland, OH 44114 and phone (855) 699-5333 (contact page)",
+ "testingLabs": [
+  "AV Analytics",
+  "MDx BioAnalytical Laboratory"
+ ],
+ "coaAccess": "Public COA library (biolongevitylabs.com/coa) with 351 certificates for 103 compounds and 47 endotoxin reports, searchable by compound or batch; codes can be checked on the AV Analytics and MDx lab portals",
+ "coaExamples": [
+  {
+   "compound": "semaglutide",
+   "shopProductName": "BioG1 10MG (batch 260102 BioG1, QC0984)",
+   "labelMg": 10,
+   "measuredMg": 10.07,
+   "purityPercent": 99.81,
+   "lab": "AV Analytics",
+   "reportId": "COA-2026-26767",
+   "testDate": "2026-11-08",
+   "url": "https://www.avanalytical.com/api/coas/COA-2026-26767/pdf",
+   "verifiable": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "BioG2 10MG (batch 26092303 BioG2, QC0982)",
+   "labelMg": 10,
+   "measuredMg": 10.16,
+   "purityPercent": 99.79,
+   "lab": "AV Analytics",
+   "reportId": "COA-2026-26765",
+   "testDate": "2026-11-08",
+   "url": "https://cms.biolongevitylabs.com/wp-content/uploads/2026/11/COA-2026-26765_Tirzepatide_10mg_QC0982.jpg",
+   "verifiable": false
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 10mg (batch 3-3-46154, QC 261571)",
+   "labelMg": 10,
+   "measuredMg": 10.16,
+   "purityPercent": 99.78,
+   "lab": "MDx BioAnalytical Laboratory",
+   "reportId": "COA261666 / search code 261666",
+   "testDate": "2026-05-20",
+   "url": "https://files.mdxbiolabs.com/coa/COA261666_QC261571_Bpc-157.pdf",
+   "verifiable": true
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB-500 10mg (batch 27-3-46148, QC 261476)",
+   "labelMg": 10,
+   "measuredMg": 10.13,
+   "purityPercent": 99.76,
+   "lab": "MDx BioAnalytical Laboratory",
+   "reportId": "COA261572 / search code 261572",
+   "testDate": "2026-05-18",
+   "url": "https://cms.biolongevitylabs.com/wp-content/uploads/2026/05/TB-500-261476.png",
+   "verifiable": false
+  }
+ ],
+ "panels": {
+  "hplc": true,
+  "lcms": true,
+  "mass": true,
+  "endotoxin": true,
+  "sterility": false,
+  "heavyMetals": false
+ },
+ "paymentMethods": [
+  "Credit cards"
+ ],
+ "freeShippingThreshold": "$400 (domestic orders)",
+ "dispatchInfo": "Orders paid before 12 noon PT ship the same business day, later orders the next business day; USPS Priority, FedEx 2 Day, FedEx Overnight and FedEx Saturday delivery; domestic delivery 3-5 business days standard, 1-2 expedited; free shipping over $400; ships from the US to the US and a limited number of other countries such as Canada",
+ "products": [
+  {
+   "compound": "semaglutide",
+   "shopProductName": "BioG1 (10MG)",
+   "vialMg": 10.0,
+   "price": 25.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/biog1",
+   "inStock": false
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "BioG2 (10MG)",
+   "vialMg": 10.0,
+   "price": 30.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/biog2",
+   "inStock": true
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 (10mg)",
+   "vialMg": 10.0,
+   "price": 55.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/bpc157-10mg",
+   "inStock": true
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB-500 (10mg)",
+   "vialMg": 10.0,
+   "price": 64.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/tb500-10mg",
+   "inStock": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "GHK-Cu Copper Peptide (50mg)",
+   "vialMg": 50.0,
+   "price": 39.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/ghk-cu-50mg",
+   "inStock": true
+  },
+  {
+   "compound": "ipamorelin",
+   "shopProductName": "Ipamorelin (10mg)",
+   "vialMg": 10.0,
+   "price": 57.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/ipamorelin-10mg",
+   "inStock": true
+  },
+  {
+   "compound": "kpv",
+   "shopProductName": "KPV (10mg)",
+   "vialMg": 10.0,
+   "price": 52.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/kpv-10mg",
+   "inStock": false
+  },
+  {
+   "compound": "mots-c",
+   "shopProductName": "MOTS-c (10mg)",
+   "vialMg": 10.0,
+   "price": 51.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/motsc-10mg",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "NAD+ (500mg)",
+   "vialMg": 500.0,
+   "price": 68.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/nad-500mg",
+   "inStock": false
+  },
+  {
+   "compound": "pt-141",
+   "shopProductName": "PT-141 (5mg)",
+   "vialMg": 5.0,
+   "price": 21.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/pt141-5mg",
+   "inStock": true
+  },
+  {
+   "compound": "epithalon",
+   "shopProductName": "Epithalon (20mg)",
+   "vialMg": 20.0,
+   "price": 75.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/epithalon-20mg",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesamorelin (10mg)",
+   "vialMg": 10.0,
+   "price": 78.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/tesamorelin-10mg",
+   "inStock": true
+  },
+  {
+   "compound": "thymosin-alpha-1",
+   "shopProductName": "Thymosin Alpha 1 (10mg)",
+   "vialMg": 10.0,
+   "price": 74.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/thymosin-alpha-1-10mg",
+   "inStock": false
+  },
+  {
+   "compound": "ss-31",
+   "shopProductName": "BioAmplify (SS-31) 10mg",
+   "vialMg": 10.0,
+   "price": 88.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/bioamplify-10mg",
+   "inStock": false
+  },
+  {
+   "compound": "semax",
+   "shopProductName": "N-Acetyl Semax Amidate (20mg)",
+   "vialMg": 20.0,
+   "price": 64.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/n-acetyl-semax-amidate-20mg",
+   "inStock": true
+  },
+  {
+   "compound": "selank",
+   "shopProductName": "N-Acetyl Selank Amidate (20mg)",
+   "vialMg": 20.0,
+   "price": 126.97,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://biolongevitylabs.com/product/n-acetyl-selank-amidate-20mg",
+   "inStock": true
+  }
+ ],
+ "subscores": {
+  "labVerification": 5,
+  "fillAccuracy": 8,
+  "panelDepth": 6,
+  "entityTransparency": 6,
+  "dispatchReliability": 8,
+  "valuePerMg": 5
+ },
+ "subscore_reasons": {
+  "labVerification": "The COA library lists 351 certificates; of the 4 we opened, the semaglutide (AV Analytics COA-2026-26767) and BPC-157 (MDx 261666) reports resolved on the lab portals, while the tirzepatide report COA-2026-26765 and the TB-500 search code 261572 returned no record.",
+  "fillAccuracy": "All 4 opened reports measured 100.7% to 101.6% of label (10.07, 10.16, 10.16 and 10.13 mg for 10 mg vials), but 2 of them could not be confirmed on a lab portal.",
+  "panelDepth": "Reports cover UPLC/HPLC purity, mass-spectrometry identity, net content and endotoxin; no sterility or heavy-metal results found.",
+  "entityTransparency": "The privacy policy names F2 Nutrition, LLC with a PO box in Bath, Ohio, the footer says F2 Nutrition Inc, and the contact page gives a Cleveland street address and phone; no registration number found.",
+  "dispatchReliability": "Written policy with a 12 noon PT same-day cut-off, named carriers (USPS, FedEx) and delivery times; free shipping over $400.",
+  "valuePerMg": "Semaglutide $2.50/mg and tirzepatide $3.00/mg (10 mg vials) are below the median in our data, BPC-157 $5.60/mg is near it, and SS-31 $8.90/mg and selank $6.35/mg are above it."
+ },
+ "strengths": [
+  "Public COA library with 351 certificates and lab portal codes; 2 of 4 opened reports confirmed on the lab portals",
+  "All 4 opened reports measured within 100.7-101.6% of label with 99.76-99.81% purity",
+  "Endotoxin results on current certificates; named company, street address and phone"
+ ],
+ "weaknesses": [
+  "Tirzepatide report COA-2026-26765 not found on the AV Analytics portal; TB-500 search code 261572 not found on the MDx portal",
+  "The TB-500 certificate's chromatogram and mass spectrum are labelled with another batch and QC number (27-3-46143, QC261459) than its header (27-3-46148, QC 261476)",
+  "Legal form stated inconsistently (F2 Nutrition, LLC in the privacy policy, F2 Nutrition Inc in the footer)",
+  "GLP-1-class products sold under code names (BioG1, BioG2); the compound is named in page titles and lab reports"
+ ],
+ "verdict": "BioLongevity Labs publishes a large COA library with lab portal codes, and the 4 reports we opened showed 100.7-101.6% of label. Only 2 of the 4 could be confirmed on the lab portals, and the TB-500 certificate shows another batch number in its data. The company is named as F2 Nutrition, but its legal form is stated two ways.",
+ "summary": "US shop (F2 Nutrition dba BioLongevity Labs, Ohio) with about 100 listings incl. capsules and bioregulators, a public COA library (AV Analytics, MDx) and GLP-1-class products under code names (BioG1, BioG2); ships to the US and a few other countries such as Canada.",
+ "notes": "Official shop domain biolongevitylabs.com; the affiliate dashboard host affiliates.biolongevitylabs.com (HasOffers login titled Biolongevity Labs) is a subdomain of the same domain; the shop footer's Partner login points to bll.tellatribe.com. Payment: the shipping and payments page states \"all major credit cards\". Prices are single-vial regular prices from the product pages (schema.org offer data, same as the public WooCommerce Store API on cms.biolongevitylabs.com where listed); bundle tiers (buy 2 get 1 free, buy 3 get 2 free) not applied. Code names: BioG1 = semaglutide, BioG2 = tirzepatide, as named in the product page titles and in the AV Analytics reports. Capsules, creams, bioregulator capsules, blends, Follistatin/Klotho pairs and Cell Factors excluded. N-Acetyl Semax/Selank Amidate recorded as semax/selank as in the rest of our data. The shop-hosted AV Analytics images show page 1 of 3; the portal PDF for COA-2026-26767 adds an endotoxin result of 0.16 EU/mL against a 0.5 EU/mL limit, while the shop FAQ states a 0.05 EU/mL threshold. The TB-500 product page describes the acetylated LKKTETQ fragment; the MDx certificate identifies \"TB-500 (TB-4 full chain)\". AV Analytics and MDx reports name the same reviewer/operations manager (Jason Snitker). MDx search code 261476 (the TB-500 QC number) opens a CJC-1295 report for another sample. Portal records on AV Analytics show 2026-11-22 as the reported date for the certificates we looked up.",
+ "sources": [
+  "https://biolongevitylabs.com",
+  "https://biolongevitylabs.com/shop",
+  "https://cms.biolongevitylabs.com/wp-json/wc/store/v1/products",
+  "https://biolongevitylabs.com/product/biog1",
+  "https://biolongevitylabs.com/product/biog2",
+  "https://biolongevitylabs.com/product/bpc157-10mg",
+  "https://biolongevitylabs.com/product/tb500-10mg",
+  "https://biolongevitylabs.com/coa",
+  "https://biolongevitylabs.com/how-we-test",
+  "https://biolongevitylabs.com/faqs",
+  "https://biolongevitylabs.com/shipping",
+  "https://biolongevitylabs.com/returns",
+  "https://biolongevitylabs.com/contact",
+  "https://biolongevitylabs.com/terms",
+  "https://biolongevitylabs.com/privacy",
+  "https://affiliates.biolongevitylabs.com",
+  "https://www.avanalytical.com/coa-search",
+  "https://www.avanalytical.com/api/coas?code=COA-2026-26767",
+  "https://www.avanalytical.com/api/coas?code=COA-2026-26765",
+  "https://www.avanalytical.com/api/coas/COA-2026-26767/pdf",
+  "https://mdxbiolabs.com/certificates-of-analysis",
+  "https://files.mdxbiolabs.com/coa/COA261666_QC261571_Bpc-157.pdf",
+  "https://files.mdxbiolabs.com/download.php?search_code=261572&response_type=url",
+  "https://cms.biolongevitylabs.com/wp-content/uploads/2026/11/COA-2026-26767_Semaglutide_10mg_QC0984-1.jpg",
+  "https://cms.biolongevitylabs.com/wp-content/uploads/2026/11/COA-2026-26765_Tirzepatide_10mg_QC0982.jpg",
+  "https://cms.biolongevitylabs.com/wp-content/uploads/2026/05/BPC-157-261571.png",
+  "https://cms.biolongevitylabs.com/wp-content/uploads/2026/05/TB-500-261476.png"
+ ],
+ "readAt": "2026-11-23"
+}
