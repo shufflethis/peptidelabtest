@@ -41,6 +41,7 @@ Check this file before writing or publishing anything. When in doubt: leave it o
 | Particle Peptides (applied) | Link only on a properly completed website with RUO disclaimers; no brand bidding, no cookie stuffing, no self-referrals. |
 | Real Peptides (ref link, 25%) | Link only, no code; RUO wording (vendor is RUO chemical supplier, no human/animal use). |
 | Modern Aminos (not joined) | Terms contain non-compete + non-disparagement (sec. 10/11) – do NOT publish their code until written carve-out. |
+| PeptidProfi (accepted, placement on hold) | Do not publish the code or referral link until a written carve-out covers website-only publishing and independent price comparisons. [Affiliate agreement](https://peptidprofi.de/affiliate/vereinbarung) v2026-10-20.1: “Dein persönlicher Rabattcode und @peptidprofi stehen dauerhaft in deiner Profil-Bio. Fehlen sie, wird dein Partnerkonto deaktiviert oder gelöscht.” [Advertising guidelines](https://peptidprofi.de/affiliate/richtlinien) forbid “Preisvergleiche mit anderen Anbietern.” Clearly label advertisements; RUO only; no human effects or medical claims, ingestion, application, dosing or injection, before/after comparisons or bodily-use testimonials, misleading claims or self-referrals. |
 | Ameano/AMP, SwissChems, Glacier | Ban coupon/“verified code” pages and brand-keyword SEO – never list them on /discount-codes/. |
 
 ## 3. Fixed content (2026-11-19)
