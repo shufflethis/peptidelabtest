@@ -940,5 +940,17 @@
     "compareHub": "Todas las comparativas de compuestos",
     "blendsHub": "Todas las mezclas de péptidos comparadas",
     "calcHub": "Calculadoras de concentración para todos los compuestos"
+  },
+  "pi": {
+    "coaH": "Precio por mg más bajo en tiendas con informe de laboratorio abierto",
+    "coaP": "El precio por mg más bajo suele ser de una tienda que no ha publicado un informe de laboratorio para ese compuesto. Esta tabla muestra el precio por mg más bajo de cualquier tienda junto al más bajo de una tienda cuyo informe para ese compuesto hemos abierto. Misma base que arriba: precio publicado (precio de oferta si se muestra) dividido entre los mg de la etiqueta, sin códigos ni conversión de divisas.",
+    "colAny": "{sym}/mg más bajo, cualquier tienda",
+    "colRep": "{sym}/mg más bajo, tienda con informe",
+    "same": "mismo anuncio",
+    "repPortal": "informe verificado en el portal",
+    "repShop": "informe alojado por la tienda",
+    "none": "ninguna tienda con informe",
+    "note": "«Con informe» significa que abrimos al menos un informe de laboratorio de la tienda para ese compuesto; puede referirse a otro tamaño de vial o lote. Retatrutida, tirzepatida y semaglutida no se repiten aquí; sus filas están en la tabla de arriba.",
+    "otherSize": "otro tamaño de vial"
   }
 }

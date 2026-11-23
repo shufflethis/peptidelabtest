@@ -940,5 +940,17 @@
     "compareHub": "Tous les comparatifs de composés",
     "blendsHub": "Tous les mélanges de peptides comparés",
     "calcHub": "Calculateurs de concentration pour tous les composés"
+  },
+  "pi": {
+    "coaH": "Prix par mg le plus bas chez les boutiques avec un rapport de laboratoire ouvert",
+    "coaP": "Le prix par mg le plus bas vient souvent d'une boutique qui n'a publié aucun rapport de laboratoire pour ce composé. Ce tableau place le prix par mg le plus bas toutes boutiques confondues à côté du plus bas d'une boutique dont nous avons ouvert le rapport pour ce composé. Même base que ci-dessus : prix affiché (prix promotionnel s'il est indiqué) divisé par les mg de l'étiquette, sans code ni conversion de devises.",
+    "colAny": "{sym}/mg le plus bas, toutes boutiques",
+    "colRep": "{sym}/mg le plus bas, boutique avec rapport",
+    "same": "même offre",
+    "repPortal": "rapport vérifié sur le portail",
+    "repShop": "rapport hébergé par la boutique",
+    "none": "aucune boutique avec rapport",
+    "note": "« Avec rapport » signifie que nous avons ouvert au moins un rapport de laboratoire de la boutique pour ce composé ; il peut porter sur une autre taille de flacon ou un autre lot. Le rétatrutide, le tirzépatide et le sémaglutide ne sont pas répétés ici ; leurs lignes figurent dans le tableau ci-dessus.",
+    "otherSize": "autre taille de flacon"
   }
 }

@@ -56,7 +56,7 @@ const related = [
 ---
 <BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
   <PageHero crumbs={crumbs} title={t(lang, 'cmp.h1', V)} eyebrow={c.category} intro={intro}>
-    {hasPrices && <div class="mt-6"><a href={L(`/prices/${c.slug}/`)} class="btn-primary">{t(lang, 'cmp.cta', V)} <Icon name="arrow-right" class="w-4 h-4" /></a></div>}
+    {hasPrices && <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2"><a href={L(`/prices/${c.slug}/`)} class="btn-primary">{t(lang, 'cmp.cta', V)} <Icon name="arrow-right" class="w-4 h-4" /></a>{c.slug === 'ghk-cu' && lang === 'en' && <a href="/ghk-cu-powder/" class="text-link">GHK-Cu powder vs vials: price per mg by pack size</a>}</div>}
   </PageHero>
   <div class="wrap mt-12 space-y-14">
     <section class="grid gap-8 lg:grid-cols-2">

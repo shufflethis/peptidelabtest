@@ -940,5 +940,17 @@
     "compareHub": "Tutti i confronti tra composti",
     "blendsHub": "Tutte le miscele di peptidi a confronto",
     "calcHub": "Calcolatori di concentrazione per tutti i composti"
+  },
+  "pi": {
+    "coaH": "Prezzo per mg più basso nei negozi con un report di laboratorio aperto",
+    "coaP": "Il prezzo per mg più basso arriva spesso da un negozio che non ha pubblicato un report di laboratorio per quel composto. Questa tabella affianca il prezzo per mg più basso di qualsiasi negozio al più basso di un negozio di cui abbiamo aperto il report per quel composto. Stessa base di sopra: prezzo esposto (prezzo scontato se mostrato) diviso per i mg in etichetta, senza codici né conversione di valuta.",
+    "colAny": "{sym}/mg più basso, qualsiasi negozio",
+    "colRep": "{sym}/mg più basso, negozio con report",
+    "same": "stessa offerta",
+    "repPortal": "report verificato sul portale",
+    "repShop": "report ospitato dal negozio",
+    "none": "nessun negozio con report",
+    "note": "«Con report» significa che abbiamo aperto almeno un report di laboratorio del negozio per quel composto; può riguardare un'altra taglia di fiala o un altro lotto. Retatrutide, tirzepatide e semaglutide non sono ripetuti qui; le loro righe sono nella tabella sopra.",
+    "otherSize": "altra taglia di fiala"
   }
 }

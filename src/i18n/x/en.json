@@ -940,5 +940,17 @@
     "compareHub": "All compound comparisons",
     "blendsHub": "All peptide blends compared",
     "calcHub": "Lab concentration calculators for all compounds"
+  },
+  "pi": {
+    "coaH": "Cheapest per mg from shops with an opened lab report",
+    "coaP": "The lowest price per mg is often from a shop that has not published a lab report for that compound. This table puts the lowest price per mg from any shop next to the lowest from a shop whose report for that compound we opened. Same basis as above: listed price (sale price if shown) divided by label mg, no codes, no currency conversion.",
+    "colAny": "Lowest {sym}/mg, any shop",
+    "colRep": "Lowest {sym}/mg, shop with report",
+    "same": "same listing",
+    "repPortal": "report portal-verified",
+    "repShop": "report shop-hosted",
+    "none": "no shop with report",
+    "note": "\"With report\" means we opened at least one lab report for that compound from the shop; it may cover a different vial size or batch. Retatrutide, tirzepatide and semaglutide are not repeated here; their rows are in the table above.",
+    "otherSize": "other vial size"
   }
 }

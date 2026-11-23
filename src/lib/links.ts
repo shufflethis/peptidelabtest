@@ -13,6 +13,8 @@ export function compoundExtras(lang: Lang, compound: string, opts: { sizes?: boo
   const L = (p: string) => lp(lang, p);
   const c = compoundShort(compound);
   const out: Rel[] = [];
+  // English-only page (no /de/ etc. variant): link it from English pages only.
+  if (compound === 'ghk-cu' && lang === 'en') out.push({ href: '/ghk-cu-powder/', label: 'GHK-Cu powder vs vials: price per mg', sub: 'List vs sale price, lab-report coverage' });
   if (CALC_COMPOUNDS.includes(compound)) out.push({ href: L(`/calculator/${compound}/`), label: t(lang, 'cc.relCalc', { c }) });
   if (opts.sizes) out.push(...sizePagesFor(compound).map((s) => ({ href: L(`/prices/${compound}/${s.size}mg/`), label: `${c} ${s.size} mg` })));
   out.push(...BLENDS.filter((b) => b.components.includes(compound)).map((b) => ({ href: L(`/blends/${b.slug}/`), label: t(lang, 'bl.relBlend', { name: b.name }) })));

@@ -152,6 +152,8 @@ const related = [
   ...comparePairs.map(([a, b]) => ({ href: L(`/compare/${pairSlug(a, b)}/`), label: `${compoundShort(a)} vs ${compoundShort(b)}`, sub: t(lang, 'v.relBoth', { nm }) })),
   ...Array.from(new Set(reports.map((r) => labKeyOf(r.lab)?.slug).filter(Boolean))).map((s) => ({ href: L(`/labs/${s}/`), label: t(lang, 'v.relLab', { lab: labKeyOf(reports.find((r) => labKeyOf(r.lab)?.slug === s)!.lab)!.name }), sub: t(lang, 'v.relLabSub') })),
   { href: L(v.region === 'EU' ? '/vendors/europe/' : '/vendors/usa/'), label: t(lang, v.region === 'EU' ? 'v.relEu' : 'v.relUs') },
+  // English-only page: linked from English vendor pages of shops that list GHK-Cu.
+  ...(lang === 'en' && v.products.some((p) => p.compound === 'ghk-cu') ? [{ href: '/ghk-cu-powder/', label: 'GHK-Cu powder vs vials: price per mg', sub: `${nm} vs other shops, list and sale price` }] : []),
 ];
 ---
 

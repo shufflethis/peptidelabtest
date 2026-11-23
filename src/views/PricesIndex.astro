@@ -29,6 +29,19 @@ const rows = PRICE_COMPOUNDS.map((c) => {
     sizes: sizesFor(c), sizePages: sizePagesFor(c), eur: cheapestBy(offers, 'EUR'), usd: cheapestBy(offers, 'USD'), reports: reportsFor(c).length,
   };
 }).sort((a, b) => b.shops - a.shops);
+// "Cheapest ≠ verified": lowest per mg from any shop vs. from a shop with an opened report for that compound.
+// GLP-1 compounds stay as they are in the main table (no extra emphasis here).
+const GLP1 = ['retatrutide', 'tirzepatide', 'semaglutide'];
+const byPerMg = (a: { perMg: number | null }, b: { perMg: number | null }) => (a.perMg as number) - (b.perMg as number);
+const repRows = rows.filter((r) => !GLP1.includes(r.slug)).map((r) => {
+  const offers = offersFor(r.slug);
+  const cell = (cur: string) => {
+    const any = cheapestBy(offers, cur);
+    const rep = offers.filter((o) => o.currency === cur && o.perMg != null && o.reportsForCompound.length > 0).sort(byPerMg)[0] || null;
+    return { any, rep, portal: rep ? rep.reportsForCompound.some((x) => x.verifiable) : false };
+  };
+  return { ...r, e: cell('EUR'), u: cell('USD') };
+}).filter((r) => r.e.rep || r.u.rep);
 const V = { n: rows.length, shops: new Set(priced.map((o) => o.vendor.slug)).size, products: priced.length, reports: TOTALS.reportsOpened, date, year: YEAR, sizes: SIZE_PAGES.length };
 const title = tt(lang, 'pi.title', V);
 const description = td(lang, 'pi.description', V);
@@ -92,6 +105,40 @@ const jsonLd = [
       <p class="text-[0.94rem] text-slate-700 max-w-[70ch]">{t(lang, 'pi.tableNote')}</p>
     </section>
 
+    <section class="space-y-4" id="cheapest-with-report">
+      <h2 class="h2">{t(lang, 'pi.coaH')}</h2>
+      <p class="text-slate-700 max-w-[70ch]">{t(lang, 'pi.coaP')}</p>
+      <div class="table-wrap">
+        <table class="data-table" data-sortable>
+          <thead>
+            <tr>
+              <th><button type="button" class="sort-btn" data-sort-type="text">{t(lang, 'pi.colCompound')} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+              {[['e', 'EUR', '€'], ['u', 'USD', '$']].map(([, , sym]) => (
+                <>
+                  <th class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'pi.colAny', { sym })} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+                  <th class="num"><button type="button" class="sort-btn" data-sort-type="num">{t(lang, 'pi.colRep', { sym })} <Icon name="arrow-up-down" class="w-3 h-3" /></button></th>
+                </>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {repRows.map((r) => (
+              <tr>
+                <td data-v={r.name}><a href={L(`/prices/${r.slug}/`)} class="font-semibold text-slate-900 hover:text-teal-700">{r.name}</a>{r.slug === 'ghk-cu' && lang === 'en' && <span class="sub"><a href="/ghk-cu-powder/" class="text-link">Powder vs vials</a></span>}</td>
+                {[[r.e, 'EUR'], [r.u, 'USD']].map(([c, cur]: any) => (
+                  <>
+                    <td class="num" data-v={c.any?.perMg ?? ''}>{c.any ? <><span class="font-semibold">{F.perMg(c.any.perMg, cur)}</span><span class="sub">{c.any.vendor.name}</span></> : F.na}</td>
+                    <td class="num" data-v={c.rep?.perMg ?? ''}>{c.rep ? <><span class="font-semibold text-teal-900">{F.perMg(c.rep.perMg, cur)}</span><span class="sub">{c.rep === c.any ? t(lang, 'pi.same') : c.rep.vendor.name} · {c.portal ? t(lang, 'pi.repPortal') : t(lang, 'pi.repShop')}{!c.rep.report && <> · {t(lang, 'pi.otherSize')}</>}</span></> : c.any ? <span class="text-slate-600">{t(lang, 'pi.none')}</span> : F.na}</td>
+                  </>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[0.94rem] text-slate-700 max-w-[70ch]">{t(lang, 'pi.note')}</p>
+    </section>
+
     <section class="space-y-4">
       <h2 class="h2">{t(lang, 'pi.sizesH')}</h2>
       <p class="text-slate-700 max-w-[70ch]">{t(lang, 'pi.sizesP')}</p>
@@ -102,7 +149,7 @@ const jsonLd = [
       </div>
     </section>
 
-    <p class="text-slate-700"><a href={L('/price-index/')} class="text-link">{t(lang, 'pi.linkIndex')}</a> · <a href={L('/compare/')} class="text-link">{t(lang, 'footer.compareCompounds')}</a> · <a href={L('/batch-tracker/')} class="text-link">{t(lang, 'footer.reportsOpened')}</a></p>
+    <p class="text-slate-700"><a href={L('/price-index/')} class="text-link">{t(lang, 'pi.linkIndex')}</a> · <a href={L('/compare/')} class="text-link">{t(lang, 'footer.compareCompounds')}</a> · <a href={L('/batch-tracker/')} class="text-link">{t(lang, 'footer.reportsOpened')}</a>{lang === 'en' && <> · <a href="/ghk-cu-powder/" class="text-link">GHK-Cu powder vs vials: price per mg</a></>}</p>
 
 {/* M5chart */}
     <BarList title={t(lang, 'm5.shopsPerCompound')} rows={rows.map((r) => ({ label: r.name, value: r.shops, display: tn(lang, 'common.shops', r.shops), accent: true, href: L(`/prices/${r.slug}/`) }))} />

@@ -940,5 +940,17 @@
     "compareHub": "Alle Substanz-Vergleiche",
     "blendsHub": "Alle Peptid-Blends im Vergleich",
     "calcHub": "Laborkonzentrations-Rechner für alle Substanzen"
+  },
+  "pi": {
+    "coaH": "Günstigster Preis pro mg bei Shops mit geöffnetem Laborbericht",
+    "coaP": "Der niedrigste Preis pro mg stammt oft von einem Shop, der für diesen Wirkstoff keinen Laborbericht veröffentlicht hat. Diese Tabelle stellt den niedrigsten Preis pro mg aller Shops neben den niedrigsten Preis eines Shops, dessen Bericht zu diesem Wirkstoff wir geöffnet haben. Gleiche Basis wie oben: Listenpreis (Aktionspreis, falls angezeigt) geteilt durch mg laut Etikett, ohne Codes, ohne Währungsumrechnung.",
+    "colAny": "Niedrigster {sym}/mg, alle Shops",
+    "colRep": "Niedrigster {sym}/mg, Shop mit Bericht",
+    "same": "gleiches Angebot",
+    "repPortal": "Bericht im Laborportal verifiziert",
+    "repShop": "Bericht vom Shop gehostet",
+    "none": "kein Shop mit Bericht",
+    "note": "„Mit Bericht“ heißt: Wir haben mindestens einen Laborbericht des Shops zu diesem Wirkstoff geöffnet; er kann eine andere Vial-Größe oder Charge betreffen. Retatrutid, Tirzepatid und Semaglutid werden hier nicht wiederholt; ihre Zeilen stehen in der Tabelle oben.",
+    "otherSize": "andere Vial-Größe"
   }
 }

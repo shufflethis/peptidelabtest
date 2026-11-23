@@ -11,8 +11,10 @@ interface Props {
   compound: string;
   size?: number;
   title: string;
+  /** Hide reader codes / code links (pages that must not show codes, e.g. /ghk-cu-powder/). */
+  hideCodes?: boolean;
 }
-const { compound, size, title } = Astro.props;
+const { compound, size, title, hideCodes = false } = Astro.props;
 const lang = splitLang(Astro.url.pathname).lang;
 const F = fmt(lang);
 const offers = offersFor(compound, size);
@@ -55,7 +57,7 @@ const regions = ['EU', 'US'].map((r) => ({
                   {o.report ? <VerifyBadge level={reportVerify(o.report)} text={o.report.verifiable ? t(lang, 'c.wtb.repPortal', { c: short }) : t(lang, 'c.wtb.repShop', { c: short })} /> : <VerifyBadge level="none" text={t(lang, 'c.pt.noReport')} />}
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
-                  <CodeBadge slug={p.slug} />
+                  {!hideCodes && <CodeBadge slug={p.slug} />}
                   {o.href && <a href={o.href} rel={REL_SPONSORED} target="_blank" class="btn-primary">{t(lang, 'c.visit', { shop: shopShort(p.name) })} <Icon name="external-link" class="w-4 h-4" /></a>}
                 </div>
               </li>

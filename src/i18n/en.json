@@ -480,13 +480,16 @@
   },
   "pi": {
     "title": [
-      "Research Peptide Prices {year}: Price per mg by Shop"
+      "Cheapest Research Peptides {year}: Price per mg by Shop",
+      "Cheapest Research Peptides: Price per mg by Shop"
     ],
-    "h1": "Research peptide price comparison {year}",
+    "h1": "Cheapest research peptides by price per mg ({year})",
     "description": [
+      "Cheapest research peptides by price per mg: {n} compounds at {shops} audited shops, EUR and USD separate, and which low prices come with an opened lab report.",
+      "Cheapest research peptides by price per mg at {shops} audited shops, EUR and USD separate, and which low prices come with an opened lab report.",
       "Price per mg for {n} research compounds at {shops} audited shops, EUR and USD separate, with lab-report coverage. Compare prices by compound."
     ],
-    "intro": "We recorded {products} comparable prices for {n} research compounds at {shops} audited EU and US shops. Price review dates: {date}. Each compound page splits EUR and USD prices, shows price per mg by vial size and marks which shops published a lab report we opened ({reports} reports in total).",
+    "intro": "The cheapest research peptides by price per mg, from {products} comparable prices for {n} compounds at {shops} audited EU and US shops (price review dates: {date}). Cheapest is not the same as verified: a low price says nothing about what a batch contains. Below you see the lowest price per mg for each compound and, separately, the lowest from shops whose lab report for that compound we opened ({reports} reports in total). Research use only.",
     "crumb": "Prices",
     "eyebrow": "{n} compounds · {sizes} vial-size pages",
     "pick": "Pick a compound",
