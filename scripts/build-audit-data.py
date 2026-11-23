@@ -21,7 +21,7 @@ for f in ['r1', 'r2', 'r3', 'r4']:
     vendors += json.load(open(os.path.join(SRC, f + '.json')))
 # Additional shops, one sourced file per shop (see M4-shops-task.md).
 import glob
-for f in (f for batch in ('r5', 'r6') for f in sorted(glob.glob(f'docs/agent/goal/research/{batch}/*.json'))):
+for f in (f for batch in ('r5', 'r6', 'r7') for f in sorted(glob.glob(f'docs/agent/goal/research/{batch}/*.json'))):
     v = json.load(open(f))
     assert v['slug'] not in {x['slug'] for x in vendors}, f'duplicate shop {v["slug"]}'
     assert v.get('sources'), f'no sources: {f}'

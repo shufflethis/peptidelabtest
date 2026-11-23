@@ -1,0 +1,215 @@
+{
+ "slug": "simple-peptide",
+ "name": "Simple Peptide",
+ "shopUrl": "https://simplepeptide.com/",
+ "region": "US",
+ "originCountry": "US",
+ "shipsTo": "US-only",
+ "shipsToConfirmed": [
+  "US"
+ ],
+ "legalEntity": "Melex Technologies Inc. (named as owner and operator in the privacy policy), 6586 W Atlantic Ave Ste #1112, Delray Beach, FL 33446, US",
+ "testingLabs": [
+  "Freedom Diagnostics Testing"
+ ],
+ "coaAccess": "Public COA archive with search by product, lot or accession number (452 entries on the read date). The four sampled reports were read as PDFs on the Freedom Diagnostics Testing domain. Catalog, prices and current-lot details on product pages require a research account.",
+ "coaExamples": [
+  {
+   "compound": "retatrutide",
+   "shopProductName": "Retatrutide 12mg",
+   "labelMg": 12,
+   "measuredMg": 13.36,
+   "purityPercent": 99.91,
+   "lab": "Freedom Diagnostics Testing",
+   "reportId": "Simp2610190517 (lot GR12- 10 1626-2)",
+   "testDate": "2026-10-20",
+   "dateType": "reported",
+   "url": "https://coas.freedomdiagnosticstesting.com/Simp2610190517.pdf",
+   "verifiable": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "Tirzepatide 10mg",
+   "labelMg": 10,
+   "measuredMg": 10.89,
+   "purityPercent": 99.95,
+   "lab": "Freedom Diagnostics Testing",
+   "reportId": "Simp2610070791 (lot GT10-100626-2)",
+   "testDate": "2026-10-09",
+   "dateType": "reported",
+   "url": "https://coas.freedomdiagnosticstesting.com/Simp2610070791.pdf",
+   "verifiable": true
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC-157 20mg",
+   "labelMg": 20,
+   "measuredMg": 18.71,
+   "purityPercent": 99.87,
+   "lab": "Freedom Diagnostics Testing",
+   "reportId": "Simp2610160505 (lot BPC20- 10 1526-1)",
+   "testDate": "2026-10-18",
+   "dateType": "reported",
+   "url": "https://coas.freedomdiagnosticstesting.com/Simp2610160505.pdf",
+   "verifiable": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesamorelin 10mg",
+   "labelMg": 10,
+   "measuredMg": 9.81,
+   "purityPercent": 99.5,
+   "lab": "Freedom Diagnostics Testing",
+   "reportId": "Simp2610070803 (lot TESM 10-100626-2)",
+   "testDate": "2026-10-09",
+   "dateType": "reported",
+   "url": "https://coas.freedomdiagnosticstesting.com/Simp2610070803.pdf",
+   "verifiable": true
+  }
+ ],
+ "panels": {
+  "hplc": true,
+  "lcms": true,
+  "mass": true,
+  "endotoxin": true,
+  "sterility": null,
+  "heavyMetals": false,
+  "microbialPCR": true
+ },
+ "paymentMethods": [
+  "Visa",
+  "MasterCard",
+  "American Express"
+ ],
+ "freeShippingThreshold": "not published",
+ "dispatchInfo": "The shipping policy says orders placed before 14:00 ET Monday to Friday ship the same day via 2nd Day Air and that PO Box orders go by USPS. The FAQ says most shipments arrive within 2 business days and that the shop ships within the United States only. Orders can be changed or cancelled within 30 minutes of purchase.",
+ "products": [],
+ "subscores": {
+  "labVerification": 7,
+  "fillAccuracy": 7,
+  "panelDepth": 6,
+  "entityTransparency": 6,
+  "dispatchReliability": 7,
+  "valuePerMg": -1
+ },
+ "subscore_reasons": {
+  "labVerification": "All 4 sampled Freedom Diagnostics Testing reports were read on the laboratory domain and name Simple Peptide as client; they could not be matched to live product listings because the catalog requires an account.",
+  "fillAccuracy": "The 4 opened reports measured 93.5% to 111.3% of the label amount; the BPC-157 20mg lot was below label and the Retatrutide 12mg lot above.",
+  "panelDepth": "The reports show HPLC purity, LC-MS identity, net content, endotoxin and a microbial PCR screen, but no heavy-metal panel. The shop says lots from May 2026 include sterility testing; the opened reports show a microbial PCR screen, not a sterility test.",
+  "entityTransparency": "The privacy policy names Melex Technologies Inc. as owner and operator and the contact page gives a Delray Beach suite address; the company was not checked in a state business register for this audit.",
+  "dispatchReliability": "A same-day cutoff, carrier service, PO Box handling, US-only shipping and a change window are published; no delivery was tested.",
+  "valuePerMg": "Prices are only shown to signed-in research accounts, so price per mg could not be assessed."
+ },
+ "strengths": [
+  "The public COA archive can be searched by product, lot or accession number, and all four sampled reports could be opened on the Freedom Diagnostics Testing domain with Simple Peptide as client.",
+  "Shipping rules are specific: a 14:00 ET weekday cutoff, the carrier service, PO Box handling and a 30-minute change window are published."
+ ],
+ "weaknesses": [
+  "Catalog and prices require a research account, so no prices could be recorded and no report could be matched to a live listing.",
+  "The shop states that lots from May 2026 include sterility testing, but the four opened reports show only a microbial PCR screen and no heavy-metal panel."
+ ],
+ "verdict": "Simple Peptide keeps its catalog and prices behind a research account, so no prices were recorded. Its public COA archive is open, and all four sampled Freedom Diagnostics Testing reports could be read on the laboratory domain with Simple Peptide as client; measured content was 93.5% to 111.3% of label.",
+ "summary": "US research-peptide shop at simplepeptide.com, operated by Melex Technologies Inc. according to its privacy policy, with US-only shipping and a public COA archive. Catalog pages and the store API ask visitors to sign in.",
+ "notes": "The homepage redirects catalog access to a sign-in page, and /wp-json/wc/store/v1/products returned HTTP 401 with the code sp_catalog_login_required on 2026-11-24. No account was created (read-only audit). The COA archive API at /wp-json/coa-archive/v1/global-search was public; the four sampled entries were then read as PDFs on the laboratory domain, and lot, client and results matched the archive entries. The domain simplepeptides.com showed a parked GoDaddy page and simple-peptides.com a placeholder site without a catalog; neither was audited.",
+ "sources": [
+  "https://simplepeptide.com/",
+  "https://simplepeptide.com/about/",
+  "https://simplepeptide.com/contact/",
+  "https://simplepeptide.com/privacy-policy/",
+  "https://simplepeptide.com/shipping-returns/",
+  "https://simplepeptide.com/simple-peptide-faq/",
+  "https://simplepeptide.com/coa/",
+  "https://simplepeptide.com/certificate-of-analysis/",
+  "https://simplepeptide.com/wp-json/coa-archive/v1/global-search",
+  "https://simplepeptide.com/wp-json/wc/store/v1/products",
+  "https://coas.freedomdiagnosticstesting.com/Simp2610190517.pdf",
+  "https://coas.freedomdiagnosticstesting.com/Simp2610070791.pdf",
+  "https://coas.freedomdiagnosticstesting.com/Simp2610160505.pdf",
+  "https://coas.freedomdiagnosticstesting.com/Simp2610070803.pdf",
+  "https://simplepeptides.com/",
+  "https://simple-peptides.com/"
+ ],
+ "readAt": "2026-11-24",
+ "auditEvidence": {
+  "legal": {
+   "privacyPolicy": "Simple Peptide is owned and operated by Melex Technologies Inc. Mailing address: 6586 W Atlantic Ave Ste #1112, Delray Beach, FL 33446.",
+   "contactPage": "Corporate Address 6586 W Atlantic Ave Ste #1112 Delray Beach, FL 33446",
+   "registerChecked": false
+  },
+  "loginWall": {
+   "storeApi": "{\"code\":\"sp_catalog_login_required\",\"message\":\"Login required to view the catalog.\",\"data\":{\"status\":401}}",
+   "shop": "/shop/ redirects to /my-account/",
+   "home": "Sign in or register in less than a minute · Unlocks pricing, current lots and COAs"
+  },
+  "shipping": {
+   "policy": [
+    "We currently ship to U.S. addresses only.",
+    "Orders placed before 2:00 PM Eastern Time (ET), Monday through Friday, ship the same day via 2nd Day Air.",
+    "Orders shipping to a PO Box are delivered by USPS.",
+    "Orders can be modified or canceled within 30 minutes of purchase."
+   ],
+   "faq": [
+    "Most shipments deliver within two business days",
+    "Do you ship internationally? No.",
+    "We accept major credit cards (Visa, MasterCard, American Express) and select business payment options."
+   ],
+   "testedDelivery": false
+  },
+  "qualityClaims": "COAs issued May 2026 and later include sterility, endotoxin, purity, and net peptide content testing.",
+  "archive": {
+   "total": 452,
+   "endpoint": "https://simplepeptide.com/wp-json/coa-archive/v1/global-search"
+  },
+  "reports": [
+   {
+    "id": "Simp2610190517",
+    "client": "Simple Peptide",
+    "product": "Retatrutide 12mg",
+    "lot": "GR12- 10 1626-2",
+    "received": "10/19/2026",
+    "reported": "10/20/2026",
+    "purity": "99.91%",
+    "netContent": "13.36 mg (13.07 / 13.64)",
+    "identity": "GLP RT",
+    "panels": "endotoxin pass, microbial PCR pass"
+   },
+   {
+    "id": "Simp2610070791",
+    "client": "Simple Peptide",
+    "product": "Tirzepatide 10mg",
+    "lot": "GT10-100626-2",
+    "received": "10/7/2026",
+    "reported": "10/9/2026",
+    "purity": "99.95%",
+    "netContent": "10.89 mg (11.40 / 10.37)",
+    "identity": "GLP TZ"
+   },
+   {
+    "id": "Simp2610160505",
+    "client": "Simple Peptide",
+    "product": "BPC-157 20mg",
+    "lot": "BPC20- 10 1526-1",
+    "received": "10/16/2026",
+    "reported": "10/18/2026",
+    "purity": "99.87%",
+    "netContent": "18.71 mg (18.63 / 18.79)",
+    "identity": "BPC-157"
+   },
+   {
+    "id": "Simp2610070803",
+    "client": "Simple Peptide",
+    "product": "Tesamorelin 10mg",
+    "lot": "TESM 10-100626-2",
+    "received": "10/7/2026",
+    "reported": "10/9/2026",
+    "purity": "99.50%",
+    "netContent": "9.81 mg (9.81 / 9.80)",
+    "identity": "Tesamorelin"
+   }
+  ],
+  "domains": {
+   "simplepeptides.com": "parked (GoDaddy)",
+   "simple-peptides.com": "GoDaddy Website Builder placeholder, contact form only"
+  }
+ }
+}

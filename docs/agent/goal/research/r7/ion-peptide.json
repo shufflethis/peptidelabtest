@@ -1,0 +1,503 @@
+{
+ "slug": "ion-peptide",
+ "name": "Ion Peptide",
+ "shopUrl": "https://ionpeptide.com/",
+ "region": "US",
+ "originCountry": "US",
+ "shipsTo": "United States and US territories",
+ "shipsToConfirmed": [
+  "US"
+ ],
+ "legalEntity": "Great Research, LLC (Albuquerque, NM) and Ion Research, LLC (Alpharetta, GA), both listed as business addresses on the contact page; terms name Great Research, LLC and Research Holding, LLC and New Mexico law",
+ "testingLabs": [
+  "Freedom Diagnostics Testing"
+ ],
+ "coaAccess": "Public lab-results library with lot-specific report images per product. The four sampled reports were read as PDFs on the Freedom Diagnostics Testing domain.",
+ "coaExamples": [
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 10mg",
+   "labelMg": 10,
+   "measuredMg": 11.18,
+   "purityPercent": 99.83,
+   "lab": "Freedom Diagnostics Testing",
+   "reportId": "IonR2609030583 (lot ION3R10-09022026)",
+   "testDate": "2026-09-05",
+   "dateType": "reported",
+   "url": "https://coas.freedomdiagnosticstesting.com/IonR2609030583.pdf",
+   "verifiable": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "ION-2T 30mg",
+   "labelMg": 30,
+   "measuredMg": 31.42,
+   "purityPercent": 99.84,
+   "lab": "Freedom Diagnostics Testing",
+   "reportId": "IonR2608180715 (lot ION2T30-08142026)",
+   "testDate": "2026-08-24",
+   "dateType": "reported",
+   "url": "https://coas.freedomdiagnosticstesting.com/IonR2608180715.pdf",
+   "verifiable": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesamorelin 30mg",
+   "labelMg": 30,
+   "measuredMg": 35.62,
+   "purityPercent": 99.28,
+   "lab": "Freedom Diagnostics Testing",
+   "reportId": "IonR2609240369 (lot TSM30-09022026)",
+   "testDate": "2026-09-26",
+   "dateType": "reported",
+   "url": "https://coas.freedomdiagnosticstesting.com/IonR2609240369.pdf",
+   "verifiable": true
+  },
+  {
+   "compound": "kpv",
+   "shopProductName": "KPV 20mg",
+   "labelMg": 20,
+   "measuredMg": 21.79,
+   "purityPercent": 99.88,
+   "lab": "Freedom Diagnostics Testing",
+   "reportId": "IonR2609030633 (lot KPV20-09022026)",
+   "testDate": "2026-09-05",
+   "dateType": "reported",
+   "url": "https://coas.freedomdiagnosticstesting.com/IonR2609030633.pdf",
+   "verifiable": true
+  }
+ ],
+ "panels": {
+  "hplc": true,
+  "lcms": true,
+  "mass": true,
+  "endotoxin": true,
+  "sterility": null,
+  "heavyMetals": true,
+  "microbialPCR": true,
+  "fentanylScreen": true
+ },
+ "paymentMethods": [
+  "Credit and debit cards",
+  "ACH bank transfer"
+ ],
+ "freeShippingThreshold": "Free 2-day FedEx or UPS on domestic US orders over $250.",
+ "dispatchInfo": "The shipping policy names UPS, FedEx and USPS, a same-day cutoff of 17:00 EST on business days and upgraded 2-day or next-day options at checkout. The FAQ gives shipping hours of 9:00 to 17:00 EST Monday to Friday and 13:00 to 15:00 EST on Saturdays and an estimate of 2 to 3 business days; the homepage advertises a cutoff of 18:00 EST on weekdays and 15:00 EST on Saturdays.",
+ "products": [
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 5mg",
+   "vialMg": 5,
+   "price": 39.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion3r/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 10mg",
+   "vialMg": 10,
+   "price": 58.5,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion3r/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 20mg",
+   "vialMg": 20,
+   "price": 99.95,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion3r/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 30mg",
+   "vialMg": 30,
+   "price": 139.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion3r/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 40mg",
+   "vialMg": 40,
+   "price": 165.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion3r/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 50mg",
+   "vialMg": 50,
+   "price": 189.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion3r/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 60mg",
+   "vialMg": 60,
+   "price": 219.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion3r/",
+   "inStock": true
+  },
+  {
+   "compound": "retatrutide",
+   "shopProductName": "ION-3R 100mg",
+   "vialMg": 100,
+   "price": 299.95,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion3r/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "ION-2T 10mg",
+   "vialMg": 10,
+   "price": 49.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion2t/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "ION-2T 20mg",
+   "vialMg": 20,
+   "price": 85.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion2t/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "ION-2T 30mg",
+   "vialMg": 30,
+   "price": 108.5,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion2t/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "ION-2T 40mg",
+   "vialMg": 40,
+   "price": 129.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion2t/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "ION-2T 60mg",
+   "vialMg": 60,
+   "price": 149.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion2t/",
+   "inStock": true
+  },
+  {
+   "compound": "tirzepatide",
+   "shopProductName": "ION-2T 100mg",
+   "vialMg": 100,
+   "price": 199.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ion2t/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesa 5mg",
+   "vialMg": 5,
+   "price": 45.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/tesa/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesa 10mg",
+   "vialMg": 10,
+   "price": 69.95,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/tesa/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesa 20mg",
+   "vialMg": 20,
+   "price": 109.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/tesa/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "Tesa 30mg",
+   "vialMg": 30,
+   "price": 139.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/tesa/",
+   "inStock": true
+  },
+  {
+   "compound": "ipamorelin",
+   "shopProductName": "Ipamo 5mg",
+   "vialMg": 5,
+   "price": 35.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ipamo/",
+   "inStock": true
+  },
+  {
+   "compound": "ipamorelin",
+   "shopProductName": "Ipamo 10mg",
+   "vialMg": 10,
+   "price": 42.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/ipamo/",
+   "inStock": true
+  },
+  {
+   "compound": "ss-31",
+   "shopProductName": "§-31 10mg",
+   "vialMg": 10,
+   "price": 45.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/2s31/",
+   "inStock": true
+  },
+  {
+   "compound": "ss-31",
+   "shopProductName": "§-31 50mg",
+   "vialMg": 50,
+   "price": 139.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/2s31/",
+   "inStock": true
+  },
+  {
+   "compound": "kpv",
+   "shopProductName": "KPV 10mg",
+   "vialMg": 10,
+   "price": 49.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/kpv10/",
+   "inStock": true
+  },
+  {
+   "compound": "kpv",
+   "shopProductName": "KPV 20mg",
+   "vialMg": 20,
+   "price": 69.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/kpv10/",
+   "inStock": true
+  },
+  {
+   "compound": "pt-141",
+   "shopProductName": "PT-141 10mg",
+   "vialMg": 10,
+   "price": 37.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/pt10/",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "NAD+ 500mg",
+   "vialMg": 500,
+   "price": 44.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/nadp/",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "NAD+ 1000mg",
+   "vialMg": 1000,
+   "price": 85.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": "https://ionpeptide.com/product/nadp/",
+   "inStock": true
+  }
+ ],
+ "subscores": {
+  "labVerification": 8,
+  "fillAccuracy": 6,
+  "panelDepth": 8,
+  "entityTransparency": 6,
+  "dispatchReliability": 7,
+  "valuePerMg": 7
+ },
+ "subscore_reasons": {
+  "labVerification": "All 4 sampled Freedom Diagnostics Testing reports were read on the laboratory domain, name Ion Research as client and carry the same lot codes as the shop's lab-results library; no retail vial was tested.",
+  "fillAccuracy": "The 4 opened reports measured 104.7% to 118.7% of the label amount, all above label; the Tesamorelin 30mg lot is the highest at 118.7%.",
+  "panelDepth": "The reports show HPLC purity, LC-MS identity and net content plus endotoxin, microbial PCR, elemental impurities and a fentanyl screen. A microbial PCR screen is not a sterility test.",
+  "entityTransparency": "The contact page names two LLCs with street addresses and the terms name a third and New Mexico law; none of the entities was checked in a state business register for this audit.",
+  "dispatchReliability": "Carriers, a free-shipping threshold, tracking and a same-day cutoff are published, but the homepage gives a later cutoff than the shipping policy and FAQ; no delivery was tested.",
+  "valuePerMg": "In 9 of 11 compound and size comparisons with at least three audited USD listings, the price per mg was below the median; regular and current prices were identical, so no sale prices apply."
+ },
+ "strengths": [
+  "All four sampled lab reports could be opened on the Freedom Diagnostics Testing domain, name Ion Research as client and match lot codes in the shop's public library.",
+  "The opened reports go beyond purity and content: endotoxin, microbial PCR, elemental impurities and a fentanyl screen are reported for each lot."
+ ],
+ "weaknesses": [
+  "Several catalog items use code names (ION-3R, ION-2T, ION-1S, Tesa, Ipamo, §-31); the lab reports also list identities such as GLP RT and GLP TZ rather than compound names.",
+  "The homepage advertises a later same-day cutoff than the shipping policy and FAQ, and the legal pages name three different LLCs without a register check in this audit."
+ ],
+ "verdict": "Ion Peptide publishes a lot-coded report library, and all four sampled Freedom Diagnostics Testing reports could be read on the laboratory domain with Ion Research as client. Measured content was 104.7% to 118.7% of label. The legal pages name three LLCs, and many products are sold under code names.",
+ "summary": "US research-peptide shop at ionpeptide.com with a WooCommerce catalog, shipping to the United States and US territories and a public lab-results library. The contact page lists Great Research, LLC in Albuquerque and Ion Research, LLC in Alpharetta; the dispatch address is not published.",
+ "notes": "Prices are the single-unit variation prices from the public WooCommerce Store API on 2026-11-24; regular and current price were identical for every sampled variation, so no sale price is recorded. Compounds were assigned only where the shop's own product text names them: ION-3R is described as LY-3437943 (retatrutide), ION-2T as LY3298176 (tirzepatide), Tesa as Tesamorelin, Ipamo as Ipamorelin and §-31 as SS-31. ION-1S is described only as a GLP-1 analogue and was left out, as were capsules, sprays, drops, blends, raw powders, supplies and products outside the compounds tracked here. The four reports are the shop's own lot submissions read as PDFs on the laboratory domain; the lab reports list identity results as GLP RT and GLP TZ for the two code-named lots. ionpeptides.com redirects to ionpeptide.com; ion-peptides.com returned a bot check and was not read. No account, cart or order was used.",
+ "sources": [
+  "https://ionpeptide.com/",
+  "https://ionpeptide.com/contact/",
+  "https://ionpeptide.com/terms-of-service/",
+  "https://ionpeptide.com/privacy-policy/",
+  "https://ionpeptide.com/compliance-legal-overview/",
+  "https://ionpeptide.com/shipping-policy/",
+  "https://ionpeptide.com/faq/",
+  "https://ionpeptide.com/about-us/",
+  "https://ionpeptide.com/lab-results/",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products?per_page=100",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products/767",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products/1912",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products/1915",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products/1902",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products/2015",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products/2026",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products/1903",
+  "https://ionpeptide.com/wp-json/wc/store/v1/products/1884",
+  "https://coas.freedomdiagnosticstesting.com/IonR2609030583.pdf",
+  "https://coas.freedomdiagnosticstesting.com/IonR2608180715.pdf",
+  "https://coas.freedomdiagnosticstesting.com/IonR2609240369.pdf",
+  "https://coas.freedomdiagnosticstesting.com/IonR2609030633.pdf"
+ ],
+ "readAt": "2026-11-24",
+ "auditEvidence": {
+  "legal": {
+   "contactPage": [
+    "Great Research, LLC 1209 Mountain RD PL NE STE R Albuquerque, NM 87110",
+    "Ion Research, LLC 3000 Old Alabama RD STE 119-111 Alpharetta, GA 30022"
+   ],
+   "terms": [
+    "ION Peptide, Great Research, LLC, & Research Holding, LLC",
+    "These Terms are governed by the laws of New Mexico."
+   ],
+   "compliancePage": "IonPeptide.com | Great Research LLC maintains a research-only business model",
+   "registerChecked": false
+  },
+  "shipping": {
+   "policy": [
+    "Before 5:00 PM EST on business days",
+    "Free 2 Day FedEx / UPS on domestic U.S. orders over $250+",
+    "We ship using UPS, FedEx, and United States Postal Service (USPS)"
+   ],
+   "faq": [
+    "Monday–Friday: 9:00 AM – 5:00 PM EST. Saturdays: 1:00 PM – 3:00 PM EST.",
+    "estimated delivery in 2–3 business days",
+    "We currently ship to the United States and all US territories."
+   ],
+   "home": "Orders placed before 6pm EST Monday through Friday, or 3pm Saturday, ship the same day when eligible.",
+   "payments": "Credit/debit cards, ACH bank transfers",
+   "testedDelivery": false
+  },
+  "labStatement": "FAQ: Testing is conducted by Freedom Diagnostics in Franklin, Tennessee.",
+  "reports": [
+   {
+    "id": "IonR2609030583",
+    "client": "Ion Research",
+    "product": "ION-3R 10mg",
+    "lot": "ION3R10-09022026",
+    "received": "9/3/2026",
+    "reported": "9/5/2026",
+    "purity": "99.83%",
+    "netContent": "11.18 mg (vials 11.33 / 11.02)",
+    "identity": "GLP RT",
+    "panels": "endotoxin pass, microbial PCR pass, ICP-MS pass, no fentanyl detected",
+    "shopLibraryLot": "ion3r10-09022026"
+   },
+   {
+    "id": "IonR2608180715",
+    "client": "Ion Research",
+    "product": "ION-2T 30mg",
+    "lot": "ION2T30-08142026",
+    "received": "8/18/2026",
+    "reported": "8/24/2026",
+    "purity": "99.84%",
+    "netContent": "31.42 mg (vials 31.18 / 31.65)",
+    "identity": "GLP TZ",
+    "shopLibraryLot": "ion2t30-08142026"
+   },
+   {
+    "id": "IonR2609240369",
+    "client": "Ion Research",
+    "product": "Tesamorelin 30mg",
+    "lot": "TSM30-09022026",
+    "received": "9/24/2026",
+    "reported": "9/26/2026",
+    "purity": "99.28%",
+    "netContent": "35.62 mg (samples 35.73 / 35.50)",
+    "identity": "Tesamorelin",
+    "shopLibraryLot": "tsm30-09022026"
+   },
+   {
+    "id": "IonR2609030633",
+    "client": "Ion Research",
+    "product": "KPV 20mg",
+    "lot": "KPV20-09022026",
+    "received": "9/3/2026",
+    "reported": "9/5/2026",
+    "purity": "99.88%",
+    "netContent": "21.79 mg (vials 21.55 / 22.02)",
+    "identity": "KPV",
+    "shopLibraryLot": "kpv20-09022026"
+   }
+  ],
+  "productIdentity": {
+   "ION-3R": "ION-3R (LY-3437943) – Triple-Agonist Research Compound",
+   "ION-2T": "ION-2T (scientific designation LY3298176)",
+   "Tesa": "Tesamorelin (TH9507)",
+   "Ipamo": "Ipamorelin Peptide",
+   "§-31": "§-31 (also known as MTP-131) ... SS-31",
+   "ION-1S": "a synthetic analogue of glucagon-like peptide-1 (not mapped)"
+  },
+  "domains": {
+   "ionpeptides.com": "301 to https://IonPeptide.com/",
+   "ion-peptides.com": "bot verification page; Geonode extract returned HTTP 422; not read"
+  }
+ }
+}
