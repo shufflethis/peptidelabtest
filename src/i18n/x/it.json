@@ -325,7 +325,7 @@
     },
     "f9": {
       "h": "Purezza",
-      "p": "La quota del peptide cercato nel campione secondo l'HPLC. Nei report aperti andava da {pmin} a {pmax}."
+      "p": "Una percentuale ottenuta con il metodo indicato dal laboratorio. Controlla il metodo e se il risultato è un valore esatto o un limite inferiore."
     },
     "f10": {
       "h": "Contenuto misurato",
@@ -347,7 +347,7 @@
     "fq1": "Che cos'è un COA per i peptidi?",
     "fa1": "Un certificato di analisi è un report di laboratorio su un campione di peptide: identità, purezza e di solito la quantità misurata per flaconcino, con il numero d'ordine e una chiave di verifica del laboratorio.",
     "fq2": "Cosa significa la purezza HPLC in un COA?",
-    "fa2": "È la quota del peptide cercato rispetto a tutto ciò che l'HPLC ha rilevato nel campione, in percentuale. Nei {reports} report aperti andava da {pmin} a {pmax}.",
+    "fa2": "È una percentuale ottenuta sul campione con un metodo specifico. Per l’HPLC, verifica come il laboratorio ha ricavato il valore dal cromatogramma. Senza questa informazione, le percentuali di referti diversi non sono direttamente confrontabili.",
     "fq3": "Come verifico un COA di peptidi?",
     "fa3": "Digita tu stesso l'indirizzo del laboratorio, apri la pagina di verifica e inserisci numero d'ordine e chiave del report. Confronta composto, quantità, purezza, lotto e data con la copia del negozio.",
     "fq4": "Perché i mg misurati differiscono dall'etichetta?",
@@ -650,10 +650,10 @@
       "Negozi di peptidi, paese {country}: negozi verificati con sede lì e negozi che spediscono lì, con punteggi."
     ],
     "h1": "Negozi di peptidi per paese: {country}",
-    "intro": "Su {total} negozi verificati, {based|# ha sede|# hanno sede} in questo paese ({list}) e {ship|# dichiara sulle proprie pagine|# dichiarano sulle proprie pagine} di spedire qui. {np|# negozio non pubblica|# negozi non pubblicano} paesi di spedizione. Paese: {country}. Verificato il {date}.",
+    "intro": "Su {total} negozi verificati, {based|# ha sede|# hanno sede} in questo paese ({list}) e {ship|# dichiara sulle proprie pagine|# dichiarano sulle proprie pagine} di spedire qui. Spedizione in questo paese non confermata per {np|# negozio|# negozi}. Paese: {country}.",
     "statBased": "Con sede qui",
     "statShip": "Spediscono qui",
-    "statNp": "Non pubblicato",
+    "statNp": "Non confermata",
     "basedH": "Negozi con sede in questo paese ({country})",
     "basedP": "Paese secondo i dati societari o le note legali pubblicate dal negozio, ordinato per il nostro punteggio.",
     "shipH": "Negozi che spediscono in questo paese ({country})",
@@ -665,13 +665,13 @@
     "colCountry": "Paese",
     "repVal": "{n} aperti, {p} sul portale",
     "none": "nessuno nella nostra verifica",
-    "npP": "Nessun paese di spedizione pubblicato:",
+    "npP": "Spedizione in questo paese non confermata:",
     "note": "Spedizioni come indicate dai negozi; sulle loro pagine possono esserci eccezioni. Non è consulenza legale: le regole per l'acquisto di peptidi di ricerca variano da paese a paese.",
     "lawLink": "Stato legale: {country}",
     "fq1": "Quali negozi di peptidi verificati hanno sede in questo paese ({country})?",
     "fa1": "{based|# negozio verificato|# negozi verificati} su {total}: {list}.",
     "fq2": "Quali negozi spediscono in questo paese ({country})?",
-    "fa2": "{ship} negozi verificati dichiarano di spedire qui ({country}); {np} non pubblicano paesi di spedizione.",
+    "fa2": "{ship} negozi verificati dichiarano di spedire qui ({country}); per altri {np} non abbiamo potuto confermarlo.",
     "fq3": "È legale acquistare peptidi in questo paese ({country})?",
     "fa3": "Dipende dalla legge nazionale sui medicinali e da come il prodotto viene commercializzato. Veda le nostre pagine sullo stato legale; informazione generale, non consulenza legale.",
     "iTitle": [
@@ -765,17 +765,17 @@
     },
     "audited": {
       "title": [
-        "{name} peptidi: analisi, punteggio {score}/5",
-        "{name} peptidi: analisi e stato"
+        "{name}: stato del marchio, punteggio {score}/5",
+        "{name}: stato del marchio e verifica"
       ],
       "description": [
-        "{name} peptidi: verificato nella nostra analisi di {shops} negozi, punteggio {score}/5, {opened} referti aperti, {portal} confermati su un portale di laboratorio. Verificato il {date}.",
-        "{name} peptidi: il nostro punteggio {score}/5 e la verifica dei referti, {date}."
+        "{name}: verifica di {shops} negozi, punteggio {score}/5, {opened} referti aperti, {portal} confermati su un portale di laboratorio. Verificato il {date}.",
+        "{name}: il nostro punteggio {score}/5 e la verifica dei referti, {date}."
       ],
-      "h1": "{name} peptidi: stato e dati dell'analisi",
+      "h1": "{name}: stato e dati della verifica",
       "answer": "{name} fa parte della nostra verifica di {shops} negozi: punteggio {score}/5 (posizione {rank}), {opened} referti aperti, {portal} confermati su un portale di laboratorio. Tutti i dati nella pagina dell'analisi.",
       "fa1": "Sì, il negozio vendeva quando l'abbiamo verificato.",
-      "fa2": "Il negozio verificato è indicato qui sotto con la sua analisi; altri siti che usano il nome non sono stati verificati.",
+      "fa2": "Il negozio verificato è indicato qui sotto con la sua analisi. La valutazione riguarda solo quel dominio.",
       "fa3": "Abbiamo aperto {opened} dei suoi referti; {portal} sono stati confermati sul portale del laboratorio."
     },
     "iTitle": [
@@ -804,7 +804,7 @@
     "noReports": "nessuno aperto",
     "scoreTitle": "Punteggio di verifica di questi negozi (da 0 a 5)",
     "scoreDisplay": "{s} / 5",
-    "scoreNote": "Punteggi dalla nostra verifica del {date}. Ordine per punteggio, mai per commissione.",
+    "scoreNote": "Periodo della verifica: {date}. Ordine per punteggio, mai per commissione.",
     "verifyTitleShop": "Referti aperti per negozio: confermati sul portale o solo copia del negozio",
     "verifyNote": "I negozi senza alcun referto che abbiamo potuto aprire non sono mostrati ({none}).",
     "partnerScoreTitle": "Punteggio dei negozi con link (da 0 a 5)",

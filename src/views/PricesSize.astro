@@ -9,18 +9,20 @@ import Disclosure from '../components/Disclosure.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import WhereToBuy from '../components/WhereToBuy.astro';
 import {
-  offersFor, compoundShort, shopsCarrying, reportsFor, cheapestBy, CHECKED_ISO, fillPct, faqSchema,
+  offersFor, compoundShort, shopsCarrying, reportsFor, cheapestBy, reviewCoverage, fillPct, faqSchema,
   itemListSchema, sizePagesFor, PARTNERS, YEAR, median, compoundPairsFor, pairSlug,
 } from '../lib/site';
-import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { t, tn, tt, td, lp, fmtDateRange, listJoin, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
 interface Props { lang: Lang; compound: string; size: number }
 const { lang, compound, size } = Astro.props;
 const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
-const date = fmtDate(lang, CHECKED_ISO);
 const short = compoundShort(compound);
 const offers = offersFor(compound, size);
+const priced = offers.filter((o) => o.price != null);
+const coverage = reviewCoverage(priced.map((o) => o.vendor));
+const date = coverage ? fmtDateRange(lang, coverage.earliest, coverage.latest) : F.na;
 const shops = shopsCarrying(compound, size);
 const eu = shops.filter((s) => s.region === 'EU');
 const us = shops.filter((s) => s.region === 'US');
@@ -30,7 +32,7 @@ const fills = reps.map((r) => fillPct(r.report)).filter((x): x is number => x !=
 const portal = reps.filter((r) => r.report.verifiable).length;
 const cEur = cheapestBy(offers, 'EUR');
 const cUsd = cheapestBy(offers, 'USD');
-const medianOf = (cur: string) => median(offers.filter((o) => o.currency === cur && o.price != null).map((o) => o.price as number));
+const medianOf = (cur: string) => median(priced.filter((o) => o.currency === cur).map((o) => o.price as number));
 const mEur = medianOf('EUR');
 const mUsd = medianOf('USD');
 const partnersHere = PARTNERS.filter((p) => shops.some((s) => s.slug === p.slug));
@@ -43,12 +45,13 @@ const V = {
   from: [cEur && F.perMg(cEur.perMg, 'EUR'), cUsd && F.perMg(cUsd.perMg, 'USD')].filter(Boolean).join(` ${t(lang, 'common.or')} `) || F.na,
 };
 const intro = `${t(lang, 'ps.intro1', V)} ${t(lang, 'ps.intro2', V)} ${reps.length ? t(lang, 'ps.intro3', V) : t(lang, 'ps.intro3none', V)}`;
-const title = tt(lang, 'ps.title', V);
-const h1 = t(lang, 'ps.h1', V);
-const description = td(lang, 'ps.description', V);
+const compared = { ...V, n: new Set(priced.map((o) => o.vendor.slug)).size };
+const title = tt(lang, 'ps.title', compared);
+const h1 = t(lang, 'ps.h1', compared);
+const description = td(lang, 'ps.description', compared);
 const medians = listJoin(lang, [
-  mEur != null && tn(lang, 'ps.median', offers.filter((o) => o.currency === 'EUR').length, { p: F.money(mEur, 'EUR'), cur: 'EUR' }),
-  mUsd != null && tn(lang, 'ps.median', offers.filter((o) => o.currency === 'USD').length, { p: F.money(mUsd, 'USD'), cur: 'USD' }),
+  mEur != null && tn(lang, 'ps.median', priced.filter((o) => o.currency === 'EUR').length, { p: F.money(mEur, 'EUR'), cur: 'EUR' }),
+  mUsd != null && tn(lang, 'ps.median', priced.filter((o) => o.currency === 'USD').length, { p: F.money(mUsd, 'USD'), cur: 'USD' }),
 ].filter(Boolean) as string[]) || F.na;
 const faqs = [
   { q: t(lang, 'ps.fq1', V), a: t(lang, 'ps.fa1', { ...V, medians }) },
@@ -71,8 +74,8 @@ const related = [
 ];
 ---
 
-<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
-  <PageHero crumbs={crumbs} title={h1} eyebrow={t(lang, 'ps.eyebrow', V)} intro={intro}>
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd} checkedAt={coverage?.latest}>
+  <PageHero crumbs={crumbs} title={h1} eyebrow={t(lang, 'ps.eyebrow', V)} intro={intro} checked={null}>
     <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
       <div class="stat"><dt>{t(lang, 'pc.statShops')}</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu.length} / {us.length})</span></dd></div>
       <div class="stat"><dt>{t(lang, 'pc.statLowest', { cur: 'EUR' })}</dt><dd>{cEur ? F.perMg(cEur.perMg, 'EUR') : F.na}</dd></div>
@@ -83,6 +86,7 @@ const related = [
 
   <div class="wrap mt-10 space-y-14">
     <WhereToBuy compound={compound} size={size} title={t(lang, 'ps.wtbH', V)} />
+    {shops.some((s) => s.pricesExcludeVat) && <p class="text-sm text-slate-600">{t(lang, 'pc.vatNote')}</p>}
     <PriceSection offers={offers} label={`${short} ${mg}`} />
     {fillRows.length > 0 && (
       <section class="space-y-4">

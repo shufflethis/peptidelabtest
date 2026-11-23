@@ -9,16 +9,18 @@ import Icon from '../components/Icon.astro';
 import FAQ from '../components/FAQ.astro';
 import {
   PRICE_COMPOUNDS, offersFor, compoundShort, shopsCarrying, sizesFor, sizePagesFor, reportsFor, cheapestBy, TOTALS,
-  CHECKED_ISO, SIZE_PAGES, itemListSchema, faqSchema, getCompound, YEAR,
+  reviewCoverage, SIZE_PAGES, itemListSchema, faqSchema, getCompound, YEAR,
 } from '../lib/site';
-import { t, tn, tt, td, tfaq, lp, fmtDate, type Lang } from '../i18n';
+import { t, tn, tt, td, tfaq, lp, fmtDateRange, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
 import { categoryLabel } from '../i18n/data';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
-const date = fmtDate(lang, CHECKED_ISO);
+const priced = PRICE_COMPOUNDS.flatMap((c) => offersFor(c)).filter((o) => o.price != null);
+const coverage = reviewCoverage(priced.map((o) => o.vendor));
+const date = coverage ? fmtDateRange(lang, coverage.earliest, coverage.latest) : F.na;
 
 const rows = PRICE_COMPOUNDS.map((c) => {
   const offers = offersFor(c);
@@ -27,7 +29,7 @@ const rows = PRICE_COMPOUNDS.map((c) => {
     sizes: sizesFor(c), sizePages: sizePagesFor(c), eur: cheapestBy(offers, 'EUR'), usd: cheapestBy(offers, 'USD'), reports: reportsFor(c).length,
   };
 }).sort((a, b) => b.shops - a.shops);
-const V = { n: rows.length, shops: TOTALS.shops, products: TOTALS.products, reports: TOTALS.reportsOpened, date, year: YEAR, sizes: SIZE_PAGES.length };
+const V = { n: rows.length, shops: new Set(priced.map((o) => o.vendor.slug)).size, products: priced.length, reports: TOTALS.reportsOpened, date, year: YEAR, sizes: SIZE_PAGES.length };
 const title = tt(lang, 'pi.title', V);
 const description = td(lang, 'pi.description', V);
 const intro = t(lang, 'pi.intro', V);
@@ -39,8 +41,8 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
-  <PageHero crumbs={crumbs} title={t(lang, 'pi.h1', V)} eyebrow={t(lang, 'pi.eyebrow', V)} intro={intro}>
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd} checkedAt={coverage?.latest}>
+  <PageHero crumbs={crumbs} title={t(lang, 'pi.h1', V)} eyebrow={t(lang, 'pi.eyebrow', V)} intro={intro} checked={null}>
     <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2.5" aria-label={t(lang, 'pi.pick')}>
       {rows.map((r) => (
         <a href={L(`/prices/${r.slug}/`)} class="card card-hover px-3.5 py-2.5 min-h-[44px]">

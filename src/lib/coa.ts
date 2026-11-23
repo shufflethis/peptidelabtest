@@ -1,8 +1,9 @@
 /** COA statistics across all opened reports (published shops only). Pure grouping of audit.json values. */
 import { VENDORS } from '../data/vendors';
-import { fillPct, labKeyOf } from './site';
+import { fillPct, labKeyOf, reviewCoverage, AUDIT_COVERAGE } from './site';
 
 export const ALL_REPORTS = VENDORS.flatMap((v) => v.coaExamples.map((report) => ({ vendor: v, report, pct: fillPct(report) })));
+export const COA_REVIEW_COVERAGE = reviewCoverage(ALL_REPORTS.map(({ vendor }) => vendor)) ?? AUDIT_COVERAGE;
 const withPct = ALL_REPORTS.filter((r) => r.pct != null) as (typeof ALL_REPORTS[number] & { pct: number })[];
 const pur = ALL_REPORTS.map((r) => r.report.purityPercent).filter((x): x is number => x != null);
 
@@ -28,6 +29,7 @@ export function shopsWithPanel(label: string): number {
 export function checkerData() {
   return ALL_REPORTS.map(({ vendor, report }) => ({
     s: vendor.slug, n: vendor.name, c: report.compound, l: report.labelMg, m: report.measuredMg, p: report.purityPercent,
+    pb: report.purityLowerBoundPercent ?? null, op: report.purityComparator ?? null,
     lab: report.lab.replace(/\s*\(.*\)\s*$/, ''), lk: labKeyOf(report.lab)?.slug || null, id: report.reportId, d: report.testDate, v: report.verifiable, u: report.url,
   }));
 }

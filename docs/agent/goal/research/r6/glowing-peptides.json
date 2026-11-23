@@ -1,0 +1,89 @@
+{
+  "slug": "glowing-peptides",
+  "name": "Glowing Peptides",
+  "shopUrl": "https://glowingpeptides.com",
+  "region": "EU",
+  "originCountry": "PL",
+  "shipsTo": ["AL", "AD", "BE", "BA", "BG", "DE", "DK", "EE", "FI", "FR", "GR", "IE", "IT", "HR", "LV", "LI", "LT", "LU", "MT", "MD", "MC", "ME", "NL", "MK", "NO", "PL", "PT", "RO", "SM", "SE", "CH", "RS", "SK", "SI", "ES", "CZ", "HU", "VA", "GB", "CY", "AT"],
+  "legalEntity": "ISAD E-COMMERCE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ (KRS 0001221796; NIP 7812104791; shop-listed VAT PL7812104791)",
+  "testingLabs": ["Janoshik Analytical"],
+  "coaAccess": "Selected product pages link Google Drive copies; QR links on 4 sampled copies opened matching original reports on Janoshik's domain.",
+  "coaExamples": [
+    {"compound":"selank","shopProductName":"SELANK 10 mg","labelMg":10,"measuredMg":10.52,"purityPercent":99.824,"lab":"Janoshik Analytical","reportId":"133267","testDate":"2026-04-10","url":"https://verify.janoshik.com/tests/133267_S7DFEFNCX886","verifiable":true},
+    {"compound":"glutathione","shopProductName":"Glutathion 1500 mg","labelMg":1500,"measuredMg":1517.32,"purityPercent":99.370,"lab":"Janoshik Analytical","reportId":"207051","testDate":"2026-09-11","url":"https://verify.janoshik.com/tests/207051_GC2Z7SSNTYD7","verifiable":true},
+    {"compound":"glutathione","shopProductName":"Glutathion 1500 mg","labelMg":1500,"measuredMg":1548.79,"purityPercent":98.592,"lab":"Janoshik Analytical","reportId":"153214","testDate":"2026-05-06","url":"https://verify.janoshik.com/tests/153214_MV5HQ1D6SVWY","verifiable":true},
+    {"compound":"semax","shopProductName":"SEMAX 10 mg","labelMg":10,"measuredMg":10.19,"purityPercent":99.124,"lab":"Janoshik Analytical","reportId":"207037","testDate":"2026-09-11","url":"https://verify.janoshik.com/tests/207037_4FNCCNGJ6AS3","verifiable":true}
+  ],
+  "panels": {"hplc":false,"lcms":false,"identity":false,"mass":true,"endotoxin":false,"sterility":false,"heavyMetals":false},
+  "paymentMethods": ["SEPA bank transfer", "Wallid (pay-by-bank)"],
+  "freeShippingThreshold": "€100 under the published shipping policy",
+  "dispatchInfo": "The shop states dispatch from Poland via tracked DHL eCommerce Poland to 41 destinations, with 1–2 working days of processing after payment and estimated transit of 1–3 working days in Poland, 2–3 to Germany and 2–9 elsewhere.",
+  "products": [
+    {"compound":"bpc-157","shopProductName":"BPC-157 10 mg","vialMg":10,"price":39.99,"currency":"EUR","salePrice":null,"url":"https://glowingpeptides.com/produkt/bpc-157/?attribute_pa_menge=10mg","inStock":true},
+    {"compound":"tb-500","shopProductName":"TB-500 10 mg","vialMg":10,"price":69.99,"currency":"EUR","salePrice":null,"url":"https://glowingpeptides.com/produkt/tb-500/?attribute_pa_menge=10mg","inStock":true},
+    {"compound":"selank","shopProductName":"SELANK 10 mg","vialMg":10,"price":29.99,"currency":"EUR","salePrice":null,"url":"https://glowingpeptides.com/produkt/selank/?attribute_pa_menge=10mg","inStock":true},
+    {"compound":"semax","shopProductName":"SEMAX 10 mg","vialMg":10,"price":29.99,"currency":"EUR","salePrice":null,"url":"https://glowingpeptides.com/produkt/semax/?attribute_pa_menge=10mg","inStock":true},
+    {"compound":"glutathione","shopProductName":"Glutathion 1500 mg","vialMg":1500,"price":49.99,"currency":"EUR","salePrice":null,"url":"https://glowingpeptides.com/produkt/glutathion/?attribute_pa_menge=1500mg","inStock":true}
+  ],
+  "subscores": {"labVerification":7,"fillAccuracy":8,"panelDepth":3,"entityTransparency":7,"dispatchReliability":7,"valuePerMg":6},
+  "subscore_reasons": {
+    "labVerification": "All 4 selected copies from 3 product pages matched original lab reports, but no public report links were found on the BPC-157, TB-500 or Triple G pages read.",
+    "fillAccuracy": "The 4 tested samples contained 101.2–105.2% of nominal content; current stock was not sampled.",
+    "panelDepth": "The opened sheets show measured content and purity but do not specify analytical methods or show separate identity, endotoxin, sterility or heavy-metal results.",
+    "entityTransparency": "The Polish KRS register confirms the named company and registration number, but its registered street address differs from the one on the shop's terms and privacy page.",
+    "dispatchReliability": "The written policy gives a tracked carrier, delivery estimates and a free-shipping threshold, but its 20:00 same-day statement and 1–2 working days after payment are not reconciled.",
+    "valuePerMg": "At regular prices for equal nominal 10 mg vials, BPC-157, Selank and Semax were below their medians in our existing EUR sample; TB-500 was slightly above its median."
+  },
+  "strengths": [
+    "All 4 sampled Google Drive copies matched the product, client and batch on the original Janoshik reports.",
+    "All 4 tested samples measured within 101.2–105.2% of nominal content.",
+    "The named seller and registration number match the official Polish company register."
+  ],
+  "weaknesses": [
+    "No public report links found on the BPC-157, TB-500 or Triple G product pages reviewed; the 4 confirmed reports do not establish coverage for the catalog.",
+    "Glutathion batch C119 measured 98.592% purity, below the product page's claim of over 99%.",
+    "The shop lists a different Poznań street address from the current KRS extract; no link from the reports to current stock batches was established."
+  ],
+  "verdict": "The Polish register confirms the seller's identity, although its registered street address differs from the shop's. All 4 sampled reports were readable on Janoshik's domain and matched their shop-linked copies. One Glutathion batch was below the advertised purity threshold, and the sampled reports do not establish the batch of any item currently in stock.",
+  "summary": "Research-use shop whose terms name ISAD E-COMMERCE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ. The shop says it ships from Poland and links lab reports from selected product pages.",
+  "notes": "The official KRS extract records ul. Wolsztyńska 5, 60-361 Poznań; the shop's terms and privacy page give ul. Juliusza Słowackiego 55/1, 60-521 Poznań. The shop's Słubice return address is separate and does not establish warehouse location. The shipping policy and terms say free shipping from €100; the English BPC-157 page instead displays a banner reading Orders <100€. The published Wallid option is limited to Spain, France, Belgium, Ireland, Portugal and the Netherlands. The 4 reports cover 3 products, including 2 Glutathion batches; matching the identifiers on the shop-linked copies to the originals does not match any batch to current stock. The product pages label the files as PDFs, but the sampled Drive downloads were PNGs. Prices and stocks are snapshots for 5 public individual variants confirmed through the shop's Store API; no multi-buy discount or checkout was tested. The EUR comparison uses regular, in-stock prices for equal vial sizes in the existing audit dataset; it excludes Glutathion for lack of a comparator. Triple G was not mapped to a compound or included in the price sample because the reviewed product pages did not explicitly name the compound.",
+  "sources": [
+    "https://glowingpeptides.com/en/terms-and-conditions/", "https://glowingpeptides.com/datenschutzerklaerung/", "https://api-krs.ms.gov.pl/api/krs/OdpisAktualny/0001221796?rejestr=P", "https://glowingpeptides.com/widerrufsrecht/", "https://glowingpeptides.com/en/shipping/", "https://glowingpeptides.com/en/terms-of-payment/",
+    "https://glowingpeptides.com/produkt/bpc-157/", "https://glowingpeptides.com/en/produkt/bpc-157/", "https://glowingpeptides.com/produkt/tb-500/", "https://glowingpeptides.com/produkt/triple-g/", "https://glowingpeptides.com/produkt/selank/", "https://glowingpeptides.com/produkt/glutathion/", "https://glowingpeptides.com/produkt/semax/",
+    "https://glowingpeptides.com/wp-json/wc/store/v1/products/9955", "https://glowingpeptides.com/wp-json/wc/store/v1/products/23332", "https://glowingpeptides.com/wp-json/wc/store/v1/products/14761", "https://glowingpeptides.com/wp-json/wc/store/v1/products/14749", "https://glowingpeptides.com/wp-json/wc/store/v1/products/16937",
+    "https://drive.google.com/file/d/1iHZzNy4IwdWEFRnYrFNhv98OgIvXmAwt/view?usp=sharing", "https://drive.google.com/file/d/1jqYl6u6Frbv0RGmnPAHb5BV4XX-ZreCN/view?usp=drive_link", "https://drive.google.com/file/d/1EjgGClY10MRXPegmEl5OpXM1Gl2bLkkT/view?usp=sharing", "https://drive.google.com/file/d/1tFIIm7OVO3jMMudJtFSHpH1E30ZOAwlR/view?usp=sharing",
+    "https://verify.janoshik.com/tests/133267_S7DFEFNCX886", "https://verify.janoshik.com/tests/img/111ee83a19f26920a377.png", "https://verify.janoshik.com/tests/207051_GC2Z7SSNTYD7", "https://verify.janoshik.com/tests/img/c92b67aa886ac7f522dd.png", "https://verify.janoshik.com/tests/153214_MV5HQ1D6SVWY", "https://verify.janoshik.com/tests/img/160490ad542f0795c4d6.png", "https://verify.janoshik.com/tests/207037_4FNCCNGJ6AS3", "https://verify.janoshik.com/tests/img/ebda3078ec0f00675475.png"
+  ],
+  "auditEvidence": {
+    "identityAndLocations": {"operatorAsPublished":"ISAD E-COMMERCE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ","legalForm":"SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ","registrationNumber":"0001221796","nip":"7812104791","vatIdAsPublished":"PL7812104791","regonRegister":"54389630300000","registeredSeat":"Poznań, Poland","registeredStreetAddress":"ul. Wolsztyńska 5, 60-361 Poznań, Poland","shopPolicyAddress":"ul. Juliusza Słowackiego 55/1, 60-521 Poznań, Poland","returnAddress":"Jedności Robotniczej 15, 69-100 Słubice, Poland","dispatchCountryAsPublished":"PL","dispatchAddress":null},
+    "scope": {"reportSelectionCount":4,"catalogSelectionCount":5,"testedCurrentStock":false,"sourceEntries":[
+      {"url":"https://glowingpeptides.com/en/terms-and-conditions/","quotes":["ISAD E-COMMERCE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ, ul. Juliusza Słowackiego 55/1, 60-521 Poznań, Poland (NIP: 7812104791; VAT no.: PL7812104791; KRS: 0001221796; REGON: 543896303)","The seller confirms that all products have the required certificates of analysis (CoA).","Laboratory reagents available in the store exclusively for research"],"finding":"Names the seller and shop policy address; a general CoA statement is not proof of product-level availability."},
+      {"url":"https://glowingpeptides.com/datenschutzerklaerung/","quote":"ul. Juliusza Słowackiego 55/1, 60-521 Poznań, Polen","finding":"The privacy page repeats the same Poznań street address as the terms."},
+      {"url":"https://api-krs.ms.gov.pl/api/krs/OdpisAktualny/0001221796?rejestr=P","quotes":["0001221796","7812104791","ISAD E-COMMERCE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ","UL. WOLSZTYŃSKA","60-361","stanZDnia"],"finding":"The Ministry of Justice current extract, state dated 25.09.2026, confirms the company and NIP and records ul. Wolsztyńska 5 in Poznań rather than the shop policy address."},
+      {"url":"https://glowingpeptides.com/widerrufsrecht/","quotes":["Rücksendeadresse","Jedności Robotniczej 15","69-100 Słubice"],"finding":"A separate return address, not evidence of a dispatch point."},
+      {"url":"https://glowingpeptides.com/en/shipping/","quotes":["Processing time: 1-2 working days from receipt of payment.","Orders received by","are processed on the same day and handed over to our shipping service provider.","DHL eCommerce Poland","All parcels are sent with","Order from 100 €","We ship to the following 41 countries:"],"finding":"The policy states tracked delivery, 41 destinations and free shipping from €100; it also states same-day handover by a 20:00 cutoff without reconciling that with 1–2 working days after payment."},
+      {"url":"https://glowingpeptides.com/en/terms-of-payment/","quotes":["Bank transfer (SEPA)","Wallid (pay-by-bank)","available for customers from Spain, France, Belgium, Ireland, Portugal and the Netherlands"],"finding":"The stated payment methods and Wallid country limits; no transaction tested."},
+      {"url":"https://glowingpeptides.com/en/produkt/bpc-157/","quotes":["In stock, shipping from Poland (1-9 days within Europe)","Orders <100€"],"finding":"Product page declares Polish dispatch and displays a free-shipping banner that conflicts with the written rate table."},
+      {"url":"https://glowingpeptides.com/produkt/bpc-157/","quotes":["BPC-157","Auf Lager, Versand aus Polen (1-9 Tage innerhalb Europas)"],"finding":"Public listing read; no COA section or report link found on the reviewed page."},
+      {"url":"https://glowingpeptides.com/produkt/tb-500/","quotes":["TB-500","Auf Lager, Versand aus Polen (1-9 Tage innerhalb Europas)"],"finding":"Public listing read; no COA section or report link found on the reviewed page."},
+      {"url":"https://glowingpeptides.com/produkt/triple-g/","quote":"Triple G","finding":"Public listing read; neither an explicit compound name nor a COA link was found on the reviewed product page."},
+      {"url":"https://glowingpeptides.com/produkt/selank/","quote":"COA – SELANK (PDF)","finding":"Page links the Drive copy for Selank; no current-stock lot number was found."},
+      {"url":"https://glowingpeptides.com/produkt/glutathion/","quotes":["Reinheit: über 99 %","COA – Glutathion (PDF)"],"finding":"The page links two copies and says over 99%; Janoshik report 153214 instead records 98.592% for batch C119."},
+      {"url":"https://glowingpeptides.com/produkt/semax/","quote":"COA – SEMAX (PDF)","finding":"The shop page links two reports; only the first is in the selected audit sample."}
+    ]},
+    "catalog": [
+      {"url":"https://glowingpeptides.com/wp-json/wc/store/v1/products/9955","quotes":["Menge: 10mg","\"regular_price\":\"3999\"","\"is_in_stock\":true","Bild einer BPC-157 10mg Ampulle."],"finding":"Single BPC-157 10 mg variant, EUR 39.99, not the parent product's starting price."},
+      {"url":"https://glowingpeptides.com/wp-json/wc/store/v1/products/23332","quotes":["Menge: 10mg","\"regular_price\":\"6999\"","\"is_in_stock\":true","Bild einer 10mg TB-500 Ampulle"],"finding":"Single TB-500 10 mg variant, EUR 69.99, not the parent product's starting price."},
+      {"url":"https://glowingpeptides.com/wp-json/wc/store/v1/products/14761","quotes":["Menge: 10mg","\"regular_price\":\"2999\"","\"is_in_stock\":true"],"finding":"Single Selank 10 mg variant, EUR 29.99."},
+      {"url":"https://glowingpeptides.com/wp-json/wc/store/v1/products/14749","quotes":["Menge: 10mg","\"regular_price\":\"2999\"","\"is_in_stock\":true"],"finding":"Single Semax 10 mg variant, EUR 29.99."},
+      {"url":"https://glowingpeptides.com/wp-json/wc/store/v1/products/16937","quotes":["Menge: 1500mg","\"regular_price\":\"4999\"","\"is_in_stock\":true"],"finding":"Single Glutathion 1500 mg variant, EUR 49.99."}
+    ],
+    "reports": [
+      {"reportId":"133267","url":"https://verify.janoshik.com/tests/img/111ee83a19f26920a377.png","shopCopyUrl":"https://drive.google.com/file/d/1iHZzNy4IwdWEFRnYrFNhv98OgIvXmAwt/view?usp=sharing","quotes":["#133267","Glowing Peptides","glowingpeptides.com","Selank 10mg","C118","10.52 mg","99.824%","10 APR 2026"],"reportBatch":"C118","productMatch":true,"clientMatch":true,"shopCopyBatchMatch":true,"currentStockBatchMatch":null,"finding":"Both copies read: product, client, batch, date and results match; the shop did not identify the current stock lot."},
+      {"reportId":"207051","url":"https://verify.janoshik.com/tests/img/c92b67aa886ac7f522dd.png","shopCopyUrl":"https://drive.google.com/file/d/1jqYl6u6Frbv0RGmnPAHb5BV4XX-ZreCN/view?usp=drive_link","quotes":["#207051","Glowing Peptides","glowingpeptides.com","Glutathion 1500mg","C207","1517.32 mg","99.370%","11 SEP 2026"],"reportBatch":"C207","productMatch":true,"clientMatch":true,"shopCopyBatchMatch":true,"currentStockBatchMatch":null,"finding":"Both copies read: product, client, batch, date and results match; no current stock lot shown."},
+      {"reportId":"153214","url":"https://verify.janoshik.com/tests/img/160490ad542f0795c4d6.png","shopCopyUrl":"https://drive.google.com/file/d/1EjgGClY10MRXPegmEl5OpXM1Gl2bLkkT/view?usp=sharing","quotes":["#153214","Glowing Peptides","glowingpeptides.com","Glutathion 1500mg","C119","1548.79 mg","98.592%","06 MAY 2026","Sample was tested twice."],"reportBatch":"C119","productMatch":true,"clientMatch":true,"shopCopyBatchMatch":true,"currentStockBatchMatch":null,"finding":"Both copies read: product, client, batch, date and results match; purity is below the claim on the product page."},
+      {"reportId":"207037","url":"https://verify.janoshik.com/tests/img/ebda3078ec0f00675475.png","shopCopyUrl":"https://drive.google.com/file/d/1tFIIm7OVO3jMMudJtFSHpH1E30ZOAwlR/view?usp=sharing","quotes":["#207037","Glowing Peptides","glowingpeptides.com","Semax 10mg","C207","10.19 mg","99.124%","11 SEP 2026"],"reportBatch":"C207","productMatch":true,"clientMatch":true,"shopCopyBatchMatch":true,"currentStockBatchMatch":null,"finding":"Both copies read: product, client, batch, date and results match; no current stock lot shown."}
+    ]
+  },
+  "readAt": "2026-11-23"
+}

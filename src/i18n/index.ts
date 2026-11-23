@@ -144,6 +144,10 @@ export function fmtDate(lang: Lang, iso: string, month: 'short' | 'long' = 'shor
   return new Intl.DateTimeFormat(LOCALE[lang], { day: 'numeric', month, year: 'numeric', timeZone: 'UTC' }).format(d);
 }
 
+export function fmtDateRange(lang: Lang, earliest: string, latest: string): string {
+  return earliest === latest ? fmtDate(lang, earliest) : `${fmtDate(lang, earliest)} – ${fmtDate(lang, latest)}`;
+}
+
 /** Title from a list of candidate templates: first that fits 60 chars (hard limit). */
 export function tt(lang: Lang, key: string, vars?: Vars): string {
   let v = tv<any>(lang, key);

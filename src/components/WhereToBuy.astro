@@ -4,8 +4,8 @@ import Icon from './Icon.astro';
 import ScoreRing from './ScoreRing.astro';
 import CodeBadge from './CodeBadge.astro';
 import VerifyBadge from './VerifyBadge.astro';
-import { PARTNERS, NON_PARTNERS, offersFor, REL_SPONSORED, compoundShort, reportVerify, CHECKED_ISO, shopShort } from '../lib/site';
-import { t, lp, splitLang, fmtDate } from '../i18n';
+import { PARTNERS, NON_PARTNERS, offersFor, REL_SPONSORED, compoundShort, reportVerify, shopShort, shopsCarrying } from '../lib/site';
+import { t, lp, splitLang } from '../i18n';
 import { fmt } from '../i18n/format';
 interface Props {
   compound: string;
@@ -16,13 +16,14 @@ const { compound, size, title } = Astro.props;
 const lang = splitLang(Astro.url.pathname).lang;
 const F = fmt(lang);
 const offers = offersFor(compound, size);
+const carrying = new Set(shopsCarrying(compound, size).map((v) => v.slug));
 const short = compoundShort(compound);
 const what = `${short}${size ? ` ${F.mg(size)}` : ''}`;
 const best = (slug: string) => offers.filter((o) => o.vendor.slug === slug && o.perMg != null).sort((a, b) => a.perMg! - b.perMg!)[0] || offers.find((o) => o.vendor.slug === slug);
 const regions = ['EU', 'US'].map((r) => ({
   region: r,
   partners: PARTNERS.filter((p) => p.region === r && offers.some((o) => o.vendor.slug === p.slug)),
-  others: NON_PARTNERS.filter((p) => p.region === r && offers.some((o) => o.vendor.slug === p.slug)),
+  others: NON_PARTNERS.filter((p) => p.region === r && carrying.has(p.slug)),
 }));
 ---
 <section class="space-y-5" id="where-to-buy">
@@ -51,7 +52,7 @@ const regions = ['EU', 'US'].map((r) => ({
                   </div>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
-                  {o.report ? <VerifyBadge level={reportVerify(o.report)} text={o.report.verifiable ? t(lang, 'c.wtb.repPortal', { c: short }) : t(lang, 'c.wtb.repShop', { c: short })} /> : <VerifyBadge level="none" text={t(lang, 'c.wtb.repNone', { c: short })} />}
+                  {o.report ? <VerifyBadge level={reportVerify(o.report)} text={o.report.verifiable ? t(lang, 'c.wtb.repPortal', { c: short }) : t(lang, 'c.wtb.repShop', { c: short })} /> : <VerifyBadge level="none" text={t(lang, 'c.pt.noReport')} />}
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
                   <CodeBadge slug={p.slug} />
@@ -62,10 +63,10 @@ const regions = ['EU', 'US'].map((r) => ({
           })}
         </ul>
         {g.others.length > 0 && (
-          <p class="mt-4 text-[0.94rem] text-slate-700 leading-relaxed">{t(lang, g.region === 'EU' ? 'c.wtb.othersEU' : 'c.wtb.othersUS', { c: short })} {g.others.map((s, i) => <>{i > 0 && ', '}<a href={lp(lang, `/vendors/${s.slug}/`)} class="text-link font-medium">{s.name}</a> ({t(lang, 'c.scoreShort', { s: F.score(s.overallScore) })})</>)}</p>
+          <p class="mt-4 text-[0.94rem] text-slate-700 leading-relaxed">{t(lang, g.region === 'EU' ? 'c.wtb.othersEU' : 'c.wtb.othersUS', { c: what })} {g.others.map((s, i) => <>{i > 0 && ', '}<a href={lp(lang, `/vendors/${s.slug}/`)} class="text-link font-medium">{s.name}</a> ({t(lang, 'c.scoreShort', { s: F.score(s.overallScore) })})</>)}</p>
         )}
       </div>
     ))}
   </div>
-  <p class="text-sm text-slate-600">{t(lang, 'c.wtb.note', { date: fmtDate(lang, CHECKED_ISO) })}</p>
+  <p class="text-sm text-slate-600">{t(lang, 'c.wtb.note')}</p>
 </section>

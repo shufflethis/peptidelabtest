@@ -3,6 +3,7 @@ import AUDIT from './audit.json';
 export interface CoaExample {
   compound: string; shopProductName: string; labelMg: number | null; measuredMg: number | null;
   purityPercent: number | null; lab: string; reportId: string | null; testDate: string | null;
+  purityLowerBoundPercent?: number; purityComparator?: '>' | '≥';
   url: string; verifiable: boolean;
 }
 export interface CoaStats {
@@ -54,6 +55,8 @@ export interface VendorProfile {
   coaStats: CoaStats;
   coaAccess: string;
   products: VendorProduct[];
+  /** Advertised prices are pre-tax; list in the review, not in shared price rankings. */
+  pricesExcludeVat?: boolean;
   shopUrl: string;
   shipsTo: string;
   subscoreReasons: Record<string, string>;
@@ -82,7 +85,7 @@ function build(a: any): VendorProfile {
   const st: CoaStats = a.coaStats;
   const purity = st.purityMin == null
     ? (st.opened ? 'Purity not stated on opened reports' : 'No public lab reports found')
-    : `${st.purityMin === st.purityMax ? st.purityMin : `${st.purityMin}–${st.purityMax}`}% HPLC purity across ${st.opened} opened reports (${st.portalVerified} verified on the lab portal)`;
+    : `${st.purityMin === st.purityMax ? st.purityMin : `${st.purityMin}–${st.purityMax}`}% reported purity (${st.opened} reports opened, ${st.portalVerified} verified on the lab portal)`;
   const fill = st.fillMinPct == null ? 'Measured content not published' : `Measured content ${fmt(st.fillMinPct)}–${fmt(st.fillMaxPct!)}% of label`;
   const products: VendorProduct[] = a.products || [];
   const seen = new Set<string>();
@@ -118,6 +121,7 @@ function build(a: any): VendorProfile {
     coaStats: st,
     coaAccess: a.coaAccess,
     products,
+    pricesExcludeVat: a.pricesExcludeVat === true,
     shopUrl: a.shopUrl,
     shipsTo: shipsToLabel(a.shipsTo),
     subscoreReasons: a.subscore_reasons || {},

@@ -1,13 +1,14 @@
 import type { APIRoute } from 'astro';
 import { geoAnswers } from '../lib/geo';
 import { CASES } from '../lib/cases';
-import { vendorBySlug } from '../lib/site';
-import { VENDORS_BY_SCORE, TOTALS, CHECKED_ISO, SITE_URL, PRICE_COMPOUNDS, compoundShort, offersFor, cheapestBy, perMg, fillRange, purityRange, isPartner } from '../lib/site';
+import { vendorBySlug, VENDORS_BY_SCORE, TOTALS, SITE_URL, PRICE_COMPOUNDS, compoundShort, offersFor, cheapestBy, perMg, fillRange, purityRange, isPartner, reviewCoverage } from '../lib/site';
 
 export const GET: APIRoute = () => {
+  const coverage = reviewCoverage(VENDORS_BY_SCORE);
   const out: string[] = [
     '# PeptideLabIndex: full audit data (plain text)',
-    `Checked: ${CHECKED_ISO}. Shops: ${TOTALS.shops}. Lab reports opened: ${TOTALS.reportsOpened} (${TOTALS.portalVerified} portal-verified). Prices: ${TOTALS.products}.`,
+    ...(coverage ? [`Shop review coverage: ${coverage.earliest} to ${coverage.latest}.`] : []),
+    `Shops: ${TOTALS.shops}. Lab reports opened: ${TOTALS.reportsOpened} (${TOTALS.portalVerified} portal-verified). Prices: ${TOTALS.products}.`,
     `Source: ${SITE_URL}/ · Method: ${SITE_URL}/methodology/ · CSV: ${SITE_URL}/data/peptide-shop-audit-2026.csv`,
     'Research use only. No dosing or health information.',
     '',
@@ -15,6 +16,8 @@ export const GET: APIRoute = () => {
   ];
   for (const v of VENDORS_BY_SCORE) {
     const labs = Array.from(new Set(v.coaExamples.map((c) => c.lab.replace(/\s*\(.*\)\s*$/, ''))));
+    const bounds = v.coaExamples.flatMap((r) => r.purityLowerBoundPercent != null && r.purityComparator
+      ? [`${compoundShort(r.compound)} ${r.purityComparator}${r.purityLowerBoundPercent}%${r.reportId ? ` (${r.reportId})` : ''}`] : []);
     out.push(
       '',
       `### ${v.name} (${v.region}) - score ${v.overallScore.toFixed(1)}${isPartner(v.slug) ? ' - partner' : ''}`,
@@ -22,8 +25,9 @@ export const GET: APIRoute = () => {
       `Legal entity: ${v.legalEntity}`,
       `Labs on opened reports: ${labs.length ? labs.join(', ') : 'none'}`,
       `Lab reports opened: ${v.coaStats.opened}; portal-verified: ${v.coaStats.portalVerified}`,
-      `Measured vs label: ${fillRange(v)}; HPLC purity: ${purityRange(v)}`,
-      `Prices recorded: ${v.products.length}`,
+      `Measured vs label: ${fillRange(v)}; exact reported purity values: ${purityRange(v)}`,
+      ...(bounds.length ? [`Reported purity lower bounds: ${bounds.join('; ')}`] : []),
+      `Prices recorded: ${v.products.length}${v.pricesExcludeVat ? ' (exclude VAT; not in comparative rankings)' : ''}`,
       `Verdict: ${v.verdictSummary}`,
       `Reviewed: ${v.reviewedAt}`,
     );

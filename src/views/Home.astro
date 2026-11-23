@@ -12,17 +12,18 @@ import { videoSchema, abs } from '../lib/video';
 import { verifyByLab } from '../lib/charts';
 import Disclosure from '../components/Disclosure.astro';
 import {
-  PARTNERS, NON_PARTNERS, partnersIn, PRICE_COMPOUNDS, compoundShort, shopsCarrying, TOTALS, CHECKED_ISO, YEAR,
+  PARTNERS, NON_PARTNERS, partnersIn, PRICE_COMPOUNDS, compoundShort, shopsCarrying, TOTALS, CHECKED_ISO, YEAR, VENDORS_BY_SCORE, reviewCoverage,
   itemListSchema, faqSchema, COMPOUND_PAIRS, pairSlug, LABS_IN_DATA, reportsByLab, SIZE_PAGES, offersFor, cheapestBy,
 } from '../lib/site';
-import { t, tn, tt, td, tfaq, lp, fmtDate, type Lang } from '../i18n';
+import { t, tn, tt, td, tfaq, lp, fmtDate, fmtDateRange, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
 import { locVendor } from '../i18n/data';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
-const date = fmtDate(lang, CHECKED_ISO);
+const coverage = reviewCoverage(VENDORS_BY_SCORE);
+const date = coverage ? fmtDateRange(lang, coverage.earliest, coverage.latest) : fmtDate(lang, CHECKED_ISO);
 const V = { shops: TOTALS.shops, reports: TOTALS.reportsOpened, portal: TOTALS.portalVerified, products: TOTALS.products, withReports: TOTALS.shopsWithReports, date, year: YEAR };
 
 const picker = PRICE_COMPOUNDS.map((c) => ({ slug: c, name: compoundShort(c), shops: shopsCarrying(c).length })).sort((a, b) => b.shops - a.shops);
@@ -49,7 +50,7 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout lang={lang} title={title} description={description} jsonLd={jsonLd}>
+<BaseLayout lang={lang} title={title} description={description} jsonLd={jsonLd} checkedAt={coverage?.latest}>
   <section class="hero-bg border-b border-slate-200">
     <div class="wrap pt-10 pb-12 sm:pt-14 sm:pb-16">
       <span class="eyebrow"><Icon name="shield-check" class="w-4 h-4" />{t(lang, 'home.eyebrow', { date })}</span>

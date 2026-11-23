@@ -293,7 +293,7 @@
       "productVial": "Product (vial mg)",
       "price": "Price ({sym})",
       "perMg": "Price per mg ({sym})",
-      "report": "Lab report for this compound",
+      "report": "Lab report for this vial size",
       "score": "Score (0-5)",
       "codeStore": "Code and store",
       "partner": "partner",
@@ -305,7 +305,7 @@
       "mOfL": "{m} of {l} mg ({p})",
       "mgNotStated": "mg not stated",
       "purity": "purity {p}",
-      "noReport": "No report opened"
+      "noReport": "No matching report opened"
     },
     "rank": "Rank {n}",
     "labs": "Labs",
@@ -352,7 +352,7 @@
       "repNone": "No {c} report opened",
       "othersEU": "Other audited EU shops listing {c}:",
       "othersUS": "Other audited US shops listing {c}:",
-      "note": "Store links are partner (affiliate) links. Prices as listed on {date}, before any code."
+      "note": "Store links are partner (affiliate) links. Prices are the listed prices before any code."
     }
   },
   "home": {
@@ -363,7 +363,7 @@
     "description": [
       "{shops} research peptide shops audited: {reports} lab reports opened, {portal} verified on the lab portal. Compare price per mg in EUR and USD."
     ],
-    "intro": "We audited {shops} research peptide shops in the EU and US on {date}. We opened {reports} lab reports from {withReports} shops, found {portal} of them on the lab's own portal, and recorded {products} listed prices as price per mg. Shops are ranked by audit score, never by commission.",
+    "intro": "Our audit covers {shops} research peptide shops in the EU and US. We opened {reports} lab reports from {withReports} shops, verified {portal} on the issuing labs' own sites, and recorded {products} listed prices. Shops are ranked by audit score, never by commission.",
     "eyebrow": "Independent desk audit, {date}",
     "pickerH": "Compare prices for a compound",
     "pickerP": "Pick a compound to see every shop, its price per mg and whether we opened a lab report.",
@@ -372,7 +372,7 @@
     "bestH": "Best audited shops with a store link",
     "bestP": "These are our partner shops, ordered by audit score within each region. Every shop is scored with the same formula. Commission plays no part in the order.",
     "howH": "How we test",
-    "howP": "This is a desk audit of public shop pages and lab portals. We did not place test orders. Every number on the site comes from a report or price page we opened on {date}.",
+    "howP": "This is a desk audit of public shop pages and lab portals. We did not place test orders. Each review shows its own observation date.",
     "step": "Step {n}",
     "s1t": "We open the lab reports",
     "s1p": "For each shop we open the lab reports it publishes and note the lab, test date, purity and measured mg.",
@@ -431,7 +431,7 @@
     },
     "cheapIn": "{p} ({shop}, {mg}) in {cur}",
     "intro1": "{c} is listed by {n} of the {total} shops we audited ({listings}, {sizes}).",
-    "intro2": "Lowest listed price per mg on {date}: {prices}.",
+    "intro2": "Lowest listed price per mg in the audited snapshots: {prices}. Price review dates: {date}.",
     "intro3": "We opened {reports} for {c} from {repShops}.",
     "intro3fill": "We opened {reports} for {c} from {repShops}; measured content was {range} of label.",
     "euShops": {
@@ -446,16 +446,16 @@
     "fa1": "{n} audited shops list {c}: {euShops} and {usShops}.",
     "fa1p": "Shops with a store link on this site, ranked by audit score: {list}.",
     "fa1none": "None of them is a partner shop with a store link.",
-    "fa1end": "The tables list every listing with price per mg and lab report status.",
+    "fa1end": "The tables show comparable listings with price per mg and lab report status.",
     "fq2": "What is the cheapest {c} per mg?",
-    "fa2": "Lowest listed price per mg on {date}: {prices}. Prices are the shop's listed price (sale price where shown) divided by label mg, without discount codes.",
+    "fa2": "Lowest listed price per mg in the audited snapshots: {prices}. Price review dates: {date}. Prices are the shop's listed price (sale price where shown) divided by label mg, without discount codes.",
     "fq3": "Which shops published a lab report for {c}?",
     "fa3": "We opened {nRep} on {c} from {list}. {portal} of them were verified on the lab's own portal",
     "fa3fill": "; measured content ranged from {range} of the label amount",
     "fa3none": "We did not open a {c} lab report at any audited shop.",
     "fq4": "Which vial sizes of {c} are on the market?",
     "fa4": "Audited shops list {c} in {list} vials.",
-    "fa4p": "Sizes sold by at least three shops have their own comparison page: {list}.",
+    "fa4p": "Sizes with comparable prices from at least three shops have their own comparison page. Counts show all shops listing each size: {list}.",
     "fq5": "Are prices converted between euro and dollar?",
     "fa5": "No. EUR and USD prices are shown in separate tables exactly as listed by each shop, with no currency conversion and no discount code applied.",
     "fq6": "Is {c} sold for human use?",
@@ -475,7 +475,8 @@
     "repP": "{reports} opened from {repShops}; {portal} verified on the lab portal. Report URLs and IDs are listed on",
     "chartTitle": "{c}: measured content as % of label",
     "about": "About {name}",
-    "factsPage": "Compound facts page"
+    "factsPage": "Compound facts page",
+    "vatNote": "Shop counts include listings with prices that exclude VAT. Those prices are not included in the comparisons."
   },
   "pi": {
     "title": [
@@ -485,7 +486,7 @@
     "description": [
       "Price per mg for {n} research compounds at {shops} audited shops, EUR and USD separate, with lab-report coverage. Compare prices by compound."
     ],
-    "intro": "We recorded {products} listed prices for {n} research compounds at {shops} audited EU and US shops on {date}. Each compound page splits EUR and USD prices, shows price per mg by vial size and marks which shops published a lab report we opened ({reports} reports in total).",
+    "intro": "We recorded {products} comparable prices for {n} research compounds at {shops} audited EU and US shops. Price review dates: {date}. Each compound page splits EUR and USD prices, shows price per mg by vial size and marks which shops published a lab report we opened ({reports} reports in total).",
     "crumb": "Prices",
     "eyebrow": "{n} compounds · {sizes} vial-size pages",
     "pick": "Pick a compound",
@@ -498,7 +499,7 @@
     "colReports": "Reports opened",
     "tableNote": "Lowest listed price per mg across all vial sizes. Price per mg = vial price divided by the mg on the label. Larger vials are usually cheaper per mg. Open a compound for the full EUR and USD tables.",
     "sizesH": "Prices by vial size",
-    "sizesP": "Compound and vial-size combinations listed by at least three audited shops. The number is the shop count.",
+    "sizesP": "Sizes with comparable prices from at least three shops. Counts show all shops listing each size.",
     "linkIndex": "Price index grouped by compound class",
     "itemList": "Research compound price comparisons",
     "itemName": "{c} price comparison",
@@ -513,7 +514,7 @@
       },
       {
         "q": "How current are the prices?",
-        "a": "All prices were read from public shop pages or store APIs on {date}. Shops change prices often; check the shop before ordering."
+        "a": "Prices came from public shop pages or store APIs. Price review dates: {date}. Shops change prices often; check the shop before ordering."
       }
     ]
   },
@@ -530,7 +531,7 @@
     ],
     "vialAt": "{p} per vial at {shop} ({cur})",
     "intro1": "{n} audited shops list {c} as a {mg} vial ({eu} EU, {us} US).",
-    "intro2": "Lowest listed price on {date}: {lows}.",
+    "intro2": "Lowest listed vial price in the audited snapshots: {lows}. Price review dates: {date}.",
     "intro3": "We opened {reports} for this size; measured content was {range} of label.",
     "intro3none": "We did not open a {mg} lab report for {c}; reports for other sizes are on the main {c} page.",
     "median": {
@@ -538,7 +539,7 @@
       "other": "median {p} across {n} {cur} listings"
     },
     "fq1": "How much does a {c} {mg} vial cost?",
-    "fa1": "Listed prices on {date}: {medians}. Lowest: {lows}. Prices exclude discount codes and are not converted.",
+    "fa1": "In the audited price snapshots ({date}): {medians}. Lowest: {lows}. Prices exclude discount codes and are not converted.",
     "fq2": "Where to buy {c} {mg} for research?",
     "fa2": "{n} audited shops list it.",
     "fa2p": "Shops with a store link, ranked by audit score: {list}.",
@@ -696,7 +697,7 @@
     ],
     "h1": "{a} vs {b}: research compound comparison",
     "eyebrow": "Market and lab data, no effects",
-    "intro": "On {date}, {nA} audited shops listed {a} and {nB} listed {b}; {both} list both. We opened {rA} {a} and {rB} {b} lab reports.",
+    "intro": "Of the shops audited, {nA} listed {a} and {nB} listed {b}; {both} listed both. Lab reports opened: {a} ({rA}), {b} ({rB}).",
     "median": "median {cur} price per mg: {a} {x}, {b} {y}",
     "fq1": "What is the difference between {a} and {b}?",
     "fa1": "They are different molecules.",
@@ -990,7 +991,7 @@
     "authH": "Authorities",
     "rules": "Rules change. Check the current position with the authority before you order, and follow your institution's procurement rules.",
     "shopsH": "Audited shops that state they ship {toC}",
-    "shopsP": "Based on each shop's published shipping information on {date}, sorted by audit score. {unknown} shops do not publish where they ship.",
+    "shopsP": "Based on the shops' published shipping information, sorted by audit score. We could not confirm shipping to this country for {unknown} shops.",
     "colShips": "Ships to (as published)",
     "relAll": "All country notes"
   },
@@ -1026,7 +1027,7 @@
     ],
     "crumb": "Open data",
     "h1": "Open data: research peptide shop audit 2026",
-    "intro": "The full price data behind this site: {n} listed prices from {shops} audited shops, one row per product, with price per mg, whether we opened a lab report for that compound at that shop, and the shop's audit score. Checked {date}. Free to reuse with attribution (CC BY 4.0).",
+    "intro": "The full price data behind this site: {n} listed prices from {shops} audited shops, one row per product, with price per mg, whether we opened a lab report for that compound at that shop, and the shop's audit score. Row review dates: {date}. Free to reuse with attribution (CC BY 4.0).",
     "csv": "Download CSV",
     "json": "Download JSON",
     "englishNote": "The data files use English column names and values.",
@@ -1047,7 +1048,8 @@
       "labReportOpenedForCompound": "We opened a lab report from this shop for this compound",
       "portalVerified": "At least one such report was found on the lab portal",
       "shopScore": "Audit score 0-5",
-      "reviewedAt": "Date the shop was checked"
+      "reviewedAt": "Date the shop was checked",
+      "pricesExcludeVat": "Whether the listed price excludes VAT"
     },
     "notesH": "Notes",
     "notes": [
@@ -1155,7 +1157,7 @@
     "overall": "Overall audit score: {score} out of 5.",
     "fqCode": "Does {shop} have a coupon code?",
     "fqLabs": "Which labs test {shop} products?",
-    "faLabs": "The reports we opened name {list}. HPLC purity on those reports: {purity}.",
+    "faLabs": "The reports we opened name {list}.",
     "faLabsNone": "{shop} names {list}; we could not open a public report.",
     "fqShip": "Where does {shop} ship?",
     "faShip": "Ships to: {ships}. Dispatch: {dispatch}.",
@@ -1220,6 +1222,7 @@
     "shopHosted": "Shop-hosted",
     "noReportFound": "We found no public lab report for {shop} on {date}.",
     "pricesH": "{shop} prices",
+    "pricesExVat": "Prices exclude VAT and are not included in cross-shop price comparisons.",
     "pricesP": {
       "one": "{n} listed price recorded on {date} in {curs}. Price per mg = price divided by the mg on the label. Sale prices are shown with the old price struck through. No code is applied.",
       "other": "{n} listed prices recorded on {date} in {curs}. Price per mg = price divided by the mg on the label. Sale prices are shown with the old price struck through. No code is applied."
@@ -1227,7 +1230,7 @@
     "colVial": "Vial (mg)",
     "colPrice": "Price",
     "colPerMg": "Price per mg",
-    "colRep": "Lab report opened",
+    "colRep": "Lab report for this vial size",
     "colStore": "Store",
     "viewProduct": "View product",
     "noPricesP": "{shop} does not publish prices publicly, so value per mg was not scored.",
@@ -1241,7 +1244,9 @@
     "sourcesH": "Sources we read",
     "sourcesP": "Public pages read on {date}. Shown as plain text, not links.",
     "stickyAria": "{nm} store link",
-    "visitShop": "Visit shop"
+    "visitShop": "Visit shop",
+    "purityExact": "Exact purity values reported: {purity}.",
+    "purityBounds": "Purity reported as a lower bound: {list}."
   },
   "vcp": {
     "title": [

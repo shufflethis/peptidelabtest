@@ -4,20 +4,22 @@ import PageHero from '../components/PageHero.astro';
 import FAQ from '../components/FAQ.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import Disclosure from '../components/Disclosure.astro';
-import { TOTALS, CHECKED_ISO, YEAR, faqSchema, LABS_IN_DATA, compoundShort, VENDORS_BY_SCORE } from '../lib/site';
-import { checkerData } from '../lib/coa';
+import { TOTALS, YEAR, faqSchema, LABS_IN_DATA, compoundShort, VENDORS_BY_SCORE } from '../lib/site';
+import { checkerData, COA_REVIEW_COVERAGE } from '../lib/coa';
 import { getLabGuide } from '../data/labGuides';
-import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
+import { t, tt, td, lp, fmtDate, fmtDateRange, type Lang } from '../i18n';
 import { locLabGuide } from '../i18n/data';
 import { fmt } from '../i18n/format';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
-const date = fmtDate(lang, CHECKED_ISO);
+const date = fmtDateRange(lang, COA_REVIEW_COVERAGE.earliest, COA_REVIEW_COVERAGE.latest);
 const data = checkerData().map((r) => ({
   ...r,
-  cn: compoundShort(r.c), lf: F.mg(r.l), mf: F.mg(r.m), pf: r.p != null ? F.rawPct(r.p) : F.na, df: r.d ? fmtDate(lang, r.d) : F.na,
+  cn: compoundShort(r.c), lf: F.mg(r.l), mf: F.mg(r.m),
+  pf: r.p != null ? F.rawPct(r.p) : r.pb != null && r.op ? `${r.op}${F.rawPct(r.pb)}` : F.na,
+  df: r.d ? fmtDate(lang, r.d) : F.na,
   rv: L(`/vendors/${r.s}/`), lu: r.lk ? L(`/labs/${r.lk}/`) : null,
 }));
 const shops = VENDORS_BY_SCORE.filter((v) => v.coaStats.opened > 0).map((v) => ({ slug: v.slug, name: v.name })).sort((a, b) => a.name.localeCompare(b.name));
@@ -39,8 +41,8 @@ const related = [
   { href: L('/coa-checklist/'), label: t(lang, 'cl.crumb') },
 ];
 ---
-<BaseLayout lang={lang} title={tt(lang, 'chk.title', V)} description={td(lang, 'chk.description', V)} crumbs={crumbs} jsonLd={[faqSchema(faqs), app]}>
-  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'chk.h1')} eyebrow={t(lang, 'chk.eyebrow')} intro={t(lang, 'chk.intro', V)} />
+<BaseLayout lang={lang} title={tt(lang, 'chk.title', V)} description={td(lang, 'chk.description', V)} crumbs={crumbs} jsonLd={[faqSchema(faqs), app]} checkedAt={COA_REVIEW_COVERAGE.latest}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'chk.h1')} eyebrow={t(lang, 'chk.eyebrow')} intro={t(lang, 'chk.intro', V)} checked={COA_REVIEW_COVERAGE.latest} />
   <div class="wrap mt-12 space-y-14">
     <section class="card p-5 sm:p-6 max-w-4xl">
       <form id="coa-form" class="grid gap-4 sm:grid-cols-[1fr_1.4fr_auto] sm:items-end" novalidate>
@@ -78,7 +80,7 @@ const related = [
     <RelatedLinks links={related} />
     <Disclosure compact />
   </div>
-  <script type="application/json" id="coa-data" set:html={JSON.stringify({ d: data, s: S })} />
+  <script type="application/json" id="coa-data" set:html={JSON.stringify({ d: data, s: S }).replace(/</g, '\\u003c')} />
   <script is:inline>
   (function () {
     var el = document.getElementById('coa-data'); if (!el) return;

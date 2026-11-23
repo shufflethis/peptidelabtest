@@ -19,12 +19,14 @@ PANEL_LABELS = {'hplc': 'HPLC purity', 'lcms': 'LC-MS identity', 'identity': 'Id
 vendors = []
 for f in ['r1', 'r2', 'r3', 'r4']:
     vendors += json.load(open(os.path.join(SRC, f + '.json')))
-# GOAL M4: new shops, one sourced file per shop (docs/agent/goal/research/r5/<slug>.json, see M4-shops-task.md)
+# Additional shops, one sourced file per shop (see M4-shops-task.md).
 import glob
-for f in sorted(glob.glob('docs/agent/goal/research/r5/*.json')):
+for f in (f for batch in ('r5', 'r6') for f in sorted(glob.glob(f'docs/agent/goal/research/{batch}/*.json'))):
     v = json.load(open(f))
     assert v['slug'] not in {x['slug'] for x in vendors}, f'duplicate shop {v["slug"]}'
     assert v.get('sources'), f'no sources: {f}'
+    # Keep research excerpts in the source files; the build only needs the cited URLs.
+    v.pop('auditEvidence', None)
     vendors.append(v)
 
 def overall(s):

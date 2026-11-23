@@ -15,9 +15,9 @@ import RelatedLinks from '../components/RelatedLinks.astro';
 import Disclosure from '../components/Disclosure.astro';
 import { VENDORS } from '../data/vendors';
 import {
-  VENDORS_BY_SCORE, isPartner, shopHref, productHref, REL_SPONSORED, codeInfo, alternativesFor, shopPairsFor,
+  publicVendorRank, isPartner, shopHref, productHref, REL_SPONSORED, codeInfo, alternativesFor, shopPairsFor,
   fillPct, compoundShort, vendorVerify, faqSchema, abs, CHECKED_ISO, YEAR, SITE_NAME, SITE_URL,
-  PRICE_COMPOUNDS, labKeyOf, shopShort, COMPOUND_PAIRS, pairSlug,
+  PRICE_COMPOUNDS, labKeyOf, shopShort, COMPOUND_PAIRS, pairSlug, pickReport,
 } from '../lib/site';
 import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
@@ -33,7 +33,7 @@ const nm = shopShort(v.name);
 const partner = isPartner(v.slug);
 const href = shopHref(v.slug);
 const code = codeInfo(v.slug, true);
-const rank = VENDORS_BY_SCORE.findIndex((x) => x.slug === v.slug) + 1;
+const rank = publicVendorRank(v.slug);
 const st = v.coaStats;
 const labs = v.testingLabs.map((l) => l.replace(/\s*\(.*\)\s*$/, ''));
 const reports = v.coaExamples;
@@ -90,12 +90,22 @@ const codeAnswer =
 
 const cheapest = products.filter((p) => p.pricePerMg != null).sort((a, b) => a.pricePerMg! - b.pricePerMg!)[0];
 const repLabs = Array.from(new Set(reports.map((r) => r.lab.replace(/\s*\(.*\)\s*$/, ''))));
+const purityBounds = reports.flatMap((r) => r.purityLowerBoundPercent != null && r.purityComparator
+  ? [`${compoundShort(r.compound)}: ${r.purityComparator}${F.rawPct(r.purityLowerBoundPercent)}`] : []);
+const purityExactText = st.purityMin == null ? '' : t(lang, 'v.purityExact', { purity: purR });
+const purityBoundsText = purityBounds.length ? t(lang, 'v.purityBounds', { list: listJoin(lang, purityBounds) }) : '';
 const faqs = [
   { q: t(lang, 'v.fqLegit', V), a: `${legitShort} ${legitAnswer}` },
   { q: t(lang, 'v.fqCode', V), a: codeAnswer },
-  { q: t(lang, 'v.fqLabs', V), a: st.opened ? t(lang, 'v.faLabs', { list: listJoin(lang, repLabs), purity: purR }) : t(lang, 'v.faLabsNone', { shop: v.name, list: labs.join(', ') }) },
+  { q: t(lang, 'v.fqLabs', V), a: st.opened
+    ? [t(lang, 'v.faLabs', { list: listJoin(lang, repLabs) }), purityExactText, purityBoundsText].filter(Boolean).join(' ')
+    : t(lang, 'v.faLabsNone', { shop: v.name, list: labs.join(', ') }) },
   { q: t(lang, 'v.fqShip', V), a: t(lang, 'v.faShip', { ships: v.shipsTo, dispatch: v.dispatchSummary }) },
-  ...(cheapest ? [{ q: t(lang, 'v.fqPrice', V), a: t(lang, 'v.faPrice', { ...V, p: F.perMg(cheapest.pricePerMg, cheapest.currency), product: cheapest.shopProductName, mg: F.mg(cheapest.vialMg) }) }] : []),
+  ...(cheapest ? [{
+    q: t(lang, 'v.fqPrice', V),
+    a: [t(lang, 'v.faPrice', { ...V, p: F.perMg(cheapest.pricePerMg, cheapest.currency), product: cheapest.shopProductName, mg: F.mg(cheapest.vialMg) }),
+      v.pricesExcludeVat ? t(lang, 'v.pricesExVat') : ''].filter(Boolean).join(' '),
+  }] : []),
 ];
 
 const crumbs = [
@@ -121,10 +131,10 @@ const jsonLd = [reviewSchema, faqSchema(faqs)];
 
 const compoundsHere = Array.from(new Set(products.map((p) => p.compound))).filter((c) => PRICE_COMPOUNDS.includes(c));
 /** Compounds where this shop's best price per mg ranks best against the same-currency market. */
-const cheapRank = compoundsHere.map((c) => {
+const cheapRank = (v.pricesExcludeVat ? [] : compoundsHere).map((c) => {
   const own = products.filter((p) => p.compound === c && p.pricePerMg != null).sort((a, b) => a.pricePerMg! - b.pricePerMg!)[0];
   if (!own) return null;
-  const market = VENDORS.flatMap((x) => x.products).filter((p) => p.compound === c && p.currency === own.currency && p.pricePerMg != null);
+  const market = VENDORS.filter((x) => !x.pricesExcludeVat).flatMap((x) => x.products).filter((p) => p.compound === c && p.currency === own.currency && p.pricePerMg != null);
   const cheaper = market.filter((p) => p.pricePerMg! < own.pricePerMg!).length;
   return { c, own, share: cheaper / Math.max(1, market.length) };
 }).filter(Boolean).sort((a, b) => a!.share - b!.share || compoundShort(a!.c).localeCompare(compoundShort(b!.c))) as { c: string; own: (typeof products)[number]; share: number }[];
@@ -145,7 +155,7 @@ const related = [
 ];
 ---
 
-<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd} ogType="article">
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd} ogType="article" checkedAt={v.reviewedAt}>
   <section class="hero-bg border-b border-slate-200">
     <div class="wrap pt-7 pb-10 sm:pt-9">
       <Breadcrumbs items={crumbs} />
@@ -224,7 +234,8 @@ const related = [
           <li><strong>{t(lang, 'v.kEntity')}:</strong> {v.legalEntity.replace(/\.$/, '')}.</li>
           <li><strong>{t(lang, 'v.kReports')}:</strong> {st.opened ? t(lang, 'v.legitReportsLine', V) : t(lang, 'v.noPublicReports')}</li>
           {st.fillMinPct != null && <li><strong>{t(lang, 'c.measuredVsLabel')}:</strong> {t(lang, 'v.fillLine', V)}</li>}
-          <li><strong>{t(lang, 'v.kPurity')}:</strong> {purR}.</li>
+          {purityExactText && <li>{purityExactText}</li>}
+          {purityBoundsText && <li>{purityBoundsText}</li>}
           {v.weaknesses.length > 0 && <li><strong>{t(lang, 'v.kWeak')}:</strong> {joinWeak(v.weaknesses)}.</li>}
         </ul>
         <p>{t(lang, 'v.noTestOrder')}</p>
@@ -275,7 +286,7 @@ const related = [
                     <tr>
                       <td class="min-w-[9rem]"><span class="font-semibold text-slate-900">{compoundShort(r.compound)}</span><span class="sub">{r.shopProductName}</span></td>
                       <td class="num">{r.measuredMg != null && r.labelMg != null ? `${F.raw(r.measuredMg)} / ${F.raw(r.labelMg)}` : t(lang, 'v.notStated')}{fp != null && <span class="sub">{t(lang, 'v.ofLabel', { p: F.pct(fp) })}</span>}</td>
-                      <td class="num">{r.purityPercent != null ? F.raw(r.purityPercent) : F.na}</td>
+                      <td class="num">{r.purityPercent != null ? F.raw(r.purityPercent) : r.purityLowerBoundPercent != null && r.purityComparator ? `${r.purityComparator}${F.raw(r.purityLowerBoundPercent)}` : F.na}</td>
                       <td class="min-w-[10rem]">{r.lab}<span class="sub">{r.testDate || t(lang, 'v.dateNotPublished')}</span></td>
                       <td>{r.verifiable ? t(lang, 'c.vb.portal') : t(lang, 'v.shopHosted')}</td>
                       <td class="min-w-[16rem] max-w-[22rem]">{r.reportId && <code class="font-mono text-sm text-slate-900">{r.reportId}</code>}<span class="sub mono-url">{r.url}</span></td>
@@ -296,6 +307,7 @@ const related = [
       {products.length ? (
         <>
           <p class="text-slate-700 max-w-[70ch]">{tn(lang, 'v.pricesP', products.length, { ...V, curs: listJoin(lang, currencies) })}</p>
+          {v.pricesExcludeVat && <p class="text-sm text-slate-600">{t(lang, 'v.pricesExVat')}</p>}
           <div class="table-wrap">
             <table class="data-table" data-sortable>
               <thead>
@@ -312,7 +324,7 @@ const related = [
                 {products.map((p) => {
                   const onSale = p.salePrice != null && p.price != null && p.salePrice < p.price;
                   const price = p.salePrice ?? p.price;
-                  const rep = reports.find((r) => r.compound === p.compound && r.labelMg === p.vialMg) || reports.find((r) => r.compound === p.compound);
+                  const { report: rep } = pickReport(v, p.compound, p.vialMg);
                   const ph = productHref(v.slug, p.url);
                   return (
                     <tr>
@@ -323,7 +335,7 @@ const related = [
                       <td class="num" data-v={p.vialMg ?? ''}>{p.vialMg != null ? F.raw(p.vialMg) : F.na}</td>
                       <td class="num" data-v={price ?? ''}>{F.money(price, p.currency)}{onSale && <span class="sub"><s>{F.money(p.price, p.currency)}</s></span>}</td>
                       <td class="num font-semibold" data-v={p.pricePerMg ?? ''}>{F.perMg(p.pricePerMg, p.currency)}</td>
-                      <td>{rep ? (rep.verifiable ? t(lang, 'c.pt.yesPortal') : t(lang, 'c.pt.yesShop')) : t(lang, 'common.no')}</td>
+                      <td>{rep ? (rep.verifiable ? t(lang, 'c.pt.yesPortal') : t(lang, 'c.pt.yesShop')) : t(lang, 'c.pt.noReport')}</td>
                       {partner && <td>{ph && <a href={ph} rel={REL_SPONSORED} target="_blank" class="text-link whitespace-nowrap">{t(lang, 'v.viewProduct')}</a>}</td>}
                     </tr>
                   );

@@ -325,7 +325,7 @@
     },
     "f9": {
       "h": "Pureté",
-      "p": "La part du peptide recherché dans l'échantillon selon l'HPLC. Dans les rapports ouverts, elle allait de {pmin} à {pmax}."
+      "p": "Un pourcentage obtenu avec la méthode indiquée par le laboratoire. Vérifiez la méthode et si le résultat est une valeur exacte ou une borne inférieure."
     },
     "f10": {
       "h": "Contenu mesuré",
@@ -347,7 +347,7 @@
     "fq1": "Qu'est-ce qu'un COA pour les peptides ?",
     "fa1": "Un certificat d'analyse est un rapport de laboratoire pour un échantillon de peptide : identité, pureté et généralement la quantité mesurée par flacon, avec le numéro de tâche et une clé de vérification du laboratoire.",
     "fq2": "Que signifie la pureté HPLC sur un COA ?",
-    "fa2": "C'est la part du peptide recherché parmi tout ce que l'HPLC a détecté dans l'échantillon, en pourcentage. Dans les {reports} rapports ouverts, elle allait de {pmin} à {pmax}.",
+    "fa2": "C’est un pourcentage obtenu sur l’échantillon avec une méthode précise. Pour la HPLC, vérifiez comment le laboratoire a calculé ce pourcentage à partir du chromatogramme. Sans cette information, les pourcentages de rapports différents ne sont pas directement comparables.",
     "fq3": "Comment vérifier un COA de peptides ?",
     "fa3": "Saisissez vous-même l'adresse du laboratoire, ouvrez sa page de vérification et entrez le numéro de tâche et la clé du rapport. Comparez composé, quantité, pureté, lot et date avec la copie de la boutique.",
     "fq4": "Pourquoi les mg mesurés diffèrent-ils de l'étiquette ?",
@@ -650,10 +650,10 @@
       "Boutiques de peptides, pays {country} : boutiques auditées qui y ont leur siège et boutiques qui y livrent."
     ],
     "h1": "Boutiques de peptides par pays : {country}",
-    "intro": "Sur {total} boutiques auditées, {based|# a son siège|# ont leur siège} dans ce pays ({list}) et {ship|# indique sur ses propres pages|# indiquent sur leurs propres pages} y livrer. {np|# boutique ne publie|# boutiques ne publient} aucun pays de livraison. Pays : {country}. Vérifié le {date}.",
+    "intro": "Sur {total} boutiques auditées, {based|# a son siège|# ont leur siège} dans ce pays ({list}) et {ship|# indique sur ses propres pages|# indiquent sur leurs propres pages} y livrer. Livraison dans ce pays non confirmée pour {np|# boutique|# boutiques}. Pays : {country}.",
     "statBased": "Siège ici",
     "statShip": "Livrent ici",
-    "statNp": "Non publié",
+    "statNp": "Non confirmée",
     "basedH": "Boutiques ayant leur siège dans ce pays ({country})",
     "basedP": "Pays d'après les informations sur la société ou les mentions légales publiées par la boutique, trié selon notre note.",
     "shipH": "Boutiques qui livrent dans ce pays ({country})",
@@ -665,13 +665,13 @@
     "colCountry": "Pays",
     "repVal": "{n} ouverts, {p} sur le portail",
     "none": "aucune dans notre audit",
-    "npP": "Aucun pays de livraison publié :",
+    "npP": "Livraison dans ce pays non confirmée :",
     "note": "Livraison telle qu'indiquée par les boutiques ; des exceptions peuvent figurer sur leurs pages. Pas un conseil juridique : les règles d'achat des peptides de recherche varient selon les pays.",
     "lawLink": "Statut juridique : {country}",
     "fq1": "Quelles boutiques de peptides auditées ont leur siège dans ce pays ({country}) ?",
     "fa1": "{based|# boutique auditée|# boutiques auditées} sur {total} : {list}.",
     "fq2": "Quelles boutiques livrent dans ce pays ({country}) ?",
-    "fa2": "{ship} boutiques auditées indiquent y livrer ({country}) ; {np} ne publient aucun pays de livraison.",
+    "fa2": "{ship} boutiques auditées indiquent y livrer ({country}) ; pour {np} autres, la livraison n’a pas pu être confirmée.",
     "fq3": "Est-il légal d'acheter des peptides dans ce pays ({country}) ?",
     "fa3": "Cela dépend du droit national du médicament et de la façon dont le produit est commercialisé. Voir nos pages sur le statut juridique ; information générale, pas un conseil juridique.",
     "iTitle": [
@@ -765,17 +765,17 @@
     },
     "audited": {
       "title": [
-        "{name} peptides : test, note {score}/5, rapports",
-        "{name} peptides : test et statut"
+        "{name} : statut de la marque, note {score}/5",
+        "{name} : statut de la marque et audit"
       ],
       "description": [
-        "{name} peptides : auditée dans notre test de {shops} boutiques, note {score}/5, {opened} rapports ouverts, {portal} confirmés sur un portail de laboratoire. Vérifié le {date}.",
-        "{name} peptides : notre note {score}/5 et la vérification des rapports, {date}."
+        "{name} : audit de {shops} boutiques, note {score}/5, {opened} rapports ouverts, {portal} confirmés sur un portail de laboratoire. Vérifié le {date}.",
+        "{name} : notre note {score}/5 et la vérification des rapports, {date}."
       ],
-      "h1": "{name} peptides : statut et données du test",
+      "h1": "{name} : statut et données de l’audit",
       "answer": "{name} fait partie de notre audit de {shops} boutiques : note {score}/5 (rang {rank}), {opened} rapports ouverts, {portal} confirmés sur un portail de laboratoire. Toutes les données sur la page du test.",
       "fa1": "Oui, la boutique vendait lors de notre vérification.",
-      "fa2": "La boutique auditée figure ci-dessous avec son test ; les autres sites utilisant le nom n'ont pas été vérifiés.",
+      "fa2": "La boutique auditée figure ci-dessous avec son audit. L’évaluation ne concerne que ce domaine.",
       "fa3": "Nous avons ouvert {opened} de ses rapports ; {portal} ont été confirmés sur le portail du laboratoire."
     },
     "iTitle": [
@@ -804,7 +804,7 @@
     "noReports": "aucun ouvert",
     "scoreTitle": "Note d'audit de ces boutiques (0 à 5)",
     "scoreDisplay": "{s} / 5",
-    "scoreNote": "Notes issues de notre audit du {date}. Classement par note, jamais par commission.",
+    "scoreNote": "Période de l’audit : {date}. Classement par note, jamais par commission.",
     "verifyTitleShop": "Rapports ouverts par boutique : confirmés sur le portail ou copie de la boutique",
     "verifyNote": "Les boutiques sans aucun rapport que nous avons pu ouvrir ne sont pas affichées ({none}).",
     "partnerScoreTitle": "Note d'audit des boutiques avec lien (0 à 5)",

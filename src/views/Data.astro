@@ -2,18 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Icon from '../components/Icon.astro';
-import { DATASET, DATASET_COLUMNS } from '../lib/dataset';
-import { TOTALS, CHECKED_ISO, SITE_URL, SITE_NAME } from '../lib/site';
-import { t, tt, td, tlist, lp, fmtDate, type Lang } from '../i18n';
+import { DATASET, DATASET_COLUMNS, DATASET_REVIEW_COVERAGE } from '../lib/dataset';
+import { SITE_URL, SITE_NAME } from '../lib/site';
+import { t, tt, td, tlist, lp, fmtDateRange, type Lang } from '../i18n';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const L = (p: string) => lp(lang, p);
 const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'data.crumb'), url: L('/data/') }];
-const V = { n: DATASET.length, shops: TOTALS.shops, date: fmtDate(lang, CHECKED_ISO), site: SITE_NAME, url: `${SITE_URL}/data/` };
+const coverage = DATASET_REVIEW_COVERAGE;
+const date = coverage ? fmtDateRange(lang, coverage.earliest, coverage.latest) : t(lang, 'common.notPublished');
+const V = { n: DATASET.length, shops: new Set(DATASET.map((r) => r.shopSlug)).size, date, site: SITE_NAME, url: `${SITE_URL}/data/` };
 const dataset = {
   '@context': 'https://schema.org', '@type': 'Dataset', name: 'Research peptide shop audit 2026 (prices, lab reports, scores)',
-  description: `${DATASET.length} listed prices from ${TOTALS.shops} audited research peptide shops with price per mg, lab-report coverage and audit score. Checked ${CHECKED_ISO}.`,
-  url: `${SITE_URL}/data/`, creator: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` }, dateModified: CHECKED_ISO, temporalCoverage: CHECKED_ISO,
+  description: td(lang, 'data.description', V),
+  url: `${SITE_URL}/data/`, creator: { '@type': 'Organization', name: SITE_NAME, url: `${SITE_URL}/` },
+  ...(coverage ? { temporalCoverage: `${coverage.earliest}/${coverage.latest}` } : {}),
   license: 'https://creativecommons.org/licenses/by/4.0/', isAccessibleForFree: true, keywords: ['research peptides', 'price per mg', 'lab reports', 'COA'],
   variableMeasured: DATASET_COLUMNS, inLanguage: 'en',
   distribution: [
@@ -22,8 +25,8 @@ const dataset = {
   ],
 };
 ---
-<BaseLayout lang={lang} title={tt(lang, 'data.title', V)} description={td(lang, 'data.description', V)} crumbs={crumbs} jsonLd={dataset}>
-  <PageHero crumbs={crumbs} title={t(lang, 'data.h1')} intro={t(lang, 'data.intro', V)}>
+<BaseLayout lang={lang} title={tt(lang, 'data.title', V)} description={td(lang, 'data.description', V)} crumbs={crumbs} jsonLd={dataset} checkedAt={coverage?.latest}>
+  <PageHero crumbs={crumbs} title={t(lang, 'data.h1')} intro={t(lang, 'data.intro', V)} checked={null}>
     <div class="mt-6 flex flex-wrap gap-3">
       <a href="/data/peptide-shop-audit-2026.csv" class="btn-primary"><Icon name="download" class="w-4 h-4" />{t(lang, 'data.csv')}</a>
       <a href="/data/peptide-shop-audit-2026.json" class="btn-ghost"><Icon name="download" class="w-4 h-4" />{t(lang, 'data.json')}</a>

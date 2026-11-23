@@ -1,5 +1,5 @@
 ---
-import { PARTNERS, VENDORS_BY_SCORE } from '../lib/site';
+import { PARTNERS, VENDORS_BY_SCORE, publicVendorRank } from '../lib/site';
 import ScoreChart from '../components/ScoreChart.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
@@ -16,13 +16,14 @@ const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
 const b = brandBySlug(brand)!;
 const v = b.vendor ? vendorBySlug(b.vendor) : undefined;
-const date = fmtDate(lang, '2026-11-21');
-const V = { name: b.name, n: b.domains.length, date, shops: TOTALS.shops, score: v ? F.score(v.overallScore) : '', rank: v?.rank ?? '', opened: v?.coaStats.opened ?? 0, portal: v?.coaStats.portalVerified ?? 0, sitesUse: tn(lang, 'br.sitesUse', b.domains.length), sitesN: tn(lang, 'br.sitesN', b.domains.length) };
+const checked = v?.reviewedAt ?? '2026-11-21';
+const date = fmtDate(lang, checked);
+const V = { name: b.name, n: b.domains.length, date, shops: TOTALS.shops, score: v ? F.score(v.overallScore) : '', rank: v ? publicVendorRank(v.slug) : '', opened: v?.coaStats.opened ?? 0, portal: v?.coaStats.portalVerified ?? 0, sitesUse: tn(lang, 'br.sitesUse', b.domains.length), sitesN: tn(lang, 'br.sitesN', b.domains.length) };
 const faqs = [1, 2, 3].map((i) => ({ q: t(lang, `br.fq${i}`, V), a: t(lang, `br.${b.status}.fa${i}`, V) }));
 const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'br.crumb'), url: L('/brands/') }, { name: b.name, url: L(`/brands/${b.slug}/`) }];
 ---
-<BaseLayout lang={lang} title={tt(lang, `br.${b.status}.title`, V)} description={td(lang, `br.${b.status}.description`, V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
-  <PageHero lang={lang} checked="2026-11-21" crumbs={crumbs} title={t(lang, `br.${b.status}.h1`, V)} eyebrow={t(lang, 'br.eyebrow')} intro={t(lang, `br.${b.status}.answer`, V)} />
+<BaseLayout lang={lang} title={tt(lang, `br.${b.status}.title`, V)} description={td(lang, `br.${b.status}.description`, V)} crumbs={crumbs} jsonLd={faqSchema(faqs)} checkedAt={checked}>
+  <PageHero lang={lang} checked={checked} crumbs={crumbs} title={t(lang, `br.${b.status}.h1`, V)} eyebrow={t(lang, 'br.eyebrow')} intro={t(lang, `br.${b.status}.answer`, V)} />
   <div class="wrap mt-12 space-y-14">
     <section class="space-y-4">
       <div class="max-w-[70ch]"><h2 class="h2">{t(lang, 'br.domainsH', V)}</h2><p class="mt-2 text-slate-700">{t(lang, 'br.domainsP', V)}</p></div>

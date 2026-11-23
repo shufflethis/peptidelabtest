@@ -2873,6 +2873,538 @@
   "rank": 6
  },
  {
+  "slug": "elyvera",
+  "name": "ELYVERA",
+  "shopUrl": "https://europeptides.de/en",
+  "region": "EU",
+  "pricesExcludeVat": true,
+  "originCountry": "AT",
+  "shipsTo": "EU Member States and selected associated countries, explicitly including Liechtenstein and Monaco",
+  "shipsToConfirmed": [
+   "EU-wide",
+   "LI",
+   "MC"
+  ],
+  "legalEntity": "Elyvera Biotech GmbH, Bösendorferstraße 4/20, 1010 Vienna, Austria; FN 676291 x; VAT ID ATU83240039 (shop legal notice).",
+  "companyDetails": {
+   "operator": "Elyvera Biotech GmbH",
+   "registrationNumber": "FN 676291 x",
+   "vatId": "ATU83240039",
+   "legalNoticeAddress": "Bösendorferstraße 4/20, 1010 Vienna, Austria",
+   "registeredOfficeIndependentlyChecked": false,
+   "dispatchOrigin": "Vienna, Austria"
+  },
+  "coaAccess": "Public batch library with shop-hosted Janoshik PDFs. For 2 of 4 primary reports the lab-hosted covers were read and matched; for the other 2, only analytical text could be read from the lab-hosted PDFs. Separate lab-hosted endotoxin reports matched 3 sampled lots.",
+  "testingLabs": [
+   "Janoshik Analytical"
+  ],
+  "coaExamples": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Triple Receptor Agonist 10 mg",
+    "batch": "TRA-10-2026-002",
+    "client": "ELYVERA",
+    "labelMg": 10,
+    "measuredMg": 11.1,
+    "purityPercent": 99.643,
+    "lab": "Janoshik Analytical",
+    "reportId": "239999",
+    "testDate": "2026-10-09",
+    "url": "https://verify.janoshik.com/tests/img/9f6edf027ab00e4baba8.png",
+    "verificationUrl": "https://verify.janoshik.com/tests/239999_RN3SSFJN7VDV",
+    "shopReportUrl": "https://europeptides.de/api/media/certificates/TRA-10-2026-002-efffe966.pdf",
+    "verificationStatus": "lab_cover_matched",
+    "verifiable": true
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "batch": "BPC-2026-001",
+    "client": "EuroPeptides",
+    "labelMg": 10,
+    "measuredMg": 11.95,
+    "purityPercent": 99.925,
+    "lab": "Janoshik Analytical",
+    "reportId": "105348",
+    "testDate": "2026-02-18",
+    "url": "https://verify.janoshik.com/tests/img/248f0ecad4267059deb6.png",
+    "verificationUrl": "https://verify.janoshik.com/tests/105348_S1H45SFYJ1F5",
+    "shopReportUrl": "https://europeptides.de/api/media/certificates/BPC-2026-001.pdf",
+    "verificationStatus": "lab_cover_matched",
+    "verifiable": true
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 50 mg",
+    "batch": "GHK-50-2026-002",
+    "client": "ELYVERA",
+    "labelMg": 50,
+    "measuredMg": 56.31,
+    "purityPercent": 99.722,
+    "lab": "Janoshik Analytical",
+    "reportId": "157499",
+    "testDate": "2026-06-04",
+    "url": "https://europeptides.de/api/media/certificates/GHK-50-2026-002.pdf",
+    "verificationUrl": "https://verify.janoshik.com/tests/157499_7X3P8XVZWLQ7",
+    "shopReportUrl": "https://europeptides.de/api/media/certificates/GHK-50-2026-002.pdf",
+    "verificationStatus": "partial_lab_data_primary_cover_not_read",
+    "resultComponentsMg": {
+     "ghk": 47.73,
+     "copper": 8.58
+    },
+    "verifiable": false
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "Mots-C 10 mg",
+    "batch": "MOT-10-2026-001",
+    "client": "ELYVERA",
+    "labelMg": 10,
+    "measuredMg": 10.32,
+    "purityPercent": 98.87,
+    "lab": "Janoshik Analytical",
+    "reportId": "200041",
+    "testDate": "2026-07-24",
+    "url": "https://europeptides.de/api/media/certificates/MOT-10-2026-001.pdf",
+    "verificationUrl": "https://verify.janoshik.com/tests/200041_GBGJG95R7FBY",
+    "shopReportUrl": "https://europeptides.de/api/media/certificates/MOT-10-2026-001.pdf",
+    "verificationStatus": "partial_lab_data_primary_cover_not_read",
+    "verifiable": false
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": true,
+   "mass": true,
+   "endotoxin": true,
+   "sterility": null,
+   "heavyMetals": true,
+   "microbialCounts": true,
+   "residualTfa": true,
+   "ph": true
+  },
+  "paymentMethods": [
+   "Bank transfer"
+  ],
+  "freeShippingThreshold": "€100 for free shipping to selected destinations or half-price shipping elsewhere; €300 for free shipping to all eligible destinations (shop banner).",
+  "dispatchInfo": "The policy states dispatch from Vienna, Austria, normally 1–3 business days after payment confirmation. Austrian Post Standard estimates 1–3 business days for Austria or 3–7 for international Europe; DHL Express estimates 1 business day for Austria or 1–4 for international Europe.",
+  "products": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Triple Receptor Agonist 10 mg",
+    "vialMg": 10,
+    "price": 64.9,
+    "currency": "EUR",
+    "salePrice": 49.9,
+    "url": "https://europeptides.de/en/products/triple-receptor-agonist-10mg",
+    "inStock": true,
+    "pricePerMg": 4.99
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 50 mg",
+    "vialMg": 50,
+    "price": 29.9,
+    "currency": "EUR",
+    "salePrice": 24.9,
+    "url": "https://europeptides.de/en/products/ghk-cu-50mg",
+    "inStock": true,
+    "pricePerMg": 0.498
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "vialMg": 10,
+    "price": 34.9,
+    "currency": "EUR",
+    "salePrice": 29.9,
+    "url": "https://europeptides.de/en/products/bpc-157-10mg",
+    "inStock": true,
+    "pricePerMg": 2.99
+   },
+   {
+    "compound": "melanotan-ii",
+    "shopProductName": "Melanotan II 10 mg",
+    "vialMg": 10,
+    "price": 24.9,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://europeptides.de/en/products/melanotan-ii-10mg",
+    "inStock": true,
+    "pricePerMg": 2.49
+   },
+   {
+    "compound": "semax",
+    "shopProductName": "Semax 10 mg",
+    "vialMg": 10,
+    "price": 33.9,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://europeptides.de/en/products/semax-10mg",
+    "inStock": true,
+    "pricePerMg": 3.39
+   },
+   {
+    "compound": "selank",
+    "shopProductName": "Selank 10 mg",
+    "vialMg": 10,
+    "price": 33.9,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://europeptides.de/en/products/selank-10mg",
+    "inStock": true,
+    "pricePerMg": 3.39
+   },
+   {
+    "compound": "epithalon",
+    "shopProductName": "Epithalon 50 mg",
+    "vialMg": 50,
+    "price": 74.9,
+    "currency": "EUR",
+    "salePrice": 59.9,
+    "url": "https://europeptides.de/en/products/epithalon-50mg",
+    "inStock": true,
+    "pricePerMg": 1.198
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "Mots-C 10 mg",
+    "vialMg": 10,
+    "price": 29.9,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://europeptides.de/en/products/mots-c-10mg",
+    "inStock": true,
+    "pricePerMg": 2.99
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Triple Receptor Agonist 50 mg",
+    "vialMg": 50,
+    "price": 274.9,
+    "currency": "EUR",
+    "salePrice": 199.9,
+    "url": "https://europeptides.de/en/products/triple-receptor-agonist-50mg",
+    "inStock": false,
+    "pricePerMg": 3.998
+   }
+  ],
+  "subscores": {
+   "labVerification": 7,
+   "fillAccuracy": 5,
+   "panelDepth": 8,
+   "entityTransparency": 8,
+   "dispatchReliability": 8,
+   "valuePerMg": 5
+  },
+  "subscore_reasons": {
+   "labVerification": "2 of 4 primary reports were read and matched on the lab domain; 2 primary reports had data-only corroboration, while separate endotoxin reports were matched on the lab domain for 3 lots.",
+   "fillAccuracy": "The 2 fully matched primary reports give 111.0% and 119.5% of label; the shop-hosted Mots-C and GHK-Cu covers give 103.2% and 112.6% respectively, the latter on a total GHK-Cu basis.",
+   "panelDepth": "The sampled PDFs document HPLC purity, LC-MS, net content, heavy metals and, in some lots, endotoxin, residual TFA, pH and TAMC/TYMC; microbial counts do not establish sterility.",
+   "entityTransparency": "The legal notice gives the operator, Vienna address, company registration number and VAT ID; these disclosures were not independently checked against a registry.",
+   "dispatchReliability": "The written policy names the dispatch city, the processing window, carriers and delivery estimates for Austria and international European destinations; the complete destination list was not checked.",
+   "valuePerMg": "Public in-stock single-unit prices span approximately €0.50–€4.99 per nominal mg, excluding VAT and shipping; no market ranking was inferred from this spread."
+  },
+  "strengths": [
+   "Public, batch-numbered CoA library; 2 sampled primary reports and supplemental endotoxin reports for 3 lots were matched directly on Janoshik's domain.",
+   "Named legal operator and separately specified dispatch city, with published carrier estimates."
+  ],
+  "weaknesses": [
+   "2 of 4 primary report covers could not be read on the lab domain; their lab extracts do not show the client and batch fields.",
+   "The GHK-Cu cover says 50 mg, but the associated chromatogram's internal sample name says 10mg; the reported 56.31 mg total includes 8.58 mg of copper.",
+   "Both fully matched primary reports measured more than 10% above label."
+  ],
+  "verdict": "ELYVERA publishes a batch-indexed Janoshik library. Two primary report covers matched on product, client and lot on the lab domain; for two others only analytical text was accessible there. Separate Janoshik endotoxin reports matched 3 sampled lots. The Vienna legal notice address and Vienna dispatch origin are separate disclosures.",
+  "summary": "Austrian research-reagent shop on europeptides.de, operated by Elyvera Biotech GmbH. elyvera.com redirects to the same storefront. The shop publishes batch PDFs, single-unit prices excluding VAT, and dispatch terms from Vienna.",
+  "notes": "The source for the 50 mg Triple Receptor Agonist is the public listing, which uses the alias Reta; the 10 mg sampled Janoshik report names Retatrutide. The shop's 50 mg listing was out of stock. Prices are for 1 unit, excluding VAT; crossed-out comparison prices are recorded separately from the current single-unit price. The BPC-157 cover on both domains prints EuroPeptides as client; the audit does not infer corporate succession. For tasks 157499 and 200041, lab PDF extraction exposed analytical tables but not the cover, so exact lot/client verification for those primary reports is not claimed. Same-lot endotoxin reports are independently verified as separate tests. The GHK-Cu quantification is the total on the shop cover, not the GHK-only figure. The shop does not publish the complete destination list or all payment options outside checkout in the policies read.",
+  "sources": [
+   "https://elyvera.com/",
+   "https://europeptides.de/de",
+   "https://europeptides.de/en",
+   "https://europeptides.de/en/legal",
+   "https://europeptides.de/en/terms",
+   "https://europeptides.de/en/shipping",
+   "https://europeptides.de/en/products",
+   "https://europeptides.de/en/lab-reports",
+   "https://europeptides.de/en/products/triple-receptor-agonist-10mg",
+   "https://europeptides.de/en/products/ghk-cu-50mg",
+   "https://europeptides.de/en/products/bpc-157-10mg",
+   "https://europeptides.de/en/products/melanotan-ii-10mg",
+   "https://europeptides.de/en/products/semax-10mg",
+   "https://europeptides.de/en/products/selank-10mg",
+   "https://europeptides.de/en/products/epithalon-50mg",
+   "https://europeptides.de/en/products/mots-c-10mg",
+   "https://europeptides.de/en/products/triple-receptor-agonist-50mg",
+   "https://europeptides.de/api/media/certificates/TRA-10-2026-002-efffe966.pdf",
+   "https://europeptides.de/api/media/certificates/BPC-2026-001.pdf",
+   "https://europeptides.de/api/media/certificates/GHK-50-2026-002.pdf",
+   "https://europeptides.de/api/media/certificates/MOT-10-2026-001.pdf",
+   "https://verify.janoshik.com/tests/239999_RN3SSFJN7VDV",
+   "https://verify.janoshik.com/tests/105348_S1H45SFYJ1F5",
+   "https://verify.janoshik.com/tests/157499_7X3P8XVZWLQ7",
+   "https://verify.janoshik.com/tests/200041_GBGJG95R7FBY",
+   "https://verify.janoshik.com/tests/img/9f6edf027ab00e4baba8.png",
+   "https://verify.janoshik.com/tests/img/248f0ecad4267059deb6.png",
+   "https://verify.janoshik.com/tests/240002_MYXKID5JJP81",
+   "https://verify.janoshik.com/tests/img/5ad1023ae19ea5dc80e1.png",
+   "https://verify.janoshik.com/tests/157502_HMQ8VKGAJ3FV",
+   "https://verify.janoshik.com/tests/img/245570ffa7156f9542ad.png",
+   "https://verify.janoshik.com/tests/200044_6R5WI4BZIIYY",
+   "https://verify.janoshik.com/tests/img/d90b300b11b99298275e.png",
+   "https://verify.janoshik.com/tests/240004_X5UIIVAE29D6",
+   "https://verify.janoshik.com/tests/img/dc797de42ef062b5dade.png"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 3.5,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 2,
+   "purityMin": 98.87,
+   "purityMax": 99.925,
+   "purityMedian": 99.68,
+   "fillMinPct": 103.2,
+   "fillMaxPct": 119.5
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "LC-MS identity",
+   "Measured mg",
+   "Endotoxin",
+   "Heavy metals"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 7
+ },
+ {
+  "slug": "novacell-peptides",
+  "name": "NovaCell Peptides",
+  "auditStatus": "audited",
+  "shopUrl": "https://novacell-peptides.com/en",
+  "region": "EU",
+  "originCountry": "EE",
+  "shipsTo": "25 EU countries and the United Arab Emirates (by inquiry); exact EU list not confirmed",
+  "legalEntity": "NCBL Sciences OÜ",
+  "registeredOffice": {
+   "address": "Tornimäe tn 5, Kesklinna linnaosa, 10145 Tallinn",
+   "country": "EE",
+   "registryId": "17455124",
+   "vatId": "EE102969010"
+  },
+  "dispatchOrigin": {
+   "region": "EU",
+   "country": "PL",
+   "address": null
+  },
+  "testingLabs": [
+   "Liquilabs s.r.o."
+  ],
+  "coaAccess": "Public product-page batch tables link to shop-hosted PDFs; the PDFs link to original reports on the Liquilabs domain.",
+  "coaExamples": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Nova Triple G 10mg",
+    "sampleName": "Nova Triple G 10 mg",
+    "client": "NCBL Sciences OÜ",
+    "batch": "N3-082604",
+    "shopBatchMatch": true,
+    "labelMg": 10,
+    "measuredMg": 9.79,
+    "purityPercent": null,
+    "purityLowerBoundPercent": 99.8,
+    "purityComparator": ">",
+    "lab": "Liquilabs s.r.o.",
+    "reportId": "LYO-0975",
+    "testDate": null,
+    "publishedDate": "2026-09-29",
+    "url": "https://base.liquilabs.cz/@@public_report?ar_uid=3adb704aaa50413a85427abf04c73709",
+    "shopCopyUrl": "https://novacell-peptides.com/coa/Lyo-0975-NovaTripleG.pdf",
+    "verifiable": true
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg",
+    "sampleName": "BPC-157 10 mg",
+    "client": "NCBL Sciences OÜ",
+    "batch": "BP-082604",
+    "shopBatchMatch": true,
+    "labelMg": 10,
+    "measuredMg": 11.93,
+    "purityPercent": 99.1,
+    "lab": "Liquilabs s.r.o.",
+    "reportId": "LYO-0819",
+    "testDate": null,
+    "publishedDate": "2026-09-09",
+    "url": "https://base.liquilabs.cz/@@public_report?ar_uid=e7eecb54d60546508f6c9af7185b01dd",
+    "shopCopyUrl": "https://novacell-peptides.com/coa/Lyo-0819-BPC.pdf",
+    "verifiable": true
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10mg",
+    "sampleName": "TB-500 10 mg",
+    "client": "NCBL Sciences OÜ",
+    "batch": "TB-052603",
+    "shopBatchMatch": true,
+    "labelMg": 10,
+    "measuredMg": 12.2,
+    "purityPercent": 99.3,
+    "lab": "Liquilabs s.r.o.",
+    "reportId": "LYO-0270",
+    "testDate": null,
+    "publishedDate": "2026-06-23",
+    "url": "https://base.liquilabs.cz/@@public_report?ar_uid=a551f228abcb44cc867a07857266d585",
+    "shopCopyUrl": "https://novacell-peptides.com/coa/Lyo-0270-TB500.pdf",
+    "verifiable": true
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Nova Triple G 10mg",
+    "sampleName": "Retatrutide 10 mg",
+    "client": "NCBL Sciences OÜ",
+    "batch": "N3-042603",
+    "shopBatchMatch": true,
+    "labelMg": 10,
+    "measuredMg": 10.07,
+    "purityPercent": 99.7,
+    "lab": "Liquilabs s.r.o.",
+    "reportId": "LYO-0585",
+    "testDate": null,
+    "publishedDate": "2026-09-01",
+    "shopCopyPublishedDate": "2026-08-15",
+    "url": "https://base.liquilabs.cz/@@public_report?ar_uid=cbc84ca39b5344e1adc58c27a5875aae",
+    "shopCopyUrl": "https://novacell-peptides.com/coa/Lyo-0585-NovaTripleG.pdf",
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": true,
+   "identity": true,
+   "mass": true,
+   "endotoxin": true,
+   "sterility": null,
+   "heavyMetals": null
+  },
+  "paymentMethods": [
+   "Bank transfer (SEPA/SWIFT)",
+   "Cryptocurrency (NOWPayments)",
+   "Visa/Mastercard (EUR orders; 6% surcharge)"
+  ],
+  "freeShippingThreshold": "From €115 per the shipping policy; shop and FAQ say over €115, and the UAE is handled separately.",
+  "dispatchInfo": "The shop says tracking is sent on the day payment arrives (Mon–Sat by 14:00 CET); DPD/DHL are named and EU delivery is estimated at 2–6 business days.",
+  "products": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Nova Triple G 10mg",
+    "vialMg": 10,
+    "price": 119,
+    "currency": "EUR",
+    "salePrice": 95.2,
+    "url": "https://novacell-peptides.com/en/buy-retatrutide",
+    "inStock": null,
+    "pricePerMg": 9.52
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg",
+    "vialMg": 10,
+    "price": 69,
+    "currency": "EUR",
+    "salePrice": 55.2,
+    "url": "https://novacell-peptides.com/en/product/bpc-157-10mg",
+    "inStock": true,
+    "pricePerMg": 5.52
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10mg",
+    "vialMg": 10,
+    "price": 79,
+    "currency": "EUR",
+    "salePrice": 63.2,
+    "url": "https://novacell-peptides.com/en/product/tb-500-10mg",
+    "inStock": true,
+    "pricePerMg": 6.32
+   }
+  ],
+  "subscores": {
+   "labVerification": 8,
+   "fillAccuracy": 6,
+   "panelDepth": 6,
+   "entityTransparency": 9,
+   "dispatchReliability": 7,
+   "valuePerMg": 4
+  },
+  "subscore_reasons": {
+   "labVerification": "All 4 sampled reports were read on Liquilabs and matched the listed product, client and batch; LYO-0585 had a different publication date and page count from its shop copy.",
+   "fillAccuracy": "The 4 sampled reports measured 97.9%–122.0% of label; BPC-157 and TB-500 were 119.3% and 122.0%, respectively.",
+   "panelDepth": "Read reports show purity, assay, FTIR, retention-time and mass-spectrometry identity, plus a separate endotoxin report; no sterility or heavy-metal results were confirmed in the sample.",
+   "entityTransparency": "The Estonian Business Register confirms the seller name, registration code, Tallinn address and VAT ID; the shop separately states dispatch from Poland.",
+   "dispatchReliability": "The shop names carriers, a tracking cut-off and EU transit estimates, but the public pages differ on destination scope and the exact free-shipping boundary.",
+   "valuePerMg": "At the displayed single-vial sale prices, retatrutide and BPC-157 were above the matching EUR medians in the existing audit, while TB-500 was slightly below."
+  },
+  "strengths": [
+   "All 4 sampled COAs were read on the original Liquilabs domain and matched the shop's named products and batch codes.",
+   "The Estonian register independently confirms the seller details; the shop separately identifies Poland as the dispatch country."
+  ],
+  "weaknesses": [
+   "The BPC-157 and TB-500 reports measured 11.93 mg and 12.20 mg against 10 mg labels.",
+   "The TB-500 shop catalogue calls it a fragment, but the product specifications and laboratory report identify thymosin beta-4.",
+   "The shop and lab copies of LYO-0585 differ in publication date and page count, although the sample, batch and reported assay and purity agree."
+  ],
+  "verdict": "NovaCell publishes lot-linked reports that could be read on Liquilabs. The sampled BPC-157 and TB-500 reports were above label, and the TB-500 catalogue wording conflicts with the laboratory identification.",
+  "summary": "NovaCell Peptides is a research-reagent shop operated by NCBL Sciences OÜ in Estonia, with dispatch from Poland according to the shop. Four sampled reports were read on Liquilabs.",
+  "notes": "The exact EU destination list and fulfilment address were not confirmed. The terms say 25 EU countries plus the UAE; the shipping page says 25 in one section and all EU member states in another. Purity reported as a lower bound is not entered as an exact percentage. Prices are single-vial snapshots, excluding quantity discounts. The batch match is to the public shop listings, not to a vial purchased for this audit.",
+  "sources": [
+   "https://novacell-peptides.com/en",
+   "https://novacell-peptides.com/en/terms",
+   "https://novacell-peptides.com/en/imprint",
+   "https://ariregister.rik.ee/eng/company/17455124",
+   "https://novacell-peptides.com/en/privacy",
+   "https://novacell-peptides.com/en/shipping",
+   "https://novacell-peptides.com/en/faq",
+   "https://novacell-peptides.com/en/quality",
+   "https://novacell-peptides.com/en/shop",
+   "https://novacell-peptides.com/en/buy-retatrutide",
+   "https://novacell-peptides.com/en/product/bpc-157-10mg",
+   "https://novacell-peptides.com/en/product/tb-500-10mg",
+   "https://novacell-peptides.com/coa/Lyo-0975-NovaTripleG.pdf",
+   "https://novacell-peptides.com/coa/Lyo-0819-BPC.pdf",
+   "https://novacell-peptides.com/coa/Lyo-0270-TB500.pdf",
+   "https://novacell-peptides.com/coa/Lyo-0585-NovaTripleG.pdf",
+   "https://novacell-peptides.com/coa/Lyo-0820-BPC-Endotoxin.pdf",
+   "https://novacell-peptides.com/coa/Lyo-0266-NovaTripleG.pdf",
+   "https://base.liquilabs.cz/@@public_report?ar_uid=3adb704aaa50413a85427abf04c73709",
+   "https://base.liquilabs.cz/@@public_report?ar_uid=e7eecb54d60546508f6c9af7185b01dd",
+   "https://base.liquilabs.cz/@@public_report?ar_uid=a551f228abcb44cc867a07857266d585",
+   "https://base.liquilabs.cz/@@public_report?ar_uid=cbc84ca39b5344e1adc58c27a5875aae",
+   "https://base.liquilabs.cz/@@public_report?ar_uid=4896175081e24659a42e55ba6208ef5b",
+   "https://base.liquilabs.cz/@@public_report?ar_uid=980638831a7243b194371edfd19471f4"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 3.5,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 4,
+   "purityMin": 99.1,
+   "purityMax": 99.7,
+   "purityMedian": 99.3,
+   "fillMinPct": 97.9,
+   "fillMaxPct": 122.0
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "LC-MS identity",
+   "Identity",
+   "Measured mg",
+   "Endotoxin"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 8
+ },
+ {
   "slug": "certa-peptides",
   "name": "CertaPeptides",
   "shopUrl": "https://certapeptides.com",
@@ -3347,7 +3879,198 @@
    }
   ],
   "blendReports": [],
-  "rank": 7
+  "rank": 9
+ },
+ {
+  "slug": "forge-performance-co",
+  "name": "Forge Performance Co",
+  "auditStatus": "audited",
+  "shopUrl": "https://www.forgeperformanceco.com/",
+  "region": "US",
+  "originCountry": "US",
+  "shipsTo": [
+   "US"
+  ],
+  "legalEntity": "Forge Performance Company LLC dba Forge Performance Co.",
+  "registrationNumber": "0806165343",
+  "registeredOffice": "5900 BALCONES DRIVE STE 100, AUSTIN, TX 78731",
+  "businessAddress": null,
+  "businessMailbox": "3801 N Capital of Texas Hwy, Ste E240-3348, Austin, TX 78746",
+  "dispatchOrigin": {
+   "country": "US",
+   "state": "TX",
+   "address": null
+  },
+  "testingLabs": [
+   "Freedom Diagnostics Testing",
+   "Kovera Labs",
+   "ILS Laboratories"
+  ],
+  "labEvidenceStatus": {
+   "Freedom Diagnostics Testing": "lab_reports_read",
+   "Kovera Labs": "shop_named_public_deep_link_unread",
+   "ILS Laboratories": "shop_named_no_public_forge_code_found"
+  },
+  "coaAccess": "The shop's COA archive and catalog require sign-in. Freedom Diagnostics Testing has a public lookup, and 4 reports were read on its own domain. The shop names Kovera Labs and ILS Laboratories, but no Forge report could be read on those portals in this audit.",
+  "coaExamples": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 20mg",
+    "labelMg": 20,
+    "measuredMg": 22.06,
+    "purityPercent": 99.16,
+    "lab": "Freedom Diagnostics Testing",
+    "reportId": "Forg2609150546",
+    "testDate": "2026-09-16",
+    "dateType": "reported",
+    "url": "https://coas.freedomdiagnosticstesting.com/Forg2609150546.pdf",
+    "shopCopyUrl": "https://www.forgeperformanceco.com/wp-content/uploads/2026/09/Forg2609150546BPC20.pdf",
+    "clientAsPrinted": "Forge Performance Co.",
+    "lotAsPrinted": "BPC15720-2609-01-PUR-SLV",
+    "catalogLotMatch": null,
+    "identicalShopCopy": true,
+    "verifiable": true
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10mg",
+    "labelMg": 10,
+    "measuredMg": 12.96,
+    "purityPercent": 99.535,
+    "lab": "Freedom Diagnostics Testing",
+    "reportId": "Forg2602030025",
+    "testDate": "2026-02-05",
+    "dateType": "reported",
+    "url": "https://coas.freedomdiagnosticstesting.com/Forg2602030025.pdf",
+    "clientAsPrinted": "Forge Performance Co",
+    "lotAsPrinted": "N/A",
+    "catalogLotMatch": null,
+    "verifiable": true
+   },
+   {
+    "compound": "glp-rt",
+    "shopProductName": "GLP RT 10mg",
+    "labelMg": 10,
+    "measuredMg": 12.67,
+    "purityPercent": 99.87,
+    "lab": "Freedom Diagnostics Testing",
+    "reportId": "Forg2608100825",
+    "testDate": "2026-08-14",
+    "dateType": "reported",
+    "url": "https://coas.freedomdiagnosticstesting.com/Forg2608100825.pdf",
+    "clientAsPrinted": "Forge Performance Co.",
+    "lotAsPrinted": "GLPRT10-2608-01-BLU-SLV",
+    "catalogLotMatch": null,
+    "verifiable": true
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 100mg",
+    "labelMg": 100,
+    "measuredMg": 117.51,
+    "purityPercent": 99.38,
+    "lab": "Freedom Diagnostics Testing",
+    "reportId": "Forg2611123039",
+    "testDate": "2026-11-13",
+    "dateType": "reported",
+    "url": "https://coas.freedomdiagnosticstesting.com/Forg2611123039.pdf",
+    "clientAsPrinted": "Forge Performance Co.",
+    "lotAsPrinted": "GHKCU100-2611-01-CLR-CLR",
+    "catalogLotMatch": null,
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": true,
+   "mass": true,
+   "endotoxin": true,
+   "sterility": null,
+   "heavyMetals": true,
+   "microbialPCR": true,
+   "fentanylScreen": true
+  },
+  "paymentMethods": [
+   "Credit cards",
+   "Apple Pay",
+   "Zelle",
+   "Cash App",
+   "ACH bank draft"
+  ],
+  "freeShippingThreshold": "$200 standard; $500 2-day express",
+  "dispatchInfo": "The shipping policy says orders paid by 12:00 PM CT on weekdays ship the same day from Texas; later, weekend and federal-holiday orders ship the next business day. USPS, UPS or FedEx with tracking. United States only, excluding territories and APO/FPO/DPO addresses.",
+  "products": [],
+  "subscores": {
+   "labVerification": 7,
+   "fillAccuracy": 4,
+   "panelDepth": 8,
+   "entityTransparency": 8,
+   "dispatchReliability": 8,
+   "valuePerMg": -1
+  },
+  "subscore_reasons": {
+   "labVerification": "All 4 sampled Freedom Diagnostics Testing reports were read on the laboratory domain and name Forge as client; the BPC-157 document also matches the shop-hosted copy byte for byte, but catalog lots were not publicly visible.",
+   "fillAccuracy": "The 4 opened reports measured 110.3%–129.6% of the stated label mass, all above label; this sample does not establish what is currently shipping.",
+   "panelDepth": "The reports show HPLC purity, LC-MS identity and net content; some also show endotoxin, microbial PCR, heavy metals and fentanyl screening. A microbial PCR screen alone does not establish sterility.",
+   "entityTransparency": "The Texas Comptroller lists the LLC as active and supplies a registered office, while the shop identifies its published Austin address as a mailbox and does not publish the packing address.",
+   "dispatchReliability": "The published shipping policy states a same-day cutoff, tracked carriers, domestic exclusions and free-shipping thresholds; actual performance was not tested.",
+   "valuePerMg": "Current prices were not available on the signed-out catalog or sampled live product page."
+  },
+  "strengths": [
+   "4 Forge reports read on the Freedom Diagnostics Testing domain, including a BPC-157 report identical to the shop copy",
+   "Texas entity record matches the company name in the shop's chargeback policy; shipping policy specifies cutoff, carriers and rates"
+  ],
+  "weaknesses": [
+   "The catalog, live prices and COA archive require sign-in, so the reviewed lots could not be matched to current stock",
+   "All 4 opened reports measured above label; the older TB-500 report has no lot identifier",
+   "The Austin address published by the shop is a mailbox; the actual packing address is not disclosed"
+  ],
+  "verdict": "Forge has a named Texas LLC and a published domestic shipping policy. We read 4 reports on the laboratory's domain, and all measured above label. One matched the shop copy exactly, but the signed-out catalog did not allow us to confirm the lots currently on sale.",
+  "summary": "Texas research-use shop operated by Forge Performance Company LLC. Its catalog and COA archive require sign-in, but Forge reports are publicly readable through Freedom Diagnostics Testing. The shop states it ships only within the United States.",
+  "notes": "Report dates are the dates printed as reported, and the product names in report examples are the report names, not verified live listings. GLP RT is left as printed; the certificate does not name a compound beyond that code. The BPC-157 shop PDF publicly resolves, and its product, client and lot match the identical lab PDF; signed-out access did not expose the current catalog lot. The Kovera TB-500 deep link was access denied in the browser; the ILS verifier was readable but asks for a code, and we found no public Forge code. The payment methods are those named in the privacy policy, not a checkout test. The registered office, business mailbox and undisclosed packing address are distinct.",
+  "sources": [
+   "https://www.forgeperformanceco.com/",
+   "https://www.forgeperformanceco.com/shop/",
+   "https://www.forgeperformanceco.com/coas/",
+   "https://www.forgeperformanceco.com/product/bpc-157-20mg/",
+   "https://www.forgeperformanceco.com/chargeback-policy/",
+   "https://www.forgeperformanceco.com/texas/",
+   "https://www.forgeperformanceco.com/shipping-policy/",
+   "https://www.forgeperformanceco.com/privacy-policy/",
+   "https://www.forgeperformanceco.com/verify-a-coa/",
+   "https://comptroller.texas.gov/taxes/franchise/account-status/search/32101584616",
+   "https://comptroller.texas.gov/data-search/franchise-tax/32101584616",
+   "https://freedomdiagnosticstesting.com/search-for-your-coa-based-on-the-unique-accession-number/",
+   "https://coa-list.nameless-credit-789e.workers.dev/?company=Forge%20Performance%20Co",
+   "https://coas.freedomdiagnosticstesting.com/Forg2609150546.pdf",
+   "https://coas.freedomdiagnosticstesting.com/Forg2602030025.pdf",
+   "https://coas.freedomdiagnosticstesting.com/Forg2608100825.pdf",
+   "https://coas.freedomdiagnosticstesting.com/Forg2611123039.pdf",
+   "https://www.forgeperformanceco.com/wp-content/uploads/2026/09/Forg2609150546BPC20.pdf",
+   "https://koveralabs.com/#/verify?t=54dda4cc7b745b209110a0c2",
+   "https://ils-lab.com/verify/"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 3.4,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 4,
+   "purityMin": 99.16,
+   "purityMax": 99.87,
+   "purityMedian": 99.46,
+   "fillMinPct": 110.3,
+   "fillMaxPct": 129.6
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "LC-MS identity",
+   "Measured mg",
+   "Endotoxin",
+   "Heavy metals"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 10
  },
  {
   "slug": "peptidprofi",
@@ -3747,7 +4470,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 8
+  "rank": 11
  },
  {
   "slug": "ghostlabz-research",
@@ -4307,7 +5030,7 @@
     "note": "values as shown on the shop page (shop copy)"
    }
   ],
-  "rank": 9
+  "rank": 12
  },
  {
   "slug": "peptid24",
@@ -4825,7 +5548,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 10
+  "rank": 13
  },
  {
   "slug": "ez-peptides",
@@ -5361,7 +6084,262 @@
    }
   ],
   "blendReports": [],
-  "rank": 11
+  "rank": 14
+ },
+ {
+  "slug": "glowing-peptides",
+  "name": "Glowing Peptides",
+  "shopUrl": "https://glowingpeptides.com",
+  "region": "EU",
+  "originCountry": "PL",
+  "shipsTo": [
+   "AL",
+   "AD",
+   "BE",
+   "BA",
+   "BG",
+   "DE",
+   "DK",
+   "EE",
+   "FI",
+   "FR",
+   "GR",
+   "IE",
+   "IT",
+   "HR",
+   "LV",
+   "LI",
+   "LT",
+   "LU",
+   "MT",
+   "MD",
+   "MC",
+   "ME",
+   "NL",
+   "MK",
+   "NO",
+   "PL",
+   "PT",
+   "RO",
+   "SM",
+   "SE",
+   "CH",
+   "RS",
+   "SK",
+   "SI",
+   "ES",
+   "CZ",
+   "HU",
+   "VA",
+   "GB",
+   "CY",
+   "AT"
+  ],
+  "legalEntity": "ISAD E-COMMERCE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ (KRS 0001221796; NIP 7812104791; shop-listed VAT PL7812104791)",
+  "testingLabs": [
+   "Janoshik Analytical"
+  ],
+  "coaAccess": "Selected product pages link Google Drive copies; QR links on 4 sampled copies opened matching original reports on Janoshik's domain.",
+  "coaExamples": [
+   {
+    "compound": "selank",
+    "shopProductName": "SELANK 10 mg",
+    "labelMg": 10,
+    "measuredMg": 10.52,
+    "purityPercent": 99.824,
+    "lab": "Janoshik Analytical",
+    "reportId": "133267",
+    "testDate": "2026-04-10",
+    "url": "https://verify.janoshik.com/tests/133267_S7DFEFNCX886",
+    "verifiable": true
+   },
+   {
+    "compound": "glutathione",
+    "shopProductName": "Glutathion 1500 mg",
+    "labelMg": 1500,
+    "measuredMg": 1517.32,
+    "purityPercent": 99.37,
+    "lab": "Janoshik Analytical",
+    "reportId": "207051",
+    "testDate": "2026-09-11",
+    "url": "https://verify.janoshik.com/tests/207051_GC2Z7SSNTYD7",
+    "verifiable": true
+   },
+   {
+    "compound": "glutathione",
+    "shopProductName": "Glutathion 1500 mg",
+    "labelMg": 1500,
+    "measuredMg": 1548.79,
+    "purityPercent": 98.592,
+    "lab": "Janoshik Analytical",
+    "reportId": "153214",
+    "testDate": "2026-05-06",
+    "url": "https://verify.janoshik.com/tests/153214_MV5HQ1D6SVWY",
+    "verifiable": true
+   },
+   {
+    "compound": "semax",
+    "shopProductName": "SEMAX 10 mg",
+    "labelMg": 10,
+    "measuredMg": 10.19,
+    "purityPercent": 99.124,
+    "lab": "Janoshik Analytical",
+    "reportId": "207037",
+    "testDate": "2026-09-11",
+    "url": "https://verify.janoshik.com/tests/207037_4FNCCNGJ6AS3",
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": false,
+   "lcms": false,
+   "identity": false,
+   "mass": true,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [
+   "SEPA bank transfer",
+   "Wallid (pay-by-bank)"
+  ],
+  "freeShippingThreshold": "€100 under the published shipping policy",
+  "dispatchInfo": "The shop states dispatch from Poland via tracked DHL eCommerce Poland to 41 destinations, with 1–2 working days of processing after payment and estimated transit of 1–3 working days in Poland, 2–3 to Germany and 2–9 elsewhere.",
+  "products": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "vialMg": 10,
+    "price": 39.99,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://glowingpeptides.com/produkt/bpc-157/?attribute_pa_menge=10mg",
+    "inStock": true,
+    "pricePerMg": 3.999
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10 mg",
+    "vialMg": 10,
+    "price": 69.99,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://glowingpeptides.com/produkt/tb-500/?attribute_pa_menge=10mg",
+    "inStock": true,
+    "pricePerMg": 6.999
+   },
+   {
+    "compound": "selank",
+    "shopProductName": "SELANK 10 mg",
+    "vialMg": 10,
+    "price": 29.99,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://glowingpeptides.com/produkt/selank/?attribute_pa_menge=10mg",
+    "inStock": true,
+    "pricePerMg": 2.999
+   },
+   {
+    "compound": "semax",
+    "shopProductName": "SEMAX 10 mg",
+    "vialMg": 10,
+    "price": 29.99,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://glowingpeptides.com/produkt/semax/?attribute_pa_menge=10mg",
+    "inStock": true,
+    "pricePerMg": 2.999
+   },
+   {
+    "compound": "glutathione",
+    "shopProductName": "Glutathion 1500 mg",
+    "vialMg": 1500,
+    "price": 49.99,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://glowingpeptides.com/produkt/glutathion/?attribute_pa_menge=1500mg",
+    "inStock": true,
+    "pricePerMg": 0.033
+   }
+  ],
+  "subscores": {
+   "labVerification": 7,
+   "fillAccuracy": 8,
+   "panelDepth": 3,
+   "entityTransparency": 7,
+   "dispatchReliability": 7,
+   "valuePerMg": 6
+  },
+  "subscore_reasons": {
+   "labVerification": "All 4 selected copies from 3 product pages matched original lab reports, but no public report links were found on the BPC-157, TB-500 or Triple G pages read.",
+   "fillAccuracy": "The 4 tested samples contained 101.2–105.2% of nominal content; current stock was not sampled.",
+   "panelDepth": "The opened sheets show measured content and purity but do not specify analytical methods or show separate identity, endotoxin, sterility or heavy-metal results.",
+   "entityTransparency": "The Polish KRS register confirms the named company and registration number, but its registered street address differs from the one on the shop's terms and privacy page.",
+   "dispatchReliability": "The written policy gives a tracked carrier, delivery estimates and a free-shipping threshold, but its 20:00 same-day statement and 1–2 working days after payment are not reconciled.",
+   "valuePerMg": "At regular prices for equal nominal 10 mg vials, BPC-157, Selank and Semax were below their medians in our existing EUR sample; TB-500 was slightly above its median."
+  },
+  "strengths": [
+   "All 4 sampled Google Drive copies matched the product, client and batch on the original Janoshik reports.",
+   "All 4 tested samples measured within 101.2–105.2% of nominal content.",
+   "The named seller and registration number match the official Polish company register."
+  ],
+  "weaknesses": [
+   "No public report links found on the BPC-157, TB-500 or Triple G product pages reviewed; the 4 confirmed reports do not establish coverage for the catalog.",
+   "Glutathion batch C119 measured 98.592% purity, below the product page's claim of over 99%.",
+   "The shop lists a different Poznań street address from the current KRS extract; no link from the reports to current stock batches was established."
+  ],
+  "verdict": "The Polish register confirms the seller's identity, although its registered street address differs from the shop's. All 4 sampled reports were readable on Janoshik's domain and matched their shop-linked copies. One Glutathion batch was below the advertised purity threshold, and the sampled reports do not establish the batch of any item currently in stock.",
+  "summary": "Research-use shop whose terms name ISAD E-COMMERCE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ. The shop says it ships from Poland and links lab reports from selected product pages.",
+  "notes": "The official KRS extract records ul. Wolsztyńska 5, 60-361 Poznań; the shop's terms and privacy page give ul. Juliusza Słowackiego 55/1, 60-521 Poznań. The shop's Słubice return address is separate and does not establish warehouse location. The shipping policy and terms say free shipping from €100; the English BPC-157 page instead displays a banner reading Orders <100€. The published Wallid option is limited to Spain, France, Belgium, Ireland, Portugal and the Netherlands. The 4 reports cover 3 products, including 2 Glutathion batches; matching the identifiers on the shop-linked copies to the originals does not match any batch to current stock. The product pages label the files as PDFs, but the sampled Drive downloads were PNGs. Prices and stocks are snapshots for 5 public individual variants confirmed through the shop's Store API; no multi-buy discount or checkout was tested. The EUR comparison uses regular, in-stock prices for equal vial sizes in the existing audit dataset; it excludes Glutathion for lack of a comparator. Triple G was not mapped to a compound or included in the price sample because the reviewed product pages did not explicitly name the compound.",
+  "sources": [
+   "https://glowingpeptides.com/en/terms-and-conditions/",
+   "https://glowingpeptides.com/datenschutzerklaerung/",
+   "https://api-krs.ms.gov.pl/api/krs/OdpisAktualny/0001221796?rejestr=P",
+   "https://glowingpeptides.com/widerrufsrecht/",
+   "https://glowingpeptides.com/en/shipping/",
+   "https://glowingpeptides.com/en/terms-of-payment/",
+   "https://glowingpeptides.com/produkt/bpc-157/",
+   "https://glowingpeptides.com/en/produkt/bpc-157/",
+   "https://glowingpeptides.com/produkt/tb-500/",
+   "https://glowingpeptides.com/produkt/triple-g/",
+   "https://glowingpeptides.com/produkt/selank/",
+   "https://glowingpeptides.com/produkt/glutathion/",
+   "https://glowingpeptides.com/produkt/semax/",
+   "https://glowingpeptides.com/wp-json/wc/store/v1/products/9955",
+   "https://glowingpeptides.com/wp-json/wc/store/v1/products/23332",
+   "https://glowingpeptides.com/wp-json/wc/store/v1/products/14761",
+   "https://glowingpeptides.com/wp-json/wc/store/v1/products/14749",
+   "https://glowingpeptides.com/wp-json/wc/store/v1/products/16937",
+   "https://drive.google.com/file/d/1iHZzNy4IwdWEFRnYrFNhv98OgIvXmAwt/view?usp=sharing",
+   "https://drive.google.com/file/d/1jqYl6u6Frbv0RGmnPAHb5BV4XX-ZreCN/view?usp=drive_link",
+   "https://drive.google.com/file/d/1EjgGClY10MRXPegmEl5OpXM1Gl2bLkkT/view?usp=sharing",
+   "https://drive.google.com/file/d/1tFIIm7OVO3jMMudJtFSHpH1E30ZOAwlR/view?usp=sharing",
+   "https://verify.janoshik.com/tests/133267_S7DFEFNCX886",
+   "https://verify.janoshik.com/tests/img/111ee83a19f26920a377.png",
+   "https://verify.janoshik.com/tests/207051_GC2Z7SSNTYD7",
+   "https://verify.janoshik.com/tests/img/c92b67aa886ac7f522dd.png",
+   "https://verify.janoshik.com/tests/153214_MV5HQ1D6SVWY",
+   "https://verify.janoshik.com/tests/img/160490ad542f0795c4d6.png",
+   "https://verify.janoshik.com/tests/207037_4FNCCNGJ6AS3",
+   "https://verify.janoshik.com/tests/img/ebda3078ec0f00675475.png"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 3.2,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 4,
+   "purityMin": 98.592,
+   "purityMax": 99.824,
+   "purityMedian": 99.25,
+   "fillMinPct": 101.2,
+   "fillMaxPct": 105.2
+  },
+  "panelLabels": [
+   "Measured mg"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 15
  },
  {
   "slug": "avellon-peptides",
@@ -5754,7 +6732,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 12
+  "rank": 16
  },
  {
   "slug": "ascension-peptides",
@@ -6297,7 +7275,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 13
+  "rank": 17
  },
  {
   "slug": "core-peptides",
@@ -6840,7 +7818,7 @@
     "note": "shop states >99% purity by HPLC"
    }
   ],
-  "rank": 14
+  "rank": 18
  },
  {
   "slug": "biolongevity-labs",
@@ -7177,7 +8155,433 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 15
+  "rank": 19
+ },
+ {
+  "slug": "mizan-supply",
+  "name": "Mizan Supply",
+  "shopUrl": "https://mizansupply.com/",
+  "region": "US",
+  "originCountry": null,
+  "shipsTo": [
+   "US"
+  ],
+  "legalEntity": "AL-MIZAN LLC (operator named in the terms); the shop lists a contact address in Schererville, Indiana.",
+  "companyDetails": {
+   "operator": "AL-MIZAN LLC",
+   "registrationNumber": null,
+   "registeredOffice": null,
+   "contactAddress": "228 W. Lincoln Hwy #212, Schererville, IN 46375, United States",
+   "governingJurisdiction": "Indiana",
+   "dispatchOrigin": null
+  },
+  "testingLabs": [
+   "Freedom Diagnostics Testing"
+  ],
+  "coaAccess": "Public lot records with shop PDFs and direct links to Freedom Diagnostics Testing PDFs. All 4 sampled shop copies were byte-identical to the lab copies.",
+  "coaExamples": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "batch": "MZN-BPC10-2610",
+    "client": "Mizan Supply",
+    "labelMg": 10,
+    "measuredMg": 11.56,
+    "purityPercent": 99.64,
+    "lab": "Freedom Diagnostics Testing",
+    "reportId": "Miza2610080068",
+    "testDate": "2026-10-10",
+    "url": "https://coas.freedomdiagnosticstesting.com/Miza2610080068.pdf",
+    "shopLotUrl": "https://mizansupply.com/batch/MZN-BPC10-2610/",
+    "shopReportUrl": "https://mizansupply.com/wp-content/uploads/2026/10/Mizan_BPC10_10102026.pdf",
+    "verifiable": true
+   },
+   {
+    "compound": "tb-500-frag-17-23",
+    "shopProductName": "TB-500 Frag 17-23 10 mg",
+    "batch": "MZN-TBF10-2610",
+    "client": "Mizan Supply",
+    "labelMg": 10,
+    "measuredMg": 11.56,
+    "purityPercent": 99.6,
+    "lab": "Freedom Diagnostics Testing",
+    "reportId": "Miza2610140113",
+    "testDate": "2026-10-16",
+    "url": "https://coas.freedomdiagnosticstesting.com/Miza2610140113.pdf",
+    "shopLotUrl": "https://mizansupply.com/batch/MZN-TBF10-2610/",
+    "shopReportUrl": "https://mizansupply.com/wp-content/uploads/2026/10/Miza2610140113.pdf",
+    "verifiable": true
+   },
+   {
+    "compound": "mzn-2p-t",
+    "shopProductName": "MZN-2P (T) 10 mg",
+    "batch": "MZN-TZ10-2610",
+    "client": "Mizan Supply",
+    "labelMg": 10,
+    "measuredMg": 12.2,
+    "purityPercent": 99.85,
+    "lab": "Freedom Diagnostics Testing",
+    "reportId": "Miza2610140119",
+    "testDate": "2026-10-16",
+    "url": "https://coas.freedomdiagnosticstesting.com/Miza2610140119.pdf",
+    "shopLotUrl": "https://mizansupply.com/batch/MZN-TZ10-2610/",
+    "shopReportUrl": "https://mizansupply.com/wp-content/uploads/2026/10/Miza2610140119.pdf",
+    "verifiable": true
+   },
+   {
+    "compound": "n-acetyl-selank-amidate",
+    "shopProductName": "Selank (N-Acetyl Amidate) 10 mg",
+    "batch": "MZN-NSA10-2610",
+    "client": "Mizan Supply",
+    "labelMg": 10,
+    "measuredMg": 9.29,
+    "purityPercent": 99.78,
+    "lab": "Freedom Diagnostics Testing",
+    "reportId": "Miza2610140102",
+    "testDate": "2026-10-16",
+    "url": "https://coas.freedomdiagnosticstesting.com/Miza2610140102.pdf",
+    "shopLotUrl": "https://mizansupply.com/batch/MZN-NSA10-2610/",
+    "shopReportUrl": "https://mizansupply.com/wp-content/uploads/2026/10/Miza2610140102.pdf",
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": true,
+   "mass": true,
+   "endotoxin": null,
+   "sterility": null,
+   "heavyMetals": null
+  },
+  "paymentMethods": [],
+  "freeShippingThreshold": "$200 after discounts (standard shipping)",
+  "dispatchInfo": "The shop states dispatch within 1–2 business days and delivery only within the United States, including Alaska and Hawaii. Standard estimates are 3–5 business days outside Alaska and Hawaii and 2–3 weeks for Alaska and Hawaii. Dispatch origin is not stated.",
+  "products": [],
+  "subscores": {
+   "labVerification": 8,
+   "fillAccuracy": 4,
+   "panelDepth": 5,
+   "entityTransparency": 6,
+   "dispatchReliability": 7,
+   "valuePerMg": -1
+  },
+  "subscore_reasons": {
+   "labVerification": "All 4 sampled lot records link to readable originals at Freedom Diagnostics Testing; product designation, nominal strength, client and lot matched.",
+   "fillAccuracy": "The 4 sampled reports measured 92.9%–122.0% of label; 3 exceeded the nominal amount by more than 10%.",
+   "panelDepth": "The 4 reports document LC-MS identity, HPLC-UV purity and net content; none of these reports documents endotoxin, sterility or heavy metals.",
+   "entityTransparency": "The terms name AL-MIZAN LLC and the contact page gives a street address; no registration number or registered office was identified in the shop disclosures read.",
+   "dispatchReliability": "The public policy specifies dispatch and delivery estimates and geographic exclusions; no dispatch location or carrier was stated there.",
+   "valuePerMg": "Not assessed: prices and product detail pages require sign-in."
+  },
+  "strengths": [
+   "All 4 sampled lot records matched the corresponding lab-hosted certificates.",
+   "The shop explains lot-level access and publishes a written US shipping policy."
+  ],
+  "weaknesses": [
+   "3 of 4 sampled reports exceeded the nominal amount by more than 10%.",
+   "Prices and product details require sign-in; no dispatch location or registered office was established."
+  ],
+  "verdict": "Mizan Supply's 4 sampled lot records matched readable Freedom Diagnostics Testing reports for product, client and lot. Measured content ranged from 92.9% to 122.0% of label. The shop names its operator and publishes domestic delivery terms, but does not state the dispatch location in its shipping policy.",
+  "summary": "US-only storefront operated by AL-MIZAN LLC, with lot records available without an account. The public catalog shows listing names, but restricts prices and product details to signed-in users.",
+  "notes": "The Indiana address is published as a contact address, not as a registered office or dispatch site. The privacy policy mentions card details and payment processors, but does not list supported payment methods. The sample is not a complete report inventory. Dates are the reports' reported dates, also shown as test dates on the shop lot pages. The MZN-2P (T) report uses the identity shorthand GLP TZ; the audit preserves the source designation without expanding it. TB-500 Frag 17-23 and N-Acetyl Selank Amidate are recorded as named, not treated as interchangeable with the full peptide or the unmodified compound.",
+  "sources": [
+   "https://mizansupply.com/",
+   "https://mizansupply.com/terms/",
+   "https://mizansupply.com/contact/",
+   "https://mizansupply.com/shipping/",
+   "https://mizansupply.com/privacy/",
+   "https://mizansupply.com/shop/",
+   "https://mizansupply.com/testing-and-coas/",
+   "https://mizansupply.com/batch/MZN-BPC10-2610/",
+   "https://mizansupply.com/batch/MZN-TBF10-2610/",
+   "https://mizansupply.com/batch/MZN-TZ10-2610/",
+   "https://mizansupply.com/batch/MZN-NSA10-2610/",
+   "https://coas.freedomdiagnosticstesting.com/Miza2610080068.pdf",
+   "https://coas.freedomdiagnosticstesting.com/Miza2610140113.pdf",
+   "https://coas.freedomdiagnosticstesting.com/Miza2610140119.pdf",
+   "https://coas.freedomdiagnosticstesting.com/Miza2610140102.pdf",
+   "https://mizansupply.com/wp-content/uploads/2026/10/Mizan_BPC10_10102026.pdf",
+   "https://mizansupply.com/wp-content/uploads/2026/10/Miza2610140113.pdf",
+   "https://mizansupply.com/wp-content/uploads/2026/10/Miza2610140119.pdf",
+   "https://mizansupply.com/wp-content/uploads/2026/10/Miza2610140102.pdf"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 3.1,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 4,
+   "purityMin": 99.6,
+   "purityMax": 99.85,
+   "purityMedian": 99.71,
+   "fillMinPct": 92.9,
+   "fillMaxPct": 122.0
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "LC-MS identity",
+   "Measured mg"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 20
+ },
+ {
+  "slug": "primal-peptides",
+  "name": "Primal Peptides",
+  "shopUrl": "https://primalpeptides.nl",
+  "region": "EU",
+  "originCountry": "NL",
+  "shipsTo": [
+   "NL",
+   "BE",
+   "DE",
+   "FR",
+   "AT",
+   "BG",
+   "HR",
+   "CY",
+   "CZ",
+   "DK",
+   "FI",
+   "GR",
+   "HU",
+   "IE",
+   "IT",
+   "LT",
+   "LV",
+   "EE",
+   "MT",
+   "PL",
+   "PT",
+   "RO",
+   "SE",
+   "SK",
+   "SI",
+   "ES",
+   "LU",
+   "MC",
+   "GB",
+   "PK",
+   "TR"
+  ],
+  "legalEntity": "Elite Edge / Primal Peptides (KVK 89622073; VAT NL004748056B46)",
+  "testingLabs": [
+   "Janoshik Analytical"
+  ],
+  "coaAccess": "Public shop report library and variant links to Janoshik Analytical; 4 selected reports read on the lab domain.",
+  "coaExamples": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "labelMg": 10,
+    "measuredMg": 10.74,
+    "purityPercent": 99.945,
+    "lab": "Janoshik Analytical",
+    "reportId": "217695",
+    "testDate": "2026-08-14",
+    "url": "https://janoshik.com/tests/217695-BPC157_10mg_WDQRAERUSV91",
+    "verifiable": true
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10 mg",
+    "labelMg": 10,
+    "measuredMg": 10.5,
+    "purityPercent": 99.073,
+    "lab": "Janoshik Analytical",
+    "reportId": "217733",
+    "testDate": "2026-08-18",
+    "url": "https://verify.janoshik.com/tests/217733_4NUD681W5VG2",
+    "verifiable": true
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "RP-3 (Retatrutide) 5 mg",
+    "labelMg": 5,
+    "measuredMg": 5.8,
+    "purityPercent": 99.681,
+    "lab": "Janoshik Analytical",
+    "reportId": "226539",
+    "testDate": "2026-08-31",
+    "url": "https://verify.janoshik.com/tests/226539_YP8RJBGAH78G",
+    "verifiable": true
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10 mg",
+    "labelMg": 10,
+    "measuredMg": 10.72,
+    "purityPercent": 98.228,
+    "lab": "Janoshik Analytical",
+    "reportId": "217728",
+    "testDate": "2026-08-17",
+    "url": "https://janoshik.com/tests/217728-Tesamorelin_10mg_K28GBUKGIWJD",
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": false,
+   "lcms": false,
+   "identity": true,
+   "mass": true,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [
+   "SEPA bank transfer",
+   "Crypto"
+  ],
+  "freeShippingThreshold": "€100 in the Netherlands; €350 for supported international destinations",
+  "dispatchInfo": "The shipping page says dispatch is from the Netherlands, with 24–48 hours of processing after payment verification and tracking via PostNL, DHL or FedEx; an alternate policy states same-day dispatch for orders placed before 12:00 on working days.",
+  "products": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "vialMg": 10,
+    "price": 39.99,
+    "currency": "EUR",
+    "salePrice": 27.99,
+    "url": "https://primalpeptides.nl/product/bpc-157",
+    "inStock": true,
+    "pricePerMg": 2.799
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10 mg",
+    "vialMg": 10,
+    "price": 49.95,
+    "currency": "EUR",
+    "salePrice": 34.96,
+    "url": "https://primalpeptides.nl/product/tb-500",
+    "inStock": true,
+    "pricePerMg": 3.496
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "RP-3 (Retatrutide) 5 mg",
+    "vialMg": 5,
+    "price": 64.99,
+    "currency": "EUR",
+    "salePrice": 45.49,
+    "url": "https://primalpeptides.nl/product/rp-3",
+    "inStock": true,
+    "pricePerMg": 9.098
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10 mg",
+    "vialMg": 10,
+    "price": 64.99,
+    "currency": "EUR",
+    "salePrice": 45.49,
+    "url": "https://primalpeptides.nl/product/tesamorelin",
+    "inStock": true,
+    "pricePerMg": 4.549
+   },
+   {
+    "compound": "selank",
+    "shopProductName": "Selank 10 mg",
+    "vialMg": 10,
+    "price": 29.99,
+    "currency": "EUR",
+    "salePrice": 20.99,
+    "url": "https://primalpeptides.nl/product/selank",
+    "inStock": true,
+    "pricePerMg": 2.099
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 50 mg",
+    "vialMg": 50,
+    "price": 39.99,
+    "currency": "EUR",
+    "salePrice": 27.99,
+    "url": "https://primalpeptides.nl/product/ghk-cu",
+    "inStock": true,
+    "pricePerMg": 0.56
+   }
+  ],
+  "subscores": {
+   "labVerification": 8,
+   "fillAccuracy": 6,
+   "panelDepth": 3,
+   "entityTransparency": 7,
+   "dispatchReliability": 7,
+   "valuePerMg": 6
+  },
+  "subscore_reasons": {
+   "labVerification": "All 4 sampled reports were read on Janoshik's domain and matched the selected products and the .nl client, but none could be matched to a shop lot.",
+   "fillAccuracy": "The 4 sampled reports measured 105.0–116.0% of nominal content, all above the declared amounts.",
+   "panelDepth": "The opened reports show analyte and purity results and measured content; they do not specify analytical methods or show endotoxin, sterility or heavy-metal results.",
+   "entityTransparency": "The shop names Elite Edge, publishes KVK and VAT numbers and gives a Hillegom correspondence box, but its registered street address and legal form were not independently confirmed.",
+   "dispatchReliability": "The main shipping page gives origin, tracked carriers, thresholds and transit estimates, but another published policy gives a different processing timetable.",
+   "valuePerMg": "At regular prices and equal nominal vial sizes, BPC-157, TB-500, Selank and Tesamorelin were below their medians in our existing EUR sample, while RP-3 was above the only comparable entry."
+  },
+  "strengths": [
+   "Public shop report library; all 4 sampled reports readable on Janoshik's domain.",
+   "The lab reports name the .nl client and match the selected products and nominal vial sizes.",
+   "Published business identifiers and shipping rate table."
+  ],
+  "weaknesses": [
+   "No report batch could be matched to a shop lot; batch fields were blank or marked Unknown.",
+   "Tesamorelin report #217728 shows 98.228% purity for 10 mg, below the shop's stated ≥99%; the library repeats that 10 mg report for 20 mg, whose product page says no report is available.",
+   "The 4 measured contents run 105.0–116.0% of nominal; processing statements differ across shipping pages."
+  ],
+  "verdict": "Four Janoshik reports matched the products and the .nl client, but not specific stock lots. Measured content was above nominal in all 4, and the 10 mg Tesamorelin result was below the shop's stated purity threshold. The shop publishes business identifiers and shipping information, but we could not confirm its legal form or registered street address.",
+  "summary": "Research-use shop at primalpeptides.nl, named with Elite Edge in its privacy policy. The shop says it dispatches from the Netherlands and publishes a Janoshik report library and links by variant.",
+  "notes": "Scope is primalpeptides.nl only; similarly named .net and .com domains were not audited and no relationship is established. Hillegom is a correspondence address, not a confirmed registered seat or warehouse. The shipping page lists all 27 EU members, the United Kingdom, Pakistan and Turkey; its rate matrix also lists Monaco. The main shipping page and the alternate shipping policy differ; neither timetable was measured. The 4 report sheets and their lab-hosted vial photos were read; no lot number was legible on those photos. The cited mass and purity values apply only to the tested samples. The shop describes HPLC and MS on its verification page, but the sampled lab sheets do not name those exact methods. The 6 catalog rows are a snapshot, not an inventory census. Regular prices are prices for the selected variants from the shop API; public promotional prices shown on the audit date are separate. For TB-500 the 10 mg variant price, €49.95, is used rather than the €49.99 parent record. The EUR comparison uses regular, in-stock prices for equal nominal vial sizes in the existing audit dataset, not checkout or market-wide prices.",
+  "sources": [
+   "https://primalpeptides.nl/shop",
+   "https://primalpeptides.nl/en/contact",
+   "https://primalpeptides.nl/en/pages/contact",
+   "https://primalpeptides.nl/en/policies/privacy",
+   "https://primalpeptides.nl/en/shipping",
+   "https://primalpeptides.nl/en/policies/shipping-policy",
+   "https://primalpeptides.nl/lab-verification",
+   "https://primalpeptides.nl/product/bpc-157",
+   "https://primalpeptides.nl/product/tb-500?lang=nl",
+   "https://primalpeptides.nl/product/rp-3",
+   "https://primalpeptides.nl/product/tesamorelin",
+   "https://primalpeptides.nl/product/selank",
+   "https://primalpeptides.nl/product/ghk-cu",
+   "https://primalpeptides.nl/api/products/bpc-157",
+   "https://primalpeptides.nl/api/products/tb-500",
+   "https://primalpeptides.nl/api/products/rp-3",
+   "https://primalpeptides.nl/api/products/tesamorelin",
+   "https://primalpeptides.nl/api/products/selank",
+   "https://primalpeptides.nl/api/products/ghk-cu",
+   "https://janoshik.com/tests/217695-BPC157_10mg_WDQRAERUSV91",
+   "https://verify.janoshik.com/tests/img/ac199eccf9034cbe5fe0.png",
+   "https://jas.janoshik.com/images/0afb0eb1093ecb288c8373b2471b2550.jpg",
+   "https://verify.janoshik.com/tests/217733_4NUD681W5VG2",
+   "https://verify.janoshik.com/tests/img/9a8014d00a1504fa394a.png",
+   "https://jas.janoshik.com/images/6dc61c973fbe3996dfec2b6805f3fa0f.jpg",
+   "https://verify.janoshik.com/tests/226539_YP8RJBGAH78G",
+   "https://janoshik.com/tests/img/6abd550a86c966736fe5.png",
+   "https://jas.janoshik.com/images/1a5986861b324dc0e87f6e380d759b91.jpg",
+   "https://janoshik.com/tests/217728-Tesamorelin_10mg_K28GBUKGIWJD",
+   "https://verify.janoshik.com/tests/img/6ced071eee7fd14d60e8.png",
+   "https://jas.janoshik.com/images/e18f62e2342c0073cb44e8ffefc06aad.jpg"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 3.1,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 4,
+   "purityMin": 98.228,
+   "purityMax": 99.945,
+   "purityMedian": 99.38,
+   "fillMinPct": 105.0,
+   "fillMaxPct": 116.0
+  },
+  "panelLabels": [
+   "Identity",
+   "Measured mg"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 21
  },
  {
   "slug": "real-peptides",
@@ -7776,7 +9180,282 @@
     "readAt": "2026-11-21"
    }
   ],
-  "rank": 16
+  "rank": 22
+ },
+ {
+  "slug": "bioboostx",
+  "name": "BioBoostX",
+  "auditStatus": "audited",
+  "shopUrl": "https://bioboostx.com/",
+  "region": "EU",
+  "originCountry": "DE",
+  "shipsTo": "Europe and selected worldwide destinations served by DHL; no full country list confirmed",
+  "legalEntity": "BioBoostX e.K.",
+  "registeredOffice": {
+   "address": "Unterer Dobelweg 8, 84076 Pfeffenhausen",
+   "country": "DE",
+   "registryId": "HRA 12969",
+   "lei": "3912005WE06FVF6FEN38",
+   "vatId": null,
+   "vatIdAsPrinted": {
+    "legalNotice": "DE240479675",
+    "terms": "DE24047967"
+   }
+  },
+  "shopPublishedAddress": {
+   "address": "Grabarska 1, Pegaz Building B, 50-079 Wroclaw",
+   "country": "PL"
+  },
+  "dispatchOrigin": {
+   "region": "EU",
+   "country": null,
+   "address": null
+  },
+  "testingLabs": [
+   "Janoshik Analytical"
+  ],
+  "coaAccess": "Public COA gallery and product-page images; their QR codes lead to original Janoshik reports.",
+  "coaExamples": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Triple G (10mg)",
+    "sampleName": "Retatrutide 10 mg",
+    "client": "BioBoostX",
+    "batch": null,
+    "reportBatchField": "EXP: 11/29",
+    "shopBatchMatch": null,
+    "labelMg": 10,
+    "measuredMg": 10.62,
+    "purityPercent": 99.306,
+    "lab": "Janoshik Analytical",
+    "reportId": "214952",
+    "testDate": "2026-08-13",
+    "url": "https://verify.janoshik.com/tests/214952_66U5W2CDDD4M",
+    "labAssetUrl": "https://verify.janoshik.com/tests/img/d72c6a60df80d536fdf6.png",
+    "shopCopyUrl": "https://bioboostx.com/wp-content/uploads/2026/07/Test-Report-214952.avif",
+    "verifiable": true
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157",
+    "sampleName": "BPC-157",
+    "client": "BioBoostX.com",
+    "batch": null,
+    "reportBatchField": "EXP: 11/29",
+    "shopBatchMatch": null,
+    "labelMg": null,
+    "measuredMg": 24.14,
+    "purityPercent": 99.864,
+    "lab": "Janoshik Analytical",
+    "reportId": "104691",
+    "testDate": "2026-02-10",
+    "url": "https://verify.janoshik.com/tests/104691_EVJBHHH8ETSA",
+    "labAssetUrl": "https://verify.janoshik.com/tests/img/443ef09293db66139ef5.png",
+    "shopCopyUrl": "https://bioboostx.com/wp-content/uploads/2025/10/bpc-20.avif",
+    "verifiable": true
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500",
+    "sampleName": "TB-500",
+    "client": "BioBoostX.com",
+    "batch": null,
+    "reportBatchField": "EXP: 11/29",
+    "shopBatchMatch": null,
+    "labelMg": null,
+    "measuredMg": 24.32,
+    "purityPercent": 99.773,
+    "lab": "Janoshik Analytical",
+    "reportId": "104690",
+    "testDate": "2026-02-10",
+    "url": "https://verify.janoshik.com/tests/104690_UYDIFYN4ZQBK",
+    "labAssetUrl": "https://verify.janoshik.com/tests/img/efe7cc5edd945e645d06.png",
+    "shopCopyUrl": "https://bioboostx.com/wp-content/uploads/2025/10/TB500-20.avif",
+    "verifiable": true
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 (10mg)",
+    "sampleName": "BPC-157 10mg",
+    "client": "BioBoostX.com",
+    "batch": null,
+    "reportBatchField": "EXP: 11/29",
+    "shopBatchMatch": null,
+    "labelMg": 10,
+    "measuredMg": null,
+    "purityPercent": null,
+    "endotoxinValue": 2.318,
+    "endotoxinUnit": "EU/vial",
+    "lab": "Janoshik Analytical",
+    "reportId": "244533",
+    "testDate": "2026-10-22",
+    "url": "https://verify.janoshik.com/tests/244533_XRW11TG9GLSZ",
+    "labAssetUrl": "https://verify.janoshik.com/tests/img/91833eb81f3089f94c4a.png",
+    "shopCopyUrl": "https://bioboostx.com/wp-content/uploads/2025/12/endo-bpc10.avif",
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": null,
+   "lcms": null,
+   "identity": true,
+   "mass": true,
+   "endotoxin": true,
+   "sterility": null,
+   "heavyMetals": null
+  },
+  "paymentMethods": [
+   "Credit cards",
+   "Google Pay",
+   "Bank transfer",
+   "Direct bank transfer",
+   "Cryptocurrency"
+  ],
+  "freeShippingThreshold": "The written policy lists free standard shipping over €150 in Europe and over €200 worldwide; the home page and product pages advertise different terms.",
+  "dispatchInfo": "The home page advertises same-day dispatch before 14:00 CET on working days. The written policy names tracked DHL service and estimates standard transit of 2–5 days in Europe and 3–10 days worldwide.",
+  "products": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Triple G (10mg)",
+    "vialMg": 10,
+    "price": 79.95,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://bioboostx.com/product/triple-g-1/",
+    "inStock": true,
+    "pricePerMg": 7.995
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 (10mg)",
+    "vialMg": 10,
+    "price": 34.95,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://bioboostx.com/product/product-bpc-157-research-grade-1/",
+    "inStock": true,
+    "pricePerMg": 3.495
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 (20mg)",
+    "vialMg": 20,
+    "price": 59.95,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://bioboostx.com/product/product-bpc-157-research-grade-1/",
+    "inStock": true,
+    "pricePerMg": 2.998
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (10mg)",
+    "vialMg": 10,
+    "price": 39.95,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://bioboostx.com/product/product-tb-500-research-grade-1/",
+    "inStock": true,
+    "pricePerMg": 3.995
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (20mg)",
+    "vialMg": 20,
+    "price": 69.95,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://bioboostx.com/product/product-tb-500-research-grade-1/",
+    "inStock": true,
+    "pricePerMg": 3.498
+   },
+   {
+    "compound": "kpv",
+    "shopProductName": "KPV 10mg",
+    "vialMg": 10,
+    "price": 44.95,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://bioboostx.com/product/product-kpv-10mg/",
+    "inStock": true,
+    "pricePerMg": 4.495
+   }
+  ],
+  "subscores": {
+   "labVerification": 7,
+   "fillAccuracy": 5,
+   "panelDepth": 5,
+   "entityTransparency": 7,
+   "dispatchReliability": 6,
+   "valuePerMg": 6
+  },
+  "subscore_reasons": {
+   "labVerification": "All 4 sample reports were read on Janoshik and matched the product and client, but each used an expiry in place of a unique lot number.",
+   "fillAccuracy": "The only sampled assay with a confirmed label amount measured 10.62 mg for a 10 mg label; the BPC-157 and TB-500 assay reports do not state nominal content.",
+   "panelDepth": "The sample documents purity, content, a blind identity test and a separate endotoxin result; no heavy-metal or sterility result was confirmed in the sample.",
+   "entityTransparency": "The legal notice and GLEIF agree on BioBoostX e.K. and HRA 12969; they show different addresses, and the shop's own pages disagree on the VAT ID.",
+   "dispatchReliability": "The shop publishes a dispatch cut-off, tracked DHL options and transit estimates, but its free-shipping statements conflict.",
+   "valuePerMg": "For the 10 mg products in the sample, BPC-157 and TB-500 were below the matching EUR medians in the existing audit, KPV was near its median and retatrutide was above."
+  },
+  "strengths": [
+   "All 4 sampled reports were read on the original Janoshik domain, including a separate BPC-157 endotoxin report.",
+   "The legal notice names BioBoostX e.K. and HRA 12969, both corroborated by GLEIF."
+  ],
+  "weaknesses": [
+   "The sampled reports' batch field shows only EXP: 11/29, which does not identify a unique lot or verify current shop stock.",
+   "The BPC-157 and TB-500 assay reports do not state a nominal amount, so their measured content cannot be compared with a verified label.",
+   "The legal notice and terms print different VAT IDs, and the website does not state a dispatch country.",
+   "Free-shipping thresholds and qualifying DHL services are inconsistent across the shop's public pages."
+  ],
+  "verdict": "BioBoostX publishes readable Janoshik reports, but the sampled certificates identify an expiry rather than a unique lot. The German entity is corroborated by GLEIF; the Polish address on the shop is not evidence of the dispatch country.",
+  "summary": "Research-reagent shop operated by BioBoostX e.K. with an address in Poland on its legal notice and a registered address in Germany in GLEIF. It advertises EU dispatch and tracked DHL delivery; the dispatch country remains unconfirmed.",
+  "notes": "The legal notice prints DE240479675; the terms print DE24047967. Neither was independently validated as a VAT ID. The Janoshik report pages were read through web extraction after direct requests were blocked; the original report images linked there were opened and read directly. Prices use publicly displayed regular offers and selectable variants, without coupon codes. Expiry is not a lot code.",
+  "sources": [
+   "https://bioboostx.com/",
+   "https://bioboostx.com/legal-notice/",
+   "https://bioboostx.com/terms-and-conditions/",
+   "https://api.gleif.org/api/v1/lei-records/3912005WE06FVF6FEN38",
+   "https://bioboostx.com/faq/",
+   "https://bioboostx.com/coa/",
+   "https://bioboostx.com/shop-1/",
+   "https://bioboostx.com/product/triple-g-1/",
+   "https://bioboostx.com/product/product-bpc-157-research-grade-1/",
+   "https://bioboostx.com/product/product-tb-500-research-grade-1/",
+   "https://bioboostx.com/product/product-kpv-10mg/",
+   "https://bioboostx.com/wp-content/uploads/2026/07/Test-Report-214952.avif",
+   "https://bioboostx.com/wp-content/uploads/2025/10/bpc-20.avif",
+   "https://bioboostx.com/wp-content/uploads/2025/10/TB500-20.avif",
+   "https://bioboostx.com/wp-content/uploads/2025/12/endo-bpc10.avif",
+   "https://verify.janoshik.com/tests/214952_66U5W2CDDD4M",
+   "https://verify.janoshik.com/tests/104691_EVJBHHH8ETSA",
+   "https://verify.janoshik.com/tests/104690_UYDIFYN4ZQBK",
+   "https://verify.janoshik.com/tests/244533_XRW11TG9GLSZ",
+   "https://verify.janoshik.com/tests/img/d72c6a60df80d536fdf6.png",
+   "https://verify.janoshik.com/tests/img/443ef09293db66139ef5.png",
+   "https://verify.janoshik.com/tests/img/efe7cc5edd945e645d06.png",
+   "https://verify.janoshik.com/tests/img/91833eb81f3089f94c4a.png",
+   "https://jas.janoshik.com/images/ec99c7cfbddcb074279f0b8baf25de53.jpg",
+   "https://jas.janoshik.com/images/4e9c2b5867e22ecf247e4b3360f6cdd5.jpg"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 3.0,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 4,
+   "purityMin": 99.306,
+   "purityMax": 99.864,
+   "purityMedian": 99.77,
+   "fillMinPct": 106.2,
+   "fillMaxPct": 106.2
+  },
+  "panelLabels": [
+   "Identity",
+   "Measured mg",
+   "Endotoxin"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 23
  },
  {
   "slug": "genesis-peptides",
@@ -8313,7 +9992,208 @@
    }
   ],
   "blendReports": [],
-  "rank": 17
+  "rank": 24
+ },
+ {
+  "slug": "drakon-peptides",
+  "name": "Drakon Peptides",
+  "shopUrl": "https://drakonpeptides.com/",
+  "region": "EU",
+  "originCountry": "AT",
+  "shipsTo": "Austria, Germany and the rest of the EU",
+  "shipsToConfirmed": [
+   "EU-wide"
+  ],
+  "legalEntity": "Drakon Brands GmbH, Franzosenhausweg 45, 4030 Linz, Austria (Firmenbuch FN 687046 m)",
+  "testingLabs": [
+   "Analiza Białek",
+   "Janoshik Analytical"
+  ],
+  "coaAccess": "Public batch archive with 36 shop-hosted PDFs and links to the laboratories. Four October Analiza Białek shop PDFs were read; the corresponding lab links returned an access challenge. An older Janoshik sample was partially cross-checked on the lab domain.",
+  "coaExamples": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Retatrutide 10 mg",
+    "labelMg": 10,
+    "measuredMg": 10.69,
+    "purityPercent": 99,
+    "lab": "Analiza Białek",
+    "reportId": "100019230",
+    "testDate": "2026-10-26",
+    "url": "https://drakonpeptides.com/wp-content/uploads/coas/DRK-RET-OCT26.pdf",
+    "verifiable": false
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "labelMg": 10,
+    "measuredMg": 11.46,
+    "purityPercent": 99,
+    "lab": "Analiza Białek",
+    "reportId": "100019231",
+    "testDate": "2026-10-26",
+    "url": "https://drakonpeptides.com/wp-content/uploads/coas/DRK-BPC-OCT26.pdf",
+    "verifiable": false
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10 mg",
+    "labelMg": 10,
+    "measuredMg": 10.89,
+    "purityPercent": 99,
+    "lab": "Analiza Białek",
+    "reportId": "100019228",
+    "testDate": "2026-10-26",
+    "url": "https://drakonpeptides.com/wp-content/uploads/coas/DRK-TB5-OCT26.pdf",
+    "verifiable": false
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 50 mg",
+    "labelMg": 50,
+    "measuredMg": 51.23,
+    "purityPercent": 99,
+    "lab": "Analiza Białek",
+    "reportId": "100019226",
+    "testDate": "2026-10-26",
+    "url": "https://drakonpeptides.com/wp-content/uploads/coas/DRK-GHK-OCT26.pdf",
+    "verifiable": false
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": false,
+   "identity": true,
+   "mass": true,
+   "endotoxin": true,
+   "sterility": false,
+   "heavyMetals": true
+  },
+  "paymentMethods": [
+   "SEPA bank transfer"
+  ],
+  "freeShippingThreshold": "Advertised over €149 for EU orders.",
+  "dispatchInfo": "The shop says it ships from Austria via DPD, DHL and Austrian Post. The shipping policy states 1–2 working days for processing and delivery estimates of 1–2 working days for AT, 1–3 for DE and 2–6 for the rest of the EU. The homepage advertises same-day dispatch before 14:00, while the FAQ gives 3–7 working days for the rest of the EU.",
+  "products": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Retatrutide 10 mg",
+    "vialMg": 10,
+    "price": 79.9,
+    "currency": "EUR",
+    "salePrice": 39.95,
+    "url": "https://drakonpeptides.com/product/retatrutide-10mg/",
+    "inStock": true,
+    "pricePerMg": 3.995
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "vialMg": 10,
+    "price": 34.9,
+    "currency": "EUR",
+    "salePrice": 17.45,
+    "url": "https://drakonpeptides.com/product/bpc-157-10mg/",
+    "inStock": true,
+    "pricePerMg": 1.745
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10 mg",
+    "vialMg": 10,
+    "price": 59.9,
+    "currency": "EUR",
+    "salePrice": 29.95,
+    "url": "https://drakonpeptides.com/product/tb-500-10mg/",
+    "inStock": true,
+    "pricePerMg": 2.995
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 50 mg",
+    "vialMg": 50,
+    "price": 34.9,
+    "currency": "EUR",
+    "salePrice": 17.45,
+    "url": "https://drakonpeptides.com/product/ghk-cu-50mg/",
+    "inStock": true,
+    "pricePerMg": 0.349
+   }
+  ],
+  "subscores": {
+   "labVerification": 4,
+   "fillAccuracy": 5,
+   "panelDepth": 7,
+   "entityTransparency": 9,
+   "dispatchReliability": 6,
+   "valuePerMg": 5
+  },
+  "subscore_reasons": {
+   "labVerification": "Four current shop PDFs name Drakon Peptides and match the linked product and batch archive; none could be read on the Analiza Białek domain, and the older Janoshik lookup only corroborated the analytical data, not the client or batch fields.",
+   "fillAccuracy": "Four shop-hosted reports give 102.5% to 114.6% of nominal content; the BPC-157 sample is at the upper end, and no result in the scored sample was confirmed on the lab domain.",
+   "panelDepth": "The four shop-hosted PDFs include HPLC, molecular mass, measured content, endotoxins, heavy metals and microbial limits tests; these are not sterility tests.",
+   "entityTransparency": "The legal notice identifies Drakon Brands GmbH and gives its seat, address and registry number, which match the Austrian EVI register; the notice also publishes VAT and trade licence identifiers.",
+   "dispatchReliability": "Named carriers and country-level estimates are published, but the homepage, policies and FAQ differ on processing or delivery timing; no delivery was tested.",
+   "valuePerMg": "Four single-vial listings show regular and sale prices without a pack-price assumption; the small sample and time-limited sale do not establish catalog-wide value."
+  },
+  "strengths": [
+   "The Austrian EVI register confirms the named company, its Linz seat, address and registration number.",
+   "Four readable shop PDFs match the products and batch IDs in the public archive and include microbial and heavy-metal panels as well as purity and content."
+  ],
+  "weaknesses": [
+   "The four sampled Analiza Białek lab links returned an access challenge; the lab-domain Janoshik extract for an older batch did not show the client or batch fields.",
+   "The shop publishes different dispatch or transit estimates across its homepage, shipping policy and FAQ; it lists SEPA bank transfer as the only payment method."
+  ],
+  "verdict": "Drakon’s legal notice matches the Austrian EVI register. Its October shop PDFs link readable measurements and additional panels to four named batches, but the corresponding Analiza Białek links could not be read. An older Janoshik lookup corroborated analytical values without exposing the client or batch fields.",
+  "summary": "Austrian research-reagent shop operated by Drakon Brands GmbH, with a public batch archive and EU shipping. The documented Linz company and returns address is not proof of the dispatch site; the shop gives Austria as the dispatch country.",
+  "notes": "The scored COA sample is four October 2026 single-vial PDFs opened on the shop domain. The product pages link to the matching batch archive pages, and the PDFs name Drakon Peptides and the same batch IDs; no retail vial or live-stock batch was inspected. Each PDF records one customer-provided vial. Analiza Białek access returned an interstitial, not a missing-report result. Separate historical check: the Janoshik link for task 156583 returned a readable analytical page for Retatrutide 10 mg (11.06 mg and 99.421%); the client drakonpeptides.com and batch DRK-RET-MAY26 were visible only on the shop’s scanned cover sheet. That partial match is not counted in the four examples. Four standalone product prices were sampled from the public one-unit display data; no cart, order or checkout was used.",
+  "sources": [
+   "https://drakonpeptides.com/",
+   "https://drakonpeptides.com/impressum/",
+   "https://www.evi.gv.at/f/687046m",
+   "https://drakonpeptides.com/shipping-and-returns/",
+   "https://drakonpeptides.com/faq/",
+   "https://drakonpeptides.com/coas-test-results/",
+   "https://drakonpeptides.com/product/retatrutide-10mg/",
+   "https://drakonpeptides.com/product/bpc-157-10mg/",
+   "https://drakonpeptides.com/product/tb-500-10mg/",
+   "https://drakonpeptides.com/product/ghk-cu-50mg/",
+   "https://drakonpeptides.com/coa/DRK-RET-OCT26/",
+   "https://drakonpeptides.com/coa/DRK-BPC-OCT26/",
+   "https://drakonpeptides.com/coa/DRK-TB5-OCT26/",
+   "https://drakonpeptides.com/coa/DRK-GHK-OCT26/",
+   "https://drakonpeptides.com/wp-content/uploads/coas/DRK-RET-OCT26.pdf",
+   "https://drakonpeptides.com/wp-content/uploads/coas/DRK-BPC-OCT26.pdf",
+   "https://drakonpeptides.com/wp-content/uploads/coas/DRK-TB5-OCT26.pdf",
+   "https://drakonpeptides.com/wp-content/uploads/coas/DRK-GHK-OCT26.pdf",
+   "https://analizabialek.com/wyniki/files/Analiza_JS8YYX02.pdf",
+   "https://analizabialek.com/wyniki/files/Analiza_L40C9UHV.pdf",
+   "https://analizabialek.com/wyniki/files/Analiza_28F4H7Q2.pdf",
+   "https://analizabialek.com/wyniki/files/Analiza_90V0TELC.pdf",
+   "https://drakonpeptides.com/wp-content/uploads/coas/DRK-RET-MAY26.pdf",
+   "https://verify.janoshik.com/tests/156583-Retatrutide10mg_EUBNDKIKX7PF"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 2.9,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 0,
+   "purityMin": 99,
+   "purityMax": 99,
+   "purityMedian": 99.0,
+   "fillMinPct": 102.5,
+   "fillMaxPct": 114.6
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "Identity",
+   "Measured mg",
+   "Endotoxin",
+   "Heavy metals"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 25
  },
  {
   "slug": "limitless-life-nootropics",
@@ -8607,7 +10487,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 18
+  "rank": 26
  },
  {
   "slug": "purified-peptide",
@@ -9150,7 +11030,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 19
+  "rank": 27
  },
  {
   "slug": "pure-peptides",
@@ -9591,7 +11471,217 @@
    }
   ],
   "blendReports": [],
-  "rank": 20
+  "rank": 28
+ },
+ {
+  "slug": "fit-peptides",
+  "name": "Fit Peptides",
+  "shopUrl": "https://fit-peptides.com/en/",
+  "region": "EU",
+  "originCountry": "NL",
+  "shipsTo": "Netherlands, Belgium and other eligible EU countries",
+  "shipsToConfirmed": [
+   "NL",
+   "BE"
+  ],
+  "legalEntity": null,
+  "testingLabs": [
+   "Janoshik Analytical"
+  ],
+  "coaAccess": "Public shop COA library with 25 reports across 24 entries and direct Janoshik report links. Four reports were read on the lab domain.",
+  "coaExamples": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "labelMg": null,
+    "measuredMg": 10.93,
+    "purityPercent": 99.298,
+    "lab": "Janoshik Analytical",
+    "reportId": "105378",
+    "testDate": "2026-02-17",
+    "url": "https://verify.janoshik.com/tests/img/2b2423993683463b3f64.png",
+    "verifiable": true
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 20 mg",
+    "labelMg": 20,
+    "measuredMg": 21.28,
+    "purityPercent": 99.809,
+    "lab": "Janoshik Analytical",
+    "reportId": "154254",
+    "testDate": "2026-05-11",
+    "url": "https://verify.janoshik.com/tests/img/17849a7cf975937e6332.png",
+    "verifiable": true
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10 mg",
+    "labelMg": null,
+    "measuredMg": 10.05,
+    "purityPercent": 99.792,
+    "lab": "Janoshik Analytical",
+    "reportId": "109324",
+    "testDate": "2026-02-20",
+    "url": "https://verify.janoshik.com/tests/img/7095f6d341bef3d300b5.png",
+    "verifiable": true
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10 mg",
+    "labelMg": 10,
+    "measuredMg": 11.15,
+    "purityPercent": 99.148,
+    "lab": "Janoshik Analytical",
+    "reportId": "239922",
+    "testDate": "2026-10-09",
+    "url": "https://verify.janoshik.com/tests/img/169f7c4028283473892f.png",
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": false,
+   "lcms": false,
+   "mass": true,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [
+   "Bank payment",
+   "Credit cards",
+   "PayPal",
+   "Cryptocurrency"
+  ],
+  "freeShippingThreshold": "Advertised over €50 for NL and BE; over €150 for other eligible EU destinations.",
+  "dispatchInfo": "The shop lists PostNL, DHL and FedEx as possible carriers. Paid orders before 16:00 on working days normally ship the same day; estimates are 1–2 working days for NL, 1–3 for BE and 2–7 for other eligible EU destinations. The dispatch location is not stated in the shipping policy.",
+  "products": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10 mg",
+    "vialMg": 10,
+    "price": 59.95,
+    "currency": "EUR",
+    "salePrice": 41.97,
+    "url": "https://fit-peptides.com/en/pcb-157/",
+    "inStock": true,
+    "pricePerMg": 4.197
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 20 mg",
+    "vialMg": 20,
+    "price": 89.95,
+    "currency": "EUR",
+    "salePrice": 73.95,
+    "url": "https://fit-peptides.com/en/pcb-157/",
+    "inStock": true,
+    "pricePerMg": 3.698
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 10 mg",
+    "vialMg": 10,
+    "price": 59.95,
+    "currency": "EUR",
+    "salePrice": 48.95,
+    "url": "https://fit-peptides.com/en/tb-500/",
+    "inStock": true,
+    "pricePerMg": 4.895
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu 100 mg",
+    "vialMg": 100,
+    "price": 49.95,
+    "currency": "EUR",
+    "salePrice": 40.95,
+    "url": "https://fit-peptides.com/en/ghk-cu/",
+    "inStock": true,
+    "pricePerMg": 0.41
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10 mg",
+    "vialMg": 10,
+    "price": 59.95,
+    "currency": "EUR",
+    "salePrice": 48.95,
+    "url": "https://fit-peptides.com/en/tesamorelin/",
+    "inStock": true,
+    "pricePerMg": 4.895
+   }
+  ],
+  "subscores": {
+   "labVerification": 7,
+   "fillAccuracy": 5,
+   "panelDepth": 3,
+   "entityTransparency": 3,
+   "dispatchReliability": 6,
+   "valuePerMg": 5
+  },
+  "subscore_reasons": {
+   "labVerification": "All four sampled Janoshik reports were read on the lab domain and name FIT Peptides as the client, but only one gives a batch identifier.",
+   "fillAccuracy": "Only two reports state the nominal amount: BPC-157 20 mg measured 106.4% and Tesamorelin 10 mg measured 111.5% of nominal; the other two are excluded from fill comparison.",
+   "panelDepth": "The four reports give purity and measured content, but their result sheets do not identify the purity method or show LC-MS, endotoxin, sterility or heavy-metal results.",
+   "entityTransparency": "The Dutch terms identify a trade name, an Amsterdam address not open to visits and a published KVK number; neither a match in the public register nor the legal entity behind the trade name was confirmed.",
+   "dispatchReliability": "The policy names carriers, a same-day cut-off and delivery estimates, but does not identify the dispatch location; no delivery was tested.",
+   "valuePerMg": "Five exact single-vial variants have public regular and sale prices; this limited snapshot does not support a catalog-wide value claim."
+  },
+  "strengths": [
+   "Direct lab links led to four readable Janoshik reports with FIT Peptides named as client.",
+   "The shipping policy names carriers and distinguishes delivery estimates for the Netherlands, Belgium and other eligible EU destinations."
+  ],
+  "weaknesses": [
+   "Three of the four lab reports have no usable batch identifier; two do not independently state the shop-listed 10 mg label amount.",
+   "For Janoshik report 105378, the shop-hosted image and the lab-hosted image disagree on the manufacturer field.",
+   "The legal entity behind the trade name and the dispatch location remain unconfirmed."
+  ],
+  "verdict": "Four sampled reports were read on Janoshik’s own domain, but only the Tesamorelin report gives a batch identifier. Two reports state a nominal amount, and one shop copy disagrees with the lab on the manufacturer field. The Dutch terms disclose a trade name, not the legal entity behind it.",
+  "summary": "Dutch research-reagent shop with a public Janoshik report library and published shipping estimates for the Netherlands, Belgium and other eligible EU destinations. The Amsterdam contact address and the Deventer returns address do not identify the dispatch location.",
+  "notes": "Four reports across three compounds were checked, not the entire library and not the stock currently shipped. The shop maps reports 105378 and 109324 to 10 mg variants, but neither the lab sheets nor their attached sample photos show 10 mg. Report 105378 names the sample ‘Sample 1’ and the lab photograph identifies BPC-157; the shop copy says the manufacturer is ‘Unknown’, whereas the lab copy says ‘FIT Peptides’. The Tesamorelin report’s FP2026-10 batch is also on the shop’s copy; it was not matched to inventory. Five regular catalog variants across four product pages were sampled; no cart, pack or conditional discounts were checked. The Retatrutide link redirected to the general catalog, so it was not recorded as a product.",
+  "sources": [
+   "https://fit-peptides.com/en/",
+   "https://fit-peptides.com/algemene-voorwaarden/",
+   "https://www.kvk.nl/zoeken/?q=42092116",
+   "https://fit-peptides.com/en/shipping-policy-return-policy/",
+   "https://fit-peptides.com/en/lab-results/",
+   "https://fit-peptides.com/en/peptides/",
+   "https://fit-peptides.com/en/retatrutide/",
+   "https://fit-peptides.com/en/pcb-157/",
+   "https://fit-peptides.com/en/tb-500/",
+   "https://fit-peptides.com/en/ghk-cu/",
+   "https://fit-peptides.com/en/tesamorelin/",
+   "https://verify.janoshik.com/tests/105378-Sample1_I7SE48RT7NVM",
+   "https://verify.janoshik.com/tests/img/2b2423993683463b3f64.png",
+   "https://jas.janoshik.com/images/d40c868bb7e4ea6d41de97907f21580b.jpg",
+   "https://fit-peptides.com/wp-content/uploads/2026/01/bpc-test-resultaten-janoshik-99-procent.png",
+   "https://verify.janoshik.com/tests/154254-BPC15720mg_W1YJZJX75MFG",
+   "https://verify.janoshik.com/tests/img/17849a7cf975937e6332.png",
+   "https://verify.janoshik.com/tests/109324-TB500_4I5E9U5JT4TU",
+   "https://verify.janoshik.com/tests/img/7095f6d341bef3d300b5.png",
+   "https://jas.janoshik.com/images/7705a6e6a0bb98b9960479ab41775cd7.jpg",
+   "https://verify.janoshik.com/tests/239922-Tesamorelin_10mg_D7Z7CP92PS7N",
+   "https://verify.janoshik.com/tests/img/169f7c4028283473892f.png",
+   "https://fit-peptides.com/wp-content/uploads/2026/10/ac33cadde81e8e7f3b9f.png"
+  ],
+  "readAt": "2026-11-23",
+  "overallScore": 2.5,
+  "coaStats": {
+   "opened": 4,
+   "portalVerified": 4,
+   "purityMin": 99.148,
+   "purityMax": 99.809,
+   "purityMedian": 99.55,
+   "fillMinPct": 106.4,
+   "fillMaxPct": 111.5
+  },
+  "panelLabels": [
+   "Measured mg"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 29
  },
  {
   "slug": "peptides-eu",
@@ -10171,7 +12261,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 21
+  "rank": 30
  },
  {
   "slug": "cenexa-labs",
@@ -10719,7 +12809,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 22
+  "rank": 31
  },
  {
   "slug": "onyx-peptides",
@@ -11048,7 +13138,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 23
+  "rank": 32
  },
  {
   "slug": "biotech-peptides",
@@ -11436,7 +13526,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 24
+  "rank": 33
  },
  {
   "slug": "glacier-aminos",
@@ -11665,7 +13755,367 @@
    }
   ],
   "blendReports": [],
-  "rank": 25
+  "rank": 34
+ },
+ {
+  "slug": "pepup-performance",
+  "name": "PEPUP Performance",
+  "auditStatus": "audited",
+  "shopUrl": "https://pepup-performance.de/",
+  "region": "EU",
+  "originCountry": "DE",
+  "shipsTo": [
+   "DE",
+   "EU-wide"
+  ],
+  "legalEntity": "PEPUP Performance (Gökhan Möhürcü)",
+  "legalForm": "sole_proprietorship",
+  "businessAddress": "Kolonnenstraße 8, 10827 Berlin, Deutschland",
+  "registeredOffice": null,
+  "registrationNumber": null,
+  "vatId": "DE405811780",
+  "vatIdVerified": null,
+  "dispatchOrigin": null,
+  "testingLabs": [],
+  "coaAccess": "Public product listings say certificates are available, but no report, issuing laboratory, verification code or batch identifier was visible on the listings checked.",
+  "coaExamples": [],
+  "panels": {
+   "hplc": null,
+   "lcms": null,
+   "mass": null,
+   "endotoxin": null,
+   "sterility": null,
+   "heavyMetals": null
+  },
+  "paymentMethods": [
+   "Credit cards",
+   "Klarna",
+   "Apple Pay",
+   "Google Pay",
+   "Bank transfer",
+   "Bancontact",
+   "PayPal"
+  ],
+  "freeShippingThreshold": null,
+  "dispatchInfo": "The shipping policy lists DHL at €6.90 for Germany and €15.00 for other EU countries, with an estimated 2–5 business days within Germany. No dispatch origin or processing time is stated in the shipping policy.",
+  "products": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "N°004 – BPC-157 I 10mg",
+    "vialMg": 10,
+    "price": 54.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n004-bpc-157-i-10mg/",
+    "inStock": true,
+    "pricePerMg": 5.4
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "N°004 – BPC-157 I 20mg",
+    "vialMg": 20,
+    "price": 79.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n004-bpc-157-i-20mg/",
+    "inStock": true,
+    "pricePerMg": 3.95
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "N°003 – TB-500 I 10mg",
+    "vialMg": 10,
+    "price": 59.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n003-tb-500-i-10mg/",
+    "inStock": true,
+    "pricePerMg": 5.9
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "N°016 – Tesamorelin I 20mg",
+    "vialMg": 20,
+    "price": 139.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n016-tesamorelin-i-20mg/",
+    "inStock": true,
+    "pricePerMg": 6.95
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "N°006 – GHK-Cu I 50mg",
+    "vialMg": 50,
+    "price": 65.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n006-ghk-cu-i-50mg/",
+    "inStock": true,
+    "pricePerMg": 1.3
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "N°006 – GHK-Cu I 100mg",
+    "vialMg": 100,
+    "price": 89.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n006-ghk-cu/",
+    "inStock": true,
+    "pricePerMg": 0.89
+   },
+   {
+    "compound": "kpv",
+    "shopProductName": "N°017 – KPV I 10mg",
+    "vialMg": 10,
+    "price": 49.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n017-kpv-i-10mg/",
+    "inStock": true,
+    "pricePerMg": 4.9
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "N°002 – NAD+ I 500mg",
+    "vialMg": 500,
+    "price": 99.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n002-nad-i-500mg/",
+    "inStock": true,
+    "pricePerMg": 0.198
+   },
+   {
+    "compound": "ss-31",
+    "shopProductName": "N°018 – SS-31 I 10mg",
+    "vialMg": 10,
+    "price": 59.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n018-ss-31-i-10mg/",
+    "inStock": true,
+    "pricePerMg": 5.9
+   },
+   {
+    "compound": "epithalon",
+    "shopProductName": "N°010 – Epithalon I 10mg",
+    "vialMg": 10,
+    "price": 69.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n010-epithalon-i-10mg/",
+    "inStock": true,
+    "pricePerMg": 6.9
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "N°005 – MOTS-c I 40mg",
+    "vialMg": 40,
+    "price": 159.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n005-mots-c-i-40mg/",
+    "inStock": true,
+    "pricePerMg": 3.975
+   },
+   {
+    "compound": "pt-141",
+    "shopProductName": "N°007 – PT-141 I 10mg",
+    "vialMg": 10,
+    "price": 59.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n007-pt-141-i-10mg/",
+    "inStock": true,
+    "pricePerMg": 5.9
+   },
+   {
+    "compound": "thymosin-alpha-1",
+    "shopProductName": "N°014 – Thymosin α-1 I 10mg",
+    "vialMg": 10,
+    "price": 74.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n014-thymosin-%ce%b1-1-i-10mg/",
+    "inStock": true,
+    "pricePerMg": 7.4
+   },
+   {
+    "compound": "ipamorelin",
+    "shopProductName": "N°023 – Ipamorelin I 5mg",
+    "vialMg": 5,
+    "price": 39.0,
+    "currency": "EUR",
+    "salePrice": null,
+    "url": "https://pepup-performance.de/produkt/n023-ipamorelin-i-5mg/",
+    "inStock": true,
+    "pricePerMg": 7.8
+   }
+  ],
+  "subscores": {
+   "labVerification": 0,
+   "fillAccuracy": 3,
+   "panelDepth": 0,
+   "entityTransparency": 8,
+   "dispatchReliability": 6,
+   "valuePerMg": 4
+  },
+  "subscore_reasons": {
+   "labVerification": "The shop says a COA is available on several public product pages, but we found no public document, named issuing lab or verification code on the pages checked.",
+   "fillAccuracy": "No report was available to read, so measured net content cannot be assessed; this is the default score for missing data.",
+   "panelDepth": "No analytical methods or test panels could be verified from a report.",
+   "entityTransparency": "The legal notice and terms identify a sole proprietor and a Berlin business address; the shop publishes a VAT ID, but it was not independently verified.",
+   "dispatchReliability": "The shipping policy names a carrier, rates and a domestic delivery estimate, but does not name the dispatch origin, handling time or individual destinations outside Germany.",
+   "valuePerMg": "In our EU audit data, the regular price per mg was above the median for 11 of 13 sampled offers with at least 2 like-for-like EUR comparisons; 1 was at the median to the displayed precision and 1 was below."
+  },
+  "strengths": [
+   "Public research catalog with prices and stock status available without an account",
+   "Legal notice identifies the proprietor and a Berlin business address; policy publishes DHL rates and a domestic delivery estimate"
+  ],
+  "weaknesses": [
+   "COAs are mentioned, but no public reports, issuing laboratory or verification codes were found on the pages checked",
+   "The business address is published, but the dispatch origin and processing time are not stated in the shipping policy"
+  ],
+  "verdict": "PEPUP Performance publishes its operator details, shipping rates and research catalog. Several listings say a COA is available, but none of the pages checked exposed a report or a code, so we could not verify purity, measured content or the testing panel.",
+  "summary": "German shop operated by Gökhan Möhürcü as a sole proprietor in Berlin. It has a public research catalog and publishes DHL rates for Germany and other EU countries; no laboratory report could be read on the pages checked.",
+  "notes": "Cosmetics and accessories are outside this audit. The coded RT-3 listings were not assigned to a named compound because the product page does not specify one. Payment methods are published across different policy pages and were not confirmed at checkout. The shipping policy says Europe-wide and lists an EU rate; the terms discuss non-EU imports but do not identify specific non-EU destinations. The Berlin business address is not evidence of dispatch origin.",
+  "sources": [
+   "https://pepup-performance.de/",
+   "https://pepup-performance.de/impressum/",
+   "https://pepup-performance.de/%f0%9f%93%84-allgemeine-geschaeftsbedingungen-agb/",
+   "https://pepup-performance.de/privacy-policy/",
+   "https://pepup-performance.de/bezahlmoeglichkeiten/",
+   "https://pepup-performance.de/widerrufsbelehrung-versand-und-zahlungsbedingungen-sowie-rechtliche-hinweise/",
+   "https://pepup-performance.de/research/",
+   "https://pepup-performance.de/wp-sitemap-posts-page-1.xml",
+   "https://pepup-performance.de/wp-json/wp/v2/media?mime_type=application%2Fpdf&per_page=100&_fields=source_url,title,description",
+   "https://pepup-performance.de/produkt/n001-rt-3-i-10mg/",
+   "https://pepup-performance.de/wp-json/wc/store/v1/products?per_page=100",
+   "https://pepup-performance.de/produkt/n004-bpc-157-i-10mg/",
+   "https://pepup-performance.de/produkt/n004-bpc-157-i-20mg/",
+   "https://pepup-performance.de/produkt/n003-tb-500-i-10mg/",
+   "https://pepup-performance.de/produkt/n016-tesamorelin-i-20mg/",
+   "https://pepup-performance.de/produkt/n006-ghk-cu-i-50mg/",
+   "https://pepup-performance.de/produkt/n006-ghk-cu/",
+   "https://pepup-performance.de/produkt/n017-kpv-i-10mg/",
+   "https://pepup-performance.de/produkt/n002-nad-i-500mg/",
+   "https://pepup-performance.de/produkt/n018-ss-31-i-10mg/",
+   "https://pepup-performance.de/produkt/n010-epithalon-i-10mg/",
+   "https://pepup-performance.de/produkt/n005-mots-c-i-40mg/",
+   "https://pepup-performance.de/produkt/n007-pt-141-i-10mg/",
+   "https://pepup-performance.de/produkt/n014-thymosin-%ce%b1-1-i-10mg/",
+   "https://pepup-performance.de/produkt/n023-ipamorelin-i-5mg/"
+  ],
+  "readAt": "2026-11-23",
+  "priceBenchmark": [
+   {
+    "compound": "bpc-157",
+    "vialMg": 10,
+    "regularEurPerMg": 5.4,
+    "comparisonOffers": 7,
+    "medianRegularEurPerMg": 4.715
+   },
+   {
+    "compound": "bpc-157",
+    "vialMg": 20,
+    "regularEurPerMg": 3.95,
+    "comparisonOffers": 2,
+    "medianRegularEurPerMg": 3.65
+   },
+   {
+    "compound": "tb-500",
+    "vialMg": 10,
+    "regularEurPerMg": 5.9,
+    "comparisonOffers": 5,
+    "medianRegularEurPerMg": 6.749
+   },
+   {
+    "compound": "ghk-cu",
+    "vialMg": 50,
+    "regularEurPerMg": 1.3,
+    "comparisonOffers": 8,
+    "medianRegularEurPerMg": 0.74
+   },
+   {
+    "compound": "ghk-cu",
+    "vialMg": 100,
+    "regularEurPerMg": 0.89,
+    "comparisonOffers": 6,
+    "medianRegularEurPerMg": 0.694
+   },
+   {
+    "compound": "kpv",
+    "vialMg": 10,
+    "regularEurPerMg": 4.9,
+    "comparisonOffers": 7,
+    "medianRegularEurPerMg": 4.499
+   },
+   {
+    "compound": "nad-plus",
+    "vialMg": 500,
+    "regularEurPerMg": 0.198,
+    "comparisonOffers": 4,
+    "medianRegularEurPerMg": 0.155
+   },
+   {
+    "compound": "ss-31",
+    "vialMg": 10,
+    "regularEurPerMg": 5.9,
+    "comparisonOffers": 7,
+    "medianRegularEurPerMg": 5.9
+   },
+   {
+    "compound": "epithalon",
+    "vialMg": 10,
+    "regularEurPerMg": 6.9,
+    "comparisonOffers": 8,
+    "medianRegularEurPerMg": 3.759
+   },
+   {
+    "compound": "mots-c",
+    "vialMg": 40,
+    "regularEurPerMg": 3.975,
+    "comparisonOffers": 5,
+    "medianRegularEurPerMg": 2.873
+   },
+   {
+    "compound": "pt-141",
+    "vialMg": 10,
+    "regularEurPerMg": 5.9,
+    "comparisonOffers": 5,
+    "medianRegularEurPerMg": 4.064
+   },
+   {
+    "compound": "thymosin-alpha-1",
+    "vialMg": 10,
+    "regularEurPerMg": 7.4,
+    "comparisonOffers": 4,
+    "medianRegularEurPerMg": 6.646
+   },
+   {
+    "compound": "ipamorelin",
+    "vialMg": 5,
+    "regularEurPerMg": 7.8,
+    "comparisonOffers": 3,
+    "medianRegularEurPerMg": 5.998
+   }
+  ],
+  "overallScore": 1.3,
+  "coaStats": {
+   "opened": 0,
+   "portalVerified": 0,
+   "purityMin": null,
+   "purityMax": null,
+   "purityMedian": null,
+   "fillMinPct": null,
+   "fillMaxPct": null
+  },
+  "panelLabels": [],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 35
  },
  {
   "slug": "modern-aminos",
@@ -11925,7 +14375,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 26
+  "rank": 36
  },
  {
   "slug": "biolab-shop",
@@ -12108,7 +14558,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 27
+  "rank": 37
  },
  {
   "slug": "pen-peptide",
@@ -12483,7 +14933,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 28
+  "rank": 38
  },
  {
   "slug": "peptide-pro",
@@ -12564,7 +15014,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 29
+  "rank": 39
  },
  {
   "slug": "nordic-peptides",
@@ -12877,6 +15327,6 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 30
+  "rank": 40
  }
 ]

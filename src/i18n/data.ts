@@ -81,7 +81,11 @@ export function shipsToText(lang: Lang, slug: string): string {
     if (k === 'us-only') return t(lang, 'ships.usOnly');
     return s;
   };
-  if (!Array.isArray(x)) return one(String(x));
+  if (!Array.isArray(x)) {
+    const s = String(x);
+    const label = one(s);
+    return label !== s || /^[A-Z]{2}$/.test(s) ? label : dt(lang, `audit.${slug}.shipsTo`, s);
+  }
   if (x.length > 6) return t(lang, 'ships.countries', { n: x.length, list: x.slice(0, 5).join(', ') });
   return x.map(one).join(', ');
 }
@@ -121,11 +125,11 @@ export function locVendor(lang: Lang, v: VendorProfile): VendorProfile {
   const r = raw(v.slug);
   const reasons: Record<string, string> = {};
   for (const [k, s] of Object.entries(v.subscoreReasons || {})) reasons[k] = dt(lang, `${a}.subscore_reasons.${k}`, s);
-  const pm = (s: string) => (s === NP ? t(lang, 'common.notPublished') : t(lang, `payments.${s}`) !== `payments.${s}` ? t(lang, `payments.${s}`) : s);
+  const pm = (s: string, i: number) => (s === NP ? t(lang, 'common.notPublished') : dt(lang, `${a}.paymentMethods.${i}`, t(lang, `payments.${s}`) !== `payments.${s}` ? t(lang, `payments.${s}`) : s));
   return {
     ...v,
     originCountry: r.originCountry ? countryName(lang, r.originCountry) : t(lang, 'common.notPublished'),
-    legalEntity: npx(lang, v.legalEntity),
+    legalEntity: v.legalEntity === NP ? npx(lang, v.legalEntity) : dt(lang, `${a}.legalEntity`, v.legalEntity),
     verdictSummary: dt(lang, `${a}.verdict`, v.verdictSummary),
     auditNotes: dt(lang, `${a}.summary`, v.auditNotes),
     dispatchSummary: v.dispatchSummary === NP ? t(lang, 'common.notPublished') : dt(lang, `${a}.dispatchInfo`, v.dispatchSummary),
@@ -135,7 +139,7 @@ export function locVendor(lang: Lang, v: VendorProfile): VendorProfile {
     subscoreReasons: reasons,
     paymentMethods: v.paymentMethods.map(pm),
     panelBadges: v.panelBadges.map((p) => (t(lang, `panels.${p}`) !== `panels.${p}` ? t(lang, `panels.${p}`) : p)),
-    coaAccess: v.coaAccess ? (t(lang, `coaAccess.${v.coaAccess}`) !== `coaAccess.${v.coaAccess}` ? t(lang, `coaAccess.${v.coaAccess}`) : v.coaAccess) : t(lang, 'common.notPublished'),
+    coaAccess: v.coaAccess ? dt(lang, `${a}.coaAccess`, t(lang, `coaAccess.${v.coaAccess}`) !== `coaAccess.${v.coaAccess}` ? t(lang, `coaAccess.${v.coaAccess}`) : v.coaAccess) : t(lang, 'common.notPublished'),
     shipsTo: shipsToText(lang, v.slug),
     testingLabs: v.testingLabs.map((l) => (l === 'none named' ? t(lang, 'common.noneNamed') : l)),
   };

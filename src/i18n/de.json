@@ -311,7 +311,7 @@
       "productVial": "Produkt (Vial in mg)",
       "price": "Preis ({sym})",
       "perMg": "Preis pro mg ({sym})",
-      "report": "Laborbericht zu dieser Substanz",
+      "report": "Laborbericht zur Vial-Größe",
       "score": "Score (0-5)",
       "codeStore": "Code und Shop",
       "partner": "Partner",
@@ -323,7 +323,7 @@
       "mOfL": "{m} von {l} mg ({p})",
       "mgNotStated": "mg nicht angegeben",
       "purity": "Reinheit {p}",
-      "noReport": "Kein Bericht geöffnet"
+      "noReport": "Kein passender Bericht geöffnet"
     },
     "rank": "Platz {n}",
     "labs": "Labore",
@@ -370,7 +370,7 @@
       "repNone": "Kein {c}-Bericht geöffnet",
       "othersEU": "Weitere geprüfte EU-Shops mit {c}:",
       "othersUS": "Weitere geprüfte US-Shops mit {c}:",
-      "note": "Shop-Links sind Partnerlinks (Affiliate). Preise wie am {date} gelistet, vor jedem Code."
+      "note": "Shop-Links sind Partnerlinks (Affiliate). Angegeben sind die gelisteten Preise vor Abzug eines Rabattcodes."
     }
   },
   "home": {
@@ -382,7 +382,7 @@
     "description": [
       "{shops} Shops für Forschungspeptide geprüft: {reports} Laborberichte geöffnet, {portal} im Laborportal bestätigt. Preise pro mg in EUR und USD vergleichen."
     ],
-    "intro": "Wir haben am {date} {shops} Shops für Forschungspeptide in der EU und den USA geprüft. Wir haben {reports} Laborberichte von {withReports} Shops geöffnet, {portal} davon im Portal des Labors gefunden und {products} gelistete Preise als Preis pro mg erfasst. Die Rangfolge richtet sich nach dem Audit-Score, nie nach Provision.",
+    "intro": "Unser Audit umfasst {shops} Shops für Forschungspeptide in der EU und den USA. Wir haben {reports} Laborberichte von {withReports} Shops geöffnet, {portal} davon bei den ausstellenden Laboren bestätigt und {products} gelistete Preise erfasst. Die Rangfolge richtet sich nach der Bewertung, nie nach der Provision.",
     "eyebrow": "Unabhängiges Schreibtisch-Audit, {date}",
     "pickerH": "Preise für eine Substanz vergleichen",
     "pickerP": "Wählen Sie eine Substanz: Sie sehen jeden Shop, den Preis pro mg und ob wir einen Laborbericht geöffnet haben.",
@@ -391,7 +391,7 @@
     "bestH": "Beste geprüfte Shops mit Shop-Link",
     "bestP": "Das sind unsere Partnershops, je Region nach Audit-Score sortiert. Jeder Shop wird mit derselben Formel bewertet. Provisionen spielen für die Reihenfolge keine Rolle.",
     "howH": "So prüfen wir",
-    "howP": "Dies ist ein Schreibtisch-Audit öffentlicher Shopseiten und Laborportale. Testbestellungen gab es nicht. Jede Zahl auf dieser Website stammt aus einem Bericht oder einer Preisseite, die wir am {date} geöffnet haben.",
+    "howP": "Wir prüfen öffentliche Shopseiten und Laborportale, ohne Testbestellungen aufzugeben. Das Prüfdatum steht in jeder Shop-Bewertung.",
     "step": "Schritt {n}",
     "s1t": "Wir öffnen die Laborberichte",
     "s1p": "Für jeden Shop öffnen wir die veröffentlichten Laborberichte und notieren Labor, Testdatum, Reinheit und gemessene mg.",
@@ -437,7 +437,7 @@
     "description": [
       "Preis pro mg für {n} Forschungssubstanzen bei {shops} geprüften Shops, EUR und USD getrennt, mit Laborberichten. Preise je Substanz vergleichen."
     ],
-    "intro": "Am {date} haben wir {products} gelistete Preise für {n} Forschungssubstanzen bei {shops} geprüften Shops in der EU und den USA erfasst. Jede Substanzseite trennt EUR- und USD-Preise, zeigt den Preis pro mg je Vial-Größe und markiert, welche Shops einen von uns geöffneten Laborbericht veröffentlicht haben (insgesamt {reports} Berichte).",
+    "intro": "Wir haben {products} vergleichbare Preise für {n} Forschungssubstanzen bei {shops} geprüften Shops in der EU und den USA erfasst. Erfassungszeitraum: {date}. Jede Substanzseite trennt EUR- und USD-Preise, zeigt den Preis pro mg je Vial-Größe und markiert, welche Shops einen von uns geöffneten Laborbericht veröffentlicht haben (insgesamt {reports} Berichte).",
     "crumb": "Preise",
     "eyebrow": "{n} Substanzen · {sizes} Seiten nach Vial-Größe",
     "pick": "Substanz wählen",
@@ -450,7 +450,7 @@
     "colReports": "Berichte geöffnet",
     "tableNote": "Günstigster gelisteter Preis pro mg über alle Vial-Größen. Preis pro mg = Vial-Preis geteilt durch die mg auf dem Etikett. Größere Vials sind pro mg meist günstiger. Für die vollständigen EUR- und USD-Tabellen eine Substanz öffnen.",
     "sizesH": "Preise nach Vial-Größe",
-    "sizesP": "Kombinationen aus Substanz und Vial-Größe, die mindestens drei geprüfte Shops führen. Die Zahl ist die Anzahl der Shops.",
+    "sizesP": "Größen mit vergleichbaren Preisen von mindestens drei Shops. Die Zahlen erfassen alle Shops, die die jeweilige Größe führen.",
     "linkIndex": "Preisindex nach Substanzklasse",
     "itemList": "Preisvergleiche für Forschungssubstanzen",
     "itemName": "{c} Preisvergleich",
@@ -465,7 +465,7 @@
       },
       {
         "q": "Wie aktuell sind die Preise?",
-        "a": "Alle Preise wurden am {date} von öffentlichen Shopseiten oder Shop-Schnittstellen gelesen. Shops ändern Preise oft; prüfen Sie den Shop vor der Bestellung."
+        "a": "Die Preise stammen von öffentlichen Shopseiten oder Shop-Schnittstellen. Erfassungszeitraum: {date}. Shops ändern Preise oft; prüfen Sie den Shop vor der Bestellung."
       }
     ]
   },
@@ -491,7 +491,7 @@
     },
     "cheapIn": "{p} ({shop}, {mg}) in {cur}",
     "intro1": "{c} führen {n} der {total} von uns geprüften Shops ({listings}, {sizes}).",
-    "intro2": "Günstigster gelisteter Preis pro mg am {date}: {prices}.",
+    "intro2": "Niedrigster erfasster Listenpreis pro mg: {prices}. Erfassungszeitraum: {date}.",
     "intro3": "Wir haben {reports} zu {c} von {repShops} geöffnet.",
     "intro3fill": "Wir haben {reports} zu {c} von {repShops} geöffnet; der gemessene Gehalt lag bei {range} der Etikettangabe.",
     "euShops": {
@@ -506,16 +506,16 @@
     "fa1": "{n} geprüfte Shops führen {c}: {euShops} und {usShops}.",
     "fa1p": "Shops mit Shop-Link auf dieser Website, nach Audit-Score: {list}.",
     "fa1none": "Keiner davon ist ein Partnershop mit Shop-Link.",
-    "fa1end": "Die Tabellen zeigen jedes Angebot mit Preis pro mg und Status des Laborberichts.",
+    "fa1end": "Die Tabellen zeigen vergleichbare Angebote mit Preis pro mg und Status des Laborberichts.",
     "fq2": "Wo ist {c} pro mg am günstigsten?",
-    "fa2": "Günstigster gelisteter Preis pro mg am {date}: {prices}. Grundlage ist der gelistete Preis des Shops (Angebotspreis, falls angezeigt) geteilt durch die mg auf dem Etikett, ohne Rabattcodes.",
+    "fa2": "Niedrigster erfasster Listenpreis pro mg: {prices}. Erfassungszeitraum: {date}. Grundlage ist der gelistete Preis des Shops (Angebotspreis, falls angezeigt) geteilt durch die mg auf dem Etikett, ohne Rabattcodes.",
     "fq3": "Welche Shops haben einen Laborbericht zu {c} veröffentlicht?",
     "fa3": "Wir haben {nRep} zu {c} von {list} geöffnet. {portal} davon waren im Portal des Labors bestätigt",
     "fa3fill": "; der gemessene Gehalt lag bei {range} der Etikettangabe",
     "fa3none": "Wir haben bei keinem geprüften Shop einen Laborbericht zu {c} geöffnet.",
     "fq4": "Welche Vial-Größen von {c} gibt es?",
     "fa4": "Geprüfte Shops führen {c} in Vials mit {list}.",
-    "fa4p": "Größen, die mindestens drei Shops führen, haben eine eigene Vergleichsseite: {list}.",
+    "fa4p": "Größen mit vergleichbaren Preisen von mindestens drei Shops haben eine eigene Vergleichsseite. Die Zahlen erfassen alle Shops, die die jeweilige Größe führen: {list}.",
     "fq5": "Werden Preise zwischen Euro und Dollar umgerechnet?",
     "fa5": "Nein. EUR- und USD-Preise stehen in getrennten Tabellen, genau wie vom Shop gelistet, ohne Umrechnung und ohne Rabattcode.",
     "fq6": "Wird {c} zur Anwendung am Menschen verkauft?",
@@ -535,7 +535,8 @@
     "repP": "{reports} geöffnet von {repShops}; {portal} im Laborportal bestätigt. Adressen und IDs der Berichte stehen unter",
     "chartTitle": "{c}: gemessener Gehalt in % der Etikettangabe",
     "about": "Über {name}",
-    "factsPage": "Zur Faktenseite der Substanz"
+    "factsPage": "Zur Faktenseite der Substanz",
+    "vatNote": "Die Anzahl der Shops enthält auch Angebote mit Preisen ohne Mehrwertsteuer. Diese Preise fließen nicht in den Vergleich ein."
   },
   "ps": {
     "title": [
@@ -551,7 +552,7 @@
     ],
     "vialAt": "{p} pro Vial bei {shop} ({cur})",
     "intro1": "{n} geprüfte Shops führen {c} als Vial mit {mg} ({eu} EU, {us} US).",
-    "intro2": "Günstigster gelisteter Preis am {date}: {lows}.",
+    "intro2": "Niedrigster erfasster Listenpreis pro Vial: {lows}. Erfassungszeitraum: {date}.",
     "intro3": "Für diese Größe haben wir {reports} geöffnet; der gemessene Gehalt lag bei {range} der Etikettangabe.",
     "intro3none": "Für {c} {mg} haben wir keinen Laborbericht geöffnet; Berichte zu anderen Größen stehen auf der {c}-Hauptseite.",
     "median": {
@@ -559,7 +560,7 @@
       "other": "Median {p} über {n} Angebote in {cur}"
     },
     "fq1": "Was kostet ein Vial {c} {mg}?",
-    "fa1": "Gelistete Preise am {date}: {medians}. Am günstigsten: {lows}. Preise ohne Rabattcodes und ohne Umrechnung.",
+    "fa1": "Erfasste Preise ({date}): {medians}. Am günstigsten: {lows}. Preise ohne Rabattcodes und ohne Umrechnung.",
     "fq2": "Wo kann man {c} {mg} für die Forschung kaufen?",
     "fa2": "{n} geprüfte Shops führen es.",
     "fa2p": "Shops mit Shop-Link, nach Audit-Score: {list}.",
@@ -674,7 +675,7 @@
     "overall": "Gesamter Audit-Score: {score} von 5.",
     "fqCode": "Gibt es einen Gutscheincode für {shop}?",
     "fqLabs": "Welche Labore testen Produkte von {shop}?",
-    "faLabs": "Die geöffneten Berichte nennen {list}. HPLC-Reinheit auf diesen Berichten: {purity}.",
+    "faLabs": "Die geöffneten Berichte nennen {list}.",
     "faLabsNone": "{shop} nennt {list}; einen öffentlichen Bericht konnten wir nicht öffnen.",
     "fqShip": "Wohin liefert {shop}?",
     "faShip": "Lieferung nach: {ships}. Versand: {dispatch}.",
@@ -739,6 +740,7 @@
     "shopHosted": "Nur beim Shop",
     "noReportFound": "Wir haben am {date} keinen öffentlichen Laborbericht von {shop} gefunden.",
     "pricesH": "{shop}: Preise",
+    "pricesExVat": "Die Preise sind ohne Mehrwertsteuer und fließen nicht in die shopübergreifenden Preisvergleiche ein.",
     "pricesP": {
       "one": "{n} gelisteter Preis am {date} in {curs} erfasst. Preis pro mg = Preis geteilt durch die mg auf dem Etikett. Angebotspreise stehen mit durchgestrichenem Altpreis. Kein Code abgezogen.",
       "other": "{n} gelistete Preise am {date} in {curs} erfasst. Preis pro mg = Preis geteilt durch die mg auf dem Etikett. Angebotspreise stehen mit durchgestrichenem Altpreis. Kein Code abgezogen."
@@ -746,7 +748,7 @@
     "colVial": "Vial (mg)",
     "colPrice": "Preis",
     "colPerMg": "Preis pro mg",
-    "colRep": "Laborbericht geöffnet",
+    "colRep": "Laborbericht zur Vial-Größe",
     "colStore": "Shop",
     "viewProduct": "Zum Produkt",
     "noPricesP": "{shop} zeigt keine öffentlichen Preise, daher wurde der Preis pro mg nicht bewertet.",
@@ -760,7 +762,9 @@
     "sourcesH": "Gelesene Quellen",
     "sourcesP": "Öffentliche Seiten, gelesen am {date}. Als reiner Text, nicht als Link.",
     "stickyAria": "Shop-Link zu {nm}",
-    "visitShop": "Zum Shop"
+    "visitShop": "Zum Shop",
+    "purityExact": "Exakt angegebene Reinheitswerte: {purity}.",
+    "purityBounds": "Als Untergrenze angegebene Reinheit: {list}."
   },
   "vcp": {
     "title": [
@@ -861,7 +865,7 @@
     ],
     "h1": "{a} vs {b}: Vergleich der Forschungssubstanzen",
     "eyebrow": "Markt- und Labordaten, keine Wirkungen",
-    "intro": "Am {date} führten {nA} geprüfte Shops {a} und {nB} führten {b}; {both} führen beide. Wir haben {rA} Laborberichte zu {a} und {rB} zu {b} geöffnet.",
+    "intro": "Von den geprüften Shops führten {nA} {a} und {nB} {b}; {both} führten beide. Geöffnete Laborberichte: {a} ({rA}), {b} ({rB}).",
     "median": "Median-Preis pro mg in {cur}: {a} {x}, {b} {y}",
     "fq1": "Was ist der Unterschied zwischen {a} und {b}?",
     "fa1": "Es sind unterschiedliche Moleküle.",
@@ -1291,7 +1295,7 @@
     "authH": "Behörden",
     "rules": "Regeln ändern sich. Prüfen Sie vor einer Bestellung den aktuellen Stand bei der Behörde und beachten Sie die Beschaffungsregeln Ihrer Einrichtung.",
     "shopsH": "Geprüfte Shops mit Lieferung {toC}",
-    "shopsP": "Grundlage sind die veröffentlichten Versandangaben der Shops am {date}, sortiert nach Audit-Score. {unknown} Shops geben nicht an, wohin sie liefern.",
+    "shopsP": "Grundlage sind die veröffentlichten Versandangaben der Shops, sortiert nach Audit-Score. Bei {unknown} Shops konnten wir den Versand in dieses Land nicht bestätigen.",
     "colShips": "Lieferung nach (laut Shop)",
     "relAll": "Alle Länderhinweise"
   },
@@ -1327,7 +1331,7 @@
     ],
     "crumb": "Offene Daten",
     "h1": "Offene Daten: Audit der Shops für Forschungspeptide 2026",
-    "intro": "Die vollständigen Preisdaten hinter dieser Website: {n} gelistete Preise von {shops} geprüften Shops, eine Zeile pro Produkt, mit Preis pro mg, ob wir für diese Substanz bei diesem Shop einen Laborbericht geöffnet haben, und dem Audit-Score des Shops. Geprüft am {date}. Frei nutzbar mit Namensnennung (CC BY 4.0).",
+    "intro": "Die vollständigen Preisdaten hinter dieser Website: {n} gelistete Preise von {shops} geprüften Shops, eine Zeile pro Produkt, mit Preis pro mg, ob wir für diese Substanz bei diesem Shop einen Laborbericht geöffnet haben, und dem Audit-Score des Shops. Erfassungszeitraum der Datensätze: {date}. Frei nutzbar mit Namensnennung (CC BY 4.0).",
     "csv": "CSV herunterladen",
     "json": "JSON herunterladen",
     "englishNote": "Die Datendateien verwenden englische Spaltennamen und Werte.",
@@ -1348,7 +1352,8 @@
       "labReportOpenedForCompound": "Wir haben einen Laborbericht dieses Shops zu dieser Substanz geöffnet",
       "portalVerified": "Mindestens ein solcher Bericht fand sich im Laborportal",
       "shopScore": "Audit-Score 0-5",
-      "reviewedAt": "Datum der Prüfung des Shops"
+      "reviewedAt": "Datum der Prüfung des Shops",
+      "pricesExcludeVat": "Ob der angegebene Preis ohne Mehrwertsteuer ist"
     },
     "notesH": "Hinweise",
     "notes": [

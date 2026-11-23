@@ -311,7 +311,7 @@
       "productVial": "Producto (vial en mg)",
       "price": "Precio ({sym})",
       "perMg": "Precio por mg ({sym})",
-      "report": "Informe de laboratorio de este compuesto",
+      "report": "Informe de laboratorio para este tamaño de vial",
       "score": "Puntuación (0-5)",
       "codeStore": "Código y tienda",
       "partner": "Socia",
@@ -323,7 +323,7 @@
       "mOfL": "{m} de {l} mg ({p})",
       "mgNotStated": "mg no indicados",
       "purity": "Pureza {p}",
-      "noReport": "Ningún informe abierto"
+      "noReport": "No se abrió ningún informe coincidente"
     },
     "rank": "Puesto {n}",
     "labs": "Laboratorios",
@@ -370,7 +370,7 @@
       "repNone": "Ningún informe de {c} abierto",
       "othersEU": "Otras tiendas de la UE auditadas con {c}:",
       "othersUS": "Otras tiendas de EE. UU. auditadas con {c}:",
-      "note": "Los enlaces a tiendas son enlaces de socios (afiliado). Precios publicados el {date}, antes de cualquier código."
+      "note": "Los enlaces a tiendas son enlaces de afiliado. Se muestran los precios publicados sin aplicar códigos de descuento."
     }
   },
   "home": {
@@ -382,7 +382,7 @@
     "description": [
       "{shops} tiendas de péptidos de investigación auditadas: {reports} informes abiertos, {portal} verificados en el portal del laboratorio. Compare precios por mg."
     ],
-    "intro": "El {date} auditamos {shops} tiendas de péptidos de investigación de la UE y EE. UU. Abrimos {reports} informes de laboratorio de {withReports} tiendas, encontramos {portal} de ellos en el portal del laboratorio y registramos {products} precios publicados como precio por mg. El orden depende de la puntuación de la auditoría, nunca de la comisión.",
+    "intro": "Nuestra auditoría abarca {shops} tiendas de péptidos de investigación de la UE y EE. UU. Consultamos {reports} informes de laboratorio de {withReports} tiendas, verificamos {portal} en las webs de los laboratorios emisores y registramos {products} precios publicados. El orden depende de la puntuación, nunca de la comisión.",
     "eyebrow": "Auditoría documental independiente, {date}",
     "pickerH": "Compare precios de un compuesto",
     "pickerP": "Elija un compuesto para ver cada tienda, su precio por mg y si abrimos un informe de laboratorio.",
@@ -391,7 +391,7 @@
     "bestH": "Mejores tiendas auditadas con enlace",
     "bestP": "Son nuestras tiendas asociadas, ordenadas por puntuación de la auditoría en cada región. Todas se puntúan con la misma fórmula. La comisión no cuenta para el orden.",
     "howH": "Cómo auditamos",
-    "howP": "Es una auditoría documental de páginas públicas de tiendas y portales de laboratorio. No hicimos pedidos de prueba. Cada cifra de este sitio procede de un informe o una página de precios que abrimos el {date}.",
+    "howP": "Es una auditoría documental de páginas públicas de tiendas y portales de laboratorio. No hicimos pedidos de prueba. Cada reseña indica su fecha de verificación.",
     "step": "Paso {n}",
     "s1t": "Abrimos los informes de laboratorio",
     "s1p": "En cada tienda abrimos los informes publicados y anotamos laboratorio, fecha del análisis, pureza y mg medidos.",
@@ -436,7 +436,7 @@
     "description": [
       "Precio por mg de {n} compuestos de investigación en {shops} tiendas auditadas, EUR y USD por separado, con informes de laboratorio. Compare precios por compuesto."
     ],
-    "intro": "El {date} registramos {products} precios publicados de {n} compuestos de investigación en {shops} tiendas auditadas de la UE y EE. UU. Cada página de compuesto separa los precios en EUR y USD, muestra el precio por mg por tamaño de vial e indica qué tiendas publicaron un informe de laboratorio que abrimos ({reports} informes en total).",
+    "intro": "Registramos {products} precios comparables de {n} compuestos de investigación en {shops} tiendas auditadas de la UE y EE. UU. Fechas de revisión de precios: {date}. Cada página de compuesto separa los precios en EUR y USD, muestra el precio por mg por tamaño de vial e indica qué tiendas publicaron un informe de laboratorio que abrimos ({reports} informes en total).",
     "crumb": "Precios",
     "eyebrow": "{n} compuestos · {sizes} páginas por tamaño de vial",
     "pick": "Elija un compuesto",
@@ -449,7 +449,7 @@
     "colReports": "Informes abiertos",
     "tableNote": "Precio por mg publicado más bajo entre todos los tamaños de vial. Precio por mg = precio del vial dividido por los mg de la etiqueta. Los viales grandes suelen salir más baratos por mg. Abra un compuesto para ver las tablas completas en EUR y USD.",
     "sizesH": "Precios por tamaño de vial",
-    "sizesP": "Combinaciones de compuesto y tamaño de vial que venden al menos tres tiendas auditadas. La cifra es el número de tiendas.",
+    "sizesP": "Tamaños con precios comparables de al menos tres tiendas. Las cifras incluyen todas las tiendas que ofrecen cada tamaño.",
     "linkIndex": "Índice de precios por clase de compuesto",
     "itemList": "Comparativas de precios de compuestos de investigación",
     "itemName": "Comparativa de precios de {c}",
@@ -464,7 +464,7 @@
       },
       {
         "q": "¿Qué actualidad tienen los precios?",
-        "a": "Todos los precios se leyeron el {date} en páginas públicas o interfaces de las tiendas. Las tiendas cambian precios a menudo; compruébelos en la tienda antes de pedir."
+        "a": "Los precios se obtuvieron de páginas públicas o interfaces de las tiendas. Fechas de revisión de precios: {date}. Las tiendas cambian precios a menudo; compruébelos en la tienda antes de pedir."
       }
     ]
   },
@@ -490,7 +490,7 @@
     },
     "cheapIn": "{p} ({shop}, {mg}) en {cur}",
     "intro1": "{c} lo venden {n} de las {total} tiendas que auditamos ({listings}, {sizes}).",
-    "intro2": "Precio por mg publicado más bajo el {date}: {prices}.",
+    "intro2": "Precio por mg más bajo entre los registrados: {prices}. Fechas de revisión de precios: {date}.",
     "intro3": "Abrimos {reports} de {c} de {repShops}.",
     "intro3fill": "Abrimos {reports} de {c} de {repShops}; el contenido medido fue del {range} de lo declarado.",
     "euShops": {
@@ -505,16 +505,16 @@
     "fa1": "{n} tiendas auditadas venden {c}: {euShops} y {usShops}.",
     "fa1p": "Tiendas con enlace en este sitio, por puntuación de la auditoría: {list}.",
     "fa1none": "Ninguna es una tienda asociada con enlace.",
-    "fa1end": "Las tablas muestran cada oferta con su precio por mg y el estado del informe de laboratorio.",
+    "fa1end": "Las tablas muestran las ofertas comparables con el precio por mg y el estado del informe de laboratorio.",
     "fq2": "¿Dónde es más barato {c} por mg?",
-    "fa2": "Precio por mg publicado más bajo el {date}: {prices}. Se basa en el precio publicado por la tienda (el de oferta si se muestra) dividido por los mg de la etiqueta, sin códigos de descuento.",
+    "fa2": "Precio por mg más bajo entre los registrados: {prices}. Fechas de revisión de precios: {date}. Se basa en el precio publicado por la tienda (el de oferta si se muestra) dividido por los mg de la etiqueta, sin códigos de descuento.",
     "fq3": "¿Qué tiendas han publicado un informe de laboratorio de {c}?",
     "fa3": "Abrimos {nRep} de {c} de {list}. {portal} estaban verificados en el portal del laboratorio",
     "fa3fill": "; el contenido medido fue del {range} de lo declarado",
     "fa3none": "No abrimos ningún informe de laboratorio de {c} en las tiendas auditadas.",
     "fq4": "¿En qué tamaños de vial se vende {c}?",
     "fa4": "Las tiendas auditadas venden {c} en viales de {list}.",
-    "fa4p": "Los tamaños que venden al menos tres tiendas tienen su propia comparativa: {list}.",
+    "fa4p": "Los tamaños con precios comparables de al menos tres tiendas tienen su propia comparativa. Las cifras incluyen todas las tiendas que ofrecen cada tamaño: {list}.",
     "fq5": "¿Se convierten los precios entre euros y dólares?",
     "fa5": "No. Los precios en EUR y USD aparecen en tablas separadas, tal como los publica la tienda, sin conversión ni código de descuento.",
     "fq6": "¿Se vende {c} para uso humano?",
@@ -534,7 +534,8 @@
     "repP": "{reports} abiertos de {repShops}; {portal} verificados en el portal del laboratorio. Las direcciones e identificadores de los informes están en",
     "chartTitle": "{c}: contenido medido en % de lo declarado",
     "about": "Sobre {name}",
-    "factsPage": "Ver la ficha del compuesto"
+    "factsPage": "Ver la ficha del compuesto",
+    "vatNote": "El recuento de tiendas incluye ofertas con precios sin IVA. Esos precios no se incluyen en las comparativas."
   },
   "ps": {
     "title": [
@@ -550,7 +551,7 @@
     ],
     "vialAt": "{p} por vial en {shop} ({cur})",
     "intro1": "{n} tiendas auditadas venden {c} en vial de {mg} ({eu} de la UE, {us} de EE. UU.).",
-    "intro2": "Precio publicado más bajo el {date}: {lows}.",
+    "intro2": "Precio por vial más bajo entre los registrados: {lows}. Fechas de revisión de precios: {date}.",
     "intro3": "Para este tamaño abrimos {reports}; el contenido medido fue del {range} de lo declarado.",
     "intro3none": "No abrimos ningún informe de {c} {mg}; los informes de otros tamaños están en la página principal de {c}.",
     "median": {
@@ -558,7 +559,7 @@
       "other": "mediana de {p} en {n} ofertas en {cur}"
     },
     "fq1": "¿Cuánto cuesta un vial de {c} {mg}?",
-    "fa1": "Precios publicados el {date}: {medians}. Más barato: {lows}. Precios sin códigos de descuento y sin conversión.",
+    "fa1": "Precios registrados ({date}): {medians}. Más barato: {lows}. Precios sin códigos de descuento y sin conversión.",
     "fq2": "¿Dónde comprar {c} {mg} para investigación?",
     "fa2": "Lo venden {n} tiendas auditadas.",
     "fa2p": "Tiendas con enlace, por puntuación de la auditoría: {list}.",
@@ -675,7 +676,7 @@
     "overall": "Puntuación global de la auditoría: {score} sobre 5.",
     "fqCode": "¿Hay un código de descuento de {shop}?",
     "fqLabs": "¿Qué laboratorios analizan los productos de {shop}?",
-    "faLabs": "Los informes abiertos mencionan {list}. Pureza HPLC en esos informes: {purity}.",
+    "faLabs": "Los informes abiertos mencionan {list}.",
     "faLabsNone": "{shop} menciona {list}; no pudimos abrir ningún informe público.",
     "fqShip": "¿A dónde envía {shop}?",
     "faShip": "Envía a: {ships}. Envío: {dispatch}.",
@@ -740,6 +741,7 @@
     "shopHosted": "Alojado por la tienda",
     "noReportFound": "El {date} no encontramos ningún informe de laboratorio público de {shop}.",
     "pricesH": "Precios de {shop}",
+    "pricesExVat": "Los precios no incluyen el IVA y no se usan en las comparativas entre tiendas.",
     "pricesP": {
       "one": "{n} precio publicado registrado el {date} en {curs}. Precio por mg = precio dividido por los mg de la etiqueta. Los precios de oferta aparecen con el precio anterior tachado. Sin código aplicado.",
       "other": "{n} precios publicados registrados el {date} en {curs}. Precio por mg = precio dividido por los mg de la etiqueta. Los precios de oferta aparecen con el precio anterior tachado. Sin código aplicado."
@@ -747,7 +749,7 @@
     "colVial": "Vial (mg)",
     "colPrice": "Precio",
     "colPerMg": "Precio por mg",
-    "colRep": "Informe abierto",
+    "colRep": "Informe de laboratorio para este tamaño de vial",
     "colStore": "Tienda",
     "viewProduct": "Ver producto",
     "noPricesP": "{shop} no muestra precios públicos, así que el precio por mg no se puntuó.",
@@ -761,7 +763,9 @@
     "sourcesH": "Fuentes consultadas",
     "sourcesP": "Páginas públicas leídas el {date}. Como texto, no como enlace.",
     "stickyAria": "Enlace a la tienda {nm}",
-    "visitShop": "Visitar la tienda"
+    "visitShop": "Visitar la tienda",
+    "purityExact": "Valores exactos de pureza indicados: {purity}.",
+    "purityBounds": "Pureza indicada como límite inferior: {list}."
   },
   "vcp": {
     "title": [
@@ -862,7 +866,7 @@
     ],
     "h1": "{a} vs {b}: comparativa de compuestos de investigación",
     "eyebrow": "Datos de mercado y laboratorio, no efectos",
-    "intro": "El {date}, {nA} tiendas auditadas vendían {a} y {nB} vendían {b}; {both} venden ambos. Abrimos {rA} informes de laboratorio de {a} y {rB} de {b}.",
+    "intro": "De las tiendas auditadas, {nA} ofrecían {a} y {nB} ofrecían {b}; {both} ofrecían ambos. Informes de laboratorio abiertos: {a} ({rA}), {b} ({rB}).",
     "median": "Mediana del precio por mg en {cur}: {a} {x}, {b} {y}",
     "fq1": "¿Qué diferencia hay entre {a} y {b}?",
     "fa1": "Son moléculas diferentes.",
@@ -1292,7 +1296,7 @@
     "authH": "Autoridades",
     "rules": "Las normas cambian. Antes de pedir, compruebe la situación actual con la autoridad y siga las normas de compras de su institución.",
     "shopsH": "Tiendas auditadas que envían {toC}",
-    "shopsP": "Según la información de envío publicada por las tiendas el {date}, ordenadas por puntuación de la auditoría. {unknown} tiendas no indican a dónde envían.",
+    "shopsP": "Según la información de envío publicada por las tiendas, ordenadas por puntuación de la auditoría. No pudimos confirmar el envío a este país para {unknown} tiendas.",
     "colShips": "Envía a (según la tienda)",
     "relAll": "Todas las normas por país"
   },
@@ -1328,7 +1332,7 @@
     ],
     "crumb": "Datos abiertos",
     "h1": "Datos abiertos: auditoría de tiendas de péptidos de investigación 2026",
-    "intro": "Los datos de precios completos de este sitio: {n} precios publicados de {shops} tiendas auditadas, una fila por producto, con precio por mg, si abrimos un informe de laboratorio de ese compuesto en esa tienda y la puntuación de la tienda. Revisados el {date}. Uso libre con atribución (CC BY 4.0).",
+    "intro": "Los datos de precios completos de este sitio: {n} precios publicados de {shops} tiendas auditadas, una fila por producto, con precio por mg, si abrimos un informe de laboratorio de ese compuesto en esa tienda y la puntuación de la tienda. Fechas de revisión de los registros: {date}. Uso libre con atribución (CC BY 4.0).",
     "csv": "Descargar CSV",
     "json": "Descargar JSON",
     "englishNote": "Los archivos de datos usan nombres de columna y valores en inglés.",
@@ -1349,7 +1353,8 @@
       "labReportOpenedForCompound": "Abrimos un informe de laboratorio de esta tienda para este compuesto",
       "portalVerified": "Al menos uno de esos informes se encontró en el portal del laboratorio",
       "shopScore": "Puntuación de la auditoría 0-5",
-      "reviewedAt": "Fecha de la revisión de la tienda"
+      "reviewedAt": "Fecha de la revisión de la tienda",
+      "pricesExcludeVat": "Si el precio indicado no incluye el IVA"
     },
     "notesH": "Notas",
     "notes": [

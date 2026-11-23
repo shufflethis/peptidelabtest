@@ -1,0 +1,90 @@
+{
+  "slug": "bioboostx",
+  "name": "BioBoostX",
+  "auditStatus": "audited",
+  "shopUrl": "https://bioboostx.com/",
+  "region": "EU",
+  "originCountry": "DE",
+  "shipsTo": "Europe and selected worldwide destinations served by DHL; no full country list confirmed",
+  "legalEntity": "BioBoostX e.K.",
+  "registeredOffice": {"address": "Unterer Dobelweg 8, 84076 Pfeffenhausen", "country": "DE", "registryId": "HRA 12969", "lei": "3912005WE06FVF6FEN38", "vatId": null, "vatIdAsPrinted": {"legalNotice": "DE240479675", "terms": "DE24047967"}},
+  "shopPublishedAddress": {"address": "Grabarska 1, Pegaz Building B, 50-079 Wroclaw", "country": "PL"},
+  "dispatchOrigin": {"region": "EU", "country": null, "address": null},
+  "testingLabs": ["Janoshik Analytical"],
+  "coaAccess": "Public COA gallery and product-page images; their QR codes lead to original Janoshik reports.",
+  "coaExamples": [
+    {"compound": "retatrutide", "shopProductName": "Triple G (10mg)", "sampleName": "Retatrutide 10 mg", "client": "BioBoostX", "batch": null, "reportBatchField": "EXP: 11/29", "shopBatchMatch": null, "labelMg": 10, "measuredMg": 10.62, "purityPercent": 99.306, "lab": "Janoshik Analytical", "reportId": "214952", "testDate": "2026-08-13", "url": "https://verify.janoshik.com/tests/214952_66U5W2CDDD4M", "labAssetUrl": "https://verify.janoshik.com/tests/img/d72c6a60df80d536fdf6.png", "shopCopyUrl": "https://bioboostx.com/wp-content/uploads/2026/07/Test-Report-214952.avif", "verifiable": true},
+    {"compound": "bpc-157", "shopProductName": "BPC-157", "sampleName": "BPC-157", "client": "BioBoostX.com", "batch": null, "reportBatchField": "EXP: 11/29", "shopBatchMatch": null, "labelMg": null, "measuredMg": 24.14, "purityPercent": 99.864, "lab": "Janoshik Analytical", "reportId": "104691", "testDate": "2026-02-10", "url": "https://verify.janoshik.com/tests/104691_EVJBHHH8ETSA", "labAssetUrl": "https://verify.janoshik.com/tests/img/443ef09293db66139ef5.png", "shopCopyUrl": "https://bioboostx.com/wp-content/uploads/2025/10/bpc-20.avif", "verifiable": true},
+    {"compound": "tb-500", "shopProductName": "TB-500", "sampleName": "TB-500", "client": "BioBoostX.com", "batch": null, "reportBatchField": "EXP: 11/29", "shopBatchMatch": null, "labelMg": null, "measuredMg": 24.32, "purityPercent": 99.773, "lab": "Janoshik Analytical", "reportId": "104690", "testDate": "2026-02-10", "url": "https://verify.janoshik.com/tests/104690_UYDIFYN4ZQBK", "labAssetUrl": "https://verify.janoshik.com/tests/img/efe7cc5edd945e645d06.png", "shopCopyUrl": "https://bioboostx.com/wp-content/uploads/2025/10/TB500-20.avif", "verifiable": true},
+    {"compound": "bpc-157", "shopProductName": "BPC-157 (10mg)", "sampleName": "BPC-157 10mg", "client": "BioBoostX.com", "batch": null, "reportBatchField": "EXP: 11/29", "shopBatchMatch": null, "labelMg": 10, "measuredMg": null, "purityPercent": null, "endotoxinValue": 2.318, "endotoxinUnit": "EU/vial", "lab": "Janoshik Analytical", "reportId": "244533", "testDate": "2026-10-22", "url": "https://verify.janoshik.com/tests/244533_XRW11TG9GLSZ", "labAssetUrl": "https://verify.janoshik.com/tests/img/91833eb81f3089f94c4a.png", "shopCopyUrl": "https://bioboostx.com/wp-content/uploads/2025/12/endo-bpc10.avif", "verifiable": true}
+  ],
+  "panels": {"hplc": null, "lcms": null, "identity": true, "mass": true, "endotoxin": true, "sterility": null, "heavyMetals": null},
+  "paymentMethods": ["Credit cards", "Google Pay", "Bank transfer", "Direct bank transfer", "Cryptocurrency"],
+  "freeShippingThreshold": "The written policy lists free standard shipping over €150 in Europe and over €200 worldwide; the home page and product pages advertise different terms.",
+  "dispatchInfo": "The home page advertises same-day dispatch before 14:00 CET on working days. The written policy names tracked DHL service and estimates standard transit of 2–5 days in Europe and 3–10 days worldwide.",
+  "products": [
+    {"compound": "retatrutide", "shopProductName": "Triple G (10mg)", "vialMg": 10, "price": 79.95, "currency": "EUR", "salePrice": null, "url": "https://bioboostx.com/product/triple-g-1/", "inStock": true},
+    {"compound": "bpc-157", "shopProductName": "BPC-157 (10mg)", "vialMg": 10, "price": 34.95, "currency": "EUR", "salePrice": null, "url": "https://bioboostx.com/product/product-bpc-157-research-grade-1/", "inStock": true},
+    {"compound": "bpc-157", "shopProductName": "BPC-157 (20mg)", "vialMg": 20, "price": 59.95, "currency": "EUR", "salePrice": null, "url": "https://bioboostx.com/product/product-bpc-157-research-grade-1/", "inStock": true},
+    {"compound": "tb-500", "shopProductName": "TB-500 (10mg)", "vialMg": 10, "price": 39.95, "currency": "EUR", "salePrice": null, "url": "https://bioboostx.com/product/product-tb-500-research-grade-1/", "inStock": true},
+    {"compound": "tb-500", "shopProductName": "TB-500 (20mg)", "vialMg": 20, "price": 69.95, "currency": "EUR", "salePrice": null, "url": "https://bioboostx.com/product/product-tb-500-research-grade-1/", "inStock": true},
+    {"compound": "kpv", "shopProductName": "KPV 10mg", "vialMg": 10, "price": 44.95, "currency": "EUR", "salePrice": null, "url": "https://bioboostx.com/product/product-kpv-10mg/", "inStock": true}
+  ],
+  "subscores": {"labVerification": 7, "fillAccuracy": 5, "panelDepth": 5, "entityTransparency": 7, "dispatchReliability": 6, "valuePerMg": 6},
+  "subscore_reasons": {
+    "labVerification": "All 4 sample reports were read on Janoshik and matched the product and client, but each used an expiry in place of a unique lot number.",
+    "fillAccuracy": "The only sampled assay with a confirmed label amount measured 10.62 mg for a 10 mg label; the BPC-157 and TB-500 assay reports do not state nominal content.",
+    "panelDepth": "The sample documents purity, content, a blind identity test and a separate endotoxin result; no heavy-metal or sterility result was confirmed in the sample.",
+    "entityTransparency": "The legal notice and GLEIF agree on BioBoostX e.K. and HRA 12969; they show different addresses, and the shop's own pages disagree on the VAT ID.",
+    "dispatchReliability": "The shop publishes a dispatch cut-off, tracked DHL options and transit estimates, but its free-shipping statements conflict.",
+    "valuePerMg": "For the 10 mg products in the sample, BPC-157 and TB-500 were below the matching EUR medians in the existing audit, KPV was near its median and retatrutide was above."
+  },
+  "strengths": [
+    "All 4 sampled reports were read on the original Janoshik domain, including a separate BPC-157 endotoxin report.",
+    "The legal notice names BioBoostX e.K. and HRA 12969, both corroborated by GLEIF."
+  ],
+  "weaknesses": [
+    "The sampled reports' batch field shows only EXP: 11/29, which does not identify a unique lot or verify current shop stock.",
+    "The BPC-157 and TB-500 assay reports do not state a nominal amount, so their measured content cannot be compared with a verified label.",
+    "The legal notice and terms print different VAT IDs, and the website does not state a dispatch country.",
+    "Free-shipping thresholds and qualifying DHL services are inconsistent across the shop's public pages."
+  ],
+  "verdict": "BioBoostX publishes readable Janoshik reports, but the sampled certificates identify an expiry rather than a unique lot. The German entity is corroborated by GLEIF; the Polish address on the shop is not evidence of the dispatch country.",
+  "summary": "Research-reagent shop operated by BioBoostX e.K. with an address in Poland on its legal notice and a registered address in Germany in GLEIF. It advertises EU dispatch and tracked DHL delivery; the dispatch country remains unconfirmed.",
+  "notes": "The legal notice prints DE240479675; the terms print DE24047967. Neither was independently validated as a VAT ID. The Janoshik report pages were read through web extraction after direct requests were blocked; the original report images linked there were opened and read directly. Prices use publicly displayed regular offers and selectable variants, without coupon codes. Expiry is not a lot code.",
+  "sources": [
+    "https://bioboostx.com/", "https://bioboostx.com/legal-notice/", "https://bioboostx.com/terms-and-conditions/", "https://api.gleif.org/api/v1/lei-records/3912005WE06FVF6FEN38", "https://bioboostx.com/faq/", "https://bioboostx.com/coa/", "https://bioboostx.com/shop-1/", "https://bioboostx.com/product/triple-g-1/", "https://bioboostx.com/product/product-bpc-157-research-grade-1/", "https://bioboostx.com/product/product-tb-500-research-grade-1/", "https://bioboostx.com/product/product-kpv-10mg/",
+    "https://bioboostx.com/wp-content/uploads/2026/07/Test-Report-214952.avif", "https://bioboostx.com/wp-content/uploads/2025/10/bpc-20.avif", "https://bioboostx.com/wp-content/uploads/2025/10/TB500-20.avif", "https://bioboostx.com/wp-content/uploads/2025/12/endo-bpc10.avif",
+    "https://verify.janoshik.com/tests/214952_66U5W2CDDD4M", "https://verify.janoshik.com/tests/104691_EVJBHHH8ETSA", "https://verify.janoshik.com/tests/104690_UYDIFYN4ZQBK", "https://verify.janoshik.com/tests/244533_XRW11TG9GLSZ",
+    "https://verify.janoshik.com/tests/img/d72c6a60df80d536fdf6.png", "https://verify.janoshik.com/tests/img/443ef09293db66139ef5.png", "https://verify.janoshik.com/tests/img/efe7cc5edd945e645d06.png", "https://verify.janoshik.com/tests/img/91833eb81f3089f94c4a.png",
+    "https://jas.janoshik.com/images/ec99c7cfbddcb074279f0b8baf25de53.jpg", "https://jas.janoshik.com/images/4e9c2b5867e22ecf247e4b3360f6cdd5.jpg"
+  ],
+  "auditEvidence": [
+    {"url": "https://bioboostx.com/", "kind": "shop", "quote": "Order before 2:00 PM CET on a working day for same-day dispatch.", "finding": "The home page claims working-day dispatch before the cut-off and says 'EU based shipping'; it advertises free DHL Express from €150 in the EU and €100 for Germany or Austria."},
+    {"url": "https://bioboostx.com/legal-notice/", "kind": "shop", "quote": "Company Name: BioBoostX e.K.\nCommercial Register Number: HRA 12969\nVAT Identification Number: DE240479675", "finding": "The shop identifies the operator and lists Grabarska 1, Pegaz Building B, 50-079 Wroclaw, Poland, as its service-provider address."},
+    {"url": "https://bioboostx.com/terms-and-conditions/", "kind": "shop", "quote": "VAT ID: DE24047967", "finding": "The English terms associate BioBoostX and the Wroclaw address with www.BioBoostX.com but print a different VAT ID. The written DHL policy lists free standard shipping over €150 in Europe and €200 worldwide and charges for express upgrades."},
+    {"url": "https://api.gleif.org/api/v1/lei-records/3912005WE06FVF6FEN38", "kind": "leiRegister", "quote": "\"registeredAs\":\"HRA 12969\"", "finding": "The original GLEIF record names BioBoostX e.K., jurisdiction DE, registered identifier HRA 12969 and legal/headquarters address Unterer Dobelweg 8, 84076 Pfeffenhausen, Germany; this is not a warehouse finding."},
+    {"url": "https://bioboostx.com/faq/", "kind": "shop", "quote": "We currently accept credit card payments, Google Pay, classic bank transfer, direct bank transfer and selected cryptocurrencies.", "finding": "Payment methods are FAQ statements, not checkout-tested. The FAQ limits destinations to services supported by DHL and says reports are in product galleries."},
+    {"url": "https://bioboostx.com/coa/", "kind": "shop", "quote": "Certificates of Analysis (COA) – Quality and Transparency at BioBoostX", "finding": "The public gallery links shop copies; labels and claimed coverage on the page are not substitutes for reading the original reports."},
+    {"url": "https://bioboostx.com/shop-1/", "kind": "shop", "quote": "Free shipping from €200", "finding": "The four sampled product pages are linked by the public catalogue; this shipping label differs from the home page and written policy."},
+    {"url": "https://bioboostx.com/product/triple-g-1/", "kind": "shop", "quote": "Triple G – (same like GLP RTA)", "finding": "The gallery includes the shop copy of Janoshik #214952 for Retatrutide 10 mg. The public price-selector data shows the 10mg format active and in stock at €79.95."},
+    {"url": "https://bioboostx.com/product/product-bpc-157-research-grade-1/", "kind": "shop", "quote": "BPC-157 20mg – Research Grade", "finding": "The page links the shop copies of #104691 and endotoxin report #244533; the public prices for the active in-stock 10mg and 20mg formats are €34.95 and €59.95."},
+    {"url": "https://bioboostx.com/product/product-tb-500-research-grade-1/", "kind": "shop", "quote": "TB-500 20mg – Research Grade", "finding": "The page links the shop copy of #104690; the public prices for the active in-stock 10mg and 20mg formats are €39.95 and €69.95."},
+    {"url": "https://bioboostx.com/product/product-kpv-10mg/", "kind": "shop", "quote": "44,95 €", "finding": "KPV 10mg appears as an in-stock €44.95 offer on the public product page."},
+    {"url": "https://bioboostx.com/wp-content/uploads/2026/07/Test-Report-214952.avif", "kind": "shopReport", "quote": "#214952", "finding": "The readable shop copy contains a QR code whose URL resolves to the matching original report."},
+    {"url": "https://bioboostx.com/wp-content/uploads/2025/10/bpc-20.avif", "kind": "shopReport", "quote": "#104691", "finding": "The shop filename is not a verified label; the report names BPC-157 but does not state a nominal amount."},
+    {"url": "https://bioboostx.com/wp-content/uploads/2025/10/TB500-20.avif", "kind": "shopReport", "quote": "#104690", "finding": "The shop filename is not a verified label; the report names TB-500 but does not state a nominal amount."},
+    {"url": "https://bioboostx.com/wp-content/uploads/2025/12/endo-bpc10.avif", "kind": "shopReport", "quote": "#244533", "finding": "The shop copy is a BPC-157 10mg endotoxin report, not a second assay or purity result; the QR leads to the matching lab copy."},
+    {"url": "https://verify.janoshik.com/tests/214952_66U5W2CDDD4M", "kind": "labPortal", "quote": "Test Report #214952", "finding": "The official portal page links the original #214952 image that was read directly on the lab domain."},
+    {"url": "https://verify.janoshik.com/tests/104691_EVJBHHH8ETSA", "kind": "labPortal", "quote": "Test Report #104691", "finding": "The official portal page links the original #104691 image and a lab sample photo."},
+    {"url": "https://verify.janoshik.com/tests/104690_UYDIFYN4ZQBK", "kind": "labPortal", "quote": "Test Report #104690", "finding": "The official portal page links the original #104690 image and a lab sample photo."},
+    {"url": "https://verify.janoshik.com/tests/244533_XRW11TG9GLSZ", "kind": "labPortal", "quote": "Test Report #244533", "finding": "The official portal page links the original #244533 endotoxin report image that was read directly."},
+    {"url": "https://verify.janoshik.com/tests/img/d72c6a60df80d536fdf6.png", "kind": "labReport", "quote": "Retatrutide 10.62 mg", "finding": "Read #214952: BioBoostX, Retatrutide 10 mg, 99.306% purity, 13 AUG 2026, batch field EXP: 11/29. Results agree with the shop image."},
+    {"url": "https://verify.janoshik.com/tests/img/443ef09293db66139ef5.png", "kind": "labReport", "quote": "BPC-157 24.14 mg", "finding": "Read #104691: BioBoostX.com, BPC-157, 99.864% purity, 10 FEB 2026, batch field EXP: 11/29. Neither the report nor the visible sample photo confirms nominal content."},
+    {"url": "https://verify.janoshik.com/tests/img/efe7cc5edd945e645d06.png", "kind": "labReport", "quote": "TB-500 (TB4) 24.32 mg", "finding": "Read #104690: BioBoostX.com, TB-500, 99.773% purity, 10 FEB 2026, batch field EXP: 11/29. Neither the report nor the visible sample photo confirms nominal content."},
+    {"url": "https://verify.janoshik.com/tests/img/91833eb81f3089f94c4a.png", "kind": "labReport", "quote": "2.318 EU/Vial.", "finding": "Read #244533: BioBoostX.com, BPC-157 10mg, 22 OCT 2026, batch field EXP: 11/29; endotoxin only, not evidence of sterility or heavy metals."},
+    {"url": "https://jas.janoshik.com/images/ec99c7cfbddcb074279f0b8baf25de53.jpg", "kind": "labSamplePhoto", "quote": "BPC-15", "finding": "Visible part of the vial label on the photo attached to #104691. No nominal amount or unique batch number can be read from this angle."},
+    {"url": "https://jas.janoshik.com/images/4e9c2b5867e22ecf247e4b3360f6cdd5.jpg", "kind": "labSamplePhoto", "quote": "TB50", "finding": "Visible part of the vial label on the photo attached to #104690. The wrapped line showing MG does not give a legible nominal amount, and no unique batch number is visible."}
+  ],
+  "readAt": "2026-11-23"
+}

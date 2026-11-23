@@ -325,7 +325,7 @@
     },
     "f9": {
       "h": "Pureza",
-      "p": "La proporción del péptido buscado en la muestra según la HPLC. En los informes que abrimos fue de {pmin} a {pmax}."
+      "p": "Un porcentaje calculado según el método indicado por el laboratorio. Comprueba el método y si el resultado es un valor exacto o un límite inferior."
     },
     "f10": {
       "h": "Contenido medido",
@@ -347,7 +347,7 @@
     "fq1": "¿Qué es un COA de péptidos?",
     "fa1": "Un certificado de análisis es un informe de laboratorio de una muestra de péptido: identidad, pureza y normalmente la cantidad medida por vial, con el número de orden y una clave de verificación del laboratorio.",
     "fq2": "¿Qué significa la pureza por HPLC en un COA?",
-    "fa2": "Es la proporción del péptido buscado entre todo lo que la HPLC detectó en la muestra, en porcentaje. En los {reports} informes abiertos fue de {pmin} a {pmax}.",
+    "fa2": "Es un porcentaje de la muestra obtenido con un método concreto. Si se usó HPLC, comprueba cómo calculó el laboratorio el porcentaje a partir del cromatograma. Sin esa información, los porcentajes de distintos informes no son directamente comparables.",
     "fq3": "¿Cómo verifico un COA de péptidos?",
     "fa3": "Escriba usted mismo la dirección del laboratorio, abra su página de verificación e introduzca el número de orden y la clave del informe. Compare compuesto, cantidad, pureza, lote y fecha con la copia de la tienda.",
     "fq4": "¿Por qué los mg medidos difieren de la etiqueta?",
@@ -650,10 +650,10 @@
       "Tiendas de péptidos en {country}: tiendas auditadas con sede allí y tiendas que envían allí, con puntuaciones."
     ],
     "h1": "Tiendas de péptidos en {country}",
-    "intro": "De {total} tiendas auditadas, {based|# tiene sede|# tienen sede} en {country} ({list}) y {ship|# indica en sus propias páginas que envía|# indican en sus propias páginas que envían} allí. {np|# tienda no publica|# tiendas no publican} países de envío. Revisado el {date}.",
+    "intro": "De {total} tiendas auditadas, {based|# tiene sede|# tienen sede} en {country} ({list}) y {ship|# indica en sus propias páginas que envía|# indican en sus propias páginas que envían} allí. No pudimos confirmar el envío a este país para {np|# tienda|# tiendas}.",
     "statBased": "Con sede aquí",
     "statShip": "Envían aquí",
-    "statNp": "No publicado",
+    "statNp": "Sin confirmar",
     "basedH": "Tiendas con sede en {country}",
     "basedP": "País según los datos de empresa o el aviso legal que publica la tienda, ordenado por nuestra puntuación.",
     "shipH": "Tiendas que envían a {country}",
@@ -665,13 +665,13 @@
     "colCountry": "País",
     "repVal": "{n} abiertos, {p} en el portal",
     "none": "ninguna en nuestra auditoría",
-    "npP": "Sin países de envío publicados:",
+    "npP": "Envío a este país sin confirmar:",
     "note": "Envíos según indican las tiendas; puede haber excepciones en sus páginas. No es asesoramiento legal: las normas para comprar péptidos de investigación varían según el país.",
     "lawLink": "Situación legal en {country}",
     "fq1": "¿Qué tiendas de péptidos auditadas tienen sede en {country}?",
     "fa1": "{based} de {total} tiendas auditadas: {list}.",
     "fq2": "¿Qué tiendas envían a {country}?",
-    "fa2": "{ship} tiendas auditadas indican que envían a {country}; {np} no publican países de envío.",
+    "fa2": "{ship} tiendas auditadas indican que envían a {country}; en otras {np} no pudimos confirmarlo.",
     "fq3": "¿Es legal comprar péptidos en {country}?",
     "fa3": "Depende de la ley nacional de medicamentos y de cómo se comercializa el producto. Vea nuestras páginas sobre la situación legal; es información general, no asesoramiento legal.",
     "iTitle": [
@@ -765,17 +765,17 @@
     },
     "audited": {
       "title": [
-        "{name} péptidos: análisis, puntuación {score}/5",
-        "{name} péptidos: análisis y estado"
+        "{name}: estado de la marca, puntuación {score}/5",
+        "{name}: estado de la marca y análisis"
       ],
       "description": [
-        "{name} péptidos: auditada en nuestro análisis de {shops} tiendas, puntuación {score}/5, {opened} informes abiertos, {portal} confirmados en un portal de laboratorio. Revisado el {date}.",
-        "{name} péptidos: nuestra puntuación {score}/5 y la revisión de informes, {date}."
+        "{name}: auditoría de {shops} tiendas, puntuación {score}/5, {opened} informes abiertos, {portal} confirmados en un portal de laboratorio. Revisado el {date}.",
+        "{name}: nuestra puntuación {score}/5 y la revisión de informes, {date}."
       ],
-      "h1": "{name} péptidos: estado y datos del análisis",
+      "h1": "{name}: estado y datos del análisis",
       "answer": "{name} forma parte de nuestra auditoría de {shops} tiendas: puntuación {score}/5 (puesto {rank}), {opened} informes abiertos, {portal} confirmados en un portal de laboratorio. Todos los datos en la página del análisis.",
       "fa1": "Sí, la tienda estaba vendiendo cuando la revisamos.",
-      "fa2": "La tienda auditada aparece abajo con su análisis; no revisamos otras webs que usan el nombre.",
+      "fa2": "La tienda auditada aparece abajo con su análisis. La evaluación solo se aplica a ese dominio.",
       "fa3": "Abrimos {opened} de sus informes; {portal} se confirmaron en el portal del laboratorio."
     },
     "iTitle": [
@@ -804,7 +804,7 @@
     "noReports": "ninguno abierto",
     "scoreTitle": "Puntuación de auditoría de estas tiendas (0 a 5)",
     "scoreDisplay": "{s} / 5",
-    "scoreNote": "Puntuaciones de nuestra auditoría del {date}. Orden por puntuación, nunca por comisión.",
+    "scoreNote": "Período de auditoría: {date}. Orden por puntuación, nunca por comisión.",
     "verifyTitleShop": "Informes que abrimos por tienda: confirmados en el portal o solo copia de la tienda",
     "verifyNote": "No se muestran las tiendas sin ningún informe que pudiéramos abrir ({none}).",
     "partnerScoreTitle": "Puntuación de las tiendas con enlace (0 a 5)",

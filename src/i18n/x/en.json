@@ -319,7 +319,7 @@
     },
     "f9": {
       "h": "Purity",
-      "p": "The share of the target peptide in the sample by HPLC. In the reports we opened it ranged from {pmin} to {pmax}."
+      "p": "A percentage reported using the laboratory’s stated method. Check which method was used and whether the result is an exact value or a lower bound."
     },
     "f10": {
       "h": "Measured content",
@@ -341,7 +341,7 @@
     "fq1": "What is a COA for peptides?",
     "fa1": "A certificate of analysis is a lab report for one sample of a peptide: identity, purity and usually the measured amount per vial, with the lab's task number and a verification key.",
     "fq2": "What does HPLC purity mean on a COA?",
-    "fa2": "It is the share of the target peptide among everything the HPLC detected in the sample, given in percent. In the {reports} reports we opened it ranged from {pmin} to {pmax}.",
+    "fa2": "It is a percentage reported for the sample using a specific test method. For HPLC, check how the laboratory calculated the percentage from the chromatogram. Without that information, do not assume that percentages from different reports are directly comparable.",
     "fq3": "How do I verify a peptide COA?",
     "fa3": "Type the lab's address into your browser yourself, open its verification page and enter the task number and key from the report. Compare compound, amount, purity, batch and date with the shop's copy.",
     "fq4": "Why does the measured mg differ from the label?",
@@ -650,10 +650,10 @@
       "Peptide shops in {country}: audited shops based there and shops that ship there, with scores and lab reports."
     ],
     "h1": "Peptide shops in {country}",
-    "intro": "Of {total} audited shops, {based|# is based|# are based} in {country} ({list}) and {ship|# states on its own pages that it ships|# state on their own pages that they ship} there. {np|# shop publishes|# shops publish} no shipping countries. Checked {date}.",
+    "intro": "Of {total} audited shops, {based|# is based|# are based} in {country} ({list}) and {ship|# states on its own pages that it ships|# state on their own pages that they ship} there. Shipping to this country could not be confirmed for {np|# shop|# shops}.",
     "statBased": "Based here",
     "statShip": "Ship here",
-    "statNp": "Not published",
+    "statNp": "Not confirmed",
     "basedH": "Shops based in {country}",
     "basedP": "Country from the company details or imprint the shop publishes, sorted by our score.",
     "shipH": "Shops that ship to {country}",
@@ -665,13 +665,13 @@
     "colCountry": "Country",
     "repVal": "{n} opened, {p} on portal",
     "none": "none in our audit",
-    "npP": "No shipping countries published:",
+    "npP": "Shipping to this country not confirmed:",
     "note": "Shipping as the shops state it; exceptions on their pages may apply. Not legal advice: the rules for buying research peptides differ by country.",
     "lawLink": "Legal status in {country}",
     "fq1": "Which audited peptide shops are based in {country}?",
     "fa1": "{based} of {total} audited shops: {list}.",
     "fq2": "Which shops ship to {country}?",
-    "fa2": "{ship} audited shops state that they ship to {country}; {np} publish no shipping countries.",
+    "fa2": "{ship} audited shops state that they ship to {country}; shipping there could not be confirmed for {np} others.",
     "fq3": "Is it legal to buy peptides in {country}?",
     "fa3": "It depends on national medicines law and on how the product is marketed. See our legal-status pages; this is general information, not legal advice.",
     "iTitle": [
@@ -765,17 +765,17 @@
     },
     "audited": {
       "title": [
-        "{name} Peptides Review: Score {score}/5, Lab Reports",
-        "{name} Peptides: Review & Status"
+        "{name}: Brand Status, Score {score}/5, Lab Reports",
+        "{name}: Brand Status and Audit"
       ],
       "description": [
-        "{name} peptides: audited as part of our {shops}-shop review, score {score}/5, {opened} lab reports opened, {portal} confirmed on a lab portal. Checked {date}.",
-        "{name} peptides: our audit score {score}/5 and lab report checks, {date}."
+        "{name}: audited as part of our {shops}-shop review, score {score}/5, {opened} lab reports opened, {portal} confirmed on a lab portal. Checked {date}.",
+        "{name}: our audit score {score}/5 and lab report checks, {date}."
       ],
-      "h1": "{name} peptides: status and review data",
+      "h1": "{name}: status and review data",
       "answer": "{name} is part of our audit of {shops} shops: score {score}/5 (rank {rank}), {opened} lab reports opened, {portal} confirmed on a lab portal. Full data on the review page.",
       "fa1": "Yes, the shop was selling when we checked it.",
-      "fa2": "The shop we audited is listed below with its review; other sites using the name were not checked.",
+      "fa2": "The shop we audited is listed below with its review. The audit applies only to that domain.",
       "fa3": "We opened {opened} of its lab reports; {portal} were confirmed on the lab's own portal."
     },
     "iTitle": [
@@ -804,7 +804,7 @@
     "noReports": "none opened",
     "scoreTitle": "Audit score of these shops (0 to 5)",
     "scoreDisplay": "{s} / 5",
-    "scoreNote": "Scores from our desk audit on {date}. Order by score, never by commission.",
+    "scoreNote": "Audit coverage: {date}. Order by score, never by commission.",
     "verifyTitleShop": "Lab reports we opened per shop: confirmed on the lab portal or shop copy",
     "verifyNote": "Shops without any report we could open are not shown ({none}).",
     "partnerScoreTitle": "Audit score of the shops with a store link (0 to 5)",

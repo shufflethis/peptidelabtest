@@ -5,7 +5,7 @@ import Icon from './Icon.astro';
 import { CHECKED_ISO } from '../lib/site';
 import { t, fmtDate, splitLang, type Lang } from '../i18n';
 interface Props {
-  checked?: string;
+  checked?: string | null;
   crumbs?: { name: string; url: string }[];
   title: string;
   eyebrow?: string;
@@ -21,6 +21,6 @@ const { crumbs, title, eyebrow, intro, checked = CHECKED_ISO, lang = splitLang(A
     <h1 class="h1 mt-4 max-w-4xl">{title}</h1>
     {intro && <p class="lead mt-4" data-answer>{intro}</p>}
     <slot />
-    <p class="mt-5 inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="calendar" class="w-4 h-4" />{t(lang, 'common.lastChecked', { date: fmtDate(lang, checked) })}</p>
+    {checked && <p class="mt-5 inline-flex items-center gap-1.5 text-sm text-slate-600"><Icon name="calendar" class="w-4 h-4" />{t(lang, 'common.lastChecked', { date: fmtDate(lang, checked) })}</p>}
   </div>
 </section>

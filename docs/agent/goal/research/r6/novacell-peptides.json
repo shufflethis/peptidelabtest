@@ -1,0 +1,82 @@
+{
+  "slug": "novacell-peptides",
+  "name": "NovaCell Peptides",
+  "auditStatus": "audited",
+  "shopUrl": "https://novacell-peptides.com/en",
+  "region": "EU",
+  "originCountry": "EE",
+  "shipsTo": "25 EU countries and the United Arab Emirates (by inquiry); exact EU list not confirmed",
+  "legalEntity": "NCBL Sciences OÜ",
+  "registeredOffice": {"address": "Tornimäe tn 5, Kesklinna linnaosa, 10145 Tallinn", "country": "EE", "registryId": "17455124", "vatId": "EE102969010"},
+  "dispatchOrigin": {"region": "EU", "country": "PL", "address": null},
+  "testingLabs": ["Liquilabs s.r.o."],
+  "coaAccess": "Public product-page batch tables link to shop-hosted PDFs; the PDFs link to original reports on the Liquilabs domain.",
+  "coaExamples": [
+    {"compound": "retatrutide", "shopProductName": "Nova Triple G 10mg", "sampleName": "Nova Triple G 10 mg", "client": "NCBL Sciences OÜ", "batch": "N3-082604", "shopBatchMatch": true, "labelMg": 10, "measuredMg": 9.79, "purityPercent": null, "purityLowerBoundPercent": 99.8, "purityComparator": ">", "lab": "Liquilabs s.r.o.", "reportId": "LYO-0975", "testDate": null, "publishedDate": "2026-09-29", "url": "https://base.liquilabs.cz/@@public_report?ar_uid=3adb704aaa50413a85427abf04c73709", "shopCopyUrl": "https://novacell-peptides.com/coa/Lyo-0975-NovaTripleG.pdf", "verifiable": true},
+    {"compound": "bpc-157", "shopProductName": "BPC-157 10mg", "sampleName": "BPC-157 10 mg", "client": "NCBL Sciences OÜ", "batch": "BP-082604", "shopBatchMatch": true, "labelMg": 10, "measuredMg": 11.93, "purityPercent": 99.1, "lab": "Liquilabs s.r.o.", "reportId": "LYO-0819", "testDate": null, "publishedDate": "2026-09-09", "url": "https://base.liquilabs.cz/@@public_report?ar_uid=e7eecb54d60546508f6c9af7185b01dd", "shopCopyUrl": "https://novacell-peptides.com/coa/Lyo-0819-BPC.pdf", "verifiable": true},
+    {"compound": "tb-500", "shopProductName": "TB-500 10mg", "sampleName": "TB-500 10 mg", "client": "NCBL Sciences OÜ", "batch": "TB-052603", "shopBatchMatch": true, "labelMg": 10, "measuredMg": 12.2, "purityPercent": 99.3, "lab": "Liquilabs s.r.o.", "reportId": "LYO-0270", "testDate": null, "publishedDate": "2026-06-23", "url": "https://base.liquilabs.cz/@@public_report?ar_uid=a551f228abcb44cc867a07857266d585", "shopCopyUrl": "https://novacell-peptides.com/coa/Lyo-0270-TB500.pdf", "verifiable": true},
+    {"compound": "retatrutide", "shopProductName": "Nova Triple G 10mg", "sampleName": "Retatrutide 10 mg", "client": "NCBL Sciences OÜ", "batch": "N3-042603", "shopBatchMatch": true, "labelMg": 10, "measuredMg": 10.07, "purityPercent": 99.7, "lab": "Liquilabs s.r.o.", "reportId": "LYO-0585", "testDate": null, "publishedDate": "2026-09-01", "shopCopyPublishedDate": "2026-08-15", "url": "https://base.liquilabs.cz/@@public_report?ar_uid=cbc84ca39b5344e1adc58c27a5875aae", "shopCopyUrl": "https://novacell-peptides.com/coa/Lyo-0585-NovaTripleG.pdf", "verifiable": true}
+  ],
+  "panels": {"hplc": true, "lcms": true, "identity": true, "mass": true, "endotoxin": true, "sterility": null, "heavyMetals": null},
+  "paymentMethods": ["Bank transfer (SEPA/SWIFT)", "Cryptocurrency (NOWPayments)", "Visa/Mastercard (EUR orders; 6% surcharge)"],
+  "freeShippingThreshold": "From €115 per the shipping policy; shop and FAQ say over €115, and the UAE is handled separately.",
+  "dispatchInfo": "The shop says tracking is sent on the day payment arrives (Mon–Sat by 14:00 CET); DPD/DHL are named and EU delivery is estimated at 2–6 business days.",
+  "products": [
+    {"compound": "retatrutide", "shopProductName": "Nova Triple G 10mg", "vialMg": 10, "price": 119, "currency": "EUR", "salePrice": 95.2, "url": "https://novacell-peptides.com/en/buy-retatrutide", "inStock": null},
+    {"compound": "bpc-157", "shopProductName": "BPC-157 10mg", "vialMg": 10, "price": 69, "currency": "EUR", "salePrice": 55.2, "url": "https://novacell-peptides.com/en/product/bpc-157-10mg", "inStock": true},
+    {"compound": "tb-500", "shopProductName": "TB-500 10mg", "vialMg": 10, "price": 79, "currency": "EUR", "salePrice": 63.2, "url": "https://novacell-peptides.com/en/product/tb-500-10mg", "inStock": true}
+  ],
+  "subscores": {"labVerification": 8, "fillAccuracy": 6, "panelDepth": 6, "entityTransparency": 9, "dispatchReliability": 7, "valuePerMg": 4},
+  "subscore_reasons": {
+    "labVerification": "All 4 sampled reports were read on Liquilabs and matched the listed product, client and batch; LYO-0585 had a different publication date and page count from its shop copy.",
+    "fillAccuracy": "The 4 sampled reports measured 97.9%–122.0% of label; BPC-157 and TB-500 were 119.3% and 122.0%, respectively.",
+    "panelDepth": "Read reports show purity, assay, FTIR, retention-time and mass-spectrometry identity, plus a separate endotoxin report; no sterility or heavy-metal results were confirmed in the sample.",
+    "entityTransparency": "The Estonian Business Register confirms the seller name, registration code, Tallinn address and VAT ID; the shop separately states dispatch from Poland.",
+    "dispatchReliability": "The shop names carriers, a tracking cut-off and EU transit estimates, but the public pages differ on destination scope and the exact free-shipping boundary.",
+    "valuePerMg": "At the displayed single-vial sale prices, retatrutide and BPC-157 were above the matching EUR medians in the existing audit, while TB-500 was slightly below."
+  },
+  "strengths": [
+    "All 4 sampled COAs were read on the original Liquilabs domain and matched the shop's named products and batch codes.",
+    "The Estonian register independently confirms the seller details; the shop separately identifies Poland as the dispatch country."
+  ],
+  "weaknesses": [
+    "The BPC-157 and TB-500 reports measured 11.93 mg and 12.20 mg against 10 mg labels.",
+    "The TB-500 shop catalogue calls it a fragment, but the product specifications and laboratory report identify thymosin beta-4.",
+    "The shop and lab copies of LYO-0585 differ in publication date and page count, although the sample, batch and reported assay and purity agree."
+  ],
+  "verdict": "NovaCell publishes lot-linked reports that could be read on Liquilabs. The sampled BPC-157 and TB-500 reports were above label, and the TB-500 catalogue wording conflicts with the laboratory identification.",
+  "summary": "NovaCell Peptides is a research-reagent shop operated by NCBL Sciences OÜ in Estonia, with dispatch from Poland according to the shop. Four sampled reports were read on Liquilabs.",
+  "notes": "The exact EU destination list and fulfilment address were not confirmed. The terms say 25 EU countries plus the UAE; the shipping page says 25 in one section and all EU member states in another. Purity reported as a lower bound is not entered as an exact percentage. Prices are single-vial snapshots, excluding quantity discounts. The batch match is to the public shop listings, not to a vial purchased for this audit.",
+  "sources": [
+    "https://novacell-peptides.com/en", "https://novacell-peptides.com/en/terms", "https://novacell-peptides.com/en/imprint", "https://ariregister.rik.ee/eng/company/17455124", "https://novacell-peptides.com/en/privacy", "https://novacell-peptides.com/en/shipping", "https://novacell-peptides.com/en/faq", "https://novacell-peptides.com/en/quality", "https://novacell-peptides.com/en/shop", "https://novacell-peptides.com/en/buy-retatrutide", "https://novacell-peptides.com/en/product/bpc-157-10mg", "https://novacell-peptides.com/en/product/tb-500-10mg",
+    "https://novacell-peptides.com/coa/Lyo-0975-NovaTripleG.pdf", "https://novacell-peptides.com/coa/Lyo-0819-BPC.pdf", "https://novacell-peptides.com/coa/Lyo-0270-TB500.pdf", "https://novacell-peptides.com/coa/Lyo-0585-NovaTripleG.pdf", "https://novacell-peptides.com/coa/Lyo-0820-BPC-Endotoxin.pdf", "https://novacell-peptides.com/coa/Lyo-0266-NovaTripleG.pdf",
+    "https://base.liquilabs.cz/@@public_report?ar_uid=3adb704aaa50413a85427abf04c73709", "https://base.liquilabs.cz/@@public_report?ar_uid=e7eecb54d60546508f6c9af7185b01dd", "https://base.liquilabs.cz/@@public_report?ar_uid=a551f228abcb44cc867a07857266d585", "https://base.liquilabs.cz/@@public_report?ar_uid=cbc84ca39b5344e1adc58c27a5875aae", "https://base.liquilabs.cz/@@public_report?ar_uid=4896175081e24659a42e55ba6208ef5b", "https://base.liquilabs.cz/@@public_report?ar_uid=980638831a7243b194371edfd19471f4"
+  ],
+  "auditEvidence": [
+    {"url": "https://novacell-peptides.com/en", "kind": "shop", "quote": "NCBL Sciences OÜ · Tornimäe tn 5, 10145 Tallinn (EE) · Reg. 17455124", "finding": "The branded home page names the same operator and register code as its terms."},
+    {"url": "https://novacell-peptides.com/en/terms", "kind": "shop", "quote": "These General Terms and Conditions (GTC) apply to all contracts concluded via the online shop at novacell-peptides.com (the \"Shop\"). The contracting party is NCBL Sciences OÜ, Tornimäe tn 5, Kesklinna linnaosa, 10145 Tallinn, Estonia, registered in the Estonian Commercial Register under registration code 17455124", "finding": "The terms identify the shop domain and seller; sections 4 and 5 state payment and shipping conditions."},
+    {"url": "https://novacell-peptides.com/en/imprint", "kind": "shop", "quote": "EU VAT ID: EE102969010. Registry code: 17455124.", "finding": "The imprint names the legal form, address, registration and VAT identifiers."},
+    {"url": "https://ariregister.rik.ee/eng/company/17455124", "kind": "officialRegister", "quote": "Harju maakond, Tallinn, Kesklinna linnaosa, Tornimäe tn 5, 10145", "finding": "The register card for NCBL Sciences OÜ confirms code 17455124, address, private limited company status and VAT ID EE102969010."},
+    {"url": "https://novacell-peptides.com/en/privacy", "kind": "shop", "quote": "Shipping: our warehouse and dispatch in Poland and the carriers DPD and DHL as well as shipping brokers (Apaczka)", "finding": "The stated warehouse country is Poland, distinct from the Estonian registered office."},
+    {"url": "https://novacell-peptides.com/en/shipping", "kind": "shop", "quote": "• Shipping from EUR 12.99 depending on destination – free from EUR 115 order value, to every country we serve", "finding": "The same page says both 25 EU countries and all EU member states, and lists the UAE as inquiry-only. No checkout was opened."},
+    {"url": "https://novacell-peptides.com/en/faq", "kind": "shop", "quote": "Free shipping within the EU for orders over €115.", "finding": "The FAQ uses 'over' rather than 'from'. It names bank transfer, cryptocurrency and EUR card payment with a 6% fee."},
+    {"url": "https://novacell-peptides.com/en/quality", "kind": "shop", "quote": "Tracking on the day payment arrives (Mon–Sat by 2 pm CET) from our EU warehouse. Delivery usually in 2–6 business days.", "finding": "The shop states a tracking cut-off and estimated transit. Its quality page also publishes sample COA PDFs and a shop-side batch lookup."},
+    {"url": "https://novacell-peptides.com/en/shop", "kind": "shop", "quote": "Thymosin Beta-4 fragment for cellular research models.", "finding": "The TB-500 catalogue card says fragment; that wording conflicts with the compound identification in the product specification and COA."},
+    {"url": "https://novacell-peptides.com/en/buy-retatrutide", "kind": "shop", "quote": "Lot: Batch N3-082604", "finding": "The page associates Nova Triple G 10mg with N3-082604, lists historical batch N3-042603, and displays €119.00 list / €95.20 current single-vial pricing."},
+    {"url": "https://novacell-peptides.com/en/product/bpc-157-10mg", "kind": "shop", "quote": "BP-082604", "finding": "The product batch table links Lyo-0819 and Lyo-0820 for BP-082604. Single-vial €69.00 list / €55.20 current; public offer markup says InStock."},
+    {"url": "https://novacell-peptides.com/en/product/tb-500-10mg", "kind": "shop", "quote": "TB-500 (Thymosin Beta-4, 43 aa; MS 4963 Da per COA)", "finding": "The product specification and batch table match the report naming and TB-052603. Single-vial €79.00 list / €63.20 current; public offer markup says InStock."},
+    {"url": "https://novacell-peptides.com/coa/Lyo-0975-NovaTripleG.pdf", "kind": "shopReport", "quote": "Results for LYO-0975", "finding": "Read shop copy with an embedded original-lab link; the product, client, batch and results match the lab PDF."},
+    {"url": "https://novacell-peptides.com/coa/Lyo-0819-BPC.pdf", "kind": "shopReport", "quote": "Results for LYO-0819", "finding": "Read shop copy with an embedded original-lab link; the product, client, batch and results match the lab PDF."},
+    {"url": "https://novacell-peptides.com/coa/Lyo-0270-TB500.pdf", "kind": "shopReport", "quote": "Results for LYO-0270", "finding": "Read shop copy with an embedded original-lab link; the product, client, batch and results match the lab PDF."},
+    {"url": "https://novacell-peptides.com/coa/Lyo-0585-NovaTripleG.pdf", "kind": "shopReport", "quote": "Date Published 2026-08-15 16:11", "finding": "The shop copy has 8 pages. The original-domain PDF has 10 pages and a later publication date, with the same sample, client, batch, assay and purity."},
+    {"url": "https://novacell-peptides.com/coa/Lyo-0820-BPC-Endotoxin.pdf", "kind": "shopReport", "quote": "Results for LYO-0820", "finding": "Read the separate endotoxin report; its embedded original-lab link resolves to the same sample, client, batch and result."},
+    {"url": "https://novacell-peptides.com/coa/Lyo-0266-NovaTripleG.pdf", "kind": "shopReport", "quote": "Results for LYO-0266", "finding": "Read the historical example linked on the quality page; its lab copy documents a separate assay for the same batch code as LYO-0585."},
+    {"url": "https://base.liquilabs.cz/@@public_report?ar_uid=3adb704aaa50413a85427abf04c73709", "kind": "labReport", "quote": "Retatrutide Assay 9.79 mg", "finding": "Read LYO-0975: Nova Triple G 10 mg, NCBL Sciences OÜ, N3-082604, purity >99.8%; matches the shop listing and PDF."},
+    {"url": "https://base.liquilabs.cz/@@public_report?ar_uid=e7eecb54d60546508f6c9af7185b01dd", "kind": "labReport", "quote": "BPC-157 Assay 11.93 mg", "finding": "Read LYO-0819: BPC-157 10 mg, NCBL Sciences OÜ, BP-082604, 99.1% purity; matches the shop listing and PDF. Its instrument sheet names a Shimadzu LCMS-2050 detector and HPLC-grade solvents."},
+    {"url": "https://base.liquilabs.cz/@@public_report?ar_uid=a551f228abcb44cc867a07857266d585", "kind": "labReport", "quote": "Thymosin Beta 4 (TB-500) Assay 12.20 mg", "finding": "Read LYO-0270: TB-500 10 mg, NCBL Sciences OÜ, TB-052603, 99.3% purity and 4963 Da by mass spectrometry; matches the shop batch table."},
+    {"url": "https://base.liquilabs.cz/@@public_report?ar_uid=cbc84ca39b5344e1adc58c27a5875aae", "kind": "labReport", "quote": "Date Published 2026-09-01 10:38", "finding": "Read LYO-0585: Retatrutide 10 mg, NCBL Sciences OÜ, N3-042603, 10.07 mg and 99.7% purity. The lab publication date and page count differ from the vendor copy."},
+    {"url": "https://base.liquilabs.cz/@@public_report?ar_uid=4896175081e24659a42e55ba6208ef5b", "kind": "labReport", "quote": "Bacterial Endotoxin Chromgenic 0.071 EU/mg", "finding": "Read separate LYO-0820 report for BPC-157 10 mg, NCBL Sciences OÜ, BP-082604; the product and lot agree with LYO-0819 and the shop."},
+    {"url": "https://base.liquilabs.cz/@@public_report?ar_uid=980638831a7243b194371edfd19471f4", "kind": "labReport", "quote": "Retatrutide Assay 10.64 mg", "finding": "Read historical LYO-0266: Nova Triple G 10 mg, NCBL Sciences OÜ, N3-042603, >99.8% purity, published 2026-06-23. It is a separate report from LYO-0585 with the same batch code and different measured values; it is not counted as a separate batch in the review sample."}
+  ],
+  "readAt": "2026-11-23"
+}

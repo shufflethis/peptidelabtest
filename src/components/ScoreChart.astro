@@ -2,8 +2,8 @@
 /** Audit score bars (0-5) for a list of shops, partner shops in accent. Order = given order (callers sort by score). */
 import BarList from './BarList.astro';
 import type { VendorProfile } from '../data/vendors';
-import { isPartner, CHECKED_ISO } from '../lib/site';
-import { t, lp, fmtDate, splitLang } from '../i18n';
+import { isPartner, reviewCoverage, AUDIT_COVERAGE } from '../lib/site';
+import { t, lp, fmtDateRange, splitLang } from '../i18n';
 import { fmt } from '../i18n/format';
 interface Props {
   vendors: VendorProfile[];
@@ -15,7 +15,9 @@ interface Props {
 const { vendors, title, highlight, max = 30, note } = Astro.props;
 const lang = splitLang(Astro.url.pathname).lang;
 const F = fmt(lang);
-const rows = vendors.slice(0, max).map((v) => ({
+const shown = vendors.slice(0, max);
+const coverage = reviewCoverage(shown) ?? AUDIT_COVERAGE;
+const rows = shown.map((v) => ({
   label: v.name,
   value: v.overallScore,
   display: t(lang, 'm5.scoreDisplay', { s: F.score(v.overallScore) }),
@@ -24,4 +26,4 @@ const rows = vendors.slice(0, max).map((v) => ({
 }));
 const legend = highlight ? undefined : { accent: t(lang, 'c.legendPartner'), other: t(lang, 'c.legendOther') };
 ---
-<BarList rows={rows} max={5} title={title || t(lang, 'm5.scoreTitle')} legend={legend} note={note || t(lang, 'm5.scoreNote', { date: fmtDate(lang, CHECKED_ISO) })} />
+<BarList rows={rows} max={5} title={title || t(lang, 'm5.scoreTitle')} legend={legend} note={note || t(lang, 'm5.scoreNote', { date: fmtDateRange(lang, coverage.earliest, coverage.latest) })} />

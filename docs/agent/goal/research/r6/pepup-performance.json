@@ -1,0 +1,526 @@
+{
+ "slug": "pepup-performance",
+ "name": "PEPUP Performance",
+ "auditStatus": "audited",
+ "shopUrl": "https://pepup-performance.de/",
+ "region": "EU",
+ "originCountry": "DE",
+ "shipsTo": [
+  "DE",
+  "EU-wide"
+ ],
+ "legalEntity": "PEPUP Performance (Gökhan Möhürcü)",
+ "legalForm": "sole_proprietorship",
+ "businessAddress": "Kolonnenstraße 8, 10827 Berlin, Deutschland",
+ "registeredOffice": null,
+ "registrationNumber": null,
+ "vatId": "DE405811780",
+ "vatIdVerified": null,
+ "dispatchOrigin": null,
+ "testingLabs": [],
+ "coaAccess": "Public product listings say certificates are available, but no report, issuing laboratory, verification code or batch identifier was visible on the listings checked.",
+ "coaExamples": [],
+ "panels": {
+  "hplc": null,
+  "lcms": null,
+  "mass": null,
+  "endotoxin": null,
+  "sterility": null,
+  "heavyMetals": null
+ },
+ "paymentMethods": [
+  "Credit cards",
+  "Klarna",
+  "Apple Pay",
+  "Google Pay",
+  "Bank transfer",
+  "Bancontact",
+  "PayPal"
+ ],
+ "freeShippingThreshold": null,
+ "dispatchInfo": "The shipping policy lists DHL at €6.90 for Germany and €15.00 for other EU countries, with an estimated 2–5 business days within Germany. No dispatch origin or processing time is stated in the shipping policy.",
+ "products": [
+  {
+   "compound": "bpc-157",
+   "shopProductName": "N°004 – BPC-157 I 10mg",
+   "vialMg": 10,
+   "price": 54.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n004-bpc-157-i-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "bpc-157",
+   "shopProductName": "N°004 – BPC-157 I 20mg",
+   "vialMg": 20,
+   "price": 79.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n004-bpc-157-i-20mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "N°003 – TB-500 I 10mg",
+   "vialMg": 10,
+   "price": 59.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n003-tb-500-i-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "tesamorelin",
+   "shopProductName": "N°016 – Tesamorelin I 20mg",
+   "vialMg": 20,
+   "price": 139.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n016-tesamorelin-i-20mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "N°006 – GHK-Cu I 50mg",
+   "vialMg": 50,
+   "price": 65.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n006-ghk-cu-i-50mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "N°006 – GHK-Cu I 100mg",
+   "vialMg": 100,
+   "price": 89.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n006-ghk-cu/",
+   "inStock": true
+  },
+  {
+   "compound": "kpv",
+   "shopProductName": "N°017 – KPV I 10mg",
+   "vialMg": 10,
+   "price": 49.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n017-kpv-i-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "N°002 – NAD+ I 500mg",
+   "vialMg": 500,
+   "price": 99.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n002-nad-i-500mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ss-31",
+   "shopProductName": "N°018 – SS-31 I 10mg",
+   "vialMg": 10,
+   "price": 59.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n018-ss-31-i-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "epithalon",
+   "shopProductName": "N°010 – Epithalon I 10mg",
+   "vialMg": 10,
+   "price": 69.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n010-epithalon-i-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "mots-c",
+   "shopProductName": "N°005 – MOTS-c I 40mg",
+   "vialMg": 40,
+   "price": 159.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n005-mots-c-i-40mg/",
+   "inStock": true
+  },
+  {
+   "compound": "pt-141",
+   "shopProductName": "N°007 – PT-141 I 10mg",
+   "vialMg": 10,
+   "price": 59.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n007-pt-141-i-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "thymosin-alpha-1",
+   "shopProductName": "N°014 – Thymosin α-1 I 10mg",
+   "vialMg": 10,
+   "price": 74.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n014-thymosin-%ce%b1-1-i-10mg/",
+   "inStock": true
+  },
+  {
+   "compound": "ipamorelin",
+   "shopProductName": "N°023 – Ipamorelin I 5mg",
+   "vialMg": 5,
+   "price": 39.0,
+   "currency": "EUR",
+   "salePrice": null,
+   "url": "https://pepup-performance.de/produkt/n023-ipamorelin-i-5mg/",
+   "inStock": true
+  }
+ ],
+ "subscores": {
+  "labVerification": 0,
+  "fillAccuracy": 3,
+  "panelDepth": 0,
+  "entityTransparency": 8,
+  "dispatchReliability": 6,
+  "valuePerMg": 4
+ },
+ "subscore_reasons": {
+  "labVerification": "The shop says a COA is available on several public product pages, but we found no public document, named issuing lab or verification code on the pages checked.",
+  "fillAccuracy": "No report was available to read, so measured net content cannot be assessed; this is the default score for missing data.",
+  "panelDepth": "No analytical methods or test panels could be verified from a report.",
+  "entityTransparency": "The legal notice and terms identify a sole proprietor and a Berlin business address; the shop publishes a VAT ID, but it was not independently verified.",
+  "dispatchReliability": "The shipping policy names a carrier, rates and a domestic delivery estimate, but does not name the dispatch origin, handling time or individual destinations outside Germany.",
+  "valuePerMg": "In our EU audit data, the regular price per mg was above the median for 11 of 13 sampled offers with at least 2 like-for-like EUR comparisons; 1 was at the median to the displayed precision and 1 was below."
+ },
+ "strengths": [
+  "Public research catalog with prices and stock status available without an account",
+  "Legal notice identifies the proprietor and a Berlin business address; policy publishes DHL rates and a domestic delivery estimate"
+ ],
+ "weaknesses": [
+  "COAs are mentioned, but no public reports, issuing laboratory or verification codes were found on the pages checked",
+  "The business address is published, but the dispatch origin and processing time are not stated in the shipping policy"
+ ],
+ "verdict": "PEPUP Performance publishes its operator details, shipping rates and research catalog. Several listings say a COA is available, but none of the pages checked exposed a report or a code, so we could not verify purity, measured content or the testing panel.",
+ "summary": "German shop operated by Gökhan Möhürcü as a sole proprietor in Berlin. It has a public research catalog and publishes DHL rates for Germany and other EU countries; no laboratory report could be read on the pages checked.",
+ "notes": "Cosmetics and accessories are outside this audit. The coded RT-3 listings were not assigned to a named compound because the product page does not specify one. Payment methods are published across different policy pages and were not confirmed at checkout. The shipping policy says Europe-wide and lists an EU rate; the terms discuss non-EU imports but do not identify specific non-EU destinations. The Berlin business address is not evidence of dispatch origin.",
+ "sources": [
+  "https://pepup-performance.de/",
+  "https://pepup-performance.de/impressum/",
+  "https://pepup-performance.de/%f0%9f%93%84-allgemeine-geschaeftsbedingungen-agb/",
+  "https://pepup-performance.de/privacy-policy/",
+  "https://pepup-performance.de/bezahlmoeglichkeiten/",
+  "https://pepup-performance.de/widerrufsbelehrung-versand-und-zahlungsbedingungen-sowie-rechtliche-hinweise/",
+  "https://pepup-performance.de/research/",
+  "https://pepup-performance.de/wp-sitemap-posts-page-1.xml",
+  "https://pepup-performance.de/wp-json/wp/v2/media?mime_type=application%2Fpdf&per_page=100&_fields=source_url,title,description",
+  "https://pepup-performance.de/produkt/n001-rt-3-i-10mg/",
+  "https://pepup-performance.de/wp-json/wc/store/v1/products?per_page=100",
+  "https://pepup-performance.de/produkt/n004-bpc-157-i-10mg/",
+  "https://pepup-performance.de/produkt/n004-bpc-157-i-20mg/",
+  "https://pepup-performance.de/produkt/n003-tb-500-i-10mg/",
+  "https://pepup-performance.de/produkt/n016-tesamorelin-i-20mg/",
+  "https://pepup-performance.de/produkt/n006-ghk-cu-i-50mg/",
+  "https://pepup-performance.de/produkt/n006-ghk-cu/",
+  "https://pepup-performance.de/produkt/n017-kpv-i-10mg/",
+  "https://pepup-performance.de/produkt/n002-nad-i-500mg/",
+  "https://pepup-performance.de/produkt/n018-ss-31-i-10mg/",
+  "https://pepup-performance.de/produkt/n010-epithalon-i-10mg/",
+  "https://pepup-performance.de/produkt/n005-mots-c-i-40mg/",
+  "https://pepup-performance.de/produkt/n007-pt-141-i-10mg/",
+  "https://pepup-performance.de/produkt/n014-thymosin-%ce%b1-1-i-10mg/",
+  "https://pepup-performance.de/produkt/n023-ipamorelin-i-5mg/"
+ ],
+ "readAt": "2026-11-23",
+ "auditEvidence": [
+  {
+   "url": "https://pepup-performance.de/",
+   "quote": "LABORATORY RESEARCH COLLECTION",
+   "finding": "Official brand home links to the public research shop and distinguishes it from cosmetics."
+  },
+  {
+   "url": "https://pepup-performance.de/impressum/",
+   "quote": "PEPUP Performance\nEinzelunternehmen\nInhaber: Gökhan Möhürcü\nKolonnenstraße 8\n10827 Berlin\nDeutschland",
+   "finding": "Official legal notice identifies the brand, legal form, proprietor and street address; the VAT ID is shop-published, not independently checked.",
+   "additionalQuotes": [
+    "DE405811780"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/%f0%9f%93%84-allgemeine-geschaeftsbedingungen-agb/",
+   "quote": "Der Kaufvertrag kommt zustande mit PEPUP Performance.",
+   "finding": "Terms name the same operator and separately list bank transfer and other payment methods. Generic non-EU import terms do not identify destinations.",
+   "additionalQuotes": [
+    "Banküberweisung",
+    "Die Zahlungsabwicklung erfolgt über WooPayments.",
+    "Bei Lieferungen in Staaten außerhalb der Europäischen Union"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/privacy-policy/",
+   "quote": "Zur Zahlungsabwicklung nutzen wir WooPayments.",
+   "finding": "Privacy policy repeats the named operator and lists payment methods.",
+   "additionalQuotes": [
+    "Kreditkarte",
+    "Klarna",
+    "Banküberweisung",
+    "Apple Pay",
+    "Google Pay"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/bezahlmoeglichkeiten/",
+   "quote": "Bancontact\nKlarna\nApple Pay\nGoogle Pay\nPayPal",
+   "finding": "Dedicated payment page additionally lists Bancontact and PayPal; availability at checkout was not tested."
+  },
+  {
+   "url": "https://pepup-performance.de/widerrufsbelehrung-versand-und-zahlungsbedingungen-sowie-rechtliche-hinweise/",
+   "quote": "Wir liefern innerhalb Deutschlands sowie europaweit.",
+   "finding": "Shipping policy gives a domestic and EU rate, carrier and domestic transit estimate; it does not give processing time, dispatch origin, a free-shipping threshold or a country list.",
+   "additionalQuotes": [
+    "Deutschland: 6,90 € (Versand mit DHL)",
+    "EU-Ausland: 15,00 € (Versand mit DHL)",
+    "Die Lieferzeit beträgt in der Regel 2–5 Werktage innerhalb Deutschlands."
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/research/",
+   "quote": "RESEARCH Produkte",
+   "finding": "Public dedicated catalog links to the products audited. Product cards show retail prices and are separate from cosmetics or accessories.",
+   "additionalQuotes": [
+    "N°004 – BPC-157 I 10mg",
+    "54,00 €"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/wp-sitemap-posts-page-1.xml",
+   "quote": "<loc>https://pepup-performance.de/research/</loc>",
+   "finding": "The shop page sitemap was checked for a public report or testing page; none was identified."
+  },
+  {
+   "url": "https://pepup-performance.de/wp-json/wp/v2/media?mime_type=application%2Fpdf&per_page=100&_fields=source_url,title,description",
+   "quote": "[]",
+   "finding": "The public WordPress PDF media filter returned an empty list; this is not proof the shop has no certificates or image uploads elsewhere."
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n001-rt-3-i-10mg/",
+   "quote": "(COA vorliegend)",
+   "finding": "RT-3 10 mg page states a COA is available, but the report, code, issuing lab, lot and named compound were not visible. The listing was not mapped to a compound slug."
+  },
+  {
+   "url": "https://pepup-performance.de/wp-json/wc/store/v1/products?per_page=100",
+   "quote": "\"is_in_stock\":true",
+   "finding": "The public WooCommerce API supplies stock flags and structured prices for the sampled listings; each retained row is also present on the public research catalog. Stock reflects the read-time listing, not fulfillment.",
+   "additionalQuotes": [
+    "\"currency_code\":\"EUR\"",
+    "\"regular_price\":\"5400\""
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n004-bpc-157-i-10mg/",
+   "quote": "N°004 – BPC-157 I 10mg – PEPUP Performance\n54,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n004-bpc-157-i-20mg/",
+   "quote": "N°004 – BPC-157 I 20mg – PEPUP Performance\n79,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. No report, issuing lab, verifier or lot is visible."
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n003-tb-500-i-10mg/",
+   "quote": "N°003 – TB-500 I 10mg – PEPUP Performance\n59,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n016-tesamorelin-i-20mg/",
+   "quote": "N°016 – Tesamorelin I 20mg – PEPUP Performance\n139,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n006-ghk-cu-i-50mg/",
+   "quote": "N°006 – GHK-Cu I 50mg – PEPUP Performance\n65,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n006-ghk-cu/",
+   "quote": "N°006 – GHK-Cu I 100mg – PEPUP Performance\n89,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n017-kpv-i-10mg/",
+   "quote": "N°017 – KPV I 10mg – PEPUP Performance\n49,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n002-nad-i-500mg/",
+   "quote": "N°002 – NAD+ I 500mg – PEPUP Performance\n99,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n018-ss-31-i-10mg/",
+   "quote": "N°018 – SS-31 I 10mg – PEPUP Performance\n59,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n010-epithalon-i-10mg/",
+   "quote": "N°010 – Epithalon I 10mg – PEPUP Performance\n69,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n005-mots-c-i-40mg/",
+   "quote": "N°005 – MOTS-c I 40mg – PEPUP Performance\n159,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n007-pt-141-i-10mg/",
+   "quote": "N°007 – PT-141 I 10mg – PEPUP Performance\n59,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n014-thymosin-%ce%b1-1-i-10mg/",
+   "quote": "N°014 – Thymosin α-1 I 10mg – PEPUP Performance\n74,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  },
+  {
+   "url": "https://pepup-performance.de/produkt/n023-ipamorelin-i-5mg/",
+   "quote": "N°023 – Ipamorelin I 5mg – PEPUP Performance\n39,00 €",
+   "finding": "Public product title and price read; stock and sale status cross-checked in the store API. The listing mentions a COA, but no report, issuing lab, verifier or lot is visible.",
+   "additionalQuotes": [
+    "(COA vorliegend)"
+   ]
+  }
+ ],
+ "priceBenchmark": [
+  {
+   "compound": "bpc-157",
+   "vialMg": 10,
+   "regularEurPerMg": 5.4,
+   "comparisonOffers": 7,
+   "medianRegularEurPerMg": 4.715
+  },
+  {
+   "compound": "bpc-157",
+   "vialMg": 20,
+   "regularEurPerMg": 3.95,
+   "comparisonOffers": 2,
+   "medianRegularEurPerMg": 3.65
+  },
+  {
+   "compound": "tb-500",
+   "vialMg": 10,
+   "regularEurPerMg": 5.9,
+   "comparisonOffers": 5,
+   "medianRegularEurPerMg": 6.749
+  },
+  {
+   "compound": "ghk-cu",
+   "vialMg": 50,
+   "regularEurPerMg": 1.3,
+   "comparisonOffers": 8,
+   "medianRegularEurPerMg": 0.74
+  },
+  {
+   "compound": "ghk-cu",
+   "vialMg": 100,
+   "regularEurPerMg": 0.89,
+   "comparisonOffers": 6,
+   "medianRegularEurPerMg": 0.694
+  },
+  {
+   "compound": "kpv",
+   "vialMg": 10,
+   "regularEurPerMg": 4.9,
+   "comparisonOffers": 7,
+   "medianRegularEurPerMg": 4.499
+  },
+  {
+   "compound": "nad-plus",
+   "vialMg": 500,
+   "regularEurPerMg": 0.198,
+   "comparisonOffers": 4,
+   "medianRegularEurPerMg": 0.155
+  },
+  {
+   "compound": "ss-31",
+   "vialMg": 10,
+   "regularEurPerMg": 5.9,
+   "comparisonOffers": 7,
+   "medianRegularEurPerMg": 5.9
+  },
+  {
+   "compound": "epithalon",
+   "vialMg": 10,
+   "regularEurPerMg": 6.9,
+   "comparisonOffers": 8,
+   "medianRegularEurPerMg": 3.759
+  },
+  {
+   "compound": "mots-c",
+   "vialMg": 40,
+   "regularEurPerMg": 3.975,
+   "comparisonOffers": 5,
+   "medianRegularEurPerMg": 2.873
+  },
+  {
+   "compound": "pt-141",
+   "vialMg": 10,
+   "regularEurPerMg": 5.9,
+   "comparisonOffers": 5,
+   "medianRegularEurPerMg": 4.064
+  },
+  {
+   "compound": "thymosin-alpha-1",
+   "vialMg": 10,
+   "regularEurPerMg": 7.4,
+   "comparisonOffers": 4,
+   "medianRegularEurPerMg": 6.646
+  },
+  {
+   "compound": "ipamorelin",
+   "vialMg": 5,
+   "regularEurPerMg": 7.8,
+   "comparisonOffers": 3,
+   "medianRegularEurPerMg": 5.998
+  }
+ ]
+}

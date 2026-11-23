@@ -1,7 +1,7 @@
 /** GOAL M4: code-name decoder + shops by country. Built only from audit.json (shop product names, originCountry, shipsTo). */
 import AUDIT from '../data/audit.json';
 import { VENDORS, type VendorProfile } from '../data/vendors';
-import { compoundShort } from './site';
+import { compoundShort, shipsToCountry } from './site';
 
 const audit = AUDIT as any[];
 const live = (slug: string) => VENDORS.find((v) => v.slug === slug);
@@ -29,7 +29,6 @@ export const CODE_NAMES: CodeNameRow[] = (() => {
   return Array.from(m.values()).sort((x, y) => GLP.indexOf(x.compound) - GLP.indexOf(y.compound) || x.code.localeCompare(y.code));
 })();
 
-export const EU_CODES = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'];
 export interface CountryMeta { slug: string; code: string; law?: string }
 export const COUNTRIES: CountryMeta[] = [
   { slug: 'usa', code: 'US', law: 'united-states' },
@@ -40,19 +39,9 @@ export const COUNTRIES: CountryMeta[] = [
   { slug: 'romania', code: 'RO' },
 ];
 export type ShipState = 'yes' | 'no' | 'np';
-/** Whether a shop states shipping to a country: worldwide / EU-wide / explicit list / US-only, as recorded in audit.json shipsTo. */
+/** Adapt shared shipping evidence to the country directory's display states. */
 export function shipsTo(slug: string, code: string): ShipState {
-  const a = audit.find((x) => x.slug === slug);
-  const s = a?.shipsTo;
-  if (!s) return 'np';
-  const list: string[] = Array.isArray(s) ? s : [String(s)];
-  for (const x of list) {
-    if (/worldwide/i.test(x)) return 'yes';
-    if (/EU-wide/i.test(x) && EU_CODES.includes(code)) return 'yes';
-    if (/US-only/i.test(x)) return code === 'US' ? 'yes' : 'no';
-    if (x === code) return 'yes';
-  }
-  return 'no';
+  return shipsToCountry(slug, code) ?? 'np';
 }
 export function countryData(code: string) {
   const vis = VENDORS.filter((v) => audit.find((a) => a.slug === v.slug));

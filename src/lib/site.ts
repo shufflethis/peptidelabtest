@@ -12,6 +12,13 @@ export const SITE_NAME = 'PeptideLabIndex';
 export const CHECKED_ISO = '2026-11-20';
 export const CHECKED_LABEL = '20 Nov 2026';
 export const YEAR = 2026;
+
+/** Bounds of the recorded ISO review dates, not the date of publication. */
+export function reviewCoverage(records: readonly { reviewedAt: string }[]) {
+  const dates = records.map((r) => r.reviewedAt).sort();
+  return dates.length ? { earliest: dates[0], latest: dates[dates.length - 1] } : null;
+}
+export const AUDIT_COVERAGE = reviewCoverage(VENDORS) ?? { earliest: CHECKED_ISO, latest: CHECKED_ISO };
 /**
  * Social profiles. Empty string = not shown anywhere (footer icons, Organization sameAs).
  * Telegram per language; empty language channels fall back to telegramEn.
@@ -55,6 +62,7 @@ const byScore = (a: VendorProfile, b: VendorProfile) => b.overallScore - a.overa
 export const PARTNERS: VendorProfile[] = VENDORS.filter((v) => isPartner(v.slug)).sort(byScore);
 export const NON_PARTNERS: VendorProfile[] = VENDORS.filter((v) => !isPartner(v.slug)).sort(byScore);
 export const VENDORS_BY_SCORE: VendorProfile[] = [...VENDORS].sort(byScore);
+export const publicVendorRank = (slug: string) => VENDORS_BY_SCORE.findIndex((v) => v.slug === slug) + 1;
 
 export function partnersIn(region: string): VendorProfile[] {
   return PARTNERS.filter((v) => v.region === region);
@@ -215,22 +223,22 @@ export interface Offer {
   onSale: boolean;
   perMg: number | null;
   currency: string;
-  /** Opened report for this compound (same label size preferred) */
+  /** Opened report matching this compound and vial size */
   report: CoaExample | null;
   reportsForCompound: CoaExample[];
   href: string | null;
 }
 
-function pickReport(v: VendorProfile, compound: string, vialMg: number | null): { report: CoaExample | null; all: CoaExample[] } {
+export function pickReport(v: VendorProfile, compound: string, vialMg: number | null): { report: CoaExample | null; all: CoaExample[] } {
   const all = v.coaExamples.filter((c) => c.compound === compound);
-  const same = all.find((c) => vialMg != null && c.labelMg === vialMg && c.measuredMg != null);
-  const any = all.find((c) => c.measuredMg != null) || all[0] || null;
-  return { report: same || any, all };
+  const same = vialMg == null ? [] : all.filter((c) => c.labelMg === vialMg);
+  return { report: same.find((c) => c.measuredMg != null) ?? same[0] ?? null, all };
 }
 
 export function offersFor(compound: string, size?: number): Offer[] {
   const out: Offer[] = [];
   for (const v of VENDORS) {
+    if (v.pricesExcludeVat) continue;
     for (const p of v.products) {
       if (p.compound !== compound) continue;
       if (size != null && p.vialMg !== size) continue;
@@ -271,16 +279,20 @@ export function currencyHeading(cur: string): string {
   return `Prices in ${cur}`;
 }
 
-export const ALL_PRODUCT_COMPOUNDS: string[] = Array.from(new Set(VENDORS.flatMap((v) => v.products.map((p) => p.compound))));
+const COMPARABLE_VENDORS = VENDORS.filter((v) => !v.pricesExcludeVat);
+export const ALL_PRODUCT_COMPOUNDS: string[] = Array.from(new Set(COMPARABLE_VENDORS.flatMap((v) => v.products.map((p) => p.compound))));
 
 export function productCount(compound: string): number {
-  return VENDORS.reduce((n, v) => n + v.products.filter((p) => p.compound === compound).length, 0);
+  return COMPARABLE_VENDORS.reduce((n, v) => n + v.products.filter((p) => p.compound === compound).length, 0);
 }
 
-/** Compounds with >= 2 products, in compounds.ts order (then by count) */
+const hasComparison = (compound: string) => COMPARABLE_VENDORS
+  .flatMap((v) => v.products).filter((p) => p.compound === compound && p.pricePerMg != null).length >= 2;
+
+/** Compounds with at least two comparable prices, in compounds.ts order. */
 export const PRICE_COMPOUNDS: string[] = [
-  ...COMPOUNDS.map((c) => c.slug).filter((s) => productCount(s) >= 2),
-  ...ALL_PRODUCT_COMPOUNDS.filter((s) => !getCompoundBySlug(s) && productCount(s) >= 2),
+  ...COMPOUNDS.map((c) => c.slug).filter(hasComparison),
+  ...ALL_PRODUCT_COMPOUNDS.filter((s) => !getCompoundBySlug(s) && hasComparison(s)),
 ];
 
 export function shopsCarrying(compound: string, size?: number): VendorProfile[] {
@@ -293,11 +305,11 @@ export function sizesFor(compound: string): number[] {
   return Array.from(s).sort((a, b) => a - b);
 }
 
-/** Vial-size pages: compound + size offered by >= 3 shops */
+/** Vial-size pages require comparable prices from three shops; display all shops listing that size. */
 export const SIZE_PAGES: { compound: string; size: number; shops: number }[] = PRICE_COMPOUNDS.flatMap((c) =>
   sizesFor(c)
-    .map((size) => ({ compound: c, size, shops: shopsCarrying(c, size).length }))
-    .filter((x) => x.shops >= 3),
+    .filter((size) => COMPARABLE_VENDORS.filter((v) => v.products.some((p) => p.compound === c && p.vialMg === size && p.pricePerMg != null)).length >= 3)
+    .map((size) => ({ compound: c, size, shops: shopsCarrying(c, size).length })),
 );
 
 export function sizePagesFor(compound: string) {
@@ -415,6 +427,7 @@ export function alternativesFor(v: VendorProfile, n = 3): VendorProfile[] {
 }
 
 export function cheapestFor(v: VendorProfile, compounds: string[] = ['bpc-157', 'retatrutide', 'ghk-cu', 'mots-c']) {
+  if (v.pricesExcludeVat) return null;
   for (const c of compounds) {
     const xs = v.products.filter((p) => p.compound === c && p.pricePerMg != null).sort((a, b) => a.pricePerMg! - b.pricePerMg!);
     if (xs.length) return xs[0];
@@ -469,19 +482,24 @@ export function itemListSchema(name: string, items: { name: string; url: string 
 
 const EU_CODES = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE'];
 
-/** 'yes' when the shop's published shipsTo covers the country; null when the shop does not publish it. */
-export function shipsToCountry(slug: string, code: string): 'yes' | 'no' | null {
-  const raw = (AUDIT_RAW as any[]).find((a) => a.slug === slug)?.shipsTo;
-  if (raw == null || raw === 'None') return null;
-  const list: string[] = Array.isArray(raw) ? raw : [String(raw)];
-  for (const x of list) {
-    const t = x.toLowerCase();
-    if (t === 'worldwide') return 'yes';
-    if (t === 'us-only' || t === 'us') { if (code === 'US') return 'yes'; continue; }
-    if (t === 'eu-wide' && EU_CODES.includes(code)) return 'yes';
-    if (x.toUpperCase() === code) return 'yes';
+const isShippingToken = (scope: string) => /^(worldwide|eu-wide|us-only)$/i.test(scope) || /^[A-Z]{2}$/.test(scope);
+const coversCountry = (scope: string, code: string) => {
+  switch (scope.toLowerCase()) {
+    case 'worldwide': return true;
+    case 'eu-wide': return EU_CODES.includes(code);
+    case 'us-only': return code === 'US';
+    default: return scope.toUpperCase() === code;
   }
-  return 'no';
+};
+
+/** Explicit scopes and country codes establish coverage; free-text policies alone do not. */
+export function shipsToCountry(slug: string, code: string): 'yes' | 'no' | null {
+  const vendor = (AUDIT_RAW as any[]).find((a) => a.slug === slug);
+  const raw = vendor?.shipsTo;
+  const scopes: string[] = Array.isArray(raw) ? raw : typeof raw === 'string' ? [raw] : [];
+  const matches = (scope: string) => isShippingToken(scope) && coversCountry(scope, code);
+  if (vendor?.shipsToConfirmed?.some(matches) || scopes.some(matches)) return 'yes';
+  return scopes.length && scopes.every(isShippingToken) ? 'no' : null;
 }
 
 // ---------------------------------------------------------------- calculators (GOAL M3)

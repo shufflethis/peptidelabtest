@@ -1,0 +1,88 @@
+{
+  "slug": "primal-peptides",
+  "name": "Primal Peptides",
+  "shopUrl": "https://primalpeptides.nl",
+  "region": "EU",
+  "originCountry": "NL",
+  "shipsTo": ["NL", "BE", "DE", "FR", "AT", "BG", "HR", "CY", "CZ", "DK", "FI", "GR", "HU", "IE", "IT", "LT", "LV", "EE", "MT", "PL", "PT", "RO", "SE", "SK", "SI", "ES", "LU", "MC", "GB", "PK", "TR"],
+  "legalEntity": "Elite Edge / Primal Peptides (KVK 89622073; VAT NL004748056B46)",
+  "testingLabs": ["Janoshik Analytical"],
+  "coaAccess": "Public shop report library and variant links to Janoshik Analytical; 4 selected reports read on the lab domain.",
+  "coaExamples": [
+    {"compound":"bpc-157","shopProductName":"BPC-157 10 mg","labelMg":10,"measuredMg":10.74,"purityPercent":99.945,"lab":"Janoshik Analytical","reportId":"217695","testDate":"2026-08-14","url":"https://janoshik.com/tests/217695-BPC157_10mg_WDQRAERUSV91","verifiable":true},
+    {"compound":"tb-500","shopProductName":"TB-500 10 mg","labelMg":10,"measuredMg":10.50,"purityPercent":99.073,"lab":"Janoshik Analytical","reportId":"217733","testDate":"2026-08-18","url":"https://verify.janoshik.com/tests/217733_4NUD681W5VG2","verifiable":true},
+    {"compound":"retatrutide","shopProductName":"RP-3 (Retatrutide) 5 mg","labelMg":5,"measuredMg":5.80,"purityPercent":99.681,"lab":"Janoshik Analytical","reportId":"226539","testDate":"2026-08-31","url":"https://verify.janoshik.com/tests/226539_YP8RJBGAH78G","verifiable":true},
+    {"compound":"tesamorelin","shopProductName":"Tesamorelin 10 mg","labelMg":10,"measuredMg":10.72,"purityPercent":98.228,"lab":"Janoshik Analytical","reportId":"217728","testDate":"2026-08-17","url":"https://janoshik.com/tests/217728-Tesamorelin_10mg_K28GBUKGIWJD","verifiable":true}
+  ],
+  "panels": {"hplc":false,"lcms":false,"identity":true,"mass":true,"endotoxin":false,"sterility":false,"heavyMetals":false},
+  "paymentMethods": ["SEPA bank transfer", "Crypto"],
+  "freeShippingThreshold": "€100 in the Netherlands; €350 for supported international destinations",
+  "dispatchInfo": "The shipping page says dispatch is from the Netherlands, with 24–48 hours of processing after payment verification and tracking via PostNL, DHL or FedEx; an alternate policy states same-day dispatch for orders placed before 12:00 on working days.",
+  "products": [
+    {"compound":"bpc-157","shopProductName":"BPC-157 10 mg","vialMg":10,"price":39.99,"currency":"EUR","salePrice":27.99,"url":"https://primalpeptides.nl/product/bpc-157","inStock":true},
+    {"compound":"tb-500","shopProductName":"TB-500 10 mg","vialMg":10,"price":49.95,"currency":"EUR","salePrice":34.96,"url":"https://primalpeptides.nl/product/tb-500","inStock":true},
+    {"compound":"retatrutide","shopProductName":"RP-3 (Retatrutide) 5 mg","vialMg":5,"price":64.99,"currency":"EUR","salePrice":45.49,"url":"https://primalpeptides.nl/product/rp-3","inStock":true},
+    {"compound":"tesamorelin","shopProductName":"Tesamorelin 10 mg","vialMg":10,"price":64.99,"currency":"EUR","salePrice":45.49,"url":"https://primalpeptides.nl/product/tesamorelin","inStock":true},
+    {"compound":"selank","shopProductName":"Selank 10 mg","vialMg":10,"price":29.99,"currency":"EUR","salePrice":20.99,"url":"https://primalpeptides.nl/product/selank","inStock":true},
+    {"compound":"ghk-cu","shopProductName":"GHK-Cu 50 mg","vialMg":50,"price":39.99,"currency":"EUR","salePrice":27.99,"url":"https://primalpeptides.nl/product/ghk-cu","inStock":true}
+  ],
+  "subscores": {"labVerification":8,"fillAccuracy":6,"panelDepth":3,"entityTransparency":7,"dispatchReliability":7,"valuePerMg":6},
+  "subscore_reasons": {
+    "labVerification": "All 4 sampled reports were read on Janoshik's domain and matched the selected products and the .nl client, but none could be matched to a shop lot.",
+    "fillAccuracy": "The 4 sampled reports measured 105.0–116.0% of nominal content, all above the declared amounts.",
+    "panelDepth": "The opened reports show analyte and purity results and measured content; they do not specify analytical methods or show endotoxin, sterility or heavy-metal results.",
+    "entityTransparency": "The shop names Elite Edge, publishes KVK and VAT numbers and gives a Hillegom correspondence box, but its registered street address and legal form were not independently confirmed.",
+    "dispatchReliability": "The main shipping page gives origin, tracked carriers, thresholds and transit estimates, but another published policy gives a different processing timetable.",
+    "valuePerMg": "At regular prices and equal nominal vial sizes, BPC-157, TB-500, Selank and Tesamorelin were below their medians in our existing EUR sample, while RP-3 was above the only comparable entry."
+  },
+  "strengths": [
+    "Public shop report library; all 4 sampled reports readable on Janoshik's domain.",
+    "The lab reports name the .nl client and match the selected products and nominal vial sizes.",
+    "Published business identifiers and shipping rate table."
+  ],
+  "weaknesses": [
+    "No report batch could be matched to a shop lot; batch fields were blank or marked Unknown.",
+    "Tesamorelin report #217728 shows 98.228% purity for 10 mg, below the shop's stated ≥99%; the library repeats that 10 mg report for 20 mg, whose product page says no report is available.",
+    "The 4 measured contents run 105.0–116.0% of nominal; processing statements differ across shipping pages."
+  ],
+  "verdict": "Four Janoshik reports matched the products and the .nl client, but not specific stock lots. Measured content was above nominal in all 4, and the 10 mg Tesamorelin result was below the shop's stated purity threshold. The shop publishes business identifiers and shipping information, but we could not confirm its legal form or registered street address.",
+  "summary": "Research-use shop at primalpeptides.nl, named with Elite Edge in its privacy policy. The shop says it dispatches from the Netherlands and publishes a Janoshik report library and links by variant.",
+  "notes": "Scope is primalpeptides.nl only; similarly named .net and .com domains were not audited and no relationship is established. Hillegom is a correspondence address, not a confirmed registered seat or warehouse. The shipping page lists all 27 EU members, the United Kingdom, Pakistan and Turkey; its rate matrix also lists Monaco. The main shipping page and the alternate shipping policy differ; neither timetable was measured. The 4 report sheets and their lab-hosted vial photos were read; no lot number was legible on those photos. The cited mass and purity values apply only to the tested samples. The shop describes HPLC and MS on its verification page, but the sampled lab sheets do not name those exact methods. The 6 catalog rows are a snapshot, not an inventory census. Regular prices are prices for the selected variants from the shop API; public promotional prices shown on the audit date are separate. For TB-500 the 10 mg variant price, €49.95, is used rather than the €49.99 parent record. The EUR comparison uses regular, in-stock prices for equal nominal vial sizes in the existing audit dataset, not checkout or market-wide prices.",
+  "sources": [
+    "https://primalpeptides.nl/shop", "https://primalpeptides.nl/en/contact", "https://primalpeptides.nl/en/pages/contact", "https://primalpeptides.nl/en/policies/privacy", "https://primalpeptides.nl/en/shipping", "https://primalpeptides.nl/en/policies/shipping-policy", "https://primalpeptides.nl/lab-verification",
+    "https://primalpeptides.nl/product/bpc-157", "https://primalpeptides.nl/product/tb-500?lang=nl", "https://primalpeptides.nl/product/rp-3", "https://primalpeptides.nl/product/tesamorelin", "https://primalpeptides.nl/product/selank", "https://primalpeptides.nl/product/ghk-cu",
+    "https://primalpeptides.nl/api/products/bpc-157", "https://primalpeptides.nl/api/products/tb-500", "https://primalpeptides.nl/api/products/rp-3", "https://primalpeptides.nl/api/products/tesamorelin", "https://primalpeptides.nl/api/products/selank", "https://primalpeptides.nl/api/products/ghk-cu",
+    "https://janoshik.com/tests/217695-BPC157_10mg_WDQRAERUSV91", "https://verify.janoshik.com/tests/img/ac199eccf9034cbe5fe0.png", "https://jas.janoshik.com/images/0afb0eb1093ecb288c8373b2471b2550.jpg",
+    "https://verify.janoshik.com/tests/217733_4NUD681W5VG2", "https://verify.janoshik.com/tests/img/9a8014d00a1504fa394a.png", "https://jas.janoshik.com/images/6dc61c973fbe3996dfec2b6805f3fa0f.jpg",
+    "https://verify.janoshik.com/tests/226539_YP8RJBGAH78G", "https://janoshik.com/tests/img/6abd550a86c966736fe5.png", "https://jas.janoshik.com/images/1a5986861b324dc0e87f6e380d759b91.jpg",
+    "https://janoshik.com/tests/217728-Tesamorelin_10mg_K28GBUKGIWJD", "https://verify.janoshik.com/tests/img/6ced071eee7fd14d60e8.png", "https://jas.janoshik.com/images/e18f62e2342c0073cb44e8ffefc06aad.jpg"
+  ],
+  "auditEvidence": {
+    "identityAndLocations": {"operatorAsPublished":"Elite Edge","registeredSeat":null,"registeredStreetAddress":null,"legalForm":null,"registrationNumber":"89622073","vatId":"NL004748056B46","correspondenceAddress":"Postbus 129, 2180 AC Hillegom, Netherlands","dispatchCountryAsPublished":"NL","dispatchAddress":null},
+    "scope": {"reportSelectionCount":4,"catalogSelectionCount":6,"testedCurrentStock":false,"sourceEntries":[
+      {"url":"https://primalpeptides.nl/en/policies/privacy","quote":"Primal Peptides (Elite Edge) verwerkt persoonsgegevens conform de AVG/GDPR.","finding":"The .nl shop names Elite Edge alongside Primal Peptides; not a confirmation of legal form."},
+      {"url":"https://primalpeptides.nl/en/pages/contact","quotes":["KvK-nummer:","89622073","NL004748056B46","Postbus 129, 2180 AC, Hillegom"],"finding":"Shop-published KVK and VAT identifiers and mailing address; no independent register entry read."},
+      {"url":"https://primalpeptides.nl/en/contact","quote":"Our accepted payment methods are SEPA bank transfer and crypto.","finding":"Published payment methods; the contact page labels Hillegom as a correspondence address."},
+      {"url":"https://primalpeptides.nl/en/shipping","quotes":["Shipped from our EU warehouse in the Netherlands.","Orders are processed within 24–48 hours after payment verification.","Active shipping to all 27 EU member states, the United Kingdom, Pakistan and Turkey.","Domestic (NL) | €100","Rest of World (Supported) | €350"],"finding":"Declared warehouse country, processing, tracked carriers, thresholds and named destinations; Monaco occurs in the zone matrix."},
+      {"url":"https://primalpeptides.nl/en/policies/shipping-policy","quotes":["Alle bestellingen die op werkdagen vóór","dezelfde dag verwerkt"],"finding":"This alternate policy gives a 12:00 weekday cut-off and same-day processing and dispatch."},
+      {"url":"https://primalpeptides.nl/shop","quotes":["47 PRODUCTEN","Analytische referentiestandaarden uitsluitend voor in-vitro laboratoriumgebruik.","BPC-157 STUK €27.99","TB-500 STUK €34.96","RP-3 STUK €45.49","Tesamorelin STUK €45.49","Selank STUK €20.99","GHK-Cu STUK €27.99"],"finding":"All 6 sampled products are publicly listed; quoted prices were shown during the shop promotion."},
+      {"url":"https://primalpeptides.nl/lab-verification","quotes":["Wall of Proof — 60 CoA's","Elk rapport is uitgegeven door Janoshik Analytical en koppelt 1-op-1 aan een product-variant in onze catalogus."],"finding":"Library's displayed count and coverage claim, not a deduplicated count or catalog-wide verification; it repeats report 217728 for both Tesamorelin sizes."},
+      {"url":"https://primalpeptides.nl/product/tesamorelin","quotes":["Testrapport nog niet beschikbaar","≥99% (HPLC)"],"finding":"Product page says no report is available for 20 mg; the verified 10 mg report is below the advertised threshold."}
+    ]},
+    "catalog": [
+      {"url":"https://primalpeptides.nl/api/products/bpc-157","quotes":["\"name\":\"10mg\",\"price_eur\":39.99","\"stock_status\":\"IN_STOCK\""],"finding":"Regular price and stock of the BPC-157 10 mg variant."},
+      {"url":"https://primalpeptides.nl/api/products/tb-500","quotes":["\"name\":\"10mg\",\"price_eur\":49.95","\"stock_status\":\"IN_STOCK\""],"finding":"TB-500 10 mg variant price is EUR 49.95, not the parent field of EUR 49.99."},
+      {"url":"https://primalpeptides.nl/api/products/rp-3","quotes":["\"name\":\"5mg\",\"price_eur\":64.99","\"stock_status\":\"IN_STOCK\""],"finding":"Regular price and stock of RP-3 5 mg; the product page calls it Retatrutide."},
+      {"url":"https://primalpeptides.nl/api/products/tesamorelin","quotes":["\"name\":\"10MG\",\"price_eur\":64.99","\"stock_status\":\"IN_STOCK\""],"finding":"Regular price and stock of Tesamorelin 10 mg."},
+      {"url":"https://primalpeptides.nl/api/products/selank","quotes":["\"name\":\"10mg\",\"price_eur\":29.99","\"stock_status\":\"IN_STOCK\""],"finding":"Regular price and stock of Selank 10 mg."},
+      {"url":"https://primalpeptides.nl/api/products/ghk-cu","quotes":["\"name\":\"50mg\",\"price_eur\":39.99","\"stock_status\":\"IN_STOCK\""],"finding":"Regular price and stock of GHK-Cu 50 mg."}
+    ],
+    "reports": [
+      {"reportId":"217695","url":"https://verify.janoshik.com/tests/img/ac199eccf9034cbe5fe0.png","photoUrl":"https://jas.janoshik.com/images/0afb0eb1093ecb288c8373b2471b2550.jpg","quotes":["#217695","info@primalpeptides.nl","BPC-157 10mg","Primal Peptides","10.74 mg","99.945%","14 AUG 2026"],"reportBatch":null,"batchFieldStatus":"blank","shopCatalogLot":"PSE-2026-BPC-1","productMatch":true,"clientMatch":true,"currentStockBatchMatch":null,"finding":"Original lab sheet and branded 10MG sample photo read; no batch in the report or visible on the vial photo."},
+      {"reportId":"217733","url":"https://verify.janoshik.com/tests/img/9a8014d00a1504fa394a.png","photoUrl":"https://jas.janoshik.com/images/6dc61c973fbe3996dfec2b6805f3fa0f.jpg","quotes":["#217733","info@primalpeptides.nl","TB-500 10mg","TB-500 (TB4)","10.50 mg","99.073%","Purity assessment includes peptide peaks only.","18 AUG 2026"],"reportBatch":null,"batchFieldStatus":"blank","shopCatalogLot":"PSE-2026-TB-50","productMatch":true,"clientMatch":true,"currentStockBatchMatch":null,"finding":"Original lab sheet and 10MG vial photo read via the lab; result identifies TB4, and no batch match was possible."},
+      {"reportId":"226539","url":"https://janoshik.com/tests/img/6abd550a86c966736fe5.png","photoUrl":"https://jas.janoshik.com/images/1a5986861b324dc0e87f6e380d759b91.jpg","quotes":["#226539","info@primalpeptides.nl","Retatrutide 5mg","Unknown","5.80 mg","99.681%","31 AUG 2026"],"reportBatch":null,"batchFieldStatus":"Unknown","shopCatalogLot":"PSE-2026-RETAT","productMatch":true,"clientMatch":true,"currentStockBatchMatch":null,"finding":"Keyed lab page supplied a readable original sheet and 5MG vial photo; the report names Retatrutide, consistent with the RP-3 product page."},
+      {"reportId":"217728","url":"https://verify.janoshik.com/tests/img/6ced071eee7fd14d60e8.png","photoUrl":"https://jas.janoshik.com/images/e18f62e2342c0073cb44e8ffefc06aad.jpg","quotes":["#217728","info@primalpeptides.nl","Tesamorelin 10mg","Unknown","10.72 mg","98.228%","17 AUG 2026"],"reportBatch":null,"batchFieldStatus":"Unknown","shopCatalogLot":"PSE-2026-TESA-1","productMatch":true,"clientMatch":true,"currentStockBatchMatch":null,"finding":"Original lab sheet and branded 10MG sample photo read; neither provides a lot match. This is not a report for the 20 mg variant."}
+    ]
+  },
+  "readAt": "2026-11-23"
+}

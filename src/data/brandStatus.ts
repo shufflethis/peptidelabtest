@@ -1,4 +1,4 @@
-/** GOAL M4: brand-term status pages for brands we could not (or did not need to) score. Every row was opened on 21 Nov 2026. */
+/** Domain snapshots from the initial 21 November check, with later audits linked individually. */
 export type DomainState = 'officialClosed' | 'successorClaim' | 'researcherGate' | 'shop' | 'accessGate' | 'forSale' | 'audited';
 export interface BrandDomain { domain: string; state: DomainState; seen: string }
 export interface BrandStatus {
@@ -23,15 +23,16 @@ export const BRANDS: BrandStatus[] = [
     sources: ['https://www.aminoclub.com/age-verify?return=%2F', 'https://aminoclub.org/'],
   },
   {
-    slug: 'primal-peptides', name: 'Primal Peptides', status: 'unclear',
+    slug: 'primal-peptides', name: 'Primal Peptides', status: 'audited', vendor: 'primal-peptides',
     domains: [
+      { domain: 'primalpeptides.nl', state: 'audited', seen: 'Audit of the Dutch storefront only; no relationship to the other listed domains established.' },
       { domain: 'primalpeptides.net', state: 'shop', seen: 'About page: "Primal Peptides was founded with a simple mission …"' },
       { domain: 'theprimalpeptides.com', state: 'shop', seen: 'Homepage: "At Primal Peptides, we are committed to providing high-quality research peptides …"' },
       { domain: 'primal-peptide.com', state: 'shop', seen: 'Homepage title "Primal Peptides – Structured Research Standards"' },
       { domain: 'primalpeptides.org', state: 'accessGate', seen: 'Redirects to a "Research Access" page before the shop' },
       { domain: 'primalpeptides.com', state: 'forSale', seen: 'Parked page: "The domain name primalpeptides.com is for sale"' },
     ],
-    sources: ['https://primalpeptides.net/about-us', 'https://theprimalpeptides.com', 'https://primal-peptide.com/', 'https://primalpeptides.org/', 'https://primalpeptides.com'],
+    sources: ['https://primalpeptides.nl', 'https://primalpeptides.net/about-us', 'https://theprimalpeptides.com', 'https://primal-peptide.com/', 'https://primalpeptides.org/', 'https://primalpeptides.com'],
   },
   {
     slug: 'nextgen-peptides', name: 'NextGen Peptides', status: 'unclear',

@@ -11,20 +11,23 @@ import WhereToBuy from '../components/WhereToBuy.astro';
 import Icon from '../components/Icon.astro';
 import {
   PRICE_COMPOUNDS, offersFor, compoundShort, compoundName, shopsCarrying, sizesFor, sizePagesFor, reportsFor, cheapestBy,
-  TOTALS, CHECKED_ISO, fillPct, faqSchema, itemListSchema, PARTNERS, compoundPairsFor, pairSlug, YEAR, getCompound, vendorBySlug,
+  TOTALS, reviewCoverage, fillPct, faqSchema, itemListSchema, PARTNERS, compoundPairsFor, pairSlug, YEAR, getCompound, vendorBySlug,
 } from '../lib/site';
-import { t, tn, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { t, tn, tt, td, lp, fmtDateRange, listJoin, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
 import { locCompound } from '../i18n/data';
 interface Props { lang: Lang; compound: string }
 const { lang, compound } = Astro.props;
 const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
-const date = fmtDate(lang, CHECKED_ISO);
+
 const rawSpec = getCompound(compound);
 const spec = rawSpec ? locCompound(lang, rawSpec) : undefined;
 const short = compoundShort(compound);
 const offers = offersFor(compound);
+const priced = offers.filter((o) => o.price != null);
+const coverage = reviewCoverage(priced.map((o) => o.vendor));
+const date = coverage ? fmtDateRange(lang, coverage.earliest, coverage.latest) : F.na;
 const shops = shopsCarrying(compound);
 const eu = shops.filter((s) => s.region === 'EU');
 const us = shops.filter((s) => s.region === 'US');
@@ -51,9 +54,10 @@ const V = {
 };
 const intro = [t(lang, 'pc.intro1', V), t(lang, 'pc.intro2', V), fills.length ? t(lang, 'pc.intro3fill', V) : t(lang, 'pc.intro3', V)].join(' ');
 
-const title = tt(lang, 'pc.title', V);
-const h1 = t(lang, 'pc.h1', V);
-const description = td(lang, 'pc.description', V);
+const compared = { ...V, n: new Set(priced.map((o) => o.vendor.slug)).size };
+const title = tt(lang, 'pc.title', compared);
+const h1 = t(lang, 'pc.h1', compared);
+const description = td(lang, 'pc.description', compared);
 
 const partnersTxt = listJoin(lang, partnersHere.map((p) => `${p.name} (${F.score(p.overallScore)}/5, ${p.region})`));
 const faqs = [
@@ -91,8 +95,8 @@ const related = [
 ];
 ---
 
-<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd}>
-  <PageHero crumbs={crumbs} title={h1} eyebrow={spec ? spec.category : t(lang, 'common.researchCompound')} intro={intro}>
+<BaseLayout lang={lang} title={title} description={description} crumbs={crumbs} jsonLd={jsonLd} checkedAt={coverage?.latest}>
+  <PageHero crumbs={crumbs} title={h1} eyebrow={spec ? spec.category : t(lang, 'common.researchCompound')} intro={intro} checked={null}>
     <dl class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
       <div class="stat"><dt>{t(lang, 'pc.statShops')}</dt><dd>{shops.length} <span class="text-sm font-medium text-slate-600">({eu.length} / {us.length})</span></dd></div>
       <div class="stat"><dt>{t(lang, 'pc.statLowest', { cur: 'EUR' })}</dt><dd>{cEur ? F.perMg(cEur.perMg, 'EUR') : F.na}</dd></div>
@@ -110,6 +114,7 @@ const related = [
   <div class="wrap mt-10 space-y-14">
     <WhereToBuy compound={compound} title={t(lang, 'pc.wtbH', V)} />
 
+    {shops.some((s) => s.pricesExcludeVat) && <p class="text-sm text-slate-600">{t(lang, 'pc.vatNote')}</p>}
     <PriceSection offers={offers} label={short} />
 
     {fillRows.length > 0 && (

@@ -5,7 +5,7 @@
  */
 import Icon from './Icon.astro';
 import { t, lp, LIVE_LANGS as LANGS, LANG_LABEL, LANG_NAME, fmtDate, type Lang } from '../i18n';
-import { SITE_NAME, CHECKED_ISO, YEAR, PRICE_COMPOUNDS, shopsCarrying, compoundShort, COMPOUND_PAIRS, pairSlug, socialLinks } from '../lib/site';
+import { SITE_NAME, AUDIT_COVERAGE, YEAR, PRICE_COMPOUNDS, shopsCarrying, compoundShort, COMPOUND_PAIRS, pairSlug, socialLinks } from '../lib/site';
 
 interface Props {
   lang: Lang;
@@ -15,7 +15,7 @@ interface Props {
 }
 const { lang, path, langsLive = false } = Astro.props;
 const L = (p: string) => lp(lang, p);
-const date = fmtDate(lang, CHECKED_ISO);
+const date = fmtDate(lang, AUDIT_COVERAGE.latest);
 const topCompounds = [...PRICE_COMPOUNDS].sort((a, b) => shopsCarrying(b).length - shopsCarrying(a).length).slice(0, 8);
 const social = socialLinks(lang);
 

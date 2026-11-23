@@ -311,7 +311,7 @@
       "productVial": "Prodotto (fiala in mg)",
       "price": "Prezzo ({sym})",
       "perMg": "Prezzo al mg ({sym})",
-      "report": "Referto di laboratorio per questo composto",
+      "report": "Referto di laboratorio per questo formato di fiala",
       "score": "Punteggio (0-5)",
       "codeStore": "Codice e negozio",
       "partner": "Partner",
@@ -323,7 +323,7 @@
       "mOfL": "{m} su {l} mg ({p})",
       "mgNotStated": "mg non indicati",
       "purity": "Purezza {p}",
-      "noReport": "Nessun referto aperto"
+      "noReport": "Nessun referto corrispondente aperto"
     },
     "rank": "N. {n}",
     "labs": "Laboratori",
@@ -370,7 +370,7 @@
       "repNone": "Nessun referto di {c} aperto",
       "othersEU": "Altri negozi UE esaminati con {c}:",
       "othersUS": "Altri negozi USA esaminati con {c}:",
-      "note": "I link ai negozi sono link partner (affiliazione). Prezzi di listino al {date}, prima di qualsiasi codice."
+      "note": "I link ai negozi sono link di affiliazione. I prezzi sono quelli pubblicati, prima di applicare eventuali codici sconto."
     }
   },
   "home": {
@@ -382,7 +382,7 @@
     "description": [
       "{shops} negozi di peptidi da ricerca esaminati: {reports} referti aperti, {portal} verificati sul portale del laboratorio. Confronta i prezzi al mg."
     ],
-    "intro": "Il {date} abbiamo esaminato {shops} negozi di peptidi da ricerca in UE e negli Stati Uniti. Abbiamo aperto {reports} referti di laboratorio di {withReports} negozi, ne abbiamo trovati {portal} sul portale del laboratorio e registrato {products} prezzi di listino come prezzo al mg. L'ordine dipende dal punteggio dell'audit, mai dalla commissione.",
+    "intro": "Il nostro audit include {shops} negozi di peptidi da ricerca nell’UE e negli Stati Uniti. Abbiamo consultato {reports} referti di laboratorio di {withReports} negozi, verificato {portal} sui siti dei laboratori emittenti e registrato {products} prezzi pubblicati. La classifica dipende dal punteggio di audit, mai dalle commissioni.",
     "eyebrow": "Audit documentale indipendente, {date}",
     "pickerH": "Confronta i prezzi di un composto",
     "pickerP": "Scegli un composto per vedere ogni negozio, il prezzo al mg e se abbiamo aperto un referto di laboratorio.",
@@ -391,7 +391,7 @@
     "bestH": "Migliori negozi esaminati con link",
     "bestP": "Questi sono i nostri negozi partner, ordinati per punteggio dell'audit in ogni area. Tutti sono valutati con la stessa formula. La commissione non conta per l'ordine.",
     "howH": "Come facciamo l'audit",
-    "howP": "È un audit documentale di pagine pubbliche dei negozi e portali di laboratorio. Nessun ordine di prova. Ogni numero di questo sito proviene da un referto o da una pagina di prezzi aperti il {date}.",
+    "howP": "L’audit si basa sulle pagine pubbliche dei negozi e sui portali dei laboratori. Non abbiamo fatto ordini di prova. Ogni recensione indica la data della verifica.",
     "step": "Passo {n}",
     "s1t": "Apriamo i referti di laboratorio",
     "s1p": "Per ogni negozio apriamo i referti pubblicati e annotiamo laboratorio, data dell'analisi, purezza e mg misurati.",
@@ -437,7 +437,7 @@
     "description": [
       "Prezzo al mg di {n} composti di ricerca in {shops} negozi esaminati, EUR e USD separati, con referti di laboratorio. Confronta i prezzi per composto."
     ],
-    "intro": "Il {date} abbiamo registrato {products} prezzi di listino per {n} composti di ricerca in {shops} negozi esaminati in UE e negli Stati Uniti. Ogni pagina di composto separa i prezzi in EUR e USD, mostra il prezzo al mg per formato di fiala e indica quali negozi hanno pubblicato un referto di laboratorio che abbiamo aperto ({reports} referti in totale).",
+    "intro": "Abbiamo registrato {products} prezzi confrontabili per {n} composti di ricerca in {shops} negozi esaminati nell’UE e negli Stati Uniti. Date di rilevazione dei prezzi: {date}. Ogni pagina di composto separa i prezzi in EUR e USD, mostra il prezzo al mg per formato di fiala e indica quali negozi hanno pubblicato un referto di laboratorio che abbiamo aperto ({reports} referti in totale).",
     "crumb": "Prezzi",
     "eyebrow": "{n} composti · {sizes} pagine per formato di fiala",
     "pick": "Scegli un composto",
@@ -450,7 +450,7 @@
     "colReports": "Referti aperti",
     "tableNote": "Prezzo al mg di listino più basso tra tutti i formati di fiala. Prezzo al mg = prezzo della fiala diviso per i mg dell'etichetta. Le fiale più grandi costano spesso meno al mg. Apri un composto per vedere le tabelle complete in EUR e USD.",
     "sizesH": "Prezzi per formato di fiala",
-    "sizesP": "Combinazioni di composto e formato di fiala vendute da almeno tre negozi esaminati. Il numero indica i negozi.",
+    "sizesP": "Formati con prezzi confrontabili in almeno tre negozi. Il conteggio include tutti i negozi che offrono ciascun formato.",
     "linkIndex": "Indice dei prezzi per classe di composto",
     "itemList": "Confronti di prezzo dei composti di ricerca",
     "itemName": "Confronto prezzi di {c}",
@@ -465,7 +465,7 @@
       },
       {
         "q": "Quanto sono aggiornati i prezzi?",
-        "a": "Tutti i prezzi sono stati letti il {date} da pagine pubbliche o interfacce dei negozi. I negozi cambiano spesso i prezzi; verifica sul negozio prima di ordinare."
+        "a": "I prezzi provengono dalle pagine pubbliche o dalle interfacce dei negozi. Date di rilevazione dei prezzi: {date}. I negozi cambiano spesso i prezzi; verifica sul negozio prima di ordinare."
       }
     ]
   },
@@ -491,7 +491,7 @@
     },
     "cheapIn": "{p} ({shop}, {mg}) in {cur}",
     "intro1": "{c} è venduto da {n} dei {total} negozi che abbiamo esaminato ({listings}, {sizes}).",
-    "intro2": "Prezzo al mg di listino più basso al {date}: {prices}.",
+    "intro2": "Prezzo al mg più basso tra quelli rilevati: {prices}. Date di rilevazione dei prezzi: {date}.",
     "intro3": "Abbiamo aperto {reports} su {c} di {repShops}.",
     "intro3fill": "Abbiamo aperto {reports} su {c} di {repShops}; il contenuto misurato era {range} dell'etichetta.",
     "euShops": {
@@ -506,16 +506,16 @@
     "fa1": "{n} negozi esaminati vendono {c}: {euShops} e {usShops}.",
     "fa1p": "Negozi con link su questo sito, per punteggio dell'audit: {list}.",
     "fa1none": "Nessuno è un negozio partner con link.",
-    "fa1end": "Le tabelle mostrano ogni offerta con prezzo al mg e stato del referto di laboratorio.",
+    "fa1end": "Le tabelle mostrano le offerte confrontabili con il prezzo al mg e lo stato del referto di laboratorio.",
     "fq2": "Dove costa meno {c} al mg?",
-    "fa2": "Prezzo al mg di listino più basso al {date}: {prices}. Il calcolo usa il prezzo di listino del negozio (scontato se indicato) diviso per i mg dell'etichetta, senza codici sconto.",
+    "fa2": "Prezzo al mg più basso tra quelli rilevati: {prices}. Date di rilevazione dei prezzi: {date}. Il calcolo usa il prezzo di listino del negozio (scontato se indicato) diviso per i mg dell'etichetta, senza codici sconto.",
     "fq3": "Quali negozi hanno pubblicato un referto di laboratorio su {c}?",
     "fa3": "Abbiamo aperto {nRep} su {c} di {list}. {portal} erano verificati sul portale del laboratorio",
     "fa3fill": "; il contenuto misurato era {range} dell'etichetta",
     "fa3none": "Non abbiamo aperto alcun referto di laboratorio su {c} nei negozi esaminati.",
     "fq4": "In quali formati di fiala è venduto {c}?",
     "fa4": "I negozi esaminati vendono {c} in fiale da {list}.",
-    "fa4p": "I formati venduti da almeno tre negozi hanno una pagina di confronto dedicata: {list}.",
+    "fa4p": "I formati con prezzi confrontabili in almeno tre negozi hanno una pagina dedicata. Il conteggio include tutti i negozi che offrono ciascun formato: {list}.",
     "fq5": "I prezzi vengono convertiti tra euro e dollari?",
     "fa5": "No. I prezzi in EUR e USD sono in tabelle separate, esattamente come indicati dal negozio, senza conversione e senza codici sconto.",
     "fq6": "{c} è venduto per uso umano?",
@@ -535,7 +535,8 @@
     "repP": "{reports} aperti di {repShops}; {portal} verificati sul portale del laboratorio. Indirizzi e ID dei referti sono in",
     "chartTitle": "{c}: contenuto misurato in % dell'etichetta",
     "about": "Informazioni su {name}",
-    "factsPage": "Vedi la scheda del composto"
+    "factsPage": "Vedi la scheda del composto",
+    "vatNote": "Il conteggio dei negozi include le offerte con prezzi IVA esclusa. Questi prezzi non rientrano nei confronti."
   },
   "ps": {
     "title": [
@@ -551,7 +552,7 @@
     ],
     "vialAt": "{p} a fiala da {shop} ({cur})",
     "intro1": "{n} negozi esaminati vendono {c} in fiala da {mg} ({eu} UE, {us} USA).",
-    "intro2": "Prezzo di listino più basso al {date}: {lows}.",
+    "intro2": "Prezzo per fiala più basso tra quelli rilevati: {lows}. Date di rilevazione dei prezzi: {date}.",
     "intro3": "Per questo formato abbiamo aperto {reports}; il contenuto misurato era {range} dell'etichetta.",
     "intro3none": "Non abbiamo aperto alcun referto su {c} {mg}; i referti degli altri formati sono nella pagina principale di {c}.",
     "median": {
@@ -559,7 +560,7 @@
       "other": "mediana di {p} su {n} offerte in {cur}"
     },
     "fq1": "Quanto costa una fiala di {c} {mg}?",
-    "fa1": "Prezzi di listino al {date}: {medians}. Il più economico: {lows}. Prezzi senza codici sconto e senza conversione.",
+    "fa1": "Prezzi rilevati ({date}): {medians}. Il più economico: {lows}. Prezzi senza codici sconto e senza conversione.",
     "fq2": "Dove comprare {c} {mg} per la ricerca?",
     "fa2": "Lo vendono {n} negozi esaminati.",
     "fa2p": "Negozi con link, per punteggio dell'audit: {list}.",
@@ -676,7 +677,7 @@
     "overall": "Punteggio complessivo dell'audit: {score} su 5.",
     "fqCode": "Esiste un codice sconto {shop}?",
     "fqLabs": "Quali laboratori analizzano i prodotti di {shop}?",
-    "faLabs": "I referti aperti citano {list}. Purezza HPLC su questi referti: {purity}.",
+    "faLabs": "I referti aperti citano {list}.",
     "faLabsNone": "{shop} cita {list}; non abbiamo potuto aprire alcun referto pubblico.",
     "fqShip": "Dove spedisce {shop}?",
     "faShip": "Spedisce in: {ships}. Spedizione: {dispatch}.",
@@ -741,6 +742,7 @@
     "shopHosted": "Pubblicato dal negozio",
     "noReportFound": "Il {date} non abbiamo trovato alcun referto di laboratorio pubblico di {shop}.",
     "pricesH": "Prezzi di {shop}",
+    "pricesExVat": "I prezzi sono IVA esclusa e non sono inclusi nei confronti tra negozi.",
     "pricesP": {
       "one": "{n} prezzo di listino registrato il {date} in {curs}. Prezzo al mg = prezzo diviso per i mg dell'etichetta. I prezzi scontati sono mostrati con il prezzo precedente barrato. Nessun codice applicato.",
       "other": "{n} prezzi di listino registrati il {date} in {curs}. Prezzo al mg = prezzo diviso per i mg dell'etichetta. I prezzi scontati sono mostrati con il prezzo precedente barrato. Nessun codice applicato."
@@ -748,7 +750,7 @@
     "colVial": "Fiala (mg)",
     "colPrice": "Prezzo",
     "colPerMg": "Prezzo al mg",
-    "colRep": "Referto aperto",
+    "colRep": "Referto di laboratorio per questo formato di fiala",
     "colStore": "Negozio",
     "viewProduct": "Vedi il prodotto",
     "noPricesP": "{shop} non mostra prezzi pubblici, quindi il prezzo al mg non è stato valutato.",
@@ -762,7 +764,9 @@
     "sourcesH": "Fonti consultate",
     "sourcesP": "Pagine pubbliche lette il {date}. Come testo, non come link.",
     "stickyAria": "Link al negozio {nm}",
-    "visitShop": "Visita il negozio"
+    "visitShop": "Visita il negozio",
+    "purityExact": "Valori esatti di purezza riportati: {purity}.",
+    "purityBounds": "Purezza riportata come limite inferiore: {list}."
   },
   "vcp": {
     "title": [
@@ -863,7 +867,7 @@
     ],
     "h1": "{a} vs {b}: confronto tra composti di ricerca",
     "eyebrow": "Dati di mercato e di laboratorio, non effetti",
-    "intro": "Il {date}, {nA} negozi esaminati vendevano {a} e {nB} vendevano {b}; {both} vendono entrambi. Abbiamo aperto {rA} referti di laboratorio su {a} e {rB} su {b}.",
+    "intro": "Tra i negozi esaminati, {nA} offrivano {a} e {nB} offrivano {b}; {both} li offrivano entrambi. Referti di laboratorio consultati: {a} ({rA}), {b} ({rB}).",
     "median": "Prezzo mediano al mg in {cur}: {a} {x}, {b} {y}",
     "fq1": "Qual è la differenza tra {a} e {b}?",
     "fa1": "Sono molecole diverse.",
@@ -1293,7 +1297,7 @@
     "authH": "Autorità",
     "rules": "Le regole cambiano. Prima di ordinare, verifica la situazione attuale presso l'autorità e segui le regole di acquisto del tuo istituto.",
     "shopsH": "Negozi esaminati che spediscono {toC}",
-    "shopsP": "In base alle informazioni di spedizione pubblicate dai negozi il {date}, ordinati per punteggio dell'audit. {unknown} negozi non indicano dove spediscono.",
+    "shopsP": "In base alle informazioni di spedizione pubblicate dai negozi, ordinati per punteggio dell’audit. Spedizione in questo paese non confermata per {unknown} negozi.",
     "colShips": "Spedisce in (secondo il negozio)",
     "relAll": "Tutte le regole per paese"
   },
@@ -1329,7 +1333,7 @@
     ],
     "crumb": "Dati aperti",
     "h1": "Dati aperti: audit 2026 dei negozi di peptidi da ricerca",
-    "intro": "I dati completi sui prezzi di questo sito: {n} prezzi di listino di {shops} negozi esaminati, una riga per prodotto, con prezzo al mg, se abbiamo aperto un referto di laboratorio per quel composto in quel negozio e il punteggio del negozio. Controllati il {date}. Uso libero con attribuzione (CC BY 4.0).",
+    "intro": "I dati completi sui prezzi di questo sito: {n} prezzi di listino di {shops} negozi esaminati, una riga per prodotto, con prezzo al mg, se abbiamo aperto un referto di laboratorio per quel composto in quel negozio e il punteggio del negozio. Date di rilevazione dei dati: {date}. Uso libero con attribuzione (CC BY 4.0).",
     "csv": "Scarica il CSV",
     "json": "Scarica il JSON",
     "englishNote": "I file di dati usano nomi di colonna e valori in inglese.",
@@ -1350,7 +1354,8 @@
       "labReportOpenedForCompound": "Abbiamo aperto un referto di laboratorio di questo negozio per questo composto",
       "portalVerified": "Almeno uno di questi referti è stato trovato sul portale del laboratorio",
       "shopScore": "Punteggio dell'audit 0-5",
-      "reviewedAt": "Data del controllo del negozio"
+      "reviewedAt": "Data del controllo del negozio",
+      "pricesExcludeVat": "Indica se il prezzo riportato è IVA esclusa"
     },
     "notesH": "Note",
     "notes": [

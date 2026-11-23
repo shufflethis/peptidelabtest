@@ -6,19 +6,16 @@ import FAQ from '../components/FAQ.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import Disclosure from '../components/Disclosure.astro';
 import Icon from '../components/Icon.astro';
-import { TOTALS, CHECKED_ISO, YEAR, faqSchema } from '../lib/site';
-import { COA_STATS, shopsWithPanel } from '../lib/coa';
-import { t, tt, td, lp, fmtDate, type Lang } from '../i18n';
-import { fmt } from '../i18n/format';
+import { TOTALS, YEAR, faqSchema } from '../lib/site';
+import { COA_STATS, COA_REVIEW_COVERAGE, shopsWithPanel } from '../lib/coa';
+import { t, tt, td, lp, fmtDateRange, type Lang } from '../i18n';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
-const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
-const date = fmtDate(lang, CHECKED_ISO);
+const date = fmtDateRange(lang, COA_REVIEW_COVERAGE.earliest, COA_REVIEW_COVERAGE.latest);
 const S = COA_STATS;
 const V = {
   date, year: YEAR, shops: TOTALS.shops, reports: S.reports, portal: TOTALS.portalVerified, withFill: S.withFill, within: S.within, low: S.low, high: S.high,
-  pmin: S.purityMin != null ? F.rawPct(S.purityMin) : F.na, pmax: S.purityMax != null ? F.rawPct(S.purityMax) : F.na,
   endo: shopsWithPanel('Endotoxin'), ster: shopsWithPanel('Sterility'), metals: shopsWithPanel('Heavy metals'), ms: shopsWithPanel('LC-MS identity'),
 };
 const fields = Array.from({ length: 10 }, (_, i) => ({ n: i + 1, h: t(lang, `coa.f${i + 1}.h`), p: t(lang, `coa.f${i + 1}.p`, V) }));
@@ -51,8 +48,8 @@ const related = [
   { href: L('/how-to-tell-if-a-peptide-vendor-is-legit/'), label: t(lang, 'tv.relLegit') },
 ];
 ---
-<BaseLayout lang={lang} title={tt(lang, 'coa.title', V)} description={td(lang, 'coa.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
-  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'coa.h1')} eyebrow={t(lang, 'coa.eyebrow')} intro={t(lang, 'coa.intro', V)}>
+<BaseLayout lang={lang} title={tt(lang, 'coa.title', V)} description={td(lang, 'coa.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)} checkedAt={COA_REVIEW_COVERAGE.latest}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'coa.h1')} eyebrow={t(lang, 'coa.eyebrow')} intro={t(lang, 'coa.intro', V)} checked={COA_REVIEW_COVERAGE.latest}>
     <div class="mt-6 flex flex-wrap gap-3">
       <a href={L('/coa-checker/')} class="btn-primary"><Icon name="search" class="w-4 h-4" />{t(lang, 'coa.checkLink')}</a>
       <a href={L('/coa-checklist/')} class="btn-ghost"><Icon name="download" class="w-4 h-4" />{t(lang, 'coa.pdfLink')}</a>

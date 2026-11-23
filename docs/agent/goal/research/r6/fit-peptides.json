@@ -1,0 +1,85 @@
+{
+ "slug": "fit-peptides",
+ "name": "Fit Peptides",
+ "shopUrl": "https://fit-peptides.com/en/",
+ "region": "EU",
+ "originCountry": "NL",
+ "shipsTo": "Netherlands, Belgium and other eligible EU countries",
+ "shipsToConfirmed": ["NL", "BE"],
+ "legalEntity": null,
+ "testingLabs": ["Janoshik Analytical"],
+ "coaAccess": "Public shop COA library with 25 reports across 24 entries and direct Janoshik report links. Four reports were read on the lab domain.",
+ "coaExamples": [
+  {"compound":"bpc-157","shopProductName":"BPC-157 10 mg","labelMg":null,"measuredMg":10.93,"purityPercent":99.298,"lab":"Janoshik Analytical","reportId":"105378","testDate":"2026-02-17","url":"https://verify.janoshik.com/tests/img/2b2423993683463b3f64.png","verifiable":true},
+  {"compound":"bpc-157","shopProductName":"BPC-157 20 mg","labelMg":20,"measuredMg":21.28,"purityPercent":99.809,"lab":"Janoshik Analytical","reportId":"154254","testDate":"2026-05-11","url":"https://verify.janoshik.com/tests/img/17849a7cf975937e6332.png","verifiable":true},
+  {"compound":"tb-500","shopProductName":"TB-500 10 mg","labelMg":null,"measuredMg":10.05,"purityPercent":99.792,"lab":"Janoshik Analytical","reportId":"109324","testDate":"2026-02-20","url":"https://verify.janoshik.com/tests/img/7095f6d341bef3d300b5.png","verifiable":true},
+  {"compound":"tesamorelin","shopProductName":"Tesamorelin 10 mg","labelMg":10,"measuredMg":11.15,"purityPercent":99.148,"lab":"Janoshik Analytical","reportId":"239922","testDate":"2026-10-09","url":"https://verify.janoshik.com/tests/img/169f7c4028283473892f.png","verifiable":true}
+ ],
+ "panels": {"hplc":false,"lcms":false,"mass":true,"endotoxin":false,"sterility":false,"heavyMetals":false},
+ "paymentMethods": ["Bank payment", "Credit cards", "PayPal", "Cryptocurrency"],
+ "freeShippingThreshold": "Advertised over €50 for NL and BE; over €150 for other eligible EU destinations.",
+ "dispatchInfo": "The shop lists PostNL, DHL and FedEx as possible carriers. Paid orders before 16:00 on working days normally ship the same day; estimates are 1–2 working days for NL, 1–3 for BE and 2–7 for other eligible EU destinations. The dispatch location is not stated in the shipping policy.",
+ "products": [
+  {"compound":"bpc-157","shopProductName":"BPC-157 10 mg","vialMg":10,"price":59.95,"currency":"EUR","salePrice":41.97,"url":"https://fit-peptides.com/en/pcb-157/","inStock":true},
+  {"compound":"bpc-157","shopProductName":"BPC-157 20 mg","vialMg":20,"price":89.95,"currency":"EUR","salePrice":73.95,"url":"https://fit-peptides.com/en/pcb-157/","inStock":true},
+  {"compound":"tb-500","shopProductName":"TB-500 10 mg","vialMg":10,"price":59.95,"currency":"EUR","salePrice":48.95,"url":"https://fit-peptides.com/en/tb-500/","inStock":true},
+  {"compound":"ghk-cu","shopProductName":"GHK-Cu 100 mg","vialMg":100,"price":49.95,"currency":"EUR","salePrice":40.95,"url":"https://fit-peptides.com/en/ghk-cu/","inStock":true},
+  {"compound":"tesamorelin","shopProductName":"Tesamorelin 10 mg","vialMg":10,"price":59.95,"currency":"EUR","salePrice":48.95,"url":"https://fit-peptides.com/en/tesamorelin/","inStock":true}
+ ],
+ "subscores": {"labVerification":7,"fillAccuracy":5,"panelDepth":3,"entityTransparency":3,"dispatchReliability":6,"valuePerMg":5},
+ "subscore_reasons": {
+  "labVerification": "All four sampled Janoshik reports were read on the lab domain and name FIT Peptides as the client, but only one gives a batch identifier.",
+  "fillAccuracy": "Only two reports state the nominal amount: BPC-157 20 mg measured 106.4% and Tesamorelin 10 mg measured 111.5% of nominal; the other two are excluded from fill comparison.",
+  "panelDepth": "The four reports give purity and measured content, but their result sheets do not identify the purity method or show LC-MS, endotoxin, sterility or heavy-metal results.",
+  "entityTransparency": "The Dutch terms identify a trade name, an Amsterdam address not open to visits and a published KVK number; neither a match in the public register nor the legal entity behind the trade name was confirmed.",
+  "dispatchReliability": "The policy names carriers, a same-day cut-off and delivery estimates, but does not identify the dispatch location; no delivery was tested.",
+  "valuePerMg": "Five exact single-vial variants have public regular and sale prices; this limited snapshot does not support a catalog-wide value claim."
+ },
+ "strengths": [
+  "Direct lab links led to four readable Janoshik reports with FIT Peptides named as client.",
+  "The shipping policy names carriers and distinguishes delivery estimates for the Netherlands, Belgium and other eligible EU destinations."
+ ],
+ "weaknesses": [
+  "Three of the four lab reports have no usable batch identifier; two do not independently state the shop-listed 10 mg label amount.",
+  "For Janoshik report 105378, the shop-hosted image and the lab-hosted image disagree on the manufacturer field.",
+  "The legal entity behind the trade name and the dispatch location remain unconfirmed."
+ ],
+ "verdict": "Four sampled reports were read on Janoshik’s own domain, but only the Tesamorelin report gives a batch identifier. Two reports state a nominal amount, and one shop copy disagrees with the lab on the manufacturer field. The Dutch terms disclose a trade name, not the legal entity behind it.",
+ "summary": "Dutch research-reagent shop with a public Janoshik report library and published shipping estimates for the Netherlands, Belgium and other eligible EU destinations. The Amsterdam contact address and the Deventer returns address do not identify the dispatch location.",
+ "notes": "Four reports across three compounds were checked, not the entire library and not the stock currently shipped. The shop maps reports 105378 and 109324 to 10 mg variants, but neither the lab sheets nor their attached sample photos show 10 mg. Report 105378 names the sample ‘Sample 1’ and the lab photograph identifies BPC-157; the shop copy says the manufacturer is ‘Unknown’, whereas the lab copy says ‘FIT Peptides’. The Tesamorelin report’s FP2026-10 batch is also on the shop’s copy; it was not matched to inventory. Five regular catalog variants across four product pages were sampled; no cart, pack or conditional discounts were checked. The Retatrutide link redirected to the general catalog, so it was not recorded as a product.",
+ "sources": [
+  "https://fit-peptides.com/en/", "https://fit-peptides.com/algemene-voorwaarden/", "https://www.kvk.nl/zoeken/?q=42092116", "https://fit-peptides.com/en/shipping-policy-return-policy/", "https://fit-peptides.com/en/lab-results/", "https://fit-peptides.com/en/peptides/", "https://fit-peptides.com/en/retatrutide/", "https://fit-peptides.com/en/pcb-157/", "https://fit-peptides.com/en/tb-500/", "https://fit-peptides.com/en/ghk-cu/", "https://fit-peptides.com/en/tesamorelin/", "https://verify.janoshik.com/tests/105378-Sample1_I7SE48RT7NVM", "https://verify.janoshik.com/tests/img/2b2423993683463b3f64.png", "https://jas.janoshik.com/images/d40c868bb7e4ea6d41de97907f21580b.jpg", "https://fit-peptides.com/wp-content/uploads/2026/01/bpc-test-resultaten-janoshik-99-procent.png", "https://verify.janoshik.com/tests/154254-BPC15720mg_W1YJZJX75MFG", "https://verify.janoshik.com/tests/img/17849a7cf975937e6332.png", "https://verify.janoshik.com/tests/109324-TB500_4I5E9U5JT4TU", "https://verify.janoshik.com/tests/img/7095f6d341bef3d300b5.png", "https://jas.janoshik.com/images/7705a6e6a0bb98b9960479ab41775cd7.jpg", "https://verify.janoshik.com/tests/239922-Tesamorelin_10mg_D7Z7CP92PS7N", "https://verify.janoshik.com/tests/img/169f7c4028283473892f.png", "https://fit-peptides.com/wp-content/uploads/2026/10/ac33cadde81e8e7f3b9f.png"
+ ],
+ "readAt": "2026-11-23",
+ "auditEvidence": {
+  "legal": {"tradeName":"Fit-Peptides.com","entityName":null,"legalForm":null,"shopPublishedRegistrationNumber":"42092116","independentlyConfirmedRegistrationNumber":null,"registeredSeat":null,"shopContactAddress":"Keizersgracht 520H, 1071EK Amsterdam, Netherlands (not a visiting address)"},
+  "shipping": {"dispatchCountry":null,"dispatchAddress":null,"returnAddress":"Hunneperweg 1 unit 0430, 7418 EH Deventer, Netherlands","testedDelivery":false},
+  "sampleScope": {"shopListedReportCount":25,"shopListedReportEntries":24,"reportsRead":4,"labDomainReportsRead":4,"reportsWithUsableBatchId":1,"nominalAmountIndependentlyStated":2,"catalogProductPagesSampled":4,"catalogVariantsSampled":5},
+  "reportMatches": [
+   {"reportId":"105378","productMatch":"Compound on report and lab photo; nominal 10 mg on shop only","client":"FIT Peptides","batch":null,"shopManufacturer":"Unknown","labManufacturer":"FIT Peptides","provenance":"lab-domain original image"},
+   {"reportId":"154254","productMatch":"BPC-157 20mg","client":"FIT Peptides","batch":null,"provenance":"lab-domain original image"},
+   {"reportId":"109324","productMatch":"TB-500 (TB4) on lab report; nominal 10 mg on shop only","client":"FIT Peptides","batch":null,"labBatchText":"Unknown","provenance":"lab-domain original image"},
+   {"reportId":"239922","productMatch":"Tesamorelin 10mg","client":"FIT Peptides","batch":"FP2026-10","batchMatchScope":"Same ID on shop-hosted image and lab report image; current retail lot unknown","provenance":"lab-domain original image"}
+  ],
+  "sources": [
+   {"url":"https://fit-peptides.com/algemene-voorwaarden/","type":"shop-legal","quotes":["is een handelsnaam.","Keizersgracht 520H, 1071EK Amsterdam","KVK: 42092116"],"finding":"The shop publishes a trade name and a non-visiting Amsterdam address, not a distinct legal entity or independently established registered seat."},
+   {"url":"https://www.kvk.nl/zoeken/?q=42092116","type":"official-register-lookup","quotes":["Start met zoeken","Zoek op handelsnaam of KVK-nummer."],"finding":"The public GET rendered the search start screen, not a register record or a definitive no-match result; no form was submitted."},
+   {"url":"https://fit-peptides.com/en/","type":"shop-home","quotes":["Free shipping over €50 (NL and BE)","Free shipping to other countries over €150.","Pay safely and discreetly via your bank, credit card, PayPal, or crypto."],"finding":"Shop-advertised conditional shipping thresholds and payment categories; checkout not tested."},
+   {"url":"https://fit-peptides.com/en/shipping-policy-return-policy/","type":"shop-policy","quotes":["Other EU countries (where delivery is possible)","PostNL, DHL, FedEx","before 16:00 am","The Netherlands: usually 1–2 business days","Belgium: usually 1–3 business days","Other EU: usually 2–7 business days","Hunneperweg 1 unit 0430","7418 EH","City: Deventer"],"finding":"Carrier options, cut-off, estimated transit and a separate returns address are published. No dispatch location is stated; the policy’s next-day sentence applies after 5pm, so it does not resolve 16:00–17:00."},
+   {"url":"https://fit-peptides.com/en/lab-results/","type":"shop-coa-index","quotes":["24Tested products","25Test reports","BPC-1572 reports","Independently tested by Janoshik"],"finding":"The public index showed 24 cards and 25 reports (counted in the page markup); its embedded buttons led to four sampled Janoshik report pages. The index does not establish current-lot coverage."},
+   {"url":"https://fit-peptides.com/en/retatrutide/","effectiveUrl":"https://fit-peptides.com/en/peptides/","type":"shop-catalog-redirect","quotes":["Buy Peptides"],"finding":"The apparent direct product link ended at the general catalog; no product row was recorded."},
+   {"url":"https://fit-peptides.com/en/pcb-157/","type":"shop-product","quotes":["Concentration: 10mg","€ 41,97 - € 89,95","\"display_price\":41.969999999999998863131622783839702606201171875","\"display_regular_price\":59.95","\"display_price\":73.95","\"display_regular_price\":89.95","\"is_in_stock\":true"],"finding":"The decoded WooCommerce variation data gives in-stock 10 mg (€59.95/€41.97) and 20 mg (€89.95/€73.95) options. The range is not used as a per-variant price; both report sizes are linked in the page’s data-reports attribute."},
+   {"url":"https://fit-peptides.com/en/tb-500/","type":"shop-product","quotes":["Concentration: 10mg","€ 59,95","€ 48,95","\"is_in_stock\":true"],"finding":"The active 10 mg variant had €59.95 regular and €48.95 current price; 20 mg is not included because no corresponding available variation was returned."},
+   {"url":"https://fit-peptides.com/en/ghk-cu/","type":"shop-product","quotes":["100mg","\"display_price\":40.95","\"display_regular_price\":49.95","\"is_in_stock\":true"],"finding":"The public 100 mg variation was in stock with €49.95 regular and €40.95 current price; the 50 mg variation is outside the price sample."},
+   {"url":"https://fit-peptides.com/en/tesamorelin/","type":"shop-product","quotes":["10mg","\"display_price\":48.95","\"display_regular_price\":59.95","\"is_in_stock\":true"],"finding":"The public 10 mg variation was in stock with €59.95 regular and €48.95 current price and links to task 239922."},
+   {"url":"https://verify.janoshik.com/tests/img/2b2423993683463b3f64.png","entryUrl":"https://verify.janoshik.com/tests/105378-Sample1_I7SE48RT7NVM","type":"lab-report-image","quotes":["#105378","FIT Peptides","Sample 1","BPC-157","10.93 mg","99.298%","17 FEB 2026"],"finding":"Original lab report image read. Client and manufacturer both say FIT Peptides; batch is blank, 10 mg nominal is not stated, and compound is identified in the results."},
+   {"url":"https://jas.janoshik.com/images/d40c868bb7e4ea6d41de97907f21580b.jpg","type":"lab-sample-photo","quotes":["BPC-157"],"finding":"The lab’s attached vial photo identifies BPC-157 but does not show a nominal amount or batch."},
+   {"url":"https://fit-peptides.com/wp-content/uploads/2026/01/bpc-test-resultaten-janoshik-99-procent.png","type":"shop-report-image","quotes":["#105378","Unknown","10.93 mg","99.298%"],"finding":"Same task, client, measured content and purity as the lab original; the shop copy prints Unknown in the manufacturer field, unlike the original."},
+   {"url":"https://verify.janoshik.com/tests/img/17849a7cf975937e6332.png","entryUrl":"https://verify.janoshik.com/tests/154254-BPC15720mg_W1YJZJX75MFG","type":"lab-report-image","quotes":["#154254","FIT Peptides","BPC-157 20mg","21.28 mg","99.809%","11 MAY 2026"],"finding":"Original lab report image read; product, nominal amount and client match the corresponding shop listing; batch is blank."},
+   {"url":"https://verify.janoshik.com/tests/img/7095f6d341bef3d300b5.png","entryUrl":"https://verify.janoshik.com/tests/109324-TB500_4I5E9U5JT4TU","type":"lab-report-image","quotes":["#109324","FIT Peptides","TB-500 (TB4)","Unknown","10.05 mg","99.792%","20 FEB 2026"],"finding":"Original lab report image read. The named client and compound match the shop link, but the batch is Unknown and 10 mg nominal is not stated."},
+   {"url":"https://jas.janoshik.com/images/7705a6e6a0bb98b9960479ab41775cd7.jpg","type":"lab-sample-photo","quotes":["TB-500"],"finding":"The lab’s attached vial photo identifies TB-500 but does not show a nominal amount or batch."},
+   {"url":"https://verify.janoshik.com/tests/img/169f7c4028283473892f.png","entryUrl":"https://verify.janoshik.com/tests/239922-Tesamorelin_10mg_D7Z7CP92PS7N","type":"lab-report-image","quotes":["#239922","FIT Peptides","Tesamorelin 10mg","FP2026-10","11.15 mg","99.148%","09 OCT 2026"],"finding":"Original lab report image read; product, strength, client and batch match the shop copy. Current stock was not verified."},
+   {"url":"https://fit-peptides.com/wp-content/uploads/2026/10/ac33cadde81e8e7f3b9f.png","type":"shop-report-image","quotes":["#239922","FIT Peptides","Tesamorelin 10mg","FP2026-10"],"finding":"The shop-hosted report copy confirms the same product, client, task and batch as the lab original."}
+  ]
+ }
+}

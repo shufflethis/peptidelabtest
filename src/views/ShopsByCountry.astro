@@ -6,11 +6,12 @@ import FAQ from '../components/FAQ.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import Disclosure from '../components/Disclosure.astro';
 import Icon from '../components/Icon.astro';
-import { faqSchema, CHECKED_ISO, YEAR, isPartner, shopHref, REL_SPONSORED, shopShort } from '../lib/site';
+import { faqSchema, AUDIT_COVERAGE, YEAR, isPartner, shopHref, REL_SPONSORED, shopShort } from '../lib/site';
 import { COUNTRIES, countryData, regionName } from '../lib/m4';
 import AUDIT from '../data/audit.json';
-import { t, tt, td, lp, fmtDate, listJoin, type Lang } from '../i18n';
+import { t, tt, td, lp, fmtDateRange, listJoin, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
+import { shipsToText } from '../i18n/data';
 interface Props { lang: Lang; country: string }
 const { lang, country } = Astro.props;
 const F = fmt(lang);
@@ -19,13 +20,13 @@ const C = COUNTRIES.find((c) => c.slug === country)!;
 const D = countryData(C.code);
 const cname = regionName(lang, C.code);
 const origin = (slug: string) => { const o = (AUDIT as any[]).find((a) => a.slug === slug)?.originCountry; return o && /^[A-Z]{2}$/.test(o) ? regionName(lang, o) : t(lang, 'common.notPublished'); };
-const V = { country: cname, based: D.based.length, ship: D.ship.length, np: D.np.length, total: D.total, date: fmtDate(lang, CHECKED_ISO), year: YEAR, list: D.based.length ? listJoin(lang, D.based.map((v) => v.name)) : t(lang, 'sc.none') };
+const V = { country: cname, based: D.based.length, ship: D.ship.length, np: D.np.length, total: D.total, date: fmtDateRange(lang, AUDIT_COVERAGE.earliest, AUDIT_COVERAGE.latest), year: YEAR, list: D.based.length ? listJoin(lang, D.based.map((v) => v.name)) : t(lang, 'sc.none') };
 const faqs = [1, 2, 3].map((i) => ({ q: t(lang, `sc.fq${i}`, V), a: t(lang, `sc.fa${i}`, V) }));
 const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, 'sc.crumb'), url: L('/shops-by-country/') }, { name: cname, url: L(`/shops-by-country/${C.slug}/`) }];
 const table = (rows: typeof D.based) => rows;
 ---
-<BaseLayout lang={lang} title={tt(lang, 'sc.title', V)} description={td(lang, 'sc.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)}>
-  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'sc.h1', V)} eyebrow={t(lang, 'sc.eyebrow')} intro={t(lang, 'sc.intro', V)}>
+<BaseLayout lang={lang} title={tt(lang, 'sc.title', V)} description={td(lang, 'sc.description', V)} crumbs={crumbs} jsonLd={faqSchema(faqs)} checkedAt={AUDIT_COVERAGE.latest}>
+  <PageHero lang={lang} crumbs={crumbs} title={t(lang, 'sc.h1', V)} eyebrow={t(lang, 'sc.eyebrow')} intro={t(lang, 'sc.intro', V)} checked={AUDIT_COVERAGE.latest}>
     <dl class="mt-6 grid grid-cols-3 gap-3 max-w-xl">
       <div class="stat"><dt>{t(lang, 'sc.statBased')}</dt><dd>{D.based.length}</dd></div>
       <div class="stat"><dt>{t(lang, 'sc.statShip')}</dt><dd>{D.ship.length}</dd></div>
@@ -47,7 +48,7 @@ const table = (rows: typeof D.based) => rows;
                     <td>{origin(v.slug)}</td>
                     <td class="num">{F.score(v.overallScore)}</td>
                     <td class="num">{t(lang, 'sc.repVal', { n: v.coaStats.opened, p: v.coaStats.portalVerified })}</td>
-                    <td class="min-w-[9rem]">{v.shipsTo === 'not published' ? t(lang, 'common.notPublished') : v.shipsTo}</td>
+                    <td class="min-w-[9rem]">{shipsToText(lang, v.slug)}</td>
                     <td>{isPartner(v.slug) && shopHref(v.slug) ? <a href={shopHref(v.slug)!} rel={REL_SPONSORED} target="_blank" class="text-link whitespace-nowrap">{t(lang, 'c.visit', { shop: shopShort(v.name) })} <Icon name="external-link" class="w-3.5 h-3.5 inline" /></a> : <a href={L(`/vendors/${v.slug}/`)} class="text-link whitespace-nowrap">{t(lang, 'bl.review')}</a>}</td>
                   </tr>
                 ))}
