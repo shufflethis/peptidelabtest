@@ -1,8 +1,9 @@
 ---
 /**
  * /ghk-cu-powder/ — GHK-Cu powder vs vials: price per mg by pack size (English only, translated={false}).
- * Every number is read from src/data/audit.json via vendors.ts. Basis: list price on the read date / label mg.
- * Sale prices are shown separately. Ranking by list price per mg, ties by audit score — never by commission.
+ * Every number is read from src/data/audit.json via vendors.ts. Basis = site-wide basis (same as offersFor / /prices/ghk-cu/):
+ * displayed price (sale price where recorded, else list price) / label mg, i.e. audit.json pricePerMg.
+ * List price and list price per mg stay visible as extra columns. Ranking by price per mg, ties by audit score — never by commission.
  * No reader codes on this page (WhereToBuy hideCodes). /compounds/ghk-cu/ stays the compound overview.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -32,9 +33,12 @@ interface Row {
   p: VendorProduct;
   mg: number;
   format: Format;
+  /** Displayed price (sale price where recorded, else list price) — same as offersFor().price */
+  shown: number;
+  /** Site-wide basis: audit.json pricePerMg (= shown / label mg) — same as offersFor().perMg */
+  perMg: number;
+  onSale: boolean;
   listPerMg: number;
-  sale: number | null;
-  salePerMg: number | null;
   reports: CoaExample[];
   sizeReport: CoaExample | null;
   portal: boolean;
@@ -59,15 +63,16 @@ const rows: Row[] = listings
     return {
       v, p, mg,
       format: isPowder(p) ? 'powder' : 'vial',
+      shown: (p.salePrice ?? p.price) as number,
+      perMg: p.pricePerMg ?? ((p.salePrice ?? p.price) as number) / mg,
+      onSale,
       listPerMg: (p.price as number) / mg,
-      sale: onSale ? p.salePrice : null,
-      salePerMg: onSale ? (p.salePrice as number) / mg : null,
       reports,
       sizeReport: reports.find((r) => r.labelMg === mg) ?? null,
       portal: reports.some((r) => r.verifiable),
     } as Row;
   })
-  .sort((a, b) => a.listPerMg - b.listPerMg || b.v.overallScore - a.v.overallScore);
+  .sort((a, b) => a.perMg - b.perMg || b.v.overallScore - a.v.overallScore);
 
 const CURS = ['EUR', 'USD', ...Array.from(new Set(rows.map((r) => r.p.currency))).filter((c) => c !== 'EUR' && c !== 'USD')].filter((c) => rows.some((r) => r.p.currency === c));
 const byCur = (cur: string) => rows.filter((r) => r.p.currency === cur);
@@ -78,7 +83,7 @@ const readDates = rows.map((r) => r.v.reviewedAt).sort();
 const dateRange = readDates.length ? fmtDateRange(lang, readDates[0], readDates[readDates.length - 1]) : F.na;
 const checkedAt = readDates[readDates.length - 1];
 
-// Cheapest per mg: shop with at least one opened GHK-Cu report vs. shop without one (list-price basis, per currency).
+// Cheapest per mg: shop with at least one opened GHK-Cu report vs. shop without one (site-wide basis, per currency).
 const cheapest = CURS.filter((c) => c === 'EUR' || c === 'USD').map((cur) => {
   const xs = byCur(cur);
   return {
@@ -104,7 +109,15 @@ const copperPortal = copperReps.filter((x) => x.r.verifiable).length;
 const powderRows = rows.filter((r) => r.format === 'powder');
 const cheapestVial = (cur: string, mg: number) => byCur(cur).find((r) => r.mg === mg && r.format === 'vial') ?? null;
 
-const fmtRow = (r: Row | null) => (r ? `${r.v.name}, ${F.mg(r.mg)}: ${F.perMg(r.listPerMg, r.p.currency)}` : 'none in the data');
+const fmtRow = (r: Row | null) => (r ? `${r.v.name}, ${F.mg(r.mg)}: ${F.perMg(r.perMg, r.p.currency)}` : 'none in the data');
+// Within-shop comparison: shops listing both 50 mg and 100 mg, and how many price the 100 mg pack lower per mg.
+const bothSizes = Array.from(new Set(rows.map((r) => r.v.slug))).map((slug) => {
+  const r50 = rows.find((r) => r.v.slug === slug && r.mg === 50);
+  const r100 = rows.find((r) => r.v.slug === slug && r.mg === 100);
+  return r50 && r100 && r50.p.currency === r100.p.currency ? { slug, cheaper100: r100.perMg < r50.perMg } : null;
+}).filter((x): x is { slug: string; cheaper100: boolean } => x != null);
+const big100 = bothSizes.filter((x) => x.cheaper100).length;
+const saleShops = new Set(rows.filter((r) => r.onSale).map((r) => r.v.slug)).size;
 const repLabel = (r: Row) => !r.reports.length ? 'No GHK-Cu report opened'
   : r.sizeReport ? `${F.mg(r.mg)} report, ${r.sizeReport.verifiable ? 'portal-verified' : 'shop-hosted'}`
   : `Report for ${listJoin(lang, Array.from(new Set(r.reports.map((x) => (x.labelMg ? F.mg(x.labelMg) : 'unstated size')))))} only (${r.portal ? 'portal-verified' : 'shop-hosted'})`;
@@ -117,21 +130,21 @@ const description = fitDesc(
 );
 const eurMin = byCur('EUR')[0];
 const usdMin = byCur('USD')[0];
-const intro = `We compared ${rows.length} GHK-Cu listings from ${shopsN} audited shops (${listJoin(lang, sizes.map((s) => F.mg(s)))} packs) on one basis: list price on the read date divided by the mg on the label. `
-  + `Lowest list price per mg: ${eurMin ? `${F.perMg(eurMin.listPerMg, 'EUR')} (${eurMin.v.name}, ${F.mg(eurMin.mg)}${eurMin.format === 'powder' ? ' powder pack' : ''})` : 'no EUR listing'} and ${usdMin ? `${F.perMg(usdMin.listPerMg, 'USD')} (${usdMin.v.name}, ${F.mg(usdMin.mg)})` : 'no USD listing'}. `
-  + `Larger packs are usually cheaper per mg, but a lab report only covers the batch and pack size it names. GHK-Cu is sold as a research-use-only reagent.`;
+const intro = `We compared ${rows.length} GHK-Cu listings from ${shopsN} audited shops (${listJoin(lang, sizes.map((s) => F.mg(s)))} packs) on one basis: the price shown on the read date (sale price where a shop showed one) divided by the mg on the label. `
+  + `Lowest price per mg: ${eurMin ? `${F.perMg(eurMin.perMg, 'EUR')} (${eurMin.v.name}, ${F.mg(eurMin.mg)}${eurMin.format === 'powder' ? ' powder pack' : ''})` : 'no EUR listing'} and ${usdMin ? `${F.perMg(usdMin.perMg, 'USD')} (${usdMin.v.name}, ${F.mg(usdMin.mg)})` : 'no USD listing'}. `
+  + `At ${big100} of ${bothSizes.length} shops that list both 50 mg and 100 mg, the 100 mg pack costs less per mg, but a lab report only covers the batch and pack size it names. GHK-Cu is sold as a research-use-only reagent.`;
 
 const crumbs = [{ name: 'Home', url: '/' }, { name: 'Prices', url: '/prices/' }, { name: 'GHK-Cu powder vs vials', url: '/ghk-cu-powder/' }];
 
 const faqs = [
   {
     q: 'How much does GHK-Cu cost per mg?',
-    a: `On a list-price basis (read ${dateRange}), GHK-Cu ranged from ${byCur('EUR').length ? `${F.perMg(byCur('EUR')[0].listPerMg, 'EUR')} to ${F.perMg(byCur('EUR')[byCur('EUR').length - 1].listPerMg, 'EUR')} at EU shops` : 'n/a in EUR'} and ${byCur('USD').length ? `${F.perMg(byCur('USD')[0].listPerMg, 'USD')} to ${F.perMg(byCur('USD')[byCur('USD').length - 1].listPerMg, 'USD')} in USD` : 'n/a in USD'}. Currencies are not converted. Sale prices are shown separately in the tables.`,
+    a: `Based on the price shown (sale price where recorded; read ${dateRange}), GHK-Cu ranged from ${byCur('EUR').length ? `${F.perMg(byCur('EUR')[0].perMg, 'EUR')} to ${F.perMg(byCur('EUR')[byCur('EUR').length - 1].perMg, 'EUR')} at EU shops` : 'n/a in EUR'} and ${byCur('USD').length ? `${F.perMg(byCur('USD')[0].perMg, 'USD')} to ${F.perMg(byCur('USD')[byCur('USD').length - 1].perMg, 'USD')} in USD` : 'n/a in USD'}. Currencies are not converted. List prices are shown in a separate column.`,
   },
   {
     q: 'Is GHK-Cu powder cheaper than vials?',
     a: powderRows.length
-      ? `Per mg, yes in this data: the only listing sold as a loose powder pack (${listJoin(lang, powderRows.map((r) => `${r.v.name} ${F.mg(r.mg)}`))}) costs ${listJoin(lang, powderRows.map((r) => F.perMg(r.listPerMg, r.p.currency)))} at list price. No opened lab report covers that pack size, so the low price is not backed by a matching report.`
+      ? `Per mg, yes in this data: the only listing sold as a loose powder pack (${listJoin(lang, powderRows.map((r) => `${r.v.name} ${F.mg(r.mg)}`))}) costs ${listJoin(lang, powderRows.map((r) => F.perMg(r.perMg, r.p.currency)))}. No opened lab report covers that pack size, so the low price is not backed by a matching report.`
       : 'No audited shop lists GHK-Cu as a loose powder pack; all listings are vials.',
   },
   {
@@ -139,8 +152,8 @@ const faqs = [
     a: `We opened ${reps.length} GHK-Cu reports from ${repShops} shops; ${repsPortal} could be checked on the testing lab's own portal. A report covers one batch and one label size; check that the batch number matches the product you are comparing.`,
   },
   {
-    q: 'Why do list price and sale price differ?',
-    a: 'Many shops show a struck-through list price next to a lower sale price, sometimes for long periods. We rank by list price so every shop is measured the same way, and show the sale price and sale price per mg in a separate column.',
+    q: 'Why do list price and shown price differ?',
+    a: 'Some shops show a struck-through list price next to a lower sale price, in some cases over long periods. We use the price shown on the read date (the sale price where one was recorded), as on all price pages of this site, and keep the list price and list price per mg in separate columns.',
   },
 ];
 
@@ -161,8 +174,8 @@ const colorKey = { accent: 'Shop with an opened GHK-Cu lab report', other: 'No G
     <dl class="mt-6 grid gap-3 grid-cols-2 lg:grid-cols-4">
       <div class="stat"><dt>Listings compared</dt><dd>{rows.length}</dd></div>
       <div class="stat"><dt>Pack sizes</dt><dd>{sizes.map((s) => F.raw(s)).join(', ')} mg</dd></div>
-      <div class="stat"><dt>Lowest list €/mg</dt><dd>{eurMin ? F.perMg(eurMin.listPerMg, 'EUR') : F.na}</dd></div>
-      <div class="stat"><dt>Lowest list $/mg</dt><dd>{usdMin ? F.perMg(usdMin.listPerMg, 'USD') : F.na}</dd></div>
+      <div class="stat"><dt>Lowest €/mg</dt><dd>{eurMin ? F.perMg(eurMin.perMg, 'EUR') : F.na}</dd></div>
+      <div class="stat"><dt>Lowest $/mg</dt><dd>{usdMin ? F.perMg(usdMin.perMg, 'USD') : F.na}</dd></div>
     </dl>
   </PageHero>
 
@@ -170,19 +183,18 @@ const colorKey = { accent: 'Shop with an opened GHK-Cu lab report', other: 'No G
     <section class="space-y-3" id="basis">
       <h2 class="h2">How price per mg is calculated here</h2>
       <div class="answer-box">
-        <p><strong>Basis for every shop:</strong> list price shown on the shop's product page on the read date, divided by the mg on the label. One basis for all {shopsN} shops, so a shop with a permanent "sale" banner is not ranked ahead of a shop without one.</p>
-        <p class="mt-2">Sale prices are recorded where a shop displayed one and appear in a separate column with their own price per mg. Discount codes are not applied. Currencies are kept as the shop listed them (EUR and USD are never mixed or converted). Read dates: {dateRange}.</p>
+        <p><strong>Basis for every shop:</strong> the price shown on the shop's product page on the read date (the sale price where one was recorded, otherwise the list price), divided by the mg on the label. This is the same basis as our <a href="/prices/ghk-cu/" class="text-link">GHK-Cu price comparison</a> and every other price page on this site.</p>
+        <p class="mt-2">List price and list price per mg stay visible in separate columns. Many shops show a sale price next to a struck-through list price; on the read date {saleShops} of {shopsN} shops showed a sale price for GHK-Cu. Discount codes are not applied. Currencies are kept as the shop listed them (EUR and USD are never mixed or converted). Read dates: {dateRange}.</p>
       </div>
-      <p class="text-sm text-slate-600 max-w-[75ch]">Our general <a href="/prices/ghk-cu/" class="text-link">GHK-Cu price comparison</a> and the store cards further down use the price at checkout before codes (the sale price where one is shown), so their per-mg figures can be lower than the list-price figures on this page.</p>
     </section>
 
     <section class="space-y-5" id="by-pack-size">
       <h2 class="h2">GHK-Cu price per mg by pack size</h2>
-      <p class="text-slate-700 max-w-[70ch]">Each bar is one listing at list price. Shorter bar = lower price per mg; all charts in one currency share the same scale. Bars are ranked by price per mg only; colour shows whether we opened a GHK-Cu lab report from that shop, not whether it is a partner.</p>
+      <p class="text-slate-700 max-w-[70ch]">Each bar is one listing at the price shown (sale price where recorded). Shorter bar = lower price per mg; all charts in one currency share the same scale. Bars are ranked by price per mg only; colour shows whether we opened a GHK-Cu lab report from that shop, not whether it is a partner.</p>
       {CURS.map((cur) => {
         const xs = byCur(cur);
         // One shared scale per currency so bar length is comparable across pack-size charts.
-        const curMax = Math.max(...xs.map((r) => r.listPerMg));
+        const curMax = Math.max(...xs.map((r) => r.perMg));
         const groups = [
           ...MAIN.map((s) => ({ label: F.mg(s), rows: xs.filter((r) => r.mg === s) })),
           { label: 'other pack sizes', rows: xs.filter((r) => !MAIN.includes(r.mg)) },
@@ -193,18 +205,18 @@ const colorKey = { accent: 'Shop with an opened GHK-Cu lab report', other: 'No G
             <div class="grid gap-5 lg:grid-cols-2">
               {groups.map((g) => (
                 <BarList
-                  title={`GHK-Cu ${g.label}: list price per mg (${cur})`}
+                  title={`GHK-Cu ${g.label}: price per mg (${cur})`}
                   rows={g.rows.map((r) => ({
                     label: r.v.name,
                     sub: `${F.mg(r.mg)}${r.format === 'powder' ? ' powder' : ''}`,
-                    value: r.listPerMg,
-                    display: F.perMg(r.listPerMg, cur),
+                    value: r.perMg,
+                    display: F.perMg(r.perMg, cur),
                     accent: r.reports.length > 0,
                     href: `/vendors/${r.v.slug}/`,
                   }))}
                   legend={colorKey}
                   max={curMax}
-                  note={`List price ÷ label mg, ${cur} only, no conversion.`}
+                  note={`Price shown (sale price if recorded) ÷ label mg, ${cur} only, no conversion.`}
                 />
               ))}
             </div>
@@ -215,21 +227,21 @@ const colorKey = { accent: 'Shop with an opened GHK-Cu lab report', other: 'No G
 
     <section class="space-y-5" id="all-listings">
       <h2 class="h2">All GHK-Cu listings: powder and vials</h2>
-      <p class="text-slate-700 max-w-[70ch]">Sorted by list price per mg (click a column to re-sort). The pack column shows the label amount and the shop's product name. Sale columns stay empty where the shop showed no sale price on the read date. "Report" refers to GHK-Cu lab reports we opened from that shop.</p>
+      <p class="text-slate-700 max-w-[70ch]">Sorted by price per mg on the price shown (click a column to re-sort). The pack column shows the label amount and the shop's product name. List price columns show the struck-through price where a shop displayed a sale price; otherwise list and shown price are the same. "Report" refers to GHK-Cu lab reports we opened from that shop.</p>
       {CURS.map((cur) => (
         <div class="space-y-2">
           <h3 class="h3">{cur === 'EUR' ? 'EUR listings' : cur === 'USD' ? 'USD listings' : `${cur} listings`}</h3>
           <div class="table-wrap">
             <table class="data-table" data-sortable>
-              <caption class="sr-only">GHK-Cu listings in {cur}, list price per mg</caption>
+              <caption class="sr-only">GHK-Cu listings in {cur}, price per mg</caption>
               <thead>
                 <tr>
                   <th scope="col"><button type="button" class="sort-btn" data-sort-type="text">Shop <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
                   <th scope="col"><button type="button" class="sort-btn" data-sort-type="num">Pack <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+                  <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Price shown <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
+                  <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Price / mg <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
                   <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">List price <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
                   <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">List / mg <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
-                  <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Sale price <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
-                  <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Sale / mg <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
                   <th scope="col">GHK-Cu report</th>
                   <th scope="col" class="num"><button type="button" class="sort-btn" data-sort-type="num">Audit score <Icon name="arrow-up-down" class="w-3.5 h-3.5" /></button></th>
                   <th scope="col">Read</th>
@@ -240,10 +252,10 @@ const colorKey = { accent: 'Shop with an opened GHK-Cu lab report', other: 'No G
                   <tr>
                     <td data-v={r.v.name} class="min-w-[8.5rem]"><a href={`/vendors/${r.v.slug}/`} class="font-semibold text-slate-900 hover:text-teal-800 hover:underline">{r.v.name}</a><span class="sub">{r.v.region}</span></td>
                     <td data-v={String(r.mg)} class="min-w-[9rem] max-w-[14rem]"><span class="font-medium">{F.mg(r.mg)}{r.format === 'powder' ? ' powder pack' : ''}</span><span class="sub">{r.p.shopProductName}{r.p.inStock === false ? ' (out of stock)' : ''}</span></td>
-                    <td class="num" data-v={String(r.p.price)}>{F.money(r.p.price, cur)}</td>
-                    <td class="num" data-v={String(r.listPerMg)}><span class="font-bold text-slate-900">{F.perMg(r.listPerMg, cur)}</span></td>
-                    <td class="num" data-v={r.sale == null ? '' : String(r.sale)}>{r.sale == null ? '–' : F.money(r.sale, cur)}</td>
-                    <td class="num" data-v={r.salePerMg == null ? '' : String(r.salePerMg)}>{r.salePerMg == null ? '–' : F.perMg(r.salePerMg, cur)}</td>
+                    <td class="num" data-v={String(r.shown)}>{F.money(r.shown, cur)}{r.onSale && <span class="sub">sale price</span>}</td>
+                    <td class="num" data-v={String(r.perMg)}><span class="font-bold text-slate-900">{F.perMg(r.perMg, cur)}</span></td>
+                    <td class="num" data-v={String(r.p.price)}>{r.onSale ? <s>{F.money(r.p.price, cur)}</s> : F.money(r.p.price, cur)}</td>
+                    <td class="num" data-v={String(r.listPerMg)}>{F.perMg(r.listPerMg, cur)}</td>
                     <td class="min-w-[11rem]"><VerifyBadge level={repLevel(r)} text={repLabel(r)} /></td>
                     <td class="num" data-v={String(r.v.overallScore)}>{F.score(r.v.overallScore)}</td>
                     <td class="whitespace-nowrap text-sm text-slate-700">{fmtDate(lang, r.v.reviewedAt)}</td>
@@ -272,14 +284,14 @@ const colorKey = { accent: 'Shop with an opened GHK-Cu lab report', other: 'No G
           </div>
         ))}
       </div>
-      <p class="text-sm text-slate-600 max-w-[75ch]">All figures use list price per mg. Cheapest is not the same as verified: a low price tells you nothing about what is in a batch until a lab report for that batch is published.</p>
+      <p class="text-sm text-slate-600 max-w-[75ch]">All figures use the price shown (sale price where recorded) per mg, as in the tables above. Cheapest is not the same as verified: a low price tells you nothing about what is in a batch until a lab report for that batch is published.</p>
     </section>
 
     <section class="space-y-4" id="powder-vs-vials">
       <h2 class="h2">Powder vs vials: what the data shows</h2>
       <div class="prose-read max-w-[72ch]">
-        <p>Almost every audited GHK-Cu listing is a single unit with a stated label amount ({listJoin(lang, Array.from(new Set(rows.filter((r) => r.format === 'vial').map((r) => r.mg))).sort((a, b) => a - b).map((s) => F.mg(s)))}), mostly 50 mg and 100 mg vials. {powderRows.length ? <>One shop lists a loose powder pack: {listJoin(lang, powderRows.map((r) => `${r.v.name} ${r.p.shopProductName} (${F.mg(r.mg)}, ${F.perMg(r.listPerMg, r.p.currency)} at list price)`))}.</> : 'No audited shop lists a loose powder pack.'}</p>
-        <p>Price per mg falls with pack size at most shops. {['EUR', 'USD'].map((cur) => { const a = cheapestVial(cur, 50); const b = cheapestVial(cur, 100); return a && b ? `${cur}: lowest 50 mg listing ${F.perMg(a.listPerMg, cur)} vs lowest 100 mg listing ${F.perMg(b.listPerMg, cur)}. ` : ''; }).join('')}</p>
+        <p>Almost every audited GHK-Cu listing is a single unit with a stated label amount ({listJoin(lang, Array.from(new Set(rows.filter((r) => r.format === 'vial').map((r) => r.mg))).sort((a, b) => a - b).map((s) => F.mg(s)))}), mostly 50 mg and 100 mg vials. {powderRows.length ? <>One shop lists a loose powder pack: {listJoin(lang, powderRows.map((r) => `${r.v.name} ${r.p.shopProductName} (${F.mg(r.mg)}, ${F.perMg(r.perMg, r.p.currency)})`))}.</> : 'No audited shop lists a loose powder pack.'}</p>
+        <p>Within a shop, the larger pack {big100 === bothSizes.length ? 'was cheaper per mg in every case' : big100 * 2 > bothSizes.length ? 'is usually cheaper per mg' : 'is not reliably cheaper per mg'}: {big100} of {bothSizes.length} shops that list both 50 mg and 100 mg price the 100 mg pack lower per mg. Across shops the picture is mixed: {['EUR', 'USD'].map((cur) => { const a = cheapestVial(cur, 50); const b = cheapestVial(cur, 100); return a && b ? `${cur}: lowest 50 mg listing ${F.perMg(a.perMg, cur)} vs lowest 100 mg listing ${F.perMg(b.perMg, cur)}. ` : ''; }).join('')}</p>
         <p>The lab reports we opened all name a single label size ({listJoin(lang, Array.from(new Set(reps.map((x) => x.r.labelMg).filter((x): x is number => x != null))).sort((a, b) => a - b).map((s) => F.mg(s)))}). None covers a bulk powder pack, so the lowest per-mg offer has no opened report for its own pack size.</p>
       </div>
     </section>
@@ -331,7 +343,7 @@ const colorKey = { accent: 'Shop with an opened GHK-Cu lab report', other: 'No G
     </section>
 
     <WhereToBuy compound={C} title="Where to buy GHK-Cu: audited partner shops" hideCodes />
-    <p class="text-sm text-slate-600 max-w-[75ch] -mt-8">Store cards show the price at checkout before any code (sale price where one is shown). No reader codes are listed on this page; partner order follows the audit score.</p>
+    <p class="text-sm text-slate-600 max-w-[75ch] -mt-8">Store cards use the same price basis as the tables above. No reader codes are listed on this page; partner order follows the audit score.</p>
 
     <section class="space-y-2" id="not-ranked">
       <h2 class="h3">Listings not ranked on this page</h2>
