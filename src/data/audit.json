@@ -6951,6 +6951,605 @@
   "rank": 17
  },
  {
+  "slug": "real-peptides",
+  "name": "Real Peptides",
+  "shopUrl": "https://realpeptides.co",
+  "region": "US",
+  "originCountry": "US",
+  "shipsTo": null,
+  "legalEntity": null,
+  "testingLabs": [
+   "Kovera Labs"
+  ],
+  "coaAccess": "Reports on product pages",
+  "coaExamples": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Trinity-X (Reta) 10mg (report product name 'GLP-3')",
+    "labelMg": 10,
+    "measuredMg": 10.97,
+    "purityPercent": 99.77,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-1ED56E (access code E45HZGM)",
+    "testDate": "2026-11-03",
+    "url": "https://coa.realpeptides.co/api/public/certificates/392",
+    "verifiable": false
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Trinity-X (Reta) 20mg (report product name 'GLP-3')",
+    "labelMg": 20,
+    "measuredMg": 20.98,
+    "purityPercent": 99.909,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-82A430 (access code 0PMV37Y)",
+    "testDate": "2026-11-03",
+    "url": "https://coa.realpeptides.co/api/public/certificates/393",
+    "verifiable": false
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg",
+    "labelMg": 10,
+    "measuredMg": 11.37,
+    "purityPercent": 99.66,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-ADE1D1 (access code J005U1P)",
+    "testDate": "2026-09-18",
+    "url": "https://coa.realpeptides.co/api/public/certificates/326",
+    "verifiable": false
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (Thymosin Beta-4) 10mg",
+    "labelMg": 10,
+    "measuredMg": 12.74,
+    "purityPercent": 99.367,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-0FB887 (access code WOC1ZHD)",
+    "testDate": "2026-09-18",
+    "url": "https://coa.realpeptides.co/api/public/certificates/353",
+    "verifiable": false
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu Copper Peptide 50mg",
+    "labelMg": 50,
+    "measuredMg": 56.27,
+    "purityPercent": 99.684,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-CCA3C7 (access code 22MSEHF)",
+    "testDate": "2026-08-12",
+    "url": "https://coa.realpeptides.co/api/public/certificates/188",
+    "verifiable": false
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-c 10mg",
+    "labelMg": 10,
+    "measuredMg": 10.19,
+    "purityPercent": 99.822,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-BDB62A (access code E0700XV)",
+    "testDate": "2026-11-03",
+    "url": "https://coa.realpeptides.co/api/public/certificates/395",
+    "verifiable": false
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD+ 500mg",
+    "labelMg": 500,
+    "measuredMg": 516.16,
+    "purityPercent": 99.821,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-50B31B (access code EYV692G)",
+    "testDate": "2026-11-10",
+    "url": "https://coa.realpeptides.co/api/public/certificates/401",
+    "verifiable": false
+   },
+   {
+    "compound": "ss-31",
+    "shopProductName": "SS-31 (Elamipretide) 10mg",
+    "labelMg": 10,
+    "measuredMg": 10.43,
+    "purityPercent": 99.721,
+    "lab": "Kovera Labs",
+    "reportId": "KVR-2026-65FD22 (access code KOPK4IJ)",
+    "testDate": "2026-11-03",
+    "url": "https://coa.realpeptides.co/api/public/certificates/397",
+    "verifiable": false
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": true,
+   "mass": true,
+   "endotoxin": true,
+   "sterility": true,
+   "heavyMetals": true
+  },
+  "paymentMethods": [
+   "Bank Pay (extra 10% off stated)",
+   "Other methods displayed at checkout (not listed on policy pages)"
+  ],
+  "freeShippingThreshold": "$250",
+  "dispatchInfo": "Site banner/FAQ: ships within 24 hours on business days from Florida/California stock, standard delivery 2–4 business days; Shipping Policy page (updated Dec 5, 2025): processed within 1–2 business days",
+  "products": [
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Trinity-X (Reta) 10mg",
+    "vialMg": 10,
+    "price": 124.8,
+    "currency": "USD",
+    "salePrice": 49.92,
+    "url": "https://www.realpeptides.co/products/trinity-x",
+    "inStock": true,
+    "pricePerMg": 4.992
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Trinity-X (Reta) 20mg",
+    "vialMg": 20,
+    "price": 288.0,
+    "currency": "USD",
+    "salePrice": 115.2,
+    "url": "https://www.realpeptides.co/products/trinity-x",
+    "inStock": true,
+    "pricePerMg": 5.76
+   },
+   {
+    "compound": "retatrutide",
+    "shopProductName": "Trinity-X (Reta) 30mg",
+    "vialMg": 30,
+    "price": 432.0,
+    "currency": "USD",
+    "salePrice": 172.8,
+    "url": "https://www.realpeptides.co/products/trinity-x",
+    "inStock": true,
+    "pricePerMg": 5.76
+   },
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC-157 10mg",
+    "vialMg": 10,
+    "price": 86.4,
+    "currency": "USD",
+    "salePrice": 34.56,
+    "url": "https://www.realpeptides.co/products/bpc-157-peptide",
+    "inStock": true,
+    "pricePerMg": 3.456
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB-500 (Thymosin Beta-4) 10mg",
+    "vialMg": 10,
+    "price": 96.0,
+    "currency": "USD",
+    "salePrice": 38.4,
+    "url": "https://www.realpeptides.co/products/tb-500-thymosin-beta-4",
+    "inStock": true,
+    "pricePerMg": 3.84
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu Copper Peptide 50mg",
+    "vialMg": 50,
+    "price": 52.8,
+    "currency": "USD",
+    "salePrice": 21.12,
+    "url": "https://www.realpeptides.co/products/ghk-cu-copper-peptide",
+    "inStock": true,
+    "pricePerMg": 0.422
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-Cu Copper Peptide 100mg",
+    "vialMg": 100,
+    "price": 100.8,
+    "currency": "USD",
+    "salePrice": 40.32,
+    "url": "https://www.realpeptides.co/products/ghk-cu-copper-peptide",
+    "inStock": true,
+    "pricePerMg": 0.403
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-c 10mg",
+    "vialMg": 10,
+    "price": 86.4,
+    "currency": "USD",
+    "salePrice": 34.56,
+    "url": "https://www.realpeptides.co/products/mots-c-peptide",
+    "inStock": true,
+    "pricePerMg": 3.456
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-c 40mg",
+    "vialMg": 40,
+    "price": 268.8,
+    "currency": "USD",
+    "salePrice": 107.52,
+    "url": "https://www.realpeptides.co/products/mots-c-peptide",
+    "inStock": true,
+    "pricePerMg": 2.688
+   },
+   {
+    "compound": "ss-31",
+    "shopProductName": "SS-31 (Elamipretide) 10mg",
+    "vialMg": 10,
+    "price": 57.6,
+    "currency": "USD",
+    "salePrice": 23.04,
+    "url": "https://www.realpeptides.co/products/ss-31-elamipretide",
+    "inStock": true,
+    "pricePerMg": 2.304
+   },
+   {
+    "compound": "ss-31",
+    "shopProductName": "SS-31 (Elamipretide) 50mg",
+    "vialMg": 50,
+    "price": 259.2,
+    "currency": "USD",
+    "salePrice": 103.68,
+    "url": "https://www.realpeptides.co/products/ss-31-elamipretide",
+    "inStock": true,
+    "pricePerMg": 2.074
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD+ 500mg",
+    "vialMg": 500,
+    "price": 120.0,
+    "currency": "USD",
+    "salePrice": 48.0,
+    "url": "https://www.realpeptides.co/products/nad-100mg",
+    "inStock": true,
+    "pricePerMg": 0.096
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD+ 1000mg",
+    "vialMg": 1000,
+    "price": 230.4,
+    "currency": "USD",
+    "salePrice": 92.16,
+    "url": "https://www.realpeptides.co/products/nad-100mg",
+    "inStock": true,
+    "pricePerMg": 0.092
+   },
+   {
+    "compound": "tesamorelin",
+    "shopProductName": "Tesamorelin 10mg",
+    "vialMg": 10,
+    "price": 91.2,
+    "currency": "USD",
+    "salePrice": 36.48,
+    "url": "https://www.realpeptides.co/products/tesamorelin-peptide",
+    "inStock": true,
+    "pricePerMg": 3.648
+   },
+   {
+    "compound": "ipamorelin",
+    "shopProductName": "Ipamorelin 10mg",
+    "vialMg": 10,
+    "price": 76.8,
+    "currency": "USD",
+    "salePrice": 30.72,
+    "url": "https://www.realpeptides.co/products/ipamorelin",
+    "inStock": true,
+    "pricePerMg": 3.072
+   },
+   {
+    "compound": "cjc-1295",
+    "shopProductName": "CJC 1295 (no dac) 5mg",
+    "vialMg": 5,
+    "price": 62.4,
+    "currency": "USD",
+    "salePrice": 24.96,
+    "url": "https://www.realpeptides.co/products/cjc-1295-no-dac",
+    "inStock": true,
+    "pricePerMg": 4.992
+   },
+   {
+    "compound": "epithalon",
+    "shopProductName": "Epithalon (Epitalon) 10mg",
+    "vialMg": 10,
+    "price": 48.0,
+    "currency": "USD",
+    "salePrice": 19.2,
+    "url": "https://www.realpeptides.co/products/epithalon-peptide",
+    "inStock": true,
+    "pricePerMg": 1.92
+   },
+   {
+    "compound": "kpv",
+    "shopProductName": "KPV 10mg",
+    "vialMg": 10,
+    "price": 81.6,
+    "currency": "USD",
+    "salePrice": 32.64,
+    "url": "https://www.realpeptides.co/products/kpv-5mg",
+    "inStock": true,
+    "pricePerMg": 3.264
+   },
+   {
+    "compound": "semax",
+    "shopProductName": "Semax Amidate 10mg",
+    "vialMg": 10,
+    "price": 57.6,
+    "currency": "USD",
+    "salePrice": 23.04,
+    "url": "https://www.realpeptides.co/products/semax-amidate-peptide",
+    "inStock": true,
+    "pricePerMg": 2.304
+   },
+   {
+    "compound": "selank",
+    "shopProductName": "Selank Amidate 10mg",
+    "vialMg": 10,
+    "price": 57.6,
+    "currency": "USD",
+    "salePrice": 23.04,
+    "url": "https://www.realpeptides.co/products/selank-amidate-peptide",
+    "inStock": true,
+    "pricePerMg": 2.304
+   },
+   {
+    "compound": "pt-141",
+    "shopProductName": "PT-141 (Bremelanotide) 10mg",
+    "vialMg": 10,
+    "price": 62.4,
+    "currency": "USD",
+    "salePrice": 24.96,
+    "url": "https://www.realpeptides.co/products/pt-141-bremelanotide",
+    "inStock": true,
+    "pricePerMg": 2.496
+   },
+   {
+    "compound": "aod-9604",
+    "shopProductName": "AOD-9604 10mg",
+    "vialMg": 10,
+    "price": 67.2,
+    "currency": "USD",
+    "salePrice": 26.88,
+    "url": "https://www.realpeptides.co/products/aod9604",
+    "inStock": true,
+    "pricePerMg": 2.688
+   },
+   {
+    "compound": "thymosin-alpha-1",
+    "shopProductName": "Thymosin Alpha 1 10mg",
+    "vialMg": 10,
+    "price": null,
+    "currency": "USD",
+    "salePrice": null,
+    "url": "https://www.realpeptides.co/products/thymosin-alpha-1-peptide",
+    "inStock": false,
+    "pricePerMg": null
+   }
+  ],
+  "subscores": {
+   "labVerification": 5,
+   "fillAccuracy": 6,
+   "panelDepth": 9,
+   "entityTransparency": 4,
+   "dispatchReliability": 6,
+   "valuePerMg": 8
+  },
+  "subscore_reasons": {
+   "labVerification": "Kovera reports are published for nearly all products, but PDFs are served from the shop's own coa.realpeptides.co domain; each carries a report number and access code for koveralabs.com/verify (lookup form not used in this read-only audit).",
+   "fillAccuracy": "Opened reports ranged 101.9%–127.4% of label; TB-500 10mg (12.74 mg) and BPC-157 10mg (11.37 mg) exceed label by more than 10%.",
+   "panelDepth": "Reports include HPLC purity, LC-MS identity, net content (2 vials), endotoxin (LAL), sterility screen, heavy metals and fentanyl screen.",
+   "entityTransparency": "Street address and phone in St. Petersburg, FL and Florida governing law are given, but no company legal name or registration was found.",
+   "dispatchReliability": "Dispatch is stated, but the site banner (within 24 hours) and the Shipping Policy (1–2 business days) give different times.",
+   "valuePerMg": "Current sale prices (60% off sitewide in November) are among the lowest per mg seen; regular list prices are among the highest."
+  },
+  "strengths": [
+   "Broad test panel on each Kovera report including LC-MS identity, endotoxin, sterility and heavy metals",
+   "Reports for most catalog items, searchable on a public certificate page"
+  ],
+  "weaknesses": [
+   "No legal entity name or registration found on site pages",
+   "Report PDFs hosted on the shop's domain and list batch as 'N/A'"
+  ],
+  "verdict": "Real Peptides publishes multi-panel Kovera Labs reports for almost all listed compounds, with report numbers and access codes for the lab's verification page. Reports state batch 'N/A', and no legal entity is named on the pages reviewed.",
+  "summary": "US supplier stocking in Florida and California with a 60% sitewide November sale. Kovera Labs is the only lab seen in the certificate library despite statements that Freedom Diagnostics is also used.",
+  "notes": "Prices: 'price' is the struck-through list price, 'salePrice' the November 60%-off price (ends Nov 30). inStock from coa.realpeptides.co/api/public/products (Thymosin Alpha 1 inStock=false, shown as 'Notify me'; its price not displayed). Trinity-X 30mg has no certificate in the API. Shipping destinations are not stated on the shipping policy page (shipsTo null). Kovera access codes taken from the PDFs; verification on koveralabs.com requires a lookup form, not performed. Homepage and entity card mention Freedom Diagnostics, but all 188 certificates listed are labelled Kovera. Report product name for retatrutide is 'GLP-3'. web extraction was blocked (403), pages read via browser. valuePerMg compares per-mg prices of common SKUs across the 6 shops in this batch, with EUR and USD compared at face value (no exchange rate applied).",
+  "sources": [
+   "https://realpeptides.co",
+   "https://www.realpeptides.co/coas/",
+   "https://coa.realpeptides.co/api/public/certificates",
+   "https://coa.realpeptides.co/api/public/products",
+   "https://www.realpeptides.co/shop/",
+   "https://www.realpeptides.co/shipping-policy",
+   "https://www.realpeptides.co/terms-of-service",
+   "https://www.realpeptides.co/entry-card/",
+   "https://www.realpeptides.co/products/trinity-x",
+   "https://www.realpeptides.co/products/mots-c-peptide",
+   "https://www.realpeptides.co/products/ghk-cu-copper-peptide",
+   "https://www.realpeptides.co/products/ss-31-elamipretide",
+   "https://www.realpeptides.co/products/nad-100mg",
+   "https://coa.realpeptides.co/api/public/certificates/392",
+   "https://coa.realpeptides.co/api/public/certificates/393",
+   "https://coa.realpeptides.co/api/public/certificates/326",
+   "https://coa.realpeptides.co/api/public/certificates/353",
+   "https://coa.realpeptides.co/api/public/certificates/188",
+   "https://coa.realpeptides.co/api/public/certificates/395",
+   "https://coa.realpeptides.co/api/public/certificates/401",
+   "https://coa.realpeptides.co/api/public/certificates/397"
+  ],
+  "readAt": "2026-11-20",
+  "overallScore": 3.1,
+  "coaStats": {
+   "opened": 8,
+   "portalVerified": 0,
+   "purityMin": 99.367,
+   "purityMax": 99.909,
+   "purityMedian": 99.75,
+   "fillMinPct": 101.9,
+   "fillMaxPct": 127.4
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "LC-MS identity",
+   "Measured mg",
+   "Endotoxin",
+   "Sterility",
+   "Heavy metals"
+  ],
+  "blendProducts": [
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine Peptide Stack - BPC-157 5mg / TB-500 5mg",
+    "totalMg": 10,
+    "composition": {
+     "bpc-157": 5,
+     "tb-500": 5
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "price not in the public API",
+    "pricePerMg": null
+   },
+   {
+    "blend": "wolverine",
+    "shopProductName": "Wolverine Peptide Stack - BPC-157 10mg / TB-500 10mg",
+    "totalMg": 20,
+    "composition": {
+     "bpc-157": 10,
+     "tb-500": 10
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "price not in the public API",
+    "pricePerMg": null
+   },
+   {
+    "blend": "klow",
+    "shopProductName": "KLOW",
+    "totalMg": 80,
+    "composition": null,
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "80 mg from certificate file name; price not in the public API",
+    "pricePerMg": null
+   },
+   {
+    "blend": "glow",
+    "shopProductName": "GLOW Stack",
+    "totalMg": 70,
+    "composition": null,
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "70 mg from certificate file name; price not in the public API",
+    "pricePerMg": null
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "shopProductName": "CJC-1295 + Ipamorelin (5mg/5mg)",
+    "totalMg": 10,
+    "composition": {
+     "cjc-1295": 5,
+     "ipamorelin": 5
+    },
+    "price": null,
+    "salePrice": null,
+    "currency": "USD",
+    "inStock": true,
+    "url": "https://coa.realpeptides.co/api/public/products",
+    "readAt": "2026-11-21",
+    "note": "price not in the public API",
+    "pricePerMg": null
+   }
+  ],
+  "blendReports": [
+   {
+    "blend": "klow",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": "KVR-2026-FACF15",
+    "testDate": "2026-11-03",
+    "purityPercent": null,
+    "labelMg": 80,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/394",
+    "verifiable": false,
+    "readAt": "2026-11-21"
+   },
+   {
+    "blend": "glow",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": "KVR-2026-F82166",
+    "testDate": "2026-11-03",
+    "purityPercent": null,
+    "labelMg": 70,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/391",
+    "verifiable": false,
+    "readAt": "2026-11-21"
+   },
+   {
+    "blend": "wolverine",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": "KVR-2026-903BC8",
+    "testDate": "2026-11-03",
+    "purityPercent": null,
+    "labelMg": 20,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/389",
+    "verifiable": false,
+    "readAt": "2026-11-21"
+   },
+   {
+    "blend": "wolverine",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": null,
+    "testDate": "2026-09-22",
+    "purityPercent": 99.669,
+    "labelMg": 10,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/328",
+    "verifiable": false,
+    "readAt": "2026-11-21",
+    "note": "listed for the 5mg/5mg product, but the certificate file name reads 10mg-10mg"
+   },
+   {
+    "blend": "cjc-ipamorelin",
+    "lab": "Kovera Labs",
+    "lot": null,
+    "reportId": null,
+    "testDate": "2026-09-22",
+    "purityPercent": 99.666,
+    "labelMg": 10,
+    "measured": null,
+    "url": "https://coa.realpeptides.co/api/public/certificates/333",
+    "verifiable": false,
+    "readAt": "2026-11-21"
+   }
+  ],
+  "rank": 18
+ },
+ {
   "slug": "avellon-peptides",
   "name": "Avellon Peptides",
   "shopUrl": "https://avellon-peptides.com",
@@ -7341,7 +7940,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 18
+  "rank": 19
  },
  {
   "slug": "ascension-peptides",
@@ -7884,7 +8483,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 19
+  "rank": 20
  },
  {
   "slug": "core-peptides",
@@ -8427,7 +9026,7 @@
     "note": "shop states >99% purity by HPLC"
    }
   ],
-  "rank": 20
+  "rank": 21
  },
  {
   "slug": "biolongevity-labs",
@@ -8764,7 +9363,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 21
+  "rank": 22
  },
  {
   "slug": "mizan-supply",
@@ -8932,7 +9531,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 22
+  "rank": 23
  },
  {
   "slug": "primal-peptides",
@@ -9190,605 +9789,6 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 23
- },
- {
-  "slug": "real-peptides",
-  "name": "Real Peptides",
-  "shopUrl": "https://realpeptides.co",
-  "region": "US",
-  "originCountry": "US",
-  "shipsTo": null,
-  "legalEntity": null,
-  "testingLabs": [
-   "Kovera Labs"
-  ],
-  "coaAccess": "Reports on product pages",
-  "coaExamples": [
-   {
-    "compound": "retatrutide",
-    "shopProductName": "Trinity-X (Reta) 10mg (report product name 'GLP-3')",
-    "labelMg": 10,
-    "measuredMg": 10.97,
-    "purityPercent": 99.77,
-    "lab": "Kovera Labs",
-    "reportId": "KVR-2026-1ED56E (access code E45HZGM)",
-    "testDate": "2026-11-03",
-    "url": "https://coa.realpeptides.co/api/public/certificates/392",
-    "verifiable": false
-   },
-   {
-    "compound": "retatrutide",
-    "shopProductName": "Trinity-X (Reta) 20mg (report product name 'GLP-3')",
-    "labelMg": 20,
-    "measuredMg": 20.98,
-    "purityPercent": 99.909,
-    "lab": "Kovera Labs",
-    "reportId": "KVR-2026-82A430 (access code 0PMV37Y)",
-    "testDate": "2026-11-03",
-    "url": "https://coa.realpeptides.co/api/public/certificates/393",
-    "verifiable": false
-   },
-   {
-    "compound": "bpc-157",
-    "shopProductName": "BPC-157 10mg",
-    "labelMg": 10,
-    "measuredMg": 11.37,
-    "purityPercent": 99.66,
-    "lab": "Kovera Labs",
-    "reportId": "KVR-2026-ADE1D1 (access code J005U1P)",
-    "testDate": "2026-09-18",
-    "url": "https://coa.realpeptides.co/api/public/certificates/326",
-    "verifiable": false
-   },
-   {
-    "compound": "tb-500",
-    "shopProductName": "TB-500 (Thymosin Beta-4) 10mg",
-    "labelMg": 10,
-    "measuredMg": 12.74,
-    "purityPercent": 99.367,
-    "lab": "Kovera Labs",
-    "reportId": "KVR-2026-0FB887 (access code WOC1ZHD)",
-    "testDate": "2026-09-18",
-    "url": "https://coa.realpeptides.co/api/public/certificates/353",
-    "verifiable": false
-   },
-   {
-    "compound": "ghk-cu",
-    "shopProductName": "GHK-Cu Copper Peptide 50mg",
-    "labelMg": 50,
-    "measuredMg": 56.27,
-    "purityPercent": 99.684,
-    "lab": "Kovera Labs",
-    "reportId": "KVR-2026-CCA3C7 (access code 22MSEHF)",
-    "testDate": "2026-08-12",
-    "url": "https://coa.realpeptides.co/api/public/certificates/188",
-    "verifiable": false
-   },
-   {
-    "compound": "mots-c",
-    "shopProductName": "MOTS-c 10mg",
-    "labelMg": 10,
-    "measuredMg": 10.19,
-    "purityPercent": 99.822,
-    "lab": "Kovera Labs",
-    "reportId": "KVR-2026-BDB62A (access code E0700XV)",
-    "testDate": "2026-11-03",
-    "url": "https://coa.realpeptides.co/api/public/certificates/395",
-    "verifiable": false
-   },
-   {
-    "compound": "nad-plus",
-    "shopProductName": "NAD+ 500mg",
-    "labelMg": 500,
-    "measuredMg": 516.16,
-    "purityPercent": 99.821,
-    "lab": "Kovera Labs",
-    "reportId": "KVR-2026-50B31B (access code EYV692G)",
-    "testDate": "2026-11-10",
-    "url": "https://coa.realpeptides.co/api/public/certificates/401",
-    "verifiable": false
-   },
-   {
-    "compound": "ss-31",
-    "shopProductName": "SS-31 (Elamipretide) 10mg",
-    "labelMg": 10,
-    "measuredMg": 10.43,
-    "purityPercent": 99.721,
-    "lab": "Kovera Labs",
-    "reportId": "KVR-2026-65FD22 (access code KOPK4IJ)",
-    "testDate": "2026-11-03",
-    "url": "https://coa.realpeptides.co/api/public/certificates/397",
-    "verifiable": false
-   }
-  ],
-  "panels": {
-   "hplc": true,
-   "lcms": true,
-   "mass": true,
-   "endotoxin": true,
-   "sterility": true,
-   "heavyMetals": true
-  },
-  "paymentMethods": [
-   "Bank Pay (extra 10% off stated)",
-   "Other methods displayed at checkout (not listed on policy pages)"
-  ],
-  "freeShippingThreshold": "$250",
-  "dispatchInfo": "Site banner/FAQ: ships within 24 hours on business days from Florida/California stock, standard delivery 2–4 business days; Shipping Policy page (updated Dec 5, 2025): processed within 1–2 business days",
-  "products": [
-   {
-    "compound": "retatrutide",
-    "shopProductName": "Trinity-X (Reta) 10mg",
-    "vialMg": 10,
-    "price": 124.8,
-    "currency": "USD",
-    "salePrice": 49.92,
-    "url": "https://www.realpeptides.co/products/trinity-x",
-    "inStock": true,
-    "pricePerMg": 4.992
-   },
-   {
-    "compound": "retatrutide",
-    "shopProductName": "Trinity-X (Reta) 20mg",
-    "vialMg": 20,
-    "price": 288.0,
-    "currency": "USD",
-    "salePrice": 115.2,
-    "url": "https://www.realpeptides.co/products/trinity-x",
-    "inStock": true,
-    "pricePerMg": 5.76
-   },
-   {
-    "compound": "retatrutide",
-    "shopProductName": "Trinity-X (Reta) 30mg",
-    "vialMg": 30,
-    "price": 432.0,
-    "currency": "USD",
-    "salePrice": 172.8,
-    "url": "https://www.realpeptides.co/products/trinity-x",
-    "inStock": true,
-    "pricePerMg": 5.76
-   },
-   {
-    "compound": "bpc-157",
-    "shopProductName": "BPC-157 10mg",
-    "vialMg": 10,
-    "price": 86.4,
-    "currency": "USD",
-    "salePrice": 34.56,
-    "url": "https://www.realpeptides.co/products/bpc-157-peptide",
-    "inStock": true,
-    "pricePerMg": 3.456
-   },
-   {
-    "compound": "tb-500",
-    "shopProductName": "TB-500 (Thymosin Beta-4) 10mg",
-    "vialMg": 10,
-    "price": 96.0,
-    "currency": "USD",
-    "salePrice": 38.4,
-    "url": "https://www.realpeptides.co/products/tb-500-thymosin-beta-4",
-    "inStock": true,
-    "pricePerMg": 3.84
-   },
-   {
-    "compound": "ghk-cu",
-    "shopProductName": "GHK-Cu Copper Peptide 50mg",
-    "vialMg": 50,
-    "price": 52.8,
-    "currency": "USD",
-    "salePrice": 21.12,
-    "url": "https://www.realpeptides.co/products/ghk-cu-copper-peptide",
-    "inStock": true,
-    "pricePerMg": 0.422
-   },
-   {
-    "compound": "ghk-cu",
-    "shopProductName": "GHK-Cu Copper Peptide 100mg",
-    "vialMg": 100,
-    "price": 100.8,
-    "currency": "USD",
-    "salePrice": 40.32,
-    "url": "https://www.realpeptides.co/products/ghk-cu-copper-peptide",
-    "inStock": true,
-    "pricePerMg": 0.403
-   },
-   {
-    "compound": "mots-c",
-    "shopProductName": "MOTS-c 10mg",
-    "vialMg": 10,
-    "price": 86.4,
-    "currency": "USD",
-    "salePrice": 34.56,
-    "url": "https://www.realpeptides.co/products/mots-c-peptide",
-    "inStock": true,
-    "pricePerMg": 3.456
-   },
-   {
-    "compound": "mots-c",
-    "shopProductName": "MOTS-c 40mg",
-    "vialMg": 40,
-    "price": 268.8,
-    "currency": "USD",
-    "salePrice": 107.52,
-    "url": "https://www.realpeptides.co/products/mots-c-peptide",
-    "inStock": true,
-    "pricePerMg": 2.688
-   },
-   {
-    "compound": "ss-31",
-    "shopProductName": "SS-31 (Elamipretide) 10mg",
-    "vialMg": 10,
-    "price": 57.6,
-    "currency": "USD",
-    "salePrice": 23.04,
-    "url": "https://www.realpeptides.co/products/ss-31-elamipretide",
-    "inStock": true,
-    "pricePerMg": 2.304
-   },
-   {
-    "compound": "ss-31",
-    "shopProductName": "SS-31 (Elamipretide) 50mg",
-    "vialMg": 50,
-    "price": 259.2,
-    "currency": "USD",
-    "salePrice": 103.68,
-    "url": "https://www.realpeptides.co/products/ss-31-elamipretide",
-    "inStock": true,
-    "pricePerMg": 2.074
-   },
-   {
-    "compound": "nad-plus",
-    "shopProductName": "NAD+ 500mg",
-    "vialMg": 500,
-    "price": 120.0,
-    "currency": "USD",
-    "salePrice": 48.0,
-    "url": "https://www.realpeptides.co/products/nad-100mg",
-    "inStock": true,
-    "pricePerMg": 0.096
-   },
-   {
-    "compound": "nad-plus",
-    "shopProductName": "NAD+ 1000mg",
-    "vialMg": 1000,
-    "price": 230.4,
-    "currency": "USD",
-    "salePrice": 92.16,
-    "url": "https://www.realpeptides.co/products/nad-100mg",
-    "inStock": true,
-    "pricePerMg": 0.092
-   },
-   {
-    "compound": "tesamorelin",
-    "shopProductName": "Tesamorelin 10mg",
-    "vialMg": 10,
-    "price": 91.2,
-    "currency": "USD",
-    "salePrice": 36.48,
-    "url": "https://www.realpeptides.co/products/tesamorelin-peptide",
-    "inStock": true,
-    "pricePerMg": 3.648
-   },
-   {
-    "compound": "ipamorelin",
-    "shopProductName": "Ipamorelin 10mg",
-    "vialMg": 10,
-    "price": 76.8,
-    "currency": "USD",
-    "salePrice": 30.72,
-    "url": "https://www.realpeptides.co/products/ipamorelin",
-    "inStock": true,
-    "pricePerMg": 3.072
-   },
-   {
-    "compound": "cjc-1295",
-    "shopProductName": "CJC 1295 (no dac) 5mg",
-    "vialMg": 5,
-    "price": 62.4,
-    "currency": "USD",
-    "salePrice": 24.96,
-    "url": "https://www.realpeptides.co/products/cjc-1295-no-dac",
-    "inStock": true,
-    "pricePerMg": 4.992
-   },
-   {
-    "compound": "epithalon",
-    "shopProductName": "Epithalon (Epitalon) 10mg",
-    "vialMg": 10,
-    "price": 48.0,
-    "currency": "USD",
-    "salePrice": 19.2,
-    "url": "https://www.realpeptides.co/products/epithalon-peptide",
-    "inStock": true,
-    "pricePerMg": 1.92
-   },
-   {
-    "compound": "kpv",
-    "shopProductName": "KPV 10mg",
-    "vialMg": 10,
-    "price": 81.6,
-    "currency": "USD",
-    "salePrice": 32.64,
-    "url": "https://www.realpeptides.co/products/kpv-5mg",
-    "inStock": true,
-    "pricePerMg": 3.264
-   },
-   {
-    "compound": "semax",
-    "shopProductName": "Semax Amidate 10mg",
-    "vialMg": 10,
-    "price": 57.6,
-    "currency": "USD",
-    "salePrice": 23.04,
-    "url": "https://www.realpeptides.co/products/semax-amidate-peptide",
-    "inStock": true,
-    "pricePerMg": 2.304
-   },
-   {
-    "compound": "selank",
-    "shopProductName": "Selank Amidate 10mg",
-    "vialMg": 10,
-    "price": 57.6,
-    "currency": "USD",
-    "salePrice": 23.04,
-    "url": "https://www.realpeptides.co/products/selank-amidate-peptide",
-    "inStock": true,
-    "pricePerMg": 2.304
-   },
-   {
-    "compound": "pt-141",
-    "shopProductName": "PT-141 (Bremelanotide) 10mg",
-    "vialMg": 10,
-    "price": 62.4,
-    "currency": "USD",
-    "salePrice": 24.96,
-    "url": "https://www.realpeptides.co/products/pt-141-bremelanotide",
-    "inStock": true,
-    "pricePerMg": 2.496
-   },
-   {
-    "compound": "aod-9604",
-    "shopProductName": "AOD-9604 10mg",
-    "vialMg": 10,
-    "price": 67.2,
-    "currency": "USD",
-    "salePrice": 26.88,
-    "url": "https://www.realpeptides.co/products/aod9604",
-    "inStock": true,
-    "pricePerMg": 2.688
-   },
-   {
-    "compound": "thymosin-alpha-1",
-    "shopProductName": "Thymosin Alpha 1 10mg",
-    "vialMg": 10,
-    "price": null,
-    "currency": "USD",
-    "salePrice": null,
-    "url": "https://www.realpeptides.co/products/thymosin-alpha-1-peptide",
-    "inStock": false,
-    "pricePerMg": null
-   }
-  ],
-  "subscores": {
-   "labVerification": 5,
-   "fillAccuracy": 6,
-   "panelDepth": 9,
-   "entityTransparency": 4,
-   "dispatchReliability": 6,
-   "valuePerMg": 8
-  },
-  "subscore_reasons": {
-   "labVerification": "Kovera reports are published for nearly all products, but PDFs are served from the shop's own coa.realpeptides.co domain; each carries a report number and access code for koveralabs.com/verify (lookup form not used in this read-only audit).",
-   "fillAccuracy": "Opened reports ranged 101.9%–127.4% of label; TB-500 10mg (12.74 mg) and BPC-157 10mg (11.37 mg) exceed label by more than 10%.",
-   "panelDepth": "Reports include HPLC purity, LC-MS identity, net content (2 vials), endotoxin (LAL), sterility screen, heavy metals and fentanyl screen.",
-   "entityTransparency": "Street address and phone in St. Petersburg, FL and Florida governing law are given, but no company legal name or registration was found.",
-   "dispatchReliability": "Dispatch is stated, but the site banner (within 24 hours) and the Shipping Policy (1–2 business days) give different times.",
-   "valuePerMg": "Current sale prices (60% off sitewide in November) are among the lowest per mg seen; regular list prices are among the highest."
-  },
-  "strengths": [
-   "Broad test panel on each Kovera report including LC-MS identity, endotoxin, sterility and heavy metals",
-   "Reports for most catalog items, searchable on a public certificate page"
-  ],
-  "weaknesses": [
-   "No legal entity name or registration found on site pages",
-   "Report PDFs hosted on the shop's domain and list batch as 'N/A'"
-  ],
-  "verdict": "Real Peptides publishes multi-panel Kovera Labs reports for almost all listed compounds, with report numbers and access codes for the lab's verification page. Reports state batch 'N/A', and no legal entity is named on the pages reviewed.",
-  "summary": "US supplier stocking in Florida and California with a 60% sitewide November sale. Kovera Labs is the only lab seen in the certificate library despite statements that Freedom Diagnostics is also used.",
-  "notes": "Prices: 'price' is the struck-through list price, 'salePrice' the November 60%-off price (ends Nov 30). inStock from coa.realpeptides.co/api/public/products (Thymosin Alpha 1 inStock=false, shown as 'Notify me'; its price not displayed). Trinity-X 30mg has no certificate in the API. Shipping destinations are not stated on the shipping policy page (shipsTo null). Kovera access codes taken from the PDFs; verification on koveralabs.com requires a lookup form, not performed. Homepage and entity card mention Freedom Diagnostics, but all 188 certificates listed are labelled Kovera. Report product name for retatrutide is 'GLP-3'. web extraction was blocked (403), pages read via browser. valuePerMg compares per-mg prices of common SKUs across the 6 shops in this batch, with EUR and USD compared at face value (no exchange rate applied).",
-  "sources": [
-   "https://realpeptides.co",
-   "https://www.realpeptides.co/coas/",
-   "https://coa.realpeptides.co/api/public/certificates",
-   "https://coa.realpeptides.co/api/public/products",
-   "https://www.realpeptides.co/shop/",
-   "https://www.realpeptides.co/shipping-policy",
-   "https://www.realpeptides.co/terms-of-service",
-   "https://www.realpeptides.co/entry-card/",
-   "https://www.realpeptides.co/products/trinity-x",
-   "https://www.realpeptides.co/products/mots-c-peptide",
-   "https://www.realpeptides.co/products/ghk-cu-copper-peptide",
-   "https://www.realpeptides.co/products/ss-31-elamipretide",
-   "https://www.realpeptides.co/products/nad-100mg",
-   "https://coa.realpeptides.co/api/public/certificates/392",
-   "https://coa.realpeptides.co/api/public/certificates/393",
-   "https://coa.realpeptides.co/api/public/certificates/326",
-   "https://coa.realpeptides.co/api/public/certificates/353",
-   "https://coa.realpeptides.co/api/public/certificates/188",
-   "https://coa.realpeptides.co/api/public/certificates/395",
-   "https://coa.realpeptides.co/api/public/certificates/401",
-   "https://coa.realpeptides.co/api/public/certificates/397"
-  ],
-  "readAt": "2026-11-20",
-  "overallScore": 3.0,
-  "coaStats": {
-   "opened": 8,
-   "portalVerified": 0,
-   "purityMin": 99.367,
-   "purityMax": 99.909,
-   "purityMedian": 99.75,
-   "fillMinPct": 101.9,
-   "fillMaxPct": 127.4
-  },
-  "panelLabels": [
-   "HPLC purity",
-   "LC-MS identity",
-   "Measured mg",
-   "Endotoxin",
-   "Sterility",
-   "Heavy metals"
-  ],
-  "blendProducts": [
-   {
-    "blend": "wolverine",
-    "shopProductName": "Wolverine Peptide Stack - BPC-157 5mg / TB-500 5mg",
-    "totalMg": 10,
-    "composition": {
-     "bpc-157": 5,
-     "tb-500": 5
-    },
-    "price": null,
-    "salePrice": null,
-    "currency": "USD",
-    "inStock": true,
-    "url": "https://coa.realpeptides.co/api/public/products",
-    "readAt": "2026-11-21",
-    "note": "price not in the public API",
-    "pricePerMg": null
-   },
-   {
-    "blend": "wolverine",
-    "shopProductName": "Wolverine Peptide Stack - BPC-157 10mg / TB-500 10mg",
-    "totalMg": 20,
-    "composition": {
-     "bpc-157": 10,
-     "tb-500": 10
-    },
-    "price": null,
-    "salePrice": null,
-    "currency": "USD",
-    "inStock": true,
-    "url": "https://coa.realpeptides.co/api/public/products",
-    "readAt": "2026-11-21",
-    "note": "price not in the public API",
-    "pricePerMg": null
-   },
-   {
-    "blend": "klow",
-    "shopProductName": "KLOW",
-    "totalMg": 80,
-    "composition": null,
-    "price": null,
-    "salePrice": null,
-    "currency": "USD",
-    "inStock": true,
-    "url": "https://coa.realpeptides.co/api/public/products",
-    "readAt": "2026-11-21",
-    "note": "80 mg from certificate file name; price not in the public API",
-    "pricePerMg": null
-   },
-   {
-    "blend": "glow",
-    "shopProductName": "GLOW Stack",
-    "totalMg": 70,
-    "composition": null,
-    "price": null,
-    "salePrice": null,
-    "currency": "USD",
-    "inStock": true,
-    "url": "https://coa.realpeptides.co/api/public/products",
-    "readAt": "2026-11-21",
-    "note": "70 mg from certificate file name; price not in the public API",
-    "pricePerMg": null
-   },
-   {
-    "blend": "cjc-ipamorelin",
-    "shopProductName": "CJC-1295 + Ipamorelin (5mg/5mg)",
-    "totalMg": 10,
-    "composition": {
-     "cjc-1295": 5,
-     "ipamorelin": 5
-    },
-    "price": null,
-    "salePrice": null,
-    "currency": "USD",
-    "inStock": true,
-    "url": "https://coa.realpeptides.co/api/public/products",
-    "readAt": "2026-11-21",
-    "note": "price not in the public API",
-    "pricePerMg": null
-   }
-  ],
-  "blendReports": [
-   {
-    "blend": "klow",
-    "lab": "Kovera Labs",
-    "lot": null,
-    "reportId": "KVR-2026-FACF15",
-    "testDate": "2026-11-03",
-    "purityPercent": null,
-    "labelMg": 80,
-    "measured": null,
-    "url": "https://coa.realpeptides.co/api/public/certificates/394",
-    "verifiable": false,
-    "readAt": "2026-11-21"
-   },
-   {
-    "blend": "glow",
-    "lab": "Kovera Labs",
-    "lot": null,
-    "reportId": "KVR-2026-F82166",
-    "testDate": "2026-11-03",
-    "purityPercent": null,
-    "labelMg": 70,
-    "measured": null,
-    "url": "https://coa.realpeptides.co/api/public/certificates/391",
-    "verifiable": false,
-    "readAt": "2026-11-21"
-   },
-   {
-    "blend": "wolverine",
-    "lab": "Kovera Labs",
-    "lot": null,
-    "reportId": "KVR-2026-903BC8",
-    "testDate": "2026-11-03",
-    "purityPercent": null,
-    "labelMg": 20,
-    "measured": null,
-    "url": "https://coa.realpeptides.co/api/public/certificates/389",
-    "verifiable": false,
-    "readAt": "2026-11-21"
-   },
-   {
-    "blend": "wolverine",
-    "lab": "Kovera Labs",
-    "lot": null,
-    "reportId": null,
-    "testDate": "2026-09-22",
-    "purityPercent": 99.669,
-    "labelMg": 10,
-    "measured": null,
-    "url": "https://coa.realpeptides.co/api/public/certificates/328",
-    "verifiable": false,
-    "readAt": "2026-11-21",
-    "note": "listed for the 5mg/5mg product, but the certificate file name reads 10mg-10mg"
-   },
-   {
-    "blend": "cjc-ipamorelin",
-    "lab": "Kovera Labs",
-    "lot": null,
-    "reportId": null,
-    "testDate": "2026-09-22",
-    "purityPercent": 99.666,
-    "labelMg": 10,
-    "measured": null,
-    "url": "https://coa.realpeptides.co/api/public/certificates/333",
-    "verifiable": false,
-    "readAt": "2026-11-21"
-   }
-  ],
   "rank": 24
  },
  {

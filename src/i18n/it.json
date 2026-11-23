@@ -638,6 +638,11 @@
       "{nm}: opinioni, referti e prezzi",
       "{nm}: recensione e opinioni"
     ],
+    "titleNoPrices": [
+      "{nm}: recensione e opinioni, referti di laboratorio",
+      "{nm}: opinioni e referti",
+      "{nm}: recensione e opinioni"
+    ],
     "h1": "{shop}: recensione e opinioni {year}. Referti di laboratorio, prezzi e affidabilità",
     "description": [
       "{nm} ottiene {score}/5 nella nostra recensione: {opened} referti aperti, {portal} verificati sul portale, società e prezzo al mg. Guarda i referti.",

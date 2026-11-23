@@ -1121,6 +1121,11 @@
       "{nm} Review: Lab Tests & Prices",
       "{nm} Review"
     ],
+    "titleNoPrices": [
+      "{nm} Review: Legit? Lab Tests & Shop Facts",
+      "{nm} Review: Legit? Lab Tests",
+      "{nm} Review"
+    ],
     "h1": "{shop} review {year}: lab reports, prices and legitimacy checked",
     "description": [
       "{nm} scores {score}/5 in our audit: {opened} lab reports opened, {portal} portal-verified, legal entity and prices per mg. See lab reports.",

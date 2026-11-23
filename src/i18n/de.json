@@ -636,6 +636,11 @@
       "{nm} Erfahrungen: Laborberichte & Preise",
       "{nm} Test & Erfahrungen"
     ],
+    "titleNoPrices": [
+      "{nm} Test & Erfahrungen: Laborberichte & Shop-Fakten",
+      "{nm} Erfahrungen: Laborberichte",
+      "{nm} Test & Erfahrungen"
+    ],
     "h1": "{shop} Test & Erfahrungen {year}: Laborberichte, Preise und Seriosität geprüft",
     "description": [
       "{nm} erreicht {score}/5 in unserem Test: {opened} Laborberichte geöffnet, {portal} im Portal bestätigt, Betreiber und Preise pro mg. Laborberichte ansehen.",

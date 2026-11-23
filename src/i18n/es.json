@@ -637,6 +637,11 @@
       "{nm}: opiniones, informes y precios",
       "{nm}: opiniones y análisis"
     ],
+    "titleNoPrices": [
+      "{nm}: opiniones y análisis, informes de laboratorio",
+      "{nm}: opiniones e informes",
+      "{nm}: opiniones y análisis"
+    ],
     "h1": "{shop}: opiniones y análisis {year}. Informes de laboratorio, precios y fiabilidad",
     "description": [
       "{nm} obtiene {score}/5 en nuestro análisis: {opened} informes abiertos, {portal} verificados en el portal, empresa y precio por mg. Vea los informes.",

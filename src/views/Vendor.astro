@@ -59,7 +59,7 @@ const intro = [
   products.length ? tn(lang, 'v.introPrices', products.length) : t(lang, 'v.introNoPrices'),
 ].join(' ');
 
-const title = tt(lang, 'v.title', V);
+const title = tt(lang, products.length ? 'v.title' : 'v.titleNoPrices', V);
 const h1 = t(lang, 'v.h1', V);
 const description = td(lang, st.opened ? 'v.description' : 'v.descriptionNoRep', V);
 

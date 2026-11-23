@@ -638,6 +638,11 @@
       "{nm} : avis, rapports de labo et prix",
       "{nm} : avis et test"
     ],
+    "titleNoPrices": [
+      "{nm} : avis et test, rapports de labo",
+      "{nm} : avis, rapports de labo",
+      "{nm} : avis et test"
+    ],
     "h1": "{shop} : avis et test {year}. Rapports de laboratoire, prix et fiabilité",
     "description": [
       "{nm} obtient {score}/5 dans notre test : {opened} rapports ouverts, {portal} vérifiés sur le portail, société et prix au mg. Consultez les rapports.",
