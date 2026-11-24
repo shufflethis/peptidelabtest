@@ -11642,6 +11642,203 @@
   "rank": 29
  },
  {
+  "slug": "penguin-peptides",
+  "name": "Penguin Peptides",
+  "shopUrl": "https://penguinpeptides.com/",
+  "region": "US",
+  "originCountry": "US",
+  "shipsTo": "US-only",
+  "shipsToConfirmed": [
+   "US"
+  ],
+  "legalEntity": "Penguin Peptides LLC (named in the terms and privacy policy), 1309 Coffeen Avenue STE 1200, Sheridan, Wyoming 82801, US (footer address); EIN 33-4847033 as stated by the shop",
+  "testingLabs": [
+   "Janoshik Analytical"
+  ],
+  "coaAccess": "Public lab-results page with more than 60 report images. The five sampled reports were verified on the Janoshik portal; four of them give the batch as Unknown.",
+  "coaExamples": [
+   {
+    "compound": "bpc-157",
+    "shopProductName": "BPC 157 10mg",
+    "labelMg": 10,
+    "measuredMg": 11.91,
+    "purityPercent": 99.783,
+    "lab": "Janoshik Analytical",
+    "reportId": "#165009 / key AEHXHAHSJSCP (batch 2026-06)",
+    "testDate": "2026-05-26",
+    "url": "https://verify.janoshik.com/tests/165009-BPC_157_10mg_AEHXHAHSJSCP",
+    "verifiable": true
+   },
+   {
+    "compound": "ghk-cu",
+    "shopProductName": "GHK-CU 100mg",
+    "labelMg": 100,
+    "measuredMg": 112.46,
+    "purityPercent": 99.547,
+    "lab": "Janoshik Analytical",
+    "reportId": "#100626 / key HUS7BBYZNPZT (batch Unknown)",
+    "testDate": "2026-01-21",
+    "url": "https://verify.janoshik.com/tests/100626-GHK-CU_100mg_HUS7BBYZNPZT",
+    "verifiable": true
+   },
+   {
+    "compound": "mots-c",
+    "shopProductName": "MOTS-C 40mg",
+    "labelMg": 40,
+    "measuredMg": 40.78,
+    "purityPercent": 99.544,
+    "lab": "Janoshik Analytical",
+    "reportId": "#100597 / key 9QH281E15QCA (batch Unknown)",
+    "testDate": "2026-01-21",
+    "url": "https://verify.janoshik.com/tests/100597-MOTS-C_40mg_9QH281E15QCA",
+    "verifiable": true
+   },
+   {
+    "compound": "nad-plus",
+    "shopProductName": "NAD + 500mg",
+    "labelMg": 500,
+    "measuredMg": 455.74,
+    "purityPercent": null,
+    "lab": "Janoshik Analytical",
+    "reportId": "#100523 / key ZXCSANSF8LED (batch Unknown)",
+    "testDate": "2026-01-21",
+    "url": "https://verify.janoshik.com/tests/100523-NAD_+_500mg_ZXCSANSF8LED",
+    "verifiable": true
+   },
+   {
+    "compound": "tb-500",
+    "shopProductName": "TB 500 10mg",
+    "labelMg": 10,
+    "measuredMg": 11.4,
+    "purityPercent": 99.861,
+    "lab": "Janoshik Analytical",
+    "reportId": "#100804 / key DGNRSRXZUNJ5 (batch Unknown)",
+    "testDate": "2026-01-21",
+    "url": "https://verify.janoshik.com/tests/100804-TB_500_10mg_DGNRSRXZUNJ5",
+    "verifiable": true
+   }
+  ],
+  "panels": {
+   "hplc": true,
+   "lcms": null,
+   "identity": null,
+   "mass": true,
+   "endotoxin": false,
+   "sterility": false,
+   "heavyMetals": false
+  },
+  "paymentMethods": [
+   "not published"
+  ],
+  "freeShippingThreshold": "not published",
+  "dispatchInfo": "The shipping page says the shop ships within the United States only and processes orders in 1 to 3 business days. Orders over $700 require an adult signature, and lost parcels must be reported within 5 days.",
+  "products": [
+   {
+    "compound": "kpv",
+    "shopProductName": "KPV 10mg",
+    "vialMg": 10,
+    "price": 69.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": null,
+    "inStock": null,
+    "pricePerMg": 6.9
+   },
+   {
+    "compound": "epithalon",
+    "shopProductName": "Epithalon 10mg",
+    "vialMg": 10,
+    "price": 52.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": null,
+    "inStock": null,
+    "pricePerMg": 5.2
+   },
+   {
+    "compound": "cjc-1295",
+    "shopProductName": "CJC-1295 No DAC 5mg",
+    "vialMg": 5,
+    "price": 55.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": null,
+    "inStock": null,
+    "pricePerMg": 11.0
+   },
+   {
+    "compound": "pt-141",
+    "shopProductName": "PT-141 10mg",
+    "vialMg": 10,
+    "price": 55.0,
+    "currency": "USD",
+    "salePrice": null,
+    "url": null,
+    "inStock": null,
+    "pricePerMg": 5.5
+   }
+  ],
+  "subscores": {
+   "labVerification": 7,
+   "fillAccuracy": 5,
+   "panelDepth": 3,
+   "entityTransparency": 6,
+   "dispatchReliability": 6,
+   "valuePerMg": 3
+  },
+  "subscore_reasons": {
+   "labVerification": "All 5 sampled Janoshik Analytical reports were verified on the lab portal and name Penguin Peptides as client and manufacturer, but 4 of them give the batch as Unknown and cannot be matched to a shop batch.",
+   "fillAccuracy": "The 5 opened reports measured 91.1% to 119.1% of the label amount; the NAD+ 500mg sample was below label and the BPC 157 10mg sample highest.",
+   "panelDepth": "The opened reports show purity and measured content; the NAD+ report gives content only. No endotoxin, heavy-metal or sterility results were among the opened reports.",
+   "entityTransparency": "The terms and privacy policy name Penguin Peptides LLC and the footer gives a Sheridan, Wyoming suite address and an EIN; the company was not checked in a state business register for this audit.",
+   "dispatchReliability": "US-only shipping, a processing time of 1 to 3 business days, an adult-signature rule and a loss-report deadline are published; carriers and transit times were not part of the read pages, and no delivery was tested.",
+   "valuePerMg": "The 4 single-size listings recorded are above the median price per mg of audited USD listings of the same compound and size; prices of variable products were not read."
+  },
+  "strengths": [
+   "All five sampled lab reports were verified on the Janoshik portal and name Penguin Peptides as client and manufacturer.",
+   "The terms and privacy policy name the operating company, and the footer gives a postal address, phone number and EIN."
+  ],
+  "weaknesses": [
+   "Four of the five opened reports give the batch as Unknown and date from January 2026, so they cannot be matched to current shop batches.",
+   "The NAD+ 500mg report measured 91.1% of label, none of the opened reports covers endotoxin, heavy metals or sterility, and the shop ships within the US only."
+  ],
+  "verdict": "Penguin Peptides names Penguin Peptides LLC in its terms, and all five sampled Janoshik reports were verified on the lab portal with Penguin Peptides as client. Four of the five reports give no batch and date from January 2026; measured content was 91.1% to 119.1% of label.",
+  "summary": "US research-peptide shop at penguinpeptides.com operated by Penguin Peptides LLC with a Sheridan, Wyoming address, US-only shipping and a public page of Janoshik report images. Many catalog items are variable products whose variant prices were not read.",
+  "notes": "Read on 2026-11-24 by the site owner in a regular browser because penguinpeptides.com uses a Cloudflare bot check that this audit did not bypass. Catalog from the public WooCommerce Store API (56 products): only single products with an unambiguous vial size and a compound tracked on this site are recorded (KPV 10mg, Epithalon 10mg, CJC-1295 No DAC 5mg, PT-141 10mg). Variable products (for example BPC 157, TB 500, GHK-Cu, NAD+, MOTS-c, Ipamorelin, Selank, Semax, Tesamorelin, Thymosin Alpha-1 and the code-named GLP products) show only a starting price; their variant prices were not read and are not listed. Blends and compounds not tracked here were left out. Stock status was not recorded. Five of more than 60 report images on /lab-results/ were opened and verified on verify.janoshik.com. Payment methods were not part of the read pages. The shop runs an affiliate programme; an application by this site is pending and no partner link or code is used.",
+  "sources": [
+   "https://penguinpeptides.com/",
+   "https://penguinpeptides.com/terms-of-service/",
+   "https://penguinpeptides.com/privacy-policy/",
+   "https://penguinpeptides.com/shipping-policy/",
+   "https://penguinpeptides.com/faq/",
+   "https://penguinpeptides.com/lab-results/",
+   "https://penguinpeptides.com/wp-json/wc/store/v1/products",
+   "https://verify.janoshik.com/tests/165009-BPC_157_10mg_AEHXHAHSJSCP",
+   "https://verify.janoshik.com/tests/100626-GHK-CU_100mg_HUS7BBYZNPZT",
+   "https://verify.janoshik.com/tests/100597-MOTS-C_40mg_9QH281E15QCA",
+   "https://verify.janoshik.com/tests/100523-NAD_+_500mg_ZXCSANSF8LED",
+   "https://verify.janoshik.com/tests/100804-TB_500_10mg_DGNRSRXZUNJ5"
+  ],
+  "readAt": "2026-11-24",
+  "overallScore": 2.7,
+  "coaStats": {
+   "opened": 5,
+   "portalVerified": 5,
+   "purityMin": 99.544,
+   "purityMax": 99.861,
+   "purityMedian": 99.66,
+   "fillMinPct": 91.1,
+   "fillMaxPct": 119.1
+  },
+  "panelLabels": [
+   "HPLC purity",
+   "Measured mg"
+  ],
+  "blendProducts": [],
+  "blendReports": [],
+  "rank": 30
+ },
+ {
   "slug": "pure-peptides",
   "name": "Pure Peptides",
   "shopUrl": "https://purepeptides.com",
@@ -12080,7 +12277,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 30
+  "rank": 31
  },
  {
   "slug": "fit-peptides",
@@ -12290,7 +12487,7 @@
   ],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 31
+  "rank": 32
  },
  {
   "slug": "peptides-eu",
@@ -12870,7 +13067,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 32
+  "rank": 33
  },
  {
   "slug": "cenexa-labs",
@@ -13418,7 +13615,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 33
+  "rank": 34
  },
  {
   "slug": "onyx-peptides",
@@ -13747,7 +13944,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 34
+  "rank": 35
  },
  {
   "slug": "biotech-peptides",
@@ -14135,7 +14332,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 35
+  "rank": 36
  },
  {
   "slug": "glacier-aminos",
@@ -14364,7 +14561,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 36
+  "rank": 37
  },
  {
   "slug": "pepup-performance",
@@ -14724,7 +14921,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 37
+  "rank": 38
  },
  {
   "slug": "modern-aminos",
@@ -14984,7 +15181,7 @@
    }
   ],
   "blendReports": [],
-  "rank": 38
+  "rank": 39
  },
  {
   "slug": "biolab-shop",
@@ -15167,7 +15364,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 39
+  "rank": 40
  },
  {
   "slug": "pen-peptide",
@@ -15542,7 +15739,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 40
+  "rank": 41
  },
  {
   "slug": "peptide-pro",
@@ -15623,7 +15820,7 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 41
+  "rank": 42
  },
  {
   "slug": "nordic-peptides",
@@ -15936,6 +16133,6 @@
   "panelLabels": [],
   "blendProducts": [],
   "blendReports": [],
-  "rank": 42
+  "rank": 43
  }
 ]

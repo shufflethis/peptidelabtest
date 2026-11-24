@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'docs/agent/goal/research/r7'
 DEST = ROOT / 'src/i18n/data'
 LANGS = ('de', 'es', 'fr', 'it')
-SLUGS = set('ion-peptide simple-peptide'.split())
+SLUGS = set('ion-peptide simple-peptide penguin-peptides'.split())
 INVARIANT_NAMES = {'US-only'}  # shipsTo tokens are localized in shipsToText()
 
 

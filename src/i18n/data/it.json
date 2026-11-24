@@ -845,5 +845,20 @@
  "audit.simple-peptide.subscore_reasons.valuePerMg": "I prezzi sono mostrati solo agli account di ricerca autenticati, quindi il prezzo per mg non è stato valutato.",
  "audit.simple-peptide.paymentMethods.0": "Visa",
  "audit.simple-peptide.paymentMethods.1": "MasterCard",
- "audit.simple-peptide.paymentMethods.2": "American Express"
+ "audit.simple-peptide.paymentMethods.2": "American Express",
+ "audit.penguin-peptides.verdict": "Penguin Peptides indica Penguin Peptides LLC nei suoi termini, e tutti e cinque i report Janoshik esaminati sono stati verificati sul portale del laboratorio con Penguin Peptides come cliente. Quattro dei cinque report non indicano il lotto e risalgono a gennaio 2026; il contenuto misurato era tra il 91,1 % e il 119,1 % del valore in etichetta.",
+ "audit.penguin-peptides.summary": "Negozio statunitense di peptidi per la ricerca su penguinpeptides.com gestito da Penguin Peptides LLC con indirizzo a Sheridan, Wyoming, spedizioni solo negli Stati Uniti e una pagina pubblica di immagini di report Janoshik. Molti articoli del catalogo sono prodotti variabili i cui prezzi per variante non sono stati letti.",
+ "audit.penguin-peptides.legalEntity": "Penguin Peptides LLC (indicata nei termini e nell'informativa sulla privacy), 1309 Coffeen Avenue STE 1200, Sheridan, Wyoming 82801, USA (indirizzo nel footer); EIN 33-4847033 secondo il negozio",
+ "audit.penguin-peptides.coaAccess": "Pagina pubblica con più di 60 immagini di report. I cinque report esaminati sono stati verificati sul portale Janoshik; quattro di essi indicano il lotto come «Unknown».",
+ "audit.penguin-peptides.dispatchInfo": "Secondo la pagina di spedizione, il negozio spedisce solo negli Stati Uniti ed evade gli ordini in 1-3 giorni lavorativi. Gli ordini oltre 700 $ richiedono la firma di un adulto, e i pacchi smarriti vanno segnalati entro 5 giorni.",
+ "audit.penguin-peptides.strengths.0": "Tutti e cinque i report di laboratorio esaminati sono stati verificati sul portale Janoshik e indicano Penguin Peptides come cliente e produttore.",
+ "audit.penguin-peptides.strengths.1": "Termini e informativa sulla privacy indicano la società che gestisce il negozio, e il footer riporta un indirizzo postale, un numero di telefono e un EIN.",
+ "audit.penguin-peptides.weaknesses.0": "Quattro dei cinque report aperti indicano il lotto come «Unknown» e risalgono a gennaio 2026, quindi non si possono collegare ai lotti attuali del negozio.",
+ "audit.penguin-peptides.weaknesses.1": "Il report NAD+ 500mg ha misurato il 91,1 % dell'etichetta, nessuno dei report aperti riguarda endotossine, metalli pesanti o sterilità, e il negozio spedisce solo negli Stati Uniti.",
+ "audit.penguin-peptides.subscore_reasons.labVerification": "Tutti e 5 i report di Janoshik Analytical esaminati sono stati verificati sul portale del laboratorio e indicano Penguin Peptides come cliente e produttore, ma 4 di essi indicano il lotto come «Unknown» e non si possono collegare a un lotto del negozio.",
+ "audit.penguin-peptides.subscore_reasons.fillAccuracy": "I 5 report aperti hanno misurato dal 91,1 % al 119,1 % della quantità in etichetta; il campione NAD+ 500mg era sotto l'etichetta e il campione BPC 157 10mg il più alto.",
+ "audit.penguin-peptides.subscore_reasons.panelDepth": "I report aperti mostrano purezza e contenuto misurato; il report NAD+ indica solo il contenuto. Tra i report aperti non c'erano risultati su endotossine, metalli pesanti o sterilità.",
+ "audit.penguin-peptides.subscore_reasons.entityTransparency": "Termini e informativa sulla privacy indicano Penguin Peptides LLC e il footer un indirizzo di ufficio a Sheridan, Wyoming, e un EIN; la società non è stata verificata in un registro delle imprese statale per questo audit.",
+ "audit.penguin-peptides.subscore_reasons.dispatchReliability": "Sono pubblicati spedizioni solo negli USA, tempi di evasione di 1-3 giorni lavorativi, una regola sulla firma e un termine per segnalare smarrimenti; corrieri e tempi di transito non erano nelle pagine lette, e nessuna consegna è stata testata.",
+ "audit.penguin-peptides.subscore_reasons.valuePerMg": "Le 4 offerte a formato unico registrate sono sopra la mediana del prezzo per mg delle offerte verificate in USD dello stesso composto e formato; i prezzi dei prodotti variabili non sono stati letti."
 }

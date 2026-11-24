@@ -1,0 +1,273 @@
+{
+ "slug": "penguin-peptides",
+ "name": "Penguin Peptides",
+ "shopUrl": "https://penguinpeptides.com/",
+ "region": "US",
+ "originCountry": "US",
+ "shipsTo": "US-only",
+ "shipsToConfirmed": [
+  "US"
+ ],
+ "legalEntity": "Penguin Peptides LLC (named in the terms and privacy policy), 1309 Coffeen Avenue STE 1200, Sheridan, Wyoming 82801, US (footer address); EIN 33-4847033 as stated by the shop",
+ "testingLabs": [
+  "Janoshik Analytical"
+ ],
+ "coaAccess": "Public lab-results page with more than 60 report images. The five sampled reports were verified on the Janoshik portal; four of them give the batch as Unknown.",
+ "coaExamples": [
+  {
+   "compound": "bpc-157",
+   "shopProductName": "BPC 157 10mg",
+   "labelMg": 10,
+   "measuredMg": 11.91,
+   "purityPercent": 99.783,
+   "lab": "Janoshik Analytical",
+   "reportId": "#165009 / key AEHXHAHSJSCP (batch 2026-06)",
+   "testDate": "2026-05-26",
+   "url": "https://verify.janoshik.com/tests/165009-BPC_157_10mg_AEHXHAHSJSCP",
+   "verifiable": true
+  },
+  {
+   "compound": "ghk-cu",
+   "shopProductName": "GHK-CU 100mg",
+   "labelMg": 100,
+   "measuredMg": 112.46,
+   "purityPercent": 99.547,
+   "lab": "Janoshik Analytical",
+   "reportId": "#100626 / key HUS7BBYZNPZT (batch Unknown)",
+   "testDate": "2026-01-21",
+   "url": "https://verify.janoshik.com/tests/100626-GHK-CU_100mg_HUS7BBYZNPZT",
+   "verifiable": true
+  },
+  {
+   "compound": "mots-c",
+   "shopProductName": "MOTS-C 40mg",
+   "labelMg": 40,
+   "measuredMg": 40.78,
+   "purityPercent": 99.544,
+   "lab": "Janoshik Analytical",
+   "reportId": "#100597 / key 9QH281E15QCA (batch Unknown)",
+   "testDate": "2026-01-21",
+   "url": "https://verify.janoshik.com/tests/100597-MOTS-C_40mg_9QH281E15QCA",
+   "verifiable": true
+  },
+  {
+   "compound": "nad-plus",
+   "shopProductName": "NAD + 500mg",
+   "labelMg": 500,
+   "measuredMg": 455.74,
+   "purityPercent": null,
+   "lab": "Janoshik Analytical",
+   "reportId": "#100523 / key ZXCSANSF8LED (batch Unknown)",
+   "testDate": "2026-01-21",
+   "url": "https://verify.janoshik.com/tests/100523-NAD_+_500mg_ZXCSANSF8LED",
+   "verifiable": true
+  },
+  {
+   "compound": "tb-500",
+   "shopProductName": "TB 500 10mg",
+   "labelMg": 10,
+   "measuredMg": 11.4,
+   "purityPercent": 99.861,
+   "lab": "Janoshik Analytical",
+   "reportId": "#100804 / key DGNRSRXZUNJ5 (batch Unknown)",
+   "testDate": "2026-01-21",
+   "url": "https://verify.janoshik.com/tests/100804-TB_500_10mg_DGNRSRXZUNJ5",
+   "verifiable": true
+  }
+ ],
+ "panels": {
+  "hplc": true,
+  "lcms": null,
+  "identity": null,
+  "mass": true,
+  "endotoxin": false,
+  "sterility": false,
+  "heavyMetals": false
+ },
+ "paymentMethods": [
+  "not published"
+ ],
+ "freeShippingThreshold": "not published",
+ "dispatchInfo": "The shipping page says the shop ships within the United States only and processes orders in 1 to 3 business days. Orders over $700 require an adult signature, and lost parcels must be reported within 5 days.",
+ "products": [
+  {
+   "compound": "kpv",
+   "shopProductName": "KPV 10mg",
+   "vialMg": 10,
+   "price": 69.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": null,
+   "inStock": null
+  },
+  {
+   "compound": "epithalon",
+   "shopProductName": "Epithalon 10mg",
+   "vialMg": 10,
+   "price": 52.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": null,
+   "inStock": null
+  },
+  {
+   "compound": "cjc-1295",
+   "shopProductName": "CJC-1295 No DAC 5mg",
+   "vialMg": 5,
+   "price": 55.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": null,
+   "inStock": null
+  },
+  {
+   "compound": "pt-141",
+   "shopProductName": "PT-141 10mg",
+   "vialMg": 10,
+   "price": 55.0,
+   "currency": "USD",
+   "salePrice": null,
+   "url": null,
+   "inStock": null
+  }
+ ],
+ "subscores": {
+  "labVerification": 7,
+  "fillAccuracy": 5,
+  "panelDepth": 3,
+  "entityTransparency": 6,
+  "dispatchReliability": 6,
+  "valuePerMg": 3
+ },
+ "subscore_reasons": {
+  "labVerification": "All 5 sampled Janoshik Analytical reports were verified on the lab portal and name Penguin Peptides as client and manufacturer, but 4 of them give the batch as Unknown and cannot be matched to a shop batch.",
+  "fillAccuracy": "The 5 opened reports measured 91.1% to 119.1% of the label amount; the NAD+ 500mg sample was below label and the BPC 157 10mg sample highest.",
+  "panelDepth": "The opened reports show purity and measured content; the NAD+ report gives content only. No endotoxin, heavy-metal or sterility results were among the opened reports.",
+  "entityTransparency": "The terms and privacy policy name Penguin Peptides LLC and the footer gives a Sheridan, Wyoming suite address and an EIN; the company was not checked in a state business register for this audit.",
+  "dispatchReliability": "US-only shipping, a processing time of 1 to 3 business days, an adult-signature rule and a loss-report deadline are published; carriers and transit times were not part of the read pages, and no delivery was tested.",
+  "valuePerMg": "The 4 single-size listings recorded are above the median price per mg of audited USD listings of the same compound and size; prices of variable products were not read."
+ },
+ "strengths": [
+  "All five sampled lab reports were verified on the Janoshik portal and name Penguin Peptides as client and manufacturer.",
+  "The terms and privacy policy name the operating company, and the footer gives a postal address, phone number and EIN."
+ ],
+ "weaknesses": [
+  "Four of the five opened reports give the batch as Unknown and date from January 2026, so they cannot be matched to current shop batches.",
+  "The NAD+ 500mg report measured 91.1% of label, none of the opened reports covers endotoxin, heavy metals or sterility, and the shop ships within the US only."
+ ],
+ "verdict": "Penguin Peptides names Penguin Peptides LLC in its terms, and all five sampled Janoshik reports were verified on the lab portal with Penguin Peptides as client. Four of the five reports give no batch and date from January 2026; measured content was 91.1% to 119.1% of label.",
+ "summary": "US research-peptide shop at penguinpeptides.com operated by Penguin Peptides LLC with a Sheridan, Wyoming address, US-only shipping and a public page of Janoshik report images. Many catalog items are variable products whose variant prices were not read.",
+ "notes": "Read on 2026-11-24 by the site owner in a regular browser because penguinpeptides.com uses a Cloudflare bot check that this audit did not bypass. Catalog from the public WooCommerce Store API (56 products): only single products with an unambiguous vial size and a compound tracked on this site are recorded (KPV 10mg, Epithalon 10mg, CJC-1295 No DAC 5mg, PT-141 10mg). Variable products (for example BPC 157, TB 500, GHK-Cu, NAD+, MOTS-c, Ipamorelin, Selank, Semax, Tesamorelin, Thymosin Alpha-1 and the code-named GLP products) show only a starting price; their variant prices were not read and are not listed. Blends and compounds not tracked here were left out. Stock status was not recorded. Five of more than 60 report images on /lab-results/ were opened and verified on verify.janoshik.com. Payment methods were not part of the read pages. The shop runs an affiliate programme; an application by this site is pending and no partner link or code is used.",
+ "sources": [
+  "https://penguinpeptides.com/",
+  "https://penguinpeptides.com/terms-of-service/",
+  "https://penguinpeptides.com/privacy-policy/",
+  "https://penguinpeptides.com/shipping-policy/",
+  "https://penguinpeptides.com/faq/",
+  "https://penguinpeptides.com/lab-results/",
+  "https://penguinpeptides.com/wp-json/wc/store/v1/products",
+  "https://verify.janoshik.com/tests/165009-BPC_157_10mg_AEHXHAHSJSCP",
+  "https://verify.janoshik.com/tests/100626-GHK-CU_100mg_HUS7BBYZNPZT",
+  "https://verify.janoshik.com/tests/100597-MOTS-C_40mg_9QH281E15QCA",
+  "https://verify.janoshik.com/tests/100523-NAD_+_500mg_ZXCSANSF8LED",
+  "https://verify.janoshik.com/tests/100804-TB_500_10mg_DGNRSRXZUNJ5"
+ ],
+ "readAt": "2026-11-24",
+ "auditEvidence": {
+  "provenance": "All shop data read by the site owner on 2026-11-24 in a browser (Cloudflare bot protection); reports opened in the owner's browser and verified on the Janoshik portal. Relayed to the audit agent; the agent did not fetch penguinpeptides.com.",
+  "legal": {
+   "operator": "Penguin Peptides LLC (terms, privacy policy)",
+   "footer": "1309 Coffeen Avenue STE 1200, Sheridan, Wyoming 82801; phone 951-262-0000; EIN 33-4847033 (as stated by the shop)",
+   "governingLaw": "Wyoming; venue Sheridan County",
+   "registerChecked": false
+  },
+  "shipping": {
+   "scope": "US only",
+   "processing": "1-3 business days",
+   "adultSignature": "orders from $700",
+   "lossReport": "within 5 days",
+   "testedDelivery": false
+  },
+  "faqPromo": "FAQ describes a promotion: cart of $250+ -> code -> free peptide (shop promotion, not reproduced on this site)",
+  "catalog": {
+   "source": "https://penguinpeptides.com/wp-json/wc/store/v1/products",
+   "products": 56,
+   "recordedSingleSizeTracked": [
+    "KPV 10mg $69",
+    "Epithalon 10mg $52",
+    "CJC-1295 No DAC 5mg $55",
+    "PT-141 10mg $55"
+   ],
+   "singleSizeNotTracked": [
+    "AHK-Cu 100mg $74",
+    "Snap-8 10mg $40",
+    "Thymalin 10mg $45",
+    "Hexarelin Acetate 5mg $76",
+    "GLOW 70mg $124",
+    "KLOW 80mg $134",
+    "CJC-1295 (WITH DAC) 5mg $57",
+    "Oxytocin-Acetate 2mg $42",
+    "Adamax 10mg $74",
+    "Tesa 10mg / Ipa 3mg $119"
+   ],
+   "variableStartingPricesOnly": [
+    "BPC 157 from $42",
+    "TB 500 from $30",
+    "GHK-Cu from $54",
+    "NAD+ from $30",
+    "MOTS-c from $65",
+    "Ipamorelin from $39",
+    "Selank from $52",
+    "Semax from $55",
+    "Tesamorelin from $45",
+    "Thymosin Alpha-1 from $59",
+    "GLP-1 S/T/C/M, GLP-3 R, GLP-3 R+C (code names)"
+   ]
+  },
+  "reports": [
+   {
+    "id": "165009",
+    "product": "BPC 157 10mg",
+    "batch": "2026-06",
+    "ordered": "2026-05-18",
+    "analysed": "2026-05-26",
+    "result": "BPC-157 11.91 mg, purity 99.783%",
+    "clientManufacturer": "Penguin Peptides",
+    "portal": "verified"
+   },
+   {
+    "id": "100626",
+    "product": "GHK-CU 100mg",
+    "batch": "Unknown",
+    "analysed": "2026-01-21",
+    "result": "112.46 mg, purity 99.547%",
+    "portal": "verified"
+   },
+   {
+    "id": "100597",
+    "product": "MOTS-C 40mg",
+    "batch": "Unknown",
+    "analysed": "2026-01-21",
+    "result": "40.78 mg, purity 99.544%",
+    "portal": "verified"
+   },
+   {
+    "id": "100523",
+    "product": "NAD + 500mg",
+    "batch": "Unknown",
+    "analysed": "2026-01-21",
+    "test": "Qualitative and quantitative analysis of non-AAS sample",
+    "result": "NAD+ 455.74 mg, no purity figure",
+    "portal": "verified"
+   },
+   {
+    "id": "100804",
+    "product": "TB 500 10mg",
+    "batch": "Unknown",
+    "analysed": "2026-01-21",
+    "result": "TB-500 (TB4) 11.40 mg, purity 99.861%",
+    "portal": "verified"
+   }
+  ]
+ }
+}

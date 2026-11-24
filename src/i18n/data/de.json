@@ -845,5 +845,20 @@
  "audit.simple-peptide.subscore_reasons.valuePerMg": "Preise werden nur angemeldeten Forschungskonten angezeigt, daher ließ sich der Preis pro mg nicht bewerten.",
  "audit.simple-peptide.paymentMethods.0": "Visa",
  "audit.simple-peptide.paymentMethods.1": "MasterCard",
- "audit.simple-peptide.paymentMethods.2": "American Express"
+ "audit.simple-peptide.paymentMethods.2": "American Express",
+ "audit.penguin-peptides.verdict": "Penguin Peptides nennt in seinen AGB die Penguin Peptides LLC, und alle fünf geprüften Janoshik-Berichte wurden im Laborportal mit Penguin Peptides als Auftraggeber verifiziert. Vier der fünf Berichte nennen keine Charge und stammen vom Januar 2026; der gemessene Gehalt lag bei 91,1 % bis 119,1 % der Etikettangabe.",
+ "audit.penguin-peptides.summary": "US-Shop für Forschungspeptide unter penguinpeptides.com, betrieben von der Penguin Peptides LLC mit Anschrift in Sheridan, Wyoming, Versand nur innerhalb der USA und öffentlicher Seite mit Janoshik-Berichtsbildern. Viele Katalogartikel sind variable Produkte, deren Variantenpreise nicht gelesen wurden.",
+ "audit.penguin-peptides.legalEntity": "Penguin Peptides LLC (in AGB und Datenschutzerklärung genannt), 1309 Coffeen Avenue STE 1200, Sheridan, Wyoming 82801, USA (Anschrift im Footer); EIN 33-4847033 laut Shop",
+ "audit.penguin-peptides.coaAccess": "Öffentliche Seite mit mehr als 60 Berichtsbildern. Die fünf geprüften Berichte wurden im Janoshik-Portal verifiziert; vier davon nennen als Charge „Unknown“.",
+ "audit.penguin-peptides.dispatchInfo": "Laut Versandseite liefert der Shop nur innerhalb der USA und bearbeitet Bestellungen in 1 bis 3 Werktagen. Bestellungen über 700 $ erfordern die Unterschrift eines Erwachsenen, verlorene Sendungen müssen innerhalb von 5 Tagen gemeldet werden.",
+ "audit.penguin-peptides.strengths.0": "Alle fünf geprüften Laborberichte wurden im Janoshik-Portal verifiziert und nennen Penguin Peptides als Auftraggeber und Hersteller.",
+ "audit.penguin-peptides.strengths.1": "AGB und Datenschutzerklärung nennen die Betreiberfirma, der Footer eine Postanschrift, Telefonnummer und EIN.",
+ "audit.penguin-peptides.weaknesses.0": "Vier der fünf geöffneten Berichte nennen als Charge „Unknown“ und stammen vom Januar 2026; sie lassen sich keinen aktuellen Chargen des Shops zuordnen.",
+ "audit.penguin-peptides.weaknesses.1": "Der Bericht zu NAD+ 500mg maß 91,1 % der Etikettangabe, keiner der geöffneten Berichte umfasst Endotoxine, Schwermetalle oder Sterilität, und der Shop liefert nur innerhalb der USA.",
+ "audit.penguin-peptides.subscore_reasons.labVerification": "Alle 5 geprüften Berichte von Janoshik Analytical wurden im Laborportal verifiziert und nennen Penguin Peptides als Auftraggeber und Hersteller, doch 4 davon nennen als Charge „Unknown“ und lassen sich keiner Shop-Charge zuordnen.",
+ "audit.penguin-peptides.subscore_reasons.fillAccuracy": "Die 5 geöffneten Berichte maßen 91,1 % bis 119,1 % der Etikettangabe; die Probe NAD+ 500mg lag unter dem Etikett, die Probe BPC 157 10mg am höchsten.",
+ "audit.penguin-peptides.subscore_reasons.panelDepth": "Die geöffneten Berichte zeigen Reinheit und gemessenen Gehalt; der NAD+-Bericht nennt nur den Gehalt. Ergebnisse zu Endotoxinen, Schwermetallen oder Sterilität waren nicht darunter.",
+ "audit.penguin-peptides.subscore_reasons.entityTransparency": "AGB und Datenschutzerklärung nennen die Penguin Peptides LLC, der Footer eine Suite-Anschrift in Sheridan, Wyoming, und eine EIN; die Firma wurde für dieses Audit nicht in einem Handelsregister eines Bundesstaats geprüft.",
+ "audit.penguin-peptides.subscore_reasons.dispatchReliability": "Versand nur in die USA, eine Bearbeitungszeit von 1 bis 3 Werktagen, eine Unterschriftsregel und eine Meldefrist für Verluste sind veröffentlicht; Versanddienstleister und Laufzeiten standen nicht auf den gelesenen Seiten, und eine Lieferung wurde nicht getestet.",
+ "audit.penguin-peptides.subscore_reasons.valuePerMg": "Die 4 erfassten Angebote mit eindeutiger Größe liegen über dem Median des Preises pro mg geprüfter USD-Angebote gleichen Wirkstoffs und gleicher Größe; Preise variabler Produkte wurden nicht gelesen."
 }

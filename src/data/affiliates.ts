@@ -250,6 +250,16 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
     discountPercent: 25,
     discountNote: '25% OFF catalog',
   },
+  'penguin-peptides': {
+    slug: 'penguin-peptides',
+    baseUrl: 'https://penguinpeptides.com/',
+    // Applied 2026-11-24, pending approval. No link or code until approved.
+    affiliateUrl: 'https://penguinpeptides.com/',
+    isApproved: false,
+    hasProgram: true,
+    network: 'In-House',
+    signupUrl: 'https://penguinpeptides.com/affiliate-login/',
+  },
   // Non-affiliate editorial / contrast reviews (builds E-E-A-T & captures competitor search traffic)
   '24peptides': {
     slug: '24peptides',
