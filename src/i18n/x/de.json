@@ -689,6 +689,7 @@
     "crumb": "Marken-Status",
     "eyebrow": "Marken-Check",
     "domainsH": "Websites mit dem Namen {name}",
+    "partnerDisclosure": "Affiliate-Link: Wenn du über diesen Link kaufst, können wir eine Provision erhalten.",
     "domainsP": "Was jede Website zeigte, als wir sie am {date} öffneten. Domains stehen als Text da, nicht als Link.",
     "colDomain": "Website",
     "colState": "Was wir fanden",

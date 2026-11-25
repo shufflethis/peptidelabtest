@@ -689,6 +689,7 @@
     "crumb": "Brand status",
     "eyebrow": "Brand check",
     "domainsH": "Sites using the name {name}",
+    "partnerDisclosure": "Affiliate link: we may earn a commission if you buy through this link.",
     "domainsP": "What each site showed when we opened it on {date}. Domains are shown as text, not links.",
     "colDomain": "Site",
     "colState": "What we found",

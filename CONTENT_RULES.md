@@ -38,6 +38,7 @@ Check this file before writing or publishing anything. When in doubt: leave it o
 | Arctic Lab Supply (VENDORS) | RUO wording; follow program terms in dashboard. |
 | Peptides EU (AFF-45MPJVHZ, 20%, BTC payout) | No coupon/deal sites, no brand bidding, no self-referrals, RUO-only messaging -> code only on /vendors/peptides-eu/ (codeOnlyOnVendorPage). |
 | GhostLabz Research (toplist, 30%) | GoAffPro operating agreement bans coupon websites and "reveal code" mechanics -> code only on /vendors/ghostlabz-research/ (codeOnlyOnVendorPage). |
+| NextGen Peptides (ngpeptide.com only) | Dashboard-issued GoAffPro link and `megadiscount` (10% for readers) go only on its own /brands/nextgen-peptides/ page and translations. Label `ngpeptide.com` explicitly; do not attach this offer to the other similarly named domains, list it on /discount-codes/, or imply that the shop was audited. |
 | Particle Peptides (applied) | Link only on a properly completed website with RUO disclaimers; no brand bidding, no cookie stuffing, no self-referrals. |
 | Real Peptides (ref link, 25%) | Link only, no code; RUO wording (vendor is RUO chemical supplier, no human/animal use). |
 | Modern Aminos (not joined) | Terms contain non-compete + non-disparagement (sec. 10/11) – do NOT publish their code until written carve-out. |

@@ -6,8 +6,10 @@ import PageHero from '../components/PageHero.astro';
 import FAQ from '../components/FAQ.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import Disclosure from '../components/Disclosure.astro';
+import CodeBadge from '../components/CodeBadge.astro';
 import { faqSchema, vendorBySlug, TOTALS } from '../lib/site';
 import { BRANDS, brandBySlug } from '../data/brandStatus';
+import { resolveVendorLink } from '../data/affiliates';
 import { t, tn, tt, td, lp, fmtDate, type Lang } from '../i18n';
 import { fmt } from '../i18n/format';
 interface Props { lang: Lang; brand: string }
@@ -16,6 +18,8 @@ const F = fmt(lang);
 const L = (p: string) => lp(lang, p);
 const b = brandBySlug(brand)!;
 const v = b.vendor ? vendorBySlug(b.vendor) : undefined;
+const partnerDomain = b.domains.find((d) => d.affiliate);
+const partnerLink = partnerDomain ? resolveVendorLink(b.slug) : undefined;
 const checked = v?.reviewedAt ?? '2026-11-21';
 const date = fmtDate(lang, checked);
 const V = { name: b.name, n: b.domains.length, date, shops: TOTALS.shops, score: v ? F.score(v.overallScore) : '', rank: v ? publicVendorRank(v.slug) : '', opened: v?.coaStats.opened ?? 0, portal: v?.coaStats.portalVerified ?? 0, sitesUse: tn(lang, 'br.sitesUse', b.domains.length), sitesN: tn(lang, 'br.sitesN', b.domains.length) };
@@ -37,6 +41,16 @@ const crumbs = [{ name: t(lang, 'common.home'), url: L('/') }, { name: t(lang, '
           </tbody>
         </table>
       </div>
+      {partnerDomain && partnerLink?.isSponsored && (
+        <section id="partner-offer" aria-labelledby="partner-offer-title" class="space-y-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <h3 id="partner-offer-title" class="font-semibold text-slate-900">{partnerDomain.domain}</h3>
+          <div class="flex flex-wrap items-center gap-3">
+            {partnerLink.promoCode && <CodeBadge slug={b.slug} onOwnPage />}
+            <a href={partnerLink.href} rel="sponsored nofollow noopener noreferrer" class="btn-primary">{t(lang, 'c.visit', { shop: partnerDomain.domain })}</a>
+          </div>
+          <p class="text-sm text-slate-600">{t(lang, 'br.partnerDisclosure')}</p>
+        </section>
+      )}
       {b.sources.length > 0 && <div class="text-sm text-slate-600"><p>{t(lang, 'br.srcH')}</p><ul class="mt-1 space-y-0.5">{b.sources.map((s) => <li class="mono-url">{s}</li>)}</ul></div>}
     </section>
     <section class="prose-read">

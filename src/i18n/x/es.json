@@ -689,6 +689,7 @@
     "crumb": "Estado de marcas",
     "eyebrow": "Comprobación de marca",
     "domainsH": "Webs que usan el nombre {name}",
+    "partnerDisclosure": "Enlace de afiliado: podemos recibir una comisión si compras a través de este enlace.",
     "domainsP": "Lo que mostraba cada web cuando la abrimos el {date}. Los dominios se muestran como texto, no como enlace.",
     "colDomain": "Web",
     "colState": "Lo que encontramos",

@@ -1,6 +1,6 @@
 /** Domain snapshots from the initial 21 November check, with later audits linked individually. */
 export type DomainState = 'officialClosed' | 'successorClaim' | 'researcherGate' | 'shop' | 'accessGate' | 'forSale' | 'audited';
-export interface BrandDomain { domain: string; state: DomainState; seen: string }
+export interface BrandDomain { domain: string; state: DomainState; seen: string; affiliate?: true }
 export interface BrandStatus {
   slug: string; name: string; status: 'closed' | 'gated' | 'unclear' | 'audited';
   vendor?: string; domains: BrandDomain[]; sources: string[];
@@ -38,7 +38,7 @@ export const BRANDS: BrandStatus[] = [
     slug: 'nextgen-peptides', name: 'NextGen Peptides', status: 'unclear',
     domains: [
       { domain: 'nxtgenpep.com', state: 'shop', seen: 'Homepage title "NextGen Peptides"' },
-      { domain: 'ngpeptide.com', state: 'shop', seen: 'Homepage title "NextGen Peptides | Buy Research Peptides Online | NGPeptide"' },
+      { domain: 'ngpeptide.com', state: 'shop', seen: 'Homepage title "NextGen Peptides | Buy Research Peptides Online | NGPeptide"', affiliate: true },
       { domain: 'nextgen-peptides.net', state: 'shop', seen: 'Homepage title "NextGen Peptides | Research Catalog"' },
     ],
     sources: ['https://nxtgenpep.com/', 'https://www.ngpeptide.com/', 'https://www.nextgen-peptides.net/'],

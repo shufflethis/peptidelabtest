@@ -689,6 +689,7 @@
     "crumb": "Statut des marques",
     "eyebrow": "Vérification de marque",
     "domainsH": "Sites utilisant le nom {name}",
+    "partnerDisclosure": "Lien d’affiliation : nous pouvons recevoir une commission si vous achetez via ce lien.",
     "domainsP": "Ce que chaque site affichait quand nous l'avons ouvert le {date}. Les domaines sont affichés en texte, pas en lien.",
     "colDomain": "Site",
     "colState": "Ce que nous avons trouvé",

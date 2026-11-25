@@ -260,6 +260,19 @@ export const AFFILIATE_CONFIG: Record<string, VendorAffiliateConfig> = {
     network: 'In-House',
     signupUrl: 'https://penguinpeptides.com/affiliate-login/',
   },
+  'nextgen-peptides': {
+    slug: 'nextgen-peptides',
+    baseUrl: 'https://www.ngpeptide.com/',
+    // Owner supplied the dashboard-issued link and code on 2026-11-25; 10% commission.
+    affiliateUrl: 'https://goaff.pro/molszu',
+    isApproved: true,
+    hasProgram: true,
+    network: 'In-House',
+    signupUrl: 'https://partner.ngpeptide.com/',
+    promoCode: 'megadiscount',
+    discountPercent: 10,
+    codeOnlyOnVendorPage: true,
+  },
   // Non-affiliate editorial / contrast reviews (builds E-E-A-T & captures competitor search traffic)
   '24peptides': {
     slug: '24peptides',

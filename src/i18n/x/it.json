@@ -689,6 +689,7 @@
     "crumb": "Stato dei marchi",
     "eyebrow": "Verifica del marchio",
     "domainsH": "Siti che usano il nome {name}",
+    "partnerDisclosure": "Link di affiliazione: potremmo ricevere una commissione se acquisti tramite questo link.",
     "domainsP": "Cosa mostrava ogni sito quando l'abbiamo aperto il {date}. I domini sono mostrati come testo, non come link.",
     "colDomain": "Sito",
     "colState": "Cosa abbiamo trovato",
